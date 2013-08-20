@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:24" />
+  <title>Querying Multiple Files in a Directory</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp219064"> </a><h2 class="pNewHTMLPageNum">
+Querying Multiple Files in a Directory
+</h2>
+<hr />
+<a name="wp219066"> </a><p class="pBody">
+DataDirect XQuery supports the use of fn:collection to query multiple XML and non-XML files in a specified directory.
+</p>
+<a name="wp230145"> </a><h3 class="pHeading2">
+XML Files
+</h3>
+<a name="wp230146"> </a><p class="pBody">
+In the following example, suppose you have a number of XML files stored in the directory books. Each of the files contains information about one book, and you want to create a single XML document that contains a list of all your books.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;books&gt;{<a name="wp219067"> </a>
+for $book in collection(&quot;file:///c:/books?select=*.xml&quot;)<a name="wp232933"> </a>
+return<a name="wp219068"> </a>
+  &lt;myBook&gt;{$book/book/title}&lt;/myBook&gt;<a name="wp219069"> </a>
+}&lt;/books&gt;<a name="wp219070"> </a>
+</pre></div>
+<a name="wp219071"> </a><p class="pBody">
+The result would look something like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;books&gt;
+&#160;&#160;&lt;myBook&gt;
+&#160;&#160;&#160;&#160;&lt;title&gt;Emma&lt;/title&gt;
+&#160;&#160;&lt;/myBook&gt;
+&#160;&#160;&lt;myBook&gt;
+&#160;&#160;&#160;&#160;&lt;title&gt;Pride and Prejudice&lt;/title&gt;
+&#160;&#160;&lt;/myBook&gt;
+&#160;&#160;. . .
+&lt;/books&gt; <a name="wp246367"> </a>
+</pre></div>
+<a name="wp219081"> </a><p class="pBody">
+The function&#8217;s declaration for this feature is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&quot;<code><em>directory_uri</em></code>(?<code><em>option</em></code>(;<code><em>option</em></code>)*)?&quot;)<a name="wp219082"> </a>
+</pre></div>
+<a name="wp219083"> </a><p class="pBody">
+where:
+</p>
+<a name="wp219084"> </a><p class="pBody">
+<code><em>directory_uri</em></code> is a URI referencing a directory. The URI must use the file:// scheme.
+</p>
+<a name="wp219085"> </a><p class="pBody">
+<code><em>option</em></code> is <code class="cCode">{(select=&quot;REGEX&quot;) | recurse={yes | no} | (sort=[a,t,r]+) | (xquery-regex=(yes|no))}</code>
+</p>
+<a name="wp219086"> </a><p class="pBodyRelative">
+where:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp219087"> </a><div class="pSmartList2"><li><code class="cCode">select </code>contains a regular expression (<code class="cCode">REGEX</code>), which determines which files in the directory are selected. If <code class="cCode">select</code> is not specified, any file is assumed.</li></div>
+<a name="wp219467"> </a><div class="pSmartList2"><li><code class="cCode">sort</code> determines how the retrieved files are sorted, as follows:</li></div>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp219468"> </a><div class="pSmartList2Rel"><li><code class="cCode">a</code> sorts alphabetically (ascending).</li></div>
+<a name="wp219469"> </a><div class="pSmartList2Rel"><li><code class="cCode">t</code> sorts by modification time (beginning with most recent).</li></div>
+<a name="wp219470"> </a><div class="pSmartList2Rel"><li><code class="cCode">r</code> combined with <code class="cCode">a</code> and <code class="cCode">t</code> reverses the sort order.</li></div>
+</ul></div>
+<a name="wp219460"> </a><div class="pSmartList2"><li><code class="cCode">recurse</code> determines whether subdirectories are searched. The default is no. To search subdirectories, set this option to yes, for example:</li></div>
+<a name="wp219094"> </a><p class="pSyntaxEmbed">
+&lt;books&gt;{
+</p>
+<a name="wp232941"> </a><p class="pSyntaxEmbed">
+for $book in collection(&quot;file:///c:/books?select=*.xml;recurse=yes&quot;)
+</p>
+<a name="wp219095"> </a><p class="pSyntaxEmbed">
+return
+</p>
+<a name="wp219096"> </a><p class="pSyntaxEmbed">
+  &lt;myBook&gt;{$book/book/title}&lt;/myBook&gt;
+</p>
+<a name="wp219097"> </a><p class="pSyntaxEmbed">
+}&lt;/books&gt;
+</p>
+<a name="wp219553"> </a><div class="pSmartList2"><li><code class="cCode">xquery-regex</code> determines what type of regular expression syntax is specified in <code class="cCode">select</code>. </li></div>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp219866"> </a><div class="pSmartList2Rel"><li>If set to no (the default), the select pattern syntax takes the conventional form. For example, *.xml selects all files with an xml extension. More generally, the select pattern is converted to a regular expression by prepending &quot;^&quot;, appending &quot;$&quot;, replacing &quot;.&quot; with &quot;\.&quot;, and replacing &quot;*&quot; with &quot;.*&quot;. Then, the select pattern is used to match the file names appearing in the directory using the XQuery regular expression rules. So, for example, you can specify *.(xml|xhtml) to match files with either of these two file extensions. <br /><br />Note however, that special characters used in the URL may need to be escaped using the %HH convention, which can be achieved using the iri-to-uri function.</li></div>
+<a name="wp219645"> </a><div class="pSmartList2Rel"><li>If set to <code class="cCode">yes</code>, the select pattern syntax as supported by XQuery is assumed. In this case, some characters may need to be escaped such as the backslash character (\) in a file name, for example:</li></div>
+<a name="wp219773"> </a><p class="pBodyRelative">
+<code class="cCode">select=.*\.xml$</code> must be <code class="cCode">select=.*%5C.xml$</code>
+</p>
+</ul></div>
+</ul></div>
+</ul></div>
+<a name="wp230464"> </a><h3 class="pHeading2">
+Non-XML Files
+</h3>
+<a name="wp229917"> </a><p class="pBody">
+The collection function supports the use of the converter URI, which allows you to use DataDirect XML Converters to query non-XML files, such as EDI, binary, and tab- and comma-separated files. For example, this XQuery uses the EDI XML Converter to return a sequence in which each item is an EDI file contained in the directory C:/myfolder:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+fn:collection(&quot;converter:///EDI?file:///C:/myfolder&quot;)<a name="wp230135"> </a>
+</pre></div>
+<a name="wp229921"> </a><p class="pBody">
+DataDirect XQuery also supports additional arguments in fn:collection to tune navigation of the specified directory:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+fn:collection(&quot;converter:<code><em>name</em></code>:[<code><em>property_name</em></code>=<code><em>value</em></code>: | <code><em>property_name</em></code>=<code><em>value</em></code>: | 
+...]?<code><em>directory_url</em></code>(?<code><em>option</em></code>(;<code><em>option</em></code>)*)?&quot;)<a name="wp229923"> </a>
+</pre></div>
+<a name="wp229925"> </a><p class="pBody">
+where:
+</p>
+<a name="wp229926"> </a><p class="pBody">
+<code><em>name</em></code> is the name of the XML Converter. There are converters for numerous non-XML file types such as EDI, CSV, dBase, and more.
+</p>
+<a name="wp229927"> </a><p class="pBody">
+<code><em>property_name</em></code>=<code><em>value</em></code> are used to specify the properties you want the conversion engine to use when converting a non-XML file to XML. Some properties are shared across converters; others are peculiar to a converter for a given file type.
+</p>
+<a name="wp230570"> </a><p class="pBody">
+<code><em>directory_url</em></code> and <code><em>option</em></code> are the same those described in <a  href="advancedfeatures3.html#wp230145">XML Files</a>.
+</p>
+<a name="wp230591"> </a><p class="pBody">
+The following examples show how fn:collection can be used to query a directory containing EDI files, using the converter URI to specify the EDI to be converted to XML and the properties to be used by the conversion engine.
+</p>
+<a name="wp244274"> </a><p class="pBody">
+In this example, X12 elements from all files in the directory C:\myfolder are retrieved.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+fn:collection(&quot;converter:///EDI?file:///C:/myfolder&quot;)/X12<a name="wp230021"> </a>
+</pre></div>
+<a name="wp244282"> </a><p class="pBody">
+In this example, X12 elements from all files the directory C:\myfolder are retrieved, including the ones in sub-folders.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+fn:collection(&quot;converter:///EDI?file:///C:/myfolder?recurse=yes&quot;)/X12<a name="wp230022"> </a>
+</pre></div>
+<a name="wp244290"> </a><p class="pBody">
+In this example, X12 elements from all files with extension .x12 in directory C:\myfolder are retrieved, including the ones in sub-folders, and they are sorted in ascending order.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+fn:collection(&quot;converter:///EDI?file:///C:/myfolder?select=*.x12;recurse=yes;
+sort=a&quot;)/X12<a name="wp230023"> </a>
+</pre></div>
+<a name="wp229915"> </a><h4 class="pHeading3">
+For More Information
+</h4>
+<a name="wp245196"> </a><p class="pBody">
+To learn more DataDirect XML Converters, the converter URI, and conversion properties, see the <em class="cEmphasis">DataDirect XML Converters User&#8217;s Guide and Reference</em> manual. DataDirect XML Converters documentation is installed as part of the DataDirect Data Integration Suite, of which DataDirect XQuery is a part; you can also find DataDirect XML Converters product documentation on the <a  href="http://www.datadirect.com/techres/xmlconvertersproddoc/index.ssp">DataDirect Web site</a>.
+</p>
+<a name="wp245122"> </a><p class="pBody">
+See also <a  href="advancedfeatures5.html#wp209086">Collection URI Resolvers</a>.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

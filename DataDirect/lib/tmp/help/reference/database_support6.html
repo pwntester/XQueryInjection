@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:38" />
+  <title>Database-Specific Query Functions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp309398"> </a><h2 class="pNewHTMLPageNum">
+Database-Specific Query Functions
+</h2>
+<hr />
+<a name="wp309399"> </a><p class="pBody">
+One way to query XML data on relational databases relies on database-specific XML query features and their integration into DataDirect XQuery. The advantage of this approach is it leverages database capabilities (for example, XML indexing) and allows DataDirect XQuery to retrieve only the result of the query expression that is applied to the XML column. 
+</p>
+<a name="wp309400"> </a><p class="pBody">
+The disadvantages of this approach are that XQuery you write for data stored on one database is not portable across different databases and database versions, and that the XML query capabilities of some databases are limited. 
+</p>
+<a name="wp309401"> </a><p class="pBody">
+Note: The namespace for using database-specific XML functions in DataDirect XQuery is ddtek-sql.
+</p>
+<a name="wp310045"> </a><p class="pBody">
+This section covers the following topics:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp310052"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309403">Querying XML on DB2</a></li></div><a name="wp310074"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309624">Querying XML on Oracle</a></li></div><a name="wp310091"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309822">Querying XML on Microsoft SQL Server 2005</a></li></div></ul></div>
+<a name="wp310116"> </a><p class="pBody">
+Tip: If your database supports XML Type, see <a  href="relationaldata3.html#wp222817">Querying XML Type Data</a> for alternatives to using database-specific functions to query XML data on relational databases.
+</p>
+<a name="wp309403"> </a><h3 class="pHeading2">
+Querying XML on DB2
+</h3>
+<a name="wp309407"> </a><p class="pBody">
+As mentioned in <a  href="database_support2.html#wp299542">Supported Databases</a>, IBM DB2 databases use different storage mechanisms for XML data &#8211; pureXML and XML Extender. The following table summarizes the different ways you can query XML data on DB2 depending on the type of XML storage being used.</p><div align="left">
+<table border="1">
+  <caption><a name="wp309410"> </a><div class="pTableTitle">
+Table 12-10.  Ways to Query XML Data on DB2
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp309416"> </a><div class="pCellHeading">
+Storage Mechanism
+</div>
+</th>
+    <th><a name="wp309418"> </a><div class="pCellHeading">
+Support for XML Type
+</div>
+</th>
+    <th><a name="wp309420"> </a><div class="pCellHeading">
+You Can Use
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp309422"> </a><div class="pCellBody">
+pureXML
+</div>
+</td>
+    <td><a name="wp309424"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp309428"> </a><div class="pSmartList1"><li>DataDirect XQuery. See <a  href="relationaldata3.html#wp222817">Querying XML Type Data</a>.</li></div><a name="wp309432"> </a><div class="pSmartList1"><li>DB2XML functions. See <a  href="database_support6.html#wp309445">Query Functions for DB2 XML Extender</a>.</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp309435"> </a><div class="pCellBody">
+XML Extender
+</div>
+</td>
+    <td><a name="wp309437"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp309441"> </a><div class="pSmartList1"><li>DB2 extract functions. See <a  href="database_support6.html#wp309556">Query Functions for DB2 pureXML</a>.</li></div></ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp309445"> </a><h4 class="pHeading3">
+Query Functions for DB2 XML Extender
+</h4>
+<a name="wp309446"> </a><p class="pBody">
+DataDirect XQuery provides several extract functions that you can use to query XML data on DB2 when the XML Extender mechanism is in use. These functions are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp309450"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309464">ddtek-sql:DB2XML.extracttype()</a></li></div><a name="wp309454"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309481">ddtek-sql:DB2XML.extracttypes()</a></li></div><a name="wp309458"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309509">ddtek-sql:DB2XML.extractCLOB()</a></li></div><a name="wp309462"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309524">ddtek-sql:DB2XML.extractCLOBS()</a></li></div></ul></div>
+<a name="wp309464"> </a><p class="pBodyBold">
+ddtek-sql:DB2XML.extract<em class="cEmphasis">type</em>() 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+extract[Integer|Smallint|Double|Real|Char|Varchar|Date|Time|Timestamp]<a name="wp309465"> </a>
+</pre></div>
+<a name="wp309466"> </a><p class="pBody">
+This set of DB2 extract functions (extractInteger, extractSmallint, and so on) extracts the element content or attribute value from an XML element or attribute node and returns the data as the type indicated by the function&#8217;s name. For example: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function <a name="wp309467"> </a>
+  ddtek-sql:DB2XML.extractDouble($inp as node(),$xp as xs:string) as<a name="wp309468"> </a>
+  xs:double external;<a name="wp309469"> </a>
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309470"> </a>
+return <a name="wp309471"> </a>
+&lt;shares&gt;{<a name="wp309472"> </a>
+  ddtek-sql:DB2XML.extractDouble(<a name="wp309473"> </a>
+    $v1/holdings/*,<a name="wp309474"> </a>
+    &#39;/holdings/share[@company=&quot;Progress Software&quot;]&#39;)<a name="wp309475"> </a>
+}&lt;/shares&gt;<a name="wp309476"> </a>
+</pre></div>
+<a name="wp309477"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;shares&gt;23&lt;/shares&gt;<a name="wp309478"> </a>
+&lt;shares&gt;4000000&lt;/shares&gt;<a name="wp309479"> </a>
+</pre></div>
+<a name="wp309481"> </a><p class="pBodyBold">
+ddtek-sql:DB2XML.extract<em class="cEmphasis">types</em>()
+</p>
+<a name="wp309482"> </a><p class="pBody">
+The ddtek-sql:DB2XML.extract<span style="font-style: italic">type</span>s() functionis equivalent to ddtek-sql:DB2XML.extract<span style="font-style: italic">type</span>(), but instead of returning a single XML fragment, it returns a table.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+extract[Integers|Smallints|Doubles|Reals|Chars|Varchars|Dates|Times|Timestamps]<a name="wp309483"> </a>
+</pre></div>
+<a name="wp309484"> </a><p class="pBody">
+When using the extracttypes() extract function, you must declare it in the tableFunction element of the DataDirect XQuery source configuration file, for example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp309485"> </a>
+&lt;tableFunction name=&quot;EXTRACTDOUBLES&quot;&gt;<a name="wp309486"> </a>
+  &lt;resultSet&gt;<a name="wp309487"> </a>
+    &lt;column name=&quot;RETURNEDDOUBLE&quot; schemaType=&quot;double&quot;/&gt;<a name="wp309488"> </a>
+  &lt;/resultSet&gt;<a name="wp309489"> </a>
+&lt;/tableFunction&gt;<a name="wp309490"> </a>
+...<a name="wp309491"> </a>
+</pre></div>
+<a name="wp309495"> </a><p class="pBody">
+See <a  href="advancedfeatures9.html#wp247199">Using SQL Table Functions</a> for more information on this topic.
+</p>
+<a name="wp309496"> </a><p class="pBody">
+The following example shows the usage of ddtek-sql:DB2XML.extractDoubles():
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:DB2XML.extractDoubles($inp as node(),$xp as<a name="wp309497"> </a>
+  xs:string) <a name="wp309498"> </a>
+  as document-node(element()) external;<a name="wp309499"> </a>
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309500"> </a>
+for $v2 in <a name="wp309501"> </a>
+ddtek-sql:DB2XML.extractDoubles(<a name="wp309502"> </a>
+  $v1/holdings/*,<a name="wp309503"> </a>
+  &#39;/holdings/share&#39;)/EXTRACTDOUBLES/RETURNEDDOUBLE/data(.)<a name="wp309504"> </a>
+return $v2<a name="wp309505"> </a>
+</pre></div>
+<a name="wp309506"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+3000 4000 2500 23 3000 4000 40000 4.0E6<a name="wp309507"> </a>
+</pre></div>
+<a name="wp309509"> </a><p class="pBodyBold">
+ddtek-sql:DB2XML.extractCLOB()
+</p>
+<a name="wp309510"> </a><p class="pBody">
+As stated in the IBM DB2 documentation, the extractCLOB function:
+</p>
+<a name="wp309511"> </a><p class="pBody">
+<em class="cEmphasis">... extracts a fragment of XML documents, with element and attribute markup and content of elements and attributes, including sub-elements. This function differs from the other extract functions, which return only the content of elements and attributes. The extractClob(s) functions are used to extract document fragments, whereas extractVarchar(s) and extractChar(s) are used to extract simple values.</em>
+</p>
+<a name="wp309512"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:DB2XML.extractCLOB(<a name="wp309513"> </a>
+  $inp as node(),$xp as xs:string) as node() external;<a name="wp309514"> </a>
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309515"> </a>
+return <a name="wp309516"> </a>
+ddtek-sql:DB2XML.extractCLOB(<a name="wp309517"> </a>
+  $v1/holdings/*,<a name="wp309518"> </a>
+  &#39;/holdings/share[@company=&quot;Progress Software&quot;]&#39;)<a name="wp309519"> </a>
+</pre></div>
+<a name="wp309520"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;share company=&quot;Progress Software&quot; userid=&quot;Jonathan&quot;&gt;23&lt;/share&gt;<a name="wp309521"> </a>
+&lt;share company=&quot;Progress Software&quot; userid=&quot;Minollo&quot;&gt;4000000&lt;/share&gt;<a name="wp309522"> </a>
+</pre></div>
+<a name="wp309524"> </a><p class="pBodyBold">
+ddtek-sql:DB2XML.extractCLOBS()
+</p>
+<a name="wp309525"> </a><p class="pBody">
+The extractCLOBS function is equivalent to extractCLOB, but instead of returning a single XML fragment, extractCLOBS returns a table.
+</p>
+<a name="wp309526"> </a><p class="pBody">
+In order to use extractCLOBS, you must declare the function in the DataDirect XQuery source configuration file as a table function.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp309527"> </a>
+&lt;tableFunction name=&quot;EXTRACTCLOBS&quot;&gt;<a name="wp309528"> </a>
+  &lt;resultSet&gt;<a name="wp309529"> </a>
+    &lt;column name=&quot;RETURNEDCLOB&quot; schemaType=&quot;anyType&quot;/&gt;<a name="wp309530"> </a>
+  &lt;/resultSet&gt;<a name="wp309531"> </a>
+&lt;/tableFunction&gt;<a name="wp309532"> </a>
+...<a name="wp309533"> </a>
+</pre></div>
+<a name="wp309537"> </a><p class="pBody">
+See <a  href="advancedfeatures9.html#wp247199">Using SQL Table Functions</a> for more information on this topic.
+</p>
+<a name="wp309538"> </a><p class="pBody">
+The following example shows the usage of ddtek-sql:DB2XML.extractCLOBS():
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:DB2XML.extractCLOBS($inp as node(),$xp as 
+xs:string) <a name="wp309539"> </a>
+  as document-node(element()) external;<a name="wp309540"> </a>
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309541"> </a>
+for $v2 in <a name="wp309542"> </a>
+  ddtek-sql:DB2XML.extractCLOBS(<a name="wp309543"> </a>
+    $v1/holdings/*,<a name="wp309544"> </a>
+    &#39;/holdings/share/@company&#39;)/EXTRACTCLOBS/RETURNEDCLOB<a name="wp309545"> </a>
+return $v2<a name="wp309546"> </a>
+</pre></div>
+<a name="wp309547"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;RETURNEDCLOB&gt;<a name="wp309548"> </a>
+  &lt;share company=&quot;Amazon.com, Inc.&quot; userid=&quot;Jonathan&quot;&gt;3000&lt;/share&gt;<a name="wp309549"> </a>
+&lt;/RETURNEDCLOB&gt;<a name="wp309550"> </a>
+&lt;RETURNEDCLOB&gt;<a name="wp309551"> </a>
+  &lt;share company=&quot;eBay Inc.&quot; userid=&quot;Jonathan&quot;&gt;4000&lt;/share&gt;<a name="wp309552"> </a>
+&lt;/RETURNEDCLOB&gt;<a name="wp309553"> </a>
+</pre></div>
+<a name="wp309556"> </a><h4 class="pHeading3">
+Query Functions for DB2 pureXML
+</h4>
+<a name="wp309557"> </a><p class="pBody">
+Among the DB2 databases supported by DataDirect XQuery, DB2 pureXML is supported on DB2 V9.1, DB2 V9.5, and DB2 V9.1 for z/OS. All of these database versions also support XML Type. However, DB2 V9.1 for z/OS supports only XPath, and not XQuery.
+</p>
+<a name="wp309558"> </a><p class="pBody">
+You can use the following built-in functions to query XML Type data on DB2 databases using pureXML:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp309562"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309569">ddtek-sql:db2-xmlquery()</a></li></div><a name="wp309566"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309596">ddtek-sql:db2-xmlparse()</a></li></div></ul></div>
+<a name="wp309567"> </a><p class="pBody">
+NOTE: If you want to use the database&#8217;s native XQuery support, the DB2 database server must be configured with the Unicode character set.
+</p>
+<a name="wp309569"> </a><p class="pBodyBold">
+ddtek-sql:db2-xmlquery()
+</p>
+<a name="wp309570"> </a><p class="pBody">
+The function declarations for ddtek-sql:db2-xmlquery are:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:db2-xmlquery($query as xs:string, $paramvalue as<a name="wp309571"> </a>
+  item()*, $paramname as xs:string) as node()* external;<a name="wp309572"> </a>
+declare function ddtek-sql:db2-xmlquery($query as xs:string) as <a name="wp309573"> </a>
+  node()* external;<a name="wp309574"> </a>
+</pre></div>
+<a name="wp309575"> </a><p class="pBody">
+The following example shows the use of the built-in DB2 XQuery function db2-fn:xmlcolumn(<em class="cEmphasis">string</em>) to access XML Type data. In this example, the XQuery expression is querying the holdings column of the holdingsxml table. The holdings column contains XML Type data.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek-sql:db2-xmlquery(&#39;<a name="wp309576"> </a>
+  for $share in db2-fn:xmlcolumn(&quot;holdingsxml.holdings&quot;)//SHARE<a name="wp309577"> </a>
+    [@COMPANY=&quot;Progress Software&quot;]<a name="wp309578"> </a>
+     return &lt;progress-shares from=&quot;{$share/@userid}&quot; number=&quot;{data($share)}&quot;/&gt;<a name="wp309579"> </a>
+&#39;)<a name="wp309580"> </a>
+</pre></div>
+<a name="wp309581"> </a><p class="pBodyBold">
+Example: ddtek-sql:db2-xmlquery() using external variables
+</p>
+<a name="wp309582"> </a><p class="pBody">
+The following example shows the use of an external variable ($var) to access XML Type data:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml/holdings<a name="wp309583"> </a>
+return ddtek-sql:db2-xmlquery(&#39;<a name="wp309584"> </a>
+       for $v in $var//SHARE[@COMPANY=&quot;Progress Software&quot;]<a name="wp309585"> </a>
+         return &lt;progress-shares from=&quot;{$v/@userid}&quot; number=&quot;{data($v)}&quot;/&gt;&#39;,<a name="wp309586"> </a>
+       $v1/node(), &quot;var&quot;) <a name="wp309587"> </a>
+</pre></div>
+<a name="wp309588"> </a><p class="pBody">
+A similar example using two external variables, $var and $companyName:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml/holdings<a name="wp309589"> </a>
+return ddtek-sql:db2-xmlquery(&#39;<a name="wp309590"> </a>
+       for $v in $var//share[@company=$CompanyName]<a name="wp309591"> </a>
+         return &lt;progress-shares from=&quot;{$v/@userid}&quot; number=&quot;{data($v)}&quot;/&gt;&#39;,<a name="wp309592"> </a>
+       $v1/node(), &quot;var&quot;,<a name="wp309593"> </a>
+       &quot;Progress Software&quot;, &quot;CompanyName&quot;) <a name="wp309594"> </a>
+</pre></div>
+<a name="wp309596"> </a><p class="pBodyBold">
+ddtek-sql:db2-xmlparse()
+</p>
+<a name="wp309597"> </a><p class="pBody">
+The function declaration for ddtek-sql:db2-xmlparse() is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:db2-xmlparse($doc as xs:string) as<a name="wp309598"> </a>
+  node()* external;<a name="wp309599"> </a>
+</pre></div>
+<a name="wp309600"> </a><p class="pBody">
+Here is an example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $data := &#39;<a name="wp309601"> </a>
+  &amp;lt;holdings&amp;gt;<a name="wp309602"> </a>
+    &amp;lt;SHARE COMPANY=&quot;Amazon.com, Inc.&quot; <a name="wp309603"> </a>
+       userid=&quot;Jonathan&quot;&amp;gt;00003000.00&amp;lt;/share&amp;gt;<a name="wp309604"> </a>
+    &amp;lt;share company=&quot;eBay Inc.&quot; userid=&quot;Jonathan&quot;&amp;gt;00004000.00&amp;lt;/share&amp;gt;<a name="wp309605"> </a>
+    &amp;lt;share company=&quot;Int&#39;&#39;l Business Machines C&quot; <a name="wp309606"> </a>
+       userid=&quot;Jonathan&quot;&amp;gt;00002500.00&amp;lt;/share&amp;gt;<a name="wp309607"> </a>
+    &amp;lt;share company=&quot;Progress Software&quot; <a name="wp309608"> </a>
+       userid=&quot;Jonathan&quot;&amp;gt;00000023.00&amp;lt;/share&amp;gt;<a name="wp309609"> </a>
+    &amp;lt;share company=&quot;Amazon.com, Inc.&quot; <a name="wp309610"> </a>
+       userid=&quot;Minollo&quot;&amp;gt;00003000.00&amp;lt;/share&amp;gt;<a name="wp309611"> </a>
+    &amp;lt;share company=&quot;eBay Inc.&quot; userid=&quot;Minollo&quot;&amp;gt;00004000.00&amp;lt;/share&amp;gt;<a name="wp309612"> </a>
+    &amp;lt;share company=&quot;Lucent Technologies Inc.&quot; <a name="wp309613"> </a>
+       userid=&quot;Minollo&quot;&amp;gt;00040000.00&amp;lt;/share&amp;gt;<a name="wp309614"> </a>
+    &amp;lt;share company=&quot;Progress Software&quot; <a name="wp309615"> </a>
+       userid=&quot;Minollo&quot;&amp;gt;04000000.00&amp;lt;/share&amp;gt;<a name="wp309616"> </a>
+  &amp;lt;/holdings&amp;gt;&#39;<a name="wp309617"> </a>
+return ddtek-sql:db2-xmlquery(&#39;<a name="wp309618"> </a>
+       for $share in $p//share[@company=&quot;Progress Software&quot;]<a name="wp309619"> </a>
+        return &lt;progress-shares from=&quot;{$share/@userid}&quot; number=&quot;{data($share)}&quot;/&gt; &#39;,<a name="wp309620"> </a>
+        ddtek-sql:db2-xmlparse($data), &quot;p&quot;)<a name="wp309621"> </a>
+</pre></div>
+<a name="wp309624"> </a><h3 class="pHeading2">
+Querying XML on Oracle
+</h3>
+<a name="wp309625"> </a><p class="pBody">
+Oracle supports XPath-like queries on XML data stored in an XML Type column through these built-in SQL extension functions:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp309629"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309647">ddtek-sql:existsNode()</a></li></div><a name="wp309633"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309663">ddtek-sql:extractValue()</a></li></div><a name="wp309637"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309686">ddtek-sql:extract()</a></li></div><a name="wp309641"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309758">ddtek-sql:xmlSequence()</a></li></div><a name="wp309645"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309788">ddtek-sql:ora-xmlquery()</a></li></div></ul></div>
+<a name="wp309647"> </a><p class="pBodyBold">
+ddtek-sql:existsNode()
+</p>
+<a name="wp309648"> </a><p class="pBody">
+ddtek-sql:existsNode() accepts an XML value and an XPath expression as input and returns true if the XPath expression matches one or more nodes in the XML value. Refer to your Oracle documentation for details.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:existsNode($inp as node(),$xp as xs:string) as<a name="wp309649"> </a>
+  xs:boolean external;<a name="wp309650"> </a>
+for $share in (&quot;Amazon.com, Inc.&quot;,&quot;eBay&quot;)<a name="wp309651"> </a>
+let $numberofshares := <a name="wp309652"> </a>
+  count(for $x in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309653"> </a>
+    where ddtek-sql:existsNode(<a name="wp309654"> </a>
+      $x/holdings/*,<a name="wp309655"> </a>
+      concat(&quot;/holdings/share/@company[.=&#39;&quot;,$share,&quot;&#39;]&quot;))<a name="wp309656"> </a>
+    return $x)<a name="wp309657"> </a>
+return &lt;number-of-shareholders share=&quot;{$share}&quot; number=&quot;{$numberofshares}&quot; /&gt;<a name="wp309658"> </a>
+</pre></div>
+<a name="wp309659"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;number-of-shareholders share=&quot;Amazon.com, Inc.&quot; number=&quot;2&quot;/&gt;<a name="wp309660"> </a>
+&lt;number-of-shareholders share=&quot;eBay&quot; number=&quot;0&quot;/&gt;<a name="wp309661"> </a>
+</pre></div>
+<a name="wp309663"> </a><p class="pBodyBold">
+ddtek-sql:extractValue()
+</p>
+<a name="wp309664"> </a><p class="pBody">
+ddtek-sql:extractValue() accepts an XML value and an XPath expression as input and returns the scalar value of the node selected by the XPath expression. Refer to your Oracle documentation for  details.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:existsNode($inp as node(),$xp as xs:string) as <a name="wp309665"> </a>
+  xs:boolean external;<a name="wp309666"> </a>
+declare function ddtek-sql:extractValue($inp as node(),$xp as xs:string) as<a name="wp309667"> </a>
+  xs:untypedAtomic external;<a name="wp309668"> </a>
+for $share in (&quot;Progress Software&quot;,&quot;eBay&quot;)<a name="wp309669"> </a>
+for $x in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309670"> </a>
+where ddtek-sql:existsNode(<a name="wp309671"> </a>
+    $x/holdings/*,<a name="wp309672"> </a>
+    concat(&quot;/holdings/share/@company[.=&#39;&quot;,$share,&quot;&#39;]&quot;))<a name="wp309673"> </a>
+return <a name="wp309674"> </a>
+  &lt;share share=&#39;{$share}&#39; <a name="wp309675"> </a>
+    holder=&#39;{ddtek-sql:extractValue(<a name="wp309676"> </a>
+      $x/holdings/*,<a name="wp309677"> </a>
+      fn:concat(&quot;/holdings/share[@company=&#39;&quot;, $share ,&quot;&#39;]/@userid&quot;))}&#39; <a name="wp309678"> </a>
+    number=&#39;{ddtek-sql:extractValue(<a name="wp309679"> </a>
+      $x/holdings/*,<a name="wp309680"> </a>
+      fn:concat(&quot;/holdings/share[@company=&#39;&quot;, $share ,&quot;&#39;]&quot;))}&#39; /&gt;<a name="wp309681"> </a>
+</pre></div>
+<a name="wp309682"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;share share=&quot;Progress Software&quot; holder=&quot;Jonathan&quot; number=&quot;23&quot;/&gt;<a name="wp309683"> </a>
+&lt;share share=&quot;Progress Software&quot; holder=&quot;Minollo&quot; number=&quot;4000000&quot;/&gt;<a name="wp309684"> </a>
+</pre></div>
+<a name="wp309686"> </a><p class="pBodyBold">
+ddtek-sql:extract()
+</p>
+<a name="wp309687"> </a><p class="pBody">
+ddtek-sql:extract() accepts an XML value and an XPath expression as input and returns an XML fragment that contains the nodes selected by the XPath expression. Refer to your Oracle documentation for more details.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:extract($inp as node(),$xp as xs:string) as <a name="wp309688"> </a>
+  node() external;<a name="wp309689"> </a>
+declare function ddtek-sql:existsNode($inp as node(),$xp as xs:string) as<a name="wp309690"> </a>
+  xs:boolean external;<a name="wp309691"> </a>
+for $share in (&quot;Amazon.com, Inc.&quot;,&quot;Progress Software&quot;,&quot;eBay&quot;)<a name="wp309692"> </a>
+for $x in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309693"> </a>
+where ddtek-sql:existsNode(<a name="wp309694"> </a>
+    $x/holdings/*,<a name="wp309695"> </a>
+    concat(&quot;/holdings/share/@company[.=&#39;&quot;,$share,&quot;&#39;]&quot;))<a name="wp309696"> </a>
+return <a name="wp309697"> </a>
+ddtek-sql:extract($x/holdings/*,fn:concat(&quot;/holdings/share[@company=&#39;&quot;,<a name="wp309698"> </a>
+  $share ,&quot;&#39;]&quot;))<a name="wp309699"> </a>
+</pre></div>
+<a name="wp309700"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;share company=&quot;Amazon.com, Inc.&quot; userid=&quot;Jonathan&quot;&gt;3000&lt;/share&gt;<a name="wp309701"> </a>
+&lt;share company=&quot;Progress Software&quot; userid=&quot;Jonathan&quot;&gt;23&lt;/share&gt;<a name="wp309702"> </a>
+&lt;share company=&quot;Amazon.com, Inc.&quot; userid=&quot;Minollo&quot;&gt;3000&lt;/share&gt;<a name="wp309703"> </a>
+&lt;share company=&quot;Progress Software&quot; userid=&quot;Minollo&quot;&gt;4000000&lt;/share&gt;<a name="wp309704"> </a>
+</pre></div>
+<a name="wp309705"> </a><p class="pBody">
+Because the result of ddtek-sql:extract() is a single XML fragment, limitations exist as to where this function can be used in an XQuery expression. The following usages of ddtek-sql:extract() are allowed:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp309706"> </a><div class="pSmartList1"><li>As a returned value from the expression, as shown in <a  href="database_support6.html#wp309686">ddtek-sql:extract()</a></li></div><a name="wp309710"> </a><div class="pSmartList1"><li>As input to another Oracle SQL function (existsNode(), extractValue(), extract()), as shown in <a  href="database_support6.html#wp309735">Example: As Input to Another Oracle SQL Function</a></li></div><a name="wp309714"> </a><div class="pSmartList1"><li>Inside a ddtek:evaluate-in-memory extension expression, as shown in <a  href="database_support6.html#wp309748">Example: Inside a ddtek:evaluate-in-memory Extension Expression</a></li></div><a name="wp309718"> </a><div class="pSmartList1"><li>As input to the Oracle ddtek-sql:xmlSequence() (a table function), as shown in <a  href="database_support6.html#wp309758">ddtek-sql:xmlSequence()</a></li></div></ul></div>
+<a name="wp309722"> </a><p class="pBody">
+Here is an example of using ddtek-sql:extract() that is <b class="cBold">not</b> allowed:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:extract($inp as node(),$xp as xs:string) as<a name="wp309723"> </a>
+  node() external;<a name="wp309724"> </a>
+declare function ddtek-sql:existsNode($inp as node(),$xp as xs:string) as<a name="wp309725"> </a>
+  xs:boolean external;<a name="wp309726"> </a>
+for $share in (&quot;Amazon.com, Inc.&quot;,&quot;Progress Software&quot;,&quot;eBay&quot;)<a name="wp309727"> </a>
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309728"> </a>
+for $v2 in ddtek-sql:extract($v1/holdings/*,&quot;/holdings/share&quot;)<a name="wp309729"> </a>
+where xs:string($v2/@userid) = &quot;Minollo&quot;<a name="wp309730"> </a>
+return $v2<a name="wp309731"> </a>
+</pre></div>
+<a name="wp309732"> </a><p class="pBody">
+This example fails and DataDirect XQuery returns the following error: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+[DataDirect][XQuery]The value of the XML column &quot;holdings&quot; can only be used 
+as a return value.<a name="wp309733"> </a>
+</pre></div>
+<a name="wp309735"> </a><p class="pBodyBold">
+Example: As Input to Another Oracle SQL Function
+</p>
+<a name="wp309736"> </a><p class="pBody">
+The following example shows how to use the result of <br />ddtek-sql:extract() as input to ddtek-sql:extractValue():
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:extract($inp as node(),$xp as xs:string) as <a name="wp309737"> </a>
+  node() external;<a name="wp309738"> </a>
+declare function ddtek-sql:extractValue($inp as node(),$xp as xs:string) <a name="wp309739"> </a>
+  as xs:untypedAtomic external;<a name="wp309740"> </a>
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309741"> </a>
+let $v2 := ddtek-sql:extract($v1/holdings/*,&#39;/holdings/share&#39;)<a name="wp309742"> </a>
+let $v3 := ddtek-sql:extractValue($v2,<a name="wp309743"> </a>
+  &#39;/share[@company=&quot;Progress Software&quot;]/@userid&#39;)<a name="wp309744"> </a>
+where xs:string($v3) = &quot;Minollo&quot;<a name="wp309745"> </a>
+return $v2<a name="wp309746"> </a>
+</pre></div>
+<a name="wp309748"> </a><p class="pBodyBold">
+Example: Inside a ddtek:evaluate-in-memory Extension Expression
+</p>
+<a name="wp309749"> </a><p class="pBody">
+This example shows how to use the result of ddtek-sql:extract() with the ddtek:evaluate-in-memory extension expression.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:extract($inp as node(),$xp as xs:string) as <a name="wp309750"> </a>
+  node() external;<a name="wp309751"> </a>
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309752"> </a>
+let $v2 := ddtek-sql:extract($v1/holdings/*,&#39;/holdings&#39;)<a name="wp309753"> </a>
+for $v3 in (# ddtek:evaluate-in-memory #) {$v2/share}<a name="wp309754"> </a>
+return <a name="wp309755"> </a>
+  &lt;shares from=&#39;{$v3/@userid}&#39; for=&#39;{$v3/@company}&#39; number=&#39;{$v3}&#39; /&gt;<a name="wp309756"> </a>
+</pre></div>
+<a name="wp309758"> </a><p class="pBodyBold">
+ddtek-sql:xmlSequence()
+</p>
+<a name="wp309759"> </a><p class="pBody">
+ddtek-sql:xmlSequence() accepts an XML value (fragment) as input and transforms it into a sequence. This is useful if you want to iterate over the result of a previously invoked ddtek-sql:extract(). 
+</p>
+<a name="wp309760"> </a><p class="pBody">
+You must declare ddtek-sql:xmlSequence() in the DataDirect XQuery source configuration file as a table function.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp309761"> </a>
+&lt;schema name=&quot;&quot;&gt;<a name="wp309762"> </a>
+  &lt;tableFunction name=&quot;XMLSEQUENCE&quot;&gt;<a name="wp309763"> </a>
+    &lt;resultSet&gt;<a name="wp309764"> </a>
+      &lt;column name=&quot;COLUMN_VALUE&quot; schemaType=&quot;anyType&quot;/&gt;<a name="wp309765"> </a>
+    &lt;/resultSet&gt;<a name="wp309766"> </a>
+  &lt;/tableFunction&gt;<a name="wp309767"> </a>
+&lt;/schema&gt;<a name="wp309768"> </a>
+...<a name="wp309769"> </a>
+declare function ddtek-sql:extract($inp as node(),$xp as xs:string) as<a name="wp309770"> </a>
+  node() external;<a name="wp309771"> </a>
+declare function ddtek-sql:XMLSEQUENCE($inp as node()) as<a name="wp309772"> </a>
+  document-node(element()) external;<a name="wp309773"> </a>
+for $v1 in collection(&#39;holdingsxml&#39;)/holdingsxml<a name="wp309774"> </a>
+for $v3 in <a name="wp309775"> </a>
+  ddtek-sql:XMLSEQUENCE( 
+ddtek-sql:extract($v1/holdings/*,&#39;/holdings/share&#39;))/XMLSEQUENCE/COLUMN_VALUE/*<a name="wp309776"> </a>
+return &lt;shareinfo&gt;{$v3/*}&lt;/shareinfo&gt;<a name="wp309777"> </a>
+</pre></div>
+<a name="wp309778"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;shareinfo&gt;<a name="wp309779"> </a>
+  &lt;share company=&quot;Amazon.com, Inc.&quot; userid=&quot;Jonathan&quot;&gt;3000&lt;/share&gt;<a name="wp309780"> </a>
+&lt;/shareinfo&gt;<a name="wp309781"> </a>
+&lt;shareinfo&gt;<a name="wp309782"> </a>
+  &lt;share company=&quot;eBay Inc.&quot; userid=&quot;Jonathan&quot;&gt;4000&lt;/share&gt;<a name="wp309783"> </a>
+&lt;/shareinfo&gt;<a name="wp309784"> </a>
+...<a name="wp309785"> </a>
+</pre></div>
+<a name="wp309788"> </a><p class="pBodyBold">
+ddtek-sql:ora-xmlquery()
+</p>
+<a name="wp309789"> </a><p class="pBody">
+Oracle 10<em class="cEmphasis">g</em> R2 and higher support native XQuery support using SQL extensions that allow combining SQL statements and XQuery expressions. Refer to your Oracle documentation for details. 
+</p>
+<a name="wp309790"> </a><p class="pBody">
+DataDirect XQuery supports the Oracle XMLQUERY statement using a built-in XQuery function, ddtek-sql:ora-xmlquery. Other Oracle XQuery related features can be supported easily through user-defined functions that wrap the SQL extensions and that can be invoked using DataDirect XQuery&#8217;s SQL function support. (See <a  href="advancedfeatures9.html#wp246998">Using SQL Functions</a>.)
+</p>
+<a name="wp309794"> </a><p class="pBody">
+DataDirect XQuery supports the following functional declarations of ddtek-sql:ora-xmlquery():
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:ora-xmlquery($query as xs:string, $context-item as<a name="wp309795"> </a>
+  node()?) as node()? external;<a name="wp309796"> </a>
+declare function ddtek-sql:ora-xmlquery($query as xs:string) as <a name="wp309797"> </a>
+  node()? external;<a name="wp309798"> </a>
+</pre></div>
+<a name="wp309799"> </a><p class="pBody">
+Using the Oracle XQuery engine, the function evaluates the XQuery expression passed by the $query parameter. The initial context item from the XQuery expression is initialized with the value of $context-item (Refer to your Oracle documentation for details about the meaning and usage of the initial context item). For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $x in collection(&#39;holdingsxml&#39;)/holdingsxml/holdings<a name="wp309800"> </a>
+return <a name="wp309801"> </a>
+  ddtek-sql:ora-xmlquery(<a name="wp309802"> </a>
+    &#39;for $v in //share[@company=&quot;Progress Software&quot;] <a name="wp309803"> </a>
+     return &lt;progress-shares from=&quot;{$v/@userid}&quot; number=&quot;{data($v)}&quot;/&gt;&#39;,<a name="wp309804"> </a>
+       $x/node()<a name="wp309805"> </a>
+    )<a name="wp309806"> </a>
+</pre></div>
+<a name="wp309807"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;progress-shares from=&quot;Jonathan&quot; number=&quot;23&quot;/&gt;<a name="wp309808"> </a>
+&lt;progress-shares from=&quot;Minollo&quot; number=&quot;4000000&quot;/&gt;<a name="wp309809"> </a>
+</pre></div>
+<a name="wp309810"> </a><p class="pBody">
+Another example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek-sql:ora-xmlquery(&#39;ora:view(&quot;holdings&quot;)/ROW&#39;)<a name="wp309811"> </a>
+</pre></div>
+<a name="wp309812"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;ROW&gt;<a name="wp309813"> </a>
+  &lt;userid&gt;Jonathan&lt;/userid&gt;<a name="wp309814"> </a>
+  &lt;stockticker&gt;PRGS&lt;/stockticker&gt;<a name="wp309815"> </a>
+  &lt;shares&gt;23&lt;/shares&gt;<a name="wp309816"> </a>
+&lt;/ROW&gt;<a name="wp309817"> </a>
+...<a name="wp309818"> </a>
+</pre></div>
+<a name="wp309819"> </a><p class="pBody">
+Note that the result of ddtek-sql:ora-xmlquery() is similar to the result returned from ddtek-sql:extract(). The result is an XML fragment and the same restrictions and guidelines apply.
+</p>
+<a name="wp309822"> </a><h3 class="pHeading2">
+Querying XML on Microsoft SQL Server 2005
+</h3>
+<a name="wp309823"> </a><p class="pBody">
+Microsoft SQL Server 2005 introduced native XQuery support using SQL extensions that allow combining SQL statements and XQuery expressions. Refer to your Microsoft SQL Server documentation for details. 
+</p>
+<a name="wp309824"> </a><p class="pBody">
+DataDirect XQuery supports these Microsoft SQL Server 2005 (and higher) SQL extensions using the following proprietary (predeclared) XQuery functions:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp309828"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309843">ddtek-sql:sqs-query()</a></li></div><a name="wp309832"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309861">ddtek-sql:sqs-value()</a></li></div><a name="wp309836"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309878">ddtek-sql:sqs-exist()</a></li></div><a name="wp309840"> </a><div class="pSmartList1"><li><a  href="database_support6.html#wp309884">ddtek-sql:sqs-nodes()</a></li></div></ul></div>
+<a name="wp309841"> </a><p class="pBody">
+These functions correspond to the Microsoft SQL Server 2005  query(), value(), exist(), and nodes() methods.
+</p>
+<a name="wp309843"> </a><p class="pBodyBold">
+ddtek-sql:sqs-query()
+</p>
+<a name="wp309844"> </a><p class="pBody">
+This function evaluates the Microsoft SQL Server 2005 query() method using $context-item as the initial context item, if provided. Refer to your Microsoft SQL Server 2005 documentation for details about query().
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:sqs-query($context-item as node(), $query as<a name="wp309845"> </a>
+  xs:string) as node()? external;<a name="wp309846"> </a>
+declare function ddtek-sql:sqs-query($query as xs:string) as<a name="wp309847"> </a>
+  node()? external;<a name="wp309848"> </a>
+</pre></div>
+<a name="wp309849"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $x in collection(&#39;holdingsxml&#39;)/holdingsxml/holdings<a name="wp309850"> </a>
+return <a name="wp309851"> </a>
+  ddtek-sql:sqs-query(<a name="wp309852"> </a>
+    $x/node(),<a name="wp309853"> </a>
+    &#39;for $v in //share[@company=&quot;Progress Software&quot;] <a name="wp309854"> </a>
+     return &lt;progress-shares from=&quot;{$v/@userid}&quot; number=&quot;{data($v)}&quot;/&gt;&#39;<a name="wp309855"> </a>
+    )<a name="wp309856"> </a>
+</pre></div>
+<a name="wp309857"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;progress-shares from=&quot;Jonathan&quot; number=&quot;23&quot;/&gt;<a name="wp309858"> </a>
+&lt;progress-shares from=&quot;Minollo&quot; number=&quot;4000000&quot;/&gt;<a name="wp309859"> </a>
+</pre></div>
+<a name="wp309861"> </a><p class="pBodyBold">
+ddtek-sql:sqs-value()
+</p>
+<a name="wp309862"> </a><p class="pBody">
+This function invokes the Microsoft SQL Server 2005 value() method on the XML value provided by $context-item. Refer to your Microsoft SQL Server documentation for details about value().
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:sqs-value(<a name="wp309863"> </a>
+$context-item as node(), <a name="wp309864"> </a>
+$query as xs:string, <a name="wp309865"> </a>
+$type as xs:string) <a name="wp309866"> </a>
+  as xs:anyAtomicType? external;<a name="wp309867"> </a>
+</pre></div>
+<a name="wp309868"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $x in collection(&#39;holdingsxml&#39;)/holdingsxml/holdings<a name="wp309869"> </a>
+return <a name="wp309870"> </a>
+  ddtek-sql:sqs-value(<a name="wp309871"> </a>
+    $x/node(),<a name="wp309872"> </a>
+    &#39;(for $v in //share[@company=&quot;Progress Software&quot;] return $v)[1]&#39;,&#39;bigint&#39;<a name="wp309873"> </a>
+    )<a name="wp309874"> </a>
+</pre></div>
+<a name="wp309875"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+23 4000000<a name="wp309876"> </a>
+</pre></div>
+<a name="wp309878"> </a><p class="pBodyBold">
+ddtek-sql:sqs-exist()
+</p>
+<a name="wp309879"> </a><p class="pBody">
+This function invokes the Microsoft SQL Server 2005 exist() method on the XML value provided by $context-item. Refer to your Microsoft SQL Server documentation for details about exist().
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:sqs-exist(<a name="wp309880"> </a>
+$context-item as node(), <a name="wp309881"> </a>
+$query as xs:string) as xs:boolean external;<a name="wp309882"> </a>
+</pre></div>
+<a name="wp309884"> </a><p class="pBodyBold">
+ddtek-sql:sqs-nodes()
+</p>
+<a name="wp309885"> </a><p class="pBody">
+This is a predeclared SQL table function that returns a document node containing a sequence of sqs-nodes elements, each of which contains a single col subelement. Refer to your Microsoft SQL Server documentation for details about node().
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:sqs-nodes(<a name="wp309886"> </a>
+$context-item as node(), <a name="wp309887"> </a>
+$query as xs:string) as document-node(element()) external;<a name="wp309888"> </a>
+</pre></div>
+<a name="wp309889"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $i in collection(&#39;holdingsxml&#39;)/holdingsxml/holdings<a name="wp309890"> </a>
+for $j in ddtek-sql:sqs-nodes($i/*,&quot;//share&quot;)/sqs-nodes/col<a name="wp309891"> </a>
+return ddtek-sql:sqs-query($j/*,&#39;.&#39;)<a name="wp309892"> </a>
+</pre></div>
+<a name="wp309893"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;share company=&quot;Amazon.com, Inc.&quot; userid=&quot;Jonathan&quot;&gt;3000&lt;/share&gt;<a name="wp309894"> </a>
+&lt;share company=&quot;eBay Inc.&quot; userid=&quot;Jonathan&quot;&gt;4000&lt;/share&gt;<a name="wp309895"> </a>
+&lt;share company=&quot;Int&#39;l Business Machines C&quot; userid=&quot;Jonathan&quot;&gt;2500&lt;/share&gt;<a name="wp309896"> </a>
+&lt;share company=&quot;Progress Software&quot; userid=&quot;Jonathan&quot;&gt;23&lt;/share&gt;<a name="wp309897"> </a>
+&lt;share company=&quot;Amazon.com, Inc.&quot; userid=&quot;Minollo&quot;&gt;3000&lt;/share&gt;<a name="wp309898"> </a>
+&lt;share company=&quot;eBay Inc.&quot; userid=&quot;Minollo&quot;&gt;4000&lt;/share&gt;<a name="wp309899"> </a>
+&lt;share company=&quot;Lucent Technologies Inc.&quot; userid=&quot;Minollo&quot;&gt;40000&lt;/share&gt;<a name="wp309900"> </a>
+&lt;share company=&quot;Progress Software&quot; userid=&quot;Minollo&quot;&gt;4000000&lt;/share&gt;<a name="wp309901"> </a>
+</pre></div>
+<a name="wp309902"> </a><p class="pBody">
+Note that the result of ddtek-sql:sqs-nodes() can only be used as input to another ddtek-sql:sqs-<em class="cEmphasis">xxxx</em> function.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

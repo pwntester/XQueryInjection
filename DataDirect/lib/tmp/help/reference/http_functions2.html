@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:21" />
+  <title>Overview</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp234506"> </a><h2 class="pNewHTMLPageNum">
+Overview
+</h2>
+<hr />
+<a name="wp234648"> </a><p class="pBody">
+A <em class="cEmphasis">Web service client</em> is a client-side application that accesses a Web service hosted on a server. Communication between the client machine and host server typically occurs over the Internet using the HTTP protocol. Communication can be direct, or client requests and server responses can be routed through a series of gateways, proxy servers, and tunnels.
+</p>
+<a name="wp236770"> </a><p class="pBody">
+DataDirect XQuery provides two types of built-in functions to help you write Web service clients &#8211; ddtek:wscall and DataDirect HTTP functions.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp235086"> </a><div class="pSmartList1"><li>ddtek:wscall allows you to invoke a Web service operation synchronously using the SOAP protocol over HTTP.</li></div><a name="wp235121"> </a><div class="pSmartList1"><li>DataDirect XQuery provides full implementation of all HTTP methods like GET, POST, PUT, and DELETE. DataDirect XQuery HTTP functions provide a superset of the functionality available with ddtek:wscall, allowing more control at a lower level than is possible with ddtek:wscall.</li></div></ul></div>
+<a name="wp236617"> </a><h3 class="pHeading2">
+Choosing a Function Type
+</h3>
+<a name="wp236681"> </a><p class="pBody">
+Deciding whether to use ddtek:wscall or HTTP functions for your XQuery Web service client depends on a number of factors, the most basic of which is understanding which protocols the Web service supports. For example, if the XQuery Web service supports HTTP, then you must write the XQuery Web service client using HTTP functions. On the other hand, if the XQuery Web service supports SOAP, then you can use either HTTP functions or ddtek:wscall.
+</p>
+<a name="wp236646"> </a><p class="pBody">
+Other factors you should consider when designing your XQuery Web service client application include:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp236748"> </a><div class="pSmartList1"><li>Streaming &#8211; HTTP functions support streaming of both client-side requests and server-side responses. Streaming is an important consideration for Web service client applications that involve processing large XML documents &#8211; when streaming is not used, all data is read into memory before the function is invoked.</li></div><a name="wp236754"> </a><p class="pBodyRelative">
+See <a  href="http_functions3.html#wp239437">Data Streaming</a> for more information on this topic.
+</p>
+<a name="wp236762"> </a><div class="pSmartList1"><li>Client-server connection &#8211; The DataDirect XQuery implementation of HTTP functions allows a level of control over the parameters that affect the client-server connection that is not possible using ddtek:wscall. Examples of these parameters include specifying the number of retries, socket timeout, and cookie policy management.</li></div><a name="wp237015"> </a><p class="pBodyRelative">
+See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information about specific HTTP parameters.
+</p>
+</ul></div>
+<a name="wp237060"> </a><p class="pBody">
+If the origin server uses REST or plain XML, or if you require direct control over the Web service payload or client-server connection, consider using the DataDirect XQuery HTTP functions to build your XQuery Web service client.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

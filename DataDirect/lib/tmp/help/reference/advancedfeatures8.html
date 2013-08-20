@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:24" />
+  <title>Specifying Collations</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp212006"> </a><h2 class="pNewHTMLPageNum">
+Specifying Collations
+</h2>
+<hr />
+<a name="wp212007"> </a><p class="pBody">
+DataDirect XQuery allows collations to be specified in the query, for example, in the query prolog or for a specific order by clause. The specified collation, however, is only used for expressions evaluated by the XQuery engine (see <a  href="overview5.html#wp143313">DataDirect XQuery<span style="vertical-align: super">&#174;</span> Architecture</a>). 
+</p>
+<a name="wp212011"> </a><p class="pBody">
+When DataDirect XQuery accesses a relational database, it uses the collation used by the database. For consistency, ensure that the collation used by DataDirect XQuery (which can be modified as explained below) is compatible with the collation used by the database. If multiple databases are accessed, ensure that their collations are compatible. For relational sources, the collation used by the database overrides any collation specified in the query.
+</p>
+<a name="wp212013"> </a><p class="pBody">
+DataDirect XQuery allows you to specify any of the following collations:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp212016"> </a><div class="pSmartList1"><li>W3C Unicode Codepoint collation. For example:</li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+http://www.w3.org/2005/04/xpath-functions/collation/codepoint<a name="wp212017"> </a>
+</pre></div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp212020"> </a><div class="pSmartList1"><li>User-defined collation using the following format:</li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+http://www.datadirect.com/xquery/collation?class=<code><em>class_name</em></code><a name="wp212021"> </a>
+<a name="wp212022"> </a><p class="pBodyRelative">
+where <code><em>class_name</em></code> is a fully-qualified name of a Java class that implements java.util.Comparator. If the collation will be used in functions such as contains() and starts-with(), this class must also implement java.text.RuleBaseCollator.
+</p>
+</pre></div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp212024"> </a><div class="pSmartList1"><li>Collation using a semicolon-separated list of <code><em>keyword</em></code>=<code><em>value</em></code> pairs in the following format:</li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+http://www.datadirect.com/xquery/collation?<code><em>keyword</em></code>=<code><em>value</em></code>[;<code><em>keyword</em></code>=<code><em>value</em></code>]...<a name="wp212025"> </a>
+<a name="wp212043"> </a><p class="pBodyRelative">
+where the following keywords and values are valid:<div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp212028"> </a><div class="pCellBody">
+<span style="font-style: normal; font-weight: normal; text-decoration: none; vertical-align: baseline">lang</span>
+</div>
+</td>
+    <td><a name="wp212030"> </a><div class="pCellBody">
+Specifies a value that is used to find the collation appropriate to a Java locale. A valid value is any value allowed for the langName or langDef parameters of java.lang.Locale. For example, for US&#160;English:
+</div>
+<a name="wp212032"> </a><div class="pCellBody">
+<code class="cCode">en-us</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp212034"> </a><div class="pCellBody">
+strength
+</div>
+</td>
+    <td><a name="wp212036"> </a><div class="pCellBody">
+{primary | secondary | tertiary | identical}. Specifies a level of comparison that DataDirect XQuery enforces when comparing strings. For example, A/B is a primary difference; a/á is a secondary difference; A/a is a tertiary difference; and a/a is identical. Therefore, if <br />strength=primary, A=a is true; <br />if strength=secondary, A=a is true, but a=á is false; and, if strength=tertiary, A=a is false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp212039"> </a><div class="pCellBody">
+decomposition
+</div>
+</td>
+    <td><a name="wp212041"> </a><div class="pCellBody">
+{none | standard | full}. Determines how the collator handles Unicode characters. Refer to your J2SE documentation for details about how these values affect comparisons of strings.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</pre></div>
+<a name="wp212044"> </a><p class="pBody">
+DataDirect XQuery uses the collation URI used by the Java Virtual Machine as the default collation. You can change this value using any of the following methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp212046"> </a><div class="pSmartList1"><li>Specifying the collation parameter in the query prolog</li></div><a name="wp212047"> </a><div class="pSmartList1"><li>Specifying the Collation property of DDXQDataSource (see <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a>)</li></div></ul></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

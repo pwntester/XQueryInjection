@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:09" />
+  <title>Executing Queries</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp155366"> </a><h2 class="pNewHTMLPageNum">
+Executing Queries
+</h2>
+<hr />
+<a name="wp155399"> </a><p class="pBody">
+Next, we create an XQExpression object, which executes an XQuery expression that is read from a file and returns a sequence of results. 
+</p>
+<a name="wp160766"> </a><p class="pBody">
+First, here is the XQuery expression, flwor.xq:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $u in fn:collection(&#39;users&#39;)/users<a name="wp155400"> </a>
+return<a name="wp155401"> </a>
+  &lt;user&gt;<a name="wp155402"> </a>
+   &lt;name&gt;{<a name="wp155403"> </a>
+     $u/firstname,<a name="wp155404"> </a>
+     $u/lastname<a name="wp155405"> </a>
+   }&lt;/name&gt;<a name="wp155406"> </a>
+   { <a name="wp155407"> </a>
+    for $h in collection(&#39;holdings&#39;)/holdings<a name="wp155408"> </a>
+    where $h/userid = $u/userid<a name="wp155409"> </a>
+    return <a name="wp155410"> </a>
+      &lt;stock&gt;{<a name="wp155411"> </a>
+        $h/stockticker,<a name="wp155412"> </a>
+        $h/shares<a name="wp155413"> </a>
+      }&lt;/stock&gt;<a name="wp155414"> </a>
+  }&lt;/user&gt;<a name="wp155415"> </a>
+</pre></div>
+<a name="wp154906"> </a><p class="pBody">
+An XQConnection can create an XQExpression:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQExpression xqExpression = conn.createExpression();<a name="wp144194"> </a>
+FileReader fileReader = new FileReader(&quot;flwor.xq&quot;);<a name="wp146033"> </a>
+XQSequence xqSequence = xqExpression.executeQuery(fileReader);<a name="wp146034"> </a>
+</pre></div>
+<a name="wp144203"> </a><p class="pBody">
+Now that the query results are in a sequence, you can serialize this sequence using the getSequenceAsString() method. (Serializing is just one way to handle an XQuery result.)
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+System.out.println(xqSequence.getSequenceAsString());<a name="wp144205"> </a>
+</pre></div>
+<a name="wp144208"> </a><p class="pBody">
+The following result sequence contains a single node, the user element (whitespace has been modified for readability).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;user&gt; <a name="wp153502"> </a>
+  &lt;name&gt; <a name="wp153503"> </a>
+    &lt;firstname&gt;Jonathan&lt;/firstname&gt; <a name="wp153504"> </a>
+    &lt;lastname&gt;Robie&lt;/lastname&gt; <a name="wp153505"> </a>
+  &lt;/name&gt; <a name="wp153506"> </a>
+  &lt;stock&gt; <a name="wp153507"> </a>
+    &lt;stockticker&gt;AMZN&lt;/stockticker&gt; <a name="wp153508"> </a>
+    &lt;shares&gt;3000&lt;/shares&gt; <a name="wp153509"> </a>
+  &lt;/stock&gt; <a name="wp153510"> </a>
+  &lt;stock&gt; <a name="wp153511"> </a>
+    &lt;stockticker&gt;EBAY&lt;/stockticker&gt; <a name="wp153512"> </a>
+    &lt;shares&gt;4000&lt;/shares&gt;<a name="wp153513"> </a>
+  &lt;/stock&gt; <a name="wp153570"> </a>
+  &lt;stock&gt; <a name="wp153571"> </a>
+    &lt;stockticker&gt;IBM&lt;/stockticker&gt; <a name="wp153572"> </a>
+    &lt;shares&gt;2500&lt;/shares&gt; <a name="wp153573"> </a>
+  &lt;/stock&gt; <a name="wp153574"> </a>
+...<a name="wp153575"> </a>
+&lt;/user&gt; <a name="wp153576"> </a>
+</pre></div>
+<a name="wp153388"> </a><p class="pBody">
+Other similar examples can be found in the <a  href="examples4.html#wp143098">XQJExecute</a> example.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

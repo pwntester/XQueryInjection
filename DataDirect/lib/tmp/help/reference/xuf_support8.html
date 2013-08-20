@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:12" />
+  <title>Transforming Query Results </title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp218986"> </a><h2 class="pNewHTMLPageNum">
+Transforming Query Results 
+</h2>
+<hr />
+<a name="wp218991"> </a><p class="pBody">
+Transform expressions are used to create modified copies of nodes. Using <code class="cCode">copy</code>, <code class="cCode">modify</code>, and <code class="cCode">return</code> clauses, transform expressions make a copy of an input document and then perform the XQuery and write the result to memory. Unlike other XUF update operations, transform expressions do not modify existing nodes.
+</p>
+<a name="wp220943"> </a><h3 class="pHeading2">
+Example &#8211; Replacing a Node Value
+</h3>
+<a name="wp220951"> </a><p class="pBody">
+The transform-change-values.xq XQuery transforms the query result by increasing the number of <code class="cCode">&lt;Shares&gt;</code> for user Minollo ($holding/<code class="cCode">UserId eq &#39;Minollo&#39;</code>) by 20% (<code class="cCode">replace value of node... with... ($updatedHolding/Shares * 1.2)</code>). A new root element, <code class="cCode">&lt;table&gt;</code>, is created for the modified nodes that result from this XQuery.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:serialize &quot;indent=yes&quot;;<a name="wp220860"> </a>
+&lt;table&gt; {<a name="wp221025"> </a>
+    for $holding in doc(&quot;../xml/holdings.xml&quot;)/table/holdings<a name="wp220861"> </a>
+    return<a name="wp220862"> </a>
+      if( $holding/UserId eq &#39;Minollo&#39; ) then<a name="wp220863"> </a>
+        copy $updatedHolding := $holding<a name="wp220864"> </a>
+        modify<a name="wp220865"> </a>
+          replace value of node $updatedHolding/Shares with   <a name="wp220866"> </a>
+          xs:integer($updatedHolding/Shares * 1.2)<a name="wp220904"> </a>
+        return $updatedHolding<a name="wp220867"> </a>
+      else<a name="wp220868"> </a>
+        $holding<a name="wp220869"> </a>
+} &lt;/table&gt;<a name="wp220855"> </a>
+</pre></div>
+<a name="wp218993"> </a><h3 class="pHeading2">
+Example &#8211; Inserting a Node
+</h3>
+<a name="wp220457"> </a><p class="pBody">
+The transform-insert-nodes.xq XQuery performs two update operations depending on the query result:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp221218"> </a><div class="pSmartList1"><li>If a <code class="cCode">user</code> has DDTEK <code class="cCode">holdings</code>, the value of the <code class="cCode">&lt;Shares&gt;</code> node is increased by 1000</li></div><a name="wp221231"> </a><div class="pSmartList1"><li>If the user has no shares of DDTEK (<code class="cCode">else</code>), a new <code class="cCode">&lt;holdings&gt;</code> node is created for that user with the value of the <code class="cCode">&lt;Shares&gt;</code> node set to 1000</li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:serialize &quot;indent=yes&quot;;<a name="wp221079"> </a>
+copy $newHoldings := doc(&quot;../xml/holdings.xml&quot;)<a name="wp221139"> </a>
+modify<a name="wp221140"> </a>
+  for $user in doc(&quot;../xml/users.xml&quot;)/table/users<a name="wp221141"> </a>
+  let $ddtekShares := $newHoldings/table/holdings[UserId eq $user/UserId and<a name="wp221142"> </a>
+    StockTicker eq &quot;DDTEK&quot;]<a name="wp221170"> </a>
+  return<a name="wp221143"> </a>
+    if( $ddtekShares ) then<a name="wp221144"> </a>
+    replace value of node $ddtekShares/Shares with $ddtekShares/Shares + 1000<a name="wp221145"> </a>
+    else<a name="wp221146"> </a>
+        insert node<a name="wp221147"> </a>
+          &lt;holdings&gt;<a name="wp221148"> </a>
+              &lt;UserId&gt;{$user/UserId/text()}&lt;/UserId&gt;<a name="wp221149"> </a>
+              &lt;StockTicker&gt;DDTEK&lt;/StockTicker&gt;<a name="wp221150"> </a>
+              &lt;Shares&gt;1000&lt;/Shares&gt;<a name="wp221151"> </a>
+          &lt;/holdings&gt;<a name="wp221152"> </a>
+        as last into $newHoldings/table<a name="wp221153"> </a>
+return $newHoldings<a name="wp221137"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

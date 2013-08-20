@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:24" />
+  <title>Using Option Declarations and Extension Expressions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp204726"> </a><h2 class="pNewHTMLPageNum">
+Using Option Declarations and Extension Expressions
+</h2>
+<hr />
+<a name="wp204752"> </a><p class="pBody">
+<em class="cEmphasis">Option declarations</em> provide parameters that modify how DataDirect XQuery processes queries. <em class="cEmphasis">Extension expressions</em> are syntactical XQuery constructs that modify how DataDirect XQuery processes expressions in a query.
+</p>
+<a name="wp204556"> </a><h3 class="pHeading2">
+Option Declarations
+</h3>
+<a name="wp184897"> </a><p class="pBody">
+Option declarations provide parameters that modify how DataDirect XQuery processes queries. They are similar to extension expressions, which modify how DataDirect XQuery processes expressions in a query. 
+</p>
+<a name="wp237251"> </a><p class="pBody">
+There are three types of option declarations:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp237262"> </a><div class="pSmartList1"><li>Global</li></div><a name="wp237273"> </a><div class="pSmartList1"><li>Relational</li></div><a name="wp237277"> </a><div class="pSmartList1"><li>Database-specific</li></div></ul></div>
+<a name="wp238127"> </a><h4 class="pHeading3">
+Global Option Declarations
+</h4>
+<a name="wp237278"> </a><p class="pBody">
+A global option declaration is used as the default for all XML and relational data sources accessed by XQuery queries in your Java application. DataDirect XQuery supports the following global option declarations:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp234606"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp238411">automatic-update</a></li></div><a name="wp234585"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp238422">detect-XPST0005</a></li></div><a name="wp234565"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp238430">ignore-whitespace</a></li></div><a name="wp237030"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp238437">plan-explain</a></li></div><a name="wp204596"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp238447">serialize</a></li></div><a name="wp204600"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp238567">xml-streaming</a></li></div></ul></div>
+<a name="wp238583"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp238383"> </a><div class="pTableTitle">
+Table 12-1.  Global Option Declarations &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp238387"> </a><div class="pCellHeading">
+Option Declaration
+</div>
+</th>
+    <th><a name="wp238389"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238411"> </a><div class="pCellBody">
+automatic-update
+</div>
+</td>
+    <td><a name="wp238414"> </a><div class="pCellBody">
+{yes | no}. The ddtek:automatic-update option allows XQuery to automatically update data sources that are accessed through <code class="cCode">doc</code> and <code class="cCode">collection</code> functions. Relational data sources cannot be updated using automatic update.
+</div>
+<a name="wp238415"> </a><div class="pCellBody">
+Data sources affected by XUF update expressions are physically modified at the end of the XQuery execution.
+</div>
+<a name="wp238419"> </a><div class="pCellBody">
+See <a  href="xuf_support9.html#wp221374">Updating Data Sources</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238422"> </a><div class="pCellBody">
+detect-XPST0005
+</div>
+</td>
+    <td><a name="wp238426"> </a><div class="pCellBody">
+{yes | no}. Determines whether err:XPST0005 is raised during static analysis. If set to yes (the default), the error message err:XPST0005 is raised if the static data type assigned to an XQuery expression other than the expression () or data(()) is void(). For example, this error is raised if DataDirect XQuery can statically determine in a NameTest that a path expression can never match a node, for example, because the name of an element is misspelled or a specified column does not exist in the table.
+</div>
+<a name="wp238427"> </a><div class="pCellBody">
+If set to no, err:XPST0005 is not raised during static analysis and the expression is evaluated at runtime.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238430"> </a><div class="pCellBody">
+ignore-whitespace
+</div>
+</td>
+    <td><a name="wp238433"> </a><div class="pCellBody">
+{yes | no}. Gives DataDirect XQuery the ability to ignore ignorable whitespace (tabs, linefeeds, carriage returns, and spacebar spaces) when parsing XML documents.
+</div>
+<a name="wp238434"> </a><div class="pCellBody">
+If set to no (the default), ignorable whitespace is preserved.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238437"> </a><div class="pCellBody">
+plan-explain
+</div>
+</td>
+    <td><a name="wp238440"> </a><div class="pCellBody">
+<code class="cCode">&#39;format=xhtml|xml[,resourceLocation=</code><code><em>path</em></code><code class="cCode">]&#39;</code>. Determines whether an execution plan is generated for the queries in your application. 
+</div>
+<a name="wp238441"> </a><div class="pCellBody">
+The value for <code><em>path</em></code> must be /<em class="cEmphasis">install_dir</em>/planExplain, where <em class="cEmphasis">install_dir</em> is the installation directory of DataDirect XQuery (for example, /DDXQ3_0/planExplain).
+</div>
+<a name="wp238442"> </a><div class="pCellBody">
+When the Plan Explain feature is enabled, DataDirect XQuery generates an execution plan and does not execute the queries. See <a  href="advancedfeatures7.html#wp212077">Generating XQuery Execution Plans</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238447"> </a><div class="pCellBody">
+serialize
+</div>
+</td>
+    <td><a name="wp238451"> </a><div class="pCellBody">
+Controls the process of serializing the query results into XML, XHTML, or HTML notation as specified by XQuery 1.0: An XML Query Language, W3C Recommendation 23 January 2007 located at:
+</div>
+<a name="wp238454"> </a><div class="pCellBody">
+<a  href="http://www.w3.org/TR/2007/REC-xquery-20070123/"></a><a  href="http://www.w3.org/TR/2007/REC-xquery-20070123/">http://www.w3.org/TR/2007/REC-xquery-20070123/</a>
+</div>
+<a name="wp238458"> </a><div class="pCellBody">
+See <a  href="serialization_support.html#wp245044">Serialization Support</a> for the serialization parameters that you can set using this option declaration.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238567"> </a><div class="pCellBody">
+xml-streaming
+</div>
+</td>
+    <td><a name="wp238571"> </a><div class="pCellBody">
+{yes | no}.<b class="cBold"> </b>Determines whether DataDirect XQuery uses Streaming XML when querying large XML documents. The Streaming XML technique reduces memory consumption. When set to yes, Streaming XML is enabled in the XML Adaptor. The default is yes.
+</div>
+<a name="wp238574"> </a><div class="pCellBody">
+See <a  href="improvingperformance2.html#wp205269">Querying Large XML Documents</a> for details.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp186144"> </a><h4 class="pHeading3">
+Relational Option Declarations
+</h4>
+<a name="wp237289"> </a><p class="pBody">
+Relational declarations control the processing of XQuery queries for connections to relational databases; they can be used with any relational database supported by DataDirect XQuery.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp237412"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239734">sql-decimal-cast</a></li></div><a name="wp237413"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239744">sql-extra-checks-trailing-spaces</a></li></div><a name="wp237414"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239750">sql-ignore-trailing-spaces</a></li></div><a name="wp237711"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239763">sql-order-by-on-values</a></li></div><a name="wp237712"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239773">sql-rewrite-algorithm</a></li></div><a name="wp237714"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239789">sql-simple-convert-functions</a></li></div><a name="wp237715"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239795">sql-simple-string-functions</a></li></div><a name="wp237724"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239812">sql-unicode-literals</a> (<em class="cEmphasis">deprecated</em>)</li></div><a name="wp237725"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239821">sql-unicode-strings</a></li></div><a name="wp237726"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp239831">sql-varchar-cast</a></li></div></ul></div>
+<a name="wp239856"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp239656"> </a><div class="pTableTitle">
+Table 12-2.  Relational Option Declarations &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp239660"> </a><div class="pCellHeading">
+Option Declaration
+</div>
+</th>
+    <th><a name="wp239662"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239734"> </a><div class="pCellBody">
+sql-decimal-cast
+</div>
+</td>
+    <td><a name="wp239737"> </a><div class="pCellBody">
+<code><em>precision</em></code>,<code><em>scale</em></code>. Determines precision and scale used for xs:decimal().
+</div>
+<a name="wp239739"> </a><div class="pCellBody">
+If you do not specify a precision and scale, the following default values are used:
+</div>
+<a name="wp239740"> </a><div class="pCellBody">
+DB2: 30, 15<br />Informix: 32, 15<br />MySQL: 64, 30<br />Oracle: No default<br />Microsoft SQL Server: 38,19<br />PostgreSQL: No default<br />Sybase: 38, 19
+</div>
+<a name="wp239741"> </a><div class="pCellBody">
+You can override the default by using this option declaration.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239744"> </a><div class="pCellBody">
+sql-extra-checks-trailing-spaces
+</div>
+</td>
+    <td><a name="wp239747"> </a><div class="pCellBody">
+{yes | no}. When set to yes, the SQL generated for the XQuery distinct-values functions does not ignore trailing spaces. The default is no.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239750"> </a><div class="pCellBody">
+sql-ignore-trailing-spaces
+</div>
+</td>
+    <td><a name="wp239753"> </a><div class="pCellBody">
+{yes | no}. When set to yes, the generated SQL clauses for string comparison ignore trailing spaces. The default is no.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239763"> </a><div class="pCellBody">
+sql-order-by-on-values
+</div>
+</td>
+    <td><a name="wp239766"> </a><div class="pCellBody">
+{yes | no | noSubquery}. When set to yes, expressions on which to sort are not explicitly added to the Select list of generated SQL Select statements. 
+</div>
+<a name="wp242110"> </a><div class="pCellBody">
+When set to no, values or expressions on which to sort are always added to the Select list, which typically decreases performance, but is required by some databases. 
+</div>
+<a name="wp242113"> </a><div class="pCellBody">
+When set to noSubquery, the behavior is equivalent to yes except when the expression on which to sort is a subquery. In this case, the value noSubquery behaves as if no is specified. 
+</div>
+<a name="wp242116"> </a><div class="pCellBody">
+The default value is database dependent: 
+</div>
+<a name="wp239767"> </a><div class="pCellBody">
+DB2: no <br />Informix: noSubquery<br />MySQL: yes<br />Oracle: yes <br />Microsoft SQL Server: yes<br />PostgreSQL: yes<br />Sybase: noSubquery 
+</div>
+<a name="wp239771"> </a><div class="pCellBody">
+See <a  href="relationaldata2.html#wp222701">Using an Order By Clause</a> for an example.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239773"> </a><div class="pCellBody">
+sql-rewrite-algorithm
+</div>
+</td>
+    <td><a name="wp239777"> </a><div class="pCellBody">
+{nested-loop | merge-join | outer-join | sorted-outer-union}. Specifies the SQL generation algorithm used by DataDirect XQuery when accessing a relational data source. See <a  href="relationaldata2.html#wp222779">Using DataDirect XQuery SQL&#160;Generation Algorithms</a> for descriptions of these algorithms and information about choosing the appropriate one. The default is merge-join.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239789"> </a><div class="pCellBody">
+sql-simple-convert-functions
+</div>
+</td>
+    <td><a name="wp239792"> </a><div class="pCellBody">
+{yes | no}. When set to yes, the generated convert functions do not consider all semantic differences between XQuery and SQL casts and do, in some cases, return incorrectly formatted string casts of numeric values&#8212;for example, leading zeroes in casts of decimal to string with DB2. The default is no.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239795"> </a><div class="pCellBody">
+sql-simple-string-functions
+</div>
+</td>
+    <td><a name="wp239798"> </a><div class="pCellBody">
+{yes | no}. When set to yes, the generated SQL string functions do not consider semantic differences between XQuery and SQL functions with regard to empty string or empty sequence (null) arguments. The default is no.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239812"> </a><div class="pCellBody">
+sql-unicode-literals
+</div>
+<a name="wp239813"> </a><div class="pCellBody">
+    <em class="cEmphasis">DEPRECATED</em>
+</div>
+</td>
+    <td><a name="wp239815"> </a><div class="pCellBody">
+This option declaration is recognized for backward compatibility, but we recommend that you use the <a  href="advancedfeatures2.html#wp239821">sql-unicode-strings</a> option declaration. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239821"> </a><div class="pCellBody">
+sql-unicode-strings
+</div>
+</td>
+    <td><a name="wp239826"> </a><div class="pCellBody">
+{yes | no}. Determines whether XQuery literals are translated to SQL literals escaped with the Alternate National Character Set escape character N.
+</div>
+<a name="wp239827"> </a><div class="pCellBody">
+If set to yes, XQuery literals are translated to SQL literals escaped with the Alternate National Character Set escape character N. Set the value of this option declaration to yes when a SQL literal contains characters that cannot be translated to the code page of your database. Then, execute the query using this option declaration. This setting is useful when the database table has columns that can contain Unicode information (for example, nvarchar columns).
+</div>
+<a name="wp239828"> </a><div class="pCellBody">
+If set to no (the default), XQuery literals are not translated.
+</div>
+<a name="wp239829"> </a><div class="pCellBody">
+NOTE: Some databases are significantly slower than others when Unicode comparisons are performed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239831"> </a><div class="pCellBody">
+sql-varchar-cast
+</div>
+</td>
+    <td><a name="wp239835"> </a><div class="pCellBody">
+<code><em>precision</em></code>. When multiple XQuery expressions are translated to equivalent SQL statements, a cast to varchar is required. This value defines the varchar precision.
+</div>
+<a name="wp239836"> </a><div class="pCellBody">
+If you do not specify a precision, the following default values are used:
+</div>
+<a name="wp239837"> </a><div class="pCellBody">
+DB2: 4088<br />Informix: 254<br />MySQL: 255<br />Oracle: 4000<br />Microsoft SQL Server: 8000<br />PostgreSQL: No default<br />Sybase: 8000
+</div>
+<a name="wp239838"> </a><div class="pCellBody">
+You can override the default by using this option declaration.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp237285"> </a><h4 class="pHeading3">
+Database-Specific Option Declarations
+</h4>
+<a name="wp237389"> </a><p class="pBody">
+Database-specific option declarations control the processing of XQuery queries for a specific database. Connection-specific option declarations are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp225573"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp242481">sql-ora10-use-binary-float-double</a></li></div><a name="wp243121"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp242723">sql-rewrite-exists-into-count</a></li></div><a name="wp242876"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp242488">sql-sybase-temptable-index</a></li></div><a name="wp223889"> </a><div class="pSmartList1"><li><a  href="advancedfeatures2.html#wp242495">sql-sybase-use-derived-tables</a></li></div></ul></div>
+<a name="wp240481"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp242452"> </a><div class="pTableTitle">
+Table 12-3.  Database-Specific Option Declarations &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp242456"> </a><div class="pCellHeading">
+Option Declaration
+</div>
+</th>
+    <th><a name="wp242458"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp242481"> </a><div class="pCellBody">
+sql-ora10-use-binary-float-double
+</div>
+<a name="wp242482"> </a><div class="pCellBody">
+   Connection-specific
+</div>
+</td>
+    <td><a name="wp242485"> </a><div class="pCellBody">
+{yes | no}. For Oracle 10g and higher. When set to yes, the BINARY_FLOAT and BINARY_DOUBLE data types are converted from XML floats and doubles. The default is no.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp242723"> </a><div class="pCellBody">
+sql-rewrite-exists-into-count
+</div>
+<a name="wp242724"> </a><div class="pCellBody">
+  
+</div>
+</td>
+    <td><a name="wp242726"> </a><div class="pCellBody">
+{yes | no | inCase}. For DB2 only. The different DB2 databases impose limitations on the usage of the SQL EXISTS subclause. This option specifies whether to change an EXISTS subclause into a count() &gt; 0 subclause. 
+</div>
+<a name="wp242727"> </a><div class="pCellBody">
+When set to no, EXISTS subclauses are not rewritten.
+</div>
+<a name="wp242728"> </a><div class="pCellBody">
+When set to yes (the default for DB2 for z/OS), EXISTS subclauses are always rewritten. 
+</div>
+<a name="wp242729"> </a><div class="pCellBody">
+When set to inCase (the default for DB2 for iSeries), EXISTS subclauses in conditional expressions are rewritten.
+</div>
+<a name="wp242730"> </a><div class="pCellBody">
+Typically, you should not change the default setting, but some XQuery expressions executed against DB2 for z/OS and DB2 for iSeries perform better when this option is set to no. In addition, if sql-order-by-on-values is set to noSubquery for DB2 for Linux/UNIX/Windows, you will get the best performance for the broadest set of queries if you set this option to inCase.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp242488"> </a><div class="pCellBody">
+sql-sybase-temptable-index
+</div>
+<a name="wp242489"> </a><div class="pCellBody">
+    Connection-specific
+</div>
+</td>
+    <td><a name="wp242492"> </a><div class="pCellBody">
+{yes | no}. For Sybase only. Determines whether an index is created on the temporary table that is used when joining XML and relational data. When set to yes, DataDirect XQuery creates this index. Setting this option to yes has a positive impact on performance when hundreds of values are extracted from XML documents and joined with relational data. The default is no.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp242495"> </a><div class="pCellBody">
+sql-sybase-use-derived-tables
+</div>
+<a name="wp242496"> </a><div class="pCellBody">
+    Connection-specific
+</div>
+</td>
+    <td><a name="wp242498"> </a><div class="pCellBody">
+{yes | no}. For Sybase only. Determines whether DataDirect XQuery generates SQL statements that use derived tables. Many XQuery expressions require the use of derived tables. However, derived tables are not fully supported in Sybase, and some valid SQL statements that use derived tables fail when executed against a Sybase server. Therefore, DataDirect XQuery does not generate SQL statements that use derived tables by default; instead, it creates temporary views, which can adversely affect performance. For some XQuery expressions, the generated SQL that uses derived tables does not fail and returns correct results. To use derived tables, set this option declaration to yes. When using derived tables, performance is improved.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp186679"> </a><h4 class="pHeading3">
+Specifying an Option Declaration
+</h4>
+<a name="wp237733"> </a><p class="pBody">
+You can specify an option declaration using either of the following methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp186680"> </a><div class="pSmartList1"><li>Using the prolog of the XQuery query. The syntax for specifying an option declaration in a query is:</li></div></ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+						  declare option ddtek:<code><em>name_of_option_declaration</em></code> 
+<span style="font-weight: bold">&quot;</span><code><em>value</em></code><span style="font-weight: bold">&quot;</span>;<a name="wp186682"> </a>
+<a name="wp186683"> </a><p class="pBodyRelative">
+For example:
+</p>
+						  declare option ddtek:sql-unicode-strings &quot;yes&quot;;<a name="wp186684"> </a>
+<a name="wp205854"> </a><p class="pBodyRelative">
+NOTE: If the option declarations you specify in imported modules conflict with the option declarations you specify in the query or another imported module, DataDirect XQuery raises an error.
+</p>
+</pre></div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp186686"> </a><div class="pSmartList1"><li>Using the properties of the DDXQDataSource and DDXQJDBCConnection class. To specify an option declaration as global, use the Options property of the DDXQDataSource class. To specify an option declaration as connection-specific, use the JdbcOptions property of the DDXQDataSource class or the Options property of the DDXQJDBCConnection class. See <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a>.</li></div></ul></div>
+<a name="wp192488"> </a><p class="pBody">
+In the following example, we specify <code class="cCode">detect-XPST0005=no</code> as a global option declaration. It disables the XPST0005 error, which is raised during static analysis under certain conditions (as explained in <a  href="advancedfeatures2.html#wp238383">Table&#160;12-1</a>). In addition, the example specifies <code class="cCode">sql-decimal-cast=20,15</code> as a connection-specific option declaration. It instructs DataDirect XQuery to process a query with a specific precision and scale for xs:decimal() values. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp192489"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp192490"> </a>
+ds.setOptions(&quot;detect-XPST0005=no&quot;);<a name="wp192491"> </a>
+ds.setJdbcOptions(&quot;sql-decimal-cast=20,15&quot;);<a name="wp192492"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;,&quot;mypswd&quot;);<a name="wp192493"> </a>
+XQExpression xqExpression = conn.createExpression();<a name="wp192494"> </a>
+FileReader fileReader = new FileReader(&quot;xquery_file.xq&quot;);<a name="wp192495"> </a>
+XQSequence xqSequence = xqExpression.executeQuery(fileReader);<a name="wp192496"> </a>
+</pre></div>
+<a name="wp187538"> </a><h3 class="pHeading2">
+Using Extension Expressions
+</h3>
+<a name="wp185078"> </a><p class="pBody">
+Extension expressions provide parameters that modify how DataDirect XQuery processes expressions in a query. You can specify extension expressions only in the body of a query. The only extension expression supported by DataDirect XQuery is evaluate-in-memory (as defined in <a  href="advancedfeatures2.html#wp174202">Table&#160;12-4</a>).
+</p>
+<a name="wp192323"> </a><p class="pBody">
+The syntax for specifying an extension expression in a query is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(# ddtek:<code><em>name_of_extension_expression</em></code><span style="font-weight: bold"> </span>#)<a name="wp192324"> </a>
+</pre></div>
+<a name="wp192325"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(# ddtek:evaluate-in-memory #)<a name="wp192326"> </a>
+</pre></div>
+<a name="wp192018"> </a><p class="pBody">
+Suppose a user wants to perform data analysis using the following query, which accesses the historical database table and returns the ratio of the value of adjustedclose to the value of actualclose for a particular date.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in collection(&#39;historical&#39;)/historical<a name="wp192016"> </a>
+where $h/ticker = &#39;AMZN&#39;<a name="wp192211"> </a>
+return<a name="wp192216"> </a>
+   &lt;historical&gt;<a name="wp192221"> </a>
+   {$h/datetraded}<a name="wp192226"> </a>
+   {$h/adjustedclose div $h/actualclose}<a name="wp192231"> </a>
+   &lt;/historical&gt;<a name="wp192236"> </a>
+</pre></div>
+<a name="wp192125"> </a><p class="pBody">
+Suppose that actualclose is 0 for one or multiple dates because of a data entry error. In XQuery, division by 0 raises an error for decimal and integer data types, but not for float and double data types. The user can avoid an error by casting the ratio to a double data type and performing the division in memory by specifying the evaluate-in-memory extension expression for the division expression as shown in the following query:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in collection(&#39;historical&#39;)/historical
+where $h/ticker = &#39;AMZN&#39;<a name="wp192156"> </a>
+return 
+   &lt;historical&gt;
+   {$h/datetraded}
+   {(# ddtek:evaluate-in-memory #) <a name="wp196956"> </a>
+   {xs:double($h/adjustedclose) div $h/actualclose}}
+   &lt;/historical&gt;<a name="wp196144"> </a>
+</pre></div>
+<a name="wp151425"> </a><p class="pBody">
+<a  href="advancedfeatures2.html#wp174202">Table&#160;12-4</a> provides a description of the evaluate-in-memory extension expression. 
+</p>
+<a name="wp139910"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp174202"> </a><div class="pTableTitle">
+Table 12-4.  Extension Expressions &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp174206"> </a><div class="pCellHeading">
+Extension Expressions
+</div>
+</th>
+    <th><a name="wp174208"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174265"> </a><div class="pCellBody">
+evaluate-in-memory
+</div>
+</td>
+    <td><a name="wp191418"> </a><div class="pCellBody">
+Specifies an expression that is evaluated in memory as XQuery, ensuring that it will not be translated to SQL for evaluation in a relational data source. Use this extension expression for the following reasons:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp191421"> </a><div class="pSmartList1"><li>To ensure that DataDirect XQuery uses strictly conforming XQuery behavior when processing data from relational data sources. For relational data sources, DataDirect XQuery sometimes uses compensation to allow expressions to be evaluated efficiently (as described in <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>). When strict conformance to the XQuery specification is more important than efficient data handling, use this extension expression.</li></div><a name="wp191514"> </a><div class="pSmartList1"><li>To provide XQuery functionality not typically provided for relational data sources. For example, use this extension expression to perform path expressions on XML stored in the database.</li></div></ul></div>
+<a name="wp191420"> </a><div class="pCellBody">
+This setting ensures the maximum XQuery conformance, but can significantly degrade performance depending on how it is used. For example, if used in a where clause of a FLWOR expression, it can force all rows of a database table to be evaluated in memory, which degrades performance.
+</div>
+<a name="wp174269"> </a><div class="pCellBody">
+The expression used for evaluation in memory cannot contain the following functions: fn:collection, fn:doc and fn:doc-available.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

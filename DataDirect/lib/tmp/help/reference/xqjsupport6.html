@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQDynamicContext Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp155788"> </a><h2 class="pNewHTMLPageNum">
+XQDynamicContext Interface
+</h2>
+<hr />
+<a name="wp155789"> </a><p class="pBody">
+This interface provides get and bind methods for the components of the dynamic context of an XQuery expression. This interface is implemented through XQExpression and XQPreparedExpression.
+</p>
+<a name="wp155793"> </a><p class="pBody">
+<a  href="xqjsupport6.html#wp155800">Table&#160;G-4</a> describes how DataDirect XQuery supports the methods of the XQDynamicContext interface.
+</p>
+<a name="wp173413"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp155800"> </a><div class="pTableTitle">
+Table G-4.  XQDynamicContext Method Summary&#160; 
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp155804"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp155806"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155808"> </a><div class="pCellBody">
+void bindAtomicValue(QName varName, String value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155810"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155812"> </a><div class="pCellBody">
+void bindBoolean(QName varName, boolean value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155814"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155816"> </a><div class="pCellBody">
+void bindByte(QName varname, byte value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155818"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155820"> </a><div class="pCellBody">
+void bindDocument(QName varName, InputStream value,<br />String baseURI, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155822"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155824"> </a><div class="pCellBody">
+void bindDocument(QName varName, Reader value,<br />String baseURI, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155826"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp157610"> </a><div class="pCellBody">
+void bindDocument(namespaceQName varName, Source value,<br />XQItemType type)
+</div>
+</td>
+    <td><a name="wp157612"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155828"> </a><div class="pCellBody">
+void bindDocument(QName varName, String value,<br />String baseURI, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155830"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155836"> </a><div class="pCellBody">
+void bindDocument(QName varName, XMLStreamReader value,<br />XQItemType type)
+</div>
+</td>
+    <td><a name="wp155838"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155844"> </a><div class="pCellBody">
+void bindDouble(QName varName, double value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155846"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155848"> </a><div class="pCellBody">
+void bindFloat(QName varName, float value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155850"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155852"> </a><div class="pCellBody">
+void bindInt(QName varName, int value, XQItemType type) 
+</div>
+</td>
+    <td><a name="wp155854"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155856"> </a><div class="pCellBody">
+void bindItem(QName varName, XQItem value) 
+</div>
+</td>
+    <td><a name="wp155858"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155860"> </a><div class="pCellBody">
+void bindLong(QName varName, long value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155862"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155864"> </a><div class="pCellBody">
+void bindNode(QName varName, Node value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155866"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155868"> </a><div class="pCellBody">
+void bindObject(QName varName, Object value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155870"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155872"> </a><div class="pCellBody">
+void bindSequence(QName varName, XQSequence value)
+</div>
+</td>
+    <td><a name="wp155874"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155876"> </a><div class="pCellBody">
+void bindShort(QName varName, short value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155878"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155880"> </a><div class="pCellBody">
+void bindString(QName varName, String value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp155882"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155884"> </a><div class="pCellBody">
+TimeZone getImplicitTimeZone( )
+</div>
+</td>
+    <td><a name="wp155886"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155888"> </a><div class="pCellBody">
+void setImplicitTimeZone(TimeZone implicitTimeZone)
+</div>
+</td>
+    <td><a name="wp155890"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp173416"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

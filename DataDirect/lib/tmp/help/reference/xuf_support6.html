@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:12" />
+  <title>Inserting a New Node</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp218964"> </a><h2 class="pNewHTMLPageNum">
+Inserting a New Node
+</h2>
+<hr />
+<a name="wp218977"> </a><p class="pBody">
+The <code class="cCode">insert </code>expression allows you to insert new nodes into XML documents. The XUF specification defines the <code class="cCode">insert</code> expression as
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+insert (node|nodes) <em class="cEmphasis">target</em><a name="wp219461"> </a>
+</pre></div>
+<a name="wp219462"> </a><p class="pBody">
+where:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp219463"> </a><div class="pSmartList1"><li><code class="cCode">(node|nodes)</code> can be one or more individual XML nodes; you can use either word regardless of the number of nodes being inserted.</li></div><a name="wp219464"> </a><div class="pSmartList1"><li><em class="cEmphasis">target</em> is the target expression. You use it both to identify into what you want the node inserted (an XML document, for example) and where. New nodes can be inserted at the start of the target (<code class="cCode">as first</code>), and the end (<code class="cCode">as last</code>), or <code class="cCode">after</code> or <code class="cCode">before</code> any node you specify.</li></div></ul></div>
+<a name="wp219928"> </a><p class="pBody">
+Note that if you do not specify placement in the target expression, DataDirect XQuery inserts new nodes at the end of the target in document order.
+</p>
+<a name="wp219424"> </a><h3 class="pHeading2">
+Example
+</h3>
+<a name="wp219912"> </a><p class="pBody">
+In this example, for every user in users.xml, insert-nodes.xq adds 1000 shares of DDTEK stock to that user&#8217;s holdings. It creates a new <code class="cCode">&lt;holdings&gt;</code> node for those users who do not already have DDTEK &#8211; or who are not already listed in the holdings.xml document &#8211; and writes the result to a new XML document. Note that the <code class="cCode">insert node</code> expression specifies placement (<code class="cCode">as last</code>) within the target document.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $user in doc(&quot;/examples/xml/users.xml&quot;)/table/users<a name="wp220083"> </a>
+let $ddtekShares := doc(&quot;/examples/xml/holdings.xml&quot;)/table/holdings[UserId 
+eq $user/UserId and StockTicker eq &quot;DDTEK&quot;]<a name="wp220084"> </a>
+return<a name="wp220085"> </a>
+  if( $ddtekShares ) then<a name="wp220086"> </a>
+    replace value of node $ddtekShares/Shares with $ddtekShares/Shares + 1000<a name="wp220087"> </a>
+  else<a name="wp220088"> </a>
+    insert node<a name="wp220089"> </a>
+        &lt;holdings&gt;<a name="wp220090"> </a>
+             &lt;UserId&gt;{$user/UserId/text()}&lt;/UserId&gt;<a name="wp220091"> </a>
+             &lt;StockTicker&gt;DDTEK&lt;/StockTicker&gt;<a name="wp220092"> </a>
+             &lt;Shares&gt;1000&lt;/Shares&gt;<a name="wp220093"> </a>
+        &lt;/holdings&gt;<a name="wp220094"> </a>
+    as last into doc(&quot;/examples/xml/holdings.xml&quot;)/table,<a name="wp220095"> </a>
+put(doc(&quot;/examples/xml/holdings.xml&quot;),&quot;/examples/xml/more-ddtek-<a name="wp220078"> </a>
+        holdings.xml&quot;)<a name="wp220190"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

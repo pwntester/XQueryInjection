@@ -1,0 +1,135 @@
+(: Copyright(c) 2003-2009 DataDirect Technologies. All rights reserved. :) 
+(: This module contains function declarations for (a number of) DB2 LUW functions :) 
+module namespace ddtek-sql = "http://www.datadirect.com/xquery/sql-function"; 
+
+(: Aggregate Functions :)
+declare function ddtek-sql:AVG($p1 as xs:decimal*) as xs:decimal? external;             
+declare function ddtek-sql:COUNT($p1 as xdt:anyAtomicType*) as xs:int? external;     
+declare function ddtek-sql:COUNT_BIG($p1 as xdt:anyAtomicType*) as xs:integer? external;
+declare function ddtek-sql:MAX($p1 as xs:decimal*) as xs:decimal? external;   
+declare function ddtek-sql:MIN($p1 as xs:decimal*) as xs:decimal? external;   
+declare function ddtek-sql:STDEV($p1 as xs:decimal*) as xs:double? external; 
+declare function ddtek-sql:SUM($p1 as xs:decimal*) as xs:decimal? external;   
+declare function ddtek-sql:VAR($p1 as xs:decimal*) as xs:double? external;   
+
+(: Scalar Functions A-F:) 
+declare function ddtek-sql:ABS($p1 as xs:decimal?) as xs:decimal? external;
+declare function ddtek-sql:ACOS($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:ASIN($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:ATAN($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:ATANH($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:ATAN2($p1 as xs:decimal?, $p2 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:BLOB($p1 as xs:string?) as xs:hexBinary? external;
+declare function ddtek-sql:BLOB($p1 as xs:string?, $p2 as xs:int) as xs:hexBinary? external;
+declare function ddtek-sql:CEIL($p1 as xs:decimal?) as xs:decimal? external;
+declare function ddtek-sql:CEILING($p1 as xs:decimal?) as xs:decimal? external;
+declare function ddtek-sql:CHAR($p1 as xdt:anyAtomicType?) as xs:string? external;
+declare function ddtek-sql:CHAR($p1 as xs:string?, $p2 as xs:int) as xs:string? external;
+declare function ddtek-sql:CLOB($p1 as xs:string?) as xs:string? external;
+declare function ddtek-sql:CLOB($p1 as xs:string?, $p2 as xs:int) as xs:string? external;
+declare function ddtek-sql:COALESCE($p1 as xs:string?, $p2 as xs:string) as xs:string external;
+declare function ddtek-sql:CONCAT($p1 as xs:string?, $p2 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:COS($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:COSH($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:DATE($p1 as xdt:anyAtomicType?) as xs:date? external;
+declare function ddtek-sql:DAY($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:DAYNAME($p1 as xs:date?) as xs:string? external;
+declare function ddtek-sql:DAYOFWEEK($p1 as xs:dateTime?) as xs:integer? external;
+declare function ddtek-sql:DAYOFWEEK_ISO($p1 as xs:dateTime?) as xs:integer? external;
+declare function ddtek-sql:DAYOFYEAR($p1 as xs:dateTime?) as xs:integer? external;
+declare function ddtek-sql:DAYS($p1 as xs:dateTime?) as xs:integer? external;
+declare function ddtek-sql:DEC($p1 as xdt:anyAtomicType?) as xs:decimal? external;
+declare function ddtek-sql:DECIMAL($p1 as xdt:anyAtomicType?) as xs:decimal? external;
+declare function ddtek-sql:DECRYPT_BIT($p1 as xs:hexBinary?) as xs:hexBinary? external;
+declare function ddtek-sql:DECRYPT_BIT($p1 as xs:hexBinary?, $p2 as xs:string) as xs:hexBinary? external;
+declare function ddtek-sql:DECRYPT_CHAR($p1 as xs:string?) as xs:string? external;
+declare function ddtek-sql:DECRYPT_CHAR($p1 as xs:string?, $p2 as xs:string) as xs:string? external;
+declare function ddtek-sql:DEGREES($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:DIGITS($p1 as xs:decimal?) as xs:string? external;
+declare function ddtek-sql:DOUBLE($p1 as xdt:anyAtomicType?) as xs:double? external;
+declare function ddtek-sql:DOUBLE_PRECISION($p1 as xdt:anyAtomicType?) as xs:double? external;
+declare function ddtek-sql:ENCRYPT($p1 as xs:string?) as xs:hexBinary? external;
+declare function ddtek-sql:ENCRYPT($p1 as xs:string?, $p2 as xs:string) as xs:hexBinary? external;
+declare function ddtek-sql:ENCRYPT($p1 as xs:string?, $p2 as xs:string, $p3 as xs:string) as xs:hexBinary? external;
+declare function ddtek-sql:EXP($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:FLOAT($p1 as xdt:anyAtomicType?) as xs:float? external;
+declare function ddtek-sql:FLOOR($p1 as xs:decimal?) as xs:decimal? external;
+
+(: Scalar Functions G-R:) 
+declare function ddtek-sql:GETHINT($p1 as xs:hexBinary?) as xs:string? external;
+declare function ddtek-sql:GRAPHIC($p1 as xs:hexBinary?) as xs:hexBinary? external;
+declare function ddtek-sql:GRAPHIC($p1 as xs:hexBinary?, $p2 as xs:int) as xs:hexBinary? external;
+declare function ddtek-sql:HEX($p1 as xdt:anyAtomicType?) as xs:string? external;
+declare function ddtek-sql:HOUR($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:IDENTITY_VAL_LOCAL() as xs:decimal? external;
+declare function ddtek-sql:INSERT($p1 as xs:string?, $p2 as xs:int?, $p3 as xs:int?, $p4 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:INT($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:INTEGER($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:JULIAN_DAY($p1 as xs:dateTime?) as xs:integer? external;
+declare function ddtek-sql:LCASE($p1 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:LEFT($p1 as xs:string, $p2 as xs:int) as xs:string? external; 
+declare function ddtek-sql:LENGTH($p1 as xs:string?) as xs:integer? external; 
+declare function ddtek-sql:LN($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:LOCATE($p1 as xs:string?, $p2 as xs:string?) as xs:integer? external; 
+declare function ddtek-sql:LOCATE($p1 as xs:string?, $p2 as xs:string?, $start as xs:integer) as xs:integer? external; 
+declare function ddtek-sql:LOG10($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:LOWER($p1 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:LTRIM($p1 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:MICROSECOND($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:MIDNIGHT_SECONDS($p1 as xs:dateTime?) as xs:integer? external;
+declare function ddtek-sql:MINUTE($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:MOD($p1 as xs:integer?, $p2 as xs:integer?) as xs:integer? external; 
+declare function ddtek-sql:MONTH($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:MONTHNAME($p1 as xs:date?) as xs:string? external;
+declare function ddtek-sql:MULTIPLY_ALT($p1 as xs:decimal?, $p2 as xs:decimal?) as xs:decimal? external; 
+declare function ddtek-sql:NULLIF($p1 as xs:string?, $p2 as xs:string) as xs:string external;
+declare function ddtek-sql:POSSTR($p1 as xs:string?, $p2 as xs:string?) as xs:integer? external; 
+declare function ddtek-sql:POWER($p1 as xs:decimal?, $p2 as xs:decimal?) as xs:double? external; 
+declare function ddtek-sql:QUARTER($p1 as xs:dateTime?) as xs:integer? external;
+declare function ddtek-sql:RADIANS($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:RAND() as xs:double external;
+declare function ddtek-sql:RAND($p1 as xs:integer) as xs:double external;
+declare function ddtek-sql:REAL($p1 as xdt:anyAtomicType?) as xs:float? external;
+declare function ddtek-sql:REPEAT($p1 as xs:string?, $p2 as xs:int?) as xs:string? external; 
+declare function ddtek-sql:REPLACE($p1 as xs:string?, $p2 as xs:string?, $p3 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:RIGHT($p1 as xs:string, $p2 as xs:int) as xs:string? external; 
+declare function ddtek-sql:ROUND($p1 as xs:decimal?, $p2 as xs:integer?) as xs:decimal? external; 
+declare function ddtek-sql:RTRIM($p1 as xs:string?) as xs:string? external; 
+
+(: Scalar Functions S-Z:) 
+declare function ddtek-sql:SECOND($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:SIGN($p1 as xs:decimal?) as xs:decimal? external; 
+declare function ddtek-sql:SIN($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:SINH($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:SMALLINT($p1 as xdt:anyAtomicType?) as xs:int? external;
+declare function ddtek-sql:SPACE($p1 as xs:integer?) as xs:string? external; 
+declare function ddtek-sql:SQRT($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:SUBSTR($p1 as xs:string?, $p2 as xs:integer?) as xs:string? external; 
+declare function ddtek-sql:SUBSTR($p1 as xs:string?, $p2 as xs:integer?, $p3 as xs:integer?) as xs:string? external; 
+declare function ddtek-sql:TAN($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:TANH($p1 as xs:decimal?) as xs:double? external;
+declare function ddtek-sql:TIME($p1 as xdt:anyAtomicType?) as xs:time? external;
+declare function ddtek-sql:TIMESTAMP($p1 as xs:string?) as xs:dateTime? external;
+declare function ddtek-sql:TIMESTAMP($p1 as xs:date?, $p2 as xs:time) as xs:dateTime? external;
+declare function ddtek-sql:TRANSLATE($p1 as xs:string?, $p2 as xs:string?, $p3 as xs:string?, $p4 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:TRUNCATE($p1 as xs:decimal?, $p2 as xs:integer?) as xs:decimal? external; 
+declare function ddtek-sql:TRUNC($p1 as xs:decimal?, $p2 as xs:integer?) as xs:decimal? external; 
+declare function ddtek-sql:UCASE($p1 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:UPPER($p1 as xs:string?) as xs:string? external; 
+declare function ddtek-sql:VALUE($p1 as xs:string?, $p2 as xs:string) as xs:string external;
+declare function ddtek-sql:VARCHAR($p1 as xdt:anyAtomicType?) as xs:string? external;
+declare function ddtek-sql:VARCHAR($p1 as xs:string?, $p2 as xs:int) as xs:string? external;
+declare function ddtek-sql:VARGRAPHIC($p1 as xs:hexBinary?) as xs:hexBinary? external;
+declare function ddtek-sql:VARGRAPHIC($p1 as xs:hexBinary?, $p2 as xs:int) as xs:hexBinary? external;
+declare function ddtek-sql:WEEK($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:WEEK_ISO($p1 as xdt:anyAtomicType?) as xs:integer? external;
+declare function ddtek-sql:YEAR($p1 as xdt:anyAtomicType?) as xs:integer? external;
+
+(: Scalar Functions DB2 V9 :)
+declare function ddtek-sql:OCTET_LENGTH($p1 as xs:string?) as xs:integer? external;
+declare function ddtek-sql:TRIM($p1 as xs:string?) as xs:string? external;
+declare function ddtek-sql:STRIP($p1 as xs:string?) as xs:string? external;
+declare function ddtek-sql:XMLCOMMENT($p1 as xs:string?) as node()* external;
+declare function ddtek-sql:XMLTEXT($p1 as xs:string?) as node()* external;
+declare function ddtek-sql:XMLCONCAT($p1 as node()*, $p2 as node()*) as node()* external;
+declare function ddtek-sql:XMLDOCUMENT($p1 as node()*) as node()* external;

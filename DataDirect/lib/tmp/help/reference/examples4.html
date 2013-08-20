@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:48" />
+  <title>About the Examples</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp138589"> </a><h2 class="pNewHTMLPageNum">
+About the Examples
+</h2>
+<hr />
+<a name="wp138591"> </a><p class="pBody">
+Each example is located in a separate directory beneath the examples directory:
+</p>
+<a name="wp138594"> </a><p class="pBody">
+<em class="cEmphasis">ddxq_install_directory</em>/examples/<em class="cEmphasis">name_of_example</em>
+</p>
+<a name="wp138596"> </a><p class="pBody">
+For example:
+</p>
+<a name="wp139587"> </a><p class="pBody">
+ddxq5_0/examples/xqjexecute
+</p>
+<a name="wp138598"> </a><p class="pBody">
+Each example directory contains the following files:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp138600"> </a><div class="pSmartList1"><li>run.bat or run.sh to execute the example program. This file contains a commented line, that when uncommented, recompiles the example.</li></div><a name="wp138604"> </a><div class="pSmartList1"><li>Zero or more .xq files that contain the XQuery expressions that will be executed by the example program.</li></div><a name="wp138607"> </a><div class="pSmartList1"><li>Zero or more .xml files that contain XML files that will be queried by the XQuery expressions.</li></div><a name="wp138610"> </a><div class="pSmartList1"><li>One or more source and class files that contain the source and compiled source code for the example. </li></div></ul></div>
+<a name="wp139134"> </a><p class="pBody">
+The following examples are provided with the product:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp143034"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp143179">CustomDocumentURIResolver</a> shows how to implement a custom URI resolver.</li></div><a name="wp143038"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp143233">JNDIDataSource</a> shows how to persist and load a DDXQDataSource using a JNDI provider.</li></div><a name="wp138625"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp138712">ExternalFunctions</a> shows different types of external functions supported by DataDirect XQuery and how they can be used.</li></div><a name="wp143047"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp143212">ExternalVariables</a> shows binding Java variables to external XQuery variables.</li></div><a name="wp141055"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp137818">RDBMSUpdate</a> shows how to insert, update, and delete data stored in a relational database.</li></div><a name="wp143056"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp143252">ResultRetrieval</a> shows how you can retrieve the results of an XQuery expression as SAX, StAX, or DOM.</li></div><a name="wp143064"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp142961">UpdateFacility</a> shows how to update data in XML documents.</li></div><a name="wp143068"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp143121">XMLQuery</a> shows how to query data in XML documents.</li></div><a name="wp143088"> </a><div class="pSmartList1"><li><a  href="examples4.html#wp143098">XQJExecute</a> is a simple XQJ example that shows how to execute an XQuery expression from a file or string and retrieve the results as a string.</li></div></ul></div>
+<a name="wp143069"> </a><p class="pBody">
+For information about how to use each of these examples, see the following sections.
+</p>
+<a name="wp143179"> </a><h3 class="pHeading2">
+CustomDocumentURIResolver
+</h3>
+<a name="wp143180"> </a><p class="pBody">
+From the CustomURIResolver directory, enter the following command line to execute the example:
+</p>
+<a name="wp143181"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat [<code><em>xquery_file</em></code>]<a name="wp143182"> </a>
+</pre></div>
+<a name="wp143183"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh [<code><em>xquery_file</em></code>]<a name="wp143184"> </a>
+</pre></div>
+<a name="wp143185"> </a><p class="pBody">
+where <code><em>xquery_file</em></code> is the XQuery file you want to execute. If you do not specify a query file name, the XQuery file in the CustomURIResolver directory is executed. Optionally, you can write your own query, save it to a file, and execute that XQuery file by entering the file name as the argument to run.bat or run.sh.
+</p>
+<a name="wp143186"> </a><p class="pBody">
+This example returns an XML document that contains a top-level directory element and a child element named file that represents each XML file found in the specified directory. The file element has a size attribute with a value of the file size in bytes, and the value of the file element is the name of the XML file. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;directory&gt;<a name="wp143187"> </a>
+  &lt;file size=&quot;10000&quot;&gt;one.xml&lt;/file&gt;<a name="wp143188"> </a>
+  &lt;file size=&quot;15550&quot;&gt;two.xml&lt;/file&gt;<a name="wp143189"> </a>
+&lt;/directory&gt;<a name="wp143190"> </a>
+</pre></div>
+<a name="wp143191"> </a><p class="pBody">
+The resulting XML structure can be used in other XQuery expressions, as shown in the query of this example.
+</p>
+<a name="wp138712"> </a><h3 class="pHeading2">
+ExternalFunctions
+</h3>
+<a name="wp138714"> </a><p class="pBody">
+From the ExternalFunctions directory, enter the following command line to execute the example:
+</p>
+<a name="wp139871"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat [<code><em>xquery_file</em></code>]<a name="wp138717"> </a>
+</pre></div>
+<a name="wp138719"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh [<code><em>xquery_file</em></code>]<a name="wp138721"> </a>
+</pre></div>
+<a name="wp138723"> </a><p class="pBody">
+where <code><em>xquery_file</em></code> is one of the following query files in the ExternalFunctions directory:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp138726"> </a><div class="pSmartList1"><li>javaFunction.xq invokes a static Java method.</li></div><a name="wp138727"> </a><div class="pSmartList1"><li>javaInstanceMethod.xq invokes a Java instance method.</li></div><a name="wp138728"> </a><div class="pSmartList1"><li>sqlFunction.xq invokes a SQL function.</li></div><a name="wp140317"> </a><div class="pSmartList1"><li>sqlFunctionFromModule_db2luw.xq invokes a SQL function   from a module that declares SQL functions for DB2 for   Linux/UNIX/Windows.</li></div><a name="wp140318"> </a><div class="pSmartList1"><li>sqlFunctionFromModule_ora.xq invokes a SQL function from a module that declares SQL functions for Oracle.</li></div><a name="wp138734"> </a><div class="pSmartList1"><li>sqlFunctionFromModule_sqlserver.xq invokes a SQL function from a module that declares SQL functions for Microsoft SQL&#160;Server.</li></div><a name="wp138737"> </a><div class="pSmartList1"><li>jdbcEscapeFunction.xq invokes a JDBC escape function.</li></div></ul></div>
+<a name="wp138739"> </a><p class="pBody">
+If you do not specify an XQuery file in the command line, a prompt appears asking you to enter a number that corresponds to the XQuery file you want to execute.
+</p>
+<a name="wp138743"> </a><p class="pBody">
+The result of the query is written to standard output.
+</p>
+<a name="wp143212"> </a><h3 class="pHeading2">
+ExternalVariables
+</h3>
+<a name="wp143213"> </a><p class="pBody">
+From the ExternalVariables directory, enter the following command line to execute the example:
+</p>
+<a name="wp143214"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat<a name="wp143215"> </a>
+</pre></div>
+<a name="wp143216"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh<a name="wp143217"> </a>
+</pre></div>
+<a name="wp143218"> </a><p class="pBody">
+A prompt appears asking you to enter one of the following numbers that correspond to the type of external variable you want to execute:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+1 - Bind an xs:int external variable<a name="wp143219"> </a>
+2 - Bind an xs:string external variable<a name="wp143220"> </a>
+3 - Bind a DOM node to an external variable<a name="wp143221"> </a>
+4 - Bind an XQItem to an external variable<a name="wp143222"> </a>
+5 - Bind an XQSequence to an external variable<a name="wp143223"> </a>
+</pre></div>
+<a name="wp143233"> </a><h3 class="pHeading2">
+JNDIDataSource
+</h3>
+<a name="wp143234"> </a><p class="pBody">
+Before using this example, you must have a JNDI provider on your machine. If you do not have one, you can download one from:
+</p>
+<a name="wp143236"> </a><p class="pBody">
+<a  href="https://sdlc6b.sun.com/ECom/EComActionServlet;jsessionid=E79F62120D58475A02917DF3F95A664C">http://javashoplm.sun.com/ECom/docs/<br />Welcome.jsp?StoreId=22&amp;PartDetailId=7110-jndi-1.2.1-oth-JPR&amp;SiteId=JSC&amp;TransactionId=noreg</a>
+</p>
+<a name="wp143237"> </a><p class="pBody">
+You must place the providerutil.jar and fscontext.jar files in your CLASSPATH. You can edit the setenv.bat (Windows) or setenv.sh (UNIX/Linux) files to do this.
+</p>
+<a name="wp143238"> </a><p class="pBody">
+From the JNDIDataSource directory, enter the following command line to execute the example:
+</p>
+<a name="wp143239"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat<a name="wp143240"> </a>
+</pre></div>
+<a name="wp143241"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh<a name="wp143242"> </a>
+</pre></div>
+<a name="wp137818"> </a><h3 class="pHeading2">
+RDBMSUpdate
+</h3>
+<a name="wp141068"> </a><p class="pBody">
+From the RDBMSUpdate directory, enter the following command line to execute the example:
+</p>
+<a name="wp141069"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat [<code><em>xquery_file</em></code>]<a name="wp141070"> </a>
+</pre></div>
+<a name="wp141071"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh [<code><em>xquery_file</em></code>]<a name="wp141072"> </a>
+</pre></div>
+<a name="wp141227"> </a><p class="pBody">
+where <code><em>xquery_file</em></code> is one of the following query files in the RDBMSUpdate directory:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp141228"> </a><div class="pSmartList1"><li>insert-holdings.xq inserts data into the holdings table.</li></div><a name="wp141229"> </a><div class="pSmartList1"><li>update-holdings.xq updates data in the holdings table.</li></div><a name="wp141230"> </a><div class="pSmartList1"><li>delete-holdings.xq deletes data from the holdings table.</li></div><a name="wp141231"> </a><div class="pSmartList1"><li>update-holdings-from-xml.xq uses data provided in an XML document to update data in the holdings table.</li></div><a name="wp141232"> </a><div class="pSmartList1"><li>update-function.xq updates data in the holdings table using a user-defined function.</li></div><a name="wp141233"> </a><div class="pSmartList1"><li>shredding-xml.xq shreds data provided in an XML document into multiple tables.</li></div></ul></div>
+<a name="wp141223"> </a><p class="pBody">
+If you do not specify a query file name, a prompt appears asking you to enter the number that corresponds to the XQuery file you want to use:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+1 - insert-holdings.xq<a name="wp141326"> </a>
+2 - update-holdings.xq<a name="wp141327"> </a>
+3 - delete-holdings.xq <a name="wp141328"> </a>
+4 - update-holdings-from-xml.xq<a name="wp141329"> </a>
+5 - update-function.xq<a name="wp141330"> </a>
+6 - shredding-xml.xq<a name="wp141241"> </a>
+</pre></div>
+<a name="wp141341"> </a><p class="pBody">
+Optionally, you can write your own query, save it to a file, and execute that XQuery file by entering the file name as the argument to run.bat or run.sh.
+</p>
+<a name="wp143252"> </a><h3 class="pHeading2">
+ResultRetrieval
+</h3>
+<a name="wp143253"> </a><p class="pBody">
+From the ResultRetrieval directory, enter the following command line to execute the example:
+</p>
+<a name="wp143254"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat<a name="wp143255"> </a>
+</pre></div>
+<a name="wp143256"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh<a name="wp143257"> </a>
+</pre></div>
+<a name="wp143258"> </a><p class="pBody">
+A prompt appears asking you to enter one of the following numbers that correspond to the type of retrieval method you want to use:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+1 - SAX<a name="wp143259"> </a>
+2 - STAX<a name="wp143260"> </a>
+3 - DOM<a name="wp143261"> </a>
+</pre></div>
+<a name="wp143262"> </a><p class="pBody">
+The results of the retrieval method are displayed in the standard output.
+</p>
+<a name="wp142961"> </a><h3 class="pHeading2">
+UpdateFacility
+</h3>
+<a name="wp142962"> </a><p class="pBody">
+From the UpdateFacility directory, enter the following command line to execute the example:
+</p>
+<a name="wp142963"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat [<code><em>xquery_file</em></code>]<a name="wp142964"> </a>
+</pre></div>
+<a name="wp142965"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh [<code><em>xquery_file</em></code>]<a name="wp142966"> </a>
+</pre></div>
+<a name="wp142967"> </a><p class="pBody">
+where <code><em>xquery_file</em></code> is one of the following query files in the UpdateFacility directory:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp142968"> </a><div class="pSmartList1"><li>change-values.xq uses the replace expression to replace the node value of a queried document .</li></div><a name="wp142969"> </a><div class="pSmartList1"><li>insert-nodes.xq uses the insert expression to insert a new node.</li></div><a name="wp142980"> </a><div class="pSmartList1"><li>rename-nodes.xq uses the rename expression to rename an existing node.</li></div><a name="wp142981"> </a><div class="pSmartList1"><li>transform-change-values.xq uses copy, modify, and return clauses to replace the value of an existing node.</li></div><a name="wp142982"> </a><div class="pSmartList1"><li>transform-insert-nodes.xq uses copy, modify, and return clauses to insert a new node.</li></div></ul></div>
+<a name="wp142992"> </a><p class="pBody">
+If you do not specify a query file name, a prompt appears asking you to enter the number that corresponds to the XQuery file you want to use:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+1 - rename-nodes.xq<a name="wp142993"> </a>
+2 - change-values.xq<a name="wp142994"> </a>
+3 - insert-nodes.xq<a name="wp142995"> </a>
+4 - transform-change-values.xq<a name="wp142996"> </a>
+5 - transfor-insert-nodes.xq<a name="wp142997"> </a>
+</pre></div>
+<a name="wp142998"> </a><p class="pBody">
+Optionally, you can write your own query, save it to a file, and execute that XQuery file by entering the file name as the argument to run.bat or run.sh.
+</p>
+<a name="wp143121"> </a><h3 class="pHeading2">
+XMLQuery
+</h3>
+<a name="wp143122"> </a><p class="pBody">
+From the XMLQuery directory, enter the following command line to execute the example:
+</p>
+<a name="wp143123"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat [<code><em>xquery_file</em></code>]<a name="wp143124"> </a>
+</pre></div>
+<a name="wp143125"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh [<code><em>xquery_file</em></code>]<a name="wp143126"> </a>
+</pre></div>
+<a name="wp143127"> </a><p class="pBody">
+where <code><em>xquery_file</em></code> is one of the following query files in the XMLQuery directory:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp143128"> </a><div class="pSmartList1"><li>query-initial-context.xq queries the initial context document.</li></div><a name="wp143129"> </a><div class="pSmartList1"><li>query-doc-function.xq queries an XML document using the fn:doc() function.</li></div><a name="wp143130"> </a><div class="pSmartList1"><li>query-external-variable.xq queries an XML document using an external variable.</li></div><a name="wp143131"> </a><div class="pSmartList1"><li>query-directory.xq queries multiple XML documents contained in the same directory.</li></div><a name="wp143132"> </a><div class="pSmartList1"><li>query-pipeline-1.xq uses the result of a one XQuery to provide input into another XQuery.</li></div></ul></div>
+<a name="wp143133"> </a><p class="pBody">
+If you do not specify a query file name, a prompt appears asking you to enter the number that corresponds to the XQuery file you want to use:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+1 - query-initial-context.xq<a name="wp143134"> </a>
+2 - query-doc-function.xq<a name="wp143135"> </a>
+3 - query-external-variable.xq<a name="wp143136"> </a>
+4 - query-directory.xq<a name="wp143137"> </a>
+5 - query-pipeline-1.xq<a name="wp143138"> </a>
+</pre></div>
+<a name="wp143139"> </a><p class="pBody">
+Optionally, you can write your own query, save it to a file, and execute that XQuery file by entering the file name as the argument to run.bat or run.sh.
+</p>
+<a name="wp143098"> </a><h3 class="pHeading2">
+XQJExecute
+</h3>
+<a name="wp143099"> </a><p class="pBody">
+From the XQJExecute directory, enter the following command line to execute the example:
+</p>
+<a name="wp143100"> </a><p class="pBody">
+Windows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.bat [<code><em>xquery_file</em></code>]<a name="wp143101"> </a>
+</pre></div>
+<a name="wp143102"> </a><p class="pBody">
+UNIX:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+run.sh [<code><em>xquery_file</em></code>]<a name="wp143103"> </a>
+</pre></div>
+<a name="wp143104"> </a><p class="pBody">
+where <code><em>xquery_file</em></code> is one of the following query files in the XQJExecute directory:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp143105"> </a><div class="pSmartList1"><li>collection-users.xq returns all data from the users table.</li></div><a name="wp143106"> </a><div class="pSmartList1"><li>collection-holdings.xq returns all data from the holdings table.</li></div><a name="wp143107"> </a><div class="pSmartList1"><li>flwor.xq joins data from two relational tables using a nested   FLWOR expression.</li></div><a name="wp143108"> </a><div class="pSmartList1"><li>JoinXMLToRelational.xq joins data from an XML file with data from a relational table.</li></div><a name="wp143109"> </a><div class="pSmartList1"><li>function.xq uses local function declarations.</li></div><a name="wp143110"> </a><div class="pSmartList1"><li>portfolioHTML.xq serializes the query result as HTML.</li></div><a name="wp143111"> </a><div class="pSmartList1"><li>MainModule.xq and LibraryModule.xq use XQuery modules.</li></div><a name="wp143112"> </a><div class="pSmartList1"><li>nodeId.xq uses a path expression to eliminate duplicate XML nodes.</li></div></ul></div>
+<a name="wp143113"> </a><p class="pBody">
+If you do not specify an XQuery file in the command line, a prompt appears asking you to enter a number that corresponds to the XQuery file you want to execute. Or, you can enter the number &quot;9&quot; and then type in the text of your own query, which will be executed.
+</p>
+<a name="wp143095"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

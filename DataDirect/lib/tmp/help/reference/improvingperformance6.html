@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:17" />
+  <title>Using Connection Pooling</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp206093"> </a><h2 class="pNewHTMLPageNum">
+Using Connection Pooling
+</h2>
+<hr />
+<a name="wp206095"> </a><p class="pBody">
+Connection pooling allows your application to reuse connections. DataDirect XQuery supports connection pooling through JDBC and supports JDBC connection pool managers in the following application server environments:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp206096"> </a><div class="pSmartList1"><li>Tomcat 5.<em class="cEmphasis">x</em> and 6.<em class="cEmphasis">x</em></li></div><a name="wp206097"> </a><div class="pSmartList1"><li>JBoss 4.<em class="cEmphasis">x </em>and 5.<em class="cEmphasis">x</em></li></div><a name="wp206098"> </a><div class="pSmartList1"><li>BEA WebLogic Platform 9.<em class="cEmphasis">x </em>and 10.<em class="cEmphasis">x</em></li></div><a name="wp206099"> </a><div class="pSmartList1"><li>IBM WebSphere Application Server V6.1</li></div><a name="wp206100"> </a><div class="pSmartList1"><li>Oracle Application Server 10g</li></div></ul></div>
+<a name="wp207503"> </a><p class="pBody">
+For the most current information about which application server environments are supported, go to:
+</p>
+<a name="wp207505"> </a><p class="pBody">
+<a  href="http://www.datadirect.com/developer/data-integration/tutorials/examples/connection-pooling/index.ssp">http://www.datadirect.com/developer/data-integration/tutorials/examples/connection-pooling/index.ssp</a>
+</p>
+<a name="wp207506"> </a><p class="pBody">
+DataDirect XQuery has a JDBC driver that allows your application to use connection pooling with an application server&#8217;s JDBC pool manager. See <a  href="improvingperformance6.html#wp206167">Configuring Connection Pooling</a> for information about this driver.
+</p>
+<a name="wp206108"> </a><p class="pBody">
+DataDirect XQuery provides three classes for support of connection pooling:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp206109"> </a><div class="pSmartList1"><li>com.ddtek.xquery.jdbc.XQueryDriver. This is the driver class for the DataDirect XQuery JDBC driver, which is used to configure a pooled connection through the JDBC Driver Manager. See <a  href="improvingperformance6.html#wp206122">Configuring a Connection Through the JDBC Driver Manager</a>.</li></div><a name="wp206113"> </a><div class="pSmartList1"><li>com.ddtek.xquery.jdbc.XQueryConnectionPoolDataSource. This class is used to configure a pooled connection through a data source. See <a  href="improvingperformance6.html#wp206159">Configuring a Connection Through a Data Source</a>.</li></div><a name="wp206117"> </a><div class="pSmartList1"><li>com.ddtek.xquery.jdbc.XQueryConnection. This class is used to convert a JDBC connection into an XQJ connection. See the example in <a  href="improvingperformance6.html#wp206167">Configuring Connection Pooling</a>.</li></div></ul></div>
+<a name="wp206122"> </a><h3 class="pHeading2">
+Configuring a Connection Through the JDBC Driver Manager
+</h3>
+<a name="wp206123"> </a><p class="pBody">
+The com.ddtek.xquery.jdbc.XQueryDriver class is an implementation of the JDBC driver interface (java.sql.Driver) and is used to configure a pooled connection through the JDBC Driver Manager.
+</p>
+<a name="wp206124"> </a><p class="pBody">
+The syntax of the JDBC URL required by this class depends on if you are connecting to one relational data source or multiple relational data sources.
+</p>
+<a name="wp206125"> </a><p class="pBody">
+If you are connecting to one relational data source the syntax is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:datadirect:xquery://JdbcUrl={<code><em>url</em></code>}[;<code><em>optionalProperty</em></code>=<code><em>value</em></code>[;...]]<a name="wp206126"> </a>
+</pre></div>
+<a name="wp206127"> </a><p class="pBody">
+where:
+</p>
+<a name="wp206130"> </a><p class="pBody">
+<code><em>url</em></code> is a URL, as documented in <a  href="conf_sourcefiles7.html#wp182290">Specifying Connection URIs</a>.
+</p>
+<a name="wp206132"> </a><p class="pBody">
+<code><em>optionalProperty</em></code> is any of the DDXQDataSource properties, as documented in <a  href="conf_sourcefiles6.html#wp182053">Table&#160;6-1</a>.
+</p>
+<a name="wp206136"> </a><p class="pBody">
+<code><em>value</em></code> is determined by the DDXQDataSource property you are specifying.
+</p>
+<a name="wp206137"> </a><p class="pBody">
+In the following example, the JDBC URL is defined in the first set of braces {} and the baseURI is a property of DDXQDataSource:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:datadirect:xquery://JdbcUrl={jdbc:xquery:sqlserver://localhost:1433; 
+databaseName=holdings;User=myuserID;Password=mypwd};<a name="wp206138"> </a>
+baseURI={file:///C:/xmldocuments/};<a name="wp206139"> </a>
+</pre></div>
+<a name="wp206140"> </a><p class="pBody">
+If you are connecting to multiple relational data sources the  syntax is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:datadirect:xquery://jdbcConnections<em class="cEmphasis">=</em>{Url={<code><em>url</em></code>}[;<code><em>optionalProperty</em></code>=<code><em>value</em></code><a name="wp206141"> </a>
+[;...]]},...<a name="wp206142"> </a>
+</pre></div>
+<a name="wp206143"> </a><p class="pBody">
+where:
+</p>
+<a name="wp206146"> </a><p class="pBody">
+<code><em>url</em></code> is a URL, as documented in <a  href="conf_sourcefiles7.html#wp182290">Specifying Connection URIs</a>.
+</p>
+<a name="wp206148"> </a><p class="pBody">
+<code><em>optionalProperty</em></code> is any of the DDXQJDBCConnection properties, as documented in <a  href="conf_sourcefiles6.html#wp182224">Table&#160;6-2</a>.
+</p>
+<a name="wp206152"> </a><p class="pBody">
+<code><em>value</em></code> is determined by the DDXQJDBCConnection property you are specifying.
+</p>
+<a name="wp206153"> </a><p class="pBody">
+In the following example, two JDBC URLs are specified and the user ID and password are specified using the User and Password properties of DDXQJDBCConnection; they are not specified within the URL:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:datadirect:xquery://jdbcConnections<em class="cEmphasis">=</em><a name="wp206154"> </a>
+{Url={jdbc:xquery:sqlserver://server1:1433;databaseName=stocks};User=myuserID;<a name="wp206155"> </a>
+Password=mypwd}, {Url={jdbc:xquery:sqlserver://server2:1433;databaseName=
+holdings};<a name="wp206156"> </a>
+User=myuserID2;Password=mypwd2}<a name="wp206157"> </a>
+</pre></div>
+<a name="wp206159"> </a><h3 class="pHeading2">
+Configuring a Connection Through a Data Source
+</h3>
+<a name="wp206160"> </a><p class="pBody">
+The com.ddtek.xquery.jdbc.XQueryConnectionPoolDataSource class is an implementation of the JDBC interface javax.sql.ConnectionPoolDataSource and is used to configure a connection pool connection through a data source.
+</p>
+<a name="wp206161"> </a><p class="pBody">
+Some application servers, such as IBM WebSphere, require a data source to configure pooled connections and provide the infrastructure for you to create the ConnectionPoolDataSource objects you need to configure connection pooling.
+</p>
+<a name="wp206162"> </a><p class="pBody">
+The only property defined for this class is connectionURL. The value for this property is a URL, which is documented in <a  href="improvingperformance6.html#wp206122">Configuring a Connection Through the JDBC Driver Manager</a>. 
+</p>
+<a name="wp206167"> </a><h3 class="pHeading2">
+Configuring Connection Pooling
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp206168"> </a><div class="pSmartList1"><li>The DataDirect XQuery JDBC driver must be registered in the application server and a connection pool must be created. This step makes the pooled connections available to your application code through JNDI. For example:</li></div><a name="wp206169"> </a><p class="pSyntaxEmbed">
+Context evnContext = (Context)initContext.lookup(&quot;java:/comp/env&quot;);
+</p>
+<a name="wp206170"> </a><p class="pSyntaxEmbed">
+DataSource jdbc_ds = (DataSource)envContext.lookup(&quot;jdbc/DDXQExample&quot;);
+</p>
+<a name="wp206171"> </a><p class="pSyntaxEmbed">
+Connection jdbc_c = jdbc_ds.getConnection();
+</p>
+<a name="wp206172"> </a><p class="pBodyRelative">
+Now, a JDBC connection is available.
+</p>
+<a name="wp206173"> </a><div class="pSmartList1"><li>Convert the JDBC connection into an XQJ connection. For example:</li></div><a name="wp206174"> </a><p class="pSyntaxEmbed">
+XQConnection xqj_c = XQueryConnection.getXQConnection(jdbc_c);
+</p>
+<a name="wp206175"> </a><p class="pBodyRelative">
+NOTE: DataDirect XQuery provides a class, com.ddtek.xquery.jdbc.XQueryConnection, to convert the JDBC connection into an XQJ connection.
+</p>
+<a name="wp206176"> </a><p class="pBodyRelative">
+Now, an XQJ connection is available and can be used with XQJ. For example:
+</p>
+<a name="wp206177"> </a><p class="pSyntaxEmbed">
+XQPreparedExpression xqj_p = xqj_c.prepareExpression(&quot;fn:doc(&#8217;foo.xml&#8217;)//abc&quot;);
+</p>
+<a name="wp206178"> </a><div class="pSmartList1"><li>To make a connection available again for pooling, you must close the JDBC connection, not the XQJ connection. For example:</li></div><a name="wp206179"> </a><p class="pSyntaxEmbed">
+jdbc_c.close()
+</p>
+</ol></div>
+<a name="wp206180"> </a><p class="pBody">
+For information about how to configure DataDirect XQuery to use connection pooling in the supported application server environments, go to:
+</p>
+<a name="wp207523"> </a><p class="pBody">
+<a  href="http://www.datadirect.com/developer/data-integration/tutorials/examples/connection-pooling/index.ssp">http://www.datadirect.com/developer/data-integration/tutorials/examples/connection-pooling/index.ssp</a>
+</p>
+<a name="wp206183"> </a><h3 class="pHeading2">
+Example of Servlet Using Connection Pooling
+</h3>
+<a name="wp206184"> </a><p class="pBody">
+The following code is a fully functional example for a Java Servlet.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import java.io.IOException;<a name="wp206185"> </a>
+import java.io.PrintWriter;<a name="wp206186"> </a>
+import java.sql.Connection;<a name="wp206187"> </a>
+import java.sql.SQLException;<a name="wp206188"> </a>
+import java.util.Properties;<a name="wp206189"> </a>
+<a name="wp206190"> </a>
+import javax.naming.Context;<a name="wp206191"> </a>
+import javax.naming.InitialContext;<a name="wp206192"> </a>
+import javax.servlet.ServletException;<a name="wp206193"> </a>
+import javax.servlet.http.HttpServlet;<a name="wp206194"> </a>
+import javax.servlet.http.HttpServletRequest;<a name="wp206195"> </a>
+import javax.servlet.http.HttpServletResponse;<a name="wp206196"> </a>
+import javax.sql.DataSource;<a name="wp206197"> </a>
+import javax.xml.xquery.XQConnection;<a name="wp206198"> </a>
+import javax.xml.xquery.XQException;<a name="wp206199"> </a>
+import javax.xml.xquery.XQExpression;<a name="wp206200"> </a>
+import javax.xml.xquery.XQSequence;<a name="wp206201"> </a>
+<a name="wp206202"> </a>
+import com.ddtek.xquery.jdbc.XQueryConnection;<a name="wp206203"> </a>
+<a name="wp206204"> </a>
+/**<a name="wp206205"> </a>
+ * DataDirect Servlet example demonstrating the integration with <a name="wp206206"> </a>
+ * JDBC Connection Pooling<a name="wp206207"> </a>
+ */<a name="wp206208"> </a>
+public class DDXQServlet extends HttpServlet {<a name="wp206209"> </a>
+<a name="wp206210"> </a>
+  public void doGet(HttpServletRequest request, HttpServletResponse response) <a name="wp206211"> </a>
+    throws ServletException, IOException {<a name="wp206212"> </a>
+<a name="wp206213"> </a>
+      Connection jdbc_c = null;<a name="wp206214"> </a>
+      XQExpression xqj_e = null;<a name="wp206215"> </a>
+<a name="wp206216"> </a>
+        try {<a name="wp206217"> </a>
+          Context initContext = new InitialContext();<a name="wp206218"> </a>
+          Context envContext = (Context)initContext.lookup(&quot;java:/comp/env&quot;);<a name="wp206219"> </a>
+          DataSource jdbc_ds =(DataSource)envContext.lookup(&quot;jdbc/DDXQExample&quot;);<a name="wp206220"> </a>
+          jdbc_c = jdbc_ds.getConnection();<a name="wp206221"> </a>
+<a name="wp206222"> </a>
+          PrintWriter out = response.getWriter();<a name="wp206223"> </a>
+<a name="wp206224"> </a>
+          XQConnection xqj_c = XQueryConnection.getXQConnection(jdbc_c);<a name="wp206225"> </a>
+<a name="wp206226"> </a>
+          xqj_e = xqj_c.createExpression();<a name="wp206227"> </a>
+          XQSequence xqj_s = xqj_e.executeQuery(<a name="wp206228"> </a>
+              &quot;   &lt;b&gt;Current date: &lt;/b&gt;,current-date(),&lt;br/&gt;,&quot; +<a name="wp206229"> </a>
+              &quot;   &lt;b&gt;Current time: &lt;/b&gt;,current-time(), &quot; +<a name="wp206230"> </a>
+              &quot;   &lt;table border=&#39;1&#39;&gt; &quot;+<a name="wp206231"> </a>
+              &quot;        &lt;tr&gt; &quot;+<a name="wp206232"> </a>
+              &quot;          &lt;th&gt;User&lt;/th&gt; &quot;+<a name="wp206233"> </a>
+              &quot;          &lt;th&gt;Stock&lt;/th&gt; &quot;+<a name="wp206234"> </a>
+              &quot;          &lt;th&gt;Shares&lt;/th&gt; &quot;+<a name="wp206235"> </a>
+              &quot;        &lt;/tr&gt; &quot;+<a name="wp206236"> </a>
+              &quot;        { &quot;+<a name="wp206237"> </a>
+              &quot;   for $item in collection(&#39;holdings&#39;)/holdings &quot;+<a name="wp206238"> </a>
+              &quot;   return &quot;+<a name="wp206239"> </a>
+              &quot;        &lt;tr&gt; &quot;+<a name="wp206240"> </a>
+              &quot;          &lt;td&gt;{$item/userid/data(.)}&lt;/td&gt; &quot;+<a name="wp206241"> </a>
+              &quot;          &lt;td&gt;{$item/stockticker/data(.)}&lt;/td&gt; &quot;+<a name="wp206242"> </a>
+              &quot;          &lt;td&gt;{$item/shares/data(.)}&lt;/td&gt; &quot;+<a name="wp206243"> </a>
+              &quot;        &lt;/tr&gt; &quot;+<a name="wp206244"> </a>
+              &quot;        } &quot;+<a name="wp206245"> </a>
+              &quot;   &lt;/table&gt; &quot;);<a name="wp206246"> </a>
+<a name="wp206247"> </a>
+          xqj_s.writeSequence(out, new Properties());<a name="wp206248"> </a>
+<a name="wp206249"> </a>
+          out.close();<a name="wp206250"> </a>
+    }<a name="wp206251"> </a>
+    catch(Exception e){<a name="wp206252"> </a>
+      throw new ServletException(e);<a name="wp206253"> </a>
+    }<a name="wp206254"> </a>
+    finally {<a name="wp206255"> </a>
+      if (xqj_e != null) try{xqj_e.close();} catch (XQException e) {}<a name="wp206256"> </a>
+      if (jdbc_c != null) try{jdbc_c.close();} catch (SQLException e) {}<a name="wp206257"> </a>
+    }<a name="wp206258"> </a>
+  }<a name="wp206259"> </a>
+}<a name="wp206260"> </a>
+</pre></div>
+<a name="wp206090"> </a><p class="pBody">
+
+</p>
+<a name="wp194655"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

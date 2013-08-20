@@ -1,0 +1,1935 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:33" />
+  <title>DataDirect XQuery Built-In Functions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp245066"> </a><h2 class="pNewHTMLPageNum">
+DataDirect XQuery Built-In Functions
+</h2>
+<hr />
+<a name="wp245071"> </a><p class="pBody">
+This section describes the following DataDirect XQuery built-in functions:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp320372"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp330903">ddtek:analyze-edi-from-string</a></li></div><a name="wp330973"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp330977">ddtek:analyze-edi-from-url</a></li></div><a name="wp330934"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp311264">ddtek:convert-to-xml</a></li></div><a name="wp298511"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp298537">ddtek:decimal</a></li></div><a name="wp331859"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp331503">ddtek:edi-to-xml-from-string</a></li></div><a name="wp331873"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp331517">ddtek:edi-to-xml-from-url</a></li></div><a name="wp334438"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp334376">ddtek:format-date</a></li></div><a name="wp334305"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp334323">ddtek:format-date-time</a></li></div><a name="wp334313"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp334253">ddtek:format-number</a></li></div><a name="wp334448"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp334394">ddtek:format-time</a></li></div><a name="wp325384"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp323987">ddtek:http-delete</a></li></div><a name="wp325392"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp324142">ddtek:http-get</a></li></div><a name="wp324613"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp324241">ddtek:http-head</a></li></div><a name="wp325302"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp325192">ddtek:http-options</a></li></div><a name="wp325310"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp325202">ddtek:http-post</a></li></div><a name="wp325322"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp325218">ddtek:http-put</a></li></div><a name="wp325330"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp325231">ddtek:http-trace</a></li></div><a name="wp327117"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp326689">ddtek:info</a></li></div><a name="wp310526"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp318060">ddtek:isValid</a></li></div><a name="wp288768"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp310706">ddtek:javaCast</a></li></div><a name="wp327110"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp326845">ddtek:ltrim, ddtek:rtrim, and ddtek:trim</a></li></div><a name="wp288774"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp288975">ddtek:parse</a></li></div><a name="wp288780"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp284162">ddtek:serialize</a></li></div><a name="wp298893"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp298908">ddtek:serialize-to-url</a></li></div><a name="wp328645"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp330708">ddtek:sql-delete</a></li></div><a name="wp330766"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp328288">ddtek:sql-insert</a></li></div><a name="wp328653"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp328313">ddtek:sql-update</a></li></div><a name="wp320428"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp289182">ddtek:validate</a></li></div><a name="wp320432"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp318065">ddtek:validate-and-report</a></li></div><a name="wp320436"> </a><div class="pSmartList1"><li><a  href="built-in_functions2.html#wp285024">ddtek:wscall</a></li></div></ul></div>
+<a name="wp320104"> </a><p class="pBody">
+In addition, DataDirect XQuery supports the DB2 V9.1 for Linux/UNIX/Windows, Microsoft SQL Server 2005, and <br />Oracle 10<em class="cEmphasis">g</em> R2 XQuery extensions through a set of built-in (predeclared) XQuery functions that map one-to-one to the database features. See <a  href="database_support6.html#wp309822">Querying XML on Microsoft SQL Server 2005</a> and <a  href="database_support6.html#wp309624">Querying XML on Oracle</a> for examples.
+</p>
+<a name="wp330903"> </a><h3 class="pHeading2">
+ddtek:analyze-edi-from-string
+</h3>
+<a name="wp330891"> </a><p class="pBody">
+ddtek:analyze-edi-from-string analyzes an EDI stream and provides an error report that describes any errors that will prevent EDI messages from being converted to XML using the <a  href="built-in_functions2.html#wp331503">ddtek:edi-to-xml-from-string</a> function. The report generated by  ddtek:analyze-edi-from-string is used by <a  href="built-in_functions2.html#wp331503">ddtek:edi-to-xml-from-string</a> to filter messages that contain errors, allowing processing of EDI sources that contain errors.
+</p>
+<a name="wp331837"> </a><p class="pBody">
+This function is supported only for EDIFACT, HIPAA, and X12 EDI dialects.
+</p>
+<a name="wp330922"> </a><h4 class="pHeading3">
+Function Declaration 
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:analyze-edi-from-string(<a name="wp331142"> </a>
+  $url as xs:string, <a name="wp331143"> </a>
+  $edi as xs:string) <a name="wp331144"> </a>
+ &#160;as document-node(element(*, xs:untyped)) external;<a name="wp331057"> </a>
+</pre></div>
+<a name="wp331325"> </a><p class="pBody">
+where:
+</p>
+<a name="wp331326"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> specifies the properties you want the EDI conversion engine to use when converting the EDI stream to XML &#8211; EDI:tbl=yes, for example.
+</p>
+<a name="wp332948"> </a><p class="pBody">
+To learn more about conversion properties, see the section &quot;EDI XML Converter Properties&quot; in the <em class="cEmphasis">DataDirect XML Converters User&#8217;s Guide and Reference</em> manual. DataDirect XML Converters documentation is installed as part of the DataDirect Data Integration Suite, of which DataDirect XQuery is a part; you can also find DataDirect XML Converters product documentation on the <a  href="http://www.datadirect.com/techres/xmlconvertersproddoc/index.ssp">DataDirect Web site</a>.
+</p>
+<a name="wp331333"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>edi</em></code> can be any EDI document in a supported dialect specified as a string.
+</p>
+<a name="wp331718"> </a><p class="pBody">
+Note: ddtek:analyze-edi-from-string requires that XML Converters are reachable in the current classpath and that a valid XML Converters license is available.
+</p>
+<a name="wp332196"> </a><p class="pBody">
+See <a  href="advancedfeatures6.html#wp243176">Analyzing EDI to XML Conversions</a> for more information.
+</p>
+<a name="wp330977"> </a><h3 class="pHeading2">
+ddtek:analyze-edi-from-url
+</h3>
+<a name="wp330979"> </a><p class="pBody">
+ddtek:analyze-edi-from-url analyzes an EDI stream and provides an error report that describes any errors that will prevent EDI messages from being converted to XML using the <a  href="built-in_functions2.html#wp331517">ddtek:edi-to-xml-from-url</a> function. The report generated by  ddtek:analyze-edi-from-url is used by <a  href="built-in_functions2.html#wp331517">ddtek:edi-to-xml-from-url</a> to filter messages that contain errors, allowing processing of EDI sources that contain errors.
+</p>
+<a name="wp331886"> </a><p class="pBody">
+This function is supported only for EDIFACT, HIPAA, and X12 EDI dialects.
+</p>
+<a name="wp330980"> </a><h4 class="pHeading3">
+Function Declaration 
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:analyze-edi-from-url(<a name="wp331184"> </a>
+  $url as xs:string) &#160;<a name="wp331185"> </a>
+  as document-node(element(*, xs:untyped)) external;<a name="wp330974"> </a>
+</pre></div>
+<a name="wp331377"> </a><p class="pBody">
+where:
+</p>
+<a name="wp332235"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> specifies the full path of the EDI source you want to convert, as well as the properties you want the EDI conversion engine to use when converting the EDI stream to XML &#8211; <br />EDI:tbl=yes?file:///c:/EDI/code99.x12, for example.
+</p>
+<a name="wp332885"> </a><p class="pBody">
+To learn more about conversion properties, see the section &quot;EDI XML Converter Properties&quot; in the <em class="cEmphasis">DataDirect XML Converters User&#8217;s Guide and Reference</em> manual. DataDirect XML Converters documentation is installed as part of the DataDirect Data Integration Suite, of which DataDirect XQuery is a part; you can also find DataDirect XML Converters product documentation on the <a  href="http://www.datadirect.com/techres/xmlconvertersproddoc/index.ssp">DataDirect Web site</a>.
+</p>
+<a name="wp332872"> </a><p class="pBody">
+Note: ddtek:analyze-edi-from-url requires that XML Converters are reachable in the current classpath and that a valid XML Converters license is available.
+</p>
+<a name="wp332205"> </a><p class="pBody">
+See <a  href="advancedfeatures6.html#wp243176">Analyzing EDI to XML Conversions</a> for more information.
+</p>
+<a name="wp311264"> </a><h3 class="pHeading2">
+ddtek:convert-to-xml
+</h3>
+<a name="wp298668"> </a><p class="pBody">
+ddtek:convert-to-xml allows you to convert non-XML data passed as xs:string into XML using DataDirect XML Converters expressed using the converter URI syntax. The source for the XML data might have been extracted from a database, XML document, or other sources.
+</p>
+<a name="wp333670"> </a><p class="pBody">
+Note: ddtek:convert-to-xml requires that XML Converters are reachable in the current classpath and that a valid XML Converters license is available.
+</p>
+<a name="wp324675"> </a><h4 class="pHeading3">
+Function Declaration 
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+			ddtek:convert-to-xml($<code><em>input</em></code> as xs:string, $<code><em>options</em></code> as xs:string) as  <a name="wp298670"> </a>
+			document-node(element(*,xs:untyped))<a name="wp325540"> </a>
+</pre></div>
+<a name="wp298672"> </a><p class="pBody">
+where:
+</p>
+<a name="wp298674"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>input</em></code> is a character string
+</p>
+<a name="wp298676"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>options</em></code> are properties used by the conversion engine when converting to XML. Separate options with a colon (long=yes:tbl=no, for example).
+</p>
+<a name="wp332808"> </a><p class="pBody">
+To learn more about conversion properties, see the section &quot;EDI XML Converter Properties&quot; in the <em class="cEmphasis">DataDirect XML Converters User&#8217;s Guide and Reference</em> manual. DataDirect XML Converters documentation is installed as part of the DataDirect Data Integration Suite, of which DataDirect XQuery is a part; you can also find DataDirect XML Converters product documentation on the <a  href="http://www.datadirect.com/techres/xmlconvertersproddoc/index.ssp">DataDirect Web site</a>.
+</p>
+<a name="wp333595"> </a><h5 class="pHeading4">
+Example Using the EDI Converter
+</h5>
+<a name="wp333599"> </a><p class="pBody">
+This example shows an EDI message being converted to XML using the EDI converter:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $edimessage := &quot;ISA+00+ +00+ +01+1515151515 <a name="wp313425"> </a>
++01+5151515151 +041201+1217+^+00403+000032123+0+P+*&#39;<a name="wp313427"> </a>
+GS+CT+9988776655+1122334455+20041201+1217+128+X+004030&#39;<a name="wp313428"> </a>
+ST+831+00128001&#39;<a name="wp313429"> </a>
+BGN+00+88200001+20041201&#39;<a name="wp313430"> </a>
+N9+BT+88200001&#39;<a name="wp313431"> </a>
+TRN+1+88200001&#39;<a name="wp313432"> </a>
+AMT+2+100000&#39;<a name="wp313433"> </a>
+QTY+46+1&#39;<a name="wp313434"> </a>
+SE+7+00128001&#39;<a name="wp313435"> </a>
+GE+1+128&#39;<a name="wp313436"> </a>
+IEA+1+000032123&#39;&quot;<a name="wp313437"> </a>
+return<a name="wp313438"> </a>
+  ddtek:convert-to-xml($edimessage, &quot;EDI:long=yes&quot;)<a name="wp313439"> </a>
+</pre></div>
+<a name="wp313421"> </a><h5 class="pHeading4">
+Example Using the CSV Converter
+</h5>
+<a name="wp333626"> </a><p class="pBody">
+This example shows the CSV converter being used to convert a simple comma-separated values file (submitted as a string) to XML:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:serialize &quot;indent=yes&quot;;
+ddtek:convert-to-xml(&quot;a,b,c&quot;, &quot;CSV&quot;) <a name="wp333630"> </a>
+</pre></div>
+<a name="wp298537"> </a><h3 class="pHeading2">
+ddtek:decimal
+</h3>
+<a name="wp298539"> </a><p class="pBody">
+ddtek:decimal allows you to specify precision and scale of a decimal value. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+	ddtek:decimal($v as xs:anyAtomicType?,$p as xs:integer,$s as xs:integer) <a name="wp288807"> </a>
+	  as xs:decimal?<a name="wp288808"> </a>
+</pre></div>
+<a name="wp331503"> </a><h3 class="pHeading2">
+ddtek:edi-to-xml-from-string
+</h3>
+<a name="wp331505"> </a><p class="pBody">
+ddtek:edi-to-xml-from-string allows you to convert an EDI stream to XML when the EDI is stored in memory as a String datatype. The report used as an input to this function, which is generated by <a  href="built-in_functions2.html#wp330903">ddtek:analyze-edi-from-string</a>, filters out errors in the EDI source that would otherwise cause the conversion to fail. This function is supported only for EDIFACT, HIPAA, and X12 EDI dialects.
+</p>
+<a name="wp331506"> </a><h4 class="pHeading3">
+Function Declaration 
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:edi-to-xml-from-string(&#160;<a name="wp331677"> </a>
+   $url as xs:string, 
+   $edi as xs:string,<a name="wp331678"> </a>
+   $report as document-node(element(*, xs:untyped))) <a name="wp331679"> </a>
+   as document-node(element(*, xs:untyped)) external;<a name="wp331511"> </a>
+</pre></div>
+<a name="wp331512"> </a><p class="pBody">
+where:
+</p>
+<a name="wp331513"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> specifies the properties you want the EDI conversion engine to use when converting the EDI stream to XML &#8211; EDI:tbl=yes, for example.
+</p>
+<a name="wp332964"> </a><p class="pBody">
+To learn more about conversion properties, see the section &quot;EDI XML Converter Properties&quot; in the <em class="cEmphasis">DataDirect XML Converters User&#8217;s Guide and Reference</em> manual. DataDirect XML Converters documentation is installed as part of the DataDirect Data Integration Suite, of which DataDirect XQuery is a part; you can also find DataDirect XML Converters product documentation on the <a  href="http://www.datadirect.com/techres/xmlconvertersproddoc/index.ssp">DataDirect Web site</a>.
+</p>
+<a name="wp331514"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>edi</em></code> is any EDI document in a supported dialect.
+</p>
+<a name="wp331515"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>report</em></code> is the report generated by the <a  href="built-in_functions2.html#wp330903">ddtek:analyze-edi-from-string</a> function.
+</p>
+<a name="wp331783"> </a><p class="pBody">
+Note: ddtek:edi-to-xml-from-string requires that XML Converters are reachable in the current classpath and that a valid XML Converters license is available.
+</p>
+<a name="wp332215"> </a><p class="pBody">
+See <a  href="advancedfeatures6.html#wp243176">Analyzing EDI to XML Conversions</a> for more information.
+</p>
+<a name="wp331517"> </a><h3 class="pHeading2">
+ddtek:edi-to-xml-from-url
+</h3>
+<a name="wp333006"> </a><p class="pBody">
+ddtek:analyze-edi-from-url allows you to convert an EDI stream to XML.The report used as an input to this function, which is generated by <a  href="built-in_functions2.html#wp330977">ddtek:analyze-edi-from-url</a>, filters out errors in the EDI source that would otherwise cause the conversion to fail. This function is supported only for EDIFACT, HIPAA, and X12 EDI dialects.
+</p>
+<a name="wp333010"> </a><h4 class="pHeading3">
+Function Declaration 
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:edi-to-xml-from-url(<a name="wp331648"> </a>
+  $url as xs:string&#160;&#160;,<a name="wp331649"> </a>
+  $report as document-node(element(*, xs:untyped)) )&#160;<a name="wp331650"> </a>
+  as document-node(element(*, xs:untyped)) external;<a name="wp331523"> </a>
+</pre></div>
+<a name="wp331524"> </a><p class="pBody">
+where:
+</p>
+<a name="wp333014"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> specifies the full path of the EDI source you want to convert, as well as the properties you want the EDI conversion engine to use when converting the EDI stream to XML &#8211; <br />EDI:tbl=yes?file:///c:/EDI/code99.x12, for example.
+</p>
+<a name="wp333015"> </a><p class="pBody">
+To learn more about conversion properties, see the section &quot;EDI XML Converter Properties&quot; in the <em class="cEmphasis">DataDirect XML Converters User&#8217;s Guide and Reference</em> manual. DataDirect XML Converters documentation is installed as part of the DataDirect Data Integration Suite, of which DataDirect XQuery is a part; you can also find DataDirect XML Converters product documentation on the <a  href="http://www.datadirect.com/techres/xmlconvertersproddoc/index.ssp">DataDirect Web site</a>.
+</p>
+<a name="wp331711"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>report</em></code> is the report generated by the <a  href="built-in_functions2.html#wp330977">ddtek:analyze-edi-from-url</a> function.
+</p>
+<a name="wp331814"> </a><p class="pBody">
+Note: ddtek:edi-to-xml-from-url requires that XML Converters are reachable in the current classpath and that a valid XML Converters license is available.
+</p>
+<a name="wp332225"> </a><p class="pBody">
+See <a  href="advancedfeatures6.html#wp243176">Analyzing EDI to XML Conversions</a> for more information.
+</p>
+<a name="wp334376"> </a><h3 class="pHeading2">
+ddtek:format-date
+</h3>
+<a name="wp334378"> </a><p class="pBody">
+The ddtek:format-date function can be used to format date strings. Depending on your requirements, the <a  href="built-in_functions2.html#wp334323">ddtek:format-date-time</a> function can also be used for this purpose.
+</p>
+<a name="wp334833"> </a><p class="pBody">
+The ddtek:format-date function is based on XSLT 2.0 date formatting functions as defined in the XSL Transformations (XSLT) Version 2.0 W3C Recommendation 23 January 2007. See <a  href="http://www.w3.org/TR/xslt20/#format-date">http://www.w3.org/TR/xslt20/#format-date</a> for more information.
+</p>
+<a name="wp334525"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:format-date($value as xs:date?, $picture as xs:string) 
+as xs:string?<a name="wp334575"> </a>
+declare function ddtek:format-date(<a name="wp334587"> </a>
+$value as xs:date?,<a name="wp334588"> </a>
+$picture as xs:string,<a name="wp334589"> </a>
+$language as xs:string?,<a name="wp334590"> </a>
+$calendar as xs:string?,<a name="wp334591"> </a>
+$country as xs:string?) as xs:string?<a name="wp334582"> </a>
+</pre></div>
+<a name="wp334609"> </a><p class="pBody">
+where:
+</p>
+<a name="wp334661"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>value</em></code> is the date string to be formatted.
+</p>
+<a name="wp334659"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>picture</em></code> is a sequence of variable markers and literal substrings used to specify formatting of <code class="cCode">$</code><code><em>value</em></code>. See <a  href="built-in_functions2.html#wp334790">Picture String</a>for more information on specifying the <code class="cCode">$</code><code><em>picture </em></code>argument.
+</p>
+<a name="wp334669"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>language</em></code> is the language to be used for the result of the ddtek:format-date function. It is used for names (days, for example), numbers when expressed as words, hour convention, and the first day of the week and month of the year (Sunday versus Monday, for example). If the language is not specified, DataDirect XQuery uses the language specified for the Java Virtual Machine (JVM) where DataDirect XQuery is installed.
+</p>
+<a name="wp334673"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>calendar</em></code> is the type of calendar whose conventions are to be used to convert the string supplied in the <code class="cCode">$</code><code><em>value</em></code> argument to a value in that calendar.  If the calendar is not specified, DataDirect XQuery uses the calendar specified for the Java Virtual Machine (JVM) where DataDirect XQuery is installed.
+</p>
+<a name="wp334677"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>country</em></code> is the country in which the event represented by the date string occurs. Valid values are those specified by ISO 3166-1, ISO 3166-2, and ISO 3166-3. If the country is not specified, DataDirect XQuery uses the country specified for the Java Virtual Machine (JVM) where DataDirect XQuery is installed.
+</p>
+<a name="wp335098"> </a><p class="pBody">
+For more information on <code class="cCode">$</code><code><em>language</em></code>, <code class="cCode">$</code><code><em>calendar</em></code>, and <code class="cCode">$</code><code><em>country </em></code>arguments, see  <a  href="http://www.w3.org/TR/xslt20/#lang-cal-country">http://www.w3.org/TR/xslt20/#lang-cal-country</a> in the XSLT 2.0 specification.
+</p>
+<a name="wp334790"> </a><h4 class="pHeading3">
+Picture String
+</h4>
+<a name="wp335581"> </a><p class="pBody">
+As described previously, the <em class="cEmphasis">$picture</em> argument is a sequence of variable markers and literal substrings used to specify formatting of <code class="cCode">$</code><code><em>value</em></code>. Variable markers are indicated using bracket pairs to surround a <em class="cEmphasis">specifier</em>; values not in brackets are taken as literal substrings. Consider the following picture string:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&quot;[M]-[D]-[Y]&quot;<a name="wp335595"> </a>
+</pre></div>
+<a name="wp335603"> </a><p class="pBody">
+Here, month (M), day (D), and year (Y) specifiers are separated by dash (-) literal substrings. Note that whitespace in literal substrings is preserved, so 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&quot;[M]-[D]-[Y]&quot;<a name="wp335656"> </a>
+</pre></div>
+<a name="wp335618"> </a><p class="pBody">
+and
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&quot;[M] - [D] - [Y]&quot;<a name="wp335662"> </a>
+</pre></div>
+<a name="wp335654"> </a><p class="pBody">
+yield different strings.
+</p>
+<a name="wp335665"> </a><p class="pBody">
+The following table summarizes commonly used specifiers:</p><div align="left">
+<table border="1">
+  <caption><a name="wp335668"> </a><div class="pTableTitle">
+Table 12-6.  Common Picture String Specifiers
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp335672"> </a><div class="pCellHeading">
+Specifier
+</div>
+</th>
+    <th><a name="wp335674"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335676"> </a><div class="pCellBody">
+Y
+</div>
+</td>
+    <td><a name="wp335678"> </a><div class="pCellBody">
+Year
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335680"> </a><div class="pCellBody">
+M
+</div>
+</td>
+    <td><a name="wp335682"> </a><div class="pCellBody">
+Month in year
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335684"> </a><div class="pCellBody">
+D
+</div>
+</td>
+    <td><a name="wp335686"> </a><div class="pCellBody">
+Day in month
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335688"> </a><div class="pCellBody">
+d
+</div>
+</td>
+    <td><a name="wp335690"> </a><div class="pCellBody">
+Day in year
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335692"> </a><div class="pCellBody">
+f
+</div>
+</td>
+    <td><a name="wp335694"> </a><div class="pCellBody">
+Day of week
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335696"> </a><div class="pCellBody">
+W
+</div>
+</td>
+    <td><a name="wp335698"> </a><div class="pCellBody">
+Week in year
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335700"> </a><div class="pCellBody">
+w
+</div>
+</td>
+    <td><a name="wp335702"> </a><div class="pCellBody">
+Week in month
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335704"> </a><div class="pCellBody">
+H
+</div>
+</td>
+    <td><a name="wp335706"> </a><div class="pCellBody">
+Hour in day (24 hours)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335708"> </a><div class="pCellBody">
+h
+</div>
+</td>
+    <td><a name="wp335710"> </a><div class="pCellBody">
+Hour in half-day (12 hours)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335712"> </a><div class="pCellBody">
+P
+</div>
+</td>
+    <td><a name="wp335714"> </a><div class="pCellBody">
+am/pm marker
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335716"> </a><div class="pCellBody">
+m
+</div>
+</td>
+    <td><a name="wp335718"> </a><div class="pCellBody">
+Minute in hour
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335720"> </a><div class="pCellBody">
+s
+</div>
+</td>
+    <td><a name="wp335722"> </a><div class="pCellBody">
+Second in minute
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335724"> </a><div class="pCellBody">
+f
+</div>
+</td>
+    <td><a name="wp335726"> </a><div class="pCellBody">
+Fractional seconds
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335728"> </a><div class="pCellBody">
+Z
+</div>
+</td>
+    <td><a name="wp335730"> </a><div class="pCellBody">
+Timezone as a time offset from Coordinated Universal Time (UTC); UTC+1, for example. Also accepts conventional timezone abbreviations (EST for Eastern Standard Timezone, for example)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335732"> </a><div class="pCellBody">
+z
+</div>
+</td>
+    <td><a name="wp335734"> </a><div class="pCellBody">
+Timezone as a time offset from Greenwich Mean Time (GMT)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335868"> </a><div class="pCellBody">
+C
+</div>
+</td>
+    <td><a name="wp335870"> </a><div class="pCellBody">
+Calendar (the name or abbreviation)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp335876"> </a><div class="pCellBody">
+E
+</div>
+</td>
+    <td><a name="wp335878"> </a><div class="pCellBody">
+The name of a baseline for the numbering of years; the reign of a monarch, for example
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp334816"> </a><p class="pBody">
+For a complete description of the picture string, see <a  href="http://www.w3.org/TR/xslt20/#date-picture-string">http://www.w3.org/TR/xslt20/#date-picture-string</a> in the XSLT 2.0 specification.
+</p>
+<a name="wp335979"> </a><h4 class="pHeading3">
+Examples
+</h4>
+<a name="wp335154"> </a><p class="pBody">
+The following list shows pairs of ddtek:format-date function declarations and using an input value of <code class="cCode">$d</code>, specified as <code class="cCode">xs:date(&#8217;2002-12-31&#8217;)</code>. The complete XQuery code might look like this, for example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $d := xs:date(&#39;2002-12-31&#39;)<a name="wp335423"> </a>
+return (<a name="wp335424"> </a>
+  ddtek:format-date($d, &quot;[Y0001]-[M01]-[D01]&quot;)<a name="wp335425"> </a>
+)<a name="wp335418"> </a>
+</pre></div>
+<a name="wp335537"> </a><p class="pBody">
+This XQuery returns this string:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+2002-12-31<a name="wp335169"> </a>
+</pre></div>
+<a name="wp335186"> </a><p class="pBody">
+Here are other examples of the ddtek:format-date function and the XQuery result:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:format-date($d, &quot;[M]-[D]-[Y]&quot;)<a name="wp335565"> </a>
+12-31-2002<a name="wp335187"> </a>
+ddtek:format-date($d, &quot;[D]-[M]-[Y]&quot;)<a name="wp335191"> </a>
+31-12-2002<a name="wp335192"> </a>
+ddtek:format-date($d, &quot;[D1] [MI] [Y]&quot;)<a name="wp335203"> </a>
+31 XII 2002<a name="wp335204"> </a>
+ddtek:format-date($d, &quot;[D1o] [MNn], [Y]&quot;, &quot;en&quot;, (), ())<a name="wp335208"> </a>
+31st December, 2002<a name="wp335209"> </a>
+ddtek:format-date($d, &quot;[D01] [MN,*-3] [Y0001]&quot;, &quot;en&quot;, (), 
+())<a name="wp335248"> </a>
+31 DEC 2002<a name="wp335249"> </a>
+ddtek:format-date($d, &quot;[MNn] [D], [Y]&quot;, &quot;en&quot;, (), ())<a name="wp335253"> </a>
+December 31, 2002<a name="wp335254"> </a>
+ddtek:format-date($d, &quot;[D] [MNn], [Y]&quot;, &quot;de&quot;, (), ())<a name="wp335258"> </a>
+31 Dezember, 2002<a name="wp335259"> </a>
+ddtek:format-date($d, &quot;[FNn] [D] [MNn] [Y]&quot;, &quot;sv&quot;, (), ())<a name="wp335263"> </a>
+tisdag 31 december 2002<a name="wp335264"> </a>
+ddtek:format-date($d, &quot;[[[Y0001]-[M01]-[D01]]]&quot;)<a name="wp335309"> </a>
+[2002-12-31]<a name="wp335310"> </a>
+ddtek:format-date($d, &quot;[YWw]&quot;, &quot;en&quot;, (), ())<a name="wp335314"> </a>
+Two Thousand and Two<a name="wp335315"> </a>
+ddtek:format-date($d, &quot;[Dwo] [MNn]&quot;, &quot;de&quot;, (), ())<a name="wp335324"> </a>
+einunddreiß&#xDF;igste Dezember<a name="wp335325"> </a>
+</pre></div>
+<a name="wp334323"> </a><h3 class="pHeading2">
+ddtek:format-date-time
+</h3>
+<a name="wp334254"> </a><p class="pBody">
+The ddtek:format-date-time function can be used to format date-time strings.  Depending on your requirements, the <a  href="built-in_functions2.html#wp334376">ddtek:format-date</a> and <a  href="built-in_functions2.html#wp334394">ddtek:format-time</a> functions can also be used for this purpose.
+</p>
+<a name="wp334843"> </a><p class="pBody">
+The ddtek:format-date-time function is based on XSLT 2.0 date formatting functions as defined in the XSL Transformations (XSLT) Version 2.0 W3C Recommendation 23 January 2007. See <a  href="http://www.w3.org/TR/xslt20/#format-date">http://www.w3.org/TR/xslt20/#format-date</a> for more information.
+</p>
+<a name="wp336148"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:format-dateTime($value as xs:dateTime?, 
+$picture as xs:string) as xs:string?<a name="wp336157"> </a>
+declare function ddtek:format-dateTime(<a name="wp336191"> </a>
+$value as xs:dateTime?,<a name="wp336192"> </a>
+$picture as xs:string,<a name="wp336193"> </a>
+$language as xs:string?,<a name="wp336194"> </a>
+$calendar as xs:string?,<a name="wp336195"> </a>
+$country as xs:string?) as xs:string?<a name="wp336173"> </a>
+</pre></div>
+<a name="wp336265"> </a><p class="pBody">
+See <a  href="built-in_functions2.html#wp334376">ddtek:format-date</a> for a discussion of function arguments.
+</p>
+<a name="wp336273"> </a><h4 class="pHeading3">
+Examples
+</h4>
+<a name="wp336361"> </a><p class="pBody">
+The following list shows pairs of ddtek:format-dateTime function declarations and using an input value of <code class="cCode">$dt</code>, specified as <code class="cCode">xs:dateTime(&#39;2002-12-31T15:58:00&#39;)</code>. The complete XQuery code might look like this, for example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $dt := xs:dateTime(&#39;2002-12-31T15:58:00&#39;)<a name="wp336432"> </a>
+return (<a name="wp336433"> </a>
+  ddtek:format-dateTime($dt, &quot;[h].[m01][Pn] on [FNn], [D1o] 
+[MNn]&quot;)<a name="wp336365"> </a>
+)<a name="wp336739"> </a>
+</pre></div>
+<a name="wp336366"> </a><p class="pBody">
+This XQuery returns this string:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+3.58p.m. on Tuesday, 31st December<a name="wp336367"> </a>
+</pre></div>
+<a name="wp336368"> </a><p class="pBody">
+Here is another example of the ddtek:format-dateTime function and the XQuery result:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+		 ddtek:format-dateTime($dt, &quot;[M01]/[D01]/[Y0001] at [H01]:[m01]:[s01]&quot;)<a name="wp336445"> </a>
+		 12/31/2002 at 15:58:00<a name="wp336458"> </a>
+</pre></div>
+<a name="wp334253"> </a><h3 class="pHeading2">
+ddtek:format-number
+</h3>
+<a name="wp334295"> </a><p class="pBody">
+The ddtek:format-number function is used to format numbers.
+</p>
+<a name="wp337187"> </a><p class="pBody">
+The ddtek:format-number function is based on XSLT 2.0 format-number function as defined in the XSL Transformations (XSLT) Version 2.0 W3C Recommendation 23 January 2007. See  <a  href="http://www.w3.org/TR/xslt20/#format-number">http://www.w3.org/TR/xslt20/#format-number </a>for more information.
+</p>
+<a name="wp337018"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:format-number($number as numeric?, $format 
+as xs:string) as xs:string<a name="wp337044"> </a>
+declare function ddtek:format-number(<a name="wp337076"> </a>
+$number as numeric?,<a name="wp337077"> </a>
+$format as xs:string,<a name="wp337078"> </a>
+$decimal-separator as xs:string?,<a name="wp337079"> </a>
+$grouping-separator as xs:string?,<a name="wp337080"> </a>
+$infinity as xs:string?,<a name="wp337081"> </a>
+$minus-sign as xs:string?,<a name="wp337082"> </a>
+$NaN as xs:string?,<a name="wp337083"> </a>
+$percent as xs:string?,<a name="wp337084"> </a>
+$per-mille as xs:string?,<a name="wp337085"> </a>
+$zero-digit as xs:string?,<a name="wp337086"> </a>
+$digit as xs:string?,<a name="wp337087"> </a>
+$pattern-separator as xs:string?) as xs:string<a name="wp337071"> </a>
+</pre></div>
+<a name="wp337360"> </a><p class="pBody">
+where:
+</p>
+<a name="wp337361"> </a><p class="pBody">
+<em class="cEmphasis">$number</em> is the string representing the number you wantt o format.
+</p>
+<a name="wp337417"> </a><p class="pBody">
+<em class="cEmphasis">$format</em> is the format to be used for the digit representation. The default is #, but if you use the second function declaration you can use the value specified for the digit parameter.
+</p>
+<a name="wp337746"> </a><p class="pBody">
+The second function declaration takes additional parameters, as summarized in the following table.</p><div align="left">
+<table border="1">
+  <caption><a name="wp337755"> </a><div class="pTableTitle">
+Table 12-7.  ddtek:format-number Function Parameters
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp337759"> </a><div class="pCellHeading">
+Parameter
+</div>
+</th>
+    <th><a name="wp337761"> </a><div class="pCellHeading">
+Value
+</div>
+</th>
+    <th><a name="wp337905"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp337763"> </a><div class="pCellBody">
+decimal-separator
+</div>
+</td>
+    <td><a name="wp337765"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp337907"> </a><div class="pCellBody">
+Character used as the decimal character. Default is &quot;.&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp337767"> </a><div class="pCellBody">
+grouping-separator
+</div>
+</td>
+    <td><a name="wp337769"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp337909"> </a><div class="pCellBody">
+Character used as the thousands separator. Default is &quot;,&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp337771"> </a><div class="pCellBody">
+infinity
+</div>
+</td>
+    <td><a name="wp337773"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp337911"> </a><div class="pCellBody">
+String used to represent infinity. Default is &quot;Infinity&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp337775"> </a><div class="pCellBody">
+minus-sign
+</div>
+</td>
+    <td><a name="wp337777"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp337913"> </a><div class="pCellBody">
+Character used to indicate negative numbers. Default is &quot;-&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp337779"> </a><div class="pCellBody">
+NaN
+</div>
+</td>
+    <td><a name="wp337781"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp337915"> </a><div class="pCellBody">
+String used when the value is not a number. Default is &quot;NaN&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp337783"> </a><div class="pCellBody">
+percent
+</div>
+</td>
+    <td><a name="wp337785"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp337917"> </a><div class="pCellBody">
+Character used as the precent sign. Default is &quot;%&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp337787"> </a><div class="pCellBody">
+per-mille
+</div>
+</td>
+    <td><a name="wp337789"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp337919"> </a><div class="pCellBody">
+Character used as the per-thousand sign character. Defaule is &quot;&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp337791"> </a><div class="pCellBody">
+zero-digit
+</div>
+</td>
+    <td><a name="wp337793"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp337921"> </a><div class="pCellBody">
+Character used as the zero digit. Decault is &quot;0&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp338004"> </a><div class="pCellBody">
+digit
+</div>
+</td>
+    <td><a name="wp338006"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp338008"> </a><div class="pCellBody">
+Character used to indicate a place where a digit is required. Default is &quot;#&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp338023"> </a><div class="pCellBody">
+pattern-separator
+</div>
+</td>
+    <td><a name="wp338025"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp338027"> </a><div class="pCellBody">
+Character used to separate positive and negative subpatterns in a format pattern. Default is &quot;;&quot;.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp338223"> </a><p class="pBody">
+Note that when you use the second function declaration for ddtek:format-number, you must specify all parameters, even those for which you wish to use the default values. To indicate that you wish to use a default value, specify the parameter as ().
+</p>
+<a name="wp337045"> </a><h4 class="pHeading3">
+Examples
+</h4>
+<a name="wp337056"> </a><p class="pBody">
+Here are a few paired examples that show how to use the ddtek:format-number function. The function is shown on the first line; the result is shown on the second line.
+</p>
+<a name="wp338412"> </a><p class="pBody">
+These examples use the first function declaration:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:format-number(500100, &quot;#&quot;)<a name="wp337433"> </a>
+500100<a name="wp337434"> </a>
+ddtek:format-number(500100, &quot;###,###.00&quot;)<a name="wp337574"> </a>
+500,100.00<a name="wp337575"> </a>
+ddtek:format-number(0.23456, &quot;#%&quot;)<a name="wp337588"> </a>
+23%<a name="wp337589"> </a>
+</pre></div>
+<a name="wp337431"> </a><p class="pBody">
+The following examples use the second function declaration. Here is an example that uses European style formatting for numbers &#8211; that is, using the comma for the decimal point and the period for the thousands separator:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:format-number(26825.8, &quot;#.###,00&quot;, &quot;,&quot;, &quot;.&quot;, (), (), (), (), (), (), 
+(), ())<a name="wp337610"> </a>
+26.825,80<a name="wp337611"> </a>
+</pre></div>
+<a name="wp337608"> </a><p class="pBody">
+In this example, the <em class="cEmphasis">$format</em> argument is defined using a custom digit format, D:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:format-number(123456789, &quot;$DDD,DDD,DDD.DD&quot;, (), (), (), (), (), (), (), 
+(), &#39;D&#39;, ())<a name="wp337672"> </a>
+$123,456,789<a name="wp337673"> </a>
+</pre></div>
+<a name="wp338465"> </a><p class="pBody">
+Note that in both of these examples all parameters for the ddtek:format-number declaration are specified.
+</p>
+<a name="wp334394"> </a><h3 class="pHeading2">
+ddtek:format-time
+</h3>
+<a name="wp334396"> </a><p class="pBody">
+The ddtek:format-time function can be used to format time strings. Depending on your requirements, the <a  href="built-in_functions2.html#wp334323">ddtek:format-date-time</a> function can also be used for this purpose.
+</p>
+<a name="wp334949"> </a><p class="pBody">
+The ddtek:format-time function is based on XSLT 2.0 date formatting functions as defined in the XSL Transformations (XSLT) Version 2.0 W3C Recommendation 23 January 2007. See <a  href="http://www.w3.org/TR/xslt20/#format-date">http://www.w3.org/TR/xslt20/#format-date</a> for more information.
+</p>
+<a name="wp336274"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:format-time($value as xs:time?, $picture as 
+xs:string) as xs:string?<a name="wp336291"> </a>
+declare function ddtek:format-time(<a name="wp336477"> </a>
+$value as xs:time?,<a name="wp336478"> </a>
+$picture as xs:string,<a name="wp336479"> </a>
+$language as xs:string?,<a name="wp336480"> </a>
+$calendar as xs:string?,<a name="wp336481"> </a>
+$country as xs:string?) as xs:string?<a name="wp336472"> </a>
+</pre></div>
+<a name="wp336308"> </a><p class="pBody">
+See <a  href="built-in_functions2.html#wp334376">ddtek:format-date</a> for a discussion of function arguments.
+</p>
+<a name="wp336303"> </a><h4 class="pHeading3">
+Examples
+</h4>
+<a name="wp336537"> </a><p class="pBody">
+The following list shows pairs of ddtek:format-time function declarations and using an input value of <code class="cCode">$t</code>, specified as <code class="cCode">xs:time(&#39;15:58:00&#39;)</code>. The complete XQuery code might look like this, for example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $t := xs:time(&#39;15:58:00&#39;)<a name="wp336602"> </a>
+return (<a name="wp336603"> </a>
+  ddtek:format-time($t, &quot;[h]:[m01] [PN]&quot;, &quot;en&quot;, (), ())<a name="wp336540"> </a>
+)<a name="wp336682"> </a>
+</pre></div>
+<a name="wp336541"> </a><p class="pBody">
+This XQuery returns this string:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+3.58 P.M.<a name="wp336542"> </a>
+</pre></div>
+<a name="wp336543"> </a><p class="pBody">
+Here are other examples of the ddtek:format-time function and the XQuery result:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:format-time($t, &quot;[h]:[m01]:[s01] [Pn]&quot;, &quot;en&quot;, (), ())<a name="wp336544"> </a>
+3:58:00 p.m.<a name="wp336545"> </a>
+ddtek:format-time($t, &quot;[h]:[m01]:[s01] [PN] [ZN,*-3]&quot;, &quot;en&quot;, (), ())<a name="wp336761"> </a>
+3:58:00 P.M.<a name="wp336762"> </a>
+ddtek:format-time($t, &quot;[h]:[m01]:[s01] o&#39;clock [PN] [ZN,*-3]&quot;, &quot;en&quot;, (), ())<a name="wp336766"> </a>
+3:58:00 o&#39;clock P.M.<a name="wp336767"> </a>
+ddtek:format-time($t,&quot;[H01]:[m01]&quot;)<a name="wp336771"> </a>
+15:58<a name="wp336772"> </a>
+ddtek:format-time($t,&quot;[H01]:[m01]:[s01].[f001]&quot;)<a name="wp336817"> </a>
+15:58:00.000<a name="wp336818"> </a>
+ddtek:format-time($t,&quot;[H01]:[m01]:[s01] [z]&quot;, &quot;en&quot;, (), ())<a name="wp336827"> </a>
+15:58:00<a name="wp336828"> </a>
+ddtek:format-time($t,&quot;[H01]:[m01] Uhr [z]&quot;, &quot;de&quot;, (), ())<a name="wp336832"> </a>
+15:58 Uhr<a name="wp336833"> </a>
+</pre></div>
+<a name="wp323987"> </a><h3 class="pHeading2">
+ddtek:http-delete
+</h3>
+<a name="wp323989"> </a><p class="pBody">
+The ddtek:http-delete function requests that the server delete the resource identified by the request URI. This function can be overridden by human intervention (or other means) on the server. Because of this, the client cannot be guaranteed that the operation has been carried out, even if the status code returned from the server indicates that the action has been completed successfully. However, the server should not indicate success unless, at the time the response is given, it intends to delete the resource or move it to an inaccessible location.
+</p>
+<a name="wp323990"> </a><p class="pBody">
+Successful responses are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp323991"> </a><div class="pSmartList1"><li>200 (OK) &#8211; the response includes a response body describing the status</li></div><a name="wp323992"> </a><div class="pSmartList1"><li>202 (Accepted) &#8211; the action has not yet been enacted</li></div><a name="wp323993"> </a><div class="pSmartList1"><li>204 (No Content) &#8211; the action has been enacted but the response does not include a response body</li></div></ul></div>
+<a name="wp323994"> </a><p class="pBody">
+Note that responses to this function are not cacheable.
+</p>
+<a name="wp323995"> </a><p class="pBody">
+If the request passes through a cache and the URI identifies one or more currently cached entities, those entries should be treated as stale. 
+</p>
+<a name="wp323996"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:http-delete($url as xs:string) as 
+document-node(element(*,xs:untyped)) external;<a name="wp323999"> </a>
+declare function ddtek:http-delete($url as xs:string, 
+$request as element()?) as 
+document-node(element(*,xs:untyped)) external;<a name="wp325936"> </a>
+</pre></div>
+<a name="wp326529"> </a><p class="pBody">
+where:
+</p>
+<a name="wp326535"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> is the URI of the origin server resource (http://www.examples.xquery.com, for example).
+</p>
+<a name="wp326539"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>request</em></code> is a set of options specified as &lt;request&gt; element attributes to be consumed by the origin server (a username and password, for example). See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information.
+</p>
+<a name="wp324142"> </a><h3 class="pHeading2">
+ddtek:http-get
+</h3>
+<a name="wp324144"> </a><p class="pBody">
+The ddtek:http-get function retrieves whatever information (in the form of an entity) is identified by the Request-URI. For example, if the Request-URI refers to a data-producing process, it is the produced data that is returned as the entity in the response and not the source text of the process, unless that text happens to be the output of the process.
+</p>
+<a name="wp324145"> </a><p class="pBody">
+The semantics of the GET method change to a &quot;conditional GET&quot; if the request message includes an If-Modified-Since, If-Unmodified-Since, If-Match, If-None-Match, or If-Range header field. A conditional GET method requests that the entity be transferred only under the circumstances described by the conditional header field(s). This reduces unnecessary network usage by allowing cached entities to be refreshed without requiring multiple requests or transferring data already held by the client.
+</p>
+<a name="wp324146"> </a><p class="pBody">
+If a Range header field is included, the request is for only the part of the entity specified by the range header. This allows partially retrieved entities to be completed without transferring previously received data.
+</p>
+<a name="wp324147"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:http-get($url as xs:string) as 
+document-node(element(*,xs:untyped)) external;<a name="wp324150"> </a>
+declare function ddtek:http-get($url as xs:string, $request 
+as element()?) as document-node(element(*,xs:untyped)) 
+external;<a name="wp325979"> </a>
+</pre></div>
+<a name="wp329965"> </a><p class="pBody">
+where:
+</p>
+<a name="wp329966"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> is the URI of the origin server resource (http://www.examples.xquery.com, for example).
+</p>
+<a name="wp329967"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>request</em></code> is a set of options specified as &lt;request&gt; element attributes to be consumed by the origin server (a username and password, for example). See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information.
+</p>
+<a name="wp324241"> </a><h3 class="pHeading2">
+ddtek:http-head
+</h3>
+<a name="wp324243"> </a><p class="pBody">
+The ddtek:http-head function is identical to the GET method except that the server must not return a message-body in the response. The meta-information contained in the HTTP headers in response to a HEAD request should be identical to the information sent in response to a GET request. This allows a client to obtain meta-information about a resource without actually transferring the resource itself.
+</p>
+<a name="wp324244"> </a><p class="pBody">
+The head function is often used for testing hyperlinks, accessibility and for determining if a document has been recently modified.
+</p>
+<a name="wp324245"> </a><p class="pBody">
+When your program is implementing caching, it is important to note that if the HEAD response indicates that the cached entity differs from the current entity, such as by a change in the Content-Length, Content-MD5, ETag or Last-Modified, the cache must treat the cached entry as stale.
+</p>
+<a name="wp324246"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:http-head($url as xs:string) as 
+document-node(element(*,xs:untyped)) external;<a name="wp324249"> </a>
+declare function ddtek:http-head($url as xs:string, 
+$request as element()?) as 
+document-node(element(*,xs:untyped)) external;<a name="wp326043"> </a>
+</pre></div>
+<a name="wp330029"> </a><p class="pBody">
+where:
+</p>
+<a name="wp330030"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> is the URI of the origin server resource (http://www.examples.xquery.com, for example).
+</p>
+<a name="wp330031"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>request</em></code> is a set of options specified as &lt;request&gt; element attributes to be consumed by the origin server (a username and password, for example). See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information.
+</p>
+<a name="wp325192"> </a><h3 class="pHeading2">
+ddtek:http-options
+</h3>
+<a name="wp325194"> </a><p class="pBody">
+The ddtek:http-options function represents a request for information about the communication options available on the request/response chain identified by the request URI. 
+</p>
+<a name="wp325195"> </a><p class="pBody">
+This function allows the client to determine the options and/or requirements associated with a resource, or the capabilities of a server, without implying a resource action or initiating resource retrieval.
+</p>
+<a name="wp325196"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:http-options($url as xs:string) as 
+document-node(element(*,xs:untyped)) external;<a name="wp325199"> </a>
+declare function ddtek:http-options($url as xs:string, 
+$request as element()?) as 
+document-node(element(*,xs:untyped)) external;<a name="wp325200"> </a>
+</pre></div>
+<a name="wp330059"> </a><p class="pBody">
+where:
+</p>
+<a name="wp330060"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> is the URI of the origin server resource (http://www.examples.xquery.com, for example).
+</p>
+<a name="wp330061"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>request</em></code> is a set of options specified as &lt;request&gt; element attributes to be consumed by the origin server (a username and password, for example). See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information.
+</p>
+<a name="wp325202"> </a><h3 class="pHeading2">
+ddtek:http-post
+</h3>
+<a name="wp325204"> </a><p class="pBody">
+The ddtek:http-post function is used to request that the origin server (that is, the server hosting the resource) accept the entity enclosed in the request as a new subordinate of the resource identified by the Request-URI in the Request-Line. Essentially this means that the POST data will be stored by the server and usually will be processed by a server side application.
+</p>
+<a name="wp325205"> </a><p class="pBody">
+The ddtek:http-post function is designed to allow a uniform approach to the following types of Web service application activities:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp325206"> </a><div class="pSmartList1"><li>Annotating existing resources </li></div><a name="wp325207"> </a><div class="pSmartList1"><li>Posting a message to a bulletin board, newsgroup, mailing list, or similar group of articles</li></div><a name="wp325208"> </a><div class="pSmartList1"><li>Providing a block of data, such as the result of submitting a form, to a data-handling process</li></div><a name="wp325209"> </a><div class="pSmartList1"><li>Extending a database through an append operation</li></div></ul></div>
+<a name="wp325210"> </a><p class="pBody">
+It is generally expected that a POST request will have some side effect on the server, such as writing to a database, and the HTTP specification suggests that user agents represent user actions which result in a POST request in a special way, so that the user is made aware of the fact that a possibly unsafe action is being requested. This however, is not a requirement.
+</p>
+<a name="wp325211"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:http-post($url as xs:string, 
+$payload as item()?) as 
+document-node(element(*,xs:untyped)) external;<a name="wp325215"> </a>
+declare function ddtek:http-post($url as xs:string, 
+$payload as item()?, $request as element()?) as 
+document-node(element(*,xs:untyped)) external;<a name="wp326186"> </a>
+</pre></div>
+<a name="wp330099"> </a><p class="pBody">
+where:
+</p>
+<a name="wp330100"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> is the URI of the origin server resource (http://www.examples.xquery.com, for example).
+</p>
+<a name="wp330456"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>payload</em></code> is an element that contains the service response.
+</p>
+<a name="wp330101"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>request</em></code> is a set of options specified as &lt;request&gt; element attributes to be consumed by the origin server (a username and password, for example). See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information.
+</p>
+<a name="wp325218"> </a><h3 class="pHeading2">
+ddtek:http-put
+</h3>
+<a name="wp325220"> </a><p class="pBody">
+The ddtek:http-put function requests that the enclosed entity be stored under the supplied URI. If the URI refers to an already existing resource, the enclosed entity should be considered as a modified version of the one residing on the origin server. If the URI does not point to an existing resource, and that URI is capable of being defined as a new resource by the requesting user agent, the origin server can create the resource with that URI.
+</p>
+<a name="wp325221"> </a><p class="pBody">
+If the request passes through a cache and the URI identifies one or more currently cached entities, those entries should be treated as stale. Responses to this function are not cacheable.
+</p>
+<a name="wp325222"> </a><p class="pBody">
+The fundamental difference between POST and PUT requests is reflected in the different meaning of the request URI. The URI in a POST request identifies the resource that will handle the enclosed entity. That resource might be a data-accepting process, a gateway to some other protocol, or a separate entity that accepts annotations. In contrast, the URI in a PUT request identifies the entity enclosed with the request &#8211; the user agent knows what URI is intended and the server must not attempt to apply the request to some other resource.
+</p>
+<a name="wp325223"> </a><p class="pBody">
+Unless otherwise specified for a particular entity-header, the entity-headers in the PUT request should be applied to the resource created or modified by the PUT.
+</p>
+<a name="wp325224"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:http-put($url as xs:string, $payload 
+as item()?, $request as element()?) as 
+document-node(element(*,xs:untyped)) external;<a name="wp326235"> </a>
+declare function ddtek:http-put($url as xs:string, $payload 
+as item()?) as document-node(element(*,xs:untyped)) 
+external;<a name="wp326307"> </a>
+</pre></div>
+<a name="wp330152"> </a><p class="pBody">
+where:
+</p>
+<a name="wp330153"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> is the URI of the origin server resource (http://www.examples.xquery.com, for example).
+</p>
+<a name="wp330475"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>payload</em></code> is an element that contains the service response.
+</p>
+<a name="wp330154"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>request</em></code> is a set of options specified as &lt;request&gt; element attributes to be consumed by the origin server (a username and password, for example). See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information.
+</p>
+<a name="wp325231"> </a><h3 class="pHeading2">
+ddtek:http-trace
+</h3>
+<a name="wp325233"> </a><p class="pBody">
+The ddtek:http-trace function is primarily used for debugging and testing purposes, and simply requests that the server echo back the request it received. This can be useful for identifying any changes to the request that is made by proxies.
+</p>
+<a name="wp325234"> </a><p class="pBody">
+The http-trace function is used to invoke a remote, application-layer loop-back of the request message. The final recipient of the request should reflect the message received back to the client as the entity-body of a 200 (OK) response. The final recipient is either the origin server or the first proxy or gateway to receive a max-Forwards value of zero (0) in the request (see section 14.31 of RFC2616).
+</p>
+<a name="wp325235"> </a><h4 class="pHeading3">
+Function Declarations
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:http-trace($url as xs:string) as 
+document-node(element(*,xs:untyped)) external;<a name="wp325238"> </a>
+declare function ddtek:http-trace($url as xs:string, 
+$request as element()?) as 
+document-node(element(*,xs:untyped)) external;<a name="wp326366"> </a>
+</pre></div>
+<a name="wp330337"> </a><p class="pBody">
+where:
+</p>
+<a name="wp330338"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>url</em></code> is the URI of the origin server resource (http://www.examples.xquery.com, for example)
+</p>
+<a name="wp330339"> </a><p class="pBody">
+<code class="cCode">$</code><code><em>request</em></code> is a set of options specified as &lt;request&gt; element attributes to be consumed by the origin server (a username and password, for example). See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information.
+</p>
+<a name="wp326689"> </a><h3 class="pHeading2">
+ddtek:info
+</h3>
+<a name="wp326697"> </a><p class="pBody">
+Simple function that returns DataDirect XQuery version and build information and Java system properties for your DataDirect XQuery installation.
+</p>
+<a name="wp327126"> </a><p class="pBody">
+The function declaration for ddtek:info is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:info() as document-node() external;<a name="wp327130"> </a>
+</pre></div>
+<a name="wp327206"> </a><p class="pBody">
+The ddtek:info function returns &lt;ddxq&gt; and &lt;java&gt; elements, a sample of which is shown here:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;info xmlns=&quot;&quot;&gt;<a name="wp328754"> </a>
+    &lt;ddxq&gt;<a name="wp328755"> </a>
+       &lt;name&gt;DataDirect XQuery&lt;/name&gt;<a name="wp328756"> </a>
+       &lt;version&gt;4.0&lt;/version&gt;<a name="wp328757"> </a>
+       &lt;build&gt;R0693&lt;/build&gt;<a name="wp328758"> </a>
+       &lt;build-date&gt;Wed May 27 20:03:55 CEST 2009&lt;/build-date&gt;<a name="wp328759"> </a>
+    &lt;/ddxq&gt;<a name="wp328760"> </a>
+    &lt;java&gt;<a name="wp328761"> </a>
+       &lt;java.runtime.name&gt;Java(TM) SE Runtime Environment&lt;/java.runtime.name&gt;<a name="wp328762"> </a>
+       &lt;sun.boot.library.path&gt;C:\Program 
+Files\Java\jre1.6.0_03\bin&lt;/sun.boot.library.path&gt;<a name="wp328763"> </a>
+       &lt;java.vm.version&gt;1.6.0_03-b05&lt;/java.vm.version&gt;<a name="wp328764"> </a>
+       &lt;java.vm.vendor&gt;Sun Microsystems Inc.&lt;/java.vm.vendor&gt;<a name="wp328765"> </a>
+       &lt;java.vendor.url&gt;http://java.sun.com/&lt;/java.vendor.url&gt;<a name="wp328766"> </a>
+       &lt;path.separator&gt;;&lt;/path.separator&gt;<a name="wp328767"> </a>
+       &lt;java.vm.name&gt;Java HotSpot(TM) Client VM&lt;/java.vm.name&gt;<a name="wp328768"> </a>
+       &lt;file.encoding.pkg&gt;sun.io&lt;/file.encoding.pkg&gt;<a name="wp328769"> </a>
+       &lt;user.country&gt;US&lt;/user.country&gt;<a name="wp328770"> </a>
+       &lt;sun.os.patch.level&gt;Service Pack 3&lt;/sun.os.patch.level&gt; <a name="wp328771"> </a>
+		...<a name="wp328866"> </a>
+	&lt;/java&gt;<a name="wp328891"> </a>
+&lt;/info&gt;<a name="wp328897"> </a>
+</pre></div>
+<a name="wp328933"> </a><p class="pBody">
+NOTE: The specific subelements of the &lt;java&gt; element vary based on your installation.
+</p>
+<a name="wp318060"> </a><h3 class="pHeading2">
+ddtek:isValid
+</h3>
+<a name="wp310400"> </a><p class="pBody">
+This function is similar to <a  href="built-in_functions2.html#wp289182">ddtek:validate</a> but instead of returning $arg1 unchanged, it returns a boolean indicating whether it is valid for the specified XML Schema. Unlike ddtek:validate, ddtek:isValid does not cause the XQuery execution to throw an exception when the validation fails. An exception is thrown, however, if $schema does not resolve to a valid XML Schema resource.
+</p>
+<a name="wp328953"> </a><p class="pBody">
+The function declaration for ddtek:isValid is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+	declare function ddtek:isValid($arg1 as node(), $schema as xs:string) as
+	xs:boolean external; <a name="wp310491"> </a>
+</pre></div>
+<a name="wp310711"> </a><p class="pBody">
+NOTE: Using this function can degrade performance, depending on the size of the node to be validated and the complexity of the XML schema used to do the validation.
+</p>
+<a name="wp310706"> </a><h3 class="pHeading2">
+ddtek:javaCast
+</h3>
+<a name="wp288868"> </a><p class="pBody">
+When possible, DataDirect XQuery keeps track of the exact Java class that is associated with a given ddtek:javaObject-typed expression. This is needed to map a given function call to a Java method. When DataDirect XQuery is unable to resolve the exact Java class statically, for example when passing ddtek:javaObject as a parameter to or a result from recursive XQuery functions, you can help DataDirect XQuery resolve the Java class by specifying the exact class through ddtek:javaCast. See <a  href="advancedfeatures9.html#wp246945">Notes About Using Java Instance Methods</a> for information about tracking Java classes.
+</p>
+<a name="wp288872"> </a><p class="pBody">
+When you use ddtek:javaCast, DataDirect XQuery assumes statically that the Java class of the expression that is cast is the class specified in the second argument of the call to the function. At runtime, the object is cast to the specified class. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare namespace A = &quot;ddtekjava:com.ddtek.ejf.A&quot;;<a name="wp288873"> </a>
+declare namespace B = &quot;ddtekjava:com.ddtek.ejf.B&quot;;<a name="wp288874"> </a>
+declare function A:A() as ddtek:javaObject external;<a name="wp288875"> </a>
+declare function A:f($this as ddtek:javaObject) as 
+xs:string external;<a name="wp288876"> </a>
+declare function local:f($arg1 as ddtek:javaObject, $count
+  as xs:integer) <a name="wp288877"> </a>
+  as ddtek:javaObject {<a name="wp288878"> </a>
+if ( $count eq 0 ) <a name="wp288879"> </a>
+then<a name="wp288880"> </a>
+  $arg1<a name="wp288881"> </a>
+else<a name="wp288882"> </a>
+  local:f($arg1, $count - 1)<a name="wp288883"> </a>
+};<a name="wp288884"> </a>
+let $a := local:f(A:A(), 1)<a name="wp288885"> </a>
+return A:f(ddtek:javaCast($a, &quot;com.ddtek.qa.ejf.A&quot;)) <a name="wp288886"> </a>
+</pre></div>
+<a name="wp288887"> </a><p class="pBody">
+In this example, DataDirect XQuery cannot determine the class of the object that is returned by the local:f (recursive) function. By using ddtek:javaCast, any possible ambiguity is resolved. If, at runtime, the ddtek:javaCast operation fails, DataDirect XQuery raises an error.
+</p>
+<a name="wp326845"> </a><h3 class="pHeading2">
+ddtek:ltrim, ddtek:rtrim, and ddtek:trim
+</h3>
+<a name="wp326847"> </a><p class="pBody">
+These three built-in functions trim whitespaces:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp326934"> </a><div class="pSmartList1"><li>ddtek:ltrim &#8211; trims whitespaces to the left  of a character string</li></div><a name="wp326976"> </a><div class="pSmartList1"><li>ddtek:rtrim &#8211; trims whitespaces to the right of a character string</li></div><a name="wp326848"> </a><div class="pSmartList1"><li>ddtek:trim &#8211; trims whitespaces to the right and left of a character string</li></div></ul></div>
+<a name="wp326851"> </a><p class="pBody">
+The function declarations for the DataDirect XQuery trim functions is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:ltrim($string as xs:string?) as xs:string?<a name="wp327013"> </a>
+ddtek:rtrim($string as xs:string?) as xs:string?<a name="wp326853"> </a>
+ddtek:trim($string as xs:string?) as xs:string?<a name="wp327056"> </a>
+</pre></div>
+<a name="wp326855"> </a><p class="pBody">
+where <code class="cCode">$string</code> is the character string that is to be trimmed.
+</p>
+<a name="wp326856"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:rtrim(&quot;   Gustavo     &quot;)<a name="wp326857"> </a>
+</pre></div>
+<a name="wp326858"> </a><p class="pBody">
+returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">&quot;   Gustavo&quot;</code><a name="wp326859"> </a>
+</pre></div>
+<a name="wp326860"> </a><p class="pBody">
+and
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:trim(&quot;   Gustavo     &quot;)<a name="wp326861"> </a>
+</pre></div>
+<a name="wp326862"> </a><p class="pBody">
+returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">&quot;Gustavo&quot;</code><a name="wp326863"> </a>
+</pre></div>
+<a name="wp288975"> </a><h3 class="pHeading2">
+ddtek:parse
+</h3>
+<a name="wp288977"> </a><p class="pBody">
+ddtek:parse creates an XQuery Data Model instance from a string value, assuming the string contains well-formed XML. You can use this function to query XML information stored in character columns in database tables. When a database does not support an XML data type, sometimes XML information is stored in character columns. In such cases, ddtek:parse allows you to query the XML character data and use it as an XML data source.
+</p>
+<a name="wp288978"> </a><p class="pBody">
+The function declaration for ddtek:parse is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:parse($arg as xs:string) as document-node(element(*,xs:untyped))<a name="wp288979"> </a>
+</pre></div>
+<a name="wp288980"> </a><p class="pBody">
+where <code class="cCode">$arg</code> is a well-formed XML document. If <code class="cCode">$arg</code> is not a well-formed XML document, the query execution is aborted and an exception can be handled at the XQJ level.
+</p>
+<a name="wp288982"> </a><p class="pBody">
+Assume a database table is created as:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+create table xmltab (key int primary key, xmlval varchar(2000))<a name="wp288983"> </a>
+insert into xmltab values(1,&#39;&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;b&gt;11&lt;/b&gt;&lt;/a&gt;&#39;)<a name="wp288984"> </a>
+insert into xmltab values(2,&#39;&lt;a&gt;&lt;b&gt;2&lt;/b&gt;&lt;b&gt;22&lt;/b&gt;&lt;/a&gt;&#39;)<a name="wp288985"> </a>
+</pre></div>
+<a name="wp288986"> </a><p class="pBody">
+The following query returns the key value and b elements from the xmlval column for every b element that contains a value greater than 10:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $x  in collection(&#39;xmltab&#39;)/xmltab<a name="wp288987"> </a>
+let $y := ddtek:parse($x/xmlval)//b[xs:integer(.) &gt; 10]<a name="wp288988"> </a>
+return (data($x/key),$y)<a name="wp288989"> </a>
+</pre></div>
+<a name="wp284162"> </a><h3 class="pHeading2">
+ddtek:serialize
+</h3>
+<a name="wp284683"> </a><p class="pBody">
+This built-in function controls the process of serializing the query results into XML, XHTML, or HTML notation as specified by XQuery 1.0: An XML Query Language, W3C Recommendation 23 January 2007 located at: <a  href="http://www.w3.org/TR/2007/REC-xquery-20070123/">http://www.w3.org/TR/2007/REC-xquery-20070123/</a>
+</p>
+<a name="wp284730"> </a><p class="pBody">
+The function declaration for ddtek:serialize is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:serialize($items as item()*, $options as xs:string) as xs:string<a name="wp284314"> </a>
+</pre></div>
+<a name="wp284384"> </a><p class="pBody">
+where:
+</p>
+<a name="wp284648"> </a><p class="pBody">
+<code class="cCode">$items</code> specifies the sequence that is to be serialized.
+</p>
+<a name="wp284650"> </a><p class="pBody">
+<code class="cCode">$options</code> specifies the serialization options. See <a  href="serialization_support.html#wp245044">Serialization Support</a> for the serialization parameters that you can set using this function.
+</p>
+<a name="wp284774"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:serialize(&lt;books&gt;&lt;book/&gt;&lt;/books&gt;, &quot;indent=yes, omit-xml-declaration=no&quot;)<a name="wp284778"> </a>
+</pre></div>
+<a name="wp284789"> </a><p class="pBody">
+returns the xs:string instance:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp284795"> </a>
+&lt;books&gt;<a name="wp284796"> </a>
+  &lt;book/&gt;<a name="wp284797"> </a>
+&lt;/books&gt;<a name="wp284798"> </a>
+</pre></div>
+<a name="wp298908"> </a><h3 class="pHeading2">
+ddtek:serialize-to-url
+</h3>
+<a name="wp299047"> </a><p class="pBody">
+ddtek:serialize-to-url is equivalent to ddtek:serialize except that instead of returning a string of characters, it writes the result to I/O, allowing you to serialize XML nodes to a specified URI. This function takes advantage of DataDirect XQuery <em class="cEmphasis">Streaming XML</em> technique, avoiding the need to load the entire input value into memory. See <a  href="improvingperformance2.html#wp205269">Querying Large XML Documents</a> to learn more about Streaming XML.
+</p>
+<a name="wp328966"> </a><p class="pBody">
+The function declaration for ddtek:serialize-to-url is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:serialize-to-url(($<code><em>items</em></code> as item()*, $<code><em>url</em></code> as 
+xs:string, $<code><em>options</em></code> as xs:string))<a name="wp299049"> </a>
+</pre></div>
+<a name="wp299051"> </a><p class="pBody">
+where: 
+</p>
+<a name="wp299053"> </a><p class="pBody">
+$<code><em>items</em></code> specifies the input that is to be serialized.
+</p>
+<a name="wp299055"> </a><p class="pBody">
+$<code><em>url</em></code> specifies the URI where the result needs to be written. $<code><em>url</em></code> must be one of the standard URL schemes supported by Java. If no URL scheme is used, &quot;file:&quot; is implied. If the specified URI references an existing file, the file is overwritten; otherwise it is created. 
+</p>
+<a name="wp316125"> </a><p class="pBody">
+To specify a ZIP as the target for ddtek:serialize-to-url, prefix the file URI with <code class="cCode">zip:</code>. You can use the <code class="cCode">auto-create=&quot;yes&quot;</code> option to specify the creation of a new ZIP file. See <a  href="built-in_functions2.html#wp310534">Working with ZIP Files</a> for more information.
+</p>
+<a name="wp299057"> </a><p class="pBody">
+$<code><em>options</em></code> specifies the serialization options. See <a  href="serialization_support.html#wp245044">Serialization Support</a> for the serialization parameters that you can set using this function.
+</p>
+<a name="wp299060"> </a><p class="pBody">
+For example: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:serialize-to-url(&lt;books&gt;&lt;book/&gt;&lt;/books&gt;, file:///c:/result.xml, 
+&quot;indent=yes, omit-xml-declaration=no&quot;) <a name="wp299062"> </a>
+</pre></div>
+<a name="wp299063"> </a><p class="pBody">
+creates a file c:/result.xml on the file system with content:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt; <a name="wp299065"> </a>
+&lt;books&gt; <a name="wp299066"> </a>
+  &lt;book/&gt; <a name="wp299067"> </a>
+&lt;/books&gt;<a name="wp299068"> </a>
+</pre></div>
+<a name="wp310534"> </a><h4 class="pHeading3">
+Working with ZIP Files
+</h4>
+<a name="wp316126"> </a><p class="pBody">
+In addition to creating new XML documents, you can use ddtek:serialize-to-url to create ZIP files, and to create new entries in existing ZIP files.
+</p>
+<a name="wp310535"> </a><p class="pBody">
+This example shows how to add a new entry to an existing ZIP file. Note the use of the <code class="cCode">zip:</code> prefix for the file URL:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:serialize-to-url(&lt;e/&gt;, &quot;zip:file:///C:/tmp/test.zip!/dir/file.xml&quot;, &quot;&quot;)<a name="wp310536"> </a>
+</pre></div>
+<a name="wp310546"> </a><p class="pBody">
+This example shows how to add a new entry to a <em class="cEmphasis">new</em> ZIP file, which results from specifying the <code class="cCode">auto-create=&quot;yes&quot;</code> option:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:serialize-to-url(&lt;e/&gt;, 
+&quot;zip:file:///C:/tmp/test.zip!/dir/file.xml?auto-create=yes&quot;, &quot;&quot;) <a name="wp310664"> </a>
+</pre></div>
+<a name="wp330708"> </a><h3 class="pHeading2">
+ddtek:sql-delete
+</h3>
+<a name="wp330711"> </a><p class="pBody">
+The ddtek:sql-delete built-in function deletes records in a database table.
+</p>
+<a name="wp330712"> </a><p class="pBody">
+The function declaration for ddtek:sql-delete is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare updating function ddtek:sql-delete(<a name="wp330713"> </a>
+    row as element()*) external;<a name="wp330714"> </a>
+</pre></div>
+<a name="wp330715"> </a><p class="pBody">
+where:
+</p>
+<a name="wp330716"> </a><p class="pBody">
+<code class="cCode">row</code> identifies the records to be deleted. Each item in the sequence must be a row element of the database table returned by a previous fn:collection call. 
+</p>
+<a name="wp330717"> </a><p class="pBody">
+The following example deletes all of the records in the holdings database table where the userid column equals Minollo.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:sql-delete(collection(&quot;holdings&quot;)/holdings[userid = &quot;Minollo&quot;])<a name="wp330718"> </a>
+</pre></div>
+<a name="wp330722"> </a><p class="pBody">
+Other examples can be found in the <a  href="examples4.html#wp137818">RDBMSUpdate</a> example.
+</p>
+<a name="wp328288"> </a><h3 class="pHeading2">
+ddtek:sql-insert
+</h3>
+<a name="wp328291"> </a><p class="pBody">
+The ddtek:sql-insert built-in function inserts a single record in a database table.
+</p>
+<a name="wp328292"> </a><p class="pBody">
+The function declaration for ddtek:sql-insert is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare updating function ddtek:sql-insert(<a name="wp328293"> </a>
+    table as xs:string,<a name="wp328294"> </a>
+    column as xs:string,<a name="wp328295"> </a>
+    value as item()*,<a name="wp328296"> </a>
+    ...) external;<a name="wp328297"> </a>
+</pre></div>
+<a name="wp328298"> </a><p class="pBody">
+where:
+</p>
+<a name="wp328299"> </a><p class="pBody">
+<code class="cCode">table</code> is the database table in which to insert the record. The semantics of <code class="cCode">table</code> are equivalent to those for fn:collection; see <a  href="conf_sourcefiles2.html#wp184939">Specifying Relational Database Tables</a>.
+</p>
+<a name="wp328303"> </a><p class="pBody">
+<code class="cCode">column</code> is the column of the database table in which to insert a value.
+</p>
+<a name="wp328304"> </a><p class="pBody">
+<code class="cCode">value</code> is the value to insert into the specified column.
+</p>
+<a name="wp328305"> </a><p class="pBody">
+<code class="cCode">column</code> and <code class="cCode">value</code> are a pair in a variable argument list. If <code class="cCode">column</code> is specified without <code class="cCode">value</code>, an error is raised. You can specify multiple values for this pair, as shown in the example. 
+</p>
+<a name="wp328306"> </a><p class="pBody">
+The following example inserts a new record with three columns into the holdings table. The columns and their values are <br />userid=Minollo, stockticker=TIVO, and shares=200.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:sql-insert(&quot;holdings&quot;, &quot;userid&quot;, &quot;Minollo&quot;, &quot;stockticker&quot;, &quot;TIVO&quot;,<a name="wp328307"> </a>
+  &quot;shares&quot;, 200)<a name="wp328308"> </a>
+</pre></div>
+<a name="wp328312"> </a><p class="pBody">
+Other examples can be found in the <a  href="examples4.html#wp137818">RDBMSUpdate</a> example.
+</p>
+<a name="wp328313"> </a><h3 class="pHeading2">
+ddtek:sql-update
+</h3>
+<a name="wp328316"> </a><p class="pBody">
+The ddtek:sql-update built-in function updates records in a database table.
+</p>
+<a name="wp328317"> </a><p class="pBody">
+The function declaration for ddtek:sql-update is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare updating function ddtek:sql-update(<a name="wp328318"> </a>
+    row as element()*,<a name="wp328319"> </a>
+    column as xs:string,<a name="wp328320"> </a>
+    value as item()*,<a name="wp328321"> </a>
+    ...) external;<a name="wp328322"> </a>
+</pre></div>
+<a name="wp328323"> </a><p class="pBody">
+where:
+</p>
+<a name="wp328324"> </a><p class="pBody">
+<code class="cCode">row</code> identifies the records in the database table to update. Each item in the sequence must be a row element of the database table returned by a previous fn:collection call.
+</p>
+<a name="wp328325"> </a><p class="pBody">
+<code class="cCode">column</code> is the column of the database table to update.
+</p>
+<a name="wp328326"> </a><p class="pBody">
+<code class="cCode">value</code> is the new value for the specified column.
+</p>
+<a name="wp328327"> </a><p class="pBody">
+<code class="cCode">column</code> and <code class="cCode">value</code> are a pair in a variable argument list. If <code class="cCode">column</code> is specified without <code class="cCode">value</code>, an error is raised.
+</p>
+<a name="wp328328"> </a><p class="pBody">
+The following example updates a record in the holdings table &#8211; in particular, the record where the userid column equals Minollo and the  stockticker column equals PRGS. In this record, the shares column is updated to 500.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:sql-update(<a name="wp328329"> </a>
+  collection(&quot;holdings&quot;)/holdings[userid=&quot;Minollo&quot; and stockticker=&quot;PRGS&quot;],<a name="wp328330"> </a>
+  &quot;shares&quot;, 500)<a name="wp328331"> </a>
+</pre></div>
+<a name="wp328680"> </a><p class="pBody">
+Other examples can be found in the <a  href="examples4.html#wp137818">RDBMSUpdate</a> example.
+</p>
+<a name="wp289182"> </a><h3 class="pHeading2">
+ddtek:validate
+</h3>
+<a name="wp289185"> </a><p class="pBody">
+ddtek:validate allows you to validate an XML element or document node against an element declaration in an XML Schema. Use this function if it is important to validate that:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp289186"> </a><div class="pSmartList1"><li>An XQuery expression is creating XML results that comply with a given XML Schema declaration</li></div><a name="wp289187"> </a><div class="pSmartList1"><li>The XML information provided through an external variable, for example, complies with a given XML Schema before processing it</li></div></ul></div>
+<a name="wp289188"> </a><p class="pBody">
+NOTE: Using this function can degrade performance, depending on the size of the node to be validated and the complexity of the XML Schema used to do the validation.
+</p>
+<a name="wp289189"> </a><p class="pBody">
+See the section <a  href="built-in_functions2.html#wp318060">ddtek:isValid</a>to learn about alternatives to the ddtek:validate function 
+</p>
+<a name="wp310722"> </a><p class="pBody">
+The function declaration for ddtek:validate is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:validate($arg1 as node(), $arg2 as xs:string)as node() external;<a name="wp289190"> </a>
+</pre></div>
+<a name="wp289191"> </a><p class="pBody">
+where:
+</p>
+<a name="wp289192"> </a><p class="pBody">
+<code class="cCode">$arg1</code> is either an XML element or a document node.
+</p>
+<a name="wp289193"> </a><p class="pBody">
+<code class="cCode">$arg2</code> is a valid URI. If <code class="cCode">$arg2</code> is a relative URI, it is resolved using the base URI of the XQuery expression.
+</p>
+<a name="wp289194"> </a><p class="pBody">
+The function attempts to validate <code class="cCode">$arg1</code> against the XML Schema referred to by <code class="cCode">$arg2</code>. If the validation succeeds, the function returns <code class="cCode">$arg1</code> unchanged. If the validation fails, DataDirect XQuery raises an error.
+</p>
+<a name="wp289196"> </a><p class="pBody">
+The following example first validates the input (req.xml) against the input XML Schema, req.xsd. Then, before returning the results, validates the results against the output XML Schema, reply.xsd.
+</p>
+<a name="wp289197"> </a><p class="pBody">
+Assume an XML document, req.xml, containing the following data:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;request-user-holdings&gt;<a name="wp289198"> </a>
+      &lt;user id=&quot;Minollo&quot;/&gt;<a name="wp289199"> </a>
+      &lt;user id=&quot;Jonathan&quot;/&gt;<a name="wp289200"> </a>
+      &lt;user id=&quot;Bill&quot;/&gt;<a name="wp289201"> </a>
+&lt;/request-user-holdings&gt;<a name="wp289202"> </a>
+</pre></div>
+<a name="wp289203"> </a><p class="pBody">
+Also, assume an associated input XML Schema, req.xsd:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;<a name="wp289204"> </a>
+ elementFormDefault=&quot;qualified&quot;&gt;<a name="wp289205"> </a>
+<code class="cCode">  &lt;xs:element name=&quot;request-user-holdings&quot;&gt;</code><a name="wp289206"> </a>
+<code class="cCode">    &lt;xs:complexType&gt;</code><a name="wp289207"> </a>
+<code class="cCode">      &lt;xs:sequence&gt;</code><a name="wp289208"> </a>
+<code class="cCode">        &lt;xs:element maxOccurs=&quot;unbounded&quot; ref=&quot;user&quot;/&gt;</code><a name="wp289209"> </a>
+<code class="cCode">      &lt;/xs:sequence&gt;</code><a name="wp289210"> </a>
+<code class="cCode">    &lt;/xs:complexType&gt;</code><a name="wp289211"> </a>
+<code class="cCode">  &lt;/xs:element&gt;</code><a name="wp289212"> </a>
+<code class="cCode">  &lt;xs:element name=&quot;user&quot;&gt;</code><a name="wp289213"> </a>
+<code class="cCode">    &lt;xs:complexType&gt;</code><a name="wp289214"> </a>
+<code class="cCode">      &lt;xs:attribute name=&quot;id&quot; use=&quot;required&quot; type=&quot;xs:NCName&quot;/&gt;</code><a name="wp289215"> </a>
+<code class="cCode">    &lt;/xs:complexType&gt;</code><a name="wp289216"> </a>
+<code class="cCode">  &lt;/xs:element&gt;</code><a name="wp289217"> </a>
+<code class="cCode">&lt;/xs:schema&gt;</code><a name="wp289218"> </a>
+</pre></div>
+<a name="wp289219"> </a><p class="pBody">
+Lastly, assume a second schema, reply.xsd, which is an output XML Schema:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; <a name="wp289220"> </a>
+  elementFormDefault=&quot;qualified&quot;&gt;<a name="wp289221"> </a>
+  &lt;xs:element name=&quot;reply&quot;&gt;<a name="wp289222"> </a>
+    &lt;xs:complexType&gt;<a name="wp289223"> </a>
+      &lt;xs:sequence&gt;<a name="wp289224"> </a>
+        &lt;xs:element maxOccurs=&quot;unbounded&quot; ref=&quot;user&quot;/&gt;<a name="wp289225"> </a>
+      &lt;/xs:sequence&gt;<a name="wp289226"> </a>
+    &lt;/xs:complexType&gt;<a name="wp289227"> </a>
+  &lt;/xs:element&gt;<a name="wp289228"> </a>
+  &lt;xs:element name=&quot;user&quot;&gt;<a name="wp289229"> </a>
+    &lt;xs:complexType&gt;<a name="wp289230"> </a>
+      &lt;xs:sequence minOccurs=&quot;0&quot;&gt;<a name="wp289231"> </a>
+        &lt;xs:element ref=&quot;name&quot;/&gt;<a name="wp289232"> </a>
+        &lt;xs:element maxOccurs=&quot;unbounded&quot; ref=&quot;holding&quot;/&gt;<a name="wp289233"> </a>
+      &lt;/xs:sequence&gt;<a name="wp289234"> </a>
+      &lt;xs:attribute name=&quot;id&quot; use=&quot;required&quot; type=&quot;xs:NCName&quot;/&gt;<a name="wp289235"> </a>
+    &lt;/xs:complexType&gt;<a name="wp289236"> </a>
+  &lt;/xs:element&gt;<a name="wp289237"> </a>
+  &lt;xs:element name=&quot;name&quot; type=&quot;xs:string&quot;/&gt;<a name="wp289238"> </a>
+  &lt;xs:element name=&quot;holding&quot;&gt;<a name="wp289239"> </a>
+    &lt;xs:complexType&gt;<a name="wp289240"> </a>
+      &lt;xs:attribute name=&quot;shares&quot; use=&quot;required&quot; type=&quot;xs:double&quot;/&gt;<a name="wp289241"> </a>
+      &lt;xs:attribute name=&quot;ticker&quot; use=&quot;required&quot; type=&quot;xs:NCName&quot;/&gt;<a name="wp289242"> </a>
+    &lt;/xs:complexType&gt;<a name="wp289243"> </a>
+  &lt;/xs:element&gt;<a name="wp289244"> </a>
+&lt;/xs:schema&gt;<a name="wp289245"> </a>
+</pre></div>
+<a name="wp289246"> </a><p class="pBody">
+The following query returns holding information for each of the users in the input document, req.xml. The query first validates the input against the input XML Schema, req.xsd. Then, before returning the results, the query validates the results against the output XML Schema, reply.xsd.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare base-uri &quot;file:///c:/requests/&quot;;<a name="wp289247"> </a>
+let $validInput := ddtek:validate(doc(&#39;req.xml&#39;),&#39;req.xsd&#39;)<a name="wp289248"> </a>
+let $output :=<a name="wp289249"> </a>
+  &lt;reply&gt;{<a name="wp289250"> </a>
+    for $req-user in $validInput//user<a name="wp289251"> </a>
+    let $userid := xs:string($req-user/@id)<a name="wp289252"> </a>
+    return<a name="wp289253"> </a>
+      &lt;user id=&#39;{$userid}&#39;&gt;{<a name="wp289254"> </a>
+        for $db-user in collection(&#39;users&#39;)/users[userid = $userid]<a name="wp289255"> </a>
+        return (<a name="wp289256"> </a>
+          &lt;name&gt;{concat($db-user/firstname,&#39; &#39;,$db-user/lastname)}&lt;/name&gt;,<a name="wp289257"> </a>
+          for $holding in collection(&#39;holdings&#39;)/holdings <a name="wp289258"> </a>
+          where $holding/userid = $userid<a name="wp289259"> </a>
+          return<a name="wp289260"> </a>
+            &lt;holding ticker=&#39;{$holding/stockticker}&#39;<a name="wp289261"> </a>
+                     shares=&#39;{$holding/shares}&#39;/&gt;<a name="wp289262"> </a>
+          )<a name="wp289263"> </a>
+      }&lt;/user&gt;<a name="wp289264"> </a>
+  }&lt;/reply&gt;<a name="wp289265"> </a>
+let $validatedOutput := ddtek:validate($output,&#39;reply.xsd&#39;)<a name="wp289266"> </a>
+return $validatedOutput<a name="wp289267"> </a>
+</pre></div>
+<a name="wp318065"> </a><h3 class="pHeading2">
+ddtek:validate-and-report
+</h3>
+<a name="wp318066"> </a><p class="pBody">
+The validate-and-report built-in function provides full error reporting. 
+</p>
+<a name="wp321891"> </a><p class="pBody">
+The function declaration for ddtek:validate-and-report:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek:validate-and-report(<a name="wp321733"> </a>
+ $arg1 as node(), $schema as xs:string)<a name="wp321734"> </a>
+ as document-node(element(*,xs:untyped)) <a name="wp321735"> </a>
+</pre></div>
+<a name="wp321744"> </a><p class="pBody">
+Other built-in functions that provide validation support are <a  href="built-in_functions2.html#wp318060">ddtek:isValid</a> and <a  href="built-in_functions2.html#wp289182">ddtek:validate</a>.
+</p>
+<a name="wp321831"> </a><p class="pBody">
+Consider the following example. Given this XML Schema:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp321905"> </a>
+&lt;xsd:schema <a name="wp321906"> </a>
+ xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; <a name="wp321907"> </a>
+ targetNamespace=&quot;http://www.xquery.com/examples&quot; <a name="wp321908"> </a>
+ xmlns=&quot;http://www.xquery.com/examples&quot;&gt;<a name="wp321909"> </a>
+ &lt;xsd:element name=&quot;books&quot;&gt;<a name="wp321910"> </a>
+  &lt;xsd:complexType&gt;<a name="wp321911"> </a>
+   &lt;xsd:sequence&gt;<a name="wp321912"> </a>
+    &lt;xsd:element name=&quot;book&quot;&gt;<a name="wp321913"> </a>
+     &lt;xsd:complexType&gt;<a name="wp321914"> </a>
+      &lt;xsd:sequence&gt;<a name="wp321915"> </a>
+       &lt;xsd:element name=&quot;title&quot;/&gt;<a name="wp321916"> </a>
+      &lt;/xsd:sequence&gt;<a name="wp321917"> </a>
+     &lt;/xsd:complexType&gt;<a name="wp321918"> </a>
+    &lt;/xsd:element&gt;<a name="wp321919"> </a>
+   &lt;/xsd:sequence&gt;<a name="wp321920"> </a>
+  &lt;/xsd:complexType&gt;<a name="wp321921"> </a>
+ &lt;/xsd:element&gt;<a name="wp321922"> </a>
+&lt;/xsd:schema&gt;<a name="wp321923"> </a>
+</pre></div>
+<a name="wp321894"> </a><p class="pBody">
+This XML document is invalid, because it is missing the <code class="cCode">&lt;title&gt;</code> element: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+          &lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp321945"> </a>
+          &lt;p1:books xmlns:p1=&quot;http://www.xquery.com/examples&quot; <a name="wp321946"> </a>
+              xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; <a name="wp321947"> </a>
+              xsi:schemaLocation=&quot;http://www.xquery.com/examples books.xsd&quot;&gt;<a name="wp321948"> </a>
+              &lt;book&gt;<a name="wp321949"> </a>
+                  &lt;!--&lt;title&gt;My Title&lt;/title&gt;--&gt;<a name="wp321950"> </a>
+              &lt;/book&gt;<a name="wp321951"> </a>
+          &lt;/p1:books&gt;<a name="wp321952"> </a>
+</pre></div>
+<a name="wp321940"> </a><p class="pBody">
+To capture such validation errors, the validate-and-report function can be employed in an XQuery like this one:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $books as document-node(element(*, xs:untyped)) external;<a name="wp321978"> </a>
+<a name="wp321979"> </a>
+<a name="wp321980"> </a>
+ddtek:serialize-to-url(<a name="wp321981"> </a>
+ddtek:validate-and-report($books, &quot;books.xsd&quot;),<a name="wp321982"> </a>
+&quot;file:///c:/errors/validation-result.xml&quot;,&quot;&quot;)<a name="wp321983"> </a>
+</pre></div>
+<a name="wp321972"> </a><p class="pBody">
+Which results in the following XML:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;p1:validation-result <a name="wp322050"> </a>
+    xmlns:p1=&quot;http://www.datadirect.com/xquery&quot; <a name="wp322051"> </a>
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; <a name="wp322052"> </a>
+    xsi:schemaLocation=&quot;http://www.datadirect.com/xquery<a name="wp322053"> </a>
+                        validate-and-report.xsd&quot;&gt;<a name="wp322082"> </a>
+ &lt;error&gt;<a name="wp322054"> </a>
+  &lt;exception&gt;<a name="wp322055"> </a>
+   &lt;message&gt;The content of element &#39;book&#39; is not complete. One of &#39;{title}&#39;<a name="wp322056"> </a>
+            is expected.&lt;/message&gt;<a name="wp322083"> </a>
+   &lt;stack-trace/&gt;<a name="wp322057"> </a>
+  &lt;/exception&gt;<a name="wp322058"> </a>
+  &lt;location&gt;<a name="wp322059"> </a>
+   &lt;publicID/&gt;<a name="wp322060"> </a>
+   &lt;systemID&gt;file:/c:/DDXQ5.0/books-validation.xml&lt;/systemID&gt;<a name="wp322061"> </a>
+   &lt;lineNumber&gt;7&lt;/lineNumber&gt;<a name="wp322062"> </a>
+   &lt;columnNumber&gt;12&lt;/columnNumber&gt;<a name="wp322063"> </a>
+  &lt;/location&gt;<a name="wp322064"> </a>
+ &lt;/error&gt;<a name="wp322065"> </a>
+&lt;/p1:validation-result&gt;<a name="wp322066"> </a>
+<a name="wp322045"> </a>
+</pre></div>
+<a name="wp285024"> </a><h3 class="pHeading2">
+ddtek:wscall
+</h3>
+<a name="wp285028"> </a><p class="pBody">
+This built-in function allows you to invoke a Web service operation synchronously using SOAP over HTTP. (See <a  href="http://www.w3.org/TR/soap11 ">http://www.w3.org/TR/soap11 </a>for details about SOAP.)
+</p>
+<a name="wp285033"> </a><p class="pBody">
+The function declarations for ddtek:wscall are:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:wscall($location as element(), $payload as element()) <a name="wp285041"> </a>
+  as document-node( element(*, xs:untyped) )<a name="wp285042"> </a>
+ddtek:wscall($location as element(), $header as element(),<a name="wp285044"> </a>
+  $payload as element()) <a name="wp285110"> </a>
+  as document-node( element(*, xs:untyped) )<a name="wp285111"> </a>
+</pre></div>
+<a name="wp285046"> </a><p class="pBody">
+where:
+</p>
+<a name="wp285047"> </a><p class="pBody">
+<code class="cCode">$location</code> is an element named location as defined in the following XML Schema:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp285049"> </a>
+&lt;xsd:schema <a name="wp285050"> </a>
+ xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; <a name="wp285051"> </a>
+ targetNamespace=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp285052"> </a>
+  &lt;xsd:element name=&quot;location&quot;&gt;<a name="wp285053"> </a>
+    &lt;xsd:complexType&gt;<a name="wp285054"> </a>
+       &lt;xsd:attribute name=&quot;address&quot; type=&quot;xsd:anyURI&quot;/&gt;<a name="wp285055"> </a>
+       &lt;xsd:attribute name=&quot;soapaction&quot; type=&quot;xsd:string&quot;<a name="wp285056"> </a>
+         use=&quot;optional&quot;/&gt;<a name="wp285159"> </a>
+       &lt;xsd:attribute name=&quot;timeout&quot; type=&quot;xsd:unsignedInt&quot;<a name="wp285057"> </a>
+         use=&quot;optional&quot; default=&quot;30000&quot;/&gt;<a name="wp285175"> </a>
+       &lt;xsd:attribute name=&quot;user&quot; type=&quot;xsd:string&quot; <a name="wp285058"> </a>
+         use=&quot;optional&quot;/&gt;<a name="wp285191"> </a>
+       &lt;xsd:attribute name=&quot;password&quot; type=&quot;xsd:string&quot;<a name="wp285059"> </a>
+         use=&quot;optional&quot;/&gt;<a name="wp285207"> </a>
+       &lt;xsd:attribute name=&quot;http.proxyHost&quot; <a name="wp285060"> </a>
+         type=&quot;xsd:anyURI&quot; use=&quot;optional&quot;/&gt;<a name="wp285223"> </a>
+       &lt;xsd:attribute name=&quot;http.proxyPort&quot; <a name="wp285061"> </a>
+         type=&quot;xsd:unsignedInt&quot; use=&quot;optional&quot;/&gt;<a name="wp285239"> </a>
+       &lt;xsd:attribute name=&quot;http.proxyUser&quot; <a name="wp285062"> </a>
+         type=&quot;xsd:string&quot; use=&quot;optional&quot;/&gt;<a name="wp285255"> </a>
+       &lt;xsd:attribute name=&quot;http.proxyPassword&quot; <a name="wp285063"> </a>
+         type=&quot;xsd:string&quot; use=&quot;optional&quot;/&gt;<a name="wp285271"> </a>
+       &lt;xsd:attribute name=&quot;http.version&quot;<a name="wp285064"> </a>
+         type=&quot;xsd:string&quot; use=&quot;optional&quot; default=&quot;1.1&quot;/<a name="wp310824"> </a>
+       &lt;xsd:attribute name=&quot;compression&quot;<a name="wp310830"> </a>
+         type=&quot;xsd:string&quot; use=&quot;optional&quot; default=&quot;&quot;/<a name="wp310831"> </a>
+       &lt;xsd:attribute name=&quot;wrapAnyErrorsAsSOAPFault&quot; <a name="wp310825"> </a>
+         type=&quot;xsd:boolean&quot; use=&quot;optional&quot; default=&quot;true&quot;/&gt;<a name="wp310826"> </a>
+    &lt;/xsd:complexType&gt;<a name="wp285065"> </a>
+  &lt;/xsd:element&gt;<a name="wp285066"> </a>
+&lt;/xsd:schema&gt; <a name="wp285067"> </a>
+</pre></div>
+<a name="wp285337"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;ddtek:location <a name="wp285348"> </a>
+  address=&quot;http://www.ejse.com/WeatherService/Service.asmx&quot;<a name="wp285398"> </a>
+  soapaction=&quot;http://ejse.com/WeatherService/GetWeatherInfo&quot;/&gt;<a name="wp285350"> </a>
+</pre></div>
+<a name="wp285338"> </a><p class="pBody">
+The following table defines the attributes in the XML schema.
+</p>
+<a name="wp285435"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp285449"> </a><div class="pCellHeading">
+Attribute Name
+</div>
+</th>
+    <th><a name="wp285451"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285453"> </a><div class="pCellBody">
+address
+</div>
+</td>
+    <td><a name="wp285455"> </a><div class="pCellBody">
+Web service end point
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285457"> </a><div class="pCellBody">
+soapaction
+</div>
+</td>
+    <td><a name="wp285459"> </a><div class="pCellBody">
+The SOAPAction HTTP header field
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285519"> </a><div class="pCellBody">
+timeout
+</div>
+</td>
+    <td><a name="wp285521"> </a><div class="pCellBody">
+The connection timeout in milliseconds
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285515"> </a><div class="pCellBody">
+user
+</div>
+</td>
+    <td><a name="wp285517"> </a><div class="pCellBody">
+User name for the HTTP connection, if required
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285511"> </a><div class="pCellBody">
+password
+</div>
+</td>
+    <td><a name="wp285513"> </a><div class="pCellBody">
+Password for the HTTP connection if required
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285507"> </a><div class="pCellBody">
+http:proxyHost
+</div>
+</td>
+    <td><a name="wp285509"> </a><div class="pCellBody">
+Proxy host address
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285503"> </a><div class="pCellBody">
+http:proxyPort
+</div>
+</td>
+    <td><a name="wp285505"> </a><div class="pCellBody">
+Proxy port number
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285499"> </a><div class="pCellBody">
+http:proxyUser
+</div>
+</td>
+    <td><a name="wp285501"> </a><div class="pCellBody">
+Proxy user name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285495"> </a><div class="pCellBody">
+http:proxyPassword
+</div>
+</td>
+    <td><a name="wp285497"> </a><div class="pCellBody">
+Proxy password
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp306421"> </a><div class="pCellBody">
+http:version
+</div>
+</td>
+    <td><a name="wp306423"> </a><div class="pCellBody">
+Version of the HTTP protocol to use when communicating with the server
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310839"> </a><div class="pCellBody">
+compression
+</div>
+</td>
+    <td><a name="wp310841"> </a><div class="pCellBody">
+The type of file compression used to transmit the message. The default is off; you can specify &quot;gzip&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp285491"> </a><div class="pCellBody">
+wrapAnyErrorsAsSOAPFault
+</div>
+</td>
+    <td><a name="wp285493"> </a><div class="pCellBody">
+Determines if exceptions are returned
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp285340"> </a><p class="pBody">
+<code class="cCode">$header </code>is the SOAP Header payload. See the SOAP Header specification at <a  href="http://www.w3.org/TR/soap11/#_Toc478383497.">http://www.w3.org/TR/soap11/#_Toc478383497</a> for details. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;tns:UserCreds xmlns:tns=&quot;http://ejse.com/WeatherService/&quot;&gt;<a name="wp285610"> </a>
+    &lt;tns:UserName&gt;marypelle@acme.org&lt;/tns:UserName&gt;<a name="wp285611"> </a>
+    &lt;tns:Password&gt;30Mp75Y8p49s&lt;/tns:Password&gt;<a name="wp285612"> </a>
+&lt;/tns:UserCreds&gt;<a name="wp285613"> </a>
+</pre></div>
+<a name="wp285608"> </a><p class="pBody">
+<code class="cCode">$payload</code> is an element that defines the payload expected by the web service, which is usually in a format defined by the Web Services Description Language (WSDL). See <a  href="http://www.w3.org/TR/wsdl">http://www.w3.org/TR/wsdl</a> for details about WSDL. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;tns:GetWeatherInfo xmlns:tns=&quot;http://ejse.com/WeatherService/&quot;&gt;<a name="wp286048"> </a>
+    &lt;tns:zipCode&gt;01803&lt;/tns:zipCode&gt;<a name="wp286049"> </a>
+&lt;/tns:GetWeatherInfo&gt;<a name="wp286050"> </a>
+</pre></div>
+<a name="wp286033"> </a><p class="pBody">
+The return value is a document node that contains the web service response.
+</p>
+<a name="wp286079"> </a><p class="pBody">
+The following example invokes a web service that requires registration and uses the SOAP header to specify the user&#8217;s credentials:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:wscall(<a name="wp286082"> </a>
+&lt;ddtek:location <a name="wp286087"> </a>
+  address=&quot;http://www.ejse.com/WeatherService/Service.asmx&quot;<a name="wp286083"> </a>
+  soapaction=&quot;http://ejse.com/WeatherService/GetWeatherInfo&quot;/&gt;,<a name="wp286084"> </a>
+&lt;tns:UserCreds xmlns:tns=&quot;http://ejse.com/WeatherService/&quot;&gt;<a name="wp286089"> </a>
+    &lt;tns:UserName&gt;marypelle@acme.org&lt;/tns:UserName&gt;<a name="wp286090"> </a>
+    &lt;tns:Password&gt;30Mp75Y8p49s&lt;/tns:Password&gt;<a name="wp286091"> </a>
+&lt;/tns:UserCreds&gt;,<a name="wp286092"> </a>
+&lt;tns:GetWeatherInfo xmlns:tns=&quot;http://ejse.com/WeatherService/&quot;&gt;<a name="wp286099"> </a>
+    &lt;tns:zipCode&gt;01803&lt;/tns:zipCode&gt;<a name="wp286100"> </a>
+&lt;/tns:GetWeatherInfo&gt; <a name="wp286101"> </a>
+)<a name="wp289510"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

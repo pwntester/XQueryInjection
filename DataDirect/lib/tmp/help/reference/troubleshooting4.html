@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:49" />
+  <title>Resolving fn:collection Errors</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp136633"> </a><h2 class="pNewHTMLPageNum">
+Resolving fn:collection Errors
+</h2>
+<hr />
+<a name="wp136634"> </a><p class="pBody">
+DataDirect XQuery uses fn:collection to access a relational table or to access multiple XML files in a directory. For example, the following query accesses the holdings database table:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;holdings&#39;)<a name="wp136635"> </a>
+</pre></div>
+<a name="wp136636"> </a><p class="pBody">
+When DataDirect XQuery cannot resolve the fn:collection argument to a specific database object or to a file system directory, it raises an error.
+</p>
+<a name="wp136638"> </a><h3 class="pHeading2">
+Guidelines for Resolving Errors
+</h3>
+<a name="wp136639"> </a><p class="pBody">
+When DataDirect XQuery cannot resolve the fn:collection argument to a specific database object, it raises an error such as:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">Table x not found in any JDBC connection</code> or <code class="cCode">Table x found 
+in multiple JDBC connections</code>.<a name="wp141560"> </a>
+</pre></div>
+<a name="wp141561"> </a><p class="pBody">
+If you encounter these types of errors when using DataDirect XQuery, the following guidelines will help you troubleshoot and correct the cause of the error:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp136640"> </a><div class="pSmartList1"><li>Qualify table names in fn:collection arguments if you have multiple database tables with the same name or the default catalog and schema associated with the connection do not provide access to the database table.</li></div><a name="wp136641"> </a><div class="pSmartList1"><li>Escape special characters in catalog, schema, and table names.</li></div><a name="wp140653"> </a><div class="pSmartList1"><li>Verify connections associated with the query.</li></div><a name="wp140654"> </a><div class="pSmartList1"><li>When querying XML files in a directory, make sure you specify  the directory URL correctly. One typical mistake is that the file:/// URL prefix was not specified as part of the directory URL.</li></div></ul></div>
+<a name="wp140655"> </a><h3 class="pHeading2">
+Qualifying Table Names
+</h3>
+<a name="wp136644"> </a><p class="pBody">
+If you have multiple database tables with the same name or the default catalog and schema associated with the connection do not provide access to the database table, you can qualify the database table name in the fn:collection argument to target the specific table. For example, if the default catalog (database) and schema (user) associated with the connection is financial and joseph, respectively, and the target table is owned by the schema mary, qualify the table name in the fn:collection argument:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;financial.mary.holdings&#39;)<a name="wp136647"> </a>
+</pre></div>
+<a name="wp136648"> </a><h3 class="pHeading2">
+Using Catalog and Schema Names
+</h3>
+<a name="wp136649"> </a><p class="pBody">
+To verify that you know the correct catalog name, schema name, and table name, start the SQL tool shipped with your database and connect to the database server. Once connected, execute the following SQL statement against the database:
+</p>
+<a name="wp136650"> </a><p class="pBodyBold">
+DB2 and Microsoft SQL Server
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM &quot;<code><em>catalog</em></code>&quot;.&quot;<code><em>schema</em></code>&quot;.&quot;<code><em>table</em></code>&quot; WHERE 1=0<a name="wp136651"> </a>
+</pre></div>
+<a name="wp141361"> </a><p class="pBodyBold">
+Informix
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM &quot;<code><em>catalog</em></code>&quot;:&quot;<code><em>schema</em></code>&quot;.&quot;<code><em>table</em></code>&quot; WHERE 1=0<a name="wp141362"> </a>
+</pre></div>
+<a name="wp141399"> </a><p class="pBodyBold">
+MySQL
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM &#39;catalog&#39;.&#39;<code><em>table</em></code>&#39; WHERE 1=0<a name="wp141400"> </a>
+</pre></div>
+<a name="wp136652"> </a><p class="pBodyBold">
+Oracle and PostgreSQL
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM &quot;<code><em>schema</em></code>&quot;.&quot;<code><em>table</em></code>&quot; WHERE 1=0<a name="wp141456"> </a>
+</pre></div>
+<a name="wp141457"> </a><p class="pBodyBold">
+Sybase
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM <code><em>catalog</em></code>.<code><em>schema</em></code>.&quot;<code><em>table</em></code>&quot; WHERE 1=0<a name="wp141458"> </a>
+</pre></div>
+<a name="wp138299"> </a><p class="pBody">
+where <code><em>catalog</em></code>, <code><em>schema</em></code>, and <code><em>table</em></code> are the catalog name, schema name, and table name of the database object you are trying to access.
+</p>
+<a name="wp136655"> </a><p class="pBody">
+NOTE: Oracle and PostgreSQL databases do not have catalogs. MySQL databases do not have schemas.
+</p>
+<a name="wp136656"> </a><p class="pBody">
+If the SQL statement returns an empty result, the values you entered correspond to the correct catalog name, schema name, and table name. Use these values in the fn:collection argument to qualify the table name. If the SQL statement returns an error, the values you entered are incorrect.
+</p>
+<a name="wp136657"> </a><p class="pBody">
+IMPORTANT: The case of the values specified in the fn:collection argument must match the case of the database.
+</p>
+<a name="wp136658"> </a><p class="pBody">
+On Microsoft SQL Server and Sybase, a user can have the special status of database owner. For example, if the SQL name of the target table is &quot;financial&quot;.&quot;dbo&quot;.&quot;holdings,&quot; qualify the table name in the fn:collection argument with the schema name dbo:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;financial.dbo.holdings&#39;)<a name="wp136659"> </a>
+</pre></div>
+<a name="wp136660"> </a><h3 class="pHeading2">
+Using JDBC Connection Names
+</h3>
+<a name="wp136661"> </a><p class="pBody">
+If the table name in the fn:collection argument is qualified with a catalog name or schema name (or both) and DataDirect XQuery returns an error indicating that multiple tables with the same name exist, you need to qualify the table name using a JDBC connection name. A JDBC connection name identifies a specific connection associated with the database table. 
+</p>
+<a name="wp136662"> </a><p class="pBody">
+Suppose two tables of the same name, holdings, exist on different database servers with the same schema name, joseph. In this case, the following query does not provide enough information for DataDirect XQuery to locate the target table:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;joseph.holdings&#39;)<a name="wp136663"> </a>
+</pre></div>
+<a name="wp136664"> </a><p class="pBody">
+To identify the correct table, you can qualify the table name in the fn:collection argument with a JDBC connection name. Here&#39;s an example that shows a connection made explicitly in the application to two different databases; each connection is assigned a unique JDBC connection name, stocks1 and stocks2, respectively:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQJDBCConnection jc1 = new DDXQJDBCConnection();<a name="wp136665"> </a>
+jc1.setUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=financial&quot;);<a name="wp136666"> </a>
+jc1.setName(&quot;stocks1&quot;);<a name="wp136667"> </a>
+DDXQJDBCConnection jc2 = new DDXQJDBCConnection();<a name="wp136668"> </a>
+jc2.setUrl(&quot;jdbc:xquery:oracle://server2:1521;SID=ORCL&quot;);<a name="wp136669"> </a>
+jc2.setName(&quot;stocks2&quot;);<a name="wp136670"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp136671"> </a>
+ds.setDdxqJdbcConnection(new DDXQJDBCConnection[] {jc1, jc2});<a name="wp136672"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp136673"> </a>
+</pre></div>
+<a name="wp136674"> </a><p class="pBody">
+Here&#39;s an example showing the same connection information configured in a DataDirect XQuery source configuration file:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp136675"> </a>
+ &lt;JDBCConnection name=&quot;stocks1&quot;&gt;<a name="wp136676"> </a>
+    &lt;description&gt;connection to stocks1 data&lt;/description&gt;<a name="wp136677"> </a>
+    &lt;url&gt;jdbc:xquery:sqlserver://localhost:1433;DatabaseName=financial&lt;/url&gt;<a name="wp136678"> </a>
+    &lt;user&gt;myuserid&lt;/user&gt;<a name="wp136679"> </a>
+    &lt;password&gt;mypswd&lt;/password&gt;<a name="wp136680"> </a>
+    ...<a name="wp136681"> </a>
+&lt;JDBCConnection name=&quot;stocks2&quot;&gt;<a name="wp136682"> </a>
+    &lt;description&gt;connection to stocks2 data&lt;/description&gt;<a name="wp136686"> </a>
+    &lt;url&gt;jdbc:xquery:oracle://localhost:1521;SID=ORCL&lt;/url&gt;<a name="wp136687"> </a>
+    &lt;user&gt;myuserid&lt;/user&gt;<a name="wp136688"> </a>
+    &lt;password&gt;mypswd&lt;/password&gt;<a name="wp136689"> </a>
+    ...<a name="wp136690"> </a>
+</pre></div>
+<a name="wp136694"> </a><p class="pBody">
+To target the holdings table on server1, qualify the table name with the JDBC connection name stocks1 in addition to the catalog name and schema name:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;stocks1:joseph.holdings&#39;)<a name="wp136695"> </a>
+</pre></div>
+<a name="wp136696"> </a><p class="pBody">
+See <a  href="conf_sourcefiles3.html#wp202801">Choosing a Connection Method</a> for more information about connecting with DataDirect XQuery.
+</p>
+<a name="wp136697"> </a><h3 class="pHeading2">
+Escaping Special Characters
+</h3>
+<a name="wp136698"> </a><p class="pBody">
+If the catalog name, schema name, or table name in the fn:collection argument contains a period (.), colon (:), or backslash (\), escape the character with a backslash (\) so that DataDirect XQuery can parse the argument into its different parts. For example, if the target table is named a.holdings and you specify the following query, DataDirect XQuery parses &#39;A&#39; as the schema name, not as part of the table name: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;a.holdings&#39;)<a name="wp136699"> </a>
+</pre></div>
+<a name="wp136701"> </a><p class="pBody">
+Escaping the period (.) in the fn:collection argument using the backslash character allows DataDirect XQuery to parse the argument correctly:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;a\.holdings&#39;)<a name="wp136702"> </a>
+</pre></div>
+<a name="wp136703"> </a><p class="pBody">
+In addition, XQuery string literal syntax applies to the fn:collection argument. If a table name contains double quotes, for example, a&quot;holdings, and the fn:collection argument uses double quote delimiters, you must repeat the double quotes:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&quot;a&quot;&quot;holdings&quot;)<a name="wp136704"> </a>
+</pre></div>
+<a name="wp138089"> </a><p class="pBody">
+Or, you can use:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;a&quot;holdings&#39;)<a name="wp138210"> </a>
+</pre></div>
+<a name="wp138207"> </a><p class="pBody">
+See the next section <a  href="troubleshooting4.html#wp138220">Using Aliases</a> for details about how to avoid escaping characters.
+</p>
+<a name="wp138220"> </a><h4 class="pHeading3">
+Using Aliases
+</h4>
+<a name="wp138221"> </a><p class="pBody">
+To avoid escaping period (.), colon (:), and double quotes (&quot;), and to avoid the SQL/XML escaping of non-supported XML characters, DataDirect XQuery supports an alias attribute for the catalog, schema, and table elements of the source configuration file. 
+</p>
+<a name="wp138222"> </a><p class="pBody">
+For example, assume a table exists named tab&quot;le that contains a single integer column named c with one row. In this case, the following query:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&quot;tab&quot;&quot;le&quot;)<a name="wp138223"> </a>
+</pre></div>
+<a name="wp138224"> </a><p class="pBody">
+returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;tab_x0022_le&gt;<a name="wp138225"> </a>
+   &lt;c&gt;1&lt;/c&gt;<a name="wp138226"> </a>
+&lt;/tab_x0022_le&gt;<a name="wp138227"> </a>
+</pre></div>
+<a name="wp138228"> </a><p class="pBody">
+Using the alias attribute for the table element as shown in the following source configuration file example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;catalog name=&quot;catalog&quot;&gt;<a name="wp138229"> </a>
+  &lt;schema name=&quot;schema&quot;&gt;<a name="wp138230"> </a>
+    &lt;table name=&#39;tab&quot;le&#39; alias=&quot;tablealias&quot;/&gt;<a name="wp138231"> </a>
+  &lt;/schema&gt;<a name="wp138232"> </a>
+&lt;/catalog&gt;<a name="wp138233"> </a>
+</pre></div>
+<a name="wp138234"> </a><p class="pBody">
+you can specify tablealias as the table name in fn:collection:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&quot;tablealias&quot;)<a name="wp138235"> </a>
+</pre></div>
+<a name="wp138236"> </a><p class="pBody">
+which results in:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;tablealias&gt;<a name="wp138237"> </a>
+   &lt;c&gt;1&lt;/c&gt;<a name="wp138238"> </a>
+&lt;/tablealias/&gt;<a name="wp138239"> </a>
+</pre></div>
+<a name="wp138218"> </a><h3 class="pHeading2">
+Verifying Connections 
+</h3>
+<a name="wp136706"> </a><p class="pBody">
+Using DataDirect XQuery, an application establishes a connection to the database to execute a query. The application can establish a connection to the database in multiple ways: explicitly specifying connection information in the application, using a data source registered with JNDI, or using a DataDirect XQuery source configuration file. If DataDirect XQuery cannot access the database because connection information is specified incorrectly or because the structure of the configuration file is incorrect, it raises an error.
+</p>
+<a name="wp136707"> </a><h4 class="pHeading3">
+Verifying Connection URLs
+</h4>
+<a name="wp136708"> </a><p class="pBody">
+Verify that the following information in your connection URL is correct: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp136709"> </a><div class="pSmartList1"><li>Type of database to which the application is connecting.</li></div><a name="wp136710"> </a><div class="pSmartList1"><li>TCP/IP address or host name of the database server to which the application is connecting.</li></div><a name="wp136711"> </a><div class="pSmartList1"><li>Number of the TCP/IP port.</li></div><a name="wp136712"> </a><div class="pSmartList1"><li>User name used to connect to the database.</li></div><a name="wp136713"> </a><div class="pSmartList1"><li>Password used to connect to the database.</li></div><a name="wp136714"> </a><div class="pSmartList1"><li>Database-specific connection properties that provide additional connection information. DatabaseName (for DB2 and Microsoft SQL Server) and SID (for Oracle) are commonly used properties. For a list of available database-specific connection properties, see the tables in <a  href="conf_sourcefiles7.html#wp182290">Specifying Connection URIs</a>.</li></div></ul></div>
+<a name="wp136722"> </a><h3 class="pHeading2">
+Checklist
+</h3>
+<a name="wp136723"> </a><p class="pBody">
+If you encounter an error when using fn:collection with DataDirect XQuery when accessing a relational table, examine the following checklist to resolve the problem:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp136724"> </a><div class="pSmartList1"><li>Qualify table names in fn:collection arguments if you have multiple database tables with the same name or the default catalog and schema associated with the connection do not provide access to the database table.</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp136725"> </a><div class="pSmartList2"><li>Make sure that you know the correct catalog name, schema name, and table name (including case).</li></div>
+<a name="wp136726"> </a><div class="pSmartList2"><li>If you are accessing Microsoft SQL Server or Sybase and the database table is owned by dbo, make sure that you qualify the table name with the schema name dbo. For example:</li></div>
+<a name="wp136727"> </a><p class="pSyntaxEmbed">
+collection(&#39;financial.dbo.holdings&#39;)
+</p>
+<a name="wp136728"> </a><div class="pSmartList2"><li>If you qualify the table name with a catalog name or schema name (or both) and DataDirect XQuery returns an error indicating that multiple collections are found, you may want to qualify the table name with a JDBC connection name.</li></div>
+</ul></div>
+<a name="wp136729"> </a><div class="pSmartList1"><li>Escape special characters in catalog, schema, and table names. See <a  href="conf_sourcefiles2.html#wp186202">Case Sensitivity</a> for details about how to avoid escaping characters. </li></div><a name="wp136730"> </a><div class="pSmartList1"><li>Verify connections associated with the query.</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp136731"> </a><div class="pSmartList2"><li>Make sure that the information specified in your connection URL is correct including: database type, server name, port, user, password, and any database-specific connection properties.</li></div>
+<a name="wp136732"> </a><div class="pSmartList2"><li>If using a DataDirect XQuery source configuration file, make sure that it validates against the source_config.xsd schema shipped with DataDirect XQuery. This schema is located in the examples/config subdirectory of your DataDirect XQuery installation directory. You can validate the configuration file using a tool such as &lt;oXygen&gt; XML Editor for Eclipse (DataDirect XQuery Edition) or Stylus Studio.</li></div>
+<a name="wp136733"> </a><div class="pSmartList2"><li>If using a DataDirect XQuery source configuration file, make sure that the values of the catalog, schema, and table elements are correct.</li></div>
+</ul></div>
+</ul></div>
+<a name="wp140696"> </a><h3 class="pHeading2">
+Querying XML Files in a Directory
+</h3>
+<a name="wp140700"> </a><p class="pBody">
+The fn:collection argument value is a URL referencing a directory. The URL must use the file:// scheme. See <a  href="advancedfeatures3.html#wp219064">Querying Multiple Files in a Directory</a> for complete details.
+</p>
+<a name="wp140731"> </a><p class="pBody">
+Some typical errors made when specifying the directory URL are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp141001"> </a><div class="pSmartList1"><li>The specified URL is missing the file:/// URL prefix. For example, <code class="cCode">collection(c:/myDir)</code> must be <code class="cCode">collection(file:///c:/myDir)</code>.</li></div><a name="wp140985"> </a><div class="pSmartList1"><li>A forward slash (/) is missing in the directory URL. For example, <code class="cCode">collection(file://c:/myDir)</code> must be <code class="cCode">collection(file:///c:/myDir)</code>.</li></div><a name="wp140764"> </a><div class="pSmartList1"><li>The specified URL does not reference a directory.</li></div></ul></div>
+<a name="wp140769"> </a><p class="pBody">
+In addition, you may receive an error when querying XML files in a directory if:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp141033"> </a><div class="pSmartList1"><li>Some of the files in the specified directory are not well-formed XML documents. Using the select property as part of the specified URL, you can control which files are accessed in the specified folder, for example:</li></div><a name="wp140771"> </a><p class="pSyntaxEmbed">
+collection(&quot;file:///c:/myDir?select=*.xml&quot;)
+</p>
+<a name="wp141040"> </a><div class="pSmartList1"><li>The XQuery regular expression you specified is not a valid expression. For example, <code class="cCode">collection(&quot;file:///c:/myDir?select=*.xml;<br />xquery-regex=yes&quot;)</code> must be <code class="cCode">collection(&quot;file:///c:/myDir?select=.*%5C.xml$;<br />xquery-regex=yes&quot;)</code>.</li></div></ul></div>
+<a name="wp140880"> </a><p class="pBody">
+See <a  href="advancedfeatures3.html#wp219064">Querying Multiple Files in a Directory</a> for the collection function&#8217;s declaration for this feature.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

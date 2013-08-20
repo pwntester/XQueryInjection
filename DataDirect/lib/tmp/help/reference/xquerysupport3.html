@@ -1,0 +1,905 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:28" />
+  <title>3 Expressions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp240279"> </a><h2 class="pNewHTMLPageNum">
+3 Expressions
+</h2>
+<hr />
+<a name="wp179297"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports the following XQuery expressions.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp117659"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp104242">Primary Expressions</a></li></div><a name="wp117663"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp104383">Path Expressions</a> </li></div><a name="wp141707"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp133365">Sequence Expressions</a></li></div><a name="wp117671"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp216439">Arithmetic Expressions</a></li></div><a name="wp117675"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp133557">Comparison Expressions</a></li></div><a name="wp117679"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp105128">Logical Expressions</a></li></div><a name="wp117773"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp179554">Constructors</a> </li></div><a name="wp117802"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp105495">FLWOR Expressions</a></li></div><a name="wp117831"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp105677">Ordered and Unordered Expressions</a> </li></div><a name="wp117890"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp105750">Conditional Expressions</a></li></div><a name="wp117947"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp105928">Quantified Expressions</a></li></div><a name="wp118004"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp105999">Expressions on SequenceTypes</a></li></div><a name="wp118061"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp106469">Validate Expressions</a></li></div><a name="wp248929"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp178064">Extension Expressions</a></li></div></ul></div>
+<a name="wp104242"> </a><h3 class="pHeading2">
+Primary Expressions
+</h3>
+<a name="wp118943"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp170326">Table&#160;A-7</a> describes how DataDirect XQuery supports XQuery primary expressions.
+</p>
+<a name="wp104316"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp170326"> </a><div class="pTableTitle">
+Table A-7.  XQuery Primary Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp170332"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp170336"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp170338"> </a><div class="pCellBody">
+Literals)
+</div>
+</td>
+    <td><a name="wp170342"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp170343"> </a><div class="pCellBody">
+For relational sources, the default encoding for string literals is the encoding used by the database. You can set it to Unicode using the option declaration sql-unicode-literals.
+</div>
+<a name="wp170344"> </a><div class="pCellBody">
+By default, the precision and scale for decimals is:
+</div>
+<a name="wp170345"> </a><div class="pCellBody">
+DB2: 30, 15<br />Informix: 32, 15<br />Oracle: No default<br />PostgreSQL: No default<br />Microsoft SQL Server: 38,19<br />Sybase: 38, 19
+</div>
+<a name="wp170346"> </a><div class="pCellBody">
+You can override the database default by using the sql-decimal-cast option declaration. See <a  href="advancedfeatures2.html#wp204556">Option Declarations</a> for details. Also, the following constructor function creates a decimal that allows you to set the precision and scale:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:decimal ($arg as xs:anyAtomicType?, 
+$precision as xs:integer, $scale as xs:integer) 
+as xs:decimal?<a name="wp170723"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp170352"> </a><div class="pCellBody">
+Variable references
+</div>
+</td>
+    <td><a name="wp170356"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp251484"> </a><div class="pCellBody">
+Parenthesized expressions
+</div>
+</td>
+    <td><a name="wp251443"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp170364"> </a><div class="pCellBody">
+Context item expression
+</div>
+</td>
+    <td><a name="wp170368"> </a><div class="pCellBody">
+Supported, except for initial context item.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp170370"> </a><div class="pCellBody">
+Function calls
+</div>
+</td>
+    <td><a name="wp170374"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp104383"> </a><h3 class="pHeading2">
+Path Expressions
+</h3>
+<a name="wp119188"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp269919">Table&#160;A-8</a> describes how DataDirect XQuery supports path expressions. 
+</p>
+<a name="wp104489"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp269919"> </a><div class="pTableTitle">
+Table A-8.  XQuery Path Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp269925"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp269929"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp269931"> </a><div class="pCellBody">
+Steps
+</div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+&#160;<a name="wp269935"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp269937"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp269939"> </a><div class="pCellBody">
+Axis
+</div>
+</td>
+    <td><a name="wp269941"> </a><div class="pCellBody">
+Supported, except for the Full Axis feature.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp269943"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp269945"> </a><div class="pCellBody">
+Nodes tests
+</div>
+</td>
+    <td><a name="wp269947"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp269948"> </a><div class="pCellBody">
+For relational sources, name tests and kind tests that specify a name are not supported when the test is applied to a node with a computed name. In such cases, an error is raised. For example, the following XQuery raises an error:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">for $h in collection(&#8217;holdings&#39;)/holdings/*</code><a name="wp269949"> </a>
+return<a name="wp269950"> </a>
+   document {<a name="wp269951"> </a>
+      element {name($h)} {string($h)}<a name="wp269952"> </a>
+   } / stockholder<a name="wp269953"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp269955"> </a><div class="pCellBody">
+Predicates
+</div>
+</td>
+    <td><a name="wp269959"> </a><div class="pCellBody">
+Supported. Numeric predicates are compensated for relational sources. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp269964"> </a><div class="pCellBody">
+Unabbreviated syntax
+</div>
+</td>
+    <td><a name="wp269968"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp269970"> </a><div class="pCellBody">
+Abbreviated syntax
+</div>
+</td>
+    <td><a name="wp269974"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp133365"> </a><h3 class="pHeading2">
+Sequence Expressions
+</h3>
+<a name="wp119419"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp171180">Table&#160;A-9</a> describes how DataDirect XQuery supports sequence expressions. 
+</p>
+<a name="wp104450"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp171180"> </a><div class="pTableTitle">
+Table A-9.  XQuery Sequence Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp171186"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp171190"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp171192"> </a><div class="pCellBody">
+Constructing sequences
+</div>
+</td>
+    <td><a name="wp171196"> </a><div class="pCellBody">
+Supported. Range expressions are compensated for relational sources. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp171199"> </a><div class="pCellBody">
+Filter expressions
+</div>
+</td>
+    <td><a name="wp171203"> </a><div class="pCellBody">
+Supported. Numeric predicates in filter expressions are compensated for relational sources. <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp171205"> </a><div class="pCellBody">
+Combining node sequences
+</div>
+</td>
+    <td><a name="wp171209"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp216439"> </a><h3 class="pHeading2">
+Arithmetic Expressions
+</h3>
+<a name="wp119562"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp171263">Table&#160;A-10</a> describes how DataDirect XQuery supports arithmetic expressions. 
+</p>
+<a name="wp103949"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp171263"> </a><div class="pTableTitle">
+Table A-10.  XQuery Arithmetic Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp171269"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp171273"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp171275"> </a><div class="pCellBody">
+Arithmetic expressions
+</div>
+</td>
+    <td><a name="wp171279"> </a><div class="pCellBody">
+Supported. For relational sources, see <a  href="functions_and_operators.html#wp245044">Functions and Operators</a> for restrictions.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp133557"> </a><h3 class="pHeading2">
+Comparison Expressions
+</h3>
+<a name="wp119722"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp171334">Table&#160;A-11</a> describes how DataDirect XQuery supports comparison expressions. 
+</p>
+<a name="wp105087"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp171334"> </a><div class="pTableTitle">
+Table A-11.  XQuery Comparison Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp171340"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp171344"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp171358"> </a><div class="pCellBody">
+Value comparisons
+</div>
+</td>
+    <td><a name="wp171362"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp251628"> </a><div class="pCellBody">
+General comparisons
+</div>
+</td>
+    <td><a name="wp251624"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp251639"> </a><div class="pCellBody">
+Node comparisons
+</div>
+</td>
+    <td><a name="wp251618"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp105128"> </a><h3 class="pHeading2">
+Logical Expressions
+</h3>
+<a name="wp119809"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp171392">Table&#160;A-12</a> describes how DataDirect XQuery supports logical expressions. 
+</p>
+<a name="wp105171"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp171392"> </a><div class="pTableTitle">
+Table A-12.  XQuery Logical Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp171398"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp171402"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp171404"> </a><div class="pCellBody">
+Logical expressions
+</div>
+</td>
+    <td><a name="wp171408"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp179554"> </a><h3 class="pHeading2">
+Constructors
+</h3>
+<a name="wp119912"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp171459">Table&#160;A-13</a> describes how DataDirect XQuery supports constructors. 
+</p>
+<a name="wp105241"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp171459"> </a><div class="pTableTitle">
+Table A-13.  XQuery Constructors&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp171465"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp171469"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp232845"> </a><div class="pCellBody">
+Direct element constructors
+</div>
+</td>
+    <td><a name="wp171525"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251730"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp269233"> </a><div class="pCellBody">
+Attributes
+</div>
+</td>
+    <td><a name="wp251744"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251764"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251707"> </a><div class="pCellBody">
+Namespace declaration attributes
+</div>
+</td>
+    <td><a name="wp251709"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251784"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251701"> </a><div class="pCellBody">
+Content
+</div>
+</td>
+    <td><a name="wp251703"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251800"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251695"> </a><div class="pCellBody">
+Boundary whitespace
+</div>
+</td>
+    <td><a name="wp251697"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp251816"> </a><div class="pCellBody">
+Other direct constructors
+</div>
+</td>
+    <td><a name="wp251691"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251845"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251683"> </a><div class="pCellBody">
+Computed element constructors
+</div>
+</td>
+    <td><a name="wp251685"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251877"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251677"> </a><div class="pCellBody">
+Computed attribute constructors
+</div>
+</td>
+    <td><a name="wp251679"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251909"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251671"> </a><div class="pCellBody">
+Document node constructors
+</div>
+</td>
+    <td><a name="wp251673"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251941"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251665"> </a><div class="pCellBody">
+Text node constructors
+</div>
+</td>
+    <td><a name="wp251667"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251989"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251659"> </a><div class="pCellBody">
+Computed processing instruction constructors
+</div>
+</td>
+    <td><a name="wp251661"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp252022"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251653"> </a><div class="pCellBody">
+Computed comment constructors
+</div>
+</td>
+    <td><a name="wp251655"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp171527"> </a><div class="pCellBody">
+In-scope namespaces of a constructed element
+</div>
+</td>
+    <td><a name="wp171531"> </a><div class="pCellBody">
+Supported. DataDirect XQuery only supports inherit and preserve for the copy-namespaces mode.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp105495"> </a><h3 class="pHeading2">
+FLWOR Expressions
+</h3>
+<a name="wp120076"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp171856">Table&#160;A-14</a> describes how DataDirect XQuery supports FLWOR expressions. 
+</p>
+<a name="wp105521"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp171856"> </a><div class="pTableTitle">
+Table A-14.  XQuery FLWOR Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp171862"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp171866"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp171868"> </a><div class="pCellBody">
+FLWOR expressions
+</div>
+</td>
+    <td><a name="wp171872"> </a><div class="pCellBody">
+Supported. For relational sources, positional variables are compensated. Also, relational sources do not support the collation in order by clauses. Any specified collation is ignored and sorting is performed according to the collation used by the database. 
+</div>
+<a name="wp324188"> </a><div class="pCellBody">
+See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for more information about using the collation parameter. See <a  href="tutorial_xquery4.html#wp150378">Restructuring Data: FLWOR Expressions</a> for more information on using FLWOR expressions in your XQuery.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp105677"> </a><h3 class="pHeading2">
+Ordered and Unordered Expressions
+</h3>
+<a name="wp120240"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp172077">Table&#160;A-15</a> describes how DataDirect XQuery supports ordered and unordered expressions. 
+</p>
+<a name="wp105712"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp172077"> </a><div class="pTableTitle">
+Table A-15.  XQuery Ordered and Unordered Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp172083"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp172087"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp233347"> </a><div class="pCellBody">
+Ordered expressions
+</div>
+</td>
+    <td><a name="wp172100"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp252096"> </a><div class="pCellBody">
+Unordered expressions
+</div>
+</td>
+    <td><a name="wp252083"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp105750"> </a><h3 class="pHeading2">
+Conditional Expressions
+</h3>
+<a name="wp120305"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp172127">Table&#160;A-16</a> describes how DataDirect XQuery supports conditional expressions. 
+</p>
+<a name="wp105776"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp172127"> </a><div class="pTableTitle">
+Table A-16.  XQuery Conditional Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp172133"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp172137"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp172139"> </a><div class="pCellBody">
+Conditional expressions
+</div>
+</td>
+    <td><a name="wp172143"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp105928"> </a><h3 class="pHeading2">
+Quantified Expressions
+</h3>
+<a name="wp120365"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp172204">Table&#160;A-17</a> describes how DataDirect XQuery supports quantified expressions.
+</p>
+<a name="wp105955"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp172204"> </a><div class="pTableTitle">
+Table A-17.  XQuery Quantified Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp172210"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp172214"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp172216"> </a><div class="pCellBody">
+Quantified expressions
+</div>
+</td>
+    <td><a name="wp172220"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp105999"> </a><h3 class="pHeading2">
+Expressions on SequenceTypes
+</h3>
+<a name="wp120411"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp172261">Table&#160;A-18</a> describes how DataDirect XQuery supports expressions on SequenceTypes. 
+</p>
+<a name="wp106103"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp172261"> </a><div class="pTableTitle">
+Table A-18.  XQuery Expressions on Sequence Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp172267"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp172271"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp172273"> </a><div class="pCellBody">
+Instance of
+</div>
+</td>
+    <td><a name="wp218640"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp252122"> </a><div class="pCellBody">
+Typeswitch
+</div>
+</td>
+    <td><a name="wp252133"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp172287"> </a><div class="pCellBody">
+Cast
+</div>
+</td>
+    <td><a name="wp172293"> </a><div class="pCellBody">
+Supported. See <a  href="database_support4.html#wp300736">Supported XQuery Atomic Types</a>.
+</div>
+<a name="wp249037"> </a><div class="pCellBody">
+For relational sources, not all data types are supported. See <a  href="database_support3.html#wp299568">Data Type Mappings</a> for tables of supported database data types and information about how they are mapped to the XML schema data types. If the XML schema data type specified in a cast expression is not supported, the cast expression is compensated. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp172298"> </a><div class="pCellBody">
+Castable
+</div>
+</td>
+    <td><a name="wp218657"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp172304"> </a><div class="pCellBody">
+Constructor functions
+</div>
+</td>
+    <td><a name="wp172308"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp227607"> </a><div class="pCellBody">
+For relational sources, not all constructor functions are supported. See <a  href="functions_and_operators.html#wp323590">5 Constructor Functions</a> for which types are supported. If an XQuery expression specifies a constructor function that is not supported, the constructor function is compensated. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp172315"> </a><div class="pCellBody">
+Treat
+</div>
+</td>
+    <td><a name="wp218674"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp106469"> </a><h3 class="pHeading2">
+Validate Expressions
+</h3>
+<a name="wp120566"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp172358">Table&#160;A-19</a> describes how DataDirect XQuery supports validate expressions. 
+</p>
+<a name="wp120561"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp172358"> </a><div class="pTableTitle">
+Table A-19.  XQuery Validate Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp172364"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp172368"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp172370"> </a><div class="pCellBody">
+Validate expressions
+</div>
+</td>
+    <td><a name="wp172374"> </a><div class="pCellBody">
+Not supported.
+</div>
+<a name="wp227625"> </a><div class="pCellBody">
+NOTE: DataDirect XQuery supports a built-in validate function, ddtek:validate. See <a  href="built-in_functions2.html#wp289182">ddtek:validate</a>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp178064"> </a><h3 class="pHeading2">
+Extension Expressions
+</h3>
+<a name="wp178068"> </a><p class="pBody">
+<a  href="xquerysupport3.html#wp178075">Table&#160;A-20</a> describes how DataDirect XQuery supports extension expressions. 
+</p>
+<a name="wp178092"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp178075"> </a><div class="pTableTitle">
+Table A-20.  XQuery Extension Expressions&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp178081"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp178085"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp178087"> </a><div class="pCellBody">
+Extension expressions
+</div>
+</td>
+    <td><a name="wp178091"> </a><div class="pCellBody">
+Supported. See <a  href="advancedfeatures2.html#wp187538">Using Extension Expressions</a> for details.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

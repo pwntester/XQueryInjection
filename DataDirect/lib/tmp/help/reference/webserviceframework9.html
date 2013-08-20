@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:19" />
+  <title>Using WSDL Service References</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp208079"> </a><h2 class="pNewHTMLPageNum">
+Using WSDL Service References
+</h2>
+<hr />
+<a name="wp205594"> </a><p class="pBody">
+Modern IDEs like Microsoft Visual Studio and Eclipse provide complete support for consuming Web services &#8211; for most of them, making the WSDL document available to the IDE is all that is needed to generate a set of classes that can be used to manipulate the Web service as if it was a local library. 
+</p>
+<a name="wp210205"> </a><p class="pBody">
+For example, when we open the Employee Lookup WSDL in Microsoft Visual Studio as a Service Reference, the emp and empxsd operations are exposed, as shown in the following illustration.
+</p>
+<a name="wp210009"> </a><p class="pBody">
+</p><div align="left"><img src="images/xqwsf_wsdl5.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp210021"> </a><p class="pBody">
+Such a binding framework works extremely well when the WSDL document makes use of XML Schema to describe the SOAP message payloads. 
+</p>
+<a name="wp219917"> </a><p class="pBody">
+Consider the following simple C# application, which uses the empxsd operation, as shown here:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+using System;<a name="wp210040"> </a>
+using System.Collections.Generic;<a name="wp210042"> </a>
+using System.Linq;<a name="wp210044"> </a>
+using System.Text;<a name="wp210046"> </a>
+using TestWS.ServiceReference1;<a name="wp210048"> </a>
+<a name="wp210051"> </a>
+namespace TestWS<a name="wp210052"> </a>
+{<a name="wp210054"> </a>
+    class Program<a name="wp210056"> </a>
+    {<a name="wp210058"> </a>
+        static void Main(string[] args)<a name="wp210060"> </a>
+        {<a name="wp210062"> </a>
+            SOAPPortClient client = new SOAPPortClient();<a name="wp210064"> </a>
+            rootEmployee ret = client.empxsd(&quot;A-C71970F&quot;);<a name="wp210066"> </a>
+            Console.WriteLine(ret.lname);<a name="wp210068"> </a>
+        }<a name="wp210070"> </a>
+    }<a name="wp210072"> </a>
+}<a name="wp210074"> </a>
+</pre></div>
+<a name="wp210140"> </a><p class="pBody">
+As seen in the following illustration, schema information about the employee element &#8211; employee ID, first and last name, hire date, and so on &#8211; is exposed to the IDE, simplifying and enriching the application development process.
+</p>
+<a name="wp210169"> </a><p class="pBody">
+</p><div align="left"><img src="images/xqwsf_wsdl26.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp210172"> </a><p class="pBody">
+If we run this application in debug mode inside Microsoft Visual Studio, we can see that the variables (first name, last name, and so on) are initialized with values from the Web service.
+</p>
+<a name="wp210181"> </a><p class="pBody">
+</p><div align="left"><img src="images/xqwsf_wsdl37.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp219366"> </a><h3 class="pHeading2">
+Augmenting WSDL with External XML Schema
+</h3>
+<a name="wp219374"> </a><p class="pBody">
+To illustrate how XML Schema can be used to augment a data service WSDL, let&#39;s revisit the Employee Lookup XQuery (emp.xquery), and make a few modifications, as shown:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $id as xs:string external;<a name="wp210218"> </a>
+<a name="wp210219"> </a>
+&lt;ns:root xmlns:ns=&quot;http://www.employee.com&quot;&gt;<a name="wp210220"> </a>
+{<a name="wp210221"> </a>
+    for $employee in<a name="wp210222"> </a>
+         collection(&quot;pubs.dbo.employee&quot;)/employee<a name="wp219148"> </a>
+    where $employee/emp_id = $id<a name="wp210223"> </a>
+    return $employee<a name="wp210224"> </a>
+}<a name="wp210225"> </a>
+&lt;/ns:root&gt;<a name="wp210216"> </a>
+</pre></div>
+<a name="wp210236"> </a><p class="pBody">
+This query is almost identical to the one introduced earlier in this example, except that the root element (<code class="cCode">&lt;ns:root&gt;</code>) is now placed in a different namespace. Accordingly, we need to create an XML Schema &#8211; we&#8217;ll call it employee.xsd &#8211; that describes what the <code class="cCode">&lt;ns:root&gt;</code> element looks like. We&#39;ll also put this XML Schema in the same directory as emp.xquery and empxsd.xquery:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<a name="wp210257"> </a>
+&lt;xs:schema<a name="wp210258"> </a>
+ xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;<a name="wp210259"> </a>
+ targetNamespace=&quot;http://www.employee.com&quot;<a name="wp210260"> </a>
+ xmlns:ns=&quot;http://www.employee.com&quot;<a name="wp210261"> </a>
+ elementFormDefault=&quot;qualified&quot;&gt;<a name="wp210262"> </a>
+  &lt;xs:element name=&quot;root&quot;&gt;<a name="wp210263"> </a>
+     &lt;xs:complexType&gt;<a name="wp210264"> </a>
+       &lt;xs:sequence&gt;<a name="wp210265"> </a>
+          &lt;xs:element name=&quot;employee&quot; form=&quot;unqualified&quot;&gt;<a name="wp210266"> </a>
+             &lt;xs:complexType&gt;<a name="wp210267"> </a>
+                &lt;xs:sequence&gt;<a name="wp210268"> </a>
+                   &lt;xs:element name=&quot;emp_id&quot; form=&quot;unqualified&quot; type=<a name="wp210269"> </a>
+                       &quot;xs:NCName&quot;/&gt;<a name="wp210302"> </a>
+                   &lt;xs:element name=&quot;fname&quot; form=&quot;unqualified&quot; type=<a name="wp210270"> </a>
+                       &quot;xs:NCName&quot;/&gt;<a name="wp210305"> </a>
+                   &lt;xs:element name=&quot;minit&quot; form=&quot;unqualified&quot;/&gt;<a name="wp210271"> </a>
+                   &lt;xs:element name=&quot;lname&quot; form=&quot;unqualified&quot; type=<a name="wp210272"> </a>
+                        &quot;xs:NCName&quot;/&gt;<a name="wp210306"> </a>
+                   &lt;xs:element name=&quot;job_id&quot; form=&quot;unqualified&quot; type=<a name="wp210273"> </a>
+                        &quot;xs:integer&quot;/&gt;<a name="wp210307"> </a>
+                   &lt;xs:element name=&quot;job_lvl&quot; form=&quot;unqualified&quot; type= <a name="wp210274"> </a>
+                        &quot;xs:integer&quot;/&gt;<a name="wp210308"> </a>
+                   &lt;xs:element name=&quot;pub_id&quot; form=&quot;unqualified&quot; type=<a name="wp210275"> </a>
+                        &quot;xs:integer&quot;/&gt;<a name="wp210309"> </a>
+                   &lt;xs:element name=&quot;hire_date&quot; form=&quot;unqualified&quot; type=<a name="wp210276"> </a>
+                        &quot;xs:NMTOKEN&quot;/&gt;<a name="wp210310"> </a>
+                &lt;/xs:sequence&gt;<a name="wp210277"> </a>
+             &lt;/xs:complexType&gt;<a name="wp210278"> </a>
+          &lt;/xs:element&gt;<a name="wp210279"> </a>
+       &lt;/xs:sequence&gt;<a name="wp210280"> </a>
+     &lt;/xs:complexType&gt;<a name="wp210281"> </a>
+  &lt;/xs:element&gt;<a name="wp210282"> </a>
+&lt;/xs:schema&gt; <a name="wp210255"> </a>
+</pre></div>
+<a name="wp210311"> </a><p class="pBody">
+If we now open our WSDL URL, we can see that the embedded XML Schema contains an import statement referencing the XML Schema associated with our WSDL:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;<a name="wp210331"> </a>
+           targetNamespace=&quot;http://www.datadirect.com&quot;<a name="wp210332"> </a>
+           attributeFormDefault=&quot;unqualified&quot;<a name="wp210333"> </a>
+           elementFormDefault=&quot;qualified&quot;&gt;<a name="wp210334"> </a>
+    &lt;xs:import schemaLocation=&quot;employee.xsd&quot; <a name="wp210335"> </a>
+           namespace=&quot;http://www.employee.com&quot;/&gt;<a name="wp219149"> </a>
+    &lt;xs:element name=&quot;empxsd&quot;&gt;<a name="wp210336"> </a>
+        &lt;xs:complexType&gt;<a name="wp210337"> </a>
+            &lt;xs:all&gt;<a name="wp210338"> </a>
+                &lt;xs:element name=&quot;id&quot; type=&quot;xs:string&quot;/&gt;<a name="wp210339"> </a>
+            &lt;/xs:all&gt;<a name="wp210340"> </a>
+         &lt;/xs:complexType&gt;<a name="wp210341"> </a>
+     &lt;/xs:element&gt;<a name="wp210342"> </a>
+     &lt;xs:element name=&quot;Output&quot; type=&quot;xs:anyType&quot;/&gt;<a name="wp210343"> </a>
+&lt;/xs:schema&gt;<a name="wp210322"> </a>
+</pre></div>
+<a name="wp210379"> </a><p class="pBody">
+Now, the SOAP message that describes the operation&#39;s return types references the global element <code class="cCode">&lt;ns:root&gt;</code> defined in the WSDL XML Schema:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;wsdl:message name=&quot;empxsdOutputMsg&quot;&gt;<a name="wp210392"> </a>
+       &lt;wsdl:part element=&quot;ns:root&quot; name=&quot;parameters&quot;/&gt;<a name="wp210393"> </a>
+&lt;/wsdl:message&gt; <a name="wp210390"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

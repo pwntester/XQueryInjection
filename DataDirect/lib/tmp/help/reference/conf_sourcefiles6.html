@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:13" />
+  <title>DDXQDataSource and DDXQJDBCConnection Properties</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp182031"> </a><h2 class="pNewHTMLPageNum">
+DDXQDataSource and DDXQJDBCConnection Properties
+</h2>
+<hr />
+<a name="wp182034"> </a><p class="pBody">
+The class name of the DataDirect XQuery XQDataSource implementation is:
+</p>
+<a name="wp182035"> </a><p class="pBody">
+com.ddtek.xquery.xqj.DDXQDataSource
+</p>
+<a name="wp182036"> </a><p class="pBody">
+It provides properties that allow you to configure most DataDirect XQuery settings and data source connections. <a  href="conf_sourcefiles6.html#wp182053">Table&#160;6-1</a> lists the properties supported by the DDXQDataSource class, DataDirect XQuery&#8217;s XQDataSource implementation, and describes each property. 
+</p>
+<a name="wp182037"> </a><p class="pBody">
+The following class provides additional properties for configuring connections to <em class="cEmphasis">multiple</em> databases:
+</p>
+<a name="wp182038"> </a><p class="pBody">
+com.ddtek.xquery.xqj.DDXQJDBCConnection
+</p>
+<a name="wp182042"> </a><p class="pBody">
+See <a  href="conf_sourcefiles6.html#wp182224">Table&#160;6-2</a> for a list of the additional properties supported by the DDXQJDBCConnection class.
+</p>
+<a name="wp182046"> </a><p class="pBody">
+NOTE: All property names are case-insensitive. For example, password is the same as Password.
+</p>
+<a name="wp218350"> </a><h3 class="pHeading2">
+DDXQDataSource Properties
+</h3>
+<a name="wp182205"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp182053"> </a><div class="pTableTitle">
+Table 6-1.  DDXQDataSource Properties &#160; 
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp182057"> </a><div class="pCellHeading">
+Property
+</div>
+</th>
+    <th><a name="wp182059"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182062"> </a><div class="pCellBody">
+AllowJavaFunctions
+</div>
+</td>
+    <td><a name="wp182065"> </a><div class="pCellBody">
+Specifies whether external Java functions are allowed. By default, external functions are allowed. To disable external functions for security reasons, for example, set this property to false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182069"> </a><div class="pCellBody">
+BaseUri
+</div>
+</td>
+    <td><a name="wp182071"> </a><div class="pCellBody">
+The baseURI property in the XQuery static context, which is the base URI used to resolve relative URIs in fn:doc(). See <a  href="conf_sourcefiles2.html#wp187870">XML Data Sources</a> for rules governing URIs.
+</div>
+<a name="wp191793"> </a><div class="pCellBody">
+NOTE: You can also specify a base URI in the query prolog.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182080"> </a><div class="pCellBody">
+Collation
+</div>
+</td>
+    <td><a name="wp182084"> </a><div class="pCellBody">
+The collation URI for the default collation to be used by the Java Virtual Machine. See <a  href="advancedfeatures3.html#wp219064">Querying Multiple Files in a Directory</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp198057"> </a><div class="pCellBody">
+CollectionUriResolver
+</div>
+</td>
+    <td><a name="wp198059"> </a><div class="pCellBody">
+A Java class that implements the com.ddtek.xquery.CollectionURIResolver interface to resolve URIs in fn:collection(). For example, you may want to create a Java class to resolve custom URLs that point to a directory that contains your XML files. See <a  href="advancedfeatures5.html#wp209086">Collection URI Resolvers</a> for more information. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182091"> </a><div class="pCellBody">
+DocumentUriResolver
+</div>
+</td>
+    <td><a name="wp182093"> </a><div class="pCellBody">
+A Java class that implements the javax.xml.transform.URIResolver interface to resolve URIs in fn:doc() and fn:doc-available(). For example, you may want to create a Java class to resolve custom URLs that point to a proprietary repository that stores your XML documents such as an XML database. See <a  href="advancedfeatures5.html#wp204890">Document URI Resolvers</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182102"> </a><div class="pCellBody">
+JdbcName
+</div>
+</td>
+    <td><a name="wp182106"> </a><div class="pCellBody">
+The name of the JDBC connection. A JDBC connection name identifies a specific connection to a relational database. 
+</div>
+<a name="wp182107"> </a><div class="pCellBody">
+If specifying a JDBC connection name for multiple databases, use the Name property of the DDXQJDBCConnection class.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182111"> </a><div class="pCellBody">
+JdbcOptions
+</div>
+</td>
+    <td><a name="wp182114"> </a><div class="pCellBody">
+Specifies one or multiple option declarations for the relational database specified by the JdbcUrl property. Valid option declarations are:
+</div>
+<a name="wp199589"> </a><div class="pCellBody">
+sql-decimal-cast<br />sql-extra-checks-trailing-spaces<br />sql-ignore-trailing-spaces<br />sql-ora10-use-binary-float-double<br />sql-order-by-on-values<br />sql-rewrite-algorithm<br />sql-rewrite-exists-into-count<br />sql-simple-convert-functions<br />sql-simple-string-functions<br />sql-sybase-temptable-index<br />sql-sybase-use-derived-tables<br />sql-unicode-strings<br />sql-varchar-cast
+</div>
+<a name="wp182119"> </a><div class="pCellBody">
+See <a  href="advancedfeatures2.html#wp204556">Option Declarations</a> for a description of these option declarations.
+</div>
+<a name="wp182120"> </a><div class="pCellBody">
+The value of this property is a semicolon-separated list of option declaration name=value pairs:
+</div>
+<a name="wp182121"> </a><div class="pCellBody">
+<code><em>name</em></code>=<code><em>value</em></code>[;<code><em>name</em></code>=<code><em>value</em></code>]...
+</div>
+<a name="wp182122"> </a><div class="pCellBody">
+For example:
+</div>
+<a name="wp182123"> </a><div class="pCellBody">
+<code class="cCode">sql-unicode-strings=yes;sql-decimal-cast=10,5</code>
+</div>
+<a name="wp182125"> </a><div class="pCellBody">
+You also can specify a global option declaration for all XML and relational data sources using the <a  href="conf_sourcefiles6.html#wp198043">Options</a> property. 
+</div>
+<a name="wp182129"> </a><div class="pCellBody">
+NOTE: You can override this setting in the query.
+</div>
+<a name="wp182130"> </a><div class="pCellBody">
+If specifying an option declaration for multiple databases, use the <a  href="conf_sourcefiles6.html#wp199738">Options</a> property of the DDXQJDBCConnection class.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp198070"> </a><div class="pCellBody">
+JdbcSqlXmlForest
+</div>
+</td>
+    <td><a name="wp198072"> </a><div class="pCellBody">
+Specifies the format of the XML result that fn:collection() returns. Valid values are true and false. The default is true. See <a  href="conf_sourcefiles2.html#wp188276">Data Model Representation of Relational Tables</a> for details about the format of the XML result.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp198074"> </a><div class="pCellBody">
+JdbcSqlXmlIdentifierEscaping
+</div>
+</td>
+    <td><a name="wp198095"> </a><div class="pCellBody">
+Specifies how DataDirect XQuery handles escaping of identifiers, which is needed because of mismatches that occur when characters in SQL identifiers are mapped to XML. Valid values are:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp198097"> </a><div class="pSmartList1"><li>none (the default) &#8211; No mapping is performed. An error is raised if a character in a SQL identifier cannot be mapped to XML. </li></div><a name="wp198098"> </a><div class="pSmartList1"><li>partial &#8211; Characters in SQL identifiers that are not XML characters are escaped using an underscore character (_) followed by a lowercase x followed by the character&#8217;s Unicode representation in hexadecimal format followed by an underscore character (_). For example, sales!forecast becomes sales_x0021_forecast.</li></div><a name="wp198099"> </a><div class="pSmartList1"><li>full &#8211; In addition to the escaping performed by partial, the character x of a SQL identifier that starts with &quot;xml&quot; (in any combination of upper and lowercase characters) is escaped. For example, XMLTable becomes _x0058_MLTable. </li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp199947"> </a><div class="pCellBody">
+JdbcTempTableColumns
+</div>
+</td>
+    <td><a name="wp200171"> </a><div class="pCellBody">
+<code class="cCode">xquerytype=&quot;</code><code><em>value&quot;</em></code><code class="cCode"> sqlType=&quot;</code><code><em>value&quot;</em></code><code class="cCode">.</code> Specifies which SQL type is used for columns when DataDirect XQuery creates temporary tables for query optimization. 
+</div>
+<a name="wp200173"> </a><div class="pCellBody">
+If you do not specify a value for this property, DataDirect XQuery uses the SQL/XML mappings to determine which SQL type to use for the columns of temporary tables; however, this can sometimes cause problems. For example, if your database table has a case-sensitive collation and the temporary table is created with a case-insensitive collation, an error is raised. In this case, use this property to specify that the temporary tables be created with a case-sensitive collation.
+</div>
+<a name="wp199949"> </a><div class="pCellBody">
+A value for <code class="cCode">xqueryType</code> is required and specifies one of the following values: boolean, byte, date, dateTime, decimal, double, float, hexBinary, int, integer, long, short, string, or time.
+</div>
+<a name="wp200433"> </a><div class="pCellBody">
+A value for <code class="cCode">sqlType</code> is required and determines the database type declaration that is appended to the column names when temporary tables are created. The specified data type must be supported by the database used to create the temporary tables. 
+</div>
+<a name="wp200465"> </a><div class="pCellBody">
+For example:
+</div>
+<a name="wp200473"> </a><div class="pCellBody">
+<code class="cCode">xqueryType=&quot;string&quot; sqlType=&quot;nvarchar(2000) collate SQL_Latin1_General_CP1_CS_AS&quot;</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp198078"> </a><div class="pCellBody">
+JdbcTempTableSuffix
+</div>
+</td>
+    <td><a name="wp199954"> </a><div class="pCellBody">
+CCSID UNICODE ON COMMIT PRESERVE ROWS. You must specify this property if you are connecting to a DB2 for z/OS Unicode database.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp198082"> </a><div class="pCellBody">
+JdbcTransactionIsolationLevel
+</div>
+</td>
+    <td><a name="wp198084"> </a><div class="pCellBody">
+Specifies the transaction isolation level. Valid values are:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp199260"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_READ_UNCOMMITTED &#8211;Locks are obtained on modifications to the database and held until end of transaction (EOT). Reading from the database does not involve any locking.</li></div><a name="wp198220"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_READ_COMMITTED &#8211; Locks are acquired for reading and modifying the database. Locks are released after reading, but locks on modified objects are held until EOT.</li></div><a name="wp198240"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_REPEATABLE_READ &#8211; Locks are obtained for reading and modifying the database. Locks on all modified objects are held until EOT. Locks obtained for reading data are held until EOT. Locks on non-modified access structures (such as indexes and hashing structures) are released after reading.</li></div><a name="wp198316"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_SERIALIZABLE &#8211; All data read or modified is locked until EOT. All access structures that are modified are locked until EOT. Access structures used by the query are locked until EOT.</li></div><a name="wp199401"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_NONE &#8211; Transactions are not supported.</li></div><a name="wp199894"> </a><div class="pSmartList1"><li>-1 &#8211; The default transaction isolation level is used, which is Read Committed.</li></div></ul></div>
+<a name="wp199348"> </a><div class="pCellBody">
+The database to which you are connecting may not support all of these isolation levels. See <a  href="relationaldata5.html#wp223073">Transaction Isolation Levels</a> for details.
+</div>
+<a name="wp199035"> </a><div class="pCellBody">
+NOTE: Once a connection is made, the transaction isolation level cannot be changed for that connection (XQConnection object).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182134"> </a><div class="pCellBody">
+JdbcUrl
+</div>
+</td>
+    <td><a name="wp182137"> </a><div class="pCellBody">
+The JDBC URL of the database. See <a  href="conf_sourcefiles7.html#wp182290">Specifying Connection URIs</a> for the syntax of URLs.
+</div>
+<a name="wp182138"> </a><div class="pCellBody">
+If specifying a URL for multiple databases, use the Url property of the DDXQJDBCConnection class.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182142"> </a><div class="pCellBody">
+MaxPooledQueries
+</div>
+</td>
+    <td><a name="wp182144"> </a><div class="pCellBody">
+Specifies the maximum number of queries that can be placed in the pool when DataDirect XQuery&#8217;s internal query pooling is enabled. When enabled, DataDirect XQuery caches a certain number of queries executed by an application. For example, if this property is set to 20, DataDirect XQuery caches the last 20 queries executed by the application. If the value set for this property is greater than the number of queries used by the application, all queries are cached. By default, query pooling is disabled. See <a  href="improvingperformance5.html#wp194695">Using Query Pooling</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182150"> </a><div class="pCellBody">
+ModuleUriResolver
+</div>
+</td>
+    <td><a name="wp182152"> </a><div class="pCellBody">
+A Java class that implements the com.ddtek.xquery.ModuleURIResolver interface to resolve the library module to be imported. For example, you may want to create a Java class to resolve URLs that point to a custom repository that stores XQuery modules. See also<a  href="advancedfeatures5.html#wp204943">Library Module URI Resolvers</a>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp198043"> </a><div class="pCellBody">
+Options
+</div>
+</td>
+    <td><a name="wp198046"> </a><div class="pCellBody">
+Specifies a global option declaration to use as the default for all XML and relational data sources that are used by XQuery queries in your Java application. Valid global option declarations are:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp198047"> </a><div class="pSmartList1"><li>detect-XPST0005</li></div><a name="wp218347"> </a><div class="pSmartList1"><li>plan-explain</li></div><a name="wp218348"> </a><div class="pSmartList1"><li>serialize</li></div><a name="wp218349"> </a><div class="pSmartList1"><li>xml-streaming </li></div></ul></div>
+<a name="wp198051"> </a><div class="pCellBody">
+See <a  href="advancedfeatures2.html#wp204556">Option Declarations</a> for a description of these option declarations.
+</div>
+<a name="wp198052"> </a><div class="pCellBody">
+The value of this property is a name=value pair:
+</div>
+<a name="wp198053"> </a><div class="pCellBody">
+<code><em>name</em></code>=<code><em>value</em></code>
+</div>
+<a name="wp198054"> </a><div class="pCellBody">
+where value is either yes or no. For example:
+</div>
+<a name="wp198055"> </a><div class="pCellBody">
+<code class="cCode">detect-XPST0005=no</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182158"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp182161"> </a><div class="pCellBody">
+A password used to connect to the database.
+</div>
+<a name="wp182162"> </a><div class="pCellBody">
+If specifying a password for multiple databases, use the Password property of the DDXQJDBCConnection class.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182181"> </a><div class="pCellBody">
+SpyAttributes
+</div>
+</td>
+    <td><a name="wp182184"> </a><div class="pCellBody">
+Enables and sets attributes for DataDirect Spy, a tool that logs detailed information about XQJ calls issued by a running Java application. For example, you may want to log all XQJ activity to a log file on your local machine.
+</div>
+<a name="wp182185"> </a><div class="pCellBody">
+The format for the value of this property is:
+</div>
+<a name="wp182186"> </a><div class="pCellBody">
+<code class="cCode">(</code><code><em>spy_attribute</em></code>=<code><em>value</em></code><code class="cCode">[;</code><code><em>spy_attribute</em></code>=<code><em>value</em></code><code class="cCode">]...)</code>
+</div>
+<a name="wp182187"> </a><div class="pCellBody">
+where <code><em>spy_attribute</em></code>=<code><em>value</em></code> is a DataDirect Spy attribute and a valid value for that attribute. The following example specifies that DataDirect Spy log all XQJ activity to a log file, including the content of SAX streams passed through XQJ.
+</div>
+<a name="wp182188"> </a><div class="pCellBody">
+<code class="cCode">ds.setSpyAttributes(&quot;log=(file)/tmp/spy.log;<br />logSAX=yes&quot;)</code>
+</div>
+<a name="wp221641"> </a><div class="pCellBody">
+NOTE: When coding a path in a Java string on Windows, the backslash character (\) must be preceded by the Java escape character, which is also a backslash. The Spy parser also uses the backslash as an escape character, so four slashes must be used to specify a single backslash in the log path. For example: 
+</div>
+<a name="wp221642"> </a><div class="pCellBody">
+<code class="cCode">ds.setSpyAttributes(&quot;log=(file)C:\\\\temp\\\\spy.log;logSAX=yes&quot;)</code>
+</div>
+<a name="wp182191"> </a><div class="pCellBody">
+Once enabled. you can turn DataDirect Spy on and off at runtime using the setEnableLogging() method of the com.ddtek.xquery.xqj.ExtLogControl interface.
+</div>
+<a name="wp182195"> </a><div class="pCellBody">
+See <a  href="troubleshooting2.html#wp137013">Logging XQJ Calls with DataDirect Spy<span style="vertical-align: super">&#8482;</span> for&#160;XQJ</a> for instructions on using DataDirect&#160;Spy and a list of supported attributes. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182200"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp182203"> </a><div class="pCellBody">
+A user name used to connect to the database.
+</div>
+<a name="wp182204"> </a><div class="pCellBody">
+If specifying a user for multiple databases, use the User property of the DDXQJDBCConnection class.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp218358"> </a><h3 class="pHeading2">
+DDXQJDBCConnection Properties
+</h3>
+<a name="wp218495"> </a><p class="pBody">
+<a  href="conf_sourcefiles6.html#wp182224">Table&#160;6-2</a> lists the properties supported by the DDXQJDBCConnection class and describes each property (see <a  href="conf_sourcefiles6.html#wp182053">Table&#160;6-1</a> for a list of the properties supported by the DDXQDataSource class).
+</p>
+<a name="wp182214"> </a><p class="pBody">
+
+</p>
+<a name="wp182285"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp182224"> </a><div class="pTableTitle">
+Table 6-2.  DDXQJDBCConnection Properties &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp182228"> </a><div class="pCellHeading">
+Property
+</div>
+</th>
+    <th><a name="wp182230"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182234"> </a><div class="pCellBody">
+Name
+</div>
+</td>
+    <td><a name="wp182237"> </a><div class="pCellBody">
+The name of the JDBC connection. A JDBC connection name identifies a specific connection to a relational database. 
+</div>
+<a name="wp182238"> </a><div class="pCellBody">
+If specifying a JDBC connection name for a single database, use the JdbcName property of the DDXQDataSource class.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp199738"> </a><div class="pCellBody">
+Options
+</div>
+</td>
+    <td><a name="wp199741"> </a><div class="pCellBody">
+Specifies one or multiple option declarations for the relational database specified by the Url property. Valid option declarations are: 
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp206787"> </a><div class="pSmartList1"><li>sql-decimal-cast</li></div><a name="wp218525"> </a><div class="pSmartList1"><li>sql-extra-checks-trailing-spaces</li></div><a name="wp218526"> </a><div class="pSmartList1"><li>sql-ignore-trailing-spaces </li></div><a name="wp218527"> </a><div class="pSmartList1"><li>sql-ora10-use-binary-float-double</li></div><a name="wp218528"> </a><div class="pSmartList1"><li>sql-order-by-on-values</li></div><a name="wp218529"> </a><div class="pSmartList1"><li>sql-rewrite-algorithm</li></div><a name="wp218530"> </a><div class="pSmartList1"><li>sql-rewrite-exists-into-count</li></div><a name="wp218531"> </a><div class="pSmartList1"><li>sql-simple-convert-functions</li></div><a name="wp218532"> </a><div class="pSmartList1"><li>sql-simple-string-functions</li></div><a name="wp218533"> </a><div class="pSmartList1"><li>sql-sybase-temptable-index</li></div><a name="wp218534"> </a><div class="pSmartList1"><li>sql-sybase-use-derived-tables</li></div><a name="wp218535"> </a><div class="pSmartList1"><li>sql-unicode-strings</li></div><a name="wp218536"> </a><div class="pSmartList1"><li>sql-varchar-cast</li></div></ul></div>
+<a name="wp199746"> </a><div class="pCellBody">
+See <a  href="advancedfeatures2.html#wp204556">Option Declarations</a> for a description of these option declarations.
+</div>
+<a name="wp199747"> </a><div class="pCellBody">
+The value of this property is a semicolon-separated list of option declaration name=value pairs:
+</div>
+<a name="wp199748"> </a><div class="pCellBody">
+<code><em>name</em></code>=<code><em>value</em></code>[;<code><em>name</em></code>=<code><em>value</em></code>]...
+</div>
+<a name="wp199749"> </a><div class="pCellBody">
+For example:
+</div>
+<a name="wp199750"> </a><div class="pCellBody">
+<code class="cCode">sql-unicode-literals=yes;sql-decimal-cast=10,5</code>
+</div>
+<a name="wp199751"> </a><div class="pCellBody">
+You also can specify a global option declaration for all XML and relational data sources using the <a  href="conf_sourcefiles6.html#wp198043">Options</a> property of the DDXQDataSource class. 
+</div>
+<a name="wp199755"> </a><div class="pCellBody">
+NOTE: You can override this setting in the query.
+</div>
+<a name="wp199756"> </a><div class="pCellBody">
+If specifying an option declaration for a single database, use the <a  href="conf_sourcefiles6.html#wp182111">JdbcOptions</a> property of the DDXQDataSource class.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182242"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp182245"> </a><div class="pCellBody">
+A password used to connect to the database. A password is required only if security is enabled on the database. Contact your system administrator to obtain your password.
+</div>
+<a name="wp182246"> </a><div class="pCellBody">
+If specifying a password for a single database, use the Password property of the DDXQDataSource class.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp204449"> </a><div class="pCellBody">
+SqlXmlForest
+</div>
+</td>
+    <td><a name="wp204451"> </a><div class="pCellBody">
+Specifies the format of the XML result that fn:collection() returns. Valid values are true and false. The default is true. See <a  href="conf_sourcefiles2.html#wp188276">Data Model Representation of Relational Tables</a> for details about the format of the XML result.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp204465"> </a><div class="pCellBody">
+SqlXmlIdentifierEscaping
+</div>
+</td>
+    <td><a name="wp205174"> </a><div class="pCellBody">
+Specifies how DataDirect XQuery handles escaping of identifiers, which is needed because of mismatches that occur when characters in SQL identifiers are mapped to XML. Valid values are:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp205175"> </a><div class="pSmartList1"><li>none (the default) &#8211; No mapping is performed. An error is raised if a character in a SQL identifier cannot be mapped to XML. </li></div><a name="wp205176"> </a><div class="pSmartList1"><li>partial &#8211; Characters in SQL identifiers that are not XML characters are escaped using an underscore character (_) followed by a lowercase x followed by the character&#8217;s Unicode representation in hexadecimal format followed by an underscore character (_). For example, sales!forecast becomes sales_x0021_forecast.</li></div><a name="wp204471"> </a><div class="pSmartList1"><li>full &#8211; In addition to the escaping performed by partial, the character x of a SQL identifier that starts with &quot;xml&quot; (in any combination of upper and lowercase characters) is escaped. For example, XMLTable becomes _x0058_MLTable. </li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp204532"> </a><div class="pCellBody">
+TempTableColumns
+</div>
+</td>
+    <td><a name="wp204534"> </a><div class="pCellBody">
+<code class="cCode">xquerytype=&quot;</code><code><em>value&quot;</em></code><code class="cCode"> sqlType=&quot;</code><code><em>value&quot;</em></code><code class="cCode">.</code> Specifies which SQL type is used for columns when DataDirect XQuery creates temporary tables for query optimization. 
+</div>
+<a name="wp204536"> </a><div class="pCellBody">
+If you do not specify a value for this property, DataDirect XQuery uses the SQL/XML mappings to determine which SQL type to use for the columns of temporary tables; however, this can sometimes cause problems. For example, if your database table has a case-sensitive collation and the temporary table is created with a case-insensitive collation, an error is raised. In this case, use this property to specify that the temporary tables be created with a case-sensitive collation.
+</div>
+<a name="wp204538"> </a><div class="pCellBody">
+A value for <code class="cCode">xqueryType</code> is required and specifies one of the following values: boolean, byte, date, dateTime, decimal, double, float, hexBinary, int, integer, long, short, string, or time.
+</div>
+<a name="wp204539"> </a><div class="pCellBody">
+A value for <code class="cCode">sqlType</code> is required and determines the database type declaration that is appended to the column names when temporary tables are created. The specified data type must be supported by the database used to create the temporary tables. 
+</div>
+<a name="wp204540"> </a><div class="pCellBody">
+For example:
+</div>
+<a name="wp204541"> </a><div class="pCellBody">
+<code class="cCode">xqueryType=&quot;string&quot; sqlType=&quot;nvarchar(2000) collate SQL_Latin1_General_CP1_CS_AS&quot;</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp204544"> </a><div class="pCellBody">
+TempTableSuffix
+</div>
+</td>
+    <td><a name="wp204546"> </a><div class="pCellBody">
+CCSID UNICODE ON COMMIT PRESERVE ROWS. You must specify this property if you are connecting to a DB2 for z/OS Unicode database.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp199052"> </a><div class="pCellBody">
+TransactionIsolationLevel
+</div>
+</td>
+    <td><a name="wp199054"> </a><div class="pCellBody">
+Specifies the transaction isolation level. Valid values are:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp206182"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_READ_UNCOMMITTED &#8211; Locks are obtained on modifications to the database and held until end of transaction (EOT). Reading from the database does not involve any locking.</li></div><a name="wp206183"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_READ_COMMITTED &#8211; Locks are acquired for reading and modifying the database. Locks are released after reading, but locks on modified objects are held until EOT.</li></div><a name="wp206184"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_REPEATABLE_READ &#8211; Locks are obtained for reading and modifying the database. Locks on all modified objects are held until EOT. Locks obtained for reading data are held until EOT. Locks on non-modified access structures (such as indexes and hashing structures) are released after reading.</li></div><a name="wp206185"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_SERIALIZABLE &#8211; All data read or modified is locked until EOT. All access structures that are modified are locked until EOT. Access structures used by the query are locked until EOT.</li></div><a name="wp206186"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_NONE &#8211; Transactions are not supported.</li></div><a name="wp206187"> </a><div class="pSmartList1"><li>-1 &#8211; The default transaction isolation level is used, which is Read Committed.</li></div></ul></div>
+<a name="wp206188"> </a><div class="pCellBody">
+The database to which you are connecting may not support all of these isolation levels. See <a  href="relationaldata5.html#wp223073">Transaction Isolation Levels</a> for details.
+</div>
+<a name="wp206192"> </a><div class="pCellBody">
+NOTE: Once a connection is made, the transaction isolation level cannot be changed for that connection (XQConnection object).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182272"> </a><div class="pCellBody">
+Url
+</div>
+</td>
+    <td><a name="wp182275"> </a><div class="pCellBody">
+The JDBC URL of the database. See <a  href="conf_sourcefiles7.html#wp182290">Specifying Connection URIs</a> for the syntax of URLs.
+</div>
+<a name="wp182276"> </a><div class="pCellBody">
+If specifying a URL for a single database, use the JdbcUrl property of the DDXQDataSource class.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp182280"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp182283"> </a><div class="pCellBody">
+A user name used to connect to the database.
+</div>
+<a name="wp182284"> </a><div class="pCellBody">
+If specifying a user name for a single database, use the User property of the DDXQDataSource class.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:13" />
+  <title>Configuring Connections Using JNDI</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp181978"> </a><h2 class="pNewHTMLPageNum">
+Configuring Connections Using JNDI
+</h2>
+<hr />
+<a name="wp181980"> </a><p class="pBody">
+To create your own data source object for JNDI to use with DataDirect XQuery, you can use the example named JNDIDataSource in the /examples subdirectory in your DataDirect XQuery installation directory as a template.
+</p>
+<a name="wp181982"> </a><p class="pBody">
+Once you have created a data source object, you can register it with JNDI, as shown in the following XQJ code, where holdings_ds is the name of the data source object:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp181983"> </a>
+Context ctx = new InitialContext();<a name="wp181984"> </a>
+ctx.bind(&quot;holdings_ds&quot;, ds);<a name="wp181985"> </a>
+</pre></div>
+<a name="wp181987"> </a><p class="pBody">
+The following XQJ code shows how to load a DDXQDataSource object from JNDI:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Context ctx = new InitialContext();<a name="wp181988"> </a>
+XQDataSource ds = (XQDataSource)ctx.lookup(&quot;holdings_ds&quot;);<a name="wp181989"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp181990"> </a>
+</pre></div>
+<a name="wp181992"> </a><p class="pBody">
+In this example, the JNDI environment is first initialized. Next, the initial naming context is used to find the name of the data source object (holdings_ds). The Context.lookup() method returns a reference to a Java object, which is cast to a com.ddtek.xquery.xqj.DDXQDataSource object. Finally, the getConnection() method is called to establish the connection.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

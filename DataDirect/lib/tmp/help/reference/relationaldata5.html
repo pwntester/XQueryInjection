@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:22" />
+  <title>Understanding the Transactional Behavior of DataDirect XQuery Updates</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp223055"> </a><h2 class="pNewHTMLPageNum">
+Understanding the Transactional Behavior of DataDirect XQuery Updates
+</h2>
+<hr />
+<a name="wp223056"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports transactions, transaction isolation levels, and distributed transactions.
+</p>
+<a name="wp223057"> </a><h3 class="pHeading2">
+Transactions
+</h3>
+<a name="wp223058"> </a><p class="pBody">
+A <em class="cEmphasis">transaction</em> consists of one or more updating XQueries that have been executed, completed, and then either committed or rolled back. 
+</p>
+<a name="wp223059"> </a><p class="pBody">
+By default, a DataDirect XQuery connection (a new XQConnection object) is in auto-commit mode. Auto-commit causes a commit after each XQuery is evaluated.
+</p>
+<a name="wp223060"> </a><p class="pBody">
+To disable auto-commit, specify false as the argument value for setAutoCommit, which is a method of the XQConnection interface. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp223061"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp223062"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp223063"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp223064"> </a>
+conn.setAutoCommit(false);<a name="wp223065"> </a>
+...<a name="wp223066"> </a>
+</pre></div>
+<a name="wp223067"> </a><p class="pBody">
+When auto-commit is disabled, the application must either commit or roll back each transaction explicitly. DataDirect XQuery, by default, rolls back the active transaction when a connection is closed.
+</p>
+<a name="wp223068"> </a><p class="pBody">
+To perform commits and rollbacks, use the commit and rollback methods, respectively, of XQConnection. See <a  href="xqjsupport3.html#wp155579">XQConnection Interface</a>.
+</p>
+<a name="wp223073"> </a><h3 class="pHeading2">
+Transaction Isolation Levels
+</h3>
+<a name="wp223074"> </a><p class="pBody">
+DataDirect XQuery supports the following isolation levels as defined in the JDBC interface java.sql.Connection:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp223075"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_READ_UNCOMMITTED (Read Uncommitted) &#8211; Locks are obtained on modifications to the database and held until end of transaction (EOT). Reading from the database does not involve any locking.</li></div><a name="wp223076"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_READ_COMMITTED (Read Committed) &#8211; Locks are acquired for reading and modifying the database. Locks are released after reading but locks on modified objects are held until EOT.</li></div><a name="wp223077"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_REPEATABLE_READ (Repeatable Read) &#8211; Locks are obtained for reading and modifying the database. Locks on all modified objects are held until EOT. Locks obtained for reading data are held until EOT. Locks on non-modified access structures (such as indexes and hashing structures) are released after reading.</li></div><a name="wp223078"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_SERIALIZABLE (Serializable) &#8211; All data read or modified is locked until EOT. All access structures that are modified are locked until EOT. Access structures used by the query are locked until EOT.</li></div><a name="wp223079"> </a><div class="pSmartList1"><li>java.sql.Connection.TRANSACTION_NONE (None) &#8211;  Transactions are not supported.</li></div></ul></div>
+<a name="wp223080"> </a><p class="pBody">
+Not all databases support all of these isolation levels, as summarized in following table.
+</p>
+<a name="wp223202"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp223083"> </a><div class="pTableTitle">
+Table 11-1.  Isolation Level Support
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp223095"> </a><div class="pCellHeading">
+<br />Database
+</div>
+</th>
+    <th><a name="wp223097"> </a><div class="pCellHeading">
+Read<br />Committed
+</div>
+</th>
+    <th><a name="wp223099"> </a><div class="pCellHeading">
+Read<br />Uncommitted
+</div>
+</th>
+    <th><a name="wp223101"> </a><div class="pCellHeading">
+Repeatable<br />Read
+</div>
+</th>
+    <th><a name="wp223103"> </a><div class="pCellHeading">
+<br />Serializable
+</div>
+</th>
+    <th><a name="wp223105"> </a><div class="pCellHeading">
+<br />None
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223107"> </a><div class="pCellBody">
+DB2
+</div>
+</td>
+    <td><a name="wp223109"> </a><div class="pCellBody">
+X (default)
+</div>
+</td>
+    <td><a name="wp223111"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223113"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223115"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223117"> </a><div class="pCellBody">
+X
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223119"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp223121"> </a><div class="pCellBody">
+X (default)
+</div>
+</td>
+    <td><a name="wp223123"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223125"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223127"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223129"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223143"> </a><div class="pCellBody">
+MySQL Enterprise (InnoDB*)
+</div>
+</td>
+    <td><a name="wp223145"> </a><div class="pCellBody">
+X (default)
+</div>
+</td>
+    <td><a name="wp223147"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223149"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223151"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223153"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223155"> </a><div class="pCellBody">
+Oracle
+</div>
+</td>
+    <td><a name="wp223157"> </a><div class="pCellBody">
+X (default)
+</div>
+</td>
+    <td><a name="wp223159"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp223161"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp223163"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223165"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223167"> </a><div class="pCellBody">
+PostgreSQL
+</div>
+</td>
+    <td><a name="wp223169"> </a><div class="pCellBody">
+X (default)
+</div>
+</td>
+    <td><a name="wp223171"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp223173"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp223175"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223177"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223179"> </a><div class="pCellBody">
+SQL Server
+</div>
+</td>
+    <td><a name="wp223181"> </a><div class="pCellBody">
+X (default)
+</div>
+</td>
+    <td><a name="wp223183"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223185"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223187"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223189"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223191"> </a><div class="pCellBody">
+Sybase
+</div>
+</td>
+    <td><a name="wp223193"> </a><div class="pCellBody">
+X (default)
+</div>
+</td>
+    <td><a name="wp223195"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223197"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223199"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp223201"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp223204"> </a><div class="pCellBody">
+ * MyISAM and Memory MySQL storage engines are non-transactional.
+</div>
+<a name="wp223205"> </a><p class="pBody">
+The names of the DB2 isolation levels do not map one-to-one to the names of the JDBC isolation levels. The following table maps the JDBC isolation levels to the appropriate DB2 isolation levels.
+</p>
+<a name="wp223235"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp223208"> </a><div class="pCellHeading">
+JDBC Isolation Level
+</div>
+</th>
+    <th><a name="wp223210"> </a><div class="pCellHeading">
+DB2 Isolation Level
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223212"> </a><div class="pCellBody">
+Read Committed
+</div>
+</td>
+    <td><a name="wp223214"> </a><div class="pCellBody">
+Cursor Stability
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223216"> </a><div class="pCellBody">
+Read UnCommitted
+</div>
+</td>
+    <td><a name="wp223218"> </a><div class="pCellBody">
+Uncommitted Read
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223220"> </a><div class="pCellBody">
+Repeatable Read
+</div>
+</td>
+    <td><a name="wp223222"> </a><div class="pCellBody">
+Read Stability
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223224"> </a><div class="pCellBody">
+Serializable
+</div>
+</td>
+    <td><a name="wp223226"> </a><div class="pCellBody">
+Repeatable Read
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp223228"> </a><div class="pCellBody">
+None
+</div>
+</td>
+    <td><a name="wp223230"> </a><div class="pCellBody">
+No Commit *
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp223232"> </a><div class="pCellBody">
+* Supported for DB2 for iSeries versions that do not enable journaling.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp223236"> </a><p class="pBody">
+To set an isolation level for a single connection, specify the appropriate value for the JdbcTransactionIsolationLevel property of DDXQDataSource (see <a  href="conf_sourcefiles6.html#wp182053">Table&#160;6-1</a>).
+</p>
+<a name="wp223240"> </a><p class="pBody">
+To set an isolation level for multiple connections, specify the appropriate value for the TransactionIsolationLevel property of DXQJDBCConnection (see <a  href="conf_sourcefiles6.html#wp182224">Table&#160;6-2</a>).
+</p>
+<a name="wp223244"> </a><p class="pBody">
+NOTE: Once a connection is made, the transaction isolation level cannot be changed for that connection (XQConnection object).
+</p>
+<a name="wp223245"> </a><h3 class="pHeading2">
+Distributed Transactions
+</h3>
+<a name="wp223246"> </a><p class="pBody">
+DataDirect XQuery does not support distributed transactions. However, it is possible to have a single DataDirect XQuery connection (XQConnection object) with multiple underlying JDBC connections and perform updates if the updates target only one of the JDBC data sources. It is also possible during the lifetime of an XQConnection object to update two different JDBC data sources, provided this is done in separate transactions and not in a single transaction.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<a name="wp221564"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

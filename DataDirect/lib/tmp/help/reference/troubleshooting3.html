@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:49" />
+  <title>Java Logging</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp138031"> </a><h2 class="pNewHTMLPageNum">
+Java Logging
+</h2>
+<hr />
+<a name="wp138032"> </a><p class="pBody">
+NOTE: Enable Java logging only when DataDirect technical support instructs you to do so.
+</p>
+<a name="wp138035"> </a><p class="pBody">
+DataDirect XQuery uses standard Java logging as provided in J2SE&#160;1.4.<em class="cEmphasis">x</em> or later. The simplest way to enable and disable logging is through the logging.properties file, which is installed as part of your J2SE installation in the /jre/lib subdirectory in your J2SE installation directory.
+</p>
+<a name="wp138038"> </a><p class="pBody">
+In the logging.properties file, you can specify the level of logging that you want to use, whether you want to write messages as text (simple) or as XML, and whether the messages are written to a console or to a file. Note that the logging level must be set to FINE for DataDirect XQuery to log messages.
+</p>
+<a name="wp138040"> </a><p class="pBody">
+<b class="cBold">Examples: Modifying logging.properties</b>
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp138042"> </a><div class="pSmartList1"><li>Log all messages to standard out using the SimpleFormatter and limit all messages that are logged to equal to or lower than FINE by:</li></div><div class="pSmartList2"><ol type="a" class="pSmartList2">
+<a name="wp138043"> </a><div class="pSmartList2"><li>Modifying the default global logging level to:<br /><code class="cCode">.level = FINE</code></li></div>
+<a name="wp138044"> </a><div class="pSmartList2"><li>Modifying the java.util.logging.ConsoleHandler.level line&#160;to:<br /><code class="cCode">java.util.logging.ConsoleHandler.level = FINE</code></li></div>
+<a name="wp138045"> </a><div class="pSmartList2"><li>Modifying the java.util.logging.ConsoleHandler.formatter line to:<br /><code class="cCode">java.util.logging.ConsoleHandler.formatter =<br />   java.util.logging.SimpleFormatter</code></li></div>
+</ol></div>
+<a name="wp138046"> </a><div class="pSmartList1"><li>Log all messages to standard out using the SimpleFormatter, log only SEVERE messages for all software other than DataDirect XQuery, and limit the messages logged for DataDirect XQuery to equal to or lower than FINE by:</li></div><div class="pSmartList2"><ol type="a" class="pSmartList2">
+<a name="wp138047"> </a><div class="pSmartList2"><li>Modifying the default global logging level to:<br /> <code class="cCode">.level = SEVERE</code></li></div>
+<a name="wp138048"> </a><div class="pSmartList2"><li>Modifying the facility-specific properties line to:<br /><code class="cCode">com.ddtek.xquery.level = FINE</code></li></div>
+<a name="wp138049"> </a><div class="pSmartList2"><li>Modifying the java.util.logging.ConsoleHandler.level line&#160;to:<br /><code class="cCode">java.util.logging.ConsoleHandler.level = FINE</code></li></div>
+<a name="wp138050"> </a><div class="pSmartList2"><li>Modifying the java.util.logging.ConsoleHandler.formatter line to:<br /><code class="cCode">java.util.logging.ConsoleHandler.formatter =<br />   java.util.logging.SimpleFormatter</code></li></div>
+</ol></div>
+<a name="wp138051"> </a><div class="pSmartList1"><li>Disable logging by modifying the default global logging level&#160;to:<br /><code class="cCode">.level = CONFIG</code></li></div></ul></div>
+<a name="wp138054"> </a><p class="pBody">
+<b class="cBold">To enable logging that uses a file other than the default:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp138055"> </a><div class="pSmartList1"><li>Create a local copy of the logging.properties file. </li></div><a name="wp138056"> </a><div class="pSmartList1"><li>Modify the file.</li></div><a name="wp138057"> </a><div class="pSmartList1"><li>Enable logging by using the following command line:</li></div></ol></div>
+<a name="wp138058"> </a><p class="pBody">
+java -Djava.util.logging.config.file =<br /><code><em>  path</em></code>/<code><em>name_of_loggingfile</em></code>
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

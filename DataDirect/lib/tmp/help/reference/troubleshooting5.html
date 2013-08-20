@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:49" />
+  <title>Resolving Static Type Errors</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp137725"> </a><h2 class="pNewHTMLPageNum">
+Resolving Static Type Errors
+</h2>
+<hr />
+<a name="wp137726"> </a><p class="pBody">
+DataDirect XQuery implements the Static Typing feature of XQuery, which is pessimistic. This means that DataDirect XQuery raises errors if an expression cannot be guaranteed to be typesafe.
+</p>
+<a name="wp137728"> </a><p class="pBody">
+Static typing provides the following advantages: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp137729"> </a><div class="pSmartList1"><li>It provides the information needed to perform better SQL generation.</li></div><a name="wp137730"> </a><div class="pSmartList1"><li>It can prevent programming errors because it involves analyzing the query before its actually executed.</li></div></ul></div>
+<a name="wp137731"> </a><p class="pBody">
+The disadvantage of static typing is that you must rewrite queries if they do not provide specific type information for certain expressions. For example, you may need to specify the type of an external variable.
+</p>
+<a name="wp137732"> </a><p class="pBody">
+Typically, static type errors occur because more specific type information is needed during static analysis, which occurs before any data is encountered. Errors typically are resolved by adding the missing type declaration or making the declaration more specific. For example:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp137733"> </a><div class="pSmartList1"><li>An arithmetic or comparison operator can work only on certain data types. Static typing ensures that the operand has the correct type. To ensure that <code class="cCode">$j + 1</code> can execute, the type of <code class="cCode">$j</code> must be known statically. DataDirect XQuery raises a type error if this type information is not known statically. The solution is to declare the type of the operand.</li></div><a name="wp137734"> </a><div class="pSmartList1"><li>In a path expression, the left part of a step must be a node. For example, in the query <code class="cCode">$x/*</code>, static typing ensures that <code class="cCode">$x</code> is a node. DataDirect XQuery raises a type error if this type information is not known statically. The solution is to declare the type of the variable as an element or a document node.</li></div><a name="wp137735"> </a><div class="pSmartList1"><li>An order by clause needs to know the type to be used for comparing values. Static typing raises an error if this type information is not known statically. The solution is to use a constructor function, a cast expression, or treat as to indicate the correct type.</li></div></ul></div>
+<a name="wp137736"> </a><p class="pBody">
+For all these errors, as well as for other static errors that can occur, a static type error message is raised. The solution is to specify more accurate type information, either by specifying the type of a variable or by using constructor functions, casting, treat as, or typeswitch. Now, let&#8217;s look at some common cases where this occurs in queries.
+</p>
+<a name="wp137738"> </a><h3 class="pHeading2">
+Types for External Variables
+</h3>
+<a name="wp137739"> </a><p class="pBody">
+Static type errors often are encountered in expressions that use external variables, if they do not have a specific type declared. Consider the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $i external;<a name="wp137740"> </a>
+declare variable $j external;<a name="wp137741"> </a>
+$i + $j<a name="wp137742"> </a>
+Error: [DataDirect][XQuery][err:XP0004]Error at line 3, 
+column 7. Static type error. Types &#39;item()*&#39; and &#39;item()*&#39; 
+are invalid argument types for binary operator &#39;+&#39;.<a name="wp137743"> </a>
+</pre></div>
+<a name="wp137744"> </a><p class="pBody">
+If you see this type of static type error for an expression that uses an external variable, make sure the type of the variable is declared:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $i as xs:integer external;<a name="wp137745"> </a>
+declare variable $j as xs:decimal external;<a name="wp137746"> </a>
+$i + $j<a name="wp137747"> </a>
+</pre></div>
+<a name="wp137748"> </a><p class="pBody">
+Suppose <code class="cCode">$x</code> is bound to the value <code class="cCode">&lt;x&gt;&lt;a/&gt;&lt;b/&gt;&lt;c/&gt;&lt;/x&gt;</code>. The following query raises a static error, because the query does not provide the type of <code class="cCode">$x</code>.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $x external;<a name="wp137749"> </a>
+$x/*<a name="wp137750"> </a>
+</pre></div>
+<a name="wp137751"> </a><p class="pBody">
+The solution is to declare <code class="cCode">$x</code> to be an element.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $x as element() external;<a name="wp137752"> </a>
+$x/*<a name="wp137753"> </a>
+</pre></div>
+<a name="wp137754"> </a><p class="pBody">
+In DataDirect XQuery, XML bound to an external variable is always untyped. It is often convenient to declare it to be untyped in the external variable declaration, which makes it easier to use in queries. For example, consider the following query.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $y as element() external;<a name="wp137755"> </a>
+$y/b + 1<a name="wp137756"> </a>
+Static type error. Types &#39;element(b, xs:untyped)*&#39; and 
+&#39;xs:integer&#39; are invalid argument types for binary operator 
+&#39;+&#39;.<a name="wp137758"> </a>
+</pre></div>
+<a name="wp137759"> </a><p class="pBody">
+Static typing cannot look at the actual value to which <code class="cCode">$y</code> will be bound, so it raises an error for the query, because the query does not state that <code class="cCode">$y</code> is an element with untyped content. The solution is to explicitly declare that <code class="cCode">$y</code> is bound to an XML element, and also to state that this element is untyped.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $y as element(*, xs:untyped) external;<a name="wp137760"> </a>
+$y/b + 1<a name="wp137761"> </a>
+</pre></div>
+<a name="wp137762"> </a><p class="pBody">
+Now, the query executes as expected. Suppose <code class="cCode">$y</code> is bound to an  XML document containing the same element used in the preceding query. If the external variable is bound to an untyped XML document, rather than an element, you can declare it like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $y as document-node(element(*,<a name="wp137763"> </a>
+  xs:anyType)) external;<a name="wp139054"> </a>
+</pre></div>
+<a name="wp140470"> </a><h3 class="pHeading2">
+Types for Initial Context Items
+</h3>
+<a name="wp140532"> </a><p class="pBody">
+Just as with external variables, static type errors often are encountered in expressions that use the initial context item if they do not have a specific type declared. Unlike external variables, the type of the initial context item is not specified as part of the XQuery, but through the XQJ API, using the XQStaticContext object associated with an XQuery expression.
+</p>
+<a name="wp140534"> </a><p class="pBody">
+For example, if you want to bind the external variable $y to an untyped XML document, you would do this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $y as document-node(element(*,<a name="wp140536"> </a>
+  xs:anyType)) external;<a name="wp140567"> </a>
+</pre></div>
+<a name="wp140538"> </a><p class="pBody">
+If you need to do the same for the initial context item, you would define the type of the initial context item and bind it to a document using XQJ:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQStaticContext context = xqConnection.getStaticContext(); 
+cntxt.setContextItemStaticType(xqConnection.createDocumentElementType
+  (xqConnection.createElementType(null, XQItemType.XQBASETYPE_UNTYPED)));<a name="wp140540"> </a>
+xqExpression = xqConnection.createExpression(cntxt);<a name="wp140542"> </a>
+xqExpression.bindDocument(XQConstants.CONTEXT_ITEM, new 
+FileInputStream(&quot;myXMLDocument.xml&quot;));<a name="wp140543"> </a>
+...<a name="wp140530"> </a>
+</pre></div>
+<a name="wp137765"> </a><h3 class="pHeading2">
+Union Types
+</h3>
+<a name="wp137766"> </a><p class="pBody">
+Sometimes an expression can return more than one type of data, but the query writer knows it will be of a given type. Static typing may need to know the types that are expected. Consider the following expression.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(1, &#39;a&#39;)[1] + 2<a name="wp137767"> </a>
+</pre></div>
+<a name="wp137768"> </a><p class="pBody">
+The static typing rules of XQuery do not examine the value of the subscript, so they do not know whether the left operand is an integer or a string. Therefore, DataDirect XQuery raises the following error.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Error: [DataDirect][XQuery][err:XP0004]Error at line 1, 
+column 15. Static type error. Types 
+&#39;(xs:integer?,xs:string?)&#39; and &#39;xs:integer&#39; are invalid 
+argument types for binary operator &#39;+&#39;.<a name="wp137769"> </a>
+</pre></div>
+<a name="wp137770"> </a><p class="pBody">
+When you know that an expression returns the correct type, often the simplest approach is to use a constructor function or a cast expression to guarantee the correct type.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+xs:integer((1, &#39;a&#39;)[1]) + 2<a name="wp137771"> </a>
+</pre></div>
+<a name="wp137772"> </a><p class="pBody">
+You also can use treat as to tell XQuery which type to expect:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+((1, &#39;a&#39;)[1] treat as xs:integer) + 2<a name="wp137773"> </a>
+</pre></div>
+<a name="wp137774"> </a><p class="pBody">
+In DataDirect XQuery, using treat as is generally slower because it is compensated.
+</p>
+<a name="wp137777"> </a><h3 class="pHeading2">
+Types for Sorting
+</h3>
+<a name="wp137778"> </a><p class="pBody">
+When sorting data, XQuery must be able to compare all the values it encounters. Because static typing cannot examine the values in an expression, it uses the static type information from the query to guarantee that no runtime type errors will be generated because values of incomparable types are being compared. For example, if the query sorts the holdings table and the shares column is a decimal value, the following query is sorted by comparing decimals:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in collection(&quot;holdings&quot;)//holdings<a name="wp137779"> </a>
+order by $h/shares<a name="wp137780"> </a>
+return $h<a name="wp137781"> </a>
+</pre></div>
+<a name="wp137782"> </a><p class="pBody">
+Static analysis also applies to XML documents, but all XML documents are untyped, because DataDirect XQuery does not support schema validation. Therefore, the following query is statically valid, but the shares are sorted as strings, not using their decimal values:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in doc(&quot;holdings.xml&quot;)//holdings<a name="wp137783"> </a>
+order by $h/shares<a name="wp137784"> </a>
+return $h<a name="wp137785"> </a>
+</pre></div>
+<a name="wp137786"> </a><p class="pBody">
+In most cases, you would sort based on the numeric value of shares, which is easily done using a constructor function: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in doc(&quot;holdings.xml&quot;)//holdings<a name="wp137787"> </a>
+order by xs:decimal($h/shares)<a name="wp137788"> </a>
+return $h<a name="wp137789"> </a>
+</pre></div>
+<a name="wp137790"> </a><p class="pBody">
+Static analysis does not allow sorting unless all types used for sorting are comparable. For example, if you wanted to return the holdings in both the holdings database table and an XML file named holdings.xml, you would have a mixture of types that cannot be compared:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in doc(&quot;holdings.xml&quot;)//holdings 
+collection(&quot;holdings&quot;)//holdings<a name="wp137791"> </a>
+order by $h/shares<a name="wp137792"> </a>
+return $h<a name="wp137793"> </a>
+Error: [DataDirect][XQuery][err:XP0004]Error at line 30, 
+column 11. Static type error. Order spec contains invalid 
+comparison of types &#39;xs:string&#39; and &#39;DECIMAL_19_4&#39;.<a name="wp137794"> </a>
+</pre></div>
+<a name="wp137795"> </a><p class="pBody">
+The solution is to use a constructor function to ensure that all values are compared as decimals:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in doc(&quot;holdings.xml&quot;)//holdings 
+collection(&quot;holdings&quot;)//holdings<a name="wp137796"> </a>
+order by xs:decimal($h/shares)<a name="wp137797"> </a>
+return $h<a name="wp137798"> </a>
+</pre></div>
+<a name="wp137801"> </a><h3 class="pHeading2">
+Static Typing Extensions
+</h3>
+<a name="wp137802"> </a><p class="pBody">
+For static typing analysis, DataDirect XQuery follows the rules of the XQuery Formal Semantics with the following exceptions: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp137803"> </a><div class="pSmartList1"><li>DataDirect XQuery does not raise static errors for quantifiers that do not match.</li></div><a name="wp137804"> </a><div class="pSmartList1"><li>DataDirect XQuery provides more precise typing rules for parent and fn:root.</li></div><a name="wp137805"> </a><div class="pSmartList1"><li>The static type of a parameter is determined by the argument expression, not the parameter declaration. The following function executes without raising a static error although types for the function parameters are not declared:</li></div><a name="wp137806"> </a><p class="pSyntaxEmbed">
+declare function local:add($left, $right)
+</p>
+<a name="wp137807"> </a><p class="pSyntaxEmbed">
+{
+</p>
+<a name="wp137808"> </a><p class="pSyntaxEmbed">
+$left + $right
+</p>
+<a name="wp137809"> </a><p class="pSyntaxEmbed">
+};
+</p>
+<a name="wp137810"> </a><p class="pSyntaxEmbed">
+local:add(1, 1)
+</p>
+<a name="wp137811"> </a><div class="pSmartList1"><li>The static type of a function return is determined by the function expression, not the declared type. The following example executes without raising a static error although the function return type is not declared:</li></div><a name="wp137812"> </a><p class="pSyntaxEmbed">
+declare function local:one()
+</p>
+<a name="wp137813"> </a><p class="pSyntaxEmbed">
+{
+</p>
+<a name="wp137814"> </a><p class="pSyntaxEmbed">
+1
+</p>
+<a name="wp137815"> </a><p class="pSyntaxEmbed">
+};
+</p>
+<a name="wp137816"> </a><p class="pSyntaxEmbed">
+local:one() + 1
+</p>
+<a name="wp137817"> </a><div class="pSmartList1"><li>Static typing for constructors use knowledge of the resulting structure as specified by the constructor expression. For example, the expression <code class="cCode">&lt;a&gt;1&lt;/a&gt; + 1</code> succeeds because DataDirect XQuery knows statically that the value of the a element is an integer. Similarly, <code class="cCode">&lt;a&gt;&lt;b/&gt;&lt;/a&gt;/c</code> fails with error&#160;XPST0005 because DataDirect XQuery knows statically that the constructed &lt;a/&gt; element does not have a &lt;c/&gt; element as a child.</li></div><a name="wp137818"> </a><div class="pSmartList1"><li>The XPST0005 error can be disabled by specifying the detect-XPST0005 option declaration.</li></div></ul></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

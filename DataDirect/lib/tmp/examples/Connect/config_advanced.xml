@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Needs valid url, user, password, catalog-name and schema-name -->
+<XQJConnection xmlns="http://www.datadirect.com/xquery">
+  <baseUri>../xml/</baseUri>
+  <!-- Set the global option to pretty print the output xml -->
+  <pragma name="serialize">indent=yes</pragma>
+  <JDBCConnection name="config_advanced">
+    <!-- Please fill in url, user and password -->
+    <url>jdbc:xquery:sqlserver://hostname_or_ip;databaseName=DATABASE</url>
+    <user>example_user</user>
+    <password>example_password</password>
+    <sqlxmlMapping>
+      <forest>true</forest>
+      <identifierEscaping>full</identifierEscaping>
+    </sqlxmlMapping>
+    <!-- Set an option for this jdbcConnection -->
+    <pragma name="sql-decimal-cast">10,5</pragma>
+    <!-- Please fill in catalog and schema-name -->
+    <catalog name="example_catalog_name">
+      <schema name="example_schema_name"> 
+        <!-- create an alias for the table 'users' -->
+        <table name="users" alias="MY_USERS_TABLE"/> 
+        <!-- assign a namespace to the elements from table 'holdings' -->
+        <table name="holdings" targetNamespace="http://www.datadirect.com/xquery/examples"/>
+        <table name="historical">
+          <!-- the includes element limits the columns that are visible for the table 'historical' -->
+          <includes>
+            <column name="ticker"/>
+            <column name="datetraded"/>
+          </includes>
+        </table> 
+      </schema>
+    </catalog>
+  </JDBCConnection>
+</XQJConnection>

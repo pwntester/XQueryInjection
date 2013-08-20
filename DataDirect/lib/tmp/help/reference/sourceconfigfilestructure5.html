@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:46" />
+  <title>Examples of Source Configuration Files</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp138103"> </a><h2 class="pNewHTMLPageNum">
+Examples of Source Configuration Files
+</h2>
+<hr />
+<a name="wp154363"> </a><p class="pBody">
+This section provides examples of source configuration files that are configured to connect to Microsoft SQL Server and Oracle. Creating a source configuration file to connect to other databases supported by DataDirect XQuery would be similar to these examples. You would need to change the value of the url element. See <a  href="quickstart2.html#wp937495">Sample Connection URIs</a>.
+</p>
+<a name="wp154416"> </a><p class="pBody">
+NOTE: If you do not specify a user ID and password in your Java application, you must do so in your source configuration file. The source configuration file examples shown in this section do not specify the user ID and password; therefore, they must be specified in the Java application, as shown in the code example in <a  href="quickstart2.html#wp936526">3. Developing a Java Application that Executes a Query</a>.
+</p>
+<a name="wp154361"> </a><p class="pBodyBold">
+Example 1: Connecting to Microsoft SQL Server 
+</p>
+<a name="wp144223"> </a><p class="pBody">
+The following source configuration file example shows the minimum you must specify to connect to a Microsoft SQL Server database. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt; <a name="wp144202"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt; <a name="wp144203"> </a>
+  &lt;JDBCConnection prefix=&quot;example_connection_name&quot;&gt; <a name="wp144205"> </a>
+    &lt;url&gt;jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db&lt;/url&gt; <a name="wp144206"> </a>
+    &lt;catalog name=&quot;example_db&quot;&gt; <a name="wp144207"> </a>
+      &lt;schema name=&quot;example_db_user&quot;/&gt; <a name="wp144208"> </a>
+    &lt;/catalog&gt; <a name="wp144209"> </a>
+  &lt;/JDBCConnection&gt; <a name="wp144210"> </a>
+&lt;/XQJConnection&gt; <a name="wp144212"> </a>
+</pre></div>
+<a name="wp144274"> </a><p class="pBodyBold">
+Example 2: Connecting to Oracle 
+</p>
+<a name="wp144295"> </a><p class="pBody">
+This second example shows the minimum you must specify to connect to an Oracle database. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt; <a name="wp144328"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp144329"> </a>
+  &lt;JDBCConnection prefix=&quot;example_connection_name&quot;&gt; <a name="wp144331"> </a>
+    &lt;url&gt;jdbc:xquery:oracle://localhost:1521;sid=oracle_sid_name&lt;/url&gt; <a name="wp144332"> </a>
+    &lt;catalog&gt; <a name="wp144333"> </a>
+      &lt;schema name=&quot;example_db_user&quot;/&gt; <a name="wp144334"> </a>
+    &lt;/catalog&gt; <a name="wp144335"> </a>
+  &lt;/JDBCConnection&gt; <a name="wp144336"> </a>
+&lt;/XQJConnection&gt; <a name="wp144338"> </a>
+</pre></div>
+<a name="wp144366"> </a><p class="pBodyBold">
+Example 3: Accessing an XML File and Connecting to Microsoft&#160;SQL Server 
+</p>
+<a name="wp144393"> </a><p class="pBody">
+This third example of a source configuration file shows how to access an XML file and a Microsoft SQL Server database. When accessing XML files, often a relative path is used to locate the file; the baseURI element in this example specifies the relative path. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt; <a name="wp144367"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt; <a name="wp144368"> </a>
+  &lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt; <a name="wp144369"> </a>
+  &lt;JDBCConnection prefix=&quot;example_connection_name&quot;&gt; <a name="wp144371"> </a>
+    &lt;url&gt;jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db&lt;/url&gt; <a name="wp144372"> </a>
+    &lt;catalog name=&quot;example_db&quot;&gt; <a name="wp144373"> </a>
+      &lt;schema name=&quot;example_db_user&quot;/&gt; <a name="wp144374"> </a>
+    &lt;/catalog&gt; <a name="wp144375"> </a>
+  &lt;/JDBCConnection&gt; <a name="wp144376"> </a>
+&lt;/XQJConnection&gt;<a name="wp144378"> </a>
+</pre></div>
+<a name="wp144379"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

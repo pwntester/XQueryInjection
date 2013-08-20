@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQStaticContext Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp162779"> </a><h2 class="pNewHTMLPageNum">
+XQStaticContext Interface
+</h2>
+<hr />
+<a name="wp122257"> </a><p class="pBody">
+This interface represents default values for XQuery Static Context components. Additionally, it includes the static XQJ properties for an XQExpression or XQPreparedExpression object.
+</p>
+<a name="wp122350"> </a><p class="pBody">
+<a  href="xqjsupport17.html#wp162847">Table&#160;G-15</a> describes how DataDirect XQuery supports the methods of the XQStaticContext interface.
+</p>
+<a name="wp124860"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp162847"> </a><div class="pTableTitle">
+Table G-15.  XQStaticContext Method Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp162851"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp162853"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162855"> </a><div class="pCellBody">
+void declareNamespace(String prefix, String uri)
+</div>
+</td>
+    <td><a name="wp162857"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162859"> </a><div class="pCellBody">
+String getBaseURI( )
+</div>
+</td>
+    <td><a name="wp162861"> </a><div class="pCellBody">
+Supported. Returns the base URI as specified in the BaseUri property of DDXQDataSource or the directory of your current JVM if no base URI is specified.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162863"> </a><div class="pCellBody">
+int getBindingMode( )
+</div>
+</td>
+    <td><a name="wp162865"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162867"> </a><div class="pCellBody">
+XQItemType getContextItemStaticType( )
+</div>
+</td>
+    <td><a name="wp162869"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162871"> </a><div class="pCellBody">
+int getCopyNamespacesModeInherit( )
+</div>
+</td>
+    <td><a name="wp162873"> </a><div class="pCellBody">
+Supported. Always returns the same constant value, XQConstants.<br />COPY_NAMESPACES_MODE_INHERIT.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162875"> </a><div class="pCellBody">
+int getCopyNamespacesModePreserve( )
+</div>
+</td>
+    <td><a name="wp162877"> </a><div class="pCellBody">
+Supported. Always returns the same constant value, XQConstants.<br />COPY_NAMESPACES_MODE_PRESERVE.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162879"> </a><div class="pCellBody">
+String getDefaultCollation( )
+</div>
+</td>
+    <td><a name="wp162881"> </a><div class="pCellBody">
+Supported. Returns the collation as specified in the Collation property of DDXQDataSource or the default JVM collation if no collation is specified.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162883"> </a><div class="pCellBody">
+String getDefaultElementTypeNamespace( )
+</div>
+</td>
+    <td><a name="wp162885"> </a><div class="pCellBody">
+Supported. Returns an empty string.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162887"> </a><div class="pCellBody">
+String getDefaultFunctionNamespace( )
+</div>
+</td>
+    <td><a name="wp162889"> </a><div class="pCellBody">
+Supported. Returns<br />http://www.w3.org/2005/xpath-functions
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162891"> </a><div class="pCellBody">
+int getDefaultOrderForEmptySequences( )
+</div>
+</td>
+    <td><a name="wp162893"> </a><div class="pCellBody">
+Supported. Returns the default order for empty sequences. See the &quot;Default order for empty sequences&quot; description in <a  href="xquerysupport2.html#wp225974">Table&#160;A-1</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162898"> </a><div class="pCellBody">
+int getHoldability( )
+</div>
+</td>
+    <td><a name="wp162900"> </a><div class="pCellBody">
+Supported. Always returns the same constant value. See the corresponding set method for the value returned.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162902"> </a><div class="pCellBody">
+String[] getNamespacePrefixes( )
+</div>
+</td>
+    <td><a name="wp162904"> </a><div class="pCellBody">
+Supported. Returns xsi, xdt, xml, ddtek-sql, fn, ddtek, local, ddtek-sql-jdbc, and xs.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162906"> </a><div class="pCellBody">
+String getNamespaceURI(String prefix)
+</div>
+</td>
+    <td><a name="wp162908"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162910"> </a><div class="pCellBody">
+int getOrderingMode
+</div>
+</td>
+    <td><a name="wp162912"> </a><div class="pCellBody">
+Supported. Always returns the same constant value, XQConstants.<br />ORDERING_MODE_ORDERED.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162914"> </a><div class="pCellBody">
+int getQueryLanguageTypeAndVersion( )
+</div>
+</td>
+    <td><a name="wp162916"> </a><div class="pCellBody">
+Supported. Always returns the same constant value, XQConstants.LANGTYPE_XQUERY
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162918"> </a><div class="pCellBody">
+int getQueryTimeout( )
+</div>
+</td>
+    <td><a name="wp162920"> </a><div class="pCellBody">
+Supported. Always returns 0, which means there is no timeout.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162922"> </a><div class="pCellBody">
+int getScrollability( )
+</div>
+</td>
+    <td><a name="wp175224"> </a><div class="pCellBody">
+Supported. Always returns the same constant value, XQConstants.<br />SCROLLTYPE_FORWARD_ONLY.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162930"> </a><div class="pCellBody">
+void setBaseURI(String baseUri)
+</div>
+</td>
+    <td><a name="wp162932"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162934"> </a><div class="pCellBody">
+void setBindingMode( )
+</div>
+</td>
+    <td><a name="wp162938"> </a><div class="pCellBody">
+Supported. See <a  href="xqjsupport21.html#wp158927">Support of Deferred Binding</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162941"> </a><div class="pCellBody">
+void setBoundarySpacePolicy(int policy)
+</div>
+</td>
+    <td><a name="wp162943"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162945"> </a><div class="pCellBody">
+void setConstructionMode(int mode)
+</div>
+</td>
+    <td><a name="wp162947"> </a><div class="pCellBody">
+Supported. mode must be set to XQConstants.CONSTRUCTION_MODE_<br />PRESERVE.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162949"> </a><div class="pCellBody">
+void setContextItemStaticType(XQItemType contextItemType)
+</div>
+</td>
+    <td><a name="wp162951"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162953"> </a><div class="pCellBody">
+void setCopyNamespacesModeInherit(int mode)
+</div>
+</td>
+    <td><a name="wp162955"> </a><div class="pCellBody">
+Supported. mode must be set to XQConstants.COPY_NAMESPACES_<br />MODE_INHERIT.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162957"> </a><div class="pCellBody">
+void setCopyNamespacesModePreserve(int mode)
+</div>
+</td>
+    <td><a name="wp162959"> </a><div class="pCellBody">
+Supported. Must be set to XQConstants.COPY_NAMESPACES_<br />MODE_PRESERVE.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162961"> </a><div class="pCellBody">
+void setDefaultCollation(String uri)
+</div>
+</td>
+    <td><a name="wp162963"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162965"> </a><div class="pCellBody">
+void setDefaultElementTypeNamespace(String uri)
+</div>
+</td>
+    <td><a name="wp162967"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162969"> </a><div class="pCellBody">
+void setDefaultFunctionNamespace(String uri)
+</div>
+</td>
+    <td><a name="wp162971"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162973"> </a><div class="pCellBody">
+void setDefaultOrderForEmptySequences(int order)
+</div>
+</td>
+    <td><a name="wp162975"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162977"> </a><div class="pCellBody">
+void setHoldability(int holdability)
+</div>
+</td>
+    <td><a name="wp162979"> </a><div class="pCellBody">
+Supported. holdability must be <br />CURSORS_OVER_COMMIT.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162981"> </a><div class="pCellBody">
+void setOrderingMode(int mode)
+</div>
+</td>
+    <td><a name="wp162983"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162985"> </a><div class="pCellBody">
+void setQueryLanguageAndVersion(int langType)
+</div>
+</td>
+    <td><a name="wp162987"> </a><div class="pCellBody">
+Supported. langType must be set to XQConstants.LANGTYPE_XQUERY.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162989"> </a><div class="pCellBody">
+void setQueryTimeout(int seconds)
+</div>
+</td>
+    <td><a name="wp162991"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp162993"> </a><div class="pCellBody">
+void setScrollability(int scrollability)
+</div>
+</td>
+    <td><a name="wp162995"> </a><div class="pCellBody">
+Supported. scrollability must be set to XQConstants.SCROLLTYPE_FORWARD<br />_ONLY
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp173896"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

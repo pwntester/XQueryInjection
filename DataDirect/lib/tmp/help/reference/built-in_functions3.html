@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:33" />
+  <title>HTTP Functions &lt;request&gt; Element</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp323066"> </a><h2 class="pNewHTMLPageNum">
+HTTP Functions &lt;request&gt; Element
+</h2>
+<hr />
+<a name="wp323763"> </a><p class="pBody">
+You use attributes of the &lt;request&gt; element to specify optional parameters when submitting a query to the origin server. Examples of &lt;request&gt; element attributes include connection and socket timeout values, the number of retries, and HTTP version.
+</p>
+<a name="wp329943"> </a><p class="pBody">
+The following table summarizes the available parameters for HTTP function &lt;request&gt; elements. See <a  href="http_functions3.html#wp242410">Specifying HTTP Client-Server Options</a> for more information for more information on using the &lt;request&gt; element.</p><div align="left">
+<table border="1">
+  <caption><a name="wp329410"> </a><div class="pTableTitle">
+Table 12-8.  Function Request Parameters
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp329416"> </a><div class="pCellHeading">
+Parameter Name
+</div>
+</th>
+    <th><a name="wp329418"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+    <th><a name="wp329420"> </a><div class="pCellHeading">
+Valid Values
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329422"> </a><div class="pCellBody">
+cookie-policy
+</div>
+</td>
+    <td><a name="wp329424"> </a><div class="pCellBody">
+Allows you to specify how to manage cookies. See <a  href="http_functions3.html#wp242479">Managing Cookies</a>.
+</div>
+</td>
+    <td><a name="wp329426"> </a><div class="pCellBody">
+RFC2109 (default)
+</div>
+<a name="wp329650"> </a><div class="pCellBody">
+RFC2965
+</div>
+<a name="wp329651"> </a><div class="pCellBody">
+netscape
+</div>
+<a name="wp329652"> </a><div class="pCellBody">
+ingore-cookies
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329613"> </a><div class="pCellBody">
+connection-timeout
+</div>
+</td>
+    <td><a name="wp329606"> </a><div class="pCellBody">
+Connection timeout value, in milliseconds.
+</div>
+</td>
+    <td><a name="wp329608"> </a><div class="pCellBody">
+Positive integer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329428"> </a><div class="pCellBody">
+http-version
+</div>
+</td>
+    <td><a name="wp329430"> </a><div class="pCellBody">
+The HTTP version expected by the origin server.
+</div>
+</td>
+    <td><a name="wp329432"> </a><div class="pCellBody">
+http_1_0
+</div>
+<a name="wp329660"> </a><div class="pCellBody">
+http_1_1 (default)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329533"> </a><div class="pCellBody">
+password
+</div>
+</td>
+    <td><a name="wp329535"> </a><div class="pCellBody">
+Password associated with <a  href="built-in_functions3.html#wp329524">username</a> when the origin server requires authentication.
+</div>
+</td>
+    <td><a name="wp329537"> </a><div class="pCellBody">
+String; origin server dependent
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329480"> </a><div class="pCellBody">
+protocol-head-body-timeout
+</div>
+</td>
+    <td><a name="wp329482"> </a><div class="pCellBody">
+The wait time, in milliseconds, for the response body after a ddtek:http-head call. Not all servers adhere to the HTTP protocol when replying to a head request.
+</div>
+</td>
+    <td><a name="wp329484"> </a><div class="pCellBody">
+Positive integer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329490"> </a><div class="pCellBody">
+protocol-reject-head-body
+</div>
+</td>
+    <td><a name="wp329492"> </a><div class="pCellBody">
+Reject response returned after ddtek:head-call. Not all servers adhere to the HTTP protocol when replying to a head request.
+</div>
+</td>
+    <td><a name="wp329494"> </a><div class="pCellBody">
+yes
+</div>
+<a name="wp329694"> </a><div class="pCellBody">
+no
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329543"> </a><div class="pCellBody">
+proxy-host
+</div>
+</td>
+    <td><a name="wp329545"> </a><div class="pCellBody">
+URI of a proxy server to which DDXQ can be configured to route all requests.
+</div>
+</td>
+    <td><a name="wp329547"> </a><div class="pCellBody">
+String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329553"> </a><div class="pCellBody">
+proxy-password
+</div>
+</td>
+    <td><a name="wp329555"> </a><div class="pCellBody">
+Password associated with the <a  href="built-in_functions3.html#wp329565">proxy-username</a> required by the proxy server.
+</div>
+</td>
+    <td><a name="wp329557"> </a><div class="pCellBody">
+String; proxy server dependent
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329559"> </a><div class="pCellBody">
+proxy-port
+</div>
+</td>
+    <td><a name="wp329561"> </a><div class="pCellBody">
+Port on the proxy server that is configured to listen for DataDirect XQuery requests.
+</div>
+</td>
+    <td><a name="wp329563"> </a><div class="pCellBody">
+Integer; proxy server dependent
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329565"> </a><div class="pCellBody">
+proxy-username
+</div>
+</td>
+    <td><a name="wp329567"> </a><div class="pCellBody">
+Username associated with the <a  href="built-in_functions3.html#wp329553">proxy-password</a> required by the proxy server.
+</div>
+</td>
+    <td><a name="wp329569"> </a><div class="pCellBody">
+String; proxy server dependent
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329582"> </a><div class="pCellBody">
+response-data-type
+</div>
+</td>
+    <td><a name="wp329584"> </a><div class="pCellBody">
+Allows you to override the origin server&#8217;s default encoding behavior. See <a  href="http_functions3.html#wp238568">Response Encoding</a>.
+</div>
+</td>
+    <td><a name="wp329586"> </a><div class="pCellBody">
+text
+</div>
+<a name="wp329807"> </a><div class="pCellBody">
+xml
+</div>
+<a name="wp329808"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329434"> </a><div class="pCellBody">
+retries
+</div>
+</td>
+    <td><a name="wp329436"> </a><div class="pCellBody">
+The number of times DataDirect XQuery retries an HTTP call after a failure.  Not every failure is subject to a retry.
+</div>
+</td>
+    <td><a name="wp329438"> </a><div class="pCellBody">
+Positive integer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329588"> </a><div class="pCellBody">
+serialize
+</div>
+</td>
+    <td><a name="wp329590"> </a><div class="pCellBody">
+Specifies how the payload has to be serialized before sending to the origin server.
+</div>
+</td>
+    <td><a name="wp329592"> </a><div class="pCellBody">
+String. See <a  href="built-in_functions2.html#wp284162">ddtek:serialize</a> for possible values.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329446"> </a><div class="pCellBody">
+socket-linger
+</div>
+</td>
+    <td><a name="wp329448"> </a><div class="pCellBody">
+The delay, in milliseconds, before a reset is sent to the origin server, allowing more time for data to be read or sent, possibly at the expense of performance.
+</div>
+</td>
+    <td><a name="wp329450"> </a><div class="pCellBody">
+Positive integer. See <a  href="http_functions3.html#wp239048">Managing Connections and Sockets</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329452"> </a><div class="pCellBody">
+socket-receivebuffer
+</div>
+</td>
+    <td><a name="wp329454"> </a><div class="pCellBody">
+Size, in bytes, of the socket receive buffer. The socket receive buffer is an input buffer used by the networking implementation.
+</div>
+</td>
+    <td><a name="wp329848"> </a><div class="pCellBody">
+Positive integer. See <a  href="http_functions3.html#wp239048">Managing Connections and Sockets</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329458"> </a><div class="pCellBody">
+socket-sendbuffer
+</div>
+</td>
+    <td><a name="wp329460"> </a><div class="pCellBody">
+Size, in bytes, of the socket send buffer. The socket send buffer is an output buffer used by the networking implementation.
+</div>
+</td>
+    <td><a name="wp329855"> </a><div class="pCellBody">
+Positive integer. See <a  href="http_functions3.html#wp239048">Managing Connections and Sockets</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329464"> </a><div class="pCellBody">
+socket-timeout
+</div>
+</td>
+    <td><a name="wp329466"> </a><div class="pCellBody">
+The interval, in milliseconds, to wait for data from the origin server.
+</div>
+</td>
+    <td><a name="wp329468"> </a><div class="pCellBody">
+Positive integer. See <a  href="http_functions3.html#wp239048">Managing Connections and Sockets</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329594"> </a><div class="pCellBody">
+streaming
+</div>
+</td>
+    <td><a name="wp329596"> </a><div class="pCellBody">
+Whether or not to allow streaming on the response from the origin server.
+</div>
+</td>
+    <td><a name="wp329598"> </a><div class="pCellBody">
+yes (default)
+</div>
+<a name="wp329863"> </a><div class="pCellBody">
+no
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329514"> </a><div class="pCellBody">
+tcp-nodelay
+</div>
+</td>
+    <td><a name="wp329516"> </a><div class="pCellBody">
+Whether to enable or disable an algorithm that trades bandwidth conservation for network latency.
+</div>
+</td>
+    <td><a name="wp329518"> </a><div class="pCellBody">
+yes (default)
+</div>
+<a name="wp329875"> </a><div class="pCellBody">
+no
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329524"> </a><div class="pCellBody">
+username
+</div>
+</td>
+    <td><a name="wp329671"> </a><div class="pCellBody">
+Username associated with <a  href="built-in_functions3.html#wp329533">password</a> when the origin server requires authentication.
+</div>
+</td>
+    <td><a name="wp329528"> </a><div class="pCellBody">
+String; origin server dependent
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp329623"> </a><div class="pCellBody">
+wrap-execution
+</div>
+</td>
+    <td><a name="wp329625"> </a><div class="pCellBody">
+When set to yes, prevents runtime errors from halting query execution.
+</div>
+</td>
+    <td><a name="wp329627"> </a><div class="pCellBody">
+yes
+</div>
+<a name="wp329898"> </a><div class="pCellBody">
+no (default)
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:10" />
+  <title>Creating XML: XML Constructors</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp148394"> </a><h2 class="pNewHTMLPageNum">
+Creating XML: XML Constructors
+</h2>
+<hr />
+<a name="wp148395"> </a><p class="pBody">
+Now that we have seen how to locate anything in an XML document or a relational table, let&#39;s learn how to create new XML structures using XML constructors.
+</p>
+<a name="wp148397"> </a><h3 class="pHeading2">
+Literal XML constructors
+</h3>
+<a name="wp148398"> </a><p class="pBody">
+The most simple constructors are <em class="cEmphasis">literal XML constructors</em>, which use the same syntax as XML. For example, the following XML text is also an XQuery expression that creates the equivalent XML structure.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;stock role=&#39;eg&#39;&gt;<a name="wp148399"> </a>
+   &lt;ticker&gt;AMZN&lt;/ticker&gt;<a name="wp148400"> </a>
+   &lt;shares&gt;3000&lt;/shares&gt;<a name="wp148401"> </a>
+&lt;/stock&gt;<a name="wp149975"> </a>
+</pre></div>
+<a name="wp143521"> </a><p class="pBody">
+This example uses only elements and attributes, but processing instructions, comments, and CDATA sections can also be used in XML constructors.
+</p>
+<a name="wp148671"> </a><h3 class="pHeading2">
+Enclosed Expressions
+</h3>
+<a name="wp148672"> </a><p class="pBody">
+In literal XML constructors, you can use curly braces ({ }) to add content that is computed when the query is run. This is called an <em class="cEmphasis">enclosed expression</em>. For example, the following expression creates a date element whose content is the current date, which is computed when the query is run:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;date&gt;{ current-date() }&lt;/date&gt;<a name="wp148673"> </a>
+</pre></div>
+<a name="wp150113"> </a><p class="pBody">
+The result is an element named date with the current date.
+</p>
+<a name="wp150150"> </a><p class="pBody">
+To see why enclosed expressions are necessary, consider the following expression:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;date&gt; current-date() &lt;/date&gt;<a name="wp150122"> </a>
+</pre></div>
+<a name="wp150120"> </a><p class="pBody">
+This expression evaluates to the following XML element:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;date&gt; current-date() &lt;/date&gt;<a name="wp150131"> </a>
+</pre></div>
+<a name="wp148674"> </a><p class="pBody">
+Path expressions are frequently used in enclosed expressions. The following expression creates a portfolio element for Minollo, and then extracts Minollo&#39;s holdings from the holdings table:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;portfolio name=&#39;Minollo&#39;&gt;<a name="wp148675"> </a>
+   { collection(&#39;holdings&#39;)/holdings[userid=&#39;Minollo&#39;] }<a name="wp148676"> </a>
+&lt;/portfolio&gt;<a name="wp148677"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

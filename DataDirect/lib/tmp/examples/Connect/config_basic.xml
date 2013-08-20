@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Needs valid url, user and password -->
+<XQJConnection xmlns="http://www.datadirect.com/xquery">
+  <JDBCConnection name="config_basic">
+    <!-- Please fill in url, user and password -->
+    <url>jdbc:xquery:oracle://hostname_or_ip:1521;SID=orcl_sid_name</url>
+    <user>example_user</user>
+    <password>example_password</password>
+  </JDBCConnection>
+</XQJConnection>

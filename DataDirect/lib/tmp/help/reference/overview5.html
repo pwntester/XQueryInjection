@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:08" />
+  <title>DataDirect XQuery&#174; Architecture</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp143313"> </a><h2 class="pNewHTMLPageNum">
+DataDirect XQuery<font size="4"><sup>&#174;</sup></font> Architecture
+</h2>
+<hr />
+<a name="wp132657"> </a><p class="pBody">
+The following illustration provides a high-level architectural overview of DataDirect XQuery.
+</p>
+<a name="wp152567"> </a><p class="pBody">
+</p><div align="right"><img src="images/xquery_diagram.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp132660"> </a><p class="pBody">
+When you execute a query using DataDirect XQuery, DataDirect XQuery might processes the query in the following fashion:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp135564"> </a><div class="pSmartList1"><li>A Java application passes a query to the DataDirect XQuery implementation of XQJ. </li></div><a name="wp152704"> </a><div class="pSmartList1"><li>The XQuery Engine analyzes the query and divides it into one or multiple XQuery expressions to be processed by the adaptors.</li></div><a name="wp152707"> </a><div class="pSmartList1"><li>The XQuery Engine sends the query to the SQL adaptor or the Streaming XML adaptor based on its analysis:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp135569"> </a><div class="pSmartList2"><li>If a relational source is queried, the XQuery Engine sends the query to the SQL Adaptor. The SQL Adaptor translates the query into SQL, which is used to query the database. The SQL Adaptor receives the results and maps them into XML. </li></div>
+<a name="wp135570"> </a><div class="pSmartList2"><li>If an XML source is queried, the XQuery Engine sends the query to the Streaming XML Adaptor, which executes the query and returns XML results. </li></div>
+<a name="wp144816"> </a><div class="pSmartList2"><li>If a flat or EDI file is queried, the XQuery Engine sends the query to the Streaming XML Adaptor, which relies on the DataDirect XML Converters&#8482; to retrieve an XML representation of the flat or EDI file.</li></div>
+</ul></div>
+<a name="wp135571"> </a><div class="pSmartList1"><li>The adaptors send the XML results to the XQuery Engine. If the XML results are obtained from more than one source, the XQuery Engine combines the results. </li></div><a name="wp135572"> </a><div class="pSmartList1"><li>The Java application receives results as XML, using XQJ. </li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

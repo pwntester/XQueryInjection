@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:15" />
+  <title>Using Kerberos Authentication</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp239534"> </a><h2 class="pNewHTMLPageNum">
+Using Kerberos Authentication
+</h2>
+<hr />
+<a name="wp239536"> </a><p class="pBody">
+Kerberos authentication is a trusted third-party authentication service. Kerberos authentication can take advantage of the user name and password maintained by the operating system to authenticate users to the database or use another set of user credentials specified by the application.
+</p>
+<a name="wp239538"> </a><p class="pBody">
+DataDirect XQuery supports Kerberos authentication for the following databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239539"> </a><div class="pSmartList1"><li>DB2</li></div><a name="wp239540"> </a><div class="pSmartList1"><li>Oracle</li></div><a name="wp239541"> </a><div class="pSmartList1"><li>Microsoft SQL Server </li></div><a name="wp239542"> </a><div class="pSmartList1"><li>Sybase</li></div></ul></div>
+<a name="wp239543"> </a><p class="pBody">
+Verify that your environment meets the requirements listed in <a  href="connection_security3.html#wp239555">Table&#160;7-2</a> before you configure DataDirect XQuery for Kerberos authentication.
+</p>
+<a name="wp239547"> </a><p class="pBody">
+
+</p>
+<a name="wp239596"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp239555"> </a><div class="pTableTitle">
+Table 7-2.  Kerberos Authentication Requirements&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp239559"> </a><div class="pCellHeading">
+Component
+</div>
+</th>
+    <th><a name="wp239561"> </a><div class="pCellHeading">
+Requirements
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239563"> </a><div class="pCellBody">
+Database&#160;server
+</div>
+</td>
+    <td><a name="wp239565"> </a><div class="pCellBody">
+The database server must be running one of the following databases:
+</div>
+<a name="wp239566"> </a><div class="pCellBody">
+DB2:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239567"> </a><div class="pSmartList1"><li>DB2 v8.1 or higher for Linux/UNIX/Windows</li></div></ul></div>
+<a name="wp239568"> </a><div class="pCellBody">
+Oracle:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239569"> </a><div class="pSmartList1"><li>Oracle 11g</li></div><a name="wp239570"> </a><div class="pSmartList1"><li>Oracle 10<em class="cEmphasis">g</em> (R1 and R2)</li></div></ul></div>
+<a name="wp239571"> </a><div class="pCellBody">
+Microsoft SQL Server:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239572"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2008</li></div><a name="wp239573"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2005</li></div><a name="wp239574"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000</li></div><a name="wp239575"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000 Enterprise Edition (64-bit) Service&#160;Pack 2 or higher</li></div></ul></div>
+<a name="wp239576"> </a><div class="pCellBody">
+Sybase:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239577"> </a><div class="pSmartList1"><li>Sybase 12.5.1 or higher</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239580"> </a><div class="pCellBody">
+Kerberos server
+</div>
+</td>
+    <td><a name="wp239582"> </a><div class="pCellBody">
+The Kerberos server is the machine where the user IDs for authentication are administered. The Kerberos server is also the location of the Kerberos Key Distribution Center (KDC). If using Windows Active Directory, this machine is also the domain controller.
+</div>
+<a name="wp239584"> </a><div class="pCellBody">
+DB2, Oracle, and Sybase:
+</div>
+<a name="wp239585"> </a><div class="pCellBody">
+Network authentication must be provided by one of the following methods:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239587"> </a><div class="pSmartList1"><li>Windows Active Directory on one of the following operating systems:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp239588"> </a><div class="pSmartList2"><li>Windows Server 2003</li></div>
+<a name="wp239589"> </a><div class="pSmartList2"><li>Windows 2000 Server Service Pack 3 or higher</li></div>
+</ul></div>
+<a name="wp239591"> </a><div class="pSmartList1"><li>MIT Kerberos 1.4.2 or higher</li></div></ul></div>
+<a name="wp239592"> </a><div class="pCellBody">
+Microsoft SQL Server:
+</div>
+<a name="wp239593"> </a><div class="pCellBody">
+Network authentication must be provided by Windows Active Directory on one of the following operating systems:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239594"> </a><div class="pSmartList1"><li>Windows Server 2003</li></div><a name="wp239595"> </a><div class="pSmartList1"><li>Windows 2000 Server Service Pack 3 or higher</li></div></ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp239599"> </a><h3 class="pHeading2">
+Configuring Kerberos Authentication
+</h3>
+<a name="wp239600"> </a><p class="pBody">
+During installation, DataDirect XQuery installs the following files required for Kerberos authentication in the /lib subdirectory of your DataDirect XQuery installation directory:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239602"> </a><div class="pSmartList1"><li>krb5.conf is a Kerberos configuration file containing values for the Kerberos realm and the KDC name for that realm. DataDirect XQuery installs a generic file that you must modify for your environment.</li></div><a name="wp239603"> </a><div class="pSmartList1"><li>JDBCDriverLogin.conf file is a configuration file that specifies which Java Authentication and Authorization Service (JAAS) login module to use for Kerberos authentication. This file is configured to load automatically unless the java.security.auth.login.config system property is set to load another configuration file. You can modify this file, but DataDirect XQuery must be able to find the JDBC_DRIVER_01 entry in this file or another specified login configuration file to configure the JAAS login module. Refer to your J2SE documentation for information about setting configuration options in this file</li></div></ul></div>
+<a name="wp239604"> </a><p class="pBodyBold">
+To configure DataDirect XQuery:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp239605"> </a><div class="pSmartList1"><li>Set the AuthenticationMethod connection property to kerberos. See the DB2, Oracle, Microsoft SQL Server, and Sybase connection properties tables in <a  href="database_support5.html#wp293718">Database Connection Properties</a> for more information about setting a value for this property.</li></div><a name="wp239609"> </a><div class="pSmartList1"><li>Modify the krb5.conf file to contain your Kerberos realm name and the KDC name for that Kerberos realm by editing the file with a text editor or by specifying the system properties, java.security.krb5.realm and java.security.krb5.kdc.</li></div><a name="wp239611"> </a><p class="pBodyRelative">
+NOTE: If using Windows Active Directory, the Kerberos realm name is the Windows domain name and the KDC name is the Windows domain controller name.
+</p>
+<a name="wp239612"> </a><p class="pBodyRelative">
+For example, if your Kerberos realm name is XYZ.COM and your KDC name is kdc1, your krb5.conf file would look like this:
+</p>
+<a name="wp239613"> </a><p class="pSyntaxEmbed">
+[libdefaults] 
+</p>
+<a name="wp239614"> </a><p class="pSyntaxEmbed">
+   default_realm = XYZ.COM
+</p>
+<a name="wp239615"> </a><p class="pSyntaxEmbed">
+
+</p>
+<a name="wp239616"> </a><p class="pSyntaxEmbed">
+[realms]
+</p>
+<a name="wp239617"> </a><p class="pSyntaxEmbed">
+   XYZ.COM = {
+</p>
+<a name="wp239618"> </a><p class="pSyntaxEmbed">
+   kdc = kdc1
+</p>
+<a name="wp239619"> </a><p class="pSyntaxEmbed">
+   }
+</p>
+<a name="wp239620"> </a><p class="pBodyRelative">
+If the krb5.conf file does not contain a valid Kerberos realm and KDC name, an exception is thrown.
+</p>
+<a name="wp239621"> </a><div class="pSmartList1"><li>If using Kerberos authentication with a Security Manager on a Java 2 Platform, you must grant security permissions to the application and DataDirect XQuery. See <a  href="connection_security3.html#wp239627">Permissions for Kerberos Authentication</a> for an example.</li></div></ol></div>
+<a name="wp239627"> </a><h4 class="pHeading3">
+Permissions for Kerberos Authentication
+</h4>
+<a name="wp239629"> </a><p class="pBody">
+Using DataDirect XQuery on a Java 2 Platform with the standard Security Manager enabled requires certain permissions to be set in the security policy file of the Java&#160;2 Platform. This security policy file can be found in the jre/lib/security subdirectory of the Java 2 Platform installation directory.
+</p>
+<a name="wp239632"> </a><p class="pBody">
+NOTE: Web browser applets running in the Java 2 plug-in are always running in a JVM with the standard Security Manager enabled. 
+</p>
+<a name="wp239634"> </a><p class="pBody">
+To run an application on a Java 2 Platform with the standard Security Manager, use the following command:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&quot;java -Djava.security.manager <em class="cEmphasis">application_class_name</em>&quot;<a name="wp239635"> </a>
+</pre></div>
+<a name="wp239636"> </a><p class="pBody">
+where <code><em>application_class_name</em></code> is the class name of the application.
+</p>
+<a name="wp239637"> </a><p class="pBody">
+Refer to your Java&#160;2 Platform documentation for more information about setting permissions in the security policy file.
+</p>
+<a name="wp239638"> </a><p class="pBody">
+To use Kerberos authentication with DataDirect XQuery, the application and code bases must be granted security permissions in the security policy file of the Java 2 Platform as shown in the following examples.
+</p>
+<a name="wp239640"> </a><h4 class="pHeading3">
+DB2
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+grant codeBase &quot;file:/<code><em>install_dir</em></code>/lib/-&quot; {<a name="wp239641"> </a>
+   permission java.lang.RuntimePermission &quot;getProtectionDomain&quot;;<a name="wp239642"> </a>
+   permission java.util.PropertyPermission &quot;java.security.krb5.conf&quot;, &quot;read&quot;;<a name="wp239643"> </a>
+   permission java.util.PropertyPermission &quot;java.security.auth.login.config&quot;,
+      &quot;read&quot;, &quot;write&quot;;<a name="wp239644"> </a>
+   permission javax.security.auth.AuthPermission 
+      &quot;createLoginContext.JDBC_DRIVER_01&quot;;<a name="wp239645"> </a>
+   permission javax.security.auth.AuthPermission 
+      &quot;createLoginContext.DDTEK-JDBC&quot;;<a name="wp239646"> </a>
+   permission javax.security.auth.AuthPermission &quot;doAs&quot;;<a name="wp239647"> </a>
+   permission javax.security.auth.kerberos.ServicePermission 
+      &quot;krbtgt/<code><em>your_realm</em></code>@<code><em>your_realm</em></code>&quot;, &quot;initiate&quot;;<a name="wp239648"> </a>
+   permission javax.security.auth.kerberos.ServicePermission 
+      &quot;<code><em>principal_name</em></code>/<code><em>db_hostname</em></code>@<code><em>your_realm</em></code>&quot;, &quot;initiate&quot;;<a name="wp239649"> </a>
+};<a name="wp239650"> </a>
+</pre></div>
+<a name="wp239651"> </a><p class="pBody">
+where:
+</p>
+<a name="wp239652"> </a><p class="pBody">
+<code><em>install_dir</em></code> is the DataDirect XQuery installation directory.
+</p>
+<a name="wp239654"> </a><p class="pBody">
+<code><em>principal_name</em></code> is the service principal name registered with the Kerberos Key Distribution Center (KDC) that identifies the database service.
+</p>
+<a name="wp239657"> </a><p class="pBody">
+<code><em>your_realm</em></code> is the Kerberos realm (or Windows Domain) to which the database host machine belongs.
+</p>
+<a name="wp239658"> </a><p class="pBody">
+<code><em>db_hostname</em></code> is the host name of the machine running the database.
+</p>
+<a name="wp239660"> </a><h4 class="pHeading3">
+Oracle 
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+grant codeBase &quot;file:/install_dir/lib/-&quot; {<a name="wp239661"> </a>
+ permission java.lang.RuntimePermission &quot;getProtectionDomain&quot;;<a name="wp239662"> </a>
+   permission java.util.PropertyPermission &quot;java.security.krb5.conf&quot;, &quot;read&quot;;<a name="wp239663"> </a>
+   permission java.util.PropertyPermission &quot;java.security.auth.login.config&quot;,
+      &quot;read&quot;, &quot;write&quot;;<a name="wp239664"> </a>
+   permission javax.security.auth.AuthPermission 
+      &quot;createLoginContext.JDBC_DRIVER_01&quot;;<a name="wp239665"> </a>
+   permission javax.security.auth.AuthPermission 
+      &quot;createLoginContext.DDTEK-JDBC&quot;;<a name="wp239666"> </a>
+   permission javax.security.auth.AuthPermission &quot;doAs&quot;;<a name="wp239667"> </a>
+   permission javax.security.auth.kerberos.ServicePermission 
+      &quot;krbtgt/<span style="font-style: italic">your_realm</span>@<span style="font-style: italic">your_realm</span>&quot;, &quot;initiate&quot;;<a name="wp239668"> </a>
+   permission javax.security.auth.kerberos.ServicePermission 
+      &quot;<span style="font-style: italic">principal_name</span>/<span style="font-style: italic">db_hostname</span>@<span style="font-style: italic">your_realm</span>&quot;, &quot;initiate&quot;;<a name="wp239669"> </a>
+};<a name="wp239670"> </a>
+</pre></div>
+<a name="wp239671"> </a><p class="pBody">
+where:
+</p>
+<a name="wp239672"> </a><p class="pBody">
+<code><em>install_dir</em></code> is the DataDirect XQuery installation directory.
+</p>
+<a name="wp239675"> </a><p class="pBody">
+<code><em>your_realm</em></code> is the Kerberos realm (or Windows Domain) to which the database host machine belongs.
+</p>
+<a name="wp239676"> </a><p class="pBody">
+<code><em>principal_name</em></code> is the service principal name registered with the Kerberos Key Distribution Center (KDC) that identifies the database service.
+</p>
+<a name="wp239677"> </a><p class="pBody">
+<code><em>db_hostname</em></code> is the host name of the machine running the database.
+</p>
+<a name="wp239696"> </a><h4 class="pHeading3">
+Microsoft SQL Server
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+grant codeBase &quot;file:/<code><em>install_dir</em></code>/lib/-&quot; {<a name="wp239697"> </a>
+   permission java.lang.RuntimePermission &quot;getProtectionDomain&quot;;<a name="wp239698"> </a>
+   permission java.util.PropertyPermission &quot;java.security.krb5.conf&quot;, &quot;read&quot;;<a name="wp239699"> </a>
+   permission java.util.PropertyPermission &quot;java.security.auth.login.config&quot;,
+      &quot;read&quot;, &quot;write&quot;;<a name="wp239700"> </a>
+   permission javax.security.auth.AuthPermission 
+      &quot;createLoginContext.JDBC_DRIVER_01&quot;;<a name="wp239701"> </a>
+   permission javax.security.auth.AuthPermission 
+      &quot;createLoginContext.DDTEK-JDBC&quot;;<a name="wp239702"> </a>
+   permission javax.security.auth.AuthPermission &quot;doAs&quot;;<a name="wp239703"> </a>
+   permission javax.security.auth.kerberos.ServicePermission 
+      &quot;krbtgt/<code><em>your_realm</em></code>@<code><em>your_realm</em></code>&quot;, &quot;initiate&quot;;<a name="wp239704"> </a>
+   permission javax.security.auth.kerberos.ServicePermission 
+      &quot;MSSQLSvc/<code><em>db_hostname</em></code>:<code><em>SQLServer_port</em></code>@<code><em>your_realm</em></code>&quot;, &quot;initiate&quot;;<a name="wp239705"> </a>
+};<a name="wp239706"> </a>
+</pre></div>
+<a name="wp239707"> </a><p class="pBody">
+where:
+</p>
+<a name="wp239708"> </a><p class="pBody">
+<code><em>install_dir</em></code> is the DataDirect XQuery installation directory.
+</p>
+<a name="wp239711"> </a><p class="pBody">
+<code><em>your_realm</em></code> is the Kerberos realm (or Windows Domain) to which the database host machine belongs.
+</p>
+<a name="wp239712"> </a><p class="pBody">
+<code><em>db_hostname</em></code> is the host name of the machine running the database.
+</p>
+<a name="wp239713"> </a><p class="pBody">
+<code><em>SQLServer_port</em></code> is the TCP/IP port on which the Microsoft SQL&#160;Server instance is listening.
+</p>
+<a name="wp239715"> </a><h4 class="pHeading3">
+Sybase
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+grant codeBase &quot;file:/<code><em>install_dir</em></code>/lib/-&quot; {<a name="wp239716"> </a>
+permission java.lang.RuntimePermission &quot;getProtectionDomain&quot;;<a name="wp239717"> </a>
+   permission java.util.PropertyPermission &quot;java.security.krb5.conf&quot;, &quot;read&quot;;<a name="wp239718"> </a>
+   permission java.util.PropertyPermission &quot;java.security.auth.login.config&quot;,
+      &quot;read&quot;, &quot;write&quot;;<a name="wp239719"> </a>
+   permission javax.security.auth.AuthPermission 
+      &quot;createLoginContext.JDBC_DRIVER_01&quot;;<a name="wp239720"> </a>
+   permission javax.security.auth.AuthPermission 
+      &quot;createLoginContext.DDTEK-JDBC&quot;;<a name="wp239721"> </a>
+   permission javax.security.auth.AuthPermission &quot;doAs&quot;;<a name="wp239722"> </a>
+   permission javax.security.auth.kerberos.ServicePermission 
+      &quot;krbtgt/<code><em>your_realm</em></code>@<code><em>your_realm</em></code>&quot;, &quot;initiate&quot;;<a name="wp239723"> </a>
+   permission javax.security.auth.kerberos.ServicePermission 
+      &quot;<code><em>principal_name</em></code>/<code><em>db_hostname</em></code>@<code><em>your_realm</em></code>&quot;, &quot;initiate&quot;;<a name="wp239724"> </a>
+};<a name="wp239725"> </a>
+</pre></div>
+<a name="wp239726"> </a><p class="pBody">
+where:
+</p>
+<a name="wp239727"> </a><p class="pBody">
+<code><em>install_dir</em></code> is the DataDirect XQuery installation directory.
+</p>
+<a name="wp239730"> </a><p class="pBody">
+<code><em>your_realm</em></code> is the Kerberos realm (or Windows Domain) to which the database host machine belongs.
+</p>
+<a name="wp239732"> </a><p class="pBody">
+<code><em>principal_name</em></code> is the service principal name registered with the KDC that identifies the database service.
+</p>
+<a name="wp239733"> </a><p class="pBody">
+<code><em>db_hostname</em></code> is the host name of the machine running the database.
+</p>
+<a name="wp239734"> </a><h3 class="pHeading2">
+Specifying User Credentials with Kerberos Authentication
+</h3>
+<a name="wp239738"> </a><p class="pBody">
+By default, when Kerberos authentication is used, DataDirect XQuery takes advantage of the user name and password maintained by the operating system to authenticate users to the database. By allowing the database to share the user name and password used for the operating system, users with a valid operating system account can log into the database without supplying a user name and password. 
+</p>
+<a name="wp239739"> </a><p class="pBody">
+There may be times when you want to use another set of user credentials. For example, many application servers or Web servers act on behalf of the client user logged on the machine on which the application is running, rather than the server user.
+</p>
+<a name="wp239740"> </a><p class="pBody">
+If you want to use user credentials other than the server user&#8217;s operating system credentials, include code in your application to obtain and pass a javax.security.auth.Subject used for authentication as shown in the following example.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import javax.security.auth.Subject;<a name="wp239744"> </a>
+import javax.security.auth.login.LoginContext;<a name="wp239745"> </a>
+<a name="wp239746"> </a>
+import javax.xml.xquery.*;<a name="wp239748"> </a>
+import com.ddtek.xquery.xqj.DDXQDataSource;<a name="wp239749"> </a>
+<a name="wp239750"> </a>
+//  The following code creates a javax.security.auth.Subject instance<a name="wp239751"> </a>
+//  used for authentication. Refer to the Java Authentication <a name="wp239752"> </a>
+//  and Authorization Service documentation for details on using a <a name="wp239753"> </a>
+//  LoginContext to obtain a Subject.<a name="wp239754"> </a>
+ <a name="wp239755"> </a>
+LoginContext lc = null;<a name="wp239756"> </a>
+Subject subject = null;<a name="wp239757"> </a>
+ <a name="wp239758"> </a>
+try {<a name="wp239759"> </a>
+    lc = new LoginContext(&quot;JaasSample&quot;, new TextCallbackHandler());<a name="wp239760"> </a>
+    lc.login();<a name="wp239761"> </a>
+    subject = lc.getSubject();<a name="wp239762"> </a>
+} <a name="wp239763"> </a>
+catch (Exception le) {<a name="wp239764"> </a>
+    ... // display login error<a name="wp239765"> </a>
+}<a name="wp239766"> </a>
+ <a name="wp239767"> </a>
+DDXQDataSource xqDataSource = new DDXQDataSource();<a name="wp239768"> </a>
+<a name="wp239769"> </a>
+//  This application passes the javax.security.auth.Subject<a name="wp239770"> </a>
+//  to the driver by executing the driver code as the subject<a name="wp239771"> </a>
+ <a name="wp239772"> </a>
+XQConnection con = <a name="wp239773"> </a>
+   (XQConnection) Subject.doAs(subject, new PrivilegedExceptionAction() {<a name="wp239774"> </a>
+      public Object run() {<a name="wp239775"> </a>
+        XQConnection con = null;<a name="wp239776"> </a>
+        try {<a name="wp239777"> </a>
+         xqDataSource.setProperty(DDXQDataSource.JDBCURL,<a name="wp239778"> </a>
+           &quot;jdbc:xquery:db2://myServer:50000;databaseName=jdbc&quot;);<a name="wp239779"> </a>
+         con = xqDataSource.getConnection();<a name="wp239780"> </a>
+        }<a name="wp239781"> </a>
+        catch (Exception except) {<a name="wp239782"> </a>
+         ... //log the connection error<a name="wp239783"> </a>
+         return null;<a name="wp239784"> </a>
+        }<a name="wp239785"> </a>
+        <a name="wp239786"> </a>
+        return con;<a name="wp239787"> </a>
+      }<a name="wp239788"> </a>
+   });<a name="wp239789"> </a>
+ <a name="wp239790"> </a>
+//  This application now has a connection that was authenticated with <a name="wp239791"> </a>
+//  the subject. The application can now use the connection.<a name="wp239792"> </a>
+<a name="wp239793"> </a>
+XQExpression xqExpression = con.createExpression();<a name="wp239794"> </a>
+String  xquery = &quot;for $holding in collection(&#39;holdings&#39;)/holdings <a name="wp239795"> </a>
+                  return $holding&quot;;<a name="wp239796"> </a>
+XQSequence   xqSequence = xqExpression.executeQuery(xquery);<a name="wp239797"> </a>
+ <a name="wp239798"> </a>
+... // do something with the results<a name="wp239799"> </a>
+</pre></div>
+<a name="wp239800"> </a><h3 class="pHeading2">
+Obtaining a Kerberos Ticket Granting Ticket
+</h3>
+<a name="wp239802"> </a><p class="pBody">
+To use Kerberos authentication, the application user first must obtain a Kerberos Ticket Granting Ticket (TGT) from the Kerberos server. The Kerberos server verifies the identity of the user and controls access to services using the credentials contained in the TGT. 
+</p>
+<a name="wp239804"> </a><p class="pBody">
+If the application uses Kerberos authentication from a Windows client, the application user does not need to explicitly obtain a TGT. Windows Active Directory automatically obtains a TGT for the user.
+</p>
+<a name="wp239805"> </a><p class="pBody">
+If the application uses Kerberos authentication from a UNIX or Linux client, the user must explicitly obtain a TGT. To explicitly obtain a TGT, the user must log onto the Kerberos server using the kinit command. For example, the following command requests a TGT from the server with a lifetime of 10 hours, which is renewable for 5 days: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+kinit -l 10h -r 5d <code><em>user</em></code><a name="wp239807"> </a>
+</pre></div>
+<a name="wp239808"> </a><p class="pBody">
+where <code><em>user</em></code> is the application user.
+</p>
+<a name="wp239809"> </a><p class="pBody">
+Refer to your Kerberos documentation for more information about using the kinit command and obtaining TGTs for users.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

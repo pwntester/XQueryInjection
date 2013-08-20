@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:28" />
+  <title>2 Basics</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp323288"> </a><h2 class="pNewHTMLPageNum">
+2 Basics
+</h2>
+<hr />
+<a name="wp115192"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports the following XQuery basics.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp115717"> </a><div class="pSmartList1"><li><a  href="xquerysupport2.html#wp102605">Expression Context</a> </li></div><a name="wp115720"> </a><div class="pSmartList1"><li><a  href="xquerysupport2.html#wp103421">Processing Model</a></li></div><a name="wp178753"> </a><div class="pSmartList1"><li><a  href="xquerysupport2.html#wp177766">Error Handling</a> </li></div><a name="wp115722"> </a><div class="pSmartList1"><li><a  href="xquerysupport2.html#wp103440">Concepts</a></li></div><a name="wp115865"> </a><div class="pSmartList1"><li><a  href="xquerysupport2.html#wp103666">Types</a> </li></div><a name="wp179651"> </a><div class="pSmartList1"><li><a  href="xquerysupport2.html#wp103955">Comments</a></li></div></ul></div>
+<a name="wp102605"> </a><h3 class="pHeading2">
+Expression Context
+</h3>
+<a name="wp116083"> </a><p class="pBody">
+<a  href="xquerysupport2.html#wp225974">Table&#160;A-1</a> describes the XQuery expression context for DataDirect XQuery. 
+</p>
+<a name="wp103035"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp225974"> </a><div class="pTableTitle">
+Table A-1.  XQuery Expression Context&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp225980"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp225984"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="3" rowspan="1"><a name="wp225986"> </a><div class="pCellBody">
+Static context
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp225992"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp225994"> </a><div class="pCellBody">
+XPath 1.0 compatibility mode
+</div>
+</td>
+    <td><a name="wp225996"> </a><div class="pCellBody">
+This setting is always false as required by the XQuery specification.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp225998"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226000"> </a><div class="pCellBody">
+Statically known namespaces
+</div>
+</td>
+    <td><a name="wp226005"> </a><div class="pCellBody">
+Supported. See <a  href="xquerysupport6.html#wp148130">Namespaces</a> for details on predefined namespaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226007"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226009"> </a><div class="pCellBody">
+Default element/type namespace
+</div>
+</td>
+    <td><a name="wp226011"> </a><div class="pCellBody">
+The default value is no namespace. This value can be set in the query prolog.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226013"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226015"> </a><div class="pCellBody">
+Default function namespace
+</div>
+</td>
+    <td><a name="wp226017"> </a><div class="pCellBody">
+The default value is http://www.w3.org/2005/<br />xpath-functions. This value can be set in the query prolog.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226019"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226021"> </a><div class="pCellBody">
+In-scope schema definitions
+</div>
+</td>
+    <td><a name="wp226029"> </a><div class="pCellBody">
+Only predeclared types are supported. See <a  href="database_support4.html#wp300736">Supported XQuery Atomic Types</a> for a list of supported types. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226032"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226034"> </a><div class="pCellBody">
+In-scope variables
+</div>
+</td>
+    <td><a name="wp226036"> </a><div class="pCellBody">
+This is determined by the XQuery expression.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226038"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226040"> </a><div class="pCellBody">
+Context item static type
+</div>
+</td>
+    <td><a name="wp226042"> </a><div class="pCellBody">
+Supported except for initial context item.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226044"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226046"> </a><div class="pCellBody">
+Function signatures
+</div>
+</td>
+    <td><a name="wp226051"> </a><div class="pCellBody">
+See <a  href="functions_and_operators.html#wp245044">Functions and Operators</a> for a list of supported XQuery functions. User-defined functions are also supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226053"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226055"> </a><div class="pCellBody">
+Statically known collations
+</div>
+</td>
+    <td><a name="wp226057"> </a><div class="pCellBody">
+The collations supported by the Java Virtual Machine.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226059"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226062"> </a><div class="pCellBody">
+Default collation
+</div>
+</td>
+    <td><a name="wp226064"> </a><div class="pCellBody">
+Either the Java Virtual Machine collation or the one specified in the source configuration file. 
+</div>
+<a name="wp226065"> </a><div class="pCellBody">
+For relational sources, the default value is the collation used by the database. To ensure consistency, make sure that the collation used by the Java Virtual Machine is compatible with the collation used by the database. If multiple databases are used, make sure that their collations are compatible.
+</div>
+<a name="wp226069"> </a><div class="pCellBody">
+See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for instructions on specifying collations.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226071"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226073"> </a><div class="pCellBody">
+Construction mode
+</div>
+</td>
+    <td><a name="wp226075"> </a><div class="pCellBody">
+Supported with comment: 
+</div>
+<a name="wp324172"> </a><div class="pCellBody">
+preserve is supported. strip is not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226077"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226079"> </a><div class="pCellBody">
+Ordering mode
+</div>
+</td>
+    <td><a name="wp226081"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226083"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226085"> </a><div class="pCellBody">
+Default order for empty sequences
+</div>
+</td>
+    <td><a name="wp226087"> </a><div class="pCellBody">
+The following algorithm is used:
+</div>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp226088"> </a><div class="pSmartList1"><li>The default is empty least.</li></div><a name="wp226089"> </a><div class="pSmartList1"><li>The default is overwritten by the default ordering behavior of the first JDBC connection defined using XQJ or the source configuration file. The default ordering of the first JDBC connection is defined by the database: </li></div></ol></div>
+<a name="wp226090"> </a><div class="pCellBody">
+	DB2: empty greatest<br />	Informix: empty least<br />	Microsoft SQL Server: empty least<br />		Oracle: empty greatest<br />	PostgreSQL: empty greatest<br />	Sybase: empty least
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226092"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226094"> </a><div class="pCellBody">
+Boundary-space policy
+</div>
+</td>
+    <td><a name="wp226096"> </a><div class="pCellBody">
+The default value is strip (white space is removed during processing). This value may be set in the query prolog.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226098"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226100"> </a><div class="pCellBody">
+Copy-namespaces mode
+</div>
+</td>
+    <td><a name="wp226102"> </a><div class="pCellBody">
+inherit,preserve mode is supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226104"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226106"> </a><div class="pCellBody">
+Base URI
+</div>
+</td>
+    <td><a name="wp226108"> </a><div class="pCellBody">
+Supported. You can set this value in the query prolog or in the DDXQDataSource class by configuring the BaseUri property.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226110"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226112"> </a><div class="pCellBody">
+Statically known documents
+</div>
+</td>
+    <td><a name="wp226114"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226116"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226118"> </a><div class="pCellBody">
+Statically known collections
+</div>
+</td>
+    <td><a name="wp226120"> </a><div class="pCellBody">
+Data types of the data stored in database tables that can be referenced with fn:collection() are statically known although these data types cannot be accessed from within the expression. See <a  href="database_support3.html#wp299568">Data Type Mappings</a> for a list of supported data types.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226125"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226127"> </a><div class="pCellBody">
+Statically known default collection type
+</div>
+</td>
+    <td><a name="wp226129"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="3" rowspan="1"><a name="wp226131"> </a><div class="pCellBody">
+Dynamic context
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226137"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226139"> </a><div class="pCellBody">
+Context item
+</div>
+</td>
+    <td><a name="wp226141"> </a><div class="pCellBody">
+Supported, except for initial context item.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226143"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226145"> </a><div class="pCellBody">
+Context position
+</div>
+</td>
+    <td><a name="wp226147"> </a><div class="pCellBody">
+Supported. Context-position dependent expressions are compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226149"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226151"> </a><div class="pCellBody">
+Context size
+</div>
+</td>
+    <td><a name="wp226153"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp250999"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251001"> </a><div class="pCellBody">
+Variable values
+</div>
+</td>
+    <td><a name="wp251003"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp251005"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp251007"> </a><div class="pCellBody">
+Function implementations
+</div>
+</td>
+    <td><a name="wp251009"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226167"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226169"> </a><div class="pCellBody">
+Current dateTime
+</div>
+</td>
+    <td><a name="wp226171"> </a><div class="pCellBody">
+Supported. The current date and time are obtained from the Java Virtual Machine; however, queries executed against relational databases use the current date and time of the database server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226173"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226175"> </a><div class="pCellBody">
+Implicit timezone (implementation-defined)
+</div>
+</td>
+    <td><a name="wp226177"> </a><div class="pCellBody">
+Supported. The timezone is obtained from the Java Virtual Machine; however, queries executed against relational databases use the current timezone of the database server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226179"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226181"> </a><div class="pCellBody">
+Available documents
+</div>
+</td>
+    <td><a name="wp226183"> </a><div class="pCellBody">
+Supported. Available documents include XML files accessed through http:, ftp:, and file: URI schemes using fn:doc().
+</div>
+<a name="wp226189"> </a><div class="pCellBody">
+See <a  href="conf_sourcefiles2.html#wp187870">XML Data Sources</a> for rules governing URIs.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226192"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226194"> </a><div class="pCellBody">
+Available collections
+</div>
+</td>
+    <td><a name="wp226196"> </a><div class="pCellBody">
+Supported. Available collections are determined by which connections are configured. See <a  href="conf_sourcefiles2.html#wp184939">Specifying Relational Database Tables</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp226201"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp226203"> </a><div class="pCellBody">
+Default collection
+</div>
+</td>
+    <td><a name="wp226205"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp103421"> </a><h3 class="pHeading2">
+Processing Model
+</h3>
+<a name="wp116852"> </a><p class="pBody">
+<a  href="xquerysupport2.html#wp198621">Table&#160;A-2</a> describes how the XQuery processing model relates to DataDirect XQuery. 
+</p>
+<a name="wp198684"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp198621"> </a><div class="pTableTitle">
+Table A-2.  XQuery Processing Model&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp198627"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp198631"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp198633"> </a><div class="pCellBody">
+Data Model Generation 
+</div>
+</td>
+    <td><a name="wp198639"> </a><div class="pCellBody">
+For a description of data model generation from XML, see <a  href="conf_sourcefiles2.html#wp184913">Data Model Representation of XML Documents</a>.
+</div>
+<a name="wp198641"> </a><div class="pCellBody">
+For a description of data model generation from relational sources, see <a  href="conf_sourcefiles2.html#wp188276">Data Model Representation of Relational Tables</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp198646"> </a><div class="pCellBody">
+Schema import processing
+</div>
+</td>
+    <td><a name="wp198650"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp198652"> </a><div class="pCellBody">
+Expression processing
+</div>
+</td>
+    <td><a name="wp198656"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp198670"> </a><div class="pCellBody">
+Serialization
+</div>
+</td>
+    <td><a name="wp198676"> </a><div class="pCellBody">
+Supported through XQJ. See <a  href="serialization_support.html#wp245044">Serialization Support</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp198679"> </a><div class="pCellBody">
+Consistency constraints
+</div>
+</td>
+    <td><a name="wp198683"> </a><div class="pCellBody">
+DataDirect XQuery adheres to the consistency constraints as listed in this section of the XQuery specification.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp177766"> </a><h3 class="pHeading2">
+Error Handling
+</h3>
+<a name="wp177770"> </a><p class="pBody">
+<a  href="xquerysupport2.html#wp177777">Table&#160;A-3</a> describes how DataDirect XQuery handles errors. 
+</p>
+<a name="wp177812"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp177777"> </a><div class="pTableTitle">
+Table A-3.  Error Handling&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp177783"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp177787"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp177789"> </a><div class="pCellBody">
+Error reporting
+</div>
+</td>
+    <td><a name="wp177793"> </a><div class="pCellBody">
+Supported. The static typing feature is also supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp103440"> </a><h3 class="pHeading2">
+Concepts
+</h3>
+<a name="wp117060"> </a><p class="pBody">
+<a  href="xquerysupport2.html#wp169271">Table&#160;A-4</a> describes how DataDirect XQuery works with some key concepts defined by XQuery. 
+</p>
+<a name="wp103445"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp169271"> </a><div class="pTableTitle">
+Table A-4.  XQuery Documents&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp169277"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp169281"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp169283"> </a><div class="pCellBody">
+Document order
+</div>
+</td>
+    <td><a name="wp169287"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp251164"> </a><div class="pCellBody">
+Atomization
+</div>
+</td>
+    <td><a name="wp251038"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp251234"> </a><div class="pCellBody">
+Effective Boolean value
+</div>
+</td>
+    <td><a name="wp251044"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp169302"> </a><div class="pCellBody">
+Input sources
+</div>
+</td>
+    <td><a name="wp169309"> </a><div class="pCellBody">
+See <a  href="functions_and_operators.html#wp325215">fn:doc (15.5.4)</a> and <a  href="functions_and_operators.html#wp325227">fn:collection (15.5.6)</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp177729"> </a><div class="pCellBody">
+URI literals
+</div>
+</td>
+    <td><a name="wp177733"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp103666"> </a><h3 class="pHeading2">
+Types
+</h3>
+<a name="wp117220"> </a><p class="pBody">
+<a  href="xquerysupport2.html#wp169385">Table&#160;A-5</a> describes how DataDirect XQuery handles XQuery types. 
+</p>
+<a name="wp103680"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp169385"> </a><div class="pTableTitle">
+Table A-5.  XQuery Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp169391"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp169395"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp169397"> </a><div class="pCellBody">
+Predefined schema types
+</div>
+</td>
+    <td><a name="wp169403"> </a><div class="pCellBody">
+Supported. See <a  href="database_support4.html#wp300736">Supported XQuery Atomic Types</a> for a list of supported atomic types.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp169406"> </a><div class="pCellBody">
+Typed value and string value
+</div>
+</td>
+    <td><a name="wp169410"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp251383"> </a><div class="pCellBody">
+SequenceType syntax
+</div>
+</td>
+    <td><a name="wp251338"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp169426"> </a><div class="pCellBody">
+SequenceType matching
+</div>
+</td>
+    <td><a name="wp169430"> </a><div class="pCellBody">
+Supported. For queries evaluated against a relational database, cardinality testing is not performed.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp103955"> </a><h3 class="pHeading2">
+Comments
+</h3>
+<a name="wp177943"> </a><p class="pBody">
+<a  href="xquerysupport2.html#wp177970">Table&#160;A-6</a> describes how DataDirect XQuery supports comments. 
+</p>
+<a name="wp178005"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp177970"> </a><div class="pTableTitle">
+Table A-6.  Comments
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp177976"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp177980"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp177982"> </a><div class="pCellBody">
+Comments
+</div>
+</td>
+    <td><a name="wp177986"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

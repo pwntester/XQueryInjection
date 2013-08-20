@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:46" />
+  <title>Using a Source Configuration File</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp164594"> </a><h2 class="pNewHTMLPageNum">
+Using a Source Configuration File
+</h2>
+<hr />
+<a name="wp183824"> </a><p class="pBody">
+How a typical source configuration file looks depends on whether your queries access XML or relational data sources. This section provides information about using source configuration files to configure connections.
+</p>
+<a name="wp183827"> </a><h3 class="pHeading2">
+Configuring Connections for XML Data Sources
+</h3>
+<a name="wp164600"> </a><p class="pBody">
+If your Java application executes queries that access only XML data sources, a typical source configuration file would look like the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt; <a name="wp164601"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt; <a name="wp164602"> </a>
+  &lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp164603"> </a>
+&lt;/XQJConnection&gt;<a name="wp164604"> </a>
+</pre></div>
+<a name="wp164605"> </a><p class="pBody">
+The baseUri element in the preceding example specifies the base&#160;URI used to resolve relative URIs in fn:doc(). See <a  href="sourceconfigfilestructure4.html#wp153156">Elements of the Source Configuration File</a> for a description of all elements that can be specified in a source configuration file.
+</p>
+<a name="wp164610"> </a><h3 class="pHeading2">
+Configuring Connections for Relational Data Sources
+</h3>
+<a name="wp164612"> </a><p class="pBody">
+A minimum source configuration file specifying connection information to a single relational database, Microsoft SQL Server, in this case, looks like the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp164613"> </a>
+   &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt; <a name="wp164614"> </a>
+      &lt;url&gt;jdbc:xquery:sqlserver://localhost:1433&lt;/url&gt; <a name="wp164615"> </a>
+   &lt;/JDBCConnection&gt;<a name="wp164616"> </a>
+&lt;/XQJConnection&gt;<a name="wp164617"> </a>
+</pre></div>
+<a name="wp164621"> </a><p class="pBody">
+See <a  href="sourceconfigfilestructure5.html#wp138103">Examples of Source Configuration Files</a> for more examples of source configuration files.
+</p>
+<a name="wp164624"> </a><p class="pBody">
+See <a  href="sourceconfigfilestructure4.html#wp153156">Elements of the Source Configuration File</a> for a description of all the elements that can be specified in a source configuration file.
+</p>
+<a name="wp164626"> </a><h3 class="pHeading2">
+Referencing a Source Configuration File
+</h3>
+<a name="wp164627"> </a><p class="pBody">
+To reference a DataDirect XQuery source configuration file in your Java application, construct a DDXQDataSource instance, as shown in the following XQJ code, where <code><em>path_to_source_configfile</em></code> is the path to the source configuration file. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+FileInputStream is = null;<a name="wp164628"> </a>
+DDXQDataSource ds = null;<a name="wp164629"> </a>
+try { <a name="wp164630"> </a>
+   is = new FileInputStream(&quot;<code><em>path_to_source_configfile</em></code>&quot;);<a name="wp164631"> </a>
+   ds = new DDXQDataSource(is);<a name="wp164632"> </a>
+   }<a name="wp164633"> </a>
+finally {<a name="wp164634"> </a>
+   if (is != null) is.close();<a name="wp164635"> </a>
+   } <a name="wp164636"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp164637"> </a>
+</pre></div>
+<a name="wp164639"> </a><p class="pBody">
+You can override the connection information in the source configuration file by setting that information explicitly using XQJ. For example, the URL set explicitly in the following XQJ code overrides any URL set in the referenced source configuration file:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+FileInputStream is = null;<a name="wp164640"> </a>
+DDXQDataSource ds = null;<a name="wp164641"> </a>
+try { <a name="wp164642"> </a>
+   is = new FileInputStream(&quot;DDXQ_configfile.xml&quot;);<a name="wp164643"> </a>
+   ds = new DDXQDataSource(is);<a name="wp164644"> </a>
+   }<a name="wp164645"> </a>
+finally {<a name="wp164646"> </a>
+   if (is != null) is.close();<a name="wp164647"> </a>
+   } <a name="wp164648"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp164649"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp164650"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

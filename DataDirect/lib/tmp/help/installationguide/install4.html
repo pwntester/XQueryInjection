@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq_ig" />
+  <meta name="LASTUPDATED" content="09/15/09 18:07:38" />
+  <title>Mounting the CD</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp1116203"> </a><h2 class="pNewHTMLPageNum">
+Mounting the CD
+</h2>
+<hr />
+<a name="wp1113894"> </a><p class="pBody">
+Follow the instructions in this section to mount your CD. Once the CD is mounted, go to <a  href="install5.html#wp1079332">Installation Procedures</a> for installation instructions.
+</p>
+<a name="wp1107529"> </a><h3 class="pHeading2">
+On Windows
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp1107530"> </a><div class="pSmartList1"><li>Insert the CD into the CD drive. If the CD drive is on a network, you must mount the CD and create a mapping to the CD drive.</li></div><a name="wp1107531"> </a><div class="pSmartList1"><li>On Windows, the main installer window displays automatically when the CD is mounted if AutoPlay for CDs is enabled, and you have a browser installed. Select the product that you want to install.</li></div><a name="wp1107532"> </a><p class="pBodyRelative">
+If AutoPlay for CDs is not enabled or you do not have a browser, use Windows Explorer to navigate from the root directory of the CD to the folder for the product that you want to install. Then, double-click the Setup program.
+</p>
+</ol></div>
+<a name="wp1107534"> </a><h3 class="pHeading2">
+On UNIX and Linux
+</h3>
+<a name="wp1107535"> </a><p class="pBody">
+Insert the CD into the CD drive. On Solaris, by default, the CD-ROM drive mounts automatically when you insert the CD. Other UNIX/Linux platforms may or may not automatically mount the CD by default. If your workstation is not configured to mount a CD automatically, follow the appropriate instruction:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1107536"> </a><div class="pSmartList1"><li>For HP-UX, enter the following commands:</li></div><a name="wp1107537"> </a><p class="pSyntaxEmbed">
+# /usr/sbin/pfs_mountd&amp;<br /># /usr/sbin/pfsd&amp;<br /># pfs_mount -o xlat=unix /dev/rdsk/<code><em>deviceName</em></code> /cdrom
+</p>
+<a name="wp1107538"> </a><p class="pBodyRelative">
+where <code><em>deviceName</em></code> is the device name assigned to your CD-ROM drive. The device name can be found using the HP-UX tool sam. When installation is complete, unmount the CD-ROM with the command:
+</p>
+<a name="wp1107539"> </a><p class="pSyntaxEmbed">
+# /usr/sbin/pfs_umount /cdrom
+</p>
+<a name="wp1107540"> </a><p class="pBodyRelative">
+For example, if the device name for your CD-ROM drive is /dev/rdsk/c0t4d0 and you want to mount it over the directory /cdrom, enter the following command:
+</p>
+<a name="wp1107541"> </a><p class="pSyntaxEmbed">
+# pfs_mount -o xlat=unix /dev/rdsk/c0t4d0 /cdrom 
+</p>
+<a name="wp1107542"> </a><div class="pSmartList1"><li>For IBM-AIX, enter:</li></div><a name="wp1107543"> </a><p class="pSyntaxEmbed">
+# mount -r -v cdrfs /dev/<code><em>deviceName</em></code> /cdrom
+</p>
+<a name="wp1107544"> </a><p class="pBodyRelative">
+where <code><em>deviceName</em></code> is the device name assigned to your CD-ROM drive. The device name can be found using the IBM-AIX tool smit. 
+</p>
+<a name="wp1107545"> </a><div class="pSmartList1"><li>For Linux, enter:</li></div><a name="wp1107546"> </a><p class="pSyntaxEmbed">
+# mount -r -t iso9660 /dev/<code><em>deviceName</em></code> /mnt/cdrom
+</p>
+<a name="wp1107547"> </a><p class="pBodyRelative">
+where <code><em>deviceName</em></code> is the device name assigned to your CD-ROM drive. 
+</p>
+</ul></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

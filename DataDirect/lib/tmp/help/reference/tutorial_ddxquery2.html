@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:09" />
+  <title>Specifying the XQuery Version</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp161077"> </a><h2 class="pNewHTMLPageNum">
+Specifying the XQuery Version
+</h2>
+<hr />
+<a name="wp161071"> </a><p class="pBody">
+DataDirect XQuery supports both XQuery 1.0 and XQuery 1.1. You can use a version declaration to indicate whether you want your XQuery code processed using DataDirect&#8217;s XQuery 1.0 or XQuery 1.1 processing engine. Unless a version is specified explicitly, XQuery code is processed using the XQuery 1.1 processing engine.
+</p>
+<a name="wp161270"> </a><h3 class="pHeading2">
+Where to Specify Version
+</h3>
+<a name="wp161377"> </a><p class="pBody">
+You can specify the XQuery version in two places:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp161199"> </a><div class="pSmartList1"><li>In the main query, using query prolog. Setting the XQuery version in the query prolog affects processing for the entire query, unless a different version has been set for an individual module.</li></div><a name="wp161215"> </a><div class="pSmartList1"><li>In one or more modules. Each module can have its own version setting. A module retains its version setting when it is imported.</li></div></ul></div>
+<a name="wp161283"> </a><h3 class="pHeading2">
+When to Specify Version
+</h3>
+<a name="wp161392"> </a><p class="pBody">
+Generally speaking, there is no need to specify the XQuery version because XQuery 1.1 is backwards-compatible with XQuery 1.0. 
+</p>
+<a name="wp161526"> </a><p class="pBody">
+However, if you write modules that use XQuery 1.1 functionality &#8211; to use FLWOR expressions for grouping, for example &#8211; consider specifying the version explicitly within that module. Knowing the XQuery version associated with a module can be useful to others who import modules into their XQuery code.
+</p>
+<a name="wp161544"> </a><p class="pBody">
+If DataDirect XQuery encounters a module with an XQuery 1.0 declaration in the context of a main module whose version is declared (explicitly or not) as 1.1, DataDirect XQuery uses its XQuery 1.0 processor for that module and then reverts to using the 1.1 XQuery processor for the remainder of the query.
+</p>
+<a name="wp161410"> </a><h3 class="pHeading2">
+How to Specify Version
+</h3>
+<a name="wp161432"> </a><p class="pBody">
+The syntax for the version declaration is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+xquery version &quot;[1.0 | 1.1]&quot;;<a name="wp161451"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

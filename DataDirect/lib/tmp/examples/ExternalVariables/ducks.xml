@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ducks>
+	<duck id="d01">
+		<name>Daffy</name>
+		<shoesize>
+			<length>6</length>
+			<width>EEE</width>
+		</shoesize>
+	</duck>
+	<duck id="d02">
+		<name>Donald</name>
+		<shoesize>
+			<length>12</length>
+			<width>EEEE</width>
+		</shoesize>
+	</duck>
+</ducks>
+
+
+

@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:17" />
+  <title>Querying Large XML Documents</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp205269"> </a><h2 class="pNewHTMLPageNum">
+Querying Large XML Documents
+</h2>
+<hr />
+<a name="wp205272"> </a><p class="pBody">
+Querying large XML documents can present processing challenges, both in terms of query performance and memory resources. The DataDirect XQuery Streaming XML feature provides an efficient way to process XQuery, especially against large documents.
+</p>
+<a name="wp205273"> </a><p class="pBody">
+This section describes what the Streaming XML feature is, how to use it, and provides several examples. It covers the following topics:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp205277"> </a><div class="pSmartList1"><li><a  href="improvingperformance2.html#wp205299">What is Streaming XML?</a></li></div><a name="wp205281"> </a><div class="pSmartList1"><li><a  href="improvingperformance2.html#wp206055">Enabling Streaming XML</a></li></div><a name="wp205285"> </a><div class="pSmartList1"><li><a  href="improvingperformance2.html#wp205357">Data Sources</a></li></div><a name="wp205289"> </a><div class="pSmartList1"><li><a  href="improvingperformance2.html#wp205370">Using Plan Explain</a></li></div><a name="wp205293"> </a><div class="pSmartList1"><li><a  href="improvingperformance2.html#wp205382">Taking Advantage of Streaming XML</a></li></div><a name="wp205297"> </a><div class="pSmartList1"><li><a  href="improvingperformance2.html#wp205449">Streaming XML Examples</a></li></div></ul></div>
+<a name="wp205299"> </a><h3 class="pHeading2">
+What is Streaming XML?
+</h3>
+<a name="wp205300"> </a><p class="pBody">
+The DataDirect XQuery engine supports a processing technique known as <em class="cEmphasis">Streaming XML</em>. Streaming XML processes a document sequentially, discarding portions of the document that are no longer needed to produce further query results. This technique reduces memory usage because only the portion of a document needed at a given stage of query processing is instantiated in memory &#8211; it simultaneously parses the XML document, executes the query, and sends the data to the application as needed.
+</p>
+<a name="wp205302"> </a><p class="pBody">
+The Streaming XML feature operates on a per XML document basis. For example, in a single query, the Streaming XML feature might be used for XML document A and not for XML document B. See <a  href="improvingperformance2.html#wp205308">Streaming XML Is Not Always Used</a> for more information on this topic.
+</p>
+<a name="wp206055"> </a><h3 class="pHeading2">
+Enabling Streaming XML 
+</h3>
+<a name="wp206056"> </a><p class="pBody">
+The Streaming XML feature is enabled by default. You can override the default behavior in one of two ways:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp206057"> </a><div class="pSmartList1"><li>Set ddtek:xml-streaming=&quot;no&quot; in the query prolog. See <a  href="advancedfeatures2.html#wp204726">Using Option Declarations and Extension Expressions</a> for more information on this topic.</li></div><a name="wp206061"> </a><div class="pSmartList1"><li>Set the &quot;streaming&quot; attribute in the &lt;request&gt; element to no. See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for more information on this topic.</li></div></ul></div>
+<a name="wp205308"> </a><h4 class="pHeading3">
+Streaming XML Is Not Always Used
+</h4>
+<a name="wp206045"> </a><p class="pBody">
+When Streaming XML is enabled, the DataDirect XQuery engine makes the determination to use it when the XQuery is executed. There are certain circumstances, however, in which Streaming XML is not used, even if it is enabled:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp205310"> </a><div class="pSmartList1"><li>If the XML document possibly needs to be parsed more than once. For example, the following two circumstances require an XML document to be parsed more than once:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp205311"> </a><div class="pSmartList2"><li>If the query includes fn:doc() without literal arguments. In this case, the documents to be queried are determined at runtime and, therefore, might be parsed twice.</li></div>
+<a name="wp205312"> </a><div class="pSmartList2"><li>If the fn:doc() expression is used in multiple for clauses in a FLWOR expression. For example:</li></div>
+<a name="wp205313"> </a><p class="pSyntaxEmbed">
+for $a in doc(&quot;A.XML&quot;)/A/B/C
+</p>
+<a name="wp205314"> </a><p class="pSyntaxEmbed">
+return
+</p>
+<a name="wp205315"> </a><p class="pSyntaxEmbed">
+     for $b in doc(&quot;X.XML&quot;)/X/Y/Z
+</p>
+<a name="wp205316"> </a><p class="pSyntaxEmbed">
+     return
+</p>
+<a name="wp205317"> </a><p class="pSyntaxEmbed">
+     ...
+</p>
+<a name="wp205318"> </a><p class="pBodyRelative">
+In this case, Streaming XML is used for A.XML, but not for X.XML.
+</p>
+</ul></div>
+<a name="wp205319"> </a><div class="pSmartList1"><li>If nodes from the XML document are accessed with a reverse or optional axis, or with any function that is based indirectly on such an axis: fn:root(), fn:id(), and fn:idref().</li></div></ul></div>
+<a name="wp206078"> </a><p class="pBody">
+When Streaming XML is not used, the DataDirect XQuery engine loads the entire XML document in memory and creates an optimized in-memory representation of it. The in-memory representation is used during query execution and then discarded. In general, this technique requires more memory than Streaming XML, but it can be more efficient (in terms of processing time) for certain XQuery.
+</p>
+<a name="wp205320"> </a><h4 class="pHeading3">
+Streaming Can Be Interrupted
+</h4>
+<a name="wp205321"> </a><p class="pBody">
+In the following circumstances, some expressions can cause the Streaming XML feature to stop processing the current node:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp205322"> </a><div class="pSmartList1"><li>A node is used in a function or operator, including effective boolean value calculations. For example:</li></div><a name="wp205323"> </a><p class="pSyntaxEmbed">
+...
+</p>
+<a name="wp205324"> </a><p class="pSyntaxEmbed">
+if(doc(&quot;foo.xml&quot;)/a/b/c
+</p>
+<a name="wp205325"> </a><p class="pSyntaxEmbed">
+...
+</p>
+<a name="wp205326"> </a><p class="pBodyRelative">
+In this example, Streaming XML is used for the a and b nodes, but the c nodes and all of its children are instantiated in memory.
+</p>
+<a name="wp205327"> </a><div class="pSmartList1"><li>Multiple path expressions are evaluated on a node. For example:</li></div><a name="wp205328"> </a><p class="pSyntaxEmbed">
+...
+</p>
+<a name="wp205329"> </a><p class="pSyntaxEmbed">
+doc(&quot;foo.xml&quot;)/a/b/(c|d)
+</p>
+<a name="wp205330"> </a><p class="pSyntaxEmbed">
+...
+</p>
+<a name="wp205331"> </a><p class="pBodyRelative">
+In this example, Streaming XML is used for the a nodes, but  the b nodes and all of its children are instantiated in memory.
+</p>
+<a name="wp205332"> </a><div class="pSmartList1"><li>A node is referenced multiple times in the query.</li></div></ul></div>
+<a name="wp205333"> </a><p class="pBody">
+You can easily see whether or not Streaming XML is being used to process an XQuery using DataDirect XQuery Plan Explain. See <a  href="improvingperformance2.html#wp205370">Using Plan Explain</a> for more information.
+</p>
+<a name="wp205357"> </a><h3 class="pHeading2">
+Data Sources
+</h3>
+<a name="wp205358"> </a><p class="pBody">
+DataDirect XQuery supports Streaming XML on XML documents accessed through:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp205359"> </a><div class="pSmartList1"><li>fn:doc( )</li></div><a name="wp205360"> </a><div class="pSmartList1"><li>fn:collection( ) when using the extensions that allow querying of directories (see <a  href="advancedfeatures3.html#wp219064">Querying Multiple Files in a Directory</a>)</li></div><a name="wp205364"> </a><div class="pSmartList1"><li>External variables and initial context item. For the input values to be streamed, they must be defined as XQSequence, java.io.Reader, java.io.InputStream, StAX, or a SAXSource containing only an InputSource property (that is, not XMLReader). For streaming to work with external variables when not using prepared queries, DataDirect XQuery must be using deferred binding (see <a  href="xqjsupport21.html#wp158927">Support of Deferred Binding</a>).</li></div><a name="wp205368"> </a><div class="pSmartList1"><li>External Java functions. For the return values to be streamed, they must be defined as javax.xml.transform.stream.StreamSource, javax.xml.transform.stax.StAXSource (for JVM 1.6 only), or com.ddtek.xquery.StAXSource.</li></div></ul></div>
+<a name="wp205370"> </a><h3 class="pHeading2">
+Using Plan Explain
+</h3>
+<a name="wp205372"> </a><p class="pBody">
+Plan Explain allows you to generate an XQuery execution plan that lets you see how DataDirect XQuery will execute your query. Among other information about your XQuery, Plan Explain shows you whether or not the DataDirect XQuery engine will use Streaming XML, as shown in the following illustration:
+</p>
+<a name="wp205376"> </a><p class="pBody">
+</p><div align="left"><img src="images/plan_explain_streaminga.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp205380"> </a><p class="pBody">
+See <a  href="advancedfeatures7.html#wp212077">Generating XQuery Execution Plans</a> to learn more about Plan Explain.
+</p>
+<a name="wp205382"> </a><h3 class="pHeading2">
+Taking Advantage of Streaming XML
+</h3>
+<a name="wp205383"> </a><p class="pBody">
+Depending on the task performed by your XQuery, it is possible to make small changes to your XQuery to take advantage of the performance benefits provided by Streaming XML.
+</p>
+<a name="wp205385"> </a><h4 class="pHeading3">
+Working with XML Headers
+</h4>
+<a name="wp205386"> </a><p class="pBody">
+Streaming XML can be useful when parts of an input document are used to create a header in the result, and numerous transformations are performed on the rest of the result.  Streaming XML can be especially beneficial when dealing with large input documents.
+</p>
+<a name="wp205387"> </a><p class="pBody">
+Consider the following XML document, which lists numerous stock holdings for an individual (imagine <code class="cCode">&lt;holding&gt;</code> elements numbering in the hundreds or even thousands).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp205388"> </a>
+  &lt;person&gt;<a name="wp205389"> </a>
+    &lt;first-name&gt;John&lt;/first-name&gt;<a name="wp205390"> </a>
+    &lt;last-name&gt;Smith&lt;/last-name&gt;<a name="wp205391"> </a>
+    &lt;holdings&gt;<a name="wp205392"> </a>
+      &lt;holding ticker=&quot;PRGS&quot;&gt;1000&lt;/holding&gt;<a name="wp205393"> </a>
+      &lt;holding ticker=&quot;STOCK1&quot;&gt;2000&lt;/holding&gt;<a name="wp205394"> </a>
+      &lt;holding ticker=&quot;STOCK2&quot;&gt;3000&lt;/holding&gt;<a name="wp205395"> </a>
+      &lt;!-- ... --&gt;<a name="wp205396"> </a>
+    &lt;/holdings&gt;<a name="wp205397"> </a>
+  &lt;/person&gt;<a name="wp205398"> </a>
+</pre></div>
+<a name="wp205399"> </a><p class="pBody">
+Your XQuery needs to create a separate XML document for each stock holding, using the header information to create a <code class="cCode">&lt;person&gt;</code> element and then listing holding information, like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;person lastName=&quot;Smith&quot; name=&quot;John&quot;&gt;<a name="wp205400"> </a>
+	&lt;holding ticker=&quot;PRGS&quot;&gt;1000&lt;/holding&gt;<a name="wp205401"> </a>
+&lt;/person&gt;<a name="wp205402"> </a>
+</pre></div>
+<a name="wp205403"> </a><p class="pBody">
+The XQuery used to provide this XML output could look like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $firstName := doc(&quot;header.xml&quot;)/person/first-name<a name="wp205404"> </a>
+let $lastName := doc(&quot;header.xml&quot;)/person/last-name<a name="wp205405"> </a>
+for $holding at $pos in 
+doc(&quot;header.xml&quot;)/person/holdings/holding<a name="wp205406"> </a>
+return<a name="wp205407"> </a>
+  ddtek:serialize-to-url(<a name="wp205408"> </a>
+    &lt;person name=&quot;{$firstName}&quot; lastName=
+&quot;{$lastName}&quot;&gt;{$holding}&lt;/person&gt;,<a name="wp205409"> </a>
+    concat(&quot;output-&quot;, $pos, &quot;.xml&quot;), &quot;indent=yes&quot;<a name="wp205410"> </a>
+  )<a name="wp205411"> </a>
+</pre></div>
+<a name="wp205412"> </a><p class="pBody">
+In this case, though, the Streaming XML feature is not used where it will provide the most benefit. Indeed, it is used only for minor formatting operations performed on the XQuery output. 
+</p>
+<a name="wp205413"> </a><p class="pBody">
+Making a simple change to the XQuery (shown in bold in the following code sample) ensures that Streaming XML is used throughout the XQuery &#8211; most importantly in the loop formed by the FLWOR expression:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $firstName as element() := doc(&quot;header.xml&quot;)/person/first-name<a name="wp205414"> </a>
+let $lastName as element() := doc(&quot;header.xml&quot;)/person/last-name<a name="wp205415"> </a>
+for $holding at $pos in doc(&quot;header.xml&quot;)/person/holdings/holding<a name="wp205416"> </a>
+return<a name="wp205417"> </a>
+  ddtek:serialize-to-url(<a name="wp205418"> </a>
+    &lt;person name=&quot;{$firstName}&quot; lastName=&quot;{$lastName}&quot;&gt;{$holding}&lt;/person&gt;,<a name="wp205419"> </a>
+    concat(&quot;output-&quot;, $pos, &quot;.xml&quot;), &quot;indent=yes&quot;<a name="wp205420"> </a>
+  )<a name="wp205421"> </a>
+</pre></div>
+<a name="wp205422"> </a><p class="pBody">
+The <code class="cCode">as element()</code> declarations tell DataDirect XQuery that the <code class="cCode">first-name</code> and <code class="cCode">last-name</code> elements in the source document are singletons, which allows the DataDirect XQuery engine to use Streaming XML on the FLWOR expression.
+</p>
+<a name="wp205424"> </a><h4 class="pHeading3">
+Aggregation Functions
+</h4>
+<a name="wp205425"> </a><p class="pBody">
+XQuery aggregation functions &#8211; functions that count elements in an XML document, for example &#8211; can take advantage of the efficiencies made available by the Streaming XML feature. Aggregation functions include:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp205426"> </a><div class="pSmartList1"><li>fcn:count()</li></div><a name="wp205427"> </a><div class="pSmartList1"><li>fn:min()</li></div><a name="wp205428"> </a><div class="pSmartList1"><li>fn:max()</li></div><a name="wp205429"> </a><div class="pSmartList1"><li>fn:sum()</li></div><a name="wp205430"> </a><div class="pSmartList1"><li>fn:avg()</li></div></ul></div>
+<a name="wp205431"> </a><h4 class="pHeading3">
+Example
+</h4>
+<a name="wp205432"> </a><p class="pBody">
+Consider the following XQuery; imagine that inventory.xml contains thousands of <code class="cCode">&lt;item&gt;</code> elements:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+count(doc(&#39;inventory.xml&#39;)//item) <a name="wp205433"> </a>
+</pre></div>
+<a name="wp205434"> </a><p class="pBody">
+Here, the <code class="cCode">count()</code> function is simply counting the number of <code class="cCode">&lt;item&gt;</code> elements in the inventory.xml document. Examining the XQuery using Plan Explain, we can see that Streaming XML is used in two let clauses:
+</p>
+<a name="wp205438"> </a><p class="pBody">
+</p><div align="left"><img src="images/plan_explain_streaming2.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp205439"> </a><p class="pBody">
+If we make the XQuery slightly more complicated, by returning the number of <code class="cCode">&lt;item&gt;</code> elements per <code class="cCode">&lt;region&gt;</code>:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $b in doc(&#39;inventory.xml&#39;)/site/regions/*<a name="wp205440"> </a>
+return count($b//item) <a name="wp205441"> </a>
+</pre></div>
+<a name="wp205442"> </a><p class="pBody">
+XML Streaming is still used to process this XQuery, but note that  the XQuery uses a let- and for- clause, rather than two let- clauses, as in the previous example:
+</p>
+<a name="wp205446"> </a><p class="pBody">
+</p><div align="left"><img src="images/plan_explain_aggregate3.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp205449"> </a><h3 class="pHeading2">
+Streaming XML Examples
+</h3>
+<a name="wp205450"> </a><p class="pBody">
+This section provides several examples of the Streaming XML feature, including examples of when it is not used by the DataDirect XQuery engine to process the XQuery. The examples are commented, allowing you to easily copy/paste them into test applications.
+</p>
+<a name="wp205451"> </a><h4 class="pHeading3">
+When Streaming XML Is Used
+</h4>
+<a name="wp205452"> </a><p class="pBody">
+The following show examples of XQuery in which Streaming XML is used.
+</p>
+<a name="wp205454"> </a><p class="pBodyBold">
+<b class="cBold">Simple Path Expressions</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205455"> </a>
+A simple path expression. <a name="wp205456"> </a>
+The complete document can be processed in streaming mode.<a name="wp205457"> </a>
+:)<a name="wp205458"> </a>
+doc(&quot;file.xml&quot;)/a/b/c<a name="wp205459"> </a>
+<a name="wp205460"> </a>
+(:<a name="wp205461"> </a>
+A simple path expression. <a name="wp205462"> </a>
+The complete document can be processed in streaming mode.<a name="wp205463"> </a>
+If a c element is a descendent of a parent c element, it is 
+memorized.<a name="wp205464"> </a>
+:) <a name="wp205465"> </a>
+doc(&quot;file.xml&quot;)/a/b//c<a name="wp205466"> </a>
+</pre></div>
+<a name="wp205468"> </a><p class="pBodyBold">
+<b class="cBold">Path Expression with Predicate</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205469"> </a>
+A path expression with predicate.<a name="wp205470"> </a>
+The document is queried using the Streaming XML feature. 
+Only the values of d that match the predicate are<a name="wp205471"> </a>
+materialized; all c&#8217;s and x&#8217;s are materialized and<a name="wp205472"> </a>
+discarded one by one.<a name="wp205473"> </a>
+:)<a name="wp205474"> </a>
+doc(&quot;file.xml&quot;)/a/b/c[x eq 1]/d<a name="wp205475"> </a>
+</pre></div>
+<a name="wp205477"> </a><p class="pBodyBold">
+<b class="cBold">Path Expression with Attribute Predicate</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205478"> </a>
+A path expression with attribute predicate.<a name="wp205479"> </a>
+The document is queried using the Streaming XML feature.<a name="wp205480"> </a>
+No materialization is performed. Only general comparisons 
+with attribute tests are supported.<a name="wp205481"> </a>
+:)<a name="wp205482"> </a>
+doc(&quot;file.xml&quot;)//ITEMS[@ITEMNO eq &#39;1004&#39;]<a name="wp205483"> </a>
+</pre></div>
+<a name="wp205485"> </a><p class="pBodyBold">
+<b class="cBold">XQuery Expression with fn:data</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205486"> </a>
+The document is queried using the Streaming XML feature.<a name="wp205487"> </a>
+Atomization on streaming results is supported.<a name="wp205488"> </a>
+ITEMNO elements are not first materialized and then 
+atomized. <a name="wp205489"> </a>
+:)<a name="wp205490"> </a>
+fn:data(doc(&quot;file.xml&quot;)//ITEMS/ITEMNO<a name="wp205491"> </a>
+</pre></div>
+<a name="wp205493"> </a><p class="pBodyBold">
+<b class="cBold">XQuery Expression with Function on Node</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205494"> </a>
+The document is queried using the Streaming XML feature.<a name="wp205495"> </a>
+Functions on nodes (fn:name(), fn:node-name(), 
+fn:local-name(), etc.) are supported.<a name="wp205496"> </a>
+:)<a name="wp205497"> </a>
+doc(&quot;file.xml&quot;)//ITEMS/element()[fn:local-name(.) <a name="wp205498"> </a>
+eq &#39;ITEMNO&#39;]<a name="wp205499"> </a>
+</pre></div>
+<a name="wp205501"> </a><p class="pBodyBold">
+<b class="cBold">XQuery Expression with exists</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205502"> </a>
+The document is queried using the Streaming XML feature.<a name="wp205503"> </a>
+Existentional tests are supported.<a name="wp205504"> </a>
+:)<a name="wp205505"> </a>
+doc(&quot;file.xml&quot;)//ITEMS[exists(@ITEMNO)]<a name="wp205506"> </a>
+doc(&quot;file.xml&quot;)//ITEMS[exists(ITEMNO)]<a name="wp205507"> </a>
+doc(&quot;file.xml&quot;)//ITEMS/ITEMNO[exists(.)]<a name="wp205508"> </a>
+</pre></div>
+<a name="wp205510"> </a><p class="pBodyBold">
+<b class="cBold">Two XML Documents</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205511"> </a>
+Two different documents in a sequence. Both are queried 
+with the Streaming XML feature.<a name="wp205512"> </a>
+:)<a name="wp205513"> </a>
+doc(&quot;file1.xml&quot;)/a/b/c,<a name="wp205514"> </a>
+doc(&quot;file2.xml&quot;)/x/y/z<a name="wp205515"> </a>
+</pre></div>
+<a name="wp205516"> </a><p class="pBodyBold">
+<b class="cBold">Complex Example Using the Streaming XML Feature</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205517"> </a>
+The document is queried using the Streaming XML feature.<a name="wp205518"> </a>
+:)<a name="wp205519"> </a>
+&lt;orders&gt;{<a name="wp205520"> </a>
+  for $order in doc(&quot;orders.xml&quot;)//orders<a name="wp205521"> </a>
+  for $customer in collection(&quot;CUSTOMER&quot;)/CUSTOMER[CUST_ID = $order/customer]<a name="wp205522"> </a>
+  return<a name="wp205523"> </a>
+    &lt;order id=&quot;{$order/@id}&quot;&gt;<a name="wp205524"> </a>
+      &lt;customer&gt;<a name="wp205525"> </a>
+        &lt;name&gt;{$customer/CUST_NAME/data(.)}&lt;/name&gt;<a name="wp205526"> </a>
+        &lt;address&gt;{$customer/CUST_ADDRESS/data(.)}&lt;/address&gt;<a name="wp205527"> </a>
+      &lt;/customer&gt;<a name="wp205528"> </a>
+    &lt;/order&gt;<a name="wp205529"> </a>
+}&lt;/orders&gt;<a name="wp205530"> </a>
+(:<a name="wp205531"> </a>
+If the for clauses are switched, the orders.xml document is queried multiple 
+times; therefore, streaming is not used and the document is instantiated.<a name="wp205532"> </a>
+:)<a name="wp205533"> </a>
+&lt;orders&gt;{<a name="wp205534"> </a>
+  for $customer in collection(&quot;CUSTOMER&quot;)/CUSTOMER <a name="wp205535"> </a>
+  for $order in doc(&quot;orders.xml&quot;)//orders<a name="wp205536"> </a>
+  where $customer /CUST_ID = $order/customer<a name="wp205537"> </a>
+  return<a name="wp205538"> </a>
+    &lt;order id=&quot;{$order/@id}&quot;&gt;<a name="wp205539"> </a>
+      &lt;customer&gt;<a name="wp205540"> </a>
+        &lt;name&gt;{$customer/CUST_NAME/data(.)}&lt;/name&gt;<a name="wp205541"> </a>
+        &lt;address&gt;{$customer/CUST_ADDRESS/data(.)}&lt;/address&gt;<a name="wp205542"> </a>
+      &lt;/customer&gt;<a name="wp205543"> </a>
+    &lt;/order&gt;<a name="wp205544"> </a>
+}&lt;/orders&gt;<a name="wp205545"> </a>
+</pre></div>
+<a name="wp205547"> </a><h4 class="pHeading3">
+When Streaming XML Is Not Used
+</h4>
+<a name="wp205548"> </a><p class="pBody">
+The following show examples of XQuery in which Streaming XML is not used.
+</p>
+<a name="wp205549"> </a><p class="pBodyBold">
+<b class="cBold">Reverse Axis</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205550"> </a>
+The Streaming XML feature is not used due to the reverse 
+axis.<a name="wp205551"> </a>
+:)<a name="wp205552"> </a>
+doc(&quot;file.xml&quot;)/a/b/c/../d<a name="wp205553"> </a>
+(:<a name="wp205554"> </a>
+This query could have been written as follows, in which 
+case the b elements are materialized one by one.<a name="wp205555"> </a>
+:)<a name="wp205556"> </a>
+doc(&quot;file.xml&quot;)/a/b[c]/d<a name="wp205557"> </a>
+</pre></div>
+<a name="wp205558"> </a><p class="pBodyBold">
+<b class="cBold">Optional Axis</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205559"> </a>
+The Streaming XML feature is not used due to the 
+preceding-sibling optional axis.<a name="wp205560"> </a>
+:)<a name="wp205561"> </a>
+doc(&quot;file.xml&quot;)/a/b[c=5]/preceding-sibling::*[1]<a name="wp205562"> </a>
+</pre></div>
+<a name="wp205563"> </a><p class="pBodyBold">
+<b class="cBold">Two Documents</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(:<a name="wp205564"> </a>
+Two documents, not queried with the Streaming XML feature 
+as the same document. These documents are possibly queried 
+twice.<a name="wp205565"> </a>
+:)<a name="wp205566"> </a>
+declare variable $file as xs:string external;<a name="wp205567"> </a>
+doc(&quot;file1.xml&quot;)/a/b/c,<a name="wp205568"> </a>
+doc($file)/x/y/z<a name="wp205569"> </a>
+<a name="wp205570"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

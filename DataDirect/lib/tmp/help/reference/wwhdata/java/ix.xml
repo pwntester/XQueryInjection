@@ -1,0 +1,4798 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<WebWorksHelpIX version="3.0">
+ <i t="accessing">
+  <i t="values of an XQuery item">
+   <j l="xqjsupport9.html#wp155985" />
+  </i>
+  <i t="XML results of a query">
+   <j l="xqjsupport20.html#wp126140" />
+  </i>
+ </i>
+ <i t="accessors">
+  <j l="functions_and_operators.html#wp323483" />
+ </i>
+ <i t="adding and subtracting durations">
+  <j l="functions_and_operators.html#wp324702" />
+ </i>
+ <i t="advantages, static typing">
+  <j l="troubleshooting5.html#wp137728" />
+ </i>
+ <i t="aggregate functions">
+  <j l="functions_and_operators.html#wp325139" />
+ </i>
+ <i t="aggregating data">
+  <i t="Streaming XML and">
+   <j l="improvingperformance2.html#wp205424" />
+  </i>
+ </i>
+ <i t="allowing Java functions">
+  <j l="sourceconfigfilestructure4.html#wp142274" />
+ </i>
+ <i t="AllowJavaFunctions property">
+  <j l="conf_sourcefiles6.html#wp182062" />
+ </i>
+ <i t="anyURI data type, functions and operators for">
+  <j l="functions_and_operators.html#wp324200" />
+ </i>
+ <i t="applet, Java 2 Platform, permissions for">
+  <j l="connection_security3.html#wp239632" />
+  <j l="connection_security4.html#wp239897" />
+ </i>
+ <i t="architecture, DataDirect XQuery">
+  <j l="overview5.html#wp143313" />
+ </i>
+ <i t="arithmetic expressions">
+  <j l="xquerysupport3.html#wp216439" />
+ </i>
+ <i t="assembling strings">
+  <j l="functions_and_operators.html#wp323961" />
+ </i>
+ <i t="atomic types">
+  <i t="constructor functions">
+   <j l="functions_and_operators.html#wp323590" />
+  </i>
+  <i t="mapping to XQJ">
+   <j l="xqjsupport22.html#wp183705" />
+  </i>
+  <i t="supported">
+   <j l="database_support4.html#wp300736" />
+  </i>
+ </i>
+ <i t="authentication">
+  <i t="client (SSL)">
+   <j l="connection_security5.html#wp240114" />
+  </i>
+  <i t="Kerberos">
+   <j l="connection_security3.html#wp239536" />
+  </i>
+  <i t="NTLM">
+   <j l="connection_security4.html#wp239813" />
+  </i>
+  <i t="server (SSL)">
+   <j l="connection_security5.html#wp240094" />
+  </i>
+  <i t="support for">
+   <j l="connection_security2.html#wp239412" />
+  </i>
+  <i t="types of">
+   <j l="connection_security2.html#wp239402" />
+  </i>
+ </i>
+ <i t="AuthenticationMethod property">
+  <i t="DB2">
+   <j l="database_support5.html#wp293743" />
+  </i>
+  <i t="SQL Server">
+   <j l="database_support5.html#wp296380" />
+  </i>
+  <i t="Sybase">
+   <j l="database_support5.html#wp309267" />
+  </i>
+ </i>
+ <i t="base URI">
+  <j l="conf_sourcefiles6.html#wp182071" />
+  <j l="sourceconfigfilestructure4.html#wp141047" />
+ </i>
+ <i t="base64Binary, functions and operators on">
+  <j l="functions_and_operators.html#wp324863" />
+ </i>
+ <i t="BaseUri property">
+  <j l="conf_sourcefiles6.html#wp182069" />
+ </i>
+ <i t="basics, XQuery">
+  <j l="xquerysupport2.html#wp323288" />
+ </i>
+ <i t="benefits of XQuery">
+  <j l="overview3.html#wp133406" />
+ </i>
+ <i t="binding sequence">
+  <i t="definition">
+   <j l="tutorial_xquery5.html#wp153647" />
+  </i>
+ </i>
+ <i t="books">
+  <i t="online">
+   <j l="preface4.html#wp1034075" />
+  </i>
+  <i t="using">
+   <j l="preface3.html#wp1035505" />
+  </i>
+ </i>
+ <i t="boolean constructor functions">
+  <j l="functions_and_operators.html#wp324232" />
+ </i>
+ <i t="boolean values">
+  <i t="functions on">
+   <j l="functions_and_operators.html#wp324228" />
+  </i>
+  <i t="operators on">
+   <j l="functions_and_operators.html#wp324228" />
+  </i>
+ </i>
+ <i t="built-in functions">
+  <i t="ddtek:analyze-edi-from-string()">
+   <j l="built-in_functions2.html#wp330891" />
+  </i>
+  <i t="ddtek:analyze-edi-from-url()">
+   <j l="built-in_functions2.html#wp330979" />
+  </i>
+  <i t="ddtek:convert-to-xml()">
+   <j l="built-in_functions2.html#wp298668" />
+  </i>
+  <i t="ddtek:decimal()">
+   <j l="built-in_functions2.html#wp298539" />
+  </i>
+  <i t="ddtek:edi-to-xml-from-string()">
+   <j l="built-in_functions2.html#wp331505" />
+  </i>
+  <i t="ddtek:edi-to-xml-from-url()">
+   <j l="built-in_functions2.html#wp333006" />
+  </i>
+  <i t="ddtek:format-date">
+   <j l="built-in_functions2.html#wp334378" />
+  </i>
+  <i t="ddtek:format-date-time">
+   <j l="built-in_functions2.html#wp334254" />
+  </i>
+  <i t="ddtek:format-number">
+   <j l="built-in_functions2.html#wp334295" />
+  </i>
+  <i t="ddtek:format-time">
+   <j l="built-in_functions2.html#wp334396" />
+  </i>
+  <i t="ddtek:http-delete">
+   <j l="built-in_functions2.html#wp323989" />
+  </i>
+  <i t="ddtek:http-get">
+   <j l="built-in_functions2.html#wp324144" />
+  </i>
+  <i t="ddtek:http-head">
+   <j l="built-in_functions2.html#wp324243" />
+  </i>
+  <i t="ddtek:http-options">
+   <j l="built-in_functions2.html#wp325194" />
+  </i>
+  <i t="ddtek:http-post">
+   <j l="built-in_functions2.html#wp325204" />
+  </i>
+  <i t="ddtek:http-put">
+   <j l="built-in_functions2.html#wp325220" />
+  </i>
+  <i t="ddtek:http-trace">
+   <j l="built-in_functions2.html#wp325233" />
+  </i>
+  <i t="ddtek:info">
+   <j l="built-in_functions2.html#wp326689" />
+  </i>
+  <i t="ddtek:is-valid()">
+   <j l="built-in_functions2.html#wp310400" />
+  </i>
+  <i t="ddtek:javaCast()">
+   <j l="built-in_functions2.html#wp288868" />
+  </i>
+  <i t="ddtek:parse()">
+   <j l="built-in_functions2.html#wp288977" />
+  </i>
+  <i t="ddtek:serialize-to-url()">
+   <j l="built-in_functions2.html#wp299047" />
+  </i>
+  <i t="ddtek:trim()">
+   <j l="built-in_functions2.html#wp326847" />
+  </i>
+  <i t="ddtek:validate()">
+   <j l="built-in_functions2.html#wp289185" />
+  </i>
+  <i t="ddtek:validate-and-report">
+   <j l="built-in_functions2.html#wp318066" />
+  </i>
+  <i t="ddtek:wscal()">
+   <j l="built-in_functions2.html#wp285028" />
+  </i>
+ </i>
+ <i t="case sensitivity">
+  <j l="conf_sourcefiles2.html#wp186202" />
+ </i>
+ <i t="cast to varchar">
+  <j l="advancedfeatures2.html#wp239831" />
+ </i>
+ <i t="casting">
+  <j l="functions_and_operators.html#wp325291" />
+ </i>
+ <i t="certificate">
+  <i t="SSL">
+   <j l="connection_security5.html#wp240095" />
+  </i>
+ </i>
+ <i t="Certificate Authority (CA), SSL">
+  <j l="connection_security5.html#wp240095" />
+ </i>
+ <i t="choosing a connection method">
+  <j l="conf_sourcefiles3.html#wp202801" />
+ </i>
+ <i t="CLASSPATH, setting">
+  <j l="quickstart2.html#wp964074" />
+ </i>
+ <i t="client authentication">
+  <i t="SSL">
+   <j l="connection_security5.html#wp240114" />
+  </i>
+ </i>
+ <i t="Collation property">
+  <j l="conf_sourcefiles6.html#wp182080" />
+ </i>
+ <i t="collation, default">
+  <j l="conf_sourcefiles6.html#wp182084" />
+  <j l="advancedfeatures8.html#wp212044" />
+  <j l="sourceconfigfilestructure4.html#wp141151" />
+ </i>
+ <i t="collations">
+  <i t="comparing strings">
+   <j l="advancedfeatures8.html#wp212036" />
+  </i>
+  <i t="handling Unicode characters">
+   <j l="advancedfeatures8.html#wp212041" />
+  </i>
+  <i t="list of">
+   <j l="advancedfeatures8.html#wp212024" />
+  </i>
+  <i t="specifying">
+   <j l="advancedfeatures8.html#wp212006" />
+  </i>
+  <i t="user-defined">
+   <j l="advancedfeatures8.html#wp212020" />
+  </i>
+  <i t="W3C Unicode Codepoint">
+   <j l="advancedfeatures8.html#wp212016" />
+  </i>
+ </i>
+ <i t="collection">
+  <i t="NULLID (DB2)">
+   <j l="database_support5.html#wp293897" />
+  </i>
+  <i t="resolving errors">
+   <j l="troubleshooting4.html#wp136634" />
+  </i>
+  <i t="specifying in a query">
+   <j l="conf_sourcefiles2.html#wp184941" />
+  </i>
+ </i>
+ <i t="collection URI resolver">
+  <j l="advancedfeatures5.html#wp209367" />
+  <j l="sourceconfigfilestructure4.html#wp163399" />
+ </i>
+ <i t="CollectionURIResolver property">
+  <j l="conf_sourcefiles6.html#wp198057" />
+ </i>
+ <i t="command line utility">
+  <j l="quickstart3.html#wp953311" />
+ </i>
+ <i t="comparing strings, collations">
+  <j l="advancedfeatures8.html#wp212036" />
+ </i>
+ <i t="comparison expressions">
+  <j l="xquerysupport3.html#wp133557" />
+ </i>
+ <i t="comparison of">
+  <i t="duration, date, and time values">
+   <j l="functions_and_operators.html#wp324387" />
+  </i>
+  <i t="numeric values">
+   <j l="functions_and_operators.html#wp323880" />
+  </i>
+  <i t="strings">
+   <j l="functions_and_operators.html#wp323993" />
+  </i>
+ </i>
+ <i t="comparisons">
+  <i t="value compared to general">
+   <j l="improvingperformance3.html#wp204580" />
+  </i>
+ </i>
+ <i t="comparisons in where clauses">
+  <j l="improvingperformance3.html#wp194662" />
+ </i>
+ <i t="compensating for functions with no SQL equivalent">
+  <j l="improvingperformance4.html#wp194682" />
+ </i>
+ <i t="component extraction functions">
+  <j l="functions_and_operators.html#wp324496" />
+ </i>
+ <i t="conditional expressions">
+  <j l="xquerysupport3.html#wp105750" />
+ </i>
+ <i t="configuring">
+  <i t="environment to run DataDirect XQuery examples">
+   <j l="examples3.html#wp138542" />
+  </i>
+  <i t="Kerberos authentication">
+   <j l="connection_security3.html#wp239599" />
+  </i>
+  <i t="NTLM authentication">
+   <j l="connection_security4.html#wp239864" />
+  </i>
+  <i t="SSL encryption">
+   <j l="connection_security5.html#wp240068" />
+  </i>
+ </i>
+ <i t="configuring connections">
+  <i t="for XML data sources">
+   <j l="sourceconfigfilestructure2.html#wp183827" />
+  </i>
+  <i t="quick start">
+   <j l="quickstart2.html#wp923047" />
+  </i>
+  <i t="source configuration files">
+   <i t="databases">
+    <j l="sourceconfigfilestructure2.html#wp164610" />
+   </i>
+   <i t="XML">
+    <j l="sourceconfigfilestructure2.html#wp183827" />
+   </i>
+  </i>
+  <i t="XQJ">
+   <i t="explicitly">
+    <j l="conf_sourcefiles4.html#wp181921" />
+   </i>
+   <i t="using JNDI">
+    <j l="conf_sourcefiles5.html#wp181978" />
+   </i>
+  </i>
+ </i>
+ <i t="configuring data source connections">
+  <i t="multiple databases">
+   <j l="conf_sourcefiles4.html#wp181935" />
+  </i>
+  <i t="single databases">
+   <j l="conf_sourcefiles4.html#wp181928" />
+  </i>
+ </i>
+ <i t="connect descriptor parameters in tnsnames.ora file (Oracle)">
+  <j l="database_support5.html#wp294271" />
+ </i>
+ <i t="connection pooling">
+  <j l="improvingperformance6.html#wp206095" />
+  <i t="XQueryWebService framework and">
+   <j l="webserviceframework5.html#wp207838" />
+  </i>
+ </i>
+ <i t="connection properties">
+  <i t="DB2">
+   <j l="database_support5.html#wp293718" />
+  </i>
+  <i t="Informix">
+   <j l="database_support5.html#wp293921" />
+  </i>
+  <i t="MySQL Enterprise">
+   <j l="database_support5.html#wp293977" />
+  </i>
+  <i t="Oracle">
+   <j l="database_support5.html#wp294089" />
+  </i>
+  <i t="SQL Server">
+   <j l="database_support5.html#wp296359" />
+  </i>
+  <i t="Sybase">
+   <j l="database_support5.html#wp294420" />
+  </i>
+ </i>
+ <i t="connection URLs">
+  <j l="conf_sourcefiles7.html#wp182290" />
+ </i>
+ <i t="connections">
+  <i t="choosing a data source connection method">
+   <j l="conf_sourcefiles3.html#wp202801" />
+  </i>
+  <i t="configuring">
+   <j l="quickstart2.html#wp923047" />
+  </i>
+  <i t="configuring data source connections">
+   <j l="conf_sourcefiles.html#wp181891" />
+  </i>
+  <i t="managing client-server connections">
+   <j l="http_functions3.html#wp239048" />
+  </i>
+  <i t="multiple databases">
+   <j l="conf_sourcefiles4.html#wp181928" />
+  </i>
+  <i t="permissions">
+   <j l="connection_security4.html#wp239893" />
+  </i>
+  <i t="settings for sockets and connections">
+   <j l="http_functions3.html#wp238411" />
+  </i>
+  <i t="single database">
+   <j l="conf_sourcefiles4.html#wp181928" />
+  </i>
+  <i t="source configuration files">
+   <i t="databases">
+    <j l="sourceconfigfilestructure2.html#wp164610" />
+   </i>
+   <i t="XML">
+    <j l="sourceconfigfilestructure2.html#wp183827" />
+   </i>
+  </i>
+  <i t="specifying connection URIs for">
+   <j l="conf_sourcefiles7.html#wp182290" />
+  </i>
+  <i t="using DDXQDataSource to connect to a data source">
+   <j l="conf_sourcefiles3.html#wp183301" />
+  </i>
+ </i>
+ <i t="constructing an XQDataSource instance">
+  <j l="conf_sourcefiles4.html#wp181922" />
+ </i>
+ <i t="constructor functions">
+  <i t="boolean">
+   <j l="functions_and_operators.html#wp324232" />
+  </i>
+  <i t="for QNames">
+   <j l="functions_and_operators.html#wp324783" />
+  </i>
+  <i t="for user-defined types">
+   <j l="functions_and_operators.html#wp323819" />
+  </i>
+  <i t="for XML schema built-in types">
+   <j l="functions_and_operators.html#wp323596" />
+  </i>
+  <i t="for xs:dateTime">
+   <j l="functions_and_operators.html#wp323793" />
+  </i>
+ </i>
+ <i t="constructors">
+  <j l="xquerysupport3.html#wp179554" />
+ </i>
+ <i t="contacting Technical Support">
+  <j l="preface6.html#wp1034223" />
+ </i>
+ <i t="context functions">
+  <j l="functions_and_operators.html#wp325234" />
+ </i>
+ <i t="controlling precision and scale for xs:decimal( )">
+  <j l="advancedfeatures2.html#wp239737" />
+ </i>
+ <i t="conventions, typographical">
+  <j l="preface5.html#wp1034272" />
+ </i>
+ <i t="converting">
+  <i t="EDI to XML">
+   <j l="advancedfeatures6.html#wp243227" />
+  </i>
+ </i>
+ <i t="converting EDI to XML">
+  <i t="built-in function for">
+   <j l="built-in_functions2.html#wp298668" />
+  </i>
+  <i t="validating EDI streams">
+   <j l="built-in_functions2.html#wp330891" />
+   <j l="built-in_functions2.html#wp330979" />
+   <j l="built-in_functions2.html#wp331505" />
+   <j l="built-in_functions2.html#wp333006" />
+  </i>
+ </i>
+ <i t="cookies">
+  <i t="managing cookies in Web service applications">
+   <j l="http_functions3.html#wp242479" />
+  </i>
+ </i>
+ <i t="CreateDefaultPackage property (DB2)">
+  <j l="database_support5.html#wp293760" />
+ </i>
+ <i t="creating">
+  <i t="an XDM instance">
+   <j l="built-in_functions2.html#wp288977" />
+  </i>
+  <i t="DB2 packages">
+   <j l="database_support5.html#wp293897" />
+  </i>
+  <i t="XML">
+   <j l="tutorial_xquery3.html#wp148395" />
+  </i>
+ </i>
+ <i t="custom URI resolver">
+  <j l="advancedfeatures5.html#wp205232" />
+  <j l="advancedfeatures5.html#wp209367" />
+ </i>
+ <i t="data">
+  <i t="aggregating">
+   <j l="improvingperformance2.html#wp205424" />
+  </i>
+  <i t="grouping data">
+   <j l="tutorial_xquery5.html#wp153483" />
+  </i>
+  <i t="streaming XML data">
+   <j l="improvingperformance2.html#wp205272" />
+   <j l="http_functions3.html#wp239437" />
+  </i>
+  <i t="updating data sources">
+   <j l="xuf_support.html#wp209816" />
+   <j l="xuf_support9.html#wp221374" />
+  </i>
+  <i t="updating relational data sources">
+   <j l="relationaldata4.html#wp222970" />
+  </i>
+ </i>
+ <i t="data bases">
+  <i t="using relational data in XQuery">
+   <j l="conf_sourcefiles2.html#wp184922" />
+  </i>
+ </i>
+ <i t="data encryption">
+  <i t="database-specific encryption">
+   <j l="connection_security5.html#wp239959" />
+  </i>
+  <i t="SSL">
+   <i t="for DB2">
+    <j l="connection_security5.html#wp240140" />
+   </i>
+   <i t="for Microsoft SQL Server">
+    <j l="connection_security5.html#wp240173" />
+   </i>
+   <i t="for Oracle">
+    <j l="connection_security5.html#wp240156" />
+   </i>
+   <i t="for Sybase">
+    <j l="connection_security5.html#wp240251" />
+   </i>
+  </i>
+  <i t="SSL support">
+   <j l="connection_security5.html#wp239964" />
+  </i>
+  <i t="support for">
+   <j l="connection_security5.html#wp239917" />
+  </i>
+  <i t="supported types of">
+   <j l="connection_security5.html#wp239957" />
+  </i>
+ </i>
+ <i t="data model">
+  <i t="SQL 2003 standard for XML mappings">
+   <j l="conf_sourcefiles2.html#wp188278" />
+  </i>
+ </i>
+ <i t="data model representation">
+  <i t="relational database tables">
+   <j l="conf_sourcefiles2.html#wp188276" />
+  </i>
+  <i t="XML documents">
+   <j l="conf_sourcefiles2.html#wp184913" />
+  </i>
+ </i>
+ <i t="data source">
+  <i t="configuring connections to a single source">
+   <j l="conf_sourcefiles4.html#wp181928" />
+  </i>
+  <i t="configuring connections to multiple sources">
+   <j l="conf_sourcefiles4.html#wp181935" />
+  </i>
+ </i>
+ <i t="data source connections">
+  <i t="authentication">
+   <j l="connection_security2.html#wp239400" />
+  </i>
+  <i t="built-in drivers for">
+   <j l="conf_sourcefiles7.html#wp206955" />
+  </i>
+  <i t="connection URI format">
+   <j l="conf_sourcefiles7.html#wp206955" />
+   <i t="third-party drivers">
+    <j l="conf_sourcefiles7.html#wp209990" />
+   </i>
+  </i>
+  <i t="data encryption">
+   <j l="connection_security5.html#wp239917" />
+  </i>
+  <i t="securing">
+   <j l="connection_security.html#wp239378" />
+  </i>
+ </i>
+ <i t="data sources">
+  <i t="authenticating connections">
+   <j l="connection_security2.html#wp239402" />
+  </i>
+  <i t="configuring connections explicitly">
+   <j l="conf_sourcefiles4.html#wp181921" />
+  </i>
+  <i t="configuring connections using JNDI">
+   <j l="conf_sourcefiles5.html#wp181978" />
+  </i>
+  <i t="connection methods for">
+   <j l="conf_sourcefiles3.html#wp202801" />
+  </i>
+  <i t="relational">
+   <j l="conf_sourcefiles2.html#wp184922" />
+  </i>
+  <i t="relational data bases">
+   <j l="conf_sourcefiles2.html#wp184922" />
+  </i>
+  <i t="Streaming XML and">
+   <j l="improvingperformance2.html#wp205357" />
+  </i>
+  <i t="updating">
+   <j l="xuf_support9.html#wp221374" />
+  </i>
+  <i t="updating using XUF">
+   <j l="xuf_support.html#wp209816" />
+  </i>
+  <i t="using data sources in queries">
+   <j l="conf_sourcefiles2.html#wp184872" />
+  </i>
+  <i t="using in queries">
+   <j l="conf_sourcefiles2.html#wp184870" />
+  </i>
+  <i t="XML">
+   <j l="conf_sourcefiles2.html#wp187870" />
+  </i>
+ </i>
+ <i t="data types">
+  <i t="DB2">
+   <j l="database_support3.html#wp299602" />
+  </i>
+  <i t="Informix">
+   <j l="database_support3.html#wp299751" />
+  </i>
+  <i t="mapping database data types to XML schema data types">
+   <j l="database_support3.html#wp299570" />
+  </i>
+  <i t="MySQL">
+   <j l="database_support3.html#wp299866" />
+  </i>
+  <i t="Oracle">
+   <j l="database_support3.html#wp300169" />
+  </i>
+  <i t="SQL Server">
+   <j l="database_support3.html#wp300400" />
+  </i>
+  <i t="support for XML Type">
+   <j l="relationaldata3.html#wp222819" />
+  </i>
+  <i t="support for XML Type data">
+   <j l="relationaldata3.html#wp222819" />
+  </i>
+  <i t="Sybase">
+   <j l="database_support3.html#wp300566" />
+  </i>
+  <i t="XML">
+   <j l="conf_sourcefiles2.html#wp184906" />
+  </i>
+ </i>
+ <i t="database catalogs">
+  <j l="sourceconfigfilestructure4.html#wp143107" />
+ </i>
+ <i t="database connections">
+  <i t="XQueryWebService framework example">
+   <j l="webserviceframework5.html#wp207791" />
+  </i>
+ </i>
+ <i t="database schemas">
+  <j l="sourceconfigfilestructure4.html#wp143168" />
+ </i>
+ <i t="DatabaseName property">
+  <i t="DB2">
+   <j l="database_support5.html#wp293774" />
+  </i>
+  <i t="Informix">
+   <j l="database_support5.html#wp293941" />
+  </i>
+  <i t="MySQL Enterprise">
+   <j l="database_support5.html#wp293997" />
+  </i>
+  <i t="SQL Server">
+   <j l="database_support5.html#wp296402" />
+  </i>
+ </i>
+ <i t="databases">
+  <i t="authenticating connections">
+   <j l="connection_security2.html#wp239402" />
+  </i>
+  <i t="configuring connections to a single source">
+   <j l="conf_sourcefiles4.html#wp181928" />
+  </i>
+  <i t="configuring connections to multiple sources">
+   <j l="conf_sourcefiles4.html#wp181935" />
+  </i>
+  <i t="updating">
+   <j l="relationaldata4.html#wp222970" />
+  </i>
+ </i>
+ <i t="DataDirect Spy">
+  <i t="attributes">
+   <i t="setting explicitly in a Java application">
+    <j l="troubleshooting2.html#wp137030" />
+   </i>
+   <i t="setting in JNDI">
+    <j l="troubleshooting2.html#wp137055" />
+   </i>
+  </i>
+  <i t="generating a log">
+   <j l="troubleshooting2.html#wp137179" />
+  </i>
+  <i t="log example">
+   <j l="troubleshooting2.html#wp137182" />
+  </i>
+  <i t="logging">
+   <i t="content of DOM trees">
+    <j l="troubleshooting2.html#wp137150" />
+   </i>
+   <i t="content of SAX event streams">
+    <j l="troubleshooting2.html#wp137155" />
+   </i>
+   <i t="content of StAX event streams">
+    <j l="troubleshooting2.html#wp137161" />
+   </i>
+   <i t="generating a log">
+    <j l="troubleshooting2.html#wp137179" />
+   </i>
+   <i t="turning on and off">
+    <j l="troubleshooting2.html#wp137213" />
+   </i>
+   <i t="XQJ calls to System.out">
+    <j l="troubleshooting2.html#wp137141" />
+   </i>
+  </i>
+  <i t="setEnableLogging( ) method">
+   <j l="troubleshooting2.html#wp137214" />
+  </i>
+  <i t="setting attributes for using DDXQDataSource">
+   <j l="conf_sourcefiles6.html#wp182184" />
+  </i>
+  <i t="SpyAttributes property, specifying">
+   <j l="troubleshooting2.html#wp137024" />
+  </i>
+ </i>
+ <i t="DataDirect XML Converters">
+  <i t="using with DataDirect XQuery">
+   <j l="overview6.html#wp151555" />
+  </i>
+ </i>
+ <i t="DataDirect XML Converters, serialization support">
+  <j l="serialization_support3.html#wp316916" />
+ </i>
+ <i t="DataDirect XQuery">
+  <i t="about">
+   <j l="preface2.html#wp1022488" />
+  </i>
+  <i t="architecture">
+   <j l="overview5.html#wp143313" />
+  </i>
+  <i t="atomic types supported">
+   <j l="database_support4.html#wp300736" />
+  </i>
+  <i t="authentication support">
+   <j l="connection_security2.html#wp239412" />
+  </i>
+  <i t="building a Web service client">
+   <j l="http_functions.html#wp205856" />
+  </i>
+  <i t="built-in functions">
+   <j l="built-in_functions2.html#wp245071" />
+  </i>
+  <i t="comments, support of">
+   <j l="xquerysupport2.html#wp103955" />
+  </i>
+  <i t="configuring connections">
+   <j l="quickstart2.html#wp923047" />
+  </i>
+  <i t="data encryption support">
+   <j l="connection_security5.html#wp239917" />
+  </i>
+  <i t="ddtek:info built-in function">
+   <j l="built-in_functions2.html#wp326689" />
+  </i>
+  <i t="features">
+   <j l="overview2.html#wp143429" />
+  </i>
+  <i t="jar files in CLASSPATH variable">
+   <j l="quickstart2.html#wp964074" />
+  </i>
+  <i t="Kerberos authentication support">
+   <j l="connection_security3.html#wp239536" />
+  </i>
+  <i t="overview">
+   <j l="overview2.html#wp143429" />
+  </i>
+  <i t="SAX events">
+   <j l="xqjsupport20.html#wp126191" />
+  </i>
+  <i t="serializing, text">
+   <j l="xqjsupport20.html#wp126223" />
+  </i>
+  <i t="SQL adaptor">
+   <j l="overview5.html#wp152707" />
+  </i>
+  <i t="StAX events">
+   <j l="xqjsupport20.html#wp126222" />
+  </i>
+  <i t="threading">
+   <j l="xqjsupport19.html#wp126088" />
+  </i>
+  <i t="tutorial">
+   <j l="tutorial_ddxquery.html#wp114259" />
+  </i>
+  <i t="using with DataDirect XML Converters">
+   <j l="overview6.html#wp151555" />
+  </i>
+  <i t="using with Stylus Studio">
+   <j l="overview7.html#wp151558" />
+  </i>
+  <i t="XML adaptor">
+   <j l="overview5.html#wp152707" />
+  </i>
+  <i t="XQJ support">
+   <j l="xqjsupport.html#wp128996" />
+  </i>
+  <i t="XQuery expressions">
+   <j l="xquerysupport3.html#wp240279" />
+  </i>
+  <i t="XQueryWebService framework">
+   <j l="webserviceframework2.html#wp201878" />
+  </i>
+ </i>
+ <i t="dates">
+  <i t="formatting">
+   <j l="built-in_functions2.html#wp334378" />
+   <j l="built-in_functions2.html#wp334254" />
+  </i>
+  <i t="formatting examples">
+   <j l="built-in_functions2.html#wp335979" />
+  </i>
+ </i>
+ <i t="date-time">
+  <i t="formatting examples">
+   <j l="built-in_functions2.html#wp336273" />
+  </i>
+ </i>
+ <i t="dateTime, date, and time">
+  <i t="adding and subtracting durations">
+   <j l="functions_and_operators.html#wp324702" />
+  </i>
+  <i t="values, timezone adjustment on">
+   <j l="functions_and_operators.html#wp324667" />
+  </i>
+ </i>
+ <i t="DB2">
+  <i t="AuthenticationMethod property">
+   <j l="database_support5.html#wp293743" />
+  </i>
+  <i t="BINDADD privileges">
+   <j l="database_support5.html#wp293903" />
+  </i>
+  <i t="collection name">
+   <j l="database_support5.html#wp293843" />
+  </i>
+  <i t="configuring SSL">
+   <j l="connection_security5.html#wp240140" />
+  </i>
+  <i t="connection properties">
+   <j l="database_support5.html#wp293718" />
+  </i>
+  <i t="CreateDefaultPackage property">
+   <j l="database_support5.html#wp293760" />
+  </i>
+  <i t="creating packages">
+   <j l="database_support5.html#wp293762" />
+  </i>
+  <i t="data encryption for">
+   <j l="connection_security5.html#wp240057" />
+  </i>
+  <i t="data types">
+   <j l="database_support3.html#wp299602" />
+  </i>
+  <i t="DatabaseName property">
+   <j l="database_support5.html#wp293774" />
+  </i>
+  <i t="dynamic sections">
+   <j l="database_support5.html#wp293897" />
+  </i>
+  <i t="DynamicSections property">
+   <j l="database_support5.html#wp293781" />
+  </i>
+  <i t="Grantee property">
+   <j l="database_support5.html#wp293788" />
+  </i>
+  <i t="GrantExecute property">
+   <j l="database_support5.html#wp293803" />
+  </i>
+  <i t="InitializationString property">
+   <j l="database_support5.html#wp293815" />
+  </i>
+  <i t="Kerberos authentication">
+   <i t="permissions">
+    <j l="connection_security3.html#wp239640" />
+   </i>
+   <i t="service principal name">
+    <j l="connection_security3.html#wp239654" />
+   </i>
+  </i>
+  <i t="Kerberos authentication support">
+   <j l="connection_security3.html#wp239538" />
+  </i>
+  <i t="library name">
+   <j l="database_support5.html#wp293843" />
+  </i>
+  <i t="location">
+   <j l="database_support5.html#wp293832" />
+  </i>
+  <i t="LocationName property">
+   <j l="database_support5.html#wp293825" />
+  </i>
+  <i t="owner">
+   <j l="database_support5.html#wp293850" />
+  </i>
+  <i t="PackageCollection property">
+   <j l="database_support5.html#wp293840" />
+  </i>
+  <i t="PackageOwner property">
+   <j l="database_support5.html#wp293847" />
+  </i>
+  <i t="packages, creating">
+   <j l="database_support5.html#wp293762" />
+   <j l="database_support5.html#wp293897" />
+  </i>
+  <i t="password">
+   <j l="database_support5.html#wp293862" />
+  </i>
+  <i t="Password property">
+   <j l="database_support5.html#wp293859" />
+  </i>
+  <i t="prepared statements, maximum">
+   <j l="database_support5.html#wp293784" />
+  </i>
+  <i t="ReplacePackage property">
+   <j l="database_support5.html#wp293865" />
+  </i>
+  <i t="replacing packages">
+   <j l="database_support5.html#wp293867" />
+  </i>
+  <i t="schema for DB2 packages">
+   <j l="database_support5.html#wp293791" />
+  </i>
+  <i t="temporary tables">
+   <j l="sourceconfigfilestructure4.html#wp175956" />
+  </i>
+  <i t="user name">
+   <j l="database_support5.html#wp293889" />
+  </i>
+  <i t="User property">
+   <j l="database_support5.html#wp293886" />
+  </i>
+  <i t="versions supported">
+   <j l="conf_sourcefiles2.html#wp213448" />
+  </i>
+  <i t="XML-typed data examples">
+   <j l="database_support6.html#wp309403" />
+  </i>
+ </i>
+ <i t="DB2 external functions">
+  <j l="advancedfeatures9.html#wp247067" />
+ </i>
+ <i t="DB2 for z/OS Unicode database, connecting to">
+  <j l="conf_sourcefiles6.html#wp199954" />
+  <j l="conf_sourcefiles6.html#wp204546" />
+  <j l="sourceconfigfilestructure4.html#wp150985" />
+ </i>
+ <i t="DB2 V9.1">
+  <i t="XML-typed data examples">
+   <j l="database_support6.html#wp309556" />
+  </i>
+ </i>
+ <i t="ddtek:analyze-edi-from-string()">
+  <j l="built-in_functions2.html#wp330891" />
+ </i>
+ <i t="ddtek:analyze-edi-from-url">
+  <j l="built-in_functions2.html#wp330979" />
+ </i>
+ <i t="ddtek:convert-to-xml">
+  <j l="built-in_functions2.html#wp298668" />
+ </i>
+ <i t="ddtek:decimal">
+  <j l="built-in_functions2.html#wp298539" />
+ </i>
+ <i t="ddtek:edi-to-xml-from-string()">
+  <j l="built-in_functions2.html#wp331505" />
+ </i>
+ <i t="ddtek:edi-to-xml-from-url()">
+  <j l="built-in_functions2.html#wp333006" />
+ </i>
+ <i t="ddtek:is-valid">
+  <j l="built-in_functions2.html#wp310400" />
+ </i>
+ <i t="ddtek:javaCast()">
+  <j l="built-in_functions2.html#wp288868" />
+ </i>
+ <i t="ddtek:parse()">
+  <j l="built-in_functions2.html#wp288977" />
+ </i>
+ <i t="ddtek:serialize()">
+  <j l="built-in_functions2.html#wp284683" />
+ </i>
+ <i t="ddtek:serialize-to-url">
+  <j l="built-in_functions2.html#wp299047" />
+ </i>
+ <i t="ddtek:sql-delete">
+  <j l="relationaldata4.html#wp223042" />
+  <j l="built-in_functions2.html#wp330711" />
+ </i>
+ <i t="ddtek:sql-insert">
+  <j l="relationaldata4.html#wp222992" />
+  <j l="built-in_functions2.html#wp328291" />
+ </i>
+ <i t="ddtek:sql-update">
+  <j l="relationaldata4.html#wp223018" />
+  <j l="built-in_functions2.html#wp328316" />
+ </i>
+ <i t="ddtek:trim()">
+  <j l="built-in_functions2.html#wp326847" />
+ </i>
+ <i t="ddtek:validate()">
+  <j l="built-in_functions2.html#wp289185" />
+ </i>
+ <i t="ddtek:wscall()">
+  <j l="built-in_functions2.html#wp285028" />
+ </i>
+ <i t="DDXQDataSource">
+  <j l="conf_sourcefiles6.html#wp198057" />
+  <i t="AllowJavaFunctions property">
+   <j l="conf_sourcefiles6.html#wp182062" />
+  </i>
+  <i t="BaseUri property">
+   <j l="conf_sourcefiles6.html#wp182069" />
+  </i>
+  <i t="Collation property">
+   <j l="conf_sourcefiles6.html#wp182080" />
+  </i>
+  <i t="constructing an XQDataSource instance">
+   <j l="conf_sourcefiles4.html#wp181922" />
+  </i>
+  <i t="DocumentUriResolver property">
+   <j l="conf_sourcefiles6.html#wp182091" />
+  </i>
+  <i t="JdbcName property">
+   <j l="conf_sourcefiles6.html#wp182102" />
+  </i>
+  <i t="JdbcOptions property">
+   <j l="conf_sourcefiles6.html#wp182111" />
+  </i>
+  <i t="JdbcSqlXmlForest property">
+   <j l="conf_sourcefiles6.html#wp198070" />
+  </i>
+  <i t="JdbcSqlXmlIdentifierEscaping property">
+   <j l="conf_sourcefiles6.html#wp198074" />
+  </i>
+  <i t="JdbcTempTableColumns property">
+   <j l="conf_sourcefiles6.html#wp199947" />
+  </i>
+  <i t="JdbcTempTableSuffix property">
+   <j l="conf_sourcefiles6.html#wp198078" />
+  </i>
+  <i t="JDBCTransactionIsolationLevel property">
+   <j l="conf_sourcefiles6.html#wp198084" />
+  </i>
+  <i t="JdbcUrl property">
+   <j l="conf_sourcefiles6.html#wp182134" />
+  </i>
+  <i t="loading object from JNDI">
+   <j l="conf_sourcefiles5.html#wp181987" />
+  </i>
+  <i t="MaxPooledQueries property">
+   <j l="conf_sourcefiles6.html#wp182142" />
+  </i>
+  <i t="ModuleUriResolver property">
+   <j l="conf_sourcefiles6.html#wp182150" />
+  </i>
+  <i t="Password property">
+   <j l="conf_sourcefiles6.html#wp182158" />
+  </i>
+  <i t="properties">
+   <j l="conf_sourcefiles6.html#wp182031" />
+  </i>
+  <i t="SpyAttributes property">
+   <j l="conf_sourcefiles6.html#wp182181" />
+  </i>
+  <i t="User property">
+   <j l="conf_sourcefiles6.html#wp182200" />
+  </i>
+ </i>
+ <i t="DDXQJDBCConnection">
+  <i t="Name property">
+   <j l="conf_sourcefiles6.html#wp182234" />
+  </i>
+  <i t="Options property">
+   <j l="conf_sourcefiles6.html#wp199741" />
+  </i>
+  <i t="Password property">
+   <j l="conf_sourcefiles6.html#wp182242" />
+  </i>
+  <i t="properties">
+   <j l="conf_sourcefiles6.html#wp182031" />
+  </i>
+  <i t="SqlXmlIdentifierEscaping property">
+   <j l="conf_sourcefiles6.html#wp204465" />
+  </i>
+  <i t="TempTableColumns property">
+   <j l="conf_sourcefiles6.html#wp204532" />
+  </i>
+  <i t="TempTableSuffix property">
+   <j l="conf_sourcefiles6.html#wp204544" />
+  </i>
+  <i t="Url property">
+   <j l="conf_sourcefiles6.html#wp182272" />
+  </i>
+  <i t="User property">
+   <j l="conf_sourcefiles6.html#wp182280" />
+  </i>
+ </i>
+ <i t="declaring Java functions">
+  <j l="advancedfeatures9.html#wp246643" />
+ </i>
+ <i t="default collation">
+  <j l="conf_sourcefiles6.html#wp182084" />
+  <j l="advancedfeatures8.html#wp212044" />
+  <j l="sourceconfigfilestructure4.html#wp141151" />
+ </i>
+ <i t="deferred binding">
+  <j l="xqjsupport21.html#wp158949" />
+ </i>
+ <i t="deleting relational data">
+  <j l="relationaldata4.html#wp223042" />
+  <j l="built-in_functions2.html#wp330711" />
+ </i>
+ <i t="description for SQL adaptor">
+  <j l="sourceconfigfilestructure4.html#wp142507" />
+ </i>
+ <i t="detect-XPST0005 option declaration">
+  <j l="advancedfeatures2.html#wp238422" />
+ </i>
+ <i t="disassembling strings">
+  <j l="functions_and_operators.html#wp323961" />
+ </i>
+ <i t="document order">
+  <j l="xquerysupport2.html#wp103440" />
+ </i>
+ <i t="document URI resolver">
+  <j l="sourceconfigfilestructure4.html#wp142036" />
+ </i>
+ <i t="documentation, about">
+  <j l="preface4.html#wp1017727" />
+ </i>
+ <i t="DocumentUriResolver property">
+  <j l="conf_sourcefiles6.html#wp182091" />
+ </i>
+ <i t="DOM">
+  <i t="compliance level">
+   <j l="xqjsupport20.html#wp126184" />
+  </i>
+  <i t="logging content of using DataDirect Spy">
+   <j l="troubleshooting2.html#wp137150" />
+  </i>
+  <i t="returning results">
+   <j l="tutorial_ddxquery7.html#wp145153" />
+  </i>
+ </i>
+ <i t="DOM trees, querying data from">
+  <j l="tutorial_ddxquery5.html#wp144334" />
+ </i>
+ <i t="domain controller">
+  <j l="connection_security4.html#wp239847" />
+ </i>
+ <i t="durations, dates, and times">
+  <i t="comparison of values">
+   <j l="functions_and_operators.html#wp324387" />
+  </i>
+  <i t="functions on">
+   <j l="functions_and_operators.html#wp324320" />
+  </i>
+  <i t="operators on">
+   <j l="functions_and_operators.html#wp324320" />
+  </i>
+ </i>
+ <i t="durations, ordered subtypes of">
+  <j l="functions_and_operators.html#wp324382" />
+ </i>
+ <i t="DynamicSections property (DB2)">
+  <j l="database_support5.html#wp293781" />
+ </i>
+ <i t="EDI">
+  <i t="analyzing data sources">
+   <j l="advancedfeatures6.html#wp243227" />
+  </i>
+  <i t="converting to XML">
+   <j l="advancedfeatures6.html#wp243227" />
+  </i>
+  <i t="detecting errors in">
+   <j l="advancedfeatures6.html#wp243227" />
+  </i>
+ </i>
+ <i t="enabling">
+  <i t="logging that uses a file other than the default">
+   <j l="troubleshooting3.html#wp138054" />
+  </i>
+  <i t="Plan Explain">
+   <j l="advancedfeatures7.html#wp212561" />
+  </i>
+ </i>
+ <i t="enclosed expressions">
+  <j l="tutorial_xquery3.html#wp148672" />
+ </i>
+ <i t="encoding">
+  <i t="encoding XQuery Web service results">
+   <j l="http_functions3.html#wp238568" />
+  </i>
+ </i>
+ <i t="encryption">
+  <i t="configuring SSL">
+   <i t="for DB2">
+    <j l="connection_security5.html#wp240140" />
+   </i>
+   <i t="for Microsoft SQL Server">
+    <j l="connection_security5.html#wp240173" />
+   </i>
+   <i t="for Oracle">
+    <j l="connection_security5.html#wp240156" />
+   </i>
+   <i t="for Sybase">
+    <j l="connection_security5.html#wp240251" />
+   </i>
+  </i>
+  <i t="data encryption">
+   <j l="connection_security5.html#wp239917" />
+  </i>
+  <i t="data encryption for DB2">
+   <j l="connection_security5.html#wp240057" />
+  </i>
+  <i t="database-specific">
+   <j l="connection_security5.html#wp239959" />
+  </i>
+  <i t="performance optimization">
+   <j l="connection_security5.html#wp239924" />
+  </i>
+  <i t="SSL support">
+   <j l="connection_security5.html#wp239964" />
+  </i>
+  <i t="support">
+   <j l="connection_security5.html#wp239972" />
+  </i>
+  <i t="supported types of">
+   <j l="connection_security5.html#wp239957" />
+  </i>
+ </i>
+ <i t="equality of strings">
+  <j l="functions_and_operators.html#wp323993" />
+ </i>
+ <i t="equals">
+  <j l="functions_and_operators.html#wp325096" />
+ </i>
+ <i t="err:XPST0005, raising during static analysis">
+  <j l="advancedfeatures2.html#wp238426" />
+ </i>
+ <i t="error function">
+  <j l="functions_and_operators.html#wp323532" />
+ </i>
+ <i t="error handling">
+  <i t="static type errors">
+   <j l="troubleshooting5.html#wp137725" />
+  </i>
+  <i t="support">
+   <j l="xquerysupport2.html#wp177766" />
+  </i>
+ </i>
+ <i t="errors, fn:collection()">
+  <j l="troubleshooting4.html#wp136634" />
+ </i>
+ <i t="escaping of identifiers">
+  <j l="conf_sourcefiles6.html#wp198095" />
+  <j l="conf_sourcefiles6.html#wp205174" />
+  <j l="sourceconfigfilestructure4.html#wp138542" />
+ </i>
+ <i t="evaluate-in-memory extension expression">
+  <j l="advancedfeatures2.html#wp174265" />
+ </i>
+ <i t="events, StAX">
+  <j l="xqjsupport20.html#wp126222" />
+ </i>
+ <i t="examples">
+  <i t="combining data from XML and relational sources">
+   <j l="overview3.html#wp142192" />
+  </i>
+  <i t="configuring">
+   <j l="examples3.html#wp138542" />
+  </i>
+  <i t="connecting to multiple databases">
+   <j l="conf_sourcefiles4.html#wp181944" />
+  </i>
+  <i t="creating a specific XML structure">
+   <j l="overview3.html#wp142181" />
+  </i>
+  <i t="DataDirect Spy, log">
+   <j l="troubleshooting2.html#wp137182" />
+  </i>
+  <i t="execution plan">
+   <j l="advancedfeatures7.html#wp215920" />
+  </i>
+  <i t="Java example using XQJ">
+   <j l="overview4.html#wp143219" />
+  </i>
+  <i t="modifying logging.properties">
+   <j l="troubleshooting3.html#wp138042" />
+  </i>
+  <i t="net service name entry in tnsnames.ora file">
+   <j l="database_support5.html#wp294218" />
+  </i>
+  <i t="obtaining a javax.security.auth.Subject for authentication">
+   <j l="connection_security3.html#wp239740" />
+  </i>
+  <i t="provided with DataDirect XQuery">
+   <i t="about">
+    <j l="examples4.html#wp138589" />
+   </i>
+   <i t="required software">
+    <j l="examples2.html#wp138526" />
+   </i>
+  </i>
+  <i t="simple query using a FLWOR expression">
+   <j l="overview3.html#wp142160" />
+  </i>
+  <i t="using the XMLFOREST variable">
+   <j l="conf_sourcefiles2.html#wp188311" />
+  </i>
+ </i>
+ <i t="except">
+  <j l="functions_and_operators.html#wp325096" />
+ </i>
+ <i t="executing updates in XQJ">
+  <j l="tutorial_ddxquery9.html#wp157573" />
+  <j l="xuf_support7.html#wp222301" />
+ </i>
+ <i t="execution plans">
+  <i t="example">
+   <j l="advancedfeatures7.html#wp215920" />
+  </i>
+  <i t="format of">
+   <j l="advancedfeatures7.html#wp212356" />
+  </i>
+  <i t="generating">
+   <j l="advancedfeatures7.html#wp212077" />
+  </i>
+ </i>
+ <i t="expression context">
+  <j l="xquerysupport2.html#wp102605" />
+ </i>
+ <i t="expression, prepared">
+  <j l="xqjsupport12.html#wp152550" />
+ </i>
+ <i t="expressions">
+  <i t="arithmetic">
+   <j l="xquerysupport3.html#wp216439" />
+  </i>
+  <i t="comparison">
+   <j l="xquerysupport3.html#wp133557" />
+  </i>
+  <i t="conditional">
+   <j l="xquerysupport3.html#wp105750" />
+  </i>
+  <i t="constructors">
+   <j l="xquerysupport3.html#wp179554" />
+  </i>
+  <i t="extension expressions">
+   <j l="advancedfeatures2.html#wp204752" />
+  </i>
+  <i t="FLWOR">
+   <j l="xquerysupport3.html#wp105495" />
+  </i>
+  <i t="introduction">
+   <j l="xquerysupport3.html#wp240279" />
+  </i>
+  <i t="logical">
+   <j l="xquerysupport3.html#wp105128" />
+  </i>
+  <i t="on SequenceTypes">
+   <j l="xquerysupport3.html#wp105999" />
+  </i>
+  <i t="ordered">
+   <j l="xquerysupport3.html#wp105677" />
+  </i>
+  <i t="path">
+   <j l="xquerysupport3.html#wp104383" />
+  </i>
+  <i t="primary">
+   <j l="xquerysupport3.html#wp104242" />
+  </i>
+  <i t="quantified">
+   <j l="xquerysupport3.html#wp105928" />
+  </i>
+  <i t="sequence">
+   <j l="xquerysupport3.html#wp133365" />
+  </i>
+  <i t="unordered">
+   <j l="xquerysupport3.html#wp105677" />
+  </i>
+  <i t="validate">
+   <j l="xquerysupport3.html#wp106469" />
+  </i>
+ </i>
+ <i t="extension expressions">
+  <i t="description">
+   <j l="advancedfeatures2.html#wp204752" />
+  </i>
+  <i t="evaluate-in-memory">
+   <j l="advancedfeatures2.html#wp174265" />
+  </i>
+  <i t="using">
+   <j l="advancedfeatures2.html#wp204556" />
+   <j l="advancedfeatures2.html#wp174265" />
+  </i>
+ </i>
+ <i t="extensions, static typing">
+  <j l="troubleshooting5.html#wp137801" />
+ </i>
+ <i t="external functions">
+  <i t="Java">
+   <j l="advancedfeatures9.html#wp246636" />
+  </i>
+  <i t="SQL">
+   <j l="advancedfeatures9.html#wp246998" />
+  </i>
+  <i t="supported by DataDirect XQuery">
+   <j l="advancedfeatures9.html#wp246598" />
+  </i>
+ </i>
+ <i t="external variables">
+  <i t="types">
+   <j l="troubleshooting5.html#wp137738" />
+  </i>
+  <i t="XQJ">
+   <j l="conf_sourcefiles2.html#wp184903" />
+  </i>
+ </i>
+ <i t="ExtLogControl class">
+  <j l="troubleshooting2.html#wp137231" />
+ </i>
+ <i t="features, DataDirect XQuery">
+  <j l="overview2.html#wp143429" />
+ </i>
+ <i t="files">
+  <i t="querying multiple">
+   <j l="advancedfeatures3.html#wp229917" />
+  </i>
+  <i t="querying multiple files">
+   <j l="advancedfeatures3.html#wp219066" />
+  </i>
+ </i>
+ <i t="finding XML nodes">
+  <j l="tutorial_xquery2.html#wp144942" />
+ </i>
+ <i t="FLWOR expression">
+  <i t="binding sequence">
+   <j l="tutorial_xquery5.html#wp153647" />
+  </i>
+  <i t="definition of">
+   <j l="tutorial_xquery.html#wp146603" />
+  </i>
+  <i t="example">
+   <j l="overview3.html#wp142160" />
+  </i>
+  <i t="grouping data">
+   <j l="tutorial_xquery5.html#wp153483" />
+  </i>
+  <i t="restructuring data">
+   <j l="tutorial_xquery4.html#wp150422" />
+  </i>
+  <i t="sliding windows">
+   <j l="tutorial_xquery5.html#wp153685" />
+  </i>
+  <i t="support for">
+   <j l="xquerysupport3.html#wp105495" />
+  </i>
+  <i t="tumbling windows">
+   <j l="tutorial_xquery5.html#wp153681" />
+  </i>
+  <i t="window clause">
+   <j l="tutorial_xquery5.html#wp153647" />
+  </i>
+  <i t="XMLFOREST">
+   <j l="conf_sourcefiles2.html#wp188305" />
+  </i>
+ </i>
+ <i t="fn:collection() errors">
+  <j l="troubleshooting4.html#wp136634" />
+ </i>
+ <i t="forest element">
+  <j l="sourceconfigfilestructure4.html#wp142822" />
+ </i>
+ <i t="format, connection URI">
+  <i t="third-party drivers">
+   <j l="conf_sourcefiles7.html#wp209990" />
+  </i>
+ </i>
+ <i t="format, execution plans">
+  <j l="advancedfeatures7.html#wp212356" />
+ </i>
+ <i t="formatting dates">
+  <i t="examples">
+   <j l="built-in_functions2.html#wp335979" />
+  </i>
+ </i>
+ <i t="formatting date-time">
+  <i t="examples">
+   <j l="built-in_functions2.html#wp336273" />
+  </i>
+ </i>
+ <i t="formatting methods">
+  <i t="ddtek:format-date built-in function">
+   <j l="built-in_functions2.html#wp334378" />
+  </i>
+  <i t="ddtek:format-date-time built-in function">
+   <j l="built-in_functions2.html#wp334254" />
+  </i>
+  <i t="ddtek:format-number built-in function">
+   <j l="built-in_functions2.html#wp334295" />
+  </i>
+  <i t="ddtek:format-time built-in function">
+   <j l="built-in_functions2.html#wp334396" />
+  </i>
+ </i>
+ <i t="formatting numbers">
+  <i t="examples">
+   <j l="built-in_functions2.html#wp337045" />
+  </i>
+ </i>
+ <i t="formatting time">
+  <i t="examples">
+   <j l="built-in_functions2.html#wp336303" />
+  </i>
+ </i>
+ <i t="function calls">
+  <i t="resolving Java function calls">
+   <j l="advancedfeatures9.html#wp246916" />
+  </i>
+ </i>
+ <i t="functions">
+  <i t="aggregate">
+   <j l="functions_and_operators.html#wp325139" />
+  </i>
+  <i t="aggregation and streaming XML">
+   <j l="improvingperformance2.html#wp205424" />
+  </i>
+  <i t="based on substring matching">
+   <j l="functions_and_operators.html#wp324103" />
+  </i>
+  <i t="compensating for functions with no SQL equivalent">
+   <j l="improvingperformance4.html#wp194682" />
+  </i>
+  <i t="component extraction">
+   <j l="functions_and_operators.html#wp324496" />
+  </i>
+  <i t="constructor">
+   <j l="functions_and_operators.html#wp323590" />
+  </i>
+  <i t="external functions">
+   <j l="advancedfeatures9.html#wp246598" />
+  </i>
+  <i t="for anyURI">
+   <j l="functions_and_operators.html#wp324200" />
+  </i>
+  <i t="introduction">
+   <j l="functions_and_operators.html#wp322322" />
+  </i>
+  <i t="Java external functions">
+   <j l="advancedfeatures9.html#wp246636" />
+  </i>
+  <i t="on base64Binary and hexBinary">
+   <j l="functions_and_operators.html#wp324863" />
+  </i>
+  <i t="on boolean values">
+   <j l="functions_and_operators.html#wp324294" />
+  </i>
+  <i t="on durations, dates, and times">
+   <j l="functions_and_operators.html#wp324320" />
+  </i>
+  <i t="on nodes">
+   <j l="functions_and_operators.html#wp324923" />
+  </i>
+  <i t="on NOTATION">
+   <j l="functions_and_operators.html#wp324896" />
+  </i>
+  <i t="on numeric">
+   <j l="functions_and_operators.html#wp323823" />
+  </i>
+  <i t="on numeric values">
+   <j l="functions_and_operators.html#wp323913" />
+  </i>
+  <i t="on sequences">
+   <j l="functions_and_operators.html#wp324983" />
+  </i>
+  <i t="on string values">
+   <j l="functions_and_operators.html#wp324027" />
+  </i>
+  <i t="on strings">
+   <j l="functions_and_operators.html#wp323958" />
+  </i>
+  <i t="related to QNames">
+   <j l="functions_and_operators.html#wp324780" />
+  </i>
+  <i t="SQL external functions">
+   <j l="advancedfeatures9.html#wp246998" />
+  </i>
+  <i t="SQL table functions">
+   <j l="advancedfeatures9.html#wp247199" />
+  </i>
+  <i t="that generate sequences">
+   <j l="functions_and_operators.html#wp325180" />
+  </i>
+  <i t="to assemble and disassemble strings">
+   <j l="functions_and_operators.html#wp323961" />
+  </i>
+  <i t="trace">
+   <j l="functions_and_operators.html#wp323561" />
+  </i>
+ </i>
+ <i t="general comparisons">
+  <i t="compared to value comparisons">
+   <j l="improvingperformance3.html#wp204580" />
+  </i>
+ </i>
+ <i t="generated SQL, simplifying">
+  <j l="relationaldata2.html#wp222639" />
+ </i>
+ <i t="generating">
+  <i t="DataDirect Spy log">
+   <j l="troubleshooting2.html#wp137179" />
+  </i>
+  <i t="XQuery execution plan">
+   <j l="advancedfeatures7.html#wp212090" />
+  </i>
+ </i>
+ <i t="getting started">
+  <i t="configuring connections">
+   <j l="quickstart2.html#wp923047" />
+  </i>
+  <i t="with DataDirect XQuery after installation">
+   <j l="quickstart.html#wp938056" />
+  </i>
+  <i t="with DataDirect XQuery examples 24">
+  </i>
+  <i t="XQJ">
+   <j l="quickstart2.html#wp936526" />
+  </i>
+ </i>
+ <i t="global option declaration">
+  <j l="conf_sourcefiles6.html#wp198046" />
+  <j l="advancedfeatures2.html#wp237278" />
+  <j l="sourceconfigfilestructure4.html#wp142326" />
+ </i>
+ <i t="Grantee property (DB2)">
+  <j l="database_support5.html#wp293788" />
+ </i>
+ <i t="GrantExecute property (DB2)">
+  <j l="database_support5.html#wp293803" />
+ </i>
+ <i t="grouping data">
+  <j l="tutorial_xquery5.html#wp153483" />
+ </i>
+ <i t="handling Unicode characters for collations">
+  <j l="advancedfeatures8.html#wp212041" />
+ </i>
+ <i t="handshake, SSL">
+  <j l="connection_security5.html#wp240069" />
+ </i>
+ <i t="help, online">
+  <j l="preface4.html#wp1034020" />
+ </i>
+ <i t="hexBinary, functions and operators on">
+  <j l="functions_and_operators.html#wp324863" />
+ </i>
+ <i t="HTTP functions">
+  <i t="DataDirect XQuery implementations of">
+   <j l="http_functions3.html#wp234489" />
+  </i>
+  <i t="settings for connections and sockets">
+   <j l="http_functions3.html#wp238411" />
+  </i>
+  <i t="XML Schema for requests">
+   <j l="http_functions5.html#wp235636" />
+  </i>
+  <i t="XML Schema for responses">
+   <j l="http_functions5.html#wp235700" />
+  </i>
+ </i>
+ <i t="HTTP GET">
+  <i t="XQueryWebService framework and">
+   <j l="webserviceframework2.html#wp211257" />
+  </i>
+ </i>
+ <i t="HTTP methods">
+  <i t="ddtek:http-delete built-in function">
+   <j l="built-in_functions2.html#wp323989" />
+  </i>
+  <i t="ddtek:http-get built-in function">
+   <j l="built-in_functions2.html#wp324144" />
+  </i>
+  <i t="ddtek:http-head built-in function">
+   <j l="built-in_functions2.html#wp324243" />
+  </i>
+  <i t="ddtek:http-options built-in function">
+   <j l="built-in_functions2.html#wp325194" />
+  </i>
+  <i t="ddtek:http-post built-in function">
+   <j l="built-in_functions2.html#wp325204" />
+  </i>
+  <i t="ddtek:http-put built-in function">
+   <j l="built-in_functions2.html#wp325220" />
+  </i>
+  <i t="ddtek:http-trace built-in function">
+   <j l="built-in_functions2.html#wp325233" />
+  </i>
+ </i>
+ <i t="HTTP POST">
+  <i t="XQueryWebService framework and">
+   <j l="webserviceframework2.html#wp211445" />
+  </i>
+ </i>
+ <i t="identifierEscaping element">
+  <j l="sourceconfigfilestructure4.html#wp142822" />
+ </i>
+ <i t="identifiers, escaping of">
+  <j l="conf_sourcefiles6.html#wp198095" />
+  <j l="conf_sourcefiles6.html#wp205174" />
+  <j l="sourceconfigfilestructure4.html#wp138542" />
+ </i>
+ <i t="ignore-whitespace option declaration">
+  <j l="advancedfeatures2.html#wp238430" />
+ </i>
+ <i t="Informix">
+  <i t="connection properties">
+   <j l="database_support5.html#wp293921" />
+  </i>
+  <i t="data types">
+   <j l="database_support3.html#wp299751" />
+  </i>
+  <i t="DatabaseName property">
+   <j l="database_support5.html#wp293941" />
+  </i>
+  <i t="InformixServer property">
+   <j l="database_support5.html#wp293947" />
+  </i>
+  <i t="InitializationString property">
+   <j l="database_support5.html#wp293953" />
+  </i>
+  <i t="password">
+   <j l="database_support5.html#wp293964" />
+  </i>
+  <i t="Password property">
+   <j l="database_support5.html#wp293961" />
+  </i>
+  <i t="user name">
+   <j l="database_support5.html#wp293971" />
+  </i>
+  <i t="User property">
+   <j l="database_support5.html#wp293967" />
+  </i>
+  <i t="versions supported">
+   <j l="conf_sourcefiles2.html#wp213454" />
+   <j l="database_support2.html#wp305737" />
+  </i>
+ </i>
+ <i t="InformixServer property (Informix)">
+  <j l="database_support5.html#wp293947" />
+ </i>
+ <i t="Infoset mapping">
+  <j l="conf_sourcefiles2.html#wp184915" />
+  <j l="xquerysupport5.html#wp146409" />
+ </i>
+ <i t="initial naming context">
+  <j l="conf_sourcefiles5.html#wp181992" />
+ </i>
+ <i t="InitializationString property">
+  <i t="DB2">
+   <j l="database_support5.html#wp293815" />
+  </i>
+  <i t="Informix">
+   <j l="database_support5.html#wp293953" />
+  </i>
+  <i t="MySQL Enterprise">
+   <j l="database_support5.html#wp294002" />
+  </i>
+  <i t="Oracle">
+   <j l="database_support5.html#wp310645" />
+  </i>
+  <i t="SQL Server">
+   <j l="database_support5.html#wp296407" />
+  </i>
+  <i t="Sybase">
+   <j l="database_support5.html#wp309288" />
+  </i>
+ </i>
+ <i t="initializing JNDI environment">
+  <j l="conf_sourcefiles5.html#wp181992" />
+ </i>
+ <i t="insert expression">
+  <j l="xuf_support6.html#wp218964" />
+ </i>
+ <i t="inserting relational data">
+  <j l="relationaldata4.html#wp222992" />
+  <j l="built-in_functions2.html#wp328291" />
+ </i>
+ <i t="instance method, Java functions">
+  <j l="advancedfeatures9.html#wp246672" />
+ </i>
+ <i t="interface">
+  <i t="XQConnection">
+   <j l="xqjsupport3.html#wp155579" />
+  </i>
+  <i t="XQDataSource">
+   <j l="xqjsupport5.html#wp173603" />
+  </i>
+  <i t="XQDynamicContext">
+   <j l="xqjsupport6.html#wp155788" />
+  </i>
+  <i t="XQExpression">
+   <j l="xqjsupport7.html#wp155893" />
+  </i>
+  <i t="XQItem">
+   <j l="xqjsupport8.html#wp163941" />
+  </i>
+  <i t="XQItemAccessor">
+   <j l="xqjsupport9.html#wp155985" />
+  </i>
+  <i t="XQItemType">
+   <j l="xqjsupport10.html#wp156384" />
+  </i>
+  <i t="XQMetaData">
+   <j l="xqjsupport11.html#wp147283" />
+  </i>
+  <i t="XQPreparedExpression">
+   <j l="xqjsupport12.html#wp152550" />
+  </i>
+  <i t="XQResultItem">
+   <j l="xqjsupport13.html#wp124337" />
+  </i>
+  <i t="XQResultSequence">
+   <j l="xqjsupport14.html#wp134712" />
+  </i>
+  <i t="XQSequence">
+   <j l="xqjsupport15.html#wp124499" />
+  </i>
+  <i t="XQSequenceType">
+   <j l="xqjsupport16.html#wp131358" />
+  </i>
+  <i t="XQStaticContext">
+   <j l="xqjsupport17.html#wp162779" />
+  </i>
+ </i>
+ <i t="intersection">
+  <j l="functions_and_operators.html#wp325096" />
+ </i>
+ <i t="invoking a Web service operation">
+  <j l="built-in_functions2.html#wp285028" />
+ </i>
+ <i t="isolation levels">
+  <j l="conf_sourcefiles6.html#wp198082" />
+ </i>
+ <i t="JAR files, querying">
+  <j l="advancedfeatures4.html#wp246388" />
+ </i>
+ <i t="jar files, setting in CLASSPATH">
+  <j l="quickstart2.html#wp964074" />
+ </i>
+ <i t="Java">
+  <i t="built-in function to return Java system properties">
+   <j l="built-in_functions2.html#wp326689" />
+  </i>
+  <i t="developing an application that executes a query">
+   <j l="quickstart2.html#wp936526" />
+  </i>
+  <i t="logging">
+   <j l="troubleshooting3.html#wp138035" />
+  </i>
+  <i t="specifying connection information in the application">
+   <j l="conf_sourcefiles3.html#wp202801" />
+  </i>
+ </i>
+ <i t="Java 2 Platform">
+  <i t="applet permissions">
+   <j l="connection_security4.html#wp239897" />
+  </i>
+  <i t="permissions">
+   <i t="for establishing connections">
+    <j l="connection_security4.html#wp239893" />
+   </i>
+   <i t="Kerberos authentication">
+    <j l="connection_security3.html#wp239627" />
+   </i>
+  </i>
+  <i t="Security Manager">
+   <j l="connection_security3.html#wp239629" />
+   <j l="connection_security4.html#wp239894" />
+  </i>
+ </i>
+ <i t="Java functions">
+  <i t="allowing">
+   <j l="sourceconfigfilestructure4.html#wp142274" />
+  </i>
+  <i t="declaring">
+   <j l="advancedfeatures9.html#wp246643" />
+  </i>
+  <i t="disabling">
+   <j l="conf_sourcefiles6.html#wp182065" />
+   <j l="advancedfeatures9.html#wp246992" />
+  </i>
+  <i t="instance method">
+   <j l="advancedfeatures9.html#wp246672" />
+  </i>
+  <i t="mapping types to XQuery">
+   <j l="advancedfeatures9.html#wp246700" />
+  </i>
+  <i t="resolving the function call">
+   <j l="advancedfeatures9.html#wp246916" />
+  </i>
+  <i t="SequenceType">
+   <j l="advancedfeatures9.html#wp246700" />
+  </i>
+  <i t="static method">
+   <j l="advancedfeatures9.html#wp246658" />
+  </i>
+  <i t="using">
+   <j l="advancedfeatures9.html#wp246636" />
+  </i>
+ </i>
+ <i t="Java instance methods">
+  <i t="notes about using">
+   <j l="advancedfeatures9.html#wp246947" />
+  </i>
+ </i>
+ <i t="Java Keystore (JKS)">
+  <i t="SSL authentication and">
+   <j l="connection_security5.html#wp240120" />
+  </i>
+ </i>
+ <i t="Java locale, collations">
+  <j l="advancedfeatures8.html#wp212030" />
+ </i>
+ <i t="Java static methods">
+  <j l="advancedfeatures9.html#wp246658" />
+ </i>
+ <i t="Java system properties">
+  <i t="built-in function for">
+   <j l="built-in_functions2.html#wp326689" />
+  </i>
+ </i>
+ <i t="javax.security.auth.Subject">
+  <j l="connection_security3.html#wp239740" />
+ </i>
+ <i t="JDBC connection name">
+  <j l="conf_sourcefiles6.html#wp182106" />
+  <i t="DDXQDataSource property">
+   <j l="conf_sourcefiles6.html#wp182106" />
+  </i>
+  <i t="DDXQJDBCConnection property">
+   <j l="conf_sourcefiles6.html#wp182237" />
+  </i>
+  <i t="qualifying table name with">
+   <j l="conf_sourcefiles2.html#wp184949" />
+  </i>
+ </i>
+ <i t="JDBC scalar functions">
+  <j l="advancedfeatures9.html#wp247188" />
+ </i>
+ <i t="JDBC URL">
+  <j l="conf_sourcefiles6.html#wp182137" />
+  <j l="conf_sourcefiles6.html#wp182275" />
+  <j l="sourceconfigfilestructure4.html#wp142549" />
+ </i>
+ <i t="JdbcName property">
+  <j l="conf_sourcefiles6.html#wp182102" />
+ </i>
+ <i t="JdbcOptions property">
+  <j l="conf_sourcefiles6.html#wp182111" />
+ </i>
+ <i t="JdbcPragmas property">
+  <j l="conf_sourcefiles6.html#wp182111" />
+ </i>
+ <i t="JdbcSqlXmlForest property">
+  <j l="conf_sourcefiles6.html#wp198070" />
+ </i>
+ <i t="JdbcSqlXmlIdentifierEscaping property">
+  <j l="conf_sourcefiles6.html#wp198074" />
+ </i>
+ <i t="JdbcTempTableColumns property">
+  <j l="conf_sourcefiles6.html#wp199947" />
+ </i>
+ <i t="JdbcTempTableSuffix property">
+  <j l="conf_sourcefiles6.html#wp198078" />
+ </i>
+ <i t="JDBCTransactionIsolationLevel property">
+  <j l="conf_sourcefiles6.html#wp198084" />
+ </i>
+ <i t="JdbcUrl property">
+  <j l="conf_sourcefiles6.html#wp182134" />
+ </i>
+ <i t="JNDI">
+  <i t="advantages of">
+   <j l="conf_sourcefiles3.html#wp181905" />
+  </i>
+  <i t="initializing environment">
+   <j l="conf_sourcefiles5.html#wp181992" />
+  </i>
+  <i t="loading a DDXQDataSource object from">
+   <j l="conf_sourcefiles5.html#wp181987" />
+  </i>
+  <i t="registering data source object">
+   <j l="conf_sourcefiles5.html#wp181982" />
+  </i>
+  <i t="using initial naming context to find name of data source object">
+   <j l="conf_sourcefiles5.html#wp181992" />
+  </i>
+  <i t="using JNDIDataSource example file as a template">
+   <j l="conf_sourcefiles5.html#wp181980" />
+  </i>
+ </i>
+ <i t="JNDIDataSource example file">
+  <i t="using as a template to create data source object for JNDI">
+   <j l="conf_sourcefiles5.html#wp181980" />
+  </i>
+ </i>
+ <i t="joining data">
+  <j l="tutorial_ddxquery6.html#wp144698" />
+ </i>
+ <i t="JSR 255">
+  <j l="overview4.html#wp132462" />
+ </i>
+ <i t="Kerberos">
+  <i t="authentication">
+   <j l="connection_security3.html#wp239536" />
+  </i>
+ </i>
+ <i t="Kerberos authentication">
+  <j l="connection_security3.html#wp239802" />
+  <i t="configuring">
+   <j l="connection_security3.html#wp239599" />
+  </i>
+  <i t="database support">
+   <j l="connection_security3.html#wp239538" />
+  </i>
+  <i t="Java 2 platform permissions">
+   <j l="connection_security3.html#wp239627" />
+  </i>
+  <i t="javax.security.auth.Subject">
+   <j l="connection_security3.html#wp239740" />
+  </i>
+  <i t="Kerberos configuration file">
+   <j l="connection_security3.html#wp239602" />
+  </i>
+  <i t="Kerberos server">
+   <j l="connection_security3.html#wp239580" />
+  </i>
+  <i t="Key Distribution Center (KDC)">
+   <j l="connection_security3.html#wp239582" />
+  </i>
+  <i t="kinit command (UNIX and Linux)">
+   <j l="connection_security3.html#wp239805" />
+  </i>
+  <i t="MIT Kerberos">
+   <j l="connection_security3.html#wp239591" />
+  </i>
+  <i t="permissions">
+   <i t="DB2">
+    <j l="connection_security3.html#wp239640" />
+   </i>
+   <i t="Kerberos">
+    <j l="connection_security3.html#wp239629" />
+   </i>
+   <i t="Oracle">
+    <j l="connection_security3.html#wp239660" />
+   </i>
+   <i t="SQL Server">
+    <j l="connection_security3.html#wp239696" />
+   </i>
+   <i t="Sybase">
+    <j l="connection_security3.html#wp239715" />
+   </i>
+  </i>
+  <i t="requirements">
+   <j l="connection_security3.html#wp239555" />
+  </i>
+  <i t="service principal name">
+   <i t="DB2">
+    <j l="connection_security3.html#wp239654" />
+   </i>
+   <i t="Sybase">
+    <j l="connection_security3.html#wp239732" />
+   </i>
+  </i>
+  <i t="specifying user credentials">
+   <j l="connection_security3.html#wp239738" />
+  </i>
+  <i t="Ticket Granting Ticket (TGT)">
+   <j l="connection_security3.html#wp239802" />
+  </i>
+  <i t="user credentials, specifying">
+   <j l="connection_security3.html#wp239734" />
+  </i>
+ </i>
+ <i t="Kerberos configuration file">
+  <j l="connection_security3.html#wp239602" />
+ </i>
+ <i t="Kerberos Key Distribution Center (KDC)">
+  <j l="connection_security3.html#wp239609" />
+ </i>
+ <i t="Kerberos realm">
+  <i t="DB2">
+   <j l="connection_security3.html#wp239657" />
+  </i>
+  <i t="Oracle">
+   <j l="connection_security3.html#wp239675" />
+  </i>
+  <i t="SQL Server">
+   <j l="connection_security3.html#wp239711" />
+  </i>
+  <i t="Sybase">
+   <j l="connection_security3.html#wp239730" />
+  </i>
+ </i>
+ <i t="keystore, SSL">
+  <j l="connection_security5.html#wp240115" />
+ </i>
+ <i t="kinit command, Kerberos authentication">
+  <j l="connection_security3.html#wp239805" />
+ </i>
+ <i t="large XML documents, querying">
+  <j l="improvingperformance2.html#wp205272" />
+ </i>
+ <i t="library module URI resolver">
+  <j l="sourceconfigfilestructure4.html#wp142117" />
+ </i>
+ <i t="literal expressions">
+  <j l="xquerysupport3.html#wp170338" />
+ </i>
+ <i t="literal translation">
+  <j l="advancedfeatures2.html#wp239826" />
+ </i>
+ <i t="literal XML constructors">
+  <j l="tutorial_xquery3.html#wp148397" />
+ </i>
+ <i t="loading a DDXQDataSource object from JNDI">
+  <j l="conf_sourcefiles5.html#wp181987" />
+ </i>
+ <i t="LoadLibraryPath property">
+  <i t="Oracle">
+   <j l="database_support5.html#wp310654" />
+  </i>
+  <i t="SQL Server">
+   <j l="database_support5.html#wp296416" />
+  </i>
+ </i>
+ <i t="LocationName property (DB2)">
+  <j l="database_support5.html#wp293825" />
+ </i>
+ <i t="log for DataDirect Spy, generating">
+  <j l="troubleshooting2.html#wp137179" />
+ </i>
+ <i t="logging">
+  <i t="DataDirect Spy">
+   <j l="troubleshooting2.html#wp137013" />
+  </i>
+  <i t="Java">
+   <j l="troubleshooting3.html#wp138035" />
+  </i>
+  <i t="using a file other than the default">
+   <j l="troubleshooting3.html#wp138054" />
+  </i>
+ </i>
+ <i t="logging.properties file">
+  <j l="troubleshooting3.html#wp138035" />
+ </i>
+ <i t="logging.properties, modifying">
+  <j l="troubleshooting3.html#wp138040" />
+ </i>
+ <i t="logical expressions">
+  <j l="xquerysupport3.html#wp105128" />
+ </i>
+ <i t="mapping">
+  <i t="a function call to a Java method">
+   <j l="built-in_functions2.html#wp288868" />
+  </i>
+  <i t="data types between XQuery and Java for Java functions">
+   <j l="advancedfeatures9.html#wp246697" />
+  </i>
+  <i t="Oracle connection properties to tnsnames.ora">
+   <j l="database_support5.html#wp294271" />
+  </i>
+ </i>
+ <i t="matching">
+  <i t="pattern">
+   <j l="functions_and_operators.html#wp324159" />
+  </i>
+  <i t="substring">
+   <j l="functions_and_operators.html#wp324103" />
+  </i>
+ </i>
+ <i t="maximum number of prepared statements (DB2)">
+  <j l="database_support5.html#wp293784" />
+ </i>
+ <i t="maximum number of queries in the pool">
+  <j l="conf_sourcefiles6.html#wp182144" />
+ </i>
+ <i t="MaxPooledQueries property">
+  <j l="conf_sourcefiles6.html#wp182142" />
+ </i>
+ <i t="Mediator, DataDirect XQuery">
+  <j l="overview5.html#wp152704" />
+ </i>
+ <i t="method, serialization">
+  <i t="DataDirect XML Converters, using">
+   <j l="serialization_support3.html#wp316916" />
+  </i>
+  <i t="standard">
+   <j l="serialization_support3.html#wp316664" />
+  </i>
+ </i>
+ <i t="methods">
+  <i t="using Java instance methods">
+   <j l="advancedfeatures9.html#wp246947" />
+  </i>
+ </i>
+ <i t="methods, ExtLogControl class">
+  <j l="troubleshooting2.html#wp137231" />
+ </i>
+ <i t="Microsoft SQL Server">
+  <i t="configuring SSL">
+   <j l="connection_security5.html#wp240173" />
+  </i>
+  <i t="Kerberos authentication support">
+   <j l="connection_security3.html#wp239538" />
+  </i>
+ </i>
+ <i t="MIT Kerberos">
+  <j l="connection_security3.html#wp239591" />
+ </i>
+ <i t="module URI resolver">
+  <j l="sourceconfigfilestructure4.html#wp142117" />
+ </i>
+ <i t="modules">
+  <j l="xquerysupport4.html#wp107169" />
+ </i>
+ <i t="ModuleUriResolver property">
+  <j l="conf_sourcefiles6.html#wp182150" />
+ </i>
+ <i t="MS Office Open documents">
+  <i t="querying">
+   <j l="advancedfeatures4.html#wp246388" />
+  </i>
+ </i>
+ <i t="multiple databases, configuring connections to">
+  <j l="conf_sourcefiles4.html#wp181928" />
+ </i>
+ <i t="multiple files, querying">
+  <j l="advancedfeatures3.html#wp219066" />
+  <j l="advancedfeatures3.html#wp229917" />
+ </i>
+ <i t="multi-threading">
+  <j l="xqjsupport19.html#wp126088" />
+ </i>
+ <i t="MySQL Enterprise">
+  <i t="connection properties">
+   <j l="database_support5.html#wp293977" />
+  </i>
+  <i t="DatabaseName property">
+   <j l="database_support5.html#wp293997" />
+  </i>
+  <i t="InitializationString property">
+   <j l="database_support5.html#wp294002" />
+  </i>
+  <i t="password">
+   <j l="database_support5.html#wp294013" />
+  </i>
+  <i t="Password property">
+   <j l="database_support5.html#wp294010" />
+  </i>
+  <i t="user name">
+   <j l="database_support5.html#wp294020" />
+  </i>
+  <i t="User property">
+   <j l="database_support5.html#wp294016" />
+  </i>
+  <i t="versions supported">
+   <j l="conf_sourcefiles2.html#wp217195" />
+   <j l="database_support2.html#wp305745" />
+  </i>
+ </i>
+ <i t="MySQL, data types">
+  <j l="database_support3.html#wp299866" />
+ </i>
+ <i t="Name property">
+  <j l="conf_sourcefiles6.html#wp182234" />
+ </i>
+ <i t="name, JDBC connection">
+  <j l="conf_sourcefiles6.html#wp182106" />
+ </i>
+ <i t="named instances (SQL Server)">
+  <i t="permissions required for">
+   <j l="connection_security4.html#wp239909" />
+  </i>
+ </i>
+ <i t="namespaces, reserved">
+  <j l="xquerysupport6.html#wp148130" />
+ </i>
+ <i t="nodes">
+  <i t="inserting node values">
+   <j l="xuf_support6.html#wp218964" />
+  </i>
+  <i t="renaming node values">
+   <j l="xuf_support7.html#wp218979" />
+  </i>
+  <i t="replacing node values">
+   <j l="xuf_support5.html#wp204592" />
+  </i>
+ </i>
+ <i t="nodes, functions and operators on">
+  <j l="functions_and_operators.html#wp324923" />
+ </i>
+ <i t="NOTATION, functions and operators on">
+  <j l="functions_and_operators.html#wp324896" />
+ </i>
+ <i t="NTLM authentication">
+  <i t="configuring">
+   <j l="connection_security4.html#wp239866" />
+  </i>
+  <i t="DLL">
+   <j l="connection_security4.html#wp239881" />
+  </i>
+  <i t="requirements">
+   <j l="connection_security4.html#wp239825" />
+  </i>
+ </i>
+ <i t="numbers">
+  <i t="formatting">
+   <j l="built-in_functions2.html#wp334295" />
+  </i>
+  <i t="formatting examples">
+   <j l="built-in_functions2.html#wp337045" />
+  </i>
+ </i>
+ <i t="numeric values">
+  <i t="comparison of">
+   <j l="functions_and_operators.html#wp323880" />
+  </i>
+  <i t="functions on">
+   <j l="functions_and_operators.html#wp323913" />
+  </i>
+  <i t="operators on">
+   <j l="functions_and_operators.html#wp323826" />
+  </i>
+ </i>
+ <i t="numerics, functions and operators on">
+  <j l="functions_and_operators.html#wp323823" />
+ </i>
+ <i t="object, ExtConnection">
+  <j l="troubleshooting2.html#wp137237" />
+ </i>
+ <i t="obtaining a Ticket Granting Ticket">
+  <j l="connection_security3.html#wp239802" />
+ </i>
+ <i t="OpenDocument Format documents">
+  <i t="querying">
+   <j l="advancedfeatures4.html#wp246388" />
+  </i>
+ </i>
+ <i t="operators">
+  <i t="for anyURI">
+   <j l="functions_and_operators.html#wp324200" />
+  </i>
+  <i t="introduction">
+   <j l="functions_and_operators.html#wp322322" />
+  </i>
+  <i t="on base64Binary and hexBinary">
+   <j l="functions_and_operators.html#wp324863" />
+  </i>
+  <i t="on boolean values">
+   <j l="functions_and_operators.html#wp324261" />
+  </i>
+  <i t="on durations, dates, and times">
+   <j l="functions_and_operators.html#wp324320" />
+  </i>
+  <i t="on nodes">
+   <j l="functions_and_operators.html#wp324923" />
+  </i>
+  <i t="on NOTATION">
+   <j l="functions_and_operators.html#wp324896" />
+  </i>
+  <i t="on numeric values">
+   <j l="functions_and_operators.html#wp323826" />
+  </i>
+  <i t="on numerics">
+   <j l="functions_and_operators.html#wp323823" />
+  </i>
+  <i t="related to QNames">
+   <j l="functions_and_operators.html#wp324815" />
+  </i>
+  <i t="that generate sequences">
+   <j l="functions_and_operators.html#wp325180" />
+  </i>
+ </i>
+ <i t="option declarations">
+  <i t="connection-specific">
+   <j l="advancedfeatures2.html#wp204556" />
+  </i>
+  <i t="description">
+   <j l="advancedfeatures2.html#wp204752" />
+  </i>
+  <i t="detect-XPST0005">
+   <j l="advancedfeatures2.html#wp238422" />
+  </i>
+  <i t="global">
+   <j l="conf_sourcefiles6.html#wp198046" />
+   <j l="advancedfeatures2.html#wp204556" />
+   <j l="advancedfeatures2.html#wp237278" />
+   <j l="sourceconfigfilestructure4.html#wp142326" />
+  </i>
+  <i t="ignore-whitespace">
+   <j l="advancedfeatures2.html#wp238430" />
+  </i>
+  <i t="plan-explain">
+   <j l="advancedfeatures2.html#wp238437" />
+  </i>
+  <i t="serialize">
+   <j l="advancedfeatures2.html#wp238447" />
+  </i>
+  <i t="specifying">
+   <i t="methods of">
+    <j l="advancedfeatures2.html#wp237733" />
+   </i>
+   <i t="using DDXQDataSource">
+    <j l="conf_sourcefiles6.html#wp182114" />
+   </i>
+   <i t="using DDXQJDBCConnection">
+    <j l="conf_sourcefiles6.html#wp199741" />
+   </i>
+   <i t="using source configuration file">
+    <j l="sourceconfigfilestructure4.html#wp142956" />
+   </i>
+  </i>
+  <i t="sql-decimal-cast">
+   <j l="advancedfeatures2.html#wp239734" />
+  </i>
+  <i t="sql-extra-checks-trailing-spaces">
+   <j l="advancedfeatures2.html#wp239744" />
+  </i>
+  <i t="sql-ignore-trailing-spaces">
+   <j l="advancedfeatures2.html#wp239750" />
+  </i>
+  <i t="sql-ora10-use-binary-float-double">
+   <j l="advancedfeatures2.html#wp242481" />
+  </i>
+  <i t="sql-order-by-on-values">
+   <j l="advancedfeatures2.html#wp239763" />
+  </i>
+  <i t="sql-rewrite-algorithm">
+   <j l="advancedfeatures2.html#wp239773" />
+  </i>
+  <i t="sql-rewrite-exists-into-count">
+   <j l="advancedfeatures2.html#wp242723" />
+  </i>
+  <i t="sql-simple-convert-functions">
+   <j l="advancedfeatures2.html#wp239789" />
+  </i>
+  <i t="sql-simple-string-functions">
+   <j l="advancedfeatures2.html#wp239795" />
+  </i>
+  <i t="sql-sybase-temptable-index">
+   <j l="advancedfeatures2.html#wp242488" />
+  </i>
+  <i t="sql-sybase-use-derived-tables">
+   <j l="advancedfeatures2.html#wp242495" />
+  </i>
+  <i t="sql-unicode-literals">
+   <j l="advancedfeatures2.html#wp239812" />
+  </i>
+  <i t="sql-unicode-strings">
+   <j l="advancedfeatures2.html#wp239821" />
+  </i>
+  <i t="sql-varchar-cast">
+   <j l="advancedfeatures2.html#wp239831" />
+  </i>
+  <i t="using">
+   <j l="advancedfeatures2.html#wp204556" />
+  </i>
+  <i t="xml-streaming">
+   <j l="advancedfeatures2.html#wp238567" />
+  </i>
+ </i>
+ <i t="optional XQuery features">
+  <j l="xquerysupport5.html#wp187013" />
+ </i>
+ <i t="optional XUF features">
+  <i t="support for">
+   <j l="xufsupport3.html#wp314870" />
+  </i>
+ </i>
+ <i t="Options property">
+  <j l="conf_sourcefiles6.html#wp199741" />
+ </i>
+ <i t="ORACLE">
+  <i t="XML-typed data examples">
+   <j l="database_support6.html#wp309624" />
+  </i>
+ </i>
+ <i t="Oracle">
+  <i t="configuring">
+   <i t="tnsnames.ora file">
+    <j l="database_support5.html#wp294254" />
+   </i>
+   <i t="to retrieve connection information from tnsnames.ora file">
+    <j l="database_support5.html#wp294240" />
+   </i>
+  </i>
+  <i t="configuring SSL">
+   <j l="connection_security5.html#wp240156" />
+  </i>
+  <i t="connect descriptors in tnsnames.ora files">
+   <j l="database_support5.html#wp294218" />
+  </i>
+  <i t="connection information, retrieving from tnsnames.ora files">
+   <j l="database_support5.html#wp310735" />
+  </i>
+  <i t="connection properties">
+   <j l="database_support5.html#wp294089" />
+  </i>
+  <i t="data types">
+   <j l="database_support3.html#wp300169" />
+  </i>
+  <i t="InitializationString property">
+   <j l="database_support5.html#wp310645" />
+  </i>
+  <i t="Kerberos authentication support">
+   <j l="connection_security3.html#wp239538" />
+  </i>
+  <i t="Kerberos authentication, permissions required for">
+   <j l="connection_security3.html#wp239660" />
+  </i>
+  <i t="net service name entries in tnsnames.ora files">
+   <j l="database_support5.html#wp294218" />
+  </i>
+  <i t="password">
+   <j l="database_support5.html#wp310669" />
+  </i>
+  <i t="Password property">
+   <j l="database_support5.html#wp310666" />
+  </i>
+  <i t="preventing conflicts when using a tnsnames.ora file">
+   <j l="database_support5.html#wp294255" />
+  </i>
+  <i t="Real Application Clusters (RAC)">
+   <j l="database_support5.html#wp310680" />
+  </i>
+  <i t="SID property">
+   <j l="database_support5.html#wp310689" />
+  </i>
+  <i t="System Identifier (SID)">
+   <j l="database_support5.html#wp310689" />
+  </i>
+  <i t="temporary tables">
+   <j l="sourceconfigfilestructure4.html#wp175956" />
+  </i>
+  <i t="tnsnames.ora file">
+   <i t="configuring file">
+    <j l="database_support5.html#wp294254" />
+   </i>
+   <i t="configuring to reference">
+    <j l="database_support5.html#wp294240" />
+   </i>
+   <i t="connect descriptor parameters">
+    <j l="database_support5.html#wp294271" />
+   </i>
+   <i t="connection property mappings to">
+    <j l="database_support5.html#wp294271" />
+   </i>
+   <i t="retrieving connection information from">
+    <j l="database_support5.html#wp310702" />
+   </i>
+   <i t="using">
+    <j l="database_support5.html#wp294215" />
+   </i>
+  </i>
+  <i t="TNSNamesFile property">
+   <j l="database_support5.html#wp310700" />
+  </i>
+  <i t="TNSServerName property">
+   <j l="database_support5.html#wp310716" />
+  </i>
+  <i t="User property">
+   <j l="database_support5.html#wp310728" />
+  </i>
+  <i t="versions supported">
+   <j l="database_support2.html#wp305766" />
+  </i>
+ </i>
+ <i t="ORACLE 10g">
+  <i t="XML-typed data examples">
+   <j l="database_support6.html#wp309788" />
+  </i>
+ </i>
+ <i t="Oracle 10g, using BINARY_FLOAT and BINARY-DOUBLE data types">
+  <j l="advancedfeatures2.html#wp242485" />
+ </i>
+ <i t="Oracle external functions">
+  <j l="advancedfeatures9.html#wp247117" />
+ </i>
+ <i t="ordered expressions">
+  <j l="xquerysupport3.html#wp105677" />
+ </i>
+ <i t="ordered subtypes of duration">
+  <j l="functions_and_operators.html#wp324382" />
+ </i>
+ <i t="overview">
+  <i t="DataDirect XQuery">
+   <j l="overview2.html#wp143429" />
+  </i>
+  <i t="XQJ">
+   <j l="overview4.html#wp132461" />
+  </i>
+  <i t="XQuery">
+   <j l="overview3.html#wp133406" />
+  </i>
+ </i>
+ <i t="PackageCollection property (DB2)">
+  <j l="database_support5.html#wp293840" />
+ </i>
+ <i t="PackageOwner property (DB2)">
+  <j l="database_support5.html#wp293847" />
+ </i>
+ <i t="packages, creating (DB2)">
+  <j l="database_support5.html#wp293897" />
+ </i>
+ <i t="parameterizing XML views">
+  <j l="conf_sourcefiles2.html#wp188283" />
+ </i>
+ <i t="Password property">
+  <i t="DB2">
+   <j l="database_support5.html#wp293859" />
+  </i>
+  <i t="DDXQDataSource">
+   <j l="conf_sourcefiles6.html#wp182158" />
+  </i>
+  <i t="DDXQJDBCConnection">
+   <j l="conf_sourcefiles6.html#wp182242" />
+  </i>
+  <i t="Informix">
+   <j l="database_support5.html#wp293961" />
+  </i>
+  <i t="MySQL Enterprise">
+   <j l="database_support5.html#wp294010" />
+  </i>
+  <i t="Oracle">
+   <j l="database_support5.html#wp310666" />
+  </i>
+  <i t="SQL Server">
+   <j l="database_support5.html#wp296429" />
+  </i>
+  <i t="Sybase">
+   <j l="database_support5.html#wp309298" />
+  </i>
+ </i>
+ <i t="path expressions">
+  <i t="for relational sources">
+   <j l="tutorial_xquery2.html#wp148341" />
+  </i>
+  <i t="for XML sources">
+   <j l="tutorial_xquery2.html#wp147607" />
+  </i>
+  <i t="support for">
+   <j l="xquerysupport3.html#wp104383" />
+  </i>
+ </i>
+ <i t="pattern matching on strings, functions">
+  <j l="functions_and_operators.html#wp324159" />
+ </i>
+ <i t="performance">
+  <i t="improving XQuery performance">
+   <j l="improvingperformance.html#wp194660" />
+  </i>
+ </i>
+ <i t="performance considerations">
+  <i t="primary keys">
+   <j l="sourceconfigfilestructure4.html#wp143456" />
+  </i>
+  <i t="SQL generation algorithms">
+   <j l="relationaldata2.html#wp222790" />
+  </i>
+  <i t="understanding compensation">
+   <j l="improvingperformance4.html#wp194682" />
+  </i>
+  <i t="using comparisons">
+   <j l="improvingperformance3.html#wp194662" />
+  </i>
+  <i t="using query pooling">
+   <j l="improvingperformance5.html#wp194695" />
+  </i>
+ </i>
+ <i t="performance optimization">
+  <i t="encryption">
+   <j l="connection_security5.html#wp239924" />
+  </i>
+ </i>
+ <i t="permissions">
+  <i t="for establishing connections">
+   <j l="connection_security4.html#wp239893" />
+  </i>
+  <i t="Kerberos authentication">
+   <j l="connection_security3.html#wp239627" />
+  </i>
+  <i t="named instances (SQL Server)">
+   <j l="connection_security4.html#wp239909" />
+  </i>
+ </i>
+ <i t="PKCS #12">
+  <i t="SSL authentication and">
+   <j l="connection_security5.html#wp240122" />
+  </i>
+ </i>
+ <i t="Plan Explain">
+  <j l="advancedfeatures7.html#wp212090" />
+  <i t="about">
+   <j l="advancedfeatures7.html#wp212090" />
+  </i>
+  <i t="enabling">
+   <j l="advancedfeatures7.html#wp212561" />
+  </i>
+  <i t="Streaming XML and">
+   <j l="improvingperformance2.html#wp205372" />
+  </i>
+ </i>
+ <i t="plan-explain option declaration">
+  <j l="advancedfeatures2.html#wp238437" />
+ </i>
+ <i t="pooling connections">
+  <j l="improvingperformance6.html#wp206095" />
+ </i>
+ <i t="pooling, queries">
+  <j l="conf_sourcefiles6.html#wp182144" />
+  <j l="improvingperformance5.html#wp194695" />
+ </i>
+ <i t="PostgreSQL">
+  <i t="versions supported">
+   <j l="database_support2.html#wp305770" />
+  </i>
+ </i>
+ <i t="PostgreSQL JDBC driver">
+  <j l="conf_sourcefiles7.html#wp214233" />
+  <j l="database_support2.html#wp306293" />
+ </i>
+ <i t="PostgreSQL, versions supported">
+  <j l="conf_sourcefiles2.html#wp213469" />
+ </i>
+ <i t="precision">
+  <j l="built-in_functions2.html#wp298539" />
+ </i>
+ <i t="precision and scale">
+  <j l="xquerysupport3.html#wp170338" />
+ </i>
+ <i t="precision for xs:decimal( ), controlling">
+  <j l="advancedfeatures2.html#wp239737" />
+ </i>
+ <i t="predefined namespaces">
+  <i t="not reserved">
+   <j l="xquerysupport6.html#wp140547" />
+   <j l="built-in_functions5.html#wp325725" />
+  </i>
+  <i t="reserved">
+   <j l="built-in_functions5.html#wp325827" />
+  </i>
+ </i>
+ <i t="predicates">
+  <i t="defined">
+   <j l="tutorial_xquery2.html#wp153204" />
+  </i>
+  <i t="numeric">
+   <j l="tutorial_xquery2.html#wp148333" />
+  </i>
+ </i>
+ <i t="prepared expression">
+  <j l="xqjsupport12.html#wp152550" />
+ </i>
+ <i t="preparing XQuery statements">
+  <j l="tutorial_ddxquery8.html#wp145321" />
+ </i>
+ <i t="preventing conflicts when using a tnsnames.ora file">
+  <j l="database_support5.html#wp294255" />
+ </i>
+ <i t="primary expressions">
+  <j l="xquerysupport3.html#wp104242" />
+ </i>
+ <i t="primary keys">
+  <j l="sourceconfigfilestructure4.html#wp143456" />
+  <j l="sourceconfigfilestructure4.html#wp143824" />
+ </i>
+ <i t="processing">
+  <i t="Plan Explain feature and">
+   <j l="improvingperformance2.html#wp205372" />
+  </i>
+ </i>
+ <i t="processing model">
+  <j l="xquerysupport2.html#wp103421" />
+ </i>
+ <i t="processing XQuery">
+  <i t="Streaming XML and">
+   <j l="improvingperformance2.html#wp205300" />
+  </i>
+ </i>
+ <i t="prologs">
+  <j l="xquerysupport4.html#wp107169" />
+ </i>
+ <i t="properties">
+  <i t="DDXQDataSource">
+   <j l="conf_sourcefiles6.html#wp182031" />
+  </i>
+  <i t="DDXQJDBCConnection">
+   <j l="conf_sourcefiles6.html#wp182214" />
+  </i>
+ </i>
+ <i t="proprietary functions">
+  <i t="ddtek:serialize()">
+   <j l="built-in_functions2.html#wp284683" />
+  </i>
+ </i>
+ <i t="PSVI mapping">
+  <j l="xquerysupport5.html#wp146409" />
+ </i>
+ <i t="QNames">
+  <i t="constructor functions">
+   <j l="functions_and_operators.html#wp324783" />
+  </i>
+  <i t="functions and operators related to">
+   <j l="functions_and_operators.html#wp324815" />
+  </i>
+  <i t="functions related to">
+   <j l="functions_and_operators.html#wp324780" />
+  </i>
+ </i>
+ <i t="qualifying, table name with JDBC connection name">
+  <j l="conf_sourcefiles2.html#wp184949" />
+ </i>
+ <i t="quantified expressions">
+  <j l="xquerysupport3.html#wp105928" />
+ </i>
+ <i t="queries">
+  <i t="data sources for">
+   <j l="conf_sourcefiles2.html#wp184870" />
+  </i>
+ </i>
+ <i t="query">
+  <i t="accessing XML results">
+   <j l="xqjsupport20.html#wp126140" />
+  </i>
+  <i t="developing a Java application that executes a query">
+   <j l="quickstart2.html#wp936526" />
+  </i>
+  <i t="making queries available as Web services">
+   <j l="webserviceframework2.html#wp201878" />
+  </i>
+  <i t="syntax">
+   <i t="for extension expression">
+    <j l="advancedfeatures2.html#wp186680" />
+   </i>
+   <i t="for option declaration">
+    <j l="advancedfeatures2.html#wp186680" />
+   </i>
+  </i>
+ </i>
+ <i t="query optimization">
+  <j l="conf_sourcefiles6.html#wp200171" />
+  <j l="conf_sourcefiles6.html#wp204534" />
+  <j l="sourceconfigfilestructure4.html#wp150379" />
+ </i>
+ <i t="query plan">
+  <j l="advancedfeatures7.html#wp212090" />
+ </i>
+ <i t="query pooling">
+  <i t="description">
+   <j l="improvingperformance5.html#wp194695" />
+  </i>
+  <i t="effect on performance">
+   <j l="improvingperformance5.html#wp194695" />
+  </i>
+  <i t="specifying number of queries in the pool">
+   <j l="conf_sourcefiles6.html#wp182144" />
+  </i>
+  <i t="XQJ and">
+   <j l="improvingperformance5.html#wp194697" />
+  </i>
+ </i>
+ <i t="query results">
+  <i t="transforming">
+   <j l="xuf_support8.html#wp218986" />
+  </i>
+ </i>
+ <i t="querying">
+  <i t="data from DOM trees">
+   <j l="tutorial_ddxquery5.html#wp144334" />
+  </i>
+  <i t="data from XML files">
+   <j l="tutorial_ddxquery5.html#wp144334" />
+  </i>
+  <i t="large XML documents">
+   <j l="improvingperformance2.html#wp205272" />
+  </i>
+  <i t="multiple files in a directory">
+   <j l="advancedfeatures3.html#wp219066" />
+   <j l="advancedfeatures3.html#wp229917" />
+  </i>
+ </i>
+ <i t="querying XML">
+  <i t="files archived in a ZIP or JAR file">
+   <j l="advancedfeatures4.html#wp246388" />
+  </i>
+  <i t="MS Office Open documents">
+   <j l="advancedfeatures4.html#wp246388" />
+  </i>
+  <i t="OpenDocument Format documents">
+   <j l="advancedfeatures4.html#wp246388" />
+  </i>
+ </i>
+ <i t="quick start">
+  <j l="quickstart.html#wp938056" />
+ </i>
+ <i t="Real Application Clusters (RAC) (Oracle)">
+  <j l="database_support5.html#wp310680" />
+ </i>
+ <i t="registering data source object with JNDI">
+  <j l="conf_sourcefiles5.html#wp181982" />
+ </i>
+ <i t="relational data">
+  <i t="data source for queries">
+   <j l="conf_sourcefiles2.html#wp184922" />
+  </i>
+  <i t="executing XQuery against">
+   <j l="relationaldata2.html#wp222615" />
+  </i>
+  <i t="processing with XML">
+   <j l="tutorial_xquery4.html#wp149080" />
+  </i>
+  <i t="querying">
+   <j l="relationaldata2.html#wp222615" />
+  </i>
+  <i t="XML views and">
+   <j l="conf_sourcefiles2.html#wp188278" />
+  </i>
+ </i>
+ <i t="relational data sources">
+  <i t="supported databases">
+   <j l="conf_sourcefiles2.html#wp184922" />
+  </i>
+ </i>
+ <i t="relational database tables">
+  <i t="data model representation">
+   <j l="conf_sourcefiles2.html#wp188276" />
+  </i>
+  <i t="specifying in a query">
+   <j l="conf_sourcefiles2.html#wp184941" />
+  </i>
+ </i>
+ <i t="relational databases">
+  <i t="deleting data">
+   <j l="relationaldata4.html#wp223042" />
+   <j l="built-in_functions2.html#wp330711" />
+  </i>
+  <i t="inserting data">
+   <j l="relationaldata4.html#wp222992" />
+   <j l="built-in_functions2.html#wp328291" />
+  </i>
+  <i t="updating">
+   <j l="relationaldata4.html#wp222970" />
+  </i>
+  <i t="updating data">
+   <j l="relationaldata4.html#wp223018" />
+   <j l="built-in_functions2.html#wp328316" />
+  </i>
+ </i>
+ <i t="relative URIs, resolving">
+  <j l="conf_sourcefiles6.html#wp182071" />
+  <j l="sourceconfigfilestructure4.html#wp141047" />
+ </i>
+ <i t="rename expression">
+  <j l="xuf_support7.html#wp218979" />
+ </i>
+ <i t="replace expression">
+  <j l="xuf_support5.html#wp204592" />
+ </i>
+ <i t="ReplacePackage property (DB2)">
+  <j l="database_support5.html#wp293865" />
+ </i>
+ <i t="required software for examples provided with DataDirect XQuery">
+  <j l="examples2.html#wp138526" />
+ </i>
+ <i t="reserved namespaces">
+  <j l="xquerysupport6.html#wp148130" />
+ </i>
+ <i t="resolving">
+  <i t="fn:collection() errors">
+   <j l="troubleshooting4.html#wp136634" />
+  </i>
+  <i t="relative URIs">
+   <j l="sourceconfigfilestructure4.html#wp141047" />
+  </i>
+  <i t="static type errors">
+   <j l="troubleshooting5.html#wp137725" />
+  </i>
+  <i t="URIs">
+   <j l="conf_sourcefiles6.html#wp182093" />
+   <j l="conf_sourcefiles6.html#wp182152" />
+   <j l="sourceconfigfilestructure4.html#wp142036" />
+  </i>
+ </i>
+ <i t="REST">
+  <i t="Web services and">
+   <j l="webserviceframework6.html#wp208699" />
+  </i>
+  <i t="XQueryWebService framework and">
+   <j l="webserviceframework2.html#wp211257" />
+  </i>
+  <i t="XQueryWebService framework example">
+   <j l="webserviceframework6.html#wp207958" />
+  </i>
+ </i>
+ <i t="restructuring data">
+  <j l="tutorial_xquery4.html#wp150422" />
+ </i>
+ <i t="results">
+  <i t="transforming query results">
+   <j l="xuf_support8.html#wp218986" />
+  </i>
+  <i t="writing query results to I/O">
+   <j l="built-in_functions2.html#wp299047" />
+  </i>
+ </i>
+ <i t="returning results with Java XML APIs">
+  <j l="tutorial_ddxquery7.html#wp145153" />
+ </i>
+ <i t="reusing connections">
+  <j l="improvingperformance6.html#wp206095" />
+ </i>
+ <i t="root element, source configuration file">
+  <j l="sourceconfigfilestructure4.html#wp140935" />
+ </i>
+ <i t="SAX">
+  <i t="logging content of using DataDirect Spy">
+   <j l="troubleshooting2.html#wp137155" />
+  </i>
+  <i t="returning results">
+   <j l="tutorial_ddxquery7.html#wp145153" />
+  </i>
+  <i t="serializing result sequence in events">
+   <j l="xqjsupport20.html#wp126191" />
+  </i>
+ </i>
+ <i t="scale">
+  <j l="built-in_functions2.html#wp298539" />
+ </i>
+ <i t="scale for xs:decimal( ), controlling">
+  <j l="advancedfeatures2.html#wp239737" />
+ </i>
+ <i t="schema for DB2 packages">
+  <j l="database_support5.html#wp293791" />
+ </i>
+ <i t="schema name">
+  <j l="sourceconfigfilestructure4.html#wp139202" />
+ </i>
+ <i t="Secure Sockets Layer (SSL)">
+  <i t="See SSL" c="SSL">
+   <j l="connection_security5.html#wp240068" />
+  </i>
+ </i>
+ <i t="security">
+  <i t="authentication for data source connections">
+   <j l="connection_security2.html#wp239400" />
+  </i>
+  <i t="data encryption for data source connections">
+   <j l="connection_security5.html#wp239917" />
+  </i>
+  <i t="supported methods for securing data source connections">
+   <j l="connection_security.html#wp239378" />
+  </i>
+ </i>
+ <i t="Security Manager for Java 2 Platform">
+  <j l="connection_security3.html#wp239629" />
+  <j l="connection_security4.html#wp239894" />
+ </i>
+ <i t="sequence expressions">
+  <j l="xquerysupport3.html#wp133365" />
+ </i>
+ <i t="sequence of items">
+  <j l="xqjsupport15.html#wp124499" />
+ </i>
+ <i t="sequences, functions and operators">
+  <j l="functions_and_operators.html#wp324983" />
+  <j l="functions_and_operators.html#wp325180" />
+ </i>
+ <i t="SequenceType for Java functions">
+  <j l="advancedfeatures9.html#wp246700" />
+ </i>
+ <i t="SequenceTypes, expressions on">
+  <j l="xquerysupport3.html#wp105999" />
+ </i>
+ <i t="serialization support">
+  <i t="DataDirect XML Converters, using for">
+   <j l="serialization_support3.html#wp316916" />
+  </i>
+  <i t="standard">
+   <j l="serialization_support3.html#wp316664" />
+  </i>
+ </i>
+ <i t="serialize option declaration">
+  <j l="advancedfeatures2.html#wp238447" />
+ </i>
+ <i t="serializing query results">
+  <j l="built-in_functions2.html#wp284683" />
+ </i>
+ <i t="server authentication, SSL">
+  <j l="connection_security5.html#wp240094" />
+ </i>
+ <i t="service principal name for Kerberos authentication">
+  <i t="DB2">
+   <j l="connection_security3.html#wp239654" />
+  </i>
+  <i t="Sybase">
+   <j l="connection_security3.html#wp239732" />
+  </i>
+ </i>
+ <i t="ServicePrincipalName property (Sybase)">
+  <j l="database_support5.html#wp309306" />
+ </i>
+ <i t="setEnableLogging( ), using to turn on and off DataDirect Spy logging">
+  <j l="troubleshooting2.html#wp137214" />
+ </i>
+ <i t="setting, CLASSPATH">
+  <j l="quickstart2.html#wp964074" />
+ </i>
+ <i t="SID property (Oracle)">
+  <j l="database_support5.html#wp310689" />
+ </i>
+ <i t="sliding windows">
+  <i t="definition">
+   <j l="tutorial_xquery5.html#wp153685" />
+  </i>
+ </i>
+ <i t="SOAP">
+  <j l="overview3.html#wp155035" />
+  <j l="overview3.html#wp142194" />
+  <i t="Web services and">
+   <j l="webserviceframework6.html#wp208699" />
+  </i>
+  <i t="XQueryWebService framework and">
+   <j l="webserviceframework2.html#wp211482" />
+  </i>
+  <i t="XQueryWebService framework example">
+   <j l="webserviceframework6.html#wp209061" />
+  </i>
+ </i>
+ <i t="sockets">
+  <i t="managing client-server connections">
+   <j l="http_functions3.html#wp239048" />
+  </i>
+  <i t="settings for sockets and connections">
+   <j l="http_functions3.html#wp238411" />
+  </i>
+ </i>
+ <i t="sorting static typing">
+  <j l="troubleshooting5.html#wp137777" />
+ </i>
+ <i t="source configuration file">
+  <i t="configuring connections for databases">
+   <j l="sourceconfigfilestructure2.html#wp164610" />
+  </i>
+  <i t="configuring connections for XML">
+   <j l="sourceconfigfilestructure2.html#wp183827" />
+  </i>
+  <i t="databases, configuring connections for">
+   <j l="sourceconfigfilestructure2.html#wp164610" />
+  </i>
+  <i t="elements of">
+   <j l="sourceconfigfilestructure4.html#wp153156" />
+  </i>
+  <i t="forest element">
+   <j l="sourceconfigfilestructure4.html#wp142822" />
+  </i>
+  <i t="hierarchy of">
+   <j l="sourceconfigfilestructure3.html#wp140013" />
+  </i>
+  <i t="root element">
+   <j l="sourceconfigfilestructure4.html#wp140935" />
+  </i>
+  <i t="structure of">
+   <j l="sourceconfigfilestructure.html#wp183839" />
+  </i>
+  <i t="XML, configuring connections for">
+   <j l="sourceconfigfilestructure2.html#wp183827" />
+  </i>
+ </i>
+ <i t="specifying">
+  <i t="collations">
+   <j l="advancedfeatures8.html#wp212006" />
+  </i>
+  <i t="connection URLs">
+   <j l="conf_sourcefiles7.html#wp182290" />
+  </i>
+  <i t="format of XML results">
+   <j l="sourceconfigfilestructure4.html#wp138538" />
+  </i>
+  <i t="option declarations">
+   <j l="advancedfeatures2.html#wp237733" />
+  </i>
+  <i t="precision and scale">
+   <j l="built-in_functions2.html#wp298539" />
+  </i>
+  <i t="URI resolver">
+   <j l="advancedfeatures5.html#wp204888" />
+  </i>
+ </i>
+ <i t="SpyAttributes property">
+  <j l="conf_sourcefiles6.html#wp182181" />
+ </i>
+ <i t="SQL">
+  <i t="comparison to XQuery">
+   <j l="overview3.html#wp133406" />
+  </i>
+  <i t="compensating for functions with no SQL equivalent">
+   <j l="improvingperformance4.html#wp194682" />
+  </i>
+  <i t="translating XQuery into SQL">
+   <j l="relationaldata2.html#wp222615" />
+  </i>
+  <i t="XQuery functionality that cannot be directly translated into">
+   <j l="improvingperformance4.html#wp194682" />
+  </i>
+ </i>
+ <i t="SQL 2003">
+  <i t="data model for XML mappings">
+   <j l="conf_sourcefiles2.html#wp188278" />
+  </i>
+ </i>
+ <i t="SQL adaptor, DataDirect XQuery">
+  <j l="overview5.html#wp152707" />
+ </i>
+ <i t="SQL functions">
+  <i t="DB2 examples">
+   <j l="advancedfeatures9.html#wp247067" />
+  </i>
+  <i t="JDBC scalar functions">
+   <j l="advancedfeatures9.html#wp247188" />
+  </i>
+  <i t="Oracle examples">
+   <j l="advancedfeatures9.html#wp247117" />
+  </i>
+  <i t="requirements and restrictions">
+   <j l="advancedfeatures9.html#wp247006" />
+  </i>
+  <i t="SQL Server examples">
+   <j l="advancedfeatures9.html#wp247029" />
+  </i>
+  <i t="table functions">
+   <j l="advancedfeatures9.html#wp247199" />
+  </i>
+  <i t="user-defined">
+   <j l="advancedfeatures9.html#wp247164" />
+  </i>
+  <i t="using">
+   <j l="advancedfeatures9.html#wp246998" />
+  </i>
+ </i>
+ <i t="SQL generation algorithms">
+  <j l="relationaldata2.html#wp222779" />
+ </i>
+ <i t="SQL Server">
+  <i t="AuthenticationMethod property">
+   <j l="database_support5.html#wp296380" />
+  </i>
+  <i t="connection properties">
+   <j l="database_support5.html#wp296359" />
+   <i t="LoadLibraryPath">
+    <j l="database_support5.html#wp296416" />
+   </i>
+  </i>
+  <i t="data types">
+   <j l="database_support3.html#wp300400" />
+  </i>
+  <i t="DatabaseName property">
+   <j l="database_support5.html#wp296402" />
+  </i>
+  <i t="InitializationString property">
+   <j l="database_support5.html#wp296407" />
+  </i>
+  <i t="Kerberos authentication, permissions required for">
+   <j l="connection_security3.html#wp239696" />
+  </i>
+  <i t="named instances, permissions required for">
+   <j l="connection_security4.html#wp239909" />
+  </i>
+  <i t="password">
+   <j l="database_support5.html#wp296432" />
+  </i>
+  <i t="Password property">
+   <j l="database_support5.html#wp296429" />
+  </i>
+  <i t="temporary tables">
+   <j l="sourceconfigfilestructure4.html#wp175956" />
+  </i>
+  <i t="user name">
+   <j l="database_support5.html#wp296440" />
+  </i>
+  <i t="User property">
+   <j l="database_support5.html#wp296436" />
+  </i>
+  <i t="versions supported">
+   <j l="conf_sourcefiles2.html#wp213937" />
+   <j l="database_support2.html#wp305741" />
+  </i>
+  <i t="XML-typed data examples">
+   <j l="database_support6.html#wp309822" />
+  </i>
+ </i>
+ <i t="SQL Server external functions">
+  <j l="advancedfeatures9.html#wp247029" />
+ </i>
+ <i t="SQL table functions">
+  <j l="advancedfeatures9.html#wp247201" />
+ </i>
+ <i t="SQL/XML">
+  <i t="mappings">
+   <j l="conf_sourcefiles2.html#wp188278" />
+   <j l="sourceconfigfilestructure4.html#wp142822" />
+  </i>
+  <i t="parameterizing views">
+   <j l="conf_sourcefiles2.html#wp188283" />
+  </i>
+  <i t="views">
+   <j l="conf_sourcefiles2.html#wp188283" />
+  </i>
+ </i>
+ <i t="sql-decimal-cast option declaration">
+  <j l="advancedfeatures2.html#wp239734" />
+ </i>
+ <i t="sql-extra-checks-trailing-spaces option declaration">
+  <j l="advancedfeatures2.html#wp239744" />
+ </i>
+ <i t="sql-ignore-trailing-spaces option declaration">
+  <j l="advancedfeatures2.html#wp239750" />
+ </i>
+ <i t="sql-ora10-use-binary-float-double option declaration">
+  <j l="advancedfeatures2.html#wp242481" />
+ </i>
+ <i t="sql-order-by-on-values option declaration">
+  <j l="advancedfeatures2.html#wp239763" />
+ </i>
+ <i t="sql-rewrite-algorithm option declaration">
+  <j l="advancedfeatures2.html#wp239773" />
+ </i>
+ <i t="sql-rewrite-exists-into-count option declaration">
+  <j l="advancedfeatures2.html#wp242723" />
+ </i>
+ <i t="sql-simple-convert-functions option declaration">
+  <j l="advancedfeatures2.html#wp239789" />
+ </i>
+ <i t="sql-simple-string-functions option declaration">
+  <j l="advancedfeatures2.html#wp239795" />
+ </i>
+ <i t="sql-sybase-temptable-index option declaration">
+  <j l="advancedfeatures2.html#wp242488" />
+ </i>
+ <i t="sql-sybase-use-derived-tables declaration option">
+  <j l="advancedfeatures2.html#wp242495" />
+ </i>
+ <i t="sql-unicode-literals option declaration">
+  <j l="advancedfeatures2.html#wp239812" />
+ </i>
+ <i t="sql-unicode-strings option declaration">
+  <j l="advancedfeatures2.html#wp239821" />
+ </i>
+ <i t="sql-varchar-cast option declaration">
+  <j l="advancedfeatures2.html#wp239831" />
+ </i>
+ <i t="SqlXmlIdentifierEscaping property">
+  <j l="conf_sourcefiles6.html#wp204465" />
+ </i>
+ <i t="SSL">
+  <i t="about">
+   <j l="connection_security5.html#wp240068" />
+  </i>
+  <i t="certificate">
+   <j l="connection_security5.html#wp240095" />
+  </i>
+  <i t="Certificate Authority (CA)">
+   <j l="connection_security5.html#wp240095" />
+  </i>
+  <i t="client authentication">
+   <j l="connection_security5.html#wp240114" />
+  </i>
+  <i t="configuring">
+   <i t="for DB2">
+    <j l="connection_security5.html#wp240140" />
+   </i>
+   <i t="for Microsoft SQL Server">
+    <j l="connection_security5.html#wp240173" />
+   </i>
+   <i t="for Oracle">
+    <j l="connection_security5.html#wp240156" />
+   </i>
+   <i t="for Sybase">
+    <j l="connection_security5.html#wp240251" />
+   </i>
+  </i>
+  <i t="handshake">
+   <j l="connection_security5.html#wp240069" />
+  </i>
+  <i t="Java Keystore (JKS)">
+   <j l="connection_security5.html#wp240120" />
+  </i>
+  <i t="keystore">
+   <j l="connection_security5.html#wp240115" />
+  </i>
+  <i t="PKCS #12 Keystore">
+   <j l="connection_security5.html#wp240122" />
+  </i>
+  <i t="server authentication">
+   <j l="connection_security5.html#wp240094" />
+  </i>
+  <i t="support for">
+   <j l="connection_security5.html#wp239964" />
+  </i>
+  <i t="truststore">
+   <j l="connection_security5.html#wp240095" />
+  </i>
+ </i>
+ <i t="static context of a query">
+  <j l="xqjsupport17.html#wp162779" />
+ </i>
+ <i t="static method, Java function">
+  <j l="advancedfeatures9.html#wp246658" />
+ </i>
+ <i t="static typing">
+  <i t="advantages">
+   <j l="troubleshooting5.html#wp137728" />
+  </i>
+  <i t="extensions">
+   <j l="troubleshooting5.html#wp137801" />
+  </i>
+  <i t="external variables">
+   <j l="troubleshooting5.html#wp137738" />
+  </i>
+  <i t="overview">
+   <j l="troubleshooting5.html#wp137725" />
+  </i>
+  <i t="sorting">
+   <j l="troubleshooting5.html#wp137777" />
+  </i>
+  <i t="union types">
+   <j l="troubleshooting5.html#wp137765" />
+  </i>
+ </i>
+ <i t="StAX">
+  <i t="event">
+   <j l="xqjsupport20.html#wp126222" />
+  </i>
+  <i t="logging content of using DataDirect Spy">
+   <j l="troubleshooting2.html#wp137161" />
+  </i>
+  <i t="returning results">
+   <j l="tutorial_ddxquery7.html#wp145153" />
+  </i>
+ </i>
+ <i t="Streaming XML">
+  <i t="aggregating data and">
+   <j l="improvingperformance2.html#wp205424" />
+  </i>
+  <i t="examples">
+   <i t="expression with attribute predicate">
+    <j l="improvingperformance2.html#wp205477" />
+   </i>
+   <i t="path expression with predicate">
+    <j l="improvingperformance2.html#wp205468" />
+   </i>
+   <i t="simple path expressions">
+    <j l="improvingperformance2.html#wp205454" />
+   </i>
+   <i t="two XML documents">
+    <j l="improvingperformance2.html#wp205510" />
+   </i>
+   <i t="XQuery expression with exists">
+    <j l="improvingperformance2.html#wp205501" />
+   </i>
+   <i t="XQuery expression with fn:data">
+    <j l="improvingperformance2.html#wp205485" />
+   </i>
+   <i t="XQuery expression with function on Node">
+    <j l="improvingperformance2.html#wp205493" />
+   </i>
+  </i>
+  <i t="examples of">
+   <j l="improvingperformance2.html#wp205449" />
+  </i>
+  <i t="illustrating with Plan Explain">
+   <j l="improvingperformance2.html#wp205372" />
+  </i>
+  <i t="when it is not used">
+   <j l="improvingperformance2.html#wp205547" />
+  </i>
+  <i t="XML headers and">
+   <j l="improvingperformance2.html#wp205385" />
+  </i>
+ </i>
+ <i t="Streaming XML feature">
+  <i t="data sources for">
+   <j l="improvingperformance2.html#wp205357" />
+  </i>
+  <i t="description">
+   <j l="improvingperformance2.html#wp205300" />
+  </i>
+ </i>
+ <i t="strings">
+  <i t="assembling and disassembling">
+   <j l="functions_and_operators.html#wp323961" />
+  </i>
+  <i t="comparison">
+   <j l="functions_and_operators.html#wp323993" />
+  </i>
+  <i t="equality">
+   <j l="functions_and_operators.html#wp323993" />
+  </i>
+  <i t="functions">
+   <i t="that use pattern matching">
+    <j l="functions_and_operators.html#wp324159" />
+   </i>
+   <i t="to assemble and disassemble">
+    <j l="functions_and_operators.html#wp323961" />
+   </i>
+  </i>
+  <i t="functions on values">
+   <j l="functions_and_operators.html#wp324027" />
+  </i>
+ </i>
+ <i t="Stylus Studio">
+  <i t="using with DataDirect XQuery">
+   <j l="overview7.html#wp151558" />
+  </i>
+ </i>
+ <i t="substring matching, functions based on">
+  <j l="functions_and_operators.html#wp324103" />
+ </i>
+ <i t="support">
+  <i t="authentication">
+   <j l="connection_security2.html#wp239412" />
+  </i>
+  <i t="encryption">
+   <j l="connection_security5.html#wp239972" />
+  </i>
+ </i>
+ <i t="SupportLink">
+  <j l="preface6.html#wp1034223" />
+ </i>
+ <i t="Sybase">
+  <i t="AuthenticationMethod property">
+   <j l="database_support5.html#wp309267" />
+  </i>
+  <i t="configuring SSL">
+   <j l="connection_security5.html#wp240251" />
+  </i>
+  <i t="connection properties">
+   <j l="database_support5.html#wp294420" />
+  </i>
+  <i t="data types">
+   <j l="database_support3.html#wp300566" />
+  </i>
+  <i t="InitializationString property">
+   <j l="database_support5.html#wp309288" />
+  </i>
+  <i t="Kerberos authentication">
+   <i t="permissions">
+    <j l="connection_security3.html#wp239715" />
+   </i>
+   <i t="service principal name">
+    <j l="connection_security3.html#wp239732" />
+   </i>
+  </i>
+  <i t="Kerberos authentication support">
+   <j l="connection_security3.html#wp239538" />
+  </i>
+  <i t="password">
+   <j l="database_support5.html#wp309301" />
+  </i>
+  <i t="Password property">
+   <j l="database_support5.html#wp309298" />
+  </i>
+  <i t="ServicePrincipalName property">
+   <j l="database_support5.html#wp309306" />
+  </i>
+  <i t="sql-sybase-temptable-index option declaration">
+   <j l="advancedfeatures2.html#wp242492" />
+  </i>
+  <i t="temporary tables">
+   <j l="sourceconfigfilestructure4.html#wp175956" />
+  </i>
+  <i t="user name">
+   <j l="database_support5.html#wp309323" />
+  </i>
+  <i t="User property">
+   <j l="database_support5.html#wp309320" />
+  </i>
+  <i t="versions supported">
+   <j l="conf_sourcefiles2.html#wp213489" />
+   <j l="database_support2.html#wp305774" />
+  </i>
+ </i>
+ <i t="syntax for">
+  <i t="extension expression">
+   <j l="advancedfeatures2.html#wp186680" />
+  </i>
+  <i t="option declaration">
+   <j l="advancedfeatures2.html#wp186680" />
+  </i>
+ </i>
+ <i t="system information">
+  <i t="ddtek:info built-in function">
+   <j l="built-in_functions2.html#wp326689" />
+  </i>
+ </i>
+ <i t="System.out, logging XQJ calls to using DataDirect Spy">
+  <j l="troubleshooting2.html#wp137141" />
+ </i>
+ <i t="Technical Support, contacting">
+  <j l="preface6.html#wp1034223" />
+ </i>
+ <i t="template for creating data source objects for JNDI">
+  <j l="conf_sourcefiles5.html#wp181980" />
+ </i>
+ <i t="temporary tables">
+  <j l="conf_sourcefiles6.html#wp200173" />
+  <j l="conf_sourcefiles6.html#wp204536" />
+  <j l="sourceconfigfilestructure4.html#wp150723" />
+ </i>
+ <i t="TempTableColumns property">
+  <j l="conf_sourcefiles6.html#wp204532" />
+ </i>
+ <i t="TempTableSuffix property">
+  <j l="conf_sourcefiles6.html#wp204544" />
+ </i>
+ <i t="testing">
+  <i t="Web service operations">
+   <j l="webserviceframework7.html#wp207975" />
+  </i>
+ </i>
+ <i t="testing queries">
+  <j l="quickstart3.html#wp953311" />
+ </i>
+ <i t="text, serializing a result sequence into">
+  <j l="xqjsupport20.html#wp126223" />
+ </i>
+ <i t="threading">
+  <j l="xqjsupport19.html#wp126088" />
+ </i>
+ <i t="Ticket Granting Ticket">
+  <j l="connection_security3.html#wp239802" />
+ </i>
+ <i t="time">
+  <i t="formatting">
+   <j l="built-in_functions2.html#wp334254" />
+   <j l="built-in_functions2.html#wp334396" />
+  </i>
+  <i t="formatting examples">
+   <j l="built-in_functions2.html#wp336303" />
+  </i>
+ </i>
+ <i t="timezone adjustment">
+  <j l="functions_and_operators.html#wp324667" />
+ </i>
+ <i t="tnsnames.ora file">
+  <i t="configuring">
+   <i t="options for">
+    <j l="database_support5.html#wp294254" />
+   </i>
+   <i t="to reference file">
+    <j l="database_support5.html#wp294240" />
+   </i>
+  </i>
+  <i t="connect descriptor parameters">
+   <j l="database_support5.html#wp294271" />
+  </i>
+  <i t="connection information, retrieving">
+   <j l="database_support5.html#wp310735" />
+  </i>
+  <i t="mapping Oracle connection properties to">
+   <j l="database_support5.html#wp294271" />
+  </i>
+  <i t="retrieving connection information from">
+   <j l="database_support5.html#wp310702" />
+  </i>
+ </i>
+ <i t="TNSNamesFile property (Oracle)">
+  <j l="database_support5.html#wp310700" />
+ </i>
+ <i t="TNSServerName property (Oracle)">
+  <j l="database_support5.html#wp310716" />
+ </i>
+ <i t="trace function">
+  <j l="functions_and_operators.html#wp323561" />
+ </i>
+ <i t="transaction isolation levels">
+  <j l="conf_sourcefiles6.html#wp198082" />
+ </i>
+ <i t="transforming query results">
+  <j l="xuf_support8.html#wp218986" />
+ </i>
+ <i t="translation, literal">
+  <j l="advancedfeatures2.html#wp239826" />
+ </i>
+ <i t="trimming whitespaces">
+  <j l="built-in_functions2.html#wp326847" />
+ </i>
+ <i t="truststore file, SSL">
+  <j l="connection_security5.html#wp240095" />
+ </i>
+ <i t="tumbling windows">
+  <i t="definition">
+   <j l="tutorial_xquery5.html#wp153681" />
+  </i>
+ </i>
+ <i t="turning on and off DataDirect Spy logging">
+  <j l="troubleshooting2.html#wp137213" />
+ </i>
+ <i t="tutorial">
+  <i t="DataDirect XQuery">
+   <i t="configuring connections to relational databases">
+    <j l="tutorial_ddxquery3.html#wp144170" />
+   </i>
+   <i t="executing queries">
+    <j l="tutorial_ddxquery4.html#wp155366" />
+   </i>
+   <i t="joining data from XML and relational sources">
+    <j l="tutorial_ddxquery6.html#wp144690" />
+   </i>
+   <i t="preparing XQuery statements">
+    <j l="tutorial_ddxquery8.html#wp145150" />
+   </i>
+   <i t="querying data from XML files or DOM trees">
+    <j l="tutorial_ddxquery5.html#wp144314" />
+   </i>
+   <i t="returning results as DOM tree">
+    <j l="tutorial_ddxquery7.html#wp150184" />
+   </i>
+   <i t="returning results as SAX event stream">
+    <j l="tutorial_ddxquery7.html#wp150642" />
+   </i>
+   <i t="returning results as StAX event stream">
+    <j l="tutorial_ddxquery7.html#wp149977" />
+   </i>
+   <i t="returning results with Java XML APIs">
+    <j l="tutorial_ddxquery7.html#wp145145" />
+   </i>
+  </i>
+  <i t="XQuery">
+   <i t="creating XML">
+    <j l="tutorial_xquery3.html#wp148395" />
+   </i>
+   <i t="finding XML nodes, path expressions">
+    <j l="tutorial_xquery2.html#wp144942" />
+   </i>
+   <i t="FLWOR expressions">
+    <j l="tutorial_xquery4.html#wp150422" />
+    <j l="tutorial_xquery5.html#wp153483" />
+   </i>
+   <i t="grouping data">
+    <j l="tutorial_xquery5.html#wp153483" />
+   </i>
+   <i t="processing XML and relational together">
+    <j l="tutorial_xquery4.html#wp149080" />
+   </i>
+   <i t="restructuring data">
+    <j l="tutorial_xquery4.html#wp150422" />
+   </i>
+  </i>
+ </i>
+ <i t="types">
+  <i t="for external variables">
+   <j l="troubleshooting5.html#wp137738" />
+  </i>
+  <i t="for XQuery">
+   <j l="xquerysupport2.html#wp103666" />
+  </i>
+ </i>
+ <i t="Unicode">
+  <i t="characters, handling for collations">
+   <j l="advancedfeatures8.html#wp212041" />
+  </i>
+  <i t="setting the default encoding for string literals to">
+   <j l="xquerysupport3.html#wp170338" />
+  </i>
+ </i>
+ <i t="union">
+  <j l="functions_and_operators.html#wp325096" />
+ </i>
+ <i t="union types">
+  <j l="troubleshooting5.html#wp137765" />
+ </i>
+ <i t="unordered expressions">
+  <j l="xquerysupport3.html#wp105677" />
+ </i>
+ <i t="updating data sources">
+  <j l="xuf_support9.html#wp221374" />
+ </i>
+ <i t="updating relational data">
+  <j l="tutorial_ddxquery9.html#wp157573" />
+  <i t="using built-in functions">
+   <j l="relationaldata4.html#wp222984" />
+  </i>
+  <i t="using XUF">
+   <j l="xuf_support2.html#wp218900" />
+  </i>
+ </i>
+ <i t="URI resolver">
+  <i t="collection">
+   <j l="advancedfeatures5.html#wp209367" />
+  </i>
+  <i t="document">
+   <j l="sourceconfigfilestructure4.html#wp142036" />
+  </i>
+  <i t="library module">
+   <j l="sourceconfigfilestructure4.html#wp142117" />
+  </i>
+  <i t="specifying">
+   <j l="advancedfeatures5.html#wp204888" />
+  </i>
+ </i>
+ <i t="URI schemes">
+  <j l="conf_sourcefiles2.html#wp184883" />
+ </i>
+ <i t="URIs">
+  <i t="resolving">
+   <j l="conf_sourcefiles6.html#wp182093" />
+   <j l="conf_sourcefiles6.html#wp182152" />
+   <j l="sourceconfigfilestructure4.html#wp142036" />
+  </i>
+  <i t="specifying for XML data source connections">
+   <j l="conf_sourcefiles2.html#wp184888" />
+  </i>
+ </i>
+ <i t="Url property">
+  <j l="conf_sourcefiles6.html#wp182272" />
+ </i>
+ <i t="user credentials, specifying with Kerberos authentication">
+  <j l="connection_security3.html#wp239738" />
+ </i>
+ <i t="user name, database">
+  <j l="conf_sourcefiles6.html#wp182203" />
+  <j l="conf_sourcefiles6.html#wp182283" />
+  <j l="sourceconfigfilestructure4.html#wp142635" />
+ </i>
+ <i t="User property">
+  <i t="DB2">
+   <j l="database_support5.html#wp293886" />
+  </i>
+  <i t="DDXQDataSource">
+   <j l="conf_sourcefiles6.html#wp182200" />
+  </i>
+  <i t="DDXQJDBCConnection">
+   <j l="conf_sourcefiles6.html#wp182280" />
+  </i>
+  <i t="Informix">
+   <j l="database_support5.html#wp293967" />
+  </i>
+  <i t="MySQL Enterprise">
+   <j l="database_support5.html#wp294016" />
+  </i>
+  <i t="Oracle">
+   <j l="database_support5.html#wp310728" />
+  </i>
+  <i t="SQL Server">
+   <j l="database_support5.html#wp296436" />
+  </i>
+  <i t="Sybase">
+   <j l="database_support5.html#wp309320" />
+  </i>
+ </i>
+ <i t="user-defined collations">
+  <j l="advancedfeatures8.html#wp212020" />
+ </i>
+ <i t="user-defined functions">
+  <j l="advancedfeatures9.html#wp247164" />
+ </i>
+ <i t="using">
+  <i t="book">
+   <j l="preface3.html#wp1035505" />
+  </i>
+  <i t="extension expressions">
+   <j l="advancedfeatures2.html#wp204556" />
+   <j l="advancedfeatures2.html#wp187538" />
+  </i>
+  <i t="initial naming context to find name of data source object registered with JNDI">
+   <j l="conf_sourcefiles5.html#wp181992" />
+  </i>
+  <i t="Java functions">
+   <j l="advancedfeatures9.html#wp246636" />
+  </i>
+  <i t="option declarations">
+   <j l="advancedfeatures2.html#wp204556" />
+  </i>
+  <i t="Oracle tnsnames.ora files">
+   <j l="database_support5.html#wp294215" />
+  </i>
+  <i t="SQL functions">
+   <j l="advancedfeatures9.html#wp246998" />
+  </i>
+ </i>
+ <i t="utility for testing queries">
+  <j l="quickstart3.html#wp953311" />
+ </i>
+ <i t="validate expressions">
+  <j l="xquerysupport3.html#wp106469" />
+ </i>
+ <i t="validating query results">
+  <j l="built-in_functions2.html#wp318066" />
+ </i>
+ <i t="validating XML results">
+  <j l="built-in_functions2.html#wp310400" />
+ </i>
+ <i t="value comparisons">
+  <i t="compared to general comparisons">
+   <j l="improvingperformance3.html#wp204580" />
+  </i>
+ </i>
+ <i t="versions">
+  <i t="specifying the XQuery version">
+   <j l="tutorial_ddxquery2.html#wp161077" />
+  </i>
+  <i t="XQuery versions supported by DataDirect XQuery">
+   <j l="tutorial_ddxquery2.html#wp161077" />
+  </i>
+ </i>
+ <i t="W3C Unicode Codepoint collation">
+  <j l="advancedfeatures8.html#wp212016" />
+ </i>
+ <i t="Web service applications">
+  <i t="building a Web service client">
+   <j l="http_functions2.html#wp234648" />
+  </i>
+  <i t="connection authentication">
+   <j l="http_functions3.html#wp235574" />
+  </i>
+  <i t="data streaming and">
+   <j l="http_functions3.html#wp239437" />
+  </i>
+  <i t="HTTP functions for Web service clients">
+   <j l="http_functions3.html#wp234489" />
+  </i>
+  <i t="managing connections and sockets">
+   <j l="http_functions3.html#wp239048" />
+  </i>
+  <i t="managing cookies">
+   <j l="http_functions3.html#wp242479" />
+  </i>
+  <i t="response encodings">
+   <j l="http_functions3.html#wp238568" />
+  </i>
+  <i t="settings for connections and sockets">
+   <j l="http_functions3.html#wp238411" />
+  </i>
+  <i t="supported authentication methods">
+   <j l="http_functions3.html#wp235574" />
+  </i>
+  <i t="supported encryption methods">
+   <j l="http_functions3.html#wp239074" />
+  </i>
+  <i t="XML Schema for HTTP requests">
+   <j l="http_functions5.html#wp235636" />
+  </i>
+  <i t="XML Schema for HTTP responses">
+   <j l="http_functions5.html#wp235700" />
+  </i>
+ </i>
+ <i t="Web service client">
+  <i t="definition">
+   <j l="http_functions2.html#wp234648" />
+  </i>
+  <i t="response encodings">
+   <j l="http_functions3.html#wp238568" />
+  </i>
+ </i>
+ <i t="Web Service Description Language (WSDL)">
+  <j l="webserviceframework8.html#wp209678" />
+  <i t="See also WSDL" c="WSDL">
+   <j l="webserviceframework8.html#wp209678" />
+  </i>
+ </i>
+ <i t="Web service operations">
+  <i t="invoking">
+   <j l="built-in_functions2.html#wp285028" />
+  </i>
+  <i t="testing">
+   <j l="webserviceframework7.html#wp207975" />
+  </i>
+ </i>
+ <i t="Web services">
+  <i t="building a Web service client">
+   <j l="http_functions.html#wp205856" />
+  </i>
+  <i t="HTTP functions for">
+   <j l="http_functions3.html#wp234489" />
+  </i>
+  <i t="REST interface">
+   <j l="webserviceframework6.html#wp208699" />
+  </i>
+  <i t="SOAP interface">
+   <j l="webserviceframework6.html#wp208699" />
+  </i>
+  <i t="Web service client">
+   <j l="http_functions2.html#wp234648" />
+  </i>
+  <i t="WSDL service references">
+   <j l="webserviceframework9.html#wp208079" />
+  </i>
+  <i t="XQueryWebService framework">
+   <j l="webserviceframework2.html#wp201878" />
+  </i>
+ </i>
+ <i t="whitespace">
+  <i t="option for ignoring">
+   <j l="advancedfeatures2.html#wp238430" />
+  </i>
+ </i>
+ <i t="whitespaces, trimming">
+  <j l="built-in_functions2.html#wp326847" />
+ </i>
+ <i t="window clause">
+  <i t="definition">
+   <j l="tutorial_xquery5.html#wp153647" />
+  </i>
+ </i>
+ <i t="Windows Active Directory">
+  <i t="Kerberos authentication and">
+   <j l="connection_security3.html#wp239587" />
+  </i>
+ </i>
+ <i t="Windows Domain">
+  <i t="DB2">
+   <j l="connection_security3.html#wp239657" />
+  </i>
+  <i t="Oracle">
+   <j l="connection_security3.html#wp239675" />
+  </i>
+  <i t="SQL Server">
+   <j l="connection_security3.html#wp239711" />
+  </i>
+  <i t="Sybase">
+   <j l="connection_security3.html#wp239730" />
+  </i>
+ </i>
+ <i t="writing results to I/O">
+  <j l="built-in_functions2.html#wp299047" />
+ </i>
+ <i t="WSDL">
+  <i t="generating">
+   <j l="webserviceframework8.html#wp209678" />
+  </i>
+  <i t="using WSDL service references">
+   <j l="webserviceframework9.html#wp208079" />
+  </i>
+ </i>
+ <i t="XML">
+  <i t="case sensitivity of element and attribute names">
+   <j l="conf_sourcefiles2.html#wp186202" />
+  </i>
+  <i t="constructors">
+   <j l="tutorial_xquery3.html#wp148395" />
+  </i>
+  <i t="data model representation">
+   <j l="conf_sourcefiles2.html#wp184913" />
+  </i>
+  <i t="data source for queries">
+   <j l="conf_sourcefiles2.html#wp187870" />
+  </i>
+  <i t="data type">
+   <j l="conf_sourcefiles2.html#wp184906" />
+  </i>
+  <i t="DOM compliance">
+   <j l="xqjsupport20.html#wp126184" />
+  </i>
+  <i t="parameterizing views">
+   <j l="conf_sourcefiles2.html#wp188283" />
+  </i>
+  <i t="processing with relational data">
+   <j l="tutorial_xquery4.html#wp149080" />
+  </i>
+  <i t="schema data types">
+   <j l="database_support3.html#wp299570" />
+  </i>
+  <i t="specifying XML documents as query sources">
+   <j l="conf_sourcefiles2.html#wp184883" />
+  </i>
+  <i t="stored in relational database using an XML data type">
+   <j l="conf_sourcefiles2.html#wp184906" />
+  </i>
+  <i t="streaming XML data">
+   <j l="improvingperformance2.html#wp205272" />
+  </i>
+  <i t="text files/streams">
+   <j l="conf_sourcefiles2.html#wp184883" />
+  </i>
+  <i t="validating">
+   <j l="built-in_functions2.html#wp318066" />
+  </i>
+  <i t="validating query results">
+   <j l="built-in_functions2.html#wp310400" />
+  </i>
+ </i>
+ <i t="XML adaptor, DataDirect XQuery">
+  <j l="overview5.html#wp152707" />
+ </i>
+ <i t="XML constructors">
+  <j l="tutorial_xquery3.html#wp148398" />
+ </i>
+ <i t="XML constructors, literal">
+  <j l="tutorial_xquery3.html#wp148397" />
+ </i>
+ <i t="XML data">
+  <i t="streaming">
+   <j l="improvingperformance2.html#wp205272" />
+   <j l="http_functions3.html#wp239437" />
+  </i>
+ </i>
+ <i t="XML documents,querying">
+  <j l="improvingperformance2.html#wp205272" />
+ </i>
+ <i t="XML files">
+  <i t="querying in a ZIP or JAR file">
+   <j l="advancedfeatures4.html#wp246388" />
+  </i>
+ </i>
+ <i t="XML headers">
+  <i t="Streaming XML and">
+   <j l="improvingperformance2.html#wp205385" />
+  </i>
+ </i>
+ <i t="XML nodes, finding using path expressions">
+  <j l="tutorial_xquery2.html#wp144942" />
+ </i>
+ <i t="XML Schema">
+  <i t="for HTTP requests">
+   <j l="http_functions5.html#wp235636" />
+  </i>
+  <i t="for HTTP responses">
+   <j l="http_functions5.html#wp235700" />
+  </i>
+  <i t="validating query results">
+   <j l="built-in_functions2.html#wp318066" />
+  </i>
+ </i>
+ <i t="XML Type data">
+  <i t="support for">
+   <j l="relationaldata3.html#wp222819" />
+  </i>
+ </i>
+ <i t="XML views">
+  <i t="parameterizing">
+   <j l="conf_sourcefiles2.html#wp188283" />
+  </i>
+  <i t="relational data and">
+   <j l="conf_sourcefiles2.html#wp188278" />
+  </i>
+ </i>
+ <i t="XMLFOREST variable">
+  <i t="default">
+   <j l="conf_sourcefiles2.html#wp188290" />
+  </i>
+  <i t="parameterizing views">
+   <j l="conf_sourcefiles2.html#wp188283" />
+  </i>
+  <i t="setting">
+   <j l="conf_sourcefiles2.html#wp188283" />
+  </i>
+ </i>
+ <i t="xml-streaming option declaration">
+  <j l="advancedfeatures2.html#wp238567" />
+ </i>
+ <i t="XML-typed data">
+  <i t="DB2 examples">
+   <j l="database_support6.html#wp309403" />
+  </i>
+  <i t="DB2 V9.1 examples">
+   <j l="database_support6.html#wp309556" />
+  </i>
+  <i t="ORACLE 10g examples">
+   <j l="database_support6.html#wp309788" />
+  </i>
+  <i t="ORACLE examples">
+   <j l="database_support6.html#wp309624" />
+  </i>
+  <i t="SQL Server examples">
+   <j l="database_support6.html#wp309822" />
+  </i>
+ </i>
+ <i t="XPath 1.0 and XQuery 2.0 Data Model specification">
+  <j l="conf_sourcefiles2.html#wp184915" />
+ </i>
+ <i t="XQConnection interface">
+  <j l="xqjsupport3.html#wp155579" />
+ </i>
+ <i t="XQDataSource interface">
+  <j l="xqjsupport5.html#wp173603" />
+ </i>
+ <i t="XQDynamicContext interface">
+  <j l="xqjsupport6.html#wp155788" />
+ </i>
+ <i t="XQExpression interface">
+  <j l="xqjsupport7.html#wp155893" />
+ </i>
+ <i t="XQItem interface">
+  <j l="xqjsupport8.html#wp163941" />
+ </i>
+ <i t="XQItemAccessor interface">
+  <j l="xqjsupport9.html#wp155985" />
+ </i>
+ <i t="XQItemType interface">
+  <j l="xqjsupport10.html#wp156384" />
+ </i>
+ <i t="XQJ">
+  <i t="DataDirect XQuery support for classes, interfaces, and methods">
+   <j l="xqjsupport.html#wp128996" />
+  </i>
+  <i t="example, executing an XQuery query">
+   <j l="overview4.html#wp143219" />
+  </i>
+  <i t="examples">
+   <j l="quickstart2.html#wp936526" />
+  </i>
+  <i t="executing updates">
+   <j l="xuf_support7.html#wp222301" />
+  </i>
+  <i t="external variables">
+   <j l="conf_sourcefiles2.html#wp184903" />
+  </i>
+  <i t="getting started">
+   <j l="quickstart2.html#wp936526" />
+  </i>
+  <i t="JSR 225">
+   <j l="overview4.html#wp132462" />
+  </i>
+  <i t="mapping using get methods">
+   <j l="xqjsupport22.html#wp183705" />
+  </i>
+  <i t="overview">
+   <j l="overview4.html#wp132461" />
+  </i>
+  <i t="query pooling and">
+   <j l="improvingperformance5.html#wp194697" />
+  </i>
+  <i t="using to configure data source connections explicitly">
+   <j l="conf_sourcefiles4.html#wp181921" />
+  </i>
+  <i t="using to configure data source connections using JNDI">
+   <j l="conf_sourcefiles5.html#wp181978" />
+  </i>
+ </i>
+ <i t="XQMetaData interface">
+  <j l="xqjsupport11.html#wp147283" />
+ </i>
+ <i t="XQPreparedExpression interface">
+  <j l="xqjsupport12.html#wp152550" />
+ </i>
+ <i t="XQResultItem interface">
+  <j l="xqjsupport13.html#wp124337" />
+ </i>
+ <i t="XQResultSequence interface">
+  <j l="xqjsupport14.html#wp134712" />
+ </i>
+ <i t="XQSequence interface">
+  <j l="xqjsupport15.html#wp124499" />
+  <j l="xqjsupport20.html#wp126223" />
+ </i>
+ <i t="XQSequenceType interface">
+  <j l="xqjsupport16.html#wp131358" />
+ </i>
+ <i t="XQStaticContext interface">
+  <j l="xqjsupport17.html#wp162779" />
+ </i>
+ <i t="XQuery">
+  <i t="accessing XML results of a query">
+   <j l="xqjsupport20.html#wp126140" />
+  </i>
+  <i t="accessors for functions and operators">
+   <j l="functions_and_operators.html#wp323483" />
+  </i>
+  <i t="adding and subtracting durations">
+   <j l="functions_and_operators.html#wp324702" />
+  </i>
+  <i t="aggregate functions">
+   <j l="functions_and_operators.html#wp325139" />
+  </i>
+  <i t="atomic types">
+   <j l="database_support4.html#wp300736" />
+   <j l="xqjsupport22.html#wp183705" />
+  </i>
+  <i t="basics">
+   <j l="xquerysupport2.html#wp323288" />
+  </i>
+  <i t="benefits">
+   <j l="overview3.html#wp133406" />
+  </i>
+  <i t="boolean constructor functions">
+   <j l="functions_and_operators.html#wp324232" />
+  </i>
+  <i t="building a Web service client">
+   <j l="http_functions.html#wp205856" />
+  </i>
+  <i t="comparison of">
+   <i t="duration, date, and time values">
+    <j l="functions_and_operators.html#wp324387" />
+   </i>
+   <i t="numeric values">
+    <j l="functions_and_operators.html#wp323880" />
+   </i>
+   <i t="strings">
+    <j l="functions_and_operators.html#wp323993" />
+   </i>
+  </i>
+  <i t="component extraction functions">
+   <j l="functions_and_operators.html#wp324496" />
+  </i>
+  <i t="concepts supported by DataDirect XQuery">
+   <j l="xquerysupport2.html#wp103440" />
+  </i>
+  <i t="Conformance, Data Model">
+   <j l="xquerysupport5.html#wp146409" />
+  </i>
+  <i t="constructor functions">
+   <j l="functions_and_operators.html#wp323590" />
+   <i t="for QNames">
+    <j l="functions_and_operators.html#wp324783" />
+   </i>
+   <i t="for user-defined types">
+    <j l="functions_and_operators.html#wp323819" />
+   </i>
+   <i t="for XML schema built-in types">
+    <j l="functions_and_operators.html#wp323596" />
+   </i>
+  </i>
+  <i t="context functions">
+   <j l="functions_and_operators.html#wp325234" />
+  </i>
+  <i t="equality of strings">
+   <j l="functions_and_operators.html#wp323993" />
+  </i>
+  <i t="equals">
+   <j l="functions_and_operators.html#wp325096" />
+  </i>
+  <i t="error function">
+   <j l="functions_and_operators.html#wp323532" />
+  </i>
+  <i t="error handling">
+   <j l="xquerysupport2.html#wp177766" />
+  </i>
+  <i t="example">
+   <i t="combining data from XML and relational sources">
+    <j l="overview3.html#wp142192" />
+   </i>
+   <i t="creating a specific XML structure">
+    <j l="overview3.html#wp142181" />
+   </i>
+   <i t="simple query using a FLWOR expression">
+    <j l="overview3.html#wp142160" />
+   </i>
+  </i>
+  <i t="except">
+   <j l="functions_and_operators.html#wp325096" />
+  </i>
+  <i t="executing against relational data">
+   <j l="relationaldata2.html#wp222615" />
+  </i>
+  <i t="expression context">
+   <j l="xquerysupport2.html#wp102605" />
+  </i>
+  <i t="expressions">
+   <i t="arithmetic">
+    <j l="xquerysupport3.html#wp216439" />
+   </i>
+   <i t="comparison">
+    <j l="xquerysupport3.html#wp133557" />
+   </i>
+   <i t="conditional">
+    <j l="xquerysupport3.html#wp105750" />
+   </i>
+   <i t="constructors">
+    <j l="xquerysupport3.html#wp179554" />
+   </i>
+   <i t="FLWOR">
+    <j l="xquerysupport3.html#wp105495" />
+   </i>
+   <i t="logical">
+    <j l="xquerysupport3.html#wp105128" />
+   </i>
+   <i t="on SequenceTypes">
+    <j l="xquerysupport3.html#wp105999" />
+   </i>
+   <i t="path">
+    <j l="xquerysupport3.html#wp104383" />
+   </i>
+   <i t="primary">
+    <j l="xquerysupport3.html#wp104242" />
+   </i>
+   <i t="quantified">
+    <j l="xquerysupport3.html#wp105928" />
+   </i>
+   <i t="sequence">
+    <j l="xquerysupport3.html#wp133365" />
+   </i>
+   <i t="unordered">
+    <j l="xquerysupport3.html#wp105677" />
+   </i>
+   <i t="validate">
+    <j l="xquerysupport3.html#wp106469" />
+   </i>
+  </i>
+  <i t="extension expressions">
+   <j l="advancedfeatures2.html#wp204726" />
+  </i>
+  <i t="extensions of expressions to support XUF">
+   <j l="xufsupport2.html#wp103666" />
+  </i>
+  <i t="extensions that support XUF">
+   <j l="xufsupport2.html#wp238906" />
+  </i>
+  <i t="extensions to built-in functions library to support XUF">
+   <j l="xufsupport2.html#wp103955" />
+  </i>
+  <i t="functionality that cannot be directly translated into SQL">
+   <j l="improvingperformance4.html#wp194682" />
+  </i>
+  <i t="functions">
+   <i t="based on substring matching">
+    <j l="functions_and_operators.html#wp324103" />
+   </i>
+   <i t="for anyURI">
+    <j l="functions_and_operators.html#wp324200" />
+   </i>
+   <i t="introduction">
+    <j l="functions_and_operators.html#wp322322" />
+   </i>
+   <i t="on base64Binary and hexBinary">
+    <j l="functions_and_operators.html#wp324863" />
+   </i>
+   <i t="on boolean values">
+    <j l="functions_and_operators.html#wp324228" />
+    <j l="functions_and_operators.html#wp324294" />
+   </i>
+   <i t="on durations, dates, and times">
+    <j l="functions_and_operators.html#wp324320" />
+   </i>
+   <i t="on nodes">
+    <j l="functions_and_operators.html#wp324923" />
+   </i>
+   <i t="on NOTATION">
+    <j l="functions_and_operators.html#wp324896" />
+   </i>
+   <i t="on numeric values">
+    <j l="functions_and_operators.html#wp323913" />
+   </i>
+   <i t="on numerics">
+    <j l="functions_and_operators.html#wp323823" />
+   </i>
+   <i t="on sequences">
+    <j l="functions_and_operators.html#wp324983" />
+   </i>
+   <i t="on string values">
+    <j l="functions_and_operators.html#wp324027" />
+   </i>
+   <i t="on strings">
+    <j l="functions_and_operators.html#wp323958" />
+   </i>
+   <i t="related to QNames">
+    <j l="functions_and_operators.html#wp324780" />
+   </i>
+   <i t="that generate sequences">
+    <j l="functions_and_operators.html#wp325180" />
+   </i>
+   <i t="to assemble and disassemble strings">
+    <j l="functions_and_operators.html#wp323961" />
+   </i>
+  </i>
+  <i t="improving performance">
+   <j l="improvingperformance.html#wp194660" />
+  </i>
+  <i t="intersection">
+   <j l="functions_and_operators.html#wp325096" />
+  </i>
+  <i t="making queries available as Web services">
+   <j l="webserviceframework2.html#wp201878" />
+  </i>
+  <i t="modules">
+   <j l="xquerysupport4.html#wp107169" />
+  </i>
+  <i t="operators">
+   <i t="for anyURI">
+    <j l="functions_and_operators.html#wp324200" />
+   </i>
+   <i t="introduction">
+    <j l="functions_and_operators.html#wp322322" />
+   </i>
+   <i t="on base64Binary and hexBinary">
+    <j l="functions_and_operators.html#wp324863" />
+   </i>
+   <i t="on boolean values">
+    <j l="functions_and_operators.html#wp324228" />
+   </i>
+   <i t="on durations, dates, and times">
+    <j l="functions_and_operators.html#wp324320" />
+   </i>
+   <i t="on nodes">
+    <j l="functions_and_operators.html#wp324923" />
+   </i>
+   <i t="on NOTATION">
+    <j l="functions_and_operators.html#wp324896" />
+   </i>
+   <i t="on numeric values">
+    <j l="functions_and_operators.html#wp323826" />
+   </i>
+   <i t="on numerics">
+    <j l="functions_and_operators.html#wp323823" />
+   </i>
+   <i t="on sequences">
+    <j l="functions_and_operators.html#wp324983" />
+   </i>
+   <i t="related to QNames">
+    <j l="functions_and_operators.html#wp324815" />
+   </i>
+   <i t="that generate sequences">
+    <j l="functions_and_operators.html#wp325180" />
+   </i>
+  </i>
+  <i t="option declarations">
+   <j l="advancedfeatures2.html#wp204726" />
+  </i>
+  <i t="optional features">
+   <j l="xquerysupport5.html#wp187013" />
+  </i>
+  <i t="ordered subtypes of duration">
+   <j l="functions_and_operators.html#wp324382" />
+  </i>
+  <i t="overview">
+   <j l="overview3.html#wp133406" />
+  </i>
+  <i t="predicates">
+   <j l="tutorial_xquery2.html#wp153204" />
+  </i>
+  <i t="processing model">
+   <j l="xquerysupport2.html#wp103421" />
+  </i>
+  <i t="prologs">
+   <j l="xquerysupport4.html#wp107169" />
+  </i>
+  <i t="query pooling">
+   <j l="improvingperformance5.html#wp194695" />
+  </i>
+  <i t="static typing">
+   <i t="external variables">
+    <j l="troubleshooting5.html#wp137738" />
+   </i>
+   <i t="overview">
+    <j l="troubleshooting5.html#wp137725" />
+   </i>
+   <i t="union types">
+    <j l="troubleshooting5.html#wp137765" />
+   </i>
+  </i>
+  <i t="Streaming XML feature">
+   <j l="improvingperformance2.html#wp205300" />
+  </i>
+  <i t="string functions that use pattern matching">
+   <j l="functions_and_operators.html#wp324159" />
+  </i>
+  <i t="timezone adjustment">
+   <j l="functions_and_operators.html#wp324667" />
+  </i>
+  <i t="trace function">
+   <j l="functions_and_operators.html#wp323561" />
+  </i>
+  <i t="types">
+   <j l="xquerysupport2.html#wp103666" />
+  </i>
+  <i t="union">
+   <j l="functions_and_operators.html#wp325096" />
+  </i>
+  <i t="updating data sources">
+   <j l="xuf_support.html#wp209816" />
+  </i>
+  <i t="version support">
+   <j l="tutorial_ddxquery2.html#wp161077" />
+  </i>
+  <i t="XML constructors">
+   <j l="tutorial_xquery3.html#wp148398" />
+  </i>
+  <i t="XQuery Update Facility (XUF)">
+   <j l="xuf_support.html#wp209816" />
+  </i>
+  <i t="XQueryWebService framework">
+   <j l="webserviceframework2.html#wp201878" />
+  </i>
+ </i>
+ <i t="XQuery 1.1">
+  <i t="binding seqeunce">
+   <j l="tutorial_xquery5.html#wp153647" />
+  </i>
+  <i t="sliding windows">
+   <j l="tutorial_xquery5.html#wp153685" />
+  </i>
+  <i t="tumbling windows">
+   <j l="tutorial_xquery5.html#wp153681" />
+  </i>
+  <i t="window clause">
+   <j l="tutorial_xquery5.html#wp153647" />
+  </i>
+ </i>
+ <i t="XQuery execution plan">
+  <j l="advancedfeatures7.html#wp212090" />
+ </i>
+ <i t="XQuery expressions, not translated to SQL">
+  <j l="advancedfeatures2.html#wp174265" />
+ </i>
+ <i t="XQuery processing">
+  <i t="Plan Explain">
+   <j l="improvingperformance2.html#wp205372" />
+  </i>
+ </i>
+ <i t="XQuery statements, preparing">
+  <j l="tutorial_ddxquery8.html#wp145321" />
+ </i>
+ <i t="XQueryWebService framework">
+  <i t="architecture">
+   <j l="webserviceframework3.html#wp211855" />
+  </i>
+  <i t="database connections and">
+   <j l="webserviceframework5.html#wp207791" />
+  </i>
+  <i t="example">
+   <j l="webserviceframework4.html#wp211930" />
+  </i>
+  <i t="generating WSDL for">
+   <j l="webserviceframework8.html#wp209678" />
+  </i>
+  <i t="HTTP GET">
+   <j l="webserviceframework2.html#wp211257" />
+  </i>
+  <i t="HTTP POST">
+   <j l="webserviceframework2.html#wp211445" />
+  </i>
+  <i t="overview">
+   <j l="webserviceframework2.html#wp201878" />
+  </i>
+  <i t="REST">
+   <j l="webserviceframework2.html#wp211257" />
+   <j l="webserviceframework6.html#wp208699" />
+  </i>
+  <i t="SOAP">
+   <j l="webserviceframework2.html#wp211482" />
+   <j l="webserviceframework6.html#wp208699" />
+  </i>
+  <i t="testing">
+   <j l="webserviceframework7.html#wp207975" />
+  </i>
+  <i t="Web service interfaces">
+   <j l="webserviceframework6.html#wp208699" />
+  </i>
+  <i t="WSDL service references and">
+   <j l="webserviceframework9.html#wp208079" />
+  </i>
+ </i>
+ <i t="XUF">
+  <i t="copy clause">
+   <j l="xuf_support8.html#wp218991" />
+  </i>
+  <i t="examples">
+   <i t="inserting node values">
+    <j l="xuf_support6.html#wp219424" />
+   </i>
+   <i t="overview">
+    <j l="xuf_support3.html#wp219952" />
+   </i>
+   <i t="renaming node values">
+    <j l="xuf_support7.html#wp220814" />
+   </i>
+   <i t="replacing node values">
+    <j l="xuf_support5.html#wp219180" />
+   </i>
+  </i>
+  <i t="expressions">
+   <j l="xuf_support2.html#wp220466" />
+  </i>
+  <i t="insert expression">
+   <j l="xuf_support6.html#wp218964" />
+  </i>
+  <i t="inserting node values">
+   <j l="xuf_support6.html#wp218964" />
+  </i>
+  <i t="modify clause">
+   <j l="xuf_support8.html#wp218991" />
+  </i>
+  <i t="rename expression">
+   <j l="xuf_support7.html#wp218979" />
+  </i>
+  <i t="renaming node values">
+   <j l="xuf_support7.html#wp218979" />
+  </i>
+  <i t="replace expression">
+   <j l="xuf_support5.html#wp204592" />
+  </i>
+  <i t="replacing node values">
+   <j l="xuf_support5.html#wp204592" />
+  </i>
+  <i t="return clause">
+   <j l="xuf_support8.html#wp218991" />
+  </i>
+  <i t="support for">
+   <j l="xuf_support2.html#wp218844" />
+  </i>
+  <i t="transforming query results">
+   <j l="xuf_support8.html#wp218986" />
+  </i>
+  <i t="updating data sources">
+   <j l="xuf_support9.html#wp221374" />
+  </i>
+ </i>
+ <i t="XUF support">
+  <i t="conformance to specification">
+   <j l="xufsupport3.html#wp314866" />
+  </i>
+  <i t="extensions of existing XQuery expressions">
+   <j l="xufsupport2.html#wp103666" />
+  </i>
+  <i t="extensions to the XQuery processing mode">
+   <j l="xufsupport2.html#wp102605" />
+  </i>
+  <i t="extensions to the XQuery static context">
+   <j l="xufsupport2.html#wp177766" />
+  </i>
+  <i t="extensions to XQuery 1.0">
+   <j l="xufsupport2.html#wp238906" />
+  </i>
+  <i t="extensions to XQuery built-in function library">
+   <j l="xufsupport2.html#wp103955" />
+  </i>
+  <i t="new kinds of expressions">
+   <j l="xufsupport2.html#wp103440" />
+  </i>
+  <i t="optional features">
+   <j l="xufsupport3.html#wp314870" />
+  </i>
+ </i>
+ <i t="XUF suppport">
+  <i t="extensions to the XQuery prolog">
+   <j l="xufsupport2.html#wp103421" />
+  </i>
+ </i>
+ <i t="ZIP files">
+  <i t="creating with ddtek:serialize-to-url()">
+   <j l="built-in_functions2.html#wp316125" />
+   <j l="built-in_functions2.html#wp310546" />
+  </i>
+  <i t="updating files in with ddtek:serialize-to-url()">
+   <j l="built-in_functions2.html#wp310535" />
+  </i>
+ </i>
+ <i t="ZIP files, querying">
+  <j l="advancedfeatures4.html#wp246388" />
+ </i>
+</WebWorksHelpIX>

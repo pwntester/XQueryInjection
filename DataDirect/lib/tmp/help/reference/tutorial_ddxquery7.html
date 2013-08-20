@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:09" />
+  <title>Returning Results with Java XML APIs</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp145145"> </a><h2 class="pNewHTMLPageNum">
+Returning Results with Java XML APIs
+</h2>
+<hr />
+<a name="wp145153"> </a><p class="pBody">
+Often, applications need to retrieve XQuery results as DOM, SAX, or StAX. XQSequence, as shown previously in this tutorial, allows access to the result as a direct mapping of the XQuery sequence. Within an XQSequence, XQItem objects represent each item in an XQuery sequence.
+</p>
+<a name="wp158946"> </a><p class="pBody">
+NOTE: Instantiating each item in an XQItem object affects performance because it requires the processing to create multiple objects. Use XQItem object judiciously.
+</p>
+<a name="wp150183"> </a><p class="pBody">
+Next, we&#8217;ll show you how to process an XQuery sequence and return the output as DOM, SAX, or StAX.
+</p>
+<a name="wp150684"> </a><p class="pBody">
+First, create an XQExpression object that executes the XQuery expression and returns a sequence of results:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp152050"> </a>
+...<a name="wp154560"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp154561"> </a>
+FileReader fileReader = new FileReader(&quot;flwor.xq&quot;);<a name="wp154562"> </a>
+XQExpression xqExpression = conn.createExpression();<a name="wp150686"> </a>
+XQSequence xqSequence = xqExpression.executeQuery(fileReader);<a name="wp150687"> </a>
+</pre></div>
+<a name="wp150184"> </a><h3 class="pHeading2">
+DOM
+</h3>
+<a name="wp150321"> </a><p class="pBody">
+To return the output from a result sequence as a DOM tree, we iterate over each DOM node in the XQuery sequence to extract the DOM content and print the DOM node to the standard System.out. For example, if you have J2SE 1.4.x, use the following code, which assumes all items in the result sequence are node items:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+while(xqSequence.next()){<a name="wp149970"> </a>
+   Node domNode = xqSequence.getNode();<a name="wp149972"> </a>
+   System.out.println(domNode);<a name="wp149973"> </a>
+   }<a name="wp150345"> </a>
+</pre></div>
+<a name="wp150408"> </a><p class="pBody">
+If you have J2SE 1.5 and higher, the method is different; it is shown in the <a  href="examples4.html#wp143252">ResultRetrieval</a> example.
+</p>
+<a name="wp150642"> </a><h3 class="pHeading2">
+SAX
+</h3>
+<a name="wp150810"> </a><p class="pBody">
+To return the output from a result sequence as a SAX event stream rather than a string, create a SAX event handler (named SimpleSAXEventHandler, in this case) that sends the results to the standard System.out as shown in the following code:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SimpleSAXEventHandler anEventHandler = new SimpleSAXEventHandler(System.out);<a name="wp150765"> </a>
+xqSequence.writeSequenceToSAX(anEventHandler);<a name="wp150653"> </a>
+</pre></div>
+<a name="wp150908"> </a><p class="pBody">
+The complete application can be found in the <a  href="examples4.html#wp143252">ResultRetrieval</a> example.
+</p>
+<a name="wp149977"> </a><h3 class="pHeading2">
+StAX
+</h3>
+<a name="wp150484"> </a><p class="pBody">
+To return the output from a result sequence as a StAX event stream rather than as a string, create a StAX reader as shown in the following code:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XMLStreamReader reader = xqSequence.getSequenceAsStream();<a name="wp145234"> </a>
+</pre></div>
+<a name="wp145176"> </a><p class="pBody">
+You can use this StAX reader functionality like any other StAX stream reader. For example, the following code reads one event at a time and prints the event type together with the associated event names. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+private static void formatOutput(XMLStreamReader reader) throws<a name="wp145252"> </a>
+XMLStreamException {<a name="wp145253"> </a>
+while(true){<a name="wp150598"> </a>
+    int event = reader.next();<a name="wp150599"> </a>
+    if(event == XMLStreamConstants.END_DOCUMENT){<a name="wp150600"> </a>
+    return;    <a name="wp145258"> </a>
+    switch (event) {<a name="wp150530"> </a>
+      case XMLStreamConstants.START_ELEMENT:<a name="wp150531"> </a>
+      System.out.println(&quot;Start tag: &quot;);<a name="wp150532"> </a>
+      printNames(reader);<a name="wp150533"> </a>
+      break;<a name="wp150534"> </a>
+      <a name="wp150535"> </a>
+      case XMLStreamConstants.END_ELEMENT:<a name="wp150536"> </a>
+      System.out.println(&quot;End tag&quot;);<a name="wp150537"> </a>
+      printNames(reader);<a name="wp150538"> </a>
+      break;<a name="wp150539"> </a>
+      <a name="wp150540"> </a>
+      case XMLStreamConstants.CHARACTERS:<a name="wp150541"> </a>
+      System.out.println(&quot;Text&quot;);<a name="wp150546"> </a>
+      printChars(reader);<a name="wp150547"> </a>
+      break;     <a name="wp145259"> </a>
+   }<a name="wp152084"> </a>
+}<a name="wp145265"> </a>
+...<a name="wp145267"> </a>
+</pre></div>
+<a name="wp152970"> </a><p class="pBody">
+Other similar examples can be found in the <a  href="examples4.html#wp143252">ResultRetrieval</a> example.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

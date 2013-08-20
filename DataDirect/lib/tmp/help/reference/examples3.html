@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:48" />
+  <title>Configuring Your Environment to Run the Examples</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp138542"> </a><h2 class="pNewHTMLPageNum">
+Configuring Your Environment to Run the Examples
+</h2>
+<hr />
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp138547"> </a><div class="pSmartList1"><li>Configure a database instance to connect to and privileges to create and drop tables. You must have a user ID and password that has permission to create tables, drop tables, and insert rows of data. The data loader provided with the examples will create and drop tables used by the examples.</li></div><a name="wp138553"> </a><p class="pBodyRelative">
+IMPORTANT: The examples data loader drops and creates the following database tables: &quot;users&quot;, &quot;companies&quot;, &quot;historical&quot;, &quot;holdings&quot;, and &quot;statistical&quot;.
+</p>
+<a name="wp139769"> </a><div class="pSmartList1"><li>Modify the setenv.bat (Windows) or setenv.sh (UNIX/Linux) file. In addition, you must set the JDBCURL environment setting in the file to the connection URL of the test database to which you want to connect. See the comments in the setenv file for examples.</li></div><a name="wp139772"> </a><p class="pBodyRelative">
+Optionally, you may need to set:
+</p>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp139794"> </a><div class="pSmartList2Rel"><li>The PATH2LIBS environment setting to the DataDirect XQuery lib subdirectory:</li></div>
+<a name="wp139802"> </a><p class="pBodyRelative">
+<em class="cEmphasis">ddxq_install_directory</em>/lib
+</p>
+<a name="wp139809"> </a><p class="pBodyRelative">
+If you are executing the examples and dataloader from their respective directories, you do not need to modify this value.
+</p>
+<a name="wp139801"> </a><div class="pSmartList2Rel"><li>The PATH variable so that the Java executable is available from the command line. If you must recompile the examples, PATH should also contain the path that specifies the location of the Java compiler (javac) executable.</li></div>
+</ul></div>
+<a name="wp139773"> </a><div class="pSmartList1"><li>Populate the test database. To load the data, execute:</li></div><a name="wp138575"> </a><p class="pBodyRelative">
+<code><em>ddxq_install_directory</em></code><code class="cCode">/examples/DataLoader/<br />load_example_data.bat </code>(Windows) 
+</p>
+<a name="wp138577"> </a><p class="pBodyRelative">
+or
+</p>
+<a name="wp138579"> </a><p class="pBodyRelative">
+<code><em>ddxq_install_directory</em></code><code class="cCode">/examples/DataLoader/<br />load_example_data.sh</code> (UNIX/Linux)
+</p>
+<a name="wp138581"> </a><p class="pBodyRelative">
+Creation of the database table and data upload may take as few as 30 seconds; however, depending on the speed of your network, database server, and workstation, the process may take several minutes.
+</p>
+<a name="wp138585"> </a><p class="pBodyRelative">
+NOTES: 
+</p>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp140398"> </a><div class="pSmartList2Rel"><li>The data loader will create the following database tables: &quot;users&quot;, &quot;companies&quot;, &quot;historical&quot;, &quot;holdings&quot;, and &quot;statistical&quot;.</li></div>
+<a name="wp140389"> </a><div class="pSmartList2Rel"><li>Using the data loader with a Java VM that was started with the -server option can crash the Java VM. This is caused by a Java bug that can occur with any supported JDK version and on different platforms. For information about workarounds for this issue, contact Technical Support.</li></div>
+</ul></div>
+</ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQDataSource Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp173603"> </a><h2 class="pNewHTMLPageNum">
+XQDataSource Interface
+</h2>
+<hr />
+<a name="wp155701"> </a><p class="pBody">
+This interface can be used as a factory for creating XQuery connection objects.
+</p>
+<a name="wp155702"> </a><p class="pBody">
+A DataSource object typically has a set of properties that identify and describe the data source that it represents such as location of the database, the name of the database, and so on.
+</p>
+<a name="wp155703"> </a><p class="pBody">
+The class name of the DataDirect XQuery XQDataSource implementation is:
+</p>
+<a name="wp155704"> </a><p class="pBody">
+com.ddtek.xquery.xqj.DDXQDataSource
+</p>
+<a name="wp155705"> </a><p class="pBody">
+In addition, DataDirect XQuery uses the following class to specify additional properties when configuring connections for multiple databases: 
+</p>
+<a name="wp155706"> </a><p class="pBody">
+com.ddtek.xquery.xqj.DDXQJDBCConnection
+</p>
+<a name="wp155710"> </a><p class="pBody">
+See <a  href="conf_sourcefiles4.html#wp181921">Configuring Connections Explicitly</a> for information about configuring connections using the DDXQDataSource and DDXQJDBCConnection interfaces, and the properties supported by DDXQDataSource and DDXQJDBCConnection.
+</p>
+<a name="wp155714"> </a><p class="pBody">
+<a  href="xqjsupport5.html#wp155718">Table&#160;G-3</a> describes how DataDirect XQuery supports the methods of the XQDataSource interface.
+</p>
+<a name="wp155785"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp155718"> </a><div class="pTableTitle">
+Table G-3.  XQDataSource Method Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp155722"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp155724"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155726"> </a><div class="pCellBody">
+XQConnection getConnection( )
+</div>
+</td>
+    <td><a name="wp155728"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155730"> </a><div class="pCellBody">
+XQConnection getConnection(Connection con)
+</div>
+</td>
+    <td><a name="wp155732"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155734"> </a><div class="pCellBody">
+XQConnection getConnection(String username, String passwd)
+</div>
+</td>
+    <td><a name="wp155736"> </a><div class="pCellBody">
+Supported. The user name and password value pair is used for all underlying JDBC connections.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155738"> </a><div class="pCellBody">
+int getLoginTimeout( )
+</div>
+</td>
+    <td><a name="wp155740"> </a><div class="pCellBody">
+Supported. Always returns 0, which means there is no timeout.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155742"> </a><div class="pCellBody">
+PrintWriter getLogWriter( )
+</div>
+</td>
+    <td><a name="wp155744"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155746"> </a><div class="pCellBody">
+String getProperty(String name)
+</div>
+</td>
+    <td><a name="wp155750"> </a><div class="pCellBody">
+Supported. See <a  href="conf_sourcefiles6.html#wp182053">Table&#160;6-1</a> for a description of all supported properties.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155753"> </a><div class="pCellBody">
+String[] getSupportedPropertyNames( )
+</div>
+</td>
+    <td><a name="wp155757"> </a><div class="pCellBody">
+Supported. See <a  href="conf_sourcefiles6.html#wp182053">Table&#160;6-1</a> for a description of all supported properties.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155764"> </a><div class="pCellBody">
+void setLoginTimeout(int seconds)
+</div>
+</td>
+    <td><a name="wp155766"> </a><div class="pCellBody">
+Supported but ignored.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155768"> </a><div class="pCellBody">
+void setLogWriter(PrintWriter out)
+</div>
+</td>
+    <td><a name="wp155770"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155772"> </a><div class="pCellBody">
+void setProperties(Properties props)
+</div>
+</td>
+    <td><a name="wp155776"> </a><div class="pCellBody">
+Supported. See <a  href="conf_sourcefiles6.html#wp182053">Table&#160;6-1</a> for a description of all supported properties.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155779"> </a><div class="pCellBody">
+void setProperty(String name, String value)
+</div>
+</td>
+    <td><a name="wp155783"> </a><div class="pCellBody">
+Supported. See <a  href="conf_sourcefiles6.html#wp182053">Table&#160;6-1</a> for a description of all supported properties.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

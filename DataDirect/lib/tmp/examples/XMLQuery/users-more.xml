@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<users>
+    <user>
+        <id>Ivan</id>
+        <first-name>Ivan</first-name>
+        <last-name>Evaristo</last-name>
+        <date>1999-02-10</date>
+        <holdings>
+            <holding>
+                <ticker>PRGS</ticker>
+                <quantity>1200</quantity>
+            </holding>
+        </holdings>
+    </user>
+    <user>
+        <id>Clyde</id>
+        <first-name>Clyde</first-name>
+        <last-name>Grumpy</last-name>
+        <date>2004-01-01</date>
+        <holdings>
+            <holding>
+                <ticker>TIVO</ticker>
+                <quantity>15</quantity>
+            </holding>
+            <holding>
+                <ticker>PRGS</ticker>
+                <quantity>1234</quantity>
+            </holding>
+        </holdings>
+    </user>
+</users> 

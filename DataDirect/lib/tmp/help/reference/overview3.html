@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:08" />
+  <title>What Is XQuery?</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp133406"> </a><h2 class="pNewHTMLPageNum">
+What Is XQuery?
+</h2>
+<hr />
+<a name="wp136524"> </a><p class="pBody">
+XQuery is a query language for XML. In the same way that SQL is used to query relational tables, XQuery is used to query XML or anything for which a logical XML view can be defined. Typically, SQL queries create tables to represent the result of a query, and XQuery queries create XML to represent the result of a query. The resulting XML can be as complex as necessary. For example, the result of a query may be a complex document such as an inventory report, a document with dynamic content, or a SOAP message. The result of an XQuery can also be as simple as a single integer; for example, a query might count the number of items that satisfy a condition. In this help, we use the term <em class="cEmphasis">XML results</em> to refer to the results of any XQuery query.<a href="#wp138524"><span class="Footnote">1</span></a>
+</p>
+<a name="wp136531"> </a><p class="pBody">
+XQuery goes beyond the functionality of relational query languages, and includes support for many features not found in the SQL language. Just as SQL is a relational query language and Java is an object-oriented language, XQuery is often thought of as a native XML programming language. In XQuery, the only complex data structure is XML, and the operations that are regularly needed for processing XML are directly supported in a convenient manner. 
+</p>
+<a name="wp136538"> </a><p class="pBody">
+XQuery can easily search any XML structure with path expressions, create any XML structure using constructors, and transform XML structures using FLWOR expressions. In addition, XQuery simplifies the tasks encountered when working with namespaces or data types.
+</p>
+<a name="wp155035"> </a><p class="pBody">
+Because XML is used to represent and transfer data from a wide variety of sources, XQuery is also widely used for data integration. Even when data is not physically stored as XML, XQuery can be used with any product that provides a processor that creates a logical view of the data as XML. For instance, SOAP may be used to acquire data from a variety of sources, and XQuery may be used to query the resulting SOAP messages (in XML) together with data found in a relational database (using an XML view). 
+</p>
+<a name="wp136554"> </a><h3 class="pHeading2">
+The XQuery Standard
+</h3>
+<a name="wp155118"> </a><p class="pBody">
+The XQuery standard is developed by the W3C<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">&#174;</sup>, a standards body for the World Wide Web. You can learn more about their work on XQuery here:
+</p>
+<a name="wp152435"> </a><p class="pBody">
+<a  href="http://www.w3.org/XML/Query.html">http://www.w3.org/XML/Query.html</a>
+</p>
+<a name="wp152401"> </a><p class="pBody">
+As of January 2007, XQuery 1.0 is the recommended specification of the W3C:
+</p>
+<a name="wp155137"> </a><p class="pBody">
+<a  href="http://www.w3.org/TR/xquery/">http://www.w3.org/TR/xquery/</a>
+</p>
+<a name="wp155132"> </a><p class="pBody">
+In December 2008, the W3C published a working draft for the next XQuery version, XQuery 1.1:
+</p>
+<a name="wp155152"> </a><p class="pBody">
+<a  href="http://www.w3.org/TR/xquery-11/">http://www.w3.org/TR/xquery-11/</a>
+</p>
+<a name="wp155256"> </a><p class="pBody">
+Additional information about XQuery can be found at:
+</p>
+<a name="wp156722"> </a><p class="pBody">
+<a  href="http://www.datadirect.com/products/data-integration/index.ssp">http://www.datadirect.com/products/data-integration/index.ssp</a>
+</p>
+<a name="wp155151"> </a><h4 class="pHeading3">
+Support for the XQuery Standard
+</h4>
+<a name="wp155254"> </a><p class="pBody">
+DataDirect XQuery supports both XQuery 1.0 and XQuery 1.1 as described in <a  href="xquerysupport.html#wp245044">XQuery Support</a>.
+</p>
+<a name="wp142657"> </a><h3 class="pHeading2">
+XQuery Examples
+</h3>
+<a name="wp142658"> </a><p class="pBody">
+This section provides examples of queries &#8211; from simple to more complex &#8211; to help you become familiar with XQuery.
+</p>
+<a name="wp142669"> </a><p class="pBody">
+NOTE: The XQuery examples shown in this section use the database tables and XML files provided with the product in the /examples subdirectory in your DataDirect XQuery installation directory.
+</p>
+<a name="wp142160"> </a><p class="pBodyBold">
+Example 1: Query Using a FLWOR Expression
+</p>
+<a name="wp142161"> </a><p class="pBody">
+The following simple query uses a FLWOR (For each, Let, Where, Order by, Return) expression to return only the rows of the holdings database table that contain a value of AMZN in the stockticker column. In this query, <code class="cCode">collection(</code>&#39;<code class="cCode">holdings</code>&#39;<code class="cCode">)</code> refers to the holdings table in a relational database.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in collection(&#39;holdings&#39;)/holdings<a name="wp142162"> </a>
+where $h/stockticker=&#39;AMZN&#39;<a name="wp142163"> </a>
+return $h<a name="wp142164"> </a>
+</pre></div>
+<a name="wp144439"> </a><p class="pBodyBold">
+Result
+</p>
+<a name="wp144440"> </a><p class="pBody">
+<span style="font-weight: normal">The query returns $h directly, so it returns a sequence containing an XML representation of each row. </span>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;holdings&gt;<a name="wp142170"> </a>
+   &lt;userid&gt;Jonathan&lt;/userid&gt;<a name="wp142171"> </a>
+   &lt;stockticker&gt;AMZN&lt;/stockticker&gt;<a name="wp142172"> </a>
+   &lt;shares&gt;3000&lt;/shares&gt;<a name="wp142173"> </a>
+&lt;/holdings&gt;<a name="wp142174"> </a>
+&lt;holdings&gt;<a name="wp142175"> </a>
+   &lt;userid&gt;Minollo&lt;/userid&gt;<a name="wp142176"> </a>
+   &lt;stockticker&gt;AMZN&lt;/stockticker&gt;<a name="wp142177"> </a>
+   &lt;shares&gt;3000&lt;/shares&gt;<a name="wp142178"> </a>
+&lt;/holdings&gt;<a name="wp142179"> </a>
+</pre></div>
+<a name="wp155289"> </a><p class="pBody">
+See <a  href="conf_sourcefiles2.html#wp188276">Data Model Representation of Relational Tables</a> for more information about XML views of tables.
+</p>
+<a name="wp142181"> </a><p class="pBodyBold">
+Example 2: Creating a Specific XML Structure
+</p>
+<a name="wp142182"> </a><p class="pBody">
+In this example, the query returns the same data as Example 1, but it uses an element constructor to create a different XML structure.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $h in collection(&#39;holdings&#39;)/holdings<a name="wp142183"> </a>
+where $h/stockticker=&#39;AMZN&#39;<a name="wp142184"> </a>
+return <a name="wp142185"> </a>
+  &lt;Amazon Client=&quot;{$h/userid}&quot; Shares=&quot;{$h/shares}&quot; /&gt;<a name="wp142186"> </a>
+</pre></div>
+<a name="wp142187"> </a><p class="pBodyBold">
+Result
+</p>
+<a name="wp142188"> </a><p class="pBody">
+The return clause creates an element named Amazon. It creates two attributes, Client and Shares, which have the values of the userid and shares columns from the relational table.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;Amazon Client=&quot;Jonathan&quot; Shares=&quot;3000&quot; /&gt;<a name="wp142189"> </a>
+&lt;Amazon Client=&quot;Minollo&quot; Shares=&quot;3000&quot; /&gt;<a name="wp142190"> </a>
+</pre></div>
+<a name="wp142192"> </a><p class="pBodyBold">
+Example 3: Combining Data From XML and Relational Sources
+</p>
+<a name="wp142194"> </a><p class="pBody">
+Web messages, such as SOAP requests, are XML documents, and they can parameterize or provide data for a query. The following example joins an XML document named request.xml to two relational database tables named holdings and statistical. The request.xml file is joined to the holdings table by the UserId element in the XML file and the userid column of the holdings table. The two tables are joined by the ticker column of the statistical table and the stockticker column of the holdings table.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $request := doc(&#39;request.xml&#39;)/request<a name="wp142195"> </a>
+for $user in $request/performance/UserId<a name="wp142196"> </a>
+return<a name="wp142197"> </a>
+  &lt;portfolio UserId=&quot;{$user}&quot;&gt;<a name="wp142198"> </a>
+   {$request}<a name="wp142199"> </a>
+   {<a name="wp142200"> </a>
+     for $st in collection(&#39;holdings&#39;)/holdings,<a name="wp142201"> </a>
+      $stats in collection(&#39;statistical&#39;)/statistical<a name="wp142202"> </a>
+     where $st/userid = $user<a name="wp142203"> </a>
+      and $stats/ticker = $st/stockticker<a name="wp142204"> </a>
+     return<a name="wp142205"> </a>
+        &lt;stock&gt;<a name="wp142206"> </a>
+          {$stats/companyname}<a name="wp142207"> </a>
+          {$st/stockticker}<a name="wp142208"> </a>
+          {$st/shares}<a name="wp142209"> </a>
+          {$stats/annualrevenues}<a name="wp142210"> </a>
+        &lt;/stock&gt;<a name="wp142211"> </a>
+   }<a name="wp142212"> </a>
+  &lt;/portfolio&gt;<a name="wp142213"> </a>
+</pre></div>
+<a name="wp142214"> </a><p class="pBodyBold">
+Result
+</p>
+<a name="wp142215"> </a><p class="pBody">
+The result of this query is an element named portfolio. The first child of this element contains the original request from request.xml. Subsequently, the query provides the stock information for a given user, obtained from two tables:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;portfolio UserId=&quot;Jonathan&quot;&gt;<a name="wp142216"> </a>
+  &lt;request&gt;<a name="wp142217"> </a>
+    &lt;performance&gt;<a name="wp142218"> </a>
+      &lt;UserId&gt;Jonathan&lt;/UserId&gt;<a name="wp142219"> </a>
+      &lt;start&gt;2003-01-01&lt;/start&gt;<a name="wp142220"> </a>
+      &lt;end&gt;2004-06-01&lt;/end&gt;<a name="wp142221"> </a>
+    &lt;/performance&gt;<a name="wp142222"> </a>
+  &lt;/request&gt;<a name="wp142223"> </a>
+  &lt;stock&gt;<a name="wp142224"> </a>
+    &lt;companyname&gt;Amazon.com, Inc.&lt;/companyname&gt;<a name="wp142225"> </a>
+    &lt;stockticker&gt;AMZN&lt;/stockticker&gt;<a name="wp142226"> </a>
+    &lt;shares&gt;3000&lt;/shares&gt;<a name="wp142227"> </a>
+    &lt;annualrevenues&gt;7780&lt;/annualrevenues&gt;<a name="wp142228"> </a>
+  &lt;/stock&gt;<a name="wp142229"> </a>
+  &lt;stock&gt;<a name="wp142230"> </a>
+    &lt;companyname&gt;eBay Inc.&lt;/companyname&gt;<a name="wp142231"> </a>
+    &lt;stockticker&gt;EBAY&lt;/stockticker&gt;<a name="wp142232"> </a>
+    &lt;shares&gt;4000&lt;/shares&gt;<a name="wp142233"> </a>
+    &lt;annualrevenues&gt;22600&lt;/annualrevenues&gt;<a name="wp142234"> </a>
+  &lt;/stock&gt;<a name="wp142235"> </a>
+  &lt;stock&gt;<a name="wp142236"> </a>
+    &lt;companyname&gt;Int&#39;l Business Machines C&lt;/companyname&gt;<a name="wp142237"> </a>
+    &lt;stockticker&gt;IBM&lt;/stockticker&gt;<a name="wp142238"> </a>
+    &lt;shares&gt;2500&lt;/shares&gt;<a name="wp142239"> </a>
+    &lt;annualrevenues&gt;128200&lt;/annualrevenues&gt;<a name="wp142240"> </a>
+  &lt;/stock&gt; <a name="wp142241"> </a>
+  &lt;stock&gt;<a name="wp142242"> </a>
+    &lt;companyname&gt;Progress Software&lt;/companyname&gt;<a name="wp142243"> </a>
+    &lt;stockticker&gt;PRGS&lt;/stockticker&gt;<a name="wp142244"> </a>
+    &lt;shares&gt;23&lt;/shares&gt;<a name="wp142245"> </a>
+    &lt;annualrevenues&gt;493.4&lt;/annualrevenues&gt;<a name="wp142246"> </a>
+  &lt;/stock&gt;<a name="wp142247"> </a>
+&lt;/portfolio&gt;<a name="wp142248"> </a>
+</pre></div>
+<a name="wp155185"> </a><h4 class="pHeading3">
+Where to Learn More
+</h4>
+<a name="wp155197"> </a><p class="pBody">
+See <a  href="tutorial_xquery.html#wp146591">Tutorial: Using XQuery</a> for a tutorial that focuses on the following major capabilities of XQuery that are fundamental to creating and processing XML:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp155198"> </a><div class="pSmartList1"><li>Path expressions, which can locate anything in an XML document</li></div><a name="wp155199"> </a><div class="pSmartList1"><li>		XML constructors, which can create XML documents</li></div><a name="wp155200"> </a><div class="pSmartList1"><li>FLWOR expressions (pronounced &#8220;flower expressions&#8221; and means &quot;for let where order by return&quot;), which allow data to be combined to create new XML structures</li></div></ul></div>
+
+<a name="wp138524"> </a><p class="pBody">
+<a href="#wp136524"><span class="Footnote">1</span></a> In XQuery terminology, the results of a query is an instance of the XQuery data model. We use the term &quot;XML result&quot; for simplicity.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

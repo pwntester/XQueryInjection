@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq_ig" />
+  <meta name="LASTUPDATED" content="09/15/09 18:07:37" />
+  <title>System and Product Requirements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp74216"> </a><h2 class="pNewHTMLPageNum">
+System and Product Requirements
+</h2>
+<hr />
+<a name="wp79639"> </a><p class="pBody">
+This section describes the system and product requirements for DataDirect XQuery.
+</p>
+<a name="wp79412"> </a><h3 class="pHeading2">
+DataDirect XQuery<font size="3"><sup>&#174;</sup></font>
+</h3>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp79484"> </a><div class="pSmartList1"><li>For disk space requirements, refer to the DataDirect XQuery README file.</li></div><a name="wp79488"> </a><div class="pSmartList1"><li>Make sure that your Java Virtual Machine is on your path. J2SE&#160;1.4.<em class="cEmphasis">x</em> or later is required for using DataDirect XQuery.</li></div></ul></div>
+<a name="wp81121"> </a><h3 class="pHeading2">
+Kerberos Authentication
+</h3>
+<a name="wp81283"> </a><p class="pBody">
+Kerberos authentication is a trusted third-party authentication service. Kerberos authentication can take advantage of the user name and password maintained by the operating system to authenticate users to the database or use another set of user credentials specified by the application.
+</p>
+<a name="wp81133"> </a><p class="pBody">
+DataDirect XQuery supports Kerberos authentication for the following databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81134"> </a><div class="pSmartList1"><li>DB2</li></div><a name="wp81135"> </a><div class="pSmartList1"><li>Microsoft SQL Server </li></div><a name="wp81746"> </a><div class="pSmartList1"><li>Oracle</li></div><a name="wp81136"> </a><div class="pSmartList1"><li>Sybase</li></div></ul></div>
+<a name="wp81137"> </a><p class="pBody">
+Verify that your environment meets the requirements listed in <a  href="bforinst2.html#wp81148">Table&#160;1-1</a> before you configure DataDirect XQuery for Kerberos authentication.
+</p>
+<a name="wp81141"> </a><p class="pBody">
+
+</p>
+<a name="wp81190"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp81148"> </a><div class="pTableTitle">
+Table 1-1.  Kerberos Authentication Requirements&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp81152"> </a><div class="pCellHeading">
+Component
+</div>
+</th>
+    <th><a name="wp81154"> </a><div class="pCellHeading">
+Requirements
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp81156"> </a><div class="pCellBody">
+Database&#160;server
+</div>
+</td>
+    <td><a name="wp81158"> </a><div class="pCellBody">
+The database server must be running one of the following databases:
+</div>
+<a name="wp81159"> </a><div class="pCellBody">
+DB2:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81160"> </a><div class="pSmartList1"><li>DB2 v8.<em class="cEmphasis">x</em> or DB2 v9.<em class="cEmphasis">x</em> for Linux/UNIX/Windows</li></div></ul></div>
+<a name="wp81757"> </a><div class="pCellBody">
+Oracle:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81969"> </a><div class="pSmartList1"><li>Oracle 11g</li></div><a name="wp81758"> </a><div class="pSmartList1"><li>Oracle 10<em class="cEmphasis">g</em> (R1 and R2)</li></div></ul></div>
+<a name="wp81161"> </a><div class="pCellBody">
+Microsoft SQL Server:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81162"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2005</li></div><a name="wp81163"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000</li></div><a name="wp81164"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000 Enterprise Edition (64-bit) Service&#160;Pack 2 or higher</li></div></ul></div>
+<a name="wp81165"> </a><div class="pCellBody">
+Sybase:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81166"> </a><div class="pSmartList1"><li>Sybase 12.5.1 or higher</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp81169"> </a><div class="pCellBody">
+Kerberos server
+</div>
+</td>
+    <td><a name="wp81171"> </a><div class="pCellBody">
+The Kerberos server is the machine where the user IDs for authentication are administered. The Kerberos server is also the location of the Kerberos Key Distribution Center (KDC). If using Windows Active Directory, this machine is also the domain controller.
+</div>
+<a name="wp81762"> </a><div class="pCellBody">
+DB2, Oracle, and Sybase:
+</div>
+<a name="wp81763"> </a><div class="pCellBody">
+Network authentication must be provided by one of the following methods:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81765"> </a><div class="pSmartList1"><li>Windows Active Directory on one of the following operating systems:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp81766"> </a><div class="pSmartList2"><li>Windows Server 2003</li></div>
+<a name="wp81767"> </a><div class="pSmartList2"><li>Windows 2000 Server Service Pack 3 or higher</li></div>
+</ul></div>
+<a name="wp81769"> </a><div class="pSmartList1"><li>MIT Kerberos 1.4.2 or higher</li></div></ul></div>
+<a name="wp81770"> </a><div class="pCellBody">
+Microsoft SQL Server:
+</div>
+<a name="wp81771"> </a><div class="pCellBody">
+Network authentication must be provided by Windows Active Directory on one of the following operating systems:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81772"> </a><div class="pSmartList1"><li>Windows Server 2003</li></div><a name="wp81773"> </a><div class="pSmartList1"><li>Windows 2000 Server Service Pack 3 or higher</li></div></ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp81290"> </a><h3 class="pHeading2">
+NTLM Authentication
+</h3>
+<a name="wp81227"> </a><p class="pBody">
+NTLM authentication is a single sign-on OS authentication method. This method provides authentication from Windows clients only and requires minimal configuration.
+</p>
+<a name="wp81228"> </a><p class="pBody">
+DataDirect XQuery supports NTLM authentication for the following databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81229"> </a><div class="pSmartList1"><li>Oracle</li></div><a name="wp81230"> </a><div class="pSmartList1"><li>Microsoft SQL Server</li></div></ul></div>
+<a name="wp81231"> </a><p class="pBody">
+Verify that your environment meets the requirements listed in <a  href="bforinst2.html#wp81238">Table&#160;1-2</a> before you configure DataDirect XQuery for NTLM authentication. 
+</p>
+<a name="wp81274"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp81238"> </a><div class="pTableTitle">
+Table 1-2.  NTLM Authentication Requirements
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp81242"> </a><div class="pCellHeading">
+Component
+</div>
+</th>
+    <th><a name="wp81244"> </a><div class="pCellHeading">
+Requirements
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp81246"> </a><div class="pCellBody">
+Database&#160;server
+</div>
+</td>
+    <td><a name="wp81248"> </a><div class="pCellBody">
+The database server must be administered by the same domain controller that administers the client and must be running one of the following databases:
+</div>
+<a name="wp81249"> </a><div class="pCellBody">
+Oracle:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81843"> </a><div class="pSmartList1"><li>Oracle 11g</li></div><a name="wp81250"> </a><div class="pSmartList1"><li>Oracle 10g (R1 and R2)</li></div><a name="wp81251"> </a><div class="pSmartList1"><li>Oracle 9i (R1 and R2)</li></div></ul></div>
+<a name="wp81253"> </a><div class="pCellBody">
+Microsoft SQL Server:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81254"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2005</li></div><a name="wp81255"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000 Service Pack 3 or higher</li></div><a name="wp81256"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000 Enterprise Edition (64-bit) Service&#160;Pack 2 or higher</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp81259"> </a><div class="pCellBody">
+Domain controller
+</div>
+</td>
+    <td><a name="wp81261"> </a><div class="pCellBody">
+The domain controller must administer both the database server and the client. Network authentication must be provided by NTLM on one of the following operating systems:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81262"> </a><div class="pSmartList1"><li>Windows Server 2003</li></div><a name="wp81263"> </a><div class="pSmartList1"><li>Windows 2000 Server Service Pack 3 or higher</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp81265"> </a><div class="pCellBody">
+Client
+</div>
+</td>
+    <td><a name="wp81267"> </a><div class="pCellBody">
+The client must be administered by the same domain controller that administers the database server and must be running on one of the following operating systems:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp81268"> </a><div class="pSmartList1"><li>Windows Vista</li></div><a name="wp81551"> </a><div class="pSmartList1"><li>Windows Server 2003</li></div><a name="wp81269"> </a><div class="pSmartList1"><li>Windows XP Service Pack 1 or higher</li></div><a name="wp81270"> </a><div class="pSmartList1"><li>Windows 2000 Service Pack 4 or higher</li></div><a name="wp81271"> </a><div class="pSmartList1"><li>Windows NT 4.0</li></div></ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp80582"> </a><h3 class="pHeading2">
+Note Regarding J2SE Installations
+</h3>
+<a name="wp80600"> </a><p class="pBody">
+Standard installations of J2SE on some platforms do not include the jar file containing the extended encoding set that is required to support some of the less common database code pages. To verify whether your J2SE version provides extended code page support, check your J2SE installation for the <em class="cEmphasis">c</em>harsets.jar file, which must be installed in the lib subdirectory of your J2SE installation directory. If you do not have the charsets.jar file, re-install J2SE, making sure that you install the international version of J2SE.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

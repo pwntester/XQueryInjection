@@ -1,0 +1,800 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:37" />
+  <title>Serialization Methods</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp316655"> </a><h2 class="pNewHTMLPageNum">
+Serialization Methods
+</h2>
+<hr />
+<a name="wp316656"> </a><p class="pBody">
+You can serialize query results into a non-XML format using either of the following methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp316657"> </a><div class="pSmartList1"><li>Using the standard XQuery support to serialize query results into XML, XHTML, HTML, and TEXT formats.</li></div><a name="wp316658"> </a><div class="pSmartList1"><li>Using the DataDirect XML Converters to serialize query results into many other formats, such as Electronic Data Interchange (EDI) and Comma-Separated Values (CSV). See <a  href="serialization_support3.html#wp316923">Table&#160;D-2</a> for a complete list of the formats supported by the XML Converters.</li></div><a name="wp316662"> </a><p class="pBodyRelative">
+DataDirect XML Converters are installed with the DataDirect Data Integration Suite, which also includes DataDirect XQuery.
+</p>
+</ul></div>
+<a name="wp316664"> </a><h3 class="pHeading2">
+Using Standard Support
+</h3>
+<a name="wp316668"> </a><p class="pBody">
+<a  href="serialization_support3.html#wp316676">Table&#160;D-1</a> specifies default values for the parameters that control the process of serializing query results into XML, XHTML, HTML, or TEXT notation as specified by the XSLT&#160;2.0 and XQuery&#160;1.0 Serialization, W3C Recommendation 23 January&#160;2007 located at: <a  href="http://www.w3.org/TR/2007/REC-xslt-xquery-serialization-20070123/">http://www.w3.org/TR/2007/REC-xslt-xquery-serialization-20070123/</a>
+</p>
+<a name="wp316891"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp316676"> </a><div class="pTableTitle">
+Table D-1.  Serialization Parameters&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp316688"> </a><div class="pCellHeading">
+Parameter
+</div>
+</th>
+    <th><a name="wp316690"> </a><div class="pCellHeading">
+XML
+</div>
+</th>
+    <th><a name="wp316692"> </a><div class="pCellHeading">
+XHTML
+</div>
+</th>
+    <th><a name="wp316694"> </a><div class="pCellHeading">
+HTML
+</div>
+</th>
+    <th><a name="wp316696"> </a><div class="pCellHeading">
+TEXT
+</div>
+</th>
+    <th><a name="wp316698"> </a><div class="pCellHeading">
+Modifiable or <br />Hard coded
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316700"> </a><div class="pCellBody">
+byte-order-mark
+</div>
+</td>
+    <td><a name="wp316702"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+    <td><a name="wp316704"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+    <td><a name="wp316706"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+    <td><a name="wp316708"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+    <td><a name="wp316710"> </a><div class="pCellBody">
+Hard coded
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316712"> </a><div class="pCellBody">
+cdata-section-elements
+</div>
+</td>
+    <td><a name="wp316714"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316716"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316718"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316720"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316722"> </a><div class="pCellBody">
+Modifiable
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316724"> </a><div class="pCellBody">
+doctype-public
+</div>
+</td>
+    <td><a name="wp316726"> </a><div class="pCellBody">
+none
+</div>
+</td>
+    <td><a name="wp316728"> </a><div class="pCellBody">
+none
+</div>
+</td>
+    <td><a name="wp316730"> </a><div class="pCellBody">
+none
+</div>
+</td>
+    <td><a name="wp316732"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316734"> </a><div class="pCellBody">
+Modifiable
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316736"> </a><div class="pCellBody">
+doctype-system
+</div>
+</td>
+    <td><a name="wp316738"> </a><div class="pCellBody">
+none
+</div>
+</td>
+    <td><a name="wp316740"> </a><div class="pCellBody">
+none
+</div>
+</td>
+    <td><a name="wp316742"> </a><div class="pCellBody">
+none
+</div>
+</td>
+    <td><a name="wp316744"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316746"> </a><div class="pCellBody">
+Modifiable
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316748"> </a><div class="pCellBody">
+encoding
+</div>
+</td>
+    <td><a name="wp316750"> </a><div class="pCellBody">
+UTF-8
+</div>
+</td>
+    <td><a name="wp316752"> </a><div class="pCellBody">
+UTF-8
+</div>
+</td>
+    <td><a name="wp316754"> </a><div class="pCellBody">
+UTF-8
+</div>
+</td>
+    <td><a name="wp316756"> </a><div class="pCellBody">
+UTF-8
+</div>
+</td>
+    <td><a name="wp316758"> </a><div class="pCellBody">
+Modifiable
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316760"> </a><div class="pCellBody">
+escape-uri-attributes
+</div>
+</td>
+    <td><a name="wp316762"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316764"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316766"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316768"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316770"> </a><div class="pCellBody">
+Hard coded
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316772"> </a><div class="pCellBody">
+include-content-type
+</div>
+</td>
+    <td><a name="wp316774"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316776"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316778"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316780"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316782"> </a><div class="pCellBody">
+Hard coded
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316784"> </a><div class="pCellBody">
+indent
+</div>
+</td>
+    <td><a name="wp316786"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316788"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316790"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316792"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316794"> </a><div class="pCellBody">
+Modifiable, has no effect for HTML
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316796"> </a><div class="pCellBody">
+media-type
+</div>
+</td>
+    <td><a name="wp316798"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316800"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316802"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316804"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316806"> </a><div class="pCellBody">
+Hard coded
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316808"> </a><div class="pCellBody">
+method
+</div>
+</td>
+    <td><a name="wp316810"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+    <td><a name="wp316812"> </a><div class="pCellBody">
+xhtml
+</div>
+</td>
+    <td><a name="wp316814"> </a><div class="pCellBody">
+html
+</div>
+</td>
+    <td><a name="wp316816"> </a><div class="pCellBody">
+text
+</div>
+</td>
+    <td><a name="wp316818"> </a><div class="pCellBody">
+Modifiable
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316820"> </a><div class="pCellBody">
+normalization-form
+</div>
+</td>
+    <td><a name="wp316822"> </a><div class="pCellBody">
+NFC
+</div>
+</td>
+    <td><a name="wp316824"> </a><div class="pCellBody">
+NFC
+</div>
+</td>
+    <td><a name="wp316826"> </a><div class="pCellBody">
+NFC
+</div>
+</td>
+    <td><a name="wp316828"> </a><div class="pCellBody">
+NFC
+</div>
+</td>
+    <td><a name="wp316830"> </a><div class="pCellBody">
+Hard coded
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316832"> </a><div class="pCellBody">
+omit-xml-declaration
+</div>
+</td>
+    <td><a name="wp316834"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+    <td><a name="wp316836"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+    <td><a name="wp316838"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316840"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316842"> </a><div class="pCellBody">
+Modifiable
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316844"> </a><div class="pCellBody">
+standalone
+</div>
+</td>
+    <td><a name="wp316846"> </a><div class="pCellBody">
+omit
+</div>
+</td>
+    <td><a name="wp316848"> </a><div class="pCellBody">
+omit
+</div>
+</td>
+    <td><a name="wp316850"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316852"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316854"> </a><div class="pCellBody">
+Modifiable
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316856"> </a><div class="pCellBody">
+undeclare-prefixes
+</div>
+</td>
+    <td><a name="wp316858"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316860"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316862"> </a><div class="pCellBody">
+no
+</div>
+</td>
+    <td><a name="wp316864"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316866"> </a><div class="pCellBody">
+Hard coded
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316868"> </a><div class="pCellBody">
+use-character-maps
+</div>
+</td>
+    <td><a name="wp316870"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316872"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316874"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316876"> </a><div class="pCellBody">
+empty
+</div>
+</td>
+    <td><a name="wp316878"> </a><div class="pCellBody">
+Hard coded
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316880"> </a><div class="pCellBody">
+version
+</div>
+</td>
+    <td><a name="wp316882"> </a><div class="pCellBody">
+1.0
+</div>
+</td>
+    <td><a name="wp316884"> </a><div class="pCellBody">
+1.0
+</div>
+</td>
+    <td><a name="wp316886"> </a><div class="pCellBody">
+4.01
+</div>
+</td>
+    <td><a name="wp316888"> </a><div class="pCellBody">
+N/A
+</div>
+</td>
+    <td><a name="wp316890"> </a><div class="pCellBody">
+Modifiable, has no effect for XML and XHTML 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp316893"> </a><p class="pBody">
+To change a parameter value, use any of the following methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp316894"> </a><div class="pSmartList1"><li>Set the Properties object in the XQJ API.</li></div><a name="wp316895"> </a><div class="pSmartList1"><li>Set the serialize option declaration in a query.</li></div><a name="wp316896"> </a><div class="pSmartList1"><li>Set the serialize option declaration in DDXQDataSource.</li></div><a name="wp316900"> </a><div class="pSmartList1"><li>Use the function, <a  href="built-in_functions2.html#wp284162">ddtek:serialize</a>.</li></div></ul></div>
+<a name="wp316901"> </a><p class="pBodyBold">
+<b class="cBold">Example: Setting the Properties Object</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Properties indentationProperties = new Properties();<a name="wp316902"> </a>
+indentationProperties.setProperty(&quot;indent&quot;, &quot;yes&quot;);<a name="wp316903"> </a>
+indentationProperties.setProperty(&quot;omit-xml-declaration&quot;, &quot;no&quot;);<a name="wp316904"> </a>
+System.out.println(xqSequence.getSequenceAsString(indentationProperties));<a name="wp316905"> </a>
+</pre></div>
+<a name="wp316906"> </a><p class="pBodyBold">
+<b class="cBold">Example: Setting serialize in a Query</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:serialize &quot;indent=yes, omit-xml-declaration=no&quot;;<a name="wp316907"> </a>
+doc(&quot;orders.xml&quot;)<a name="wp316908"> </a>
+</pre></div>
+<a name="wp316909"> </a><p class="pBodyBold">
+<b class="cBold">Example: Setting serialize in DDXQDataSource</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp316910"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp316911"> </a>
+ds.setOptions(&quot;serialize=indent=yes,omit-xml-declaration=no&quot;);<a name="wp316912"> </a>
+</pre></div>
+<a name="wp316913"> </a><p class="pBodyBold">
+<b class="cBold">Example: Using ddtek:serialize()</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:serialize(&lt;books&gt;&lt;book/&gt;&lt;/books&gt;, &quot;indent=yes, omit-xml-declaration=no&quot;)<a name="wp316914"> </a>
+</pre></div>
+<a name="wp316916"> </a><h3 class="pHeading2">
+Using the DataDirect XML Converters<font size="3"><sup>&#8482;</sup></font>
+</h3>
+<a name="wp316917"> </a><p class="pBody">
+To serialize query results using DataDirect XML Converters, set the serialization method parameter to a value listed in <a  href="serialization_support3.html#wp316923">Table&#160;D-2</a>.
+</p>
+<a name="wp317007"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp316923"> </a><div class="pTableTitle">
+Table D-2.  Formats Supported by the DataDirect XML Converters
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp316928"> </a><div class="pCellHeading">
+Format
+</div>
+</th>
+    <th><a name="wp316930"> </a><div class="pCellHeading">
+Method Parameter Value
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316932"> </a><div class="pCellBody">
+Base-64 encoded binary
+</div>
+</td>
+    <td><a name="wp316934"> </a><div class="pCellBody">
+Base-64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316936"> </a><div class="pCellBody">
+Base-2 to Base-36 encoded binary
+</div>
+</td>
+    <td><a name="wp316938"> </a><div class="pCellBody">
+Binary 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316940"> </a><div class="pCellBody">
+Comma-Separated Values (CSV)
+</div>
+</td>
+    <td><a name="wp316942"> </a><div class="pCellBody">
+CSV 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316944"> </a><div class="pCellBody">
+dBase II, dBase III, dBase III+, dBase IV, and dBase V
+</div>
+</td>
+    <td><a name="wp316946"> </a><div class="pCellBody">
+dBase_II, dBase_III, dBase_III_plus, dBase_IV, dBase_V
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316948"> </a><div class="pCellBody">
+Data Interchange Format (DIF)
+</div>
+</td>
+    <td><a name="wp316950"> </a><div class="pCellBody">
+DIF 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316952"> </a><div class="pCellBody">
+Electronic Data Interchange (EDI)
+</div>
+</td>
+    <td><a name="wp316954"> </a><div class="pCellBody">
+EDI 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316956"> </a><div class="pCellBody">
+E-mail MBox (MBox) 
+</div>
+</td>
+    <td><a name="wp316958"> </a><div class="pCellBody">
+MBox 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316960"> </a><div class="pCellBody">
+HTML 
+</div>
+</td>
+    <td><a name="wp316962"> </a><div class="pCellBody">
+HTML
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316964"> </a><div class="pCellBody">
+Java .properties
+</div>
+</td>
+    <td><a name="wp316966"> </a><div class="pCellBody">
+JavaProps 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316968"> </a><div class="pCellBody">
+JSON (JavaScript Object Notation)
+</div>
+</td>
+    <td><a name="wp316970"> </a><div class="pCellBody">
+JSON 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316972"> </a><div class="pCellBody">
+Progress OpenEdge .d data dump
+</div>
+</td>
+    <td><a name="wp316974"> </a><div class="pCellBody">
+DotD 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316976"> </a><div class="pCellBody">
+PYX
+</div>
+</td>
+    <td><a name="wp316978"> </a><div class="pCellBody">
+Pyx 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316980"> </a><div class="pCellBody">
+Rich Text Format (RTF)
+</div>
+</td>
+    <td><a name="wp316982"> </a><div class="pCellBody">
+RTF 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316984"> </a><div class="pCellBody">
+Super Data Interchange (SDI)
+</div>
+</td>
+    <td><a name="wp316986"> </a><div class="pCellBody">
+SDI (Super Data Interchange Format) 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316988"> </a><div class="pCellBody">
+Symbolic Link (SYLK)
+</div>
+</td>
+    <td><a name="wp316990"> </a><div class="pCellBody">
+SYLK (Symbolic Link Format) 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316992"> </a><div class="pCellBody">
+Tab-separated values text
+</div>
+</td>
+    <td><a name="wp316994"> </a><div class="pCellBody">
+TAB (tab-separated values) 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp316996"> </a><div class="pCellBody">
+Whole-line text
+</div>
+</td>
+    <td><a name="wp316998"> </a><div class="pCellBody">
+Line 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp317000"> </a><div class="pCellBody">
+Windows .ini
+</div>
+</td>
+    <td><a name="wp317002"> </a><div class="pCellBody">
+WinIni 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp317004"> </a><div class="pCellBody">
+Windows Write
+</div>
+</td>
+    <td><a name="wp317006"> </a><div class="pCellBody">
+WinWrite 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp317009"> </a><p class="pBodyBold">
+<b class="cBold">Example: Setting the Properties Object</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Properties serialization = new Properties();<a name="wp317010"> </a>
+serialization.setProperty(&quot;method&quot;, &quot;EDI&quot;);<a name="wp317011"> </a>
+serialization.setProperty(&quot;encoding&quot;, &quot;UTF-16&quot;);<a name="wp317012"> </a>
+serialization.setProperty(&quot;newline&quot;, &quot;unix&quot;);<a name="wp317013"> </a>
+xqs.writeSequence(new FileOutputStream(&quot;/home/user1/message.x12&quot;,
+   serialization);<a name="wp317014"> </a>
+</pre></div>
+<a name="wp317015"> </a><p class="pBodyBold">
+<b class="cBold">Example: Setting serialize in a Query</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:serialize &quot;method=EDI,encoding=UTF-16,newline=unix&quot;;<a name="wp317016"> </a>
+doc(&quot;orders.xml&quot;)<a name="wp317017"> </a>
+</pre></div>
+<a name="wp317018"> </a><p class="pBodyBold">
+<b class="cBold">Example: Setting serialize in DDXQDataSource</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp317019"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp317020"> </a>
+ds.setOptions(&quot;serialize=method=EDI,encoding=UTF-16,newline=unix&quot;);<a name="wp317021"> </a>
+</pre></div>
+<a name="wp317022"> </a><p class="pBodyBold">
+<b class="cBold">Example: Using ddtek:serialize()</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:serialize(<a name="wp317023"> </a>
+&lt;EANCOM&gt;<a name="wp317024"> </a>
+    &lt;UNB&gt;<a name="wp317025"> </a>
+        &lt;UNB01&gt;<a name="wp317026"> </a>
+            &lt;UNB0101&gt;UNOC&lt;/UNB0101&gt;<a name="wp317027"> </a>
+            &lt;UNB0102&gt;3&lt;/UNB0102&gt;<a name="wp317028"> </a>
+        &lt;/UNB01&gt;<a name="wp317029"> </a>
+        &lt;UNB02&gt;<a name="wp317030"> </a>
+            &lt;UNB0201&gt;ISENDER&lt;/UNB0201&gt;<a name="wp317031"> </a>
+            &lt;UNB0202&gt;ZZZ&lt;/UNB0202&gt;<a name="wp317032"> </a>
+        &lt;/UNB02&gt;<a name="wp317033"> </a>
+        &lt;UNB03&gt;<a name="wp317034"> </a>
+            &lt;UNB0301&gt;IRECIPIENT&lt;/UNB0301&gt;<a name="wp317035"> </a>
+            &lt;UNB0302&gt;ZZZ&lt;/UNB0302&gt;<a name="wp317036"> </a>
+        &lt;/UNB03&gt;<a name="wp317037"> </a>
+        &lt;UNB04&gt;<a name="wp317038"> </a>
+            &lt;UNB0401&gt;080827&lt;/UNB0401&gt;<a name="wp317039"> </a>
+            &lt;UNB0402&gt;1514&lt;/UNB0402&gt;<a name="wp317040"> </a>
+        &lt;/UNB04&gt;<a name="wp317041"> </a>
+        &lt;UNB05&gt;ICONTROL&lt;/UNB05&gt;<a name="wp317042"> </a>
+    &lt;/UNB&gt;<a name="wp317043"> </a>
+    &lt;ORDERS&gt;<a name="wp317044"> </a>
+        &lt;UNH&gt;<a name="wp317045"> </a>
+            &lt;UNH01&gt;MESSAGENUMBER&lt;/UNH01&gt;<a name="wp317046"> </a>
+            &lt;UNH02&gt;<a name="wp317047"> </a>
+                &lt;UNH0201&gt;ORDERS&lt;/UNH0201&gt;<a name="wp317048"> </a>
+                &lt;UNH0202&gt;D&lt;/UNH0202&gt;<a name="wp317049"> </a>
+                &lt;UNH0203&gt;96A&lt;/UNH0203&gt;<a name="wp317050"> </a>
+                &lt;UNH0204&gt;EN&lt;/UNH0204&gt;<a name="wp317051"> </a>
+                &lt;UNH0205&gt;EAN008&lt;/UNH0205&gt;<a name="wp317052"> </a>
+            &lt;/UNH02&gt;<a name="wp317053"> </a>
+        &lt;/UNH&gt;<a name="wp317054"> </a>
+        &lt;BGM/&gt;<a name="wp317055"> </a>
+        &lt;DTM&gt;&lt;DTM01&gt;&lt;DTM0101&gt;&lt;/DTM0101&gt;&lt;/DTM01&gt;&lt;/DTM&gt;<a name="wp317056"> </a>
+        &lt;UNS&gt;&lt;UNS01&gt;&lt;/UNS01&gt;&lt;/UNS&gt;<a name="wp317057"> </a>
+        &lt;UNT/&gt;<a name="wp317058"> </a>
+    &lt;/ORDERS&gt;<a name="wp317059"> </a>
+    &lt;UNZ/&gt;<a name="wp317060"> </a>
+&lt;/EANCOM&gt;<a name="wp317061"> </a>
+,&quot;method=EDI, encoding=UTF-16, newline=unix&quot;)<a name="wp317062"> </a>
+</pre></div>
+<a name="wp314965"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

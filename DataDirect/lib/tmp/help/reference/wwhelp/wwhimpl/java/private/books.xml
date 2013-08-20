@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WebWorksHelpMasterCollection name="yourMasterBookName" version="3.0">
+  <Books>
+    <WebWorksHelpBookRef subdir="." encoding="ISO-8859-1" />
+  </Books>
+</WebWorksHelpMasterCollection>

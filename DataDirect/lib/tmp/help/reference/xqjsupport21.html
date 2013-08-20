@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>Support of Deferred Binding</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp158927"> </a><h2 class="pNewHTMLPageNum">
+Support of Deferred Binding
+</h2>
+<hr />
+<a name="wp158949"> </a><p class="pBody">
+When configured to use deferred binding, DataDirect XQuery does not use the value bound to a variable until the value is needed, and it enables DataDirect XQuery to use its XML streaming feature. For such reasons, deferred binding can result in performance and scalability benefits. See <a  href="improvingperformance2.html#wp205269">Querying Large XML Documents</a> for information about the XML streaming feature.
+</p>
+<a name="wp160781"> </a><p class="pBody">
+To set deferred binding, use the setBindingMode() method of the XQStaticContext interface. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQStaticContext cntxt = conn.getStaticContext();<a name="wp160818"> </a>
+cntxt.setBindingMode(XQConstants.BINDING_MODE_DEFERRED); 
+conn.setStaticContext(cntxt); <a name="wp160874"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

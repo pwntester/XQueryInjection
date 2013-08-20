@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:07" />
+  <title>Getting Started with DataDirect XQuery</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp964085"> </a><h2 class="pNewHTMLPageNum">
+Getting Started with DataDirect XQuery
+</h2>
+<hr />
+<a name="wp964106"> </a><p class="pBody">
+This section shows you how to get up and running with DataDirect XQuery. It covers the following topics:
+</p>
+<a name="wp964117"> </a><p class="pBody">
+<a  href="quickstart2.html#wp964074">1. Setting the CLASSPATH</a><br /><a  href="quickstart2.html#wp923047">2. Configuring Connections</a><br /><a  href="quickstart2.html#wp936526">3. Developing a Java Application that Executes a Query</a>
+</p>
+<a name="wp964074"> </a><h3 class="pHeading2">
+1. Setting the CLASSPATH 
+</h3>
+<a name="wp930339"> </a><p class="pBody">
+The CLASSPATH is the search string your Java Virtual Machine (JVM) uses to locate DataDirect XQuery on your computer. Only one DataDirect XQuery jar file, ddxq.jar, must be defined in your CLASSPATH. If ddxq.jar is not defined in your CLASSPATH, you receive a <code class="cCode">ClassNotFoundException </code>exception when trying to use DataDirect XQuery. 
+</p>
+<a name="wp954241"> </a><p class="pBody">
+Set your CLASSPATH to include:
+</p>
+<a name="wp954143"> </a><p class="pBody">
+<code><em>install_dir</em></code>/lib/ddxq.jar
+</p>
+<a name="wp954148"> </a><p class="pBody">
+where <code><em>install_dir</em></code> is the path to your DataDirect XQuery installation directory. 
+</p>
+<a name="wp957441"> </a><p class="pBody">
+NOTE: If you are connecting to PostgreSQL, you must also add the  PostgreSQL JDBC driver jar file to the CLASSPATH. Refer to your PostgreSQL JDBC driver documentation for the name of the jar file.
+</p>
+<a name="wp923047"> </a><h3 class="pHeading2">
+2. Configuring Connections
+</h3>
+<a name="wp935904"> </a><p class="pBody">
+DataDirect XQuery provides multiple ways to configure connections to XML data sources and relational data sources. This section shows how to use XQJ to create a DDXQDataSource instance in your Java application explicitly.
+</p>
+<a name="wp935927"> </a><h4 class="pHeading3">
+XML Data Source Connections
+</h4>
+<a name="wp935935"> </a><p class="pBody">
+If your Java application contains queries that access an XML file, you can directly access the file as shown in the following XQJ code example, where the location and name of the XML file is specified as a parameter of fn:doc(), an XQuery function. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp935936"> </a>
+XQConnection conn = ds.getConnection();<a name="wp935937"> </a>
+conn.createExpression().executeQuery(&quot;doc(&#39;<span style="font-style: italic">path_and_filename</span>&#39;)&quot;);<a name="wp935928"> </a>
+</pre></div>
+<a name="wp935958"> </a><h4 class="pHeading3">
+Relational Data Source Connections
+</h4>
+<a name="wp935995"> </a><p class="pBody">
+How you configure connection information for relational databases using XQJ depends on whether you are accessing a single database or multiple databases. This section shows how to configure connection information to access a single database. 
+</p>
+<a name="wp974863"> </a><p class="pBody">
+(For information about accessing multiple databases, see .)
+</p>
+<a name="wp936169"> </a><p class="pBody">
+To configure a single relational data source connection, use the DDXQDataSource class as shown in the following XQJ code example. This example specifies a connection URI (represented by <code><em>&quot;URL&quot;</em></code>) for the relational data source that you want to access and the user&#160;ID and password required to access the relational data source. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp935997"> </a>
+ds.setJdbcUrl(&quot;<code><em>URL</em></code>&quot;);<a name="wp935998"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;,&quot;mypswd&quot;);<a name="wp935999"> </a>
+</pre></div>
+<a name="wp937495"> </a><h4 class="pHeading3">
+Sample Connection URIs
+</h4>
+<a name="wp936708"> </a><p class="pBody">
+The following URIs are examples of the minimum information that must be specified in a connection URI. 
+</p>
+<a name="wp936538"> </a><p class="pBodyBold">
+DB2 for Linux/UNIX/Windows
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:db2://<em class="cEmphasis">server_name</em>:50000;databaseName=<code><em>your_database</em></code><a name="wp936543"> </a>
+</pre></div>
+<a name="wp936576"> </a><p class="pBodyBold">
+DB2 for z/OS and iSeries
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:db2://<em class="cEmphasis">server_name</em>:446;locationName=<code><em>db2_location</em></code><a name="wp956407"> </a>
+</pre></div>
+<a name="wp955345"> </a><p class="pBodyBold">
+Informix
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:informix://<em class="cEmphasis">server_name</em>;1526;InformixServer=<code><em>db</em></code><em class="cEmphasis">server_name</em><a name="wp955393"> </a>
+</pre></div>
+<a name="wp936619"> </a><p class="pBodyBold">
+Microsoft SQL Server
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:sqlserver://<em class="cEmphasis">server_name</em>:1433<a name="wp936551"> </a>
+</pre></div>
+<a name="wp956810"> </a><p class="pBodyBold">
+MySQL Enterprise
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:mysql://<em class="cEmphasis">server_name</em><a name="wp956811"> </a>
+</pre></div>
+<a name="wp936548"> </a><p class="pBodyBold">
+Oracle
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:oracle://<em class="cEmphasis">server_name</em>:1521<a name="wp936549"> </a>
+</pre></div>
+<a name="wp955453"> </a><p class="pBodyBold">
+PostgreSQL
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:postgresql:<code><em>your_database</em></code><a name="wp956906"> </a>
+</pre></div>
+<a name="wp936560"> </a><p class="pBodyBold">
+Sybase
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:sybase://<em class="cEmphasis">server_name</em>:5000<a name="wp936550"> </a>
+</pre></div>
+<a name="wp936526"> </a><h3 class="pHeading2">
+3. Developing a Java Application that Executes a Query
+</h3>
+<a name="wp929351"> </a><p class="pBody">
+Using DataDirect XQuery, a Java application uses XQJ to execute a query. The Java package name of the XQJ classes is:
+</p>
+<a name="wp976222"> </a><p class="pBody">
+javax.xml.xquery
+</p>
+<a name="wp929865"> </a><p class="pBody">
+The Java class name of the DataDirect XQuery implementation of the XQJ standard interface, XQDataSource, is:
+</p>
+<a name="wp976227"> </a><p class="pBody">
+com.ddtek.xquery.xqj.DDXQDataSource
+</p>
+<a name="wp935723"> </a><p class="pBody">
+The following sample Java code illustrates the basic steps that an application would perform to execute an XQuery expression using DataDirect XQuery. This example accesses a Microsoft SQL&#160;Server data source. To simplify the example, this code does not include error handling.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+// import the XQJ classes<a name="wp930226"> </a>
+import javax.xml.xquery.*;<a name="wp972365"> </a>
+import com.ddtek.xquery.xqj.DDXQDataSource;<a name="wp972366"> </a>
+<a name="wp935016"> </a>
+// establish a connection to a relational data source<a name="wp929354"> </a>
+// specify the URL and the user ID and password<a name="wp936786"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp934995"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp934996"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp934998"> </a>
+// create an expression object that is used to execute a query<a name="wp929359"> </a>
+XQExpression xqExpression = conn.createExpression();<a name="wp929361"> </a>
+<a name="wp935020"> </a>
+// the query<a name="wp934754"> </a>
+String es = &quot;for $h in collection(&#39;holdings&#39;)/holdings &quot; +<a name="wp934782"> </a>
+                        &quot;where $h/stockticker=&#39;AMZN&#39; &quot; +<a name="wp934756"> </a>
+                        &quot;return $h&quot;;<a name="wp929929"> </a>
+<a name="wp935021"> </a>
+// execute the query<a name="wp929366"> </a>
+XQResultSequence result = xqExpression.executeQuery(es);<a name="wp929367"> </a>
+result.writeSequence(System.out, null);<a name="wp929757"> </a>
+<a name="wp935022"> </a>
+// free all resources<a name="wp929373"> </a>
+result.close();<a name="wp929374"> </a>
+xqExpression.close();<a name="wp929375"> </a>
+conn.close();<a name="wp929376"> </a>
+</pre></div>
+<a name="wp926741"> </a><p class="pBody">
+NOTE: XQJ examples are shipped with the product and are located in the /examples subdirectory in the DataDirect XQuery installation directory.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

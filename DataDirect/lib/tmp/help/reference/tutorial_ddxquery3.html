@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:09" />
+  <title>Configuring Connections</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp144170"> </a><h2 class="pNewHTMLPageNum">
+Configuring Connections
+</h2>
+<hr />
+<a name="wp146464"> </a><p class="pBody">
+DataDirect XQuery uses fn:collection() to access relational data. DataDirect XQuery uses XQJ to specify the required database connections and associate the names specified by fn:collection() with the database tables.
+</p>
+<a name="wp146465"> </a><p class="pBody">
+Using XQJ, you create a connection from an XQDataSource instance. The fully qualified class name of the DataDirect XQuery XQDataSource implementation is:
+</p>
+<a name="wp146466"> </a><p class="pBody">
+com.ddtek.xquery.xqj.DDXQDataSource
+</p>
+<a name="wp147199"> </a><p class="pBody">
+The following class provides additional properties for configuring connections to multiple databases:
+</p>
+<a name="wp147200"> </a><p class="pBody">
+com.ddtek.xquery.xqj.DDXQJDBCConnection
+</p>
+<a name="wp146467"> </a><h3 class="pHeading2">
+Specifying Connection Information
+</h3>
+<a name="wp160478"> </a><p class="pBody">
+You can specify connection information to relational data sources using either of the methods shown in the following examples.
+</p>
+<a name="wp146381"> </a><p class="pBodyBold">
+Example 1: Using a DDXQDataSource Instance to Specify Connection Information Explicitly
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp152589"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp146376"> </a>
+</pre></div>
+<a name="wp146502"> </a><p class="pBodyBold">
+Example 2: Using the Java Naming and Directory Interface (JNDI)
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Context ctx = new InitialContext();<a name="wp148044"> </a>
+DDXQDataSource ds = (DDXQDataSource)ctx.lookup(&quot;holdings_ds&quot;);<a name="wp148045"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp148046"> </a>
+</pre></div>
+<a name="wp152761"> </a><p class="pBody">
+See the <a  href="examples4.html#wp143233">JNDIDataSource</a> example for a complete code sample of how to save and load a DataDirect XQuery DDXQDataSource using a JNDI provider. 
+</p>
+<a name="wp149381"> </a><p class="pBody">
+After specifying connection information using with either DDXQDataSource or JNDI, the getConnection() method can be invoked to return an XQJ connection to the database and, optionally, specify the user name and password for the connection:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp144188"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,1137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:46" />
+  <title>Elements of the Source Configuration File</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp153156"> </a><h2 class="pNewHTMLPageNum">
+Elements of the Source Configuration File
+</h2>
+<hr />
+<a name="wp144054"> </a><p class="pBody">
+This section provides definitions and examples of all elements possible in a DataDirect XQuery source configuration file. The elements are presented in hierarchical order. 
+</p>
+<a name="wp164418"> </a><p class="pBody">
+The order in which the elements are listed in this section is the order in which they must be specified in the file. The <b class="cBold">bold</b> typeface in the examples indicates the element being defined.
+</p>
+<a name="wp148054"> </a><p class="pBody">
+For examples of simple source configuration files created for a connection, see <a  href="sourceconfigfilestructure5.html#wp138103">Examples of Source Configuration Files</a>.
+</p>
+<a name="wp144016"> </a><h3 class="pHeading2">
+XQJConnection: Root Element
+</h3>
+<a name="wp137369"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy	</b>
+</p>
+<a name="wp144478"> </a><p class="pBody">
+Root element
+</p>
+<a name="wp144470"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp140935"> </a><p class="pBody">
+The root element in the source configuration file. The namespace is http://www.datadirect.com/xquery.
+</p>
+<a name="wp137370"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp137391"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp137389"> </a>
+</pre></div>
+<a name="wp137412"> </a><h3 class="pHeading2">
+baseUri Element
+</h3>
+<a name="wp137431"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy	</b>
+</p>
+<a name="wp144571"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp144481"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp141047"> </a><p class="pBody">
+Specifies the baseURI property in the XQuery static context, which is the base URI used to resolve relative URIs in fn:doc().
+</p>
+<a name="wp141093"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp141110"> </a><p class="pBody">
+<a  href="conf_sourcefiles2.html#wp187870">XML Data Sources</a> for rules governing URIs
+</p>
+<a name="wp141814"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp141815"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp141816"> </a>
+  <span style="font-weight: bold">&lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;</span><a name="wp141817"> </a>
+</pre></div>
+<a name="wp137486"> </a><h3 class="pHeading2">
+collation Element
+</h3>
+<a name="wp137503"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp144881"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp144780"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp141151"> </a><p class="pBody">
+Specifies the collation URI for the default collation to be used by the Java Virtual Machine. 
+</p>
+<a name="wp141885"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp141889"> </a><p class="pBody">
+<a  href="advancedfeatures8.html#wp212006">Specifying Collations</a>
+</p>
+<a name="wp137508"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp137515"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp137516"> </a>
+  &lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp138030"> </a>
+  &lt;collation&gt;http://www.datadirect.com/xquery/collation?lang=de&lt;/collation&gt;<a name="wp137532"> </a>
+</pre></div>
+<a name="wp137555"> </a><h3 class="pHeading2">
+spyAttributes Element
+</h3>
+<a name="wp144901"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp144902"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp137562"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp141218"> </a><p class="pBody">
+Enables and sets attributes for DataDirect Spy, a tool that logs detailed information about XQJ calls issued by a Java application. For example, you may want to log all XQJ activity to a log file on your local machine.
+</p>
+<a name="wp141346"> </a><p class="pBody">
+Once enabled, you can turn DataDirect Spy on and off at runtime using the setEnableLogging() method of the com.ddtek.xquery.ExtLogControl interface.
+</p>
+<a name="wp137563"> </a><p class="pBodyBold">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code><em>spy_attribute</em></code>=<code><em>value</em></code><code class="cCode">[;</code><code><em>spy_attribute</em></code>=<code><em>value</em></code><code class="cCode">]...</code><a name="wp137564"> </a>
+</pre></div>
+<a name="wp137565"> </a><p class="pBody">
+where <code><em>spy_attribute</em></code>=<code><em>value</em></code> is a DataDirect Spy attribute and a valid value for that attribute. 
+</p>
+<a name="wp141990"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp141994"> </a><p class="pBody">
+<a  href="troubleshooting2.html#wp137013">Logging XQJ Calls with DataDirect Spy<span style="vertical-align: super">&#8482;</span> for&#160;XQJ</a> for instructions on using DataDirect Spy and a list of supported attributes
+</p>
+<a name="wp137570"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp137592"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp137593"> </a>
+  &lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp138048"> </a>
+  &lt;collation&gt;http://www.datadirect.com/xquery/collation?lang=de&lt;/collation&gt;<a name="wp137594"> </a>
+  &lt;spyAttributes&gt;log=(file)/tmp/spy.log;logSAX=yes&lt;/spyAttributes&gt;<a name="wp137559"> </a>
+</pre></div>
+<a name="wp137621"> </a><h3 class="pHeading2">
+documentUriResolver Element
+</h3>
+<a name="wp144922"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp144923"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp137627"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142036"> </a><p class="pBody">
+Specifies a Java class that implements the javax.xml.transform.URIResolver interface to resolve URIs in fn:doc() and fn:doc-available(). For example, you may want to construct a Java class to resolve a set of XML documents to an alias.
+</p>
+<a name="wp163889"> </a><p class="pBodyBold">
+<b class="cBold">See also	</b>
+</p>
+<a name="wp163893"> </a><p class="pBody">
+<a  href="advancedfeatures5.html#wp204890">Document URI Resolvers</a>
+</p>
+<a name="wp137625"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp137637"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp137638"> </a>
+<span style="font-weight: bold">  </span>&lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp138058"> </a>
+  &lt;collation&gt;http://www.datadirect.com/xquery/collation?lang=de&lt;/collation&gt;<a name="wp137639"> </a>
+<span style="font-weight: bold">  </span>&lt;spyAttributes&gt;log=(file)/tmp/spy.log;logSAX=yes&lt;/spyAttributes&gt;<a name="wp137640"> </a>
+  &lt;documentUriResolver&gt;<a name="wp137641"> </a>
+     com.tagsalad.transform.StreamSource<a name="wp137642"> </a>
+  &lt;/documentUriResolver&gt;<a name="wp137635"> </a>
+</pre></div>
+<a name="wp137683"> </a><h3 class="pHeading2">
+moduleUriResolver Element
+</h3>
+<a name="wp144951"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp144952"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp137707"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142117"> </a><p class="pBody">
+Specifies a Java class that implements the com.ddtek.xquery.ModuleURIresolver interface to resolve the module to be imported. For example, you may want to create a Java class to resolve custom URLs that point to a custom repository that stores XQuery modules.
+</p>
+<a name="wp163787"> </a><p class="pBodyBold">
+<b class="cBold">See also	</b>
+</p>
+<a name="wp163791"> </a><p class="pBody">
+<a  href="advancedfeatures5.html#wp204943">Library Module URI Resolvers</a>
+</p>
+<a name="wp137699"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp137727"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp137728"> </a>
+<span style="font-weight: bold">  </span>&lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp138070"> </a>
+  &lt;collation&gt;http://www.datadirect.com/xquery/collation?lang=de&lt;/collation&gt;<a name="wp137729"> </a>
+<span style="font-weight: bold">  </span>&lt;spyAttributes&gt;log=(file)/tmp/spy.log;logSAX=yes&lt;/spyAttributes&gt;<a name="wp137730"> </a>
+  &lt;documentUriResolver&gt;<a name="wp137731"> </a>
+     com.tagsalad.transform.StreamSource<a name="wp137732"> </a>
+  &lt;/documentUriResolver&gt;<a name="wp137733"> </a>
+  &lt;moduleUriResolver&gt;<a name="wp137734"> </a>
+    customModuleResolver<a name="wp137735"> </a>
+  &lt;/moduleUriResolver&gt;<a name="wp137684"> </a>
+</pre></div>
+<a name="wp137771"> </a><h3 class="pHeading2">
+collectionUriResolver Element
+</h3>
+<a name="wp163395"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp163396"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp163397"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp163399"> </a><p class="pBody">
+Specifies a Java class that implements the com.ddtek.xquery.CollectionURIresolver interface to resolve URIs in fn:collection(). For example, you may want to create a Java class to resolve custom URLs that point to a directory that contains XML files.
+</p>
+<a name="wp163709"> </a><p class="pBodyBold">
+<b class="cBold">See also	</b>
+</p>
+<a name="wp163748"> </a><p class="pBody">
+<a  href="advancedfeatures5.html#wp209086">Collection URI Resolvers</a>
+</p>
+<a name="wp163400"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp163401"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp163402"> </a>
+<span style="font-weight: bold">  </span>&lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp163403"> </a>
+  &lt;collation&gt;http://www.datadirect.com/xquery/collation?lang=de&lt;/collation&gt;<a name="wp163404"> </a>
+<span style="font-weight: bold">  </span>&lt;spyAttributes&gt;log=(file)/tmp/spy.log;logSAX=yes&lt;/spyAttributes&gt;<a name="wp163405"> </a>
+  &lt;documentUriResolver&gt;<a name="wp163406"> </a>
+     com.tagsalad.transform.StreamSource<a name="wp163407"> </a>
+  &lt;/documentUriResolver&gt;<a name="wp163408"> </a>
+  &lt;moduleUriResolver&gt;<a name="wp163409"> </a>
+    customModuleResolver<a name="wp163410"> </a>
+  &lt;/moduleUriResolver&gt;<a name="wp163411"> </a>
+  &lt;collectionUriResolver&gt;<a name="wp163585"> </a>
+     com.tagfolders.fetch.StreamSource<a name="wp171145"> </a>
+  &lt;/collectionUriResolver&gt;<a name="wp163586"> </a>
+</pre></div>
+<a name="wp163367"> </a><h3 class="pHeading2">
+maxPooledQueries Element
+</h3>
+<a name="wp144984"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp144985"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp137785"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142175"> </a><p class="pBody">
+Specifies the maximum number of queries that can be placed in the pool when DataDirect XQuery&#8217;s internal query pooling is enabled. When enabled, DataDirect XQuery caches a certain number of queries executed by an application. For example, if the value of this element is set to 20, the driver caches the last 20&#160;queries executed by the application. If the value set for this element is greater than the number of queries used by the application, all queries are cached. By default, query pooling is disabled. 
+</p>
+<a name="wp137772"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp142200"> </a><p class="pBody">
+<a  href="improvingperformance5.html#wp194695">Using Query Pooling</a>
+</p>
+<a name="wp142227"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp137805"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp137806"> </a>
+  &lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp138074"> </a>
+  &lt;collation&gt;http://www.datadirect.com/xquery/collation?lang=de&lt;/collation&gt;<a name="wp137807"> </a>
+<span style="font-weight: bold">  </span>&lt;spyAttributes&gt;log=(file)/tmp/spy.log;logSAX=yes&lt;/spyAttributes&gt;<a name="wp137808"> </a>
+<span style="font-weight: bold">  </span>&lt;documentUriResolver&gt;<a name="wp137809"> </a>
+     com.tagsalad.transform.StreamSource<a name="wp137810"> </a>
+  &lt;/documentUriResolver&gt;<a name="wp137811"> </a>
+  &lt;moduleUriResolver&gt;<a name="wp137983"> </a>
+     com.tagfolders.fetch.StreamSource<a name="wp171141"> </a>
+  &lt;/moduleUriResolver&gt;<a name="wp137984"> </a>
+  &lt;collectionUriResolver&gt;<a name="wp164256"> </a>
+    com.tagfolders.fetch.StreamSource<a name="wp171152"> </a>
+  &lt;/collectionUriResolver&gt;<a name="wp164257"> </a>
+  &lt;maxPooledQueries&gt;20&lt;/maxPooledQueries&gt;<a name="wp137989"> </a>
+</pre></div>
+<a name="wp137850"> </a><h3 class="pHeading2">
+allowJavaFunctions Element
+</h3>
+<a name="wp145028"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp145029"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp137872"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142274"> </a><p class="pBody">
+Specifies whether external Java functions are allowed. By default, external functions are allowed. To disable external functions for security reasons, for example, set this property to false.
+</p>
+<a name="wp137864"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp137882"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp137883"> </a>
+  &lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp138078"> </a>
+  &lt;collation&gt;http://www.datadirect.com/xquery/collation?lang=de&lt;/collation&gt;<a name="wp137884"> </a>
+<span style="font-weight: bold">  </span>&lt;spyAttributes&gt;log=(file)/tmp/spy.log;logSAX=yes&lt;/spyAttributes&gt;<a name="wp137885"> </a>
+<span style="font-weight: bold">  </span>&lt;documentUriResolver&gt;<a name="wp137886"> </a>
+     com.tagsalad.transform.StreamSource<a name="wp137887"> </a>
+  &lt;/documentUriResolver&gt;<a name="wp137888"> </a>
+<span style="font-weight: bold">  </span>&lt;moduleUriResolver&gt;<a name="wp137998"> </a>
+     customModuleResolver<a name="wp137999"> </a>
+  &lt;/moduleUriResolver&gt;<a name="wp138000"> </a>
+  &lt;collectionUriResolver&gt;<a name="wp164314"> </a>
+     com.tagfolders.fetch.StreamSource<a name="wp171137"> </a>
+  &lt;/collectionUriResolver&gt;<a name="wp169229"> </a>
+  &lt;maxPooledQueries&gt;20&lt;/maxPooledQueries&gt;<a name="wp137889"> </a>
+  &lt;allowJavaFunctions&gt;false&lt;/allowJavaFunctions&gt;<a name="wp137879"> </a>
+</pre></div>
+<a name="wp137880"> </a><h3 class="pHeading2">
+option Element
+</h3>
+<a name="wp145139"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp145140"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp137925"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142326"> </a><p class="pBody">
+Specifies a global option declaration to use as the default for all XML and relational data sources that are used by queries in your Java application. 
+</p>
+<a name="wp137926"> </a><p class="pBody">
+The name attribute is required and specifies the name of the global option declaration. Option declarations that can be specified globally are <a  href="advancedfeatures2.html#wp238422">detect-XPST0005</a>, <a  href="advancedfeatures2.html#wp238437">plan-explain</a>, <a  href="advancedfeatures2.html#wp238447">serialize</a>, and <a  href="advancedfeatures2.html#wp238567">xml-streaming</a>.
+</p>
+<a name="wp137930"> </a><p class="pBody">
+You can also specify option declarations for each individual connection specified in this file.
+</p>
+<a name="wp142349"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp142366"> </a><p class="pBody">
+<a  href="advancedfeatures2.html#wp204556">Option Declarations</a><br /><a  href="sourceconfigfilestructure4.html#wp149955">option Element</a>
+</p>
+<a name="wp137914"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp137953"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp137954"> </a>
+  &lt;baseUri&gt;file:///c:/programs/ddxq/examples/&lt;/baseUri&gt;<a name="wp138082"> </a>
+  &lt;collation&gt;http://www.datadirect.com/xquery/collation?lang=de&lt;/collation&gt;<a name="wp137955"> </a>
+<span style="font-weight: bold">  </span>&lt;spyAttributes&gt;log=(file)/tmp/spy.log;logSAX=yes&lt;/spyAttributes&gt;<a name="wp137956"> </a>
+<span style="font-weight: bold">  </span>&lt;documentUriResolver&gt;<a name="wp137957"> </a>
+     com.tagsalad.transform.StreamSource<a name="wp137958"> </a>
+  &lt;/documentUriResolver&gt;<a name="wp137959"> </a>
+<span style="font-weight: bold">  </span>&lt;moduleUriResolver&gt;<a name="wp138005"> </a>
+    customModuleResolver<a name="wp138006"> </a>
+  &lt;/moduleUriResolver&gt;<a name="wp138007"> </a>
+  &lt;collectionUriResolver&gt;<a name="wp164344"> </a>
+     com.tagfolders.fetch.StreamSource<a name="wp164345"> </a>
+  &lt;/collectionUriResolver&gt;<a name="wp164346"> </a>
+  &lt;maxPooledQueries&gt;20&lt;/maxPooledQueries&gt;<a name="wp137960"> </a>
+<span style="font-weight: bold">  </span>&lt;allowJavaFunctions&gt;false&lt;/allowJavaFunctions&gt;<a name="wp137961"> </a>
+  &lt;option name=&quot;detect-XPT0005&quot;&gt;no&lt;/option&gt;<a name="wp137920"> </a>
+</pre></div>
+<a name="wp138010"> </a><h3 class="pHeading2">
+JDBCConnection Element
+</h3>
+<a name="wp145186"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp145510"> </a><p class="pBody">
+Child element of XQJConnection
+</p>
+<a name="wp145511"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp145512"> </a><p class="pBody">
+Defines all of the connection information for a single database. It is only required when specifying connection information for a database. An XQJConnection element can contain one or multiple JDBCConnection elements. This element can have two attributes: name and targetNamespace.
+</p>
+<a name="wp138089"> </a><p class="pBody">
+The name attribute is required and defines a name for the JDBC connection. This name is sometimes needed to qualify the database table when specifying it using fn:collection() in your query.
+</p>
+<a name="wp138093"> </a><p class="pBody">
+The targetNamespace attribute is optional and sets the value of the TARGETNS variable for the SQL/XML mappings used for this JDBC connection. It specifies the namespace associated with this connection.
+</p>
+<a name="wp138016"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp142472"> </a><p class="pBody">
+<a  href="conf_sourcefiles2.html#wp184922">Relational Data Sources</a> for an explanation of how to qualify database tables
+</p>
+<a name="wp142455"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp138121"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp138122"> </a>
+...<a name="wp138128"> </a>
+&lt;JDBCConnection name=&quot;example_connection_name targetNamespace=<a name="wp138102"> </a>
+  &quot;http://www.example_namespace.com&quot;&gt;<a name="wp138113"> </a>
+</pre></div>
+<a name="wp138147"> </a><h3 class="pHeading2">
+description Element
+</h3>
+<a name="wp145776"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp145777"> </a><p class="pBody">
+Child element of JDBCConnection
+</p>
+<a name="wp138153"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142507"> </a><p class="pBody">
+Specifies a description for the SQL adaptor. It has no effect on query operation and is used only for documentation.
+</p>
+<a name="wp138151"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot; ?&gt;<a name="wp138176"> </a>
+&lt;XQJConnection xmlns=&quot;http://www.datadirect.com/xquery&quot;&gt;<a name="wp138177"> </a>
+...<a name="wp138178"> </a>
+  &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp138171"> </a>
+    <span style="font-weight: bold">&lt;description&gt;connection_description&lt;/description&gt;</span><a name="wp138168"> </a>
+</pre></div>
+<a name="wp138187"> </a><h3 class="pHeading2">
+url Element
+</h3>
+<a name="wp145985"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp145986"> </a><p class="pBody">
+Child element of JDBCConnection
+</p>
+<a name="wp138217"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142549"> </a><p class="pBody">
+Specifies the JDBC URL of the underlying database. It is only required when specifying connection information for a database.
+</p>
+<a name="wp142578"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp142587"> </a><p class="pBody">
+<a  href="conf_sourcefiles7.html#wp182290">Specifying Connection URIs</a> for the URL format
+</p>
+<a name="wp138200"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp138245"> </a>
+  &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp138246"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp138247"> </a>
+      &lt;url&gt;<a name="wp138241"> </a>
+        jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp138264"> </a>
+      &lt;/url&gt;<a name="wp138271"> </a>
+</pre></div>
+<a name="wp138284"> </a><h3 class="pHeading2">
+user Element
+</h3>
+<a name="wp146412"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp146413"> </a><p class="pBody">
+Child element of JDBCConnection
+</p>
+<a name="wp138338"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142635"> </a><p class="pBody">
+Specifies a user name for accessing the underlying database. 
+</p>
+<a name="wp142677"> </a><p class="pBody">
+NOTE: Alternatively, you can specify the user ID for the underlying database in your Java application, which takes precedence over the user&#160;ID specified in the source configuration file.
+</p>
+<a name="wp138296"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp138350"> </a>
+  &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp138351"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp138352"> </a>
+    &lt;url&gt;<a name="wp138353"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp138372"> </a>
+    &lt;/url&gt;<a name="wp138373"> </a>
+    <span style="font-weight: bold">&lt;user&gt;example_db_user&lt;/user&gt;</span><a name="wp138346"> </a>
+</pre></div>
+<a name="wp138386"> </a><h3 class="pHeading2">
+password Element
+</h3>
+<a name="wp146480"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp146481"> </a><p class="pBody">
+Child element of JDBCConnection
+</p>
+<a name="wp138404"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142710"> </a><p class="pBody">
+Specifies a password for accessing the underlying database. 
+</p>
+<a name="wp142790"> </a><p class="pBody">
+NOTE: Alternatively, you can specify the password for the underlying database in your Java application, which takes precedence over the password specified in the source configuration file.
+</p>
+<a name="wp138387"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp138424"> </a>
+  &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp138425"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp138426"> </a>
+    &lt;url&gt;<a name="wp138427"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp138451"> </a>
+    &lt;/url&gt;<a name="wp138458"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp138428"> </a>
+    &lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp138388"> </a>
+</pre></div>
+<a name="wp166017"> </a><h3 class="pHeading2">
+transactionIsolationLevel Element
+</h3>
+<a name="wp166018"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp166019"> </a><p class="pBody">
+Child element of JDBCConnection
+</p>
+<a name="wp166020"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp166021"> </a><p class="pBody">
+Specifies the transaction isolation level of a connection (XQConnection object). 
+</p>
+<a name="wp166015"> </a><p class="pBody">
+Valid values are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp166647"> </a><div class="pSmartList1"><li>readUncommitted. Locks are obtained on modifications to the database and held until end of transaction (EOT). Reading from the database does not involve any locking.</li></div><a name="wp165914"> </a><div class="pSmartList1"><li>readCommitted. Locks are acquired for reading and modifying the database. Locks are released after reading but locks on modified objects are held until EOT.</li></div><a name="wp165915"> </a><div class="pSmartList1"><li>repeatableRead. Locks are obtained for reading and modifying the database. Locks on all modified objects are held until EOT. Locks obtained for reading data are held until EOT. Locks on nonmodified access structures (such as indexes and hashing structures) are released after reading.</li></div><a name="wp165916"> </a><div class="pSmartList1"><li>serializable. All data read or modified is locked until EOT. All access structures that are modified are locked until EOT. Access structures used by the query are locked until EOT.</li></div><a name="wp167789"> </a><div class="pSmartList1"><li>none. Transactions are not supported.</li></div><a name="wp168642"> </a><div class="pSmartList1"><li>-1. The default transaction isolation level of the database is used, which is Read Committed.</li></div></ul></div>
+<a name="wp167673"> </a><p class="pBody">
+The database to which you are connecting may not support all of these isolation levels. See <a  href="relationaldata5.html#wp223073">Transaction Isolation Levels</a> for details.
+</p>
+<a name="wp165910"> </a><p class="pBody">
+NOTE: Once a connection is made, the transaction isolation level cannot be changed for that connection (XQConnection object).
+</p>
+<a name="wp166147"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp166148"> </a>
+  &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp166149"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp166150"> </a>
+    &lt;url&gt;<a name="wp166151"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp166152"> </a>
+    &lt;/url&gt;<a name="wp166153"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp166154"> </a>
+    &lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp166155"> </a>
+    &lt;transactionIsolationLevel&gt;repeatableRead&lt;/transactionIsolationLevel&gt;<a name="wp166225"> </a>
+</pre></div>
+<a name="wp138521"> </a><h3 class="pHeading2">
+sqlxmlMapping Element, forest and identifierEscaping Child Elements
+</h3>
+<a name="wp146507"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp146508"> </a><p class="pBody">
+sqlxmlMapping: Child element of JDBCConnection<br />forest: Child element of sqlxmlMapping<br />identifierEscaping: Child element of sqlxmlMapping
+</p>
+<a name="wp138534"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142822"> </a><p class="pBody">
+The sqlxmlMapping element configures SQL/XML mappings for relational data. This element can contain two child elements: forest and identifierEscaping. 
+</p>
+<a name="wp138538"> </a><p class="pBody">
+The forest element specifies the format of the XML result that fn:collection() returns. Valid values are true and false. If this element is not specified, DataDirect XQuery uses true by default. 
+</p>
+<a name="wp138542"> </a><p class="pBody">
+The identifierEscaping element controls how DataDirect XQuery handles escaping of identifiers, which is needed because of mismatches that occur when characters in SQL identifiers are mapped to XML. Valid values are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp171875"> </a><div class="pSmartList1"><li>none (the default). No mapping is performed. An error is raised if a character in a SQL identifier cannot be mapped to XML. </li></div><a name="wp171876"> </a><div class="pSmartList1"><li>partial. Characters in SQL identifiers that are not XML characters are escaped using an underscore character (_) followed by a lowercase x followed by the character&#8217;s Unicode representation in hexadecimal format followed by an underscore character (_). For example, sales!forecast becomes sales_x0021_forecast.</li></div><a name="wp138525"> </a><div class="pSmartList1"><li>full. In addition to the escaping performed by partial, the character x of a SQL identifier that starts with &quot;xml&quot; (in any combination of upper and lowercase characters) is escaped. For example, XMLTable becomes _x0058_MLTable. If the identifierEscaping element is not specified, DataDirect XQuery uses full by default.</li></div></ul></div>
+<a name="wp138577"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp142853"> </a><p class="pBody">
+<a  href="conf_sourcefiles2.html#wp188276">Data Model Representation of Relational Tables</a> for details about the format of the XML result.
+</p>
+<a name="wp142852"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp138588"> </a>
+  &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp138589"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp138590"> </a>
+    &lt;url&gt;<a name="wp138591"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp138842"> </a>
+    &lt;/url&gt;<a name="wp138843"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp138592"> </a>
+<span style="font-weight: bold">    </span>&lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp138593"> </a>
+    &lt;transactionIsolationLevel&gt;repeatableRead&lt;/transactionIsolationLevel&gt;<a name="wp167218"> </a>
+    &lt;sqlxmlMapping&gt;<a name="wp138594"> </a>
+      &lt;forest&gt;false&lt;/forest&gt;<a name="wp138595"> </a>
+      &lt;identifierEscaping&gt;full&lt;/identifierEscaping&gt;<a name="wp138596"> </a>
+    &lt;/sqlxmlMapping&gt;<a name="wp167192"> </a>
+</pre></div>
+<a name="wp138641"> </a><h3 class="pHeading2">
+tempTable Element, column and createStmtSuffix Child Elements
+</h3>
+<a name="wp146576"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp146577"> </a><p class="pBody">
+tempTable: Child element of JDBCConnection<br />column: Child element of tempTable<br />createStmtSuffix: Child element of tempTable
+</p>
+<a name="wp150378"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp150379"> </a><p class="pBody">
+The tempTable element specifies which SQL type is used for columns when DataDirect XQuery creates temporary tables for query optimization and information you should specify if you are connecting to a DB2 for z/OS Unicode database. 
+</p>
+<a name="wp150723"> </a><p class="pBody">
+If you do not specify the column element (child element of tempTable), DataDirect XQuery uses the SQL/XML mappings to determine which SQL type to use for the columns of temporary tables; however, this can sometimes cause problems. For example, if your database table has a case-sensitive collation and the temporary table is created with a case-insensitive collation, an error is raised. In this case, use the tempTable element to specify that the temporary tables be created with a case-sensitive collation.
+</p>
+<a name="wp138650"> </a><p class="pBody">
+The xqueryType attribute is required and specifies one of the following values:</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp138785"> </a><div class="pCellBody">
+boolean
+</div>
+</th>
+    <th><a name="wp138787"> </a><div class="pCellBody">
+hexBinary
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp138789"> </a><div class="pCellBody">
+byte
+</div>
+</td>
+    <td><a name="wp138791"> </a><div class="pCellBody">
+int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp138793"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp138795"> </a><div class="pCellBody">
+integer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp138797"> </a><div class="pCellBody">
+dateTime
+</div>
+</td>
+    <td><a name="wp138799"> </a><div class="pCellBody">
+long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp138801"> </a><div class="pCellBody">
+decimal
+</div>
+</td>
+    <td><a name="wp138803"> </a><div class="pCellBody">
+short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp138805"> </a><div class="pCellBody">
+double
+</div>
+</td>
+    <td><a name="wp138807"> </a><div class="pCellBody">
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp138809"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp138811"> </a><div class="pCellBody">
+time
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp138652"> </a><p class="pBody">
+The sqlType attribute is required and determines the database type declaration that is appended to the column names when temporary tables are created. The specified data type must be supported by the database used to create the temporary tables. 
+</p>
+<a name="wp150985"> </a><p class="pBody">
+If you are connecting to a DB2 for z/OS Unicode database, you should specify the createStmtSuffix element (child element of tempTable) as follows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;tempTable&gt;<a name="wp151062"> </a>
+  &lt;createStmtSuffix&gt;CCSID UNICODE ON COMMIT PRESERVE ROWS&lt;/createStmtSuffix&gt;<a name="wp151779"> </a>
+&lt;/tempTable&gt;<a name="wp151814"> </a>
+</pre></div>
+<a name="wp175956"> </a><p class="pBody">
+NOTE: Temporary tables can be used only if the database configuration and authorization settings for the user allow temporary tables to be created and populated. This is enabled by default in a typical installation of Informix, Microsoft SQL Server, MySQL, Oracle, PostgreSQL, and Sybase. For DB2, you must make sure the user has the USE privilege on a previously created USER TEMPORARY tablespace. Refer to your database documentation for details. For MySQL, DataDirect XQuery uses a regular table to store temporary data; therefore, you must create table privileges on the current schema. Refer to your database documentation for details.
+</p>
+<a name="wp138812"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp142917"> </a><p class="pBody">
+<a  href="database_support3.html#wp299568">Data Type Mappings</a> for information about supported data types for each database
+</p>
+<a name="wp142912"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp138817"> </a>
+  &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp138818"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp138819"> </a>
+    &lt;url&gt;<a name="wp138820"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp138837"> </a>
+    &lt;/url&gt;<a name="wp138838"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp138821"> </a>
+    &lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp138822"> </a>
+    ...<a name="wp138823"> </a>
+   &lt;tempTable&gt;<a name="wp138824"> </a>
+     &lt;column xqueryType=&quot;string&quot; sqlType=&quot;nvarchar(2000) collate
+       SQL_Latin1_General_CP1_CS_AS&quot;/&gt;<a name="wp138825"> </a>
+     &lt;createStmtSuffix&gt;CCSID UNICODE ON COMMIT PRESERVE ROWS&lt;/createStmtSuffix&gt;<a name="wp150733"> </a>
+  &lt;/tempTable&gt;<a name="wp138813"> </a>
+</pre></div>
+<a name="wp149955"> </a><h3 class="pHeading2">
+option Element
+</h3>
+<a name="wp138886"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp143036"> </a><p class="pBody">
+Child element of JDBCConnection
+</p>
+<a name="wp143025"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp142956"> </a><p class="pBody">
+Specifies an option declaration for the relational database specified by the Url element. A JDBCConnection element can contain one or multiple option elements.
+</p>
+<a name="wp138887"> </a><p class="pBody">
+The name attribute is required and specifies the name of the option declaration.
+</p>
+<a name="wp138891"> </a><p class="pBody">
+You also can specify an option declaration globally for all XML and relational data sources using the option element, a child of XQJConnection (see <a  href="sourceconfigfilestructure4.html#wp137880">option Element</a>). 
+</p>
+<a name="wp138892"> </a><p class="pBody">
+NOTE: You can override this setting in the query.
+</p>
+<a name="wp138865"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp142978"> </a><p class="pBody">
+<a  href="advancedfeatures2.html#wp204556">Option Declarations</a> for a list and description of all option declarations
+</p>
+<a name="wp142973"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp138906"> </a>
+  &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp138907"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp138908"> </a>
+    &lt;url&gt;<a name="wp138909"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp138943"> </a>
+    &lt;/url&gt;<a name="wp138948"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp138910"> </a>
+<span style="font-weight: bold">    </span>&lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp138911"> </a>
+    ...<a name="wp138912"> </a>
+    &lt;option name=&quot;sql-decimal-cast&quot;&gt;10,5&lt;/option&gt;<a name="wp138902"> </a>
+</pre></div>
+<a name="wp143086"> </a><h3 class="pHeading2">
+catalog Element
+</h3>
+<a name="wp143087"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp143088"> </a><p class="pBody">
+Child element of JDBCConnection 
+</p>
+<a name="wp143103"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp143107"> </a><p class="pBody">
+Specifies information about the catalog that is associated with the database being accessed by fn:collection(). When connecting to DB2, Informix, MySQL, Microsoft SQL Server, and Sybase, the JDBCConnection element can contain one or multiple catalog elements. This element can have three attributes: name, alias, and targetNamespace.
+</p>
+<a name="wp138983"> </a><p class="pBody">
+The name attribute is required for DB2, Informix, MySQL, Microsoft SQL&#160;Server, and Sybase databases. For Oracle and PostgreSQL databases, which do not have catalogs, a name attribute is not required. This attribute specifies the name of the database being accessed by fn:collection(). 
+</p>
+<a name="wp138984"> </a><p class="pBody">
+The alias attribute is optional and specifies an alias for the table name.
+</p>
+<a name="wp138985"> </a><p class="pBody">
+The targetNamespace attribute is optional and specifies a namespace to be assigned to elements from this catalog.
+</p>
+<a name="wp138957"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp143138"> </a><p class="pBody">
+<a  href="troubleshooting4.html#wp138220">Using Aliases</a>
+</p>
+<a name="wp143121"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp139011"> </a>
+ &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp139012"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp139013"> </a>
+    &lt;url&gt;<a name="wp139014"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp139042"> </a>
+    &lt;/url&gt;<a name="wp139043"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp139015"> </a>
+<span style="font-weight: bold">    </span>&lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp139016"> </a>
+    ...<a name="wp139017"> </a>
+    &lt;catalog name=&quot;example_db&quot; alias=&quot;example_alias&quot; 
+      targetNamespace=&quot;http://www.example_namespace.com&quot;&gt;<a name="wp139009"> </a>
+</pre></div>
+<a name="wp139169"> </a><h3 class="pHeading2">
+schema Element
+</h3>
+<a name="wp139200"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp143161"> </a><p class="pBody">
+Child element of catalog 
+</p>
+<a name="wp143164"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp143168"> </a><p class="pBody">
+Specifies information about the schema associated with the database being accessed by fn:collection(). This element provides access to all tables found in the corresponding schema. A catalog element can contain one or more schema elements. This element can have three attributes: name, alias, and targetNamespace.
+</p>
+<a name="wp139202"> </a><p class="pBody">
+The name attribute is required for DB2, Informix, Oracle, Microsoft SQL Server, PostgreSQL, and Sybase. For MySQL, which does not have schemas, the name attribute is not required. The name attribute provides the name of a schema (user) associated with the database being accessed by fn:collection(). 
+</p>
+<a name="wp139203"> </a><p class="pBody">
+The alias attribute is optional and specifies an alias for the table name.
+</p>
+<a name="wp139204"> </a><p class="pBody">
+The targetNamespace attribute is optional and specifies a namespace to be assigned to elements from this schema.
+</p>
+<a name="wp139183"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp143215"> </a><p class="pBody">
+<a  href="troubleshooting4.html#wp138220">Using Aliases</a>
+</p>
+<a name="wp143198"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp139224"> </a>
+ &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp139225"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp139226"> </a>
+    &lt;url&gt;<a name="wp139227"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp139249"> </a>
+    &lt;/url&gt;<a name="wp139250"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp139228"> </a>
+<span style="font-weight: bold">    </span>&lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp139229"> </a>
+    ...<a name="wp139230"> </a>
+    &lt;catalog name=&quot;example_db&quot; alias=&quot;example_alias&quot; 
+      targetNamespace=&quot;http://www.example_namespace.com&gt;<a name="wp139231"> </a>
+      &lt;schema name=&quot;example_db_user&quot; alias=&quot;example_alias&quot; 
+        targetNamespace=&quot;http://www.example_namespace.com&quot;&gt;<a name="wp139216"> </a>
+</pre></div>
+<a name="wp139302"> </a><h3 class="pHeading2">
+table Element
+</h3>
+<a name="wp139316"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp143258"> </a><p class="pBody">
+Child element of schema 
+</p>
+<a name="wp143283"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp143291"> </a><p class="pBody">
+Specifies the database table being accessed by fn:collection(). A&#160;schema element can contain one or multiple table elements. This element can have three attributes: name, alias, and targetNamespace.
+</p>
+<a name="wp139317"> </a><p class="pBody">
+The name attribute is required and provides the name of a database table being accessed by fn:collection().
+</p>
+<a name="wp139318"> </a><p class="pBody">
+The alias attribute is optional and specifies an alias for the table name.
+</p>
+<a name="wp139319"> </a><p class="pBody">
+The targetNamespace attribute is optional and specifies a namespace to be assigned to the elements in the results.
+</p>
+<a name="wp139306"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp143322"> </a><p class="pBody">
+<a  href="troubleshooting4.html#wp138220">Using Aliases</a>
+</p>
+<a name="wp143318"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp139363"> </a>
+ &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp139364"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp139726"> </a>
+    &lt;url&gt;<a name="wp139759"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp139760"> </a>
+    &lt;/url&gt;<a name="wp139761"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp139762"> </a>
+<span style="font-weight: bold">    </span>&lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp139763"> </a>
+    ...<a name="wp139727"> </a>
+    &lt;catalog name=&quot;example_db&quot; alias=&quot;example_alias&quot; 
+      targetNamespace=&quot;http://www.example_namespace.com&gt;<a name="wp139728"> </a>
+      &lt;schema name=&quot;example_db_user&quot; alias=&quot;example_alias&quot; 
+        targetNamespace=&quot;http://www.example_namespace.com&quot;&gt;<a name="wp139371"> </a>
+        &lt;table name=&quot;example_table_name&quot; alias=&quot;example_alias&quot; 
+          targetNamespace=&quot;http://www.example_namespace.com&quot;&gt;<a name="wp139359"> </a>
+</pre></div>
+<a name="wp143453"> </a><h3 class="pHeading2">
+column Element
+</h3>
+<a name="wp143454"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp143514"> </a><p class="pBody">
+Child element of table 
+</p>
+<a name="wp143533"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp143551"> </a><p class="pBody">
+Specifies information about the database table column. The table element can contain one or multiple column elements. This element can have four attributes: name, isPrimaryKey, alias, and schemaType.
+</p>
+<a name="wp143455"> </a><p class="pBody">
+The name attribute is required and provides the name of a column in a database table being accessed by fn:collection(). 
+</p>
+<a name="wp143456"> </a><p class="pBody">
+The isPrimaryKey attribute is optional and indicates if the column is part of the primary key. Valid values are true and false. If the column is part of a primary key, setting true as a value for this attribute improves performance. 
+</p>
+<a name="wp143459"> </a><p class="pBody">
+The alias attribute is optional and specifies an alias for the table name. 
+</p>
+<a name="wp143463"> </a><p class="pBody">
+The schemaType attribute is optional and overrides the default mapping for data type conversions. Valid values are any XQuery atomic type supported by DataDirect XQuery.
+</p>
+<a name="wp143467"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp143572"> </a><p class="pBody">
+<a  href="troubleshooting4.html#wp138220">Using Aliases</a><br /><a  href="database_support4.html#wp300736">Supported XQuery Atomic Types</a>
+</p>
+<a name="wp143563"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp143468"> </a>
+&lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp143469"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp143470"> </a>
+    &lt;url&gt;<a name="wp143471"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp143472"> </a>
+    &lt;/url&gt;<a name="wp143473"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp143474"> </a>
+<span style="font-weight: bold">    </span>&lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp143475"> </a>
+    ...<a name="wp143476"> </a>
+&#160;&#160;&#160;&#160;&lt;catalog name=&quot;example_db&quot; alias=&quot;example_alias&quot; 
+      targetNamespace=&quot;http://www.example_namespace.com&gt;<a name="wp143477"> </a>
+      &lt;schema name=&quot;example_db_user&quot; alias=&quot;example_alias&quot; 
+        targetNamespace=&quot;http://www.example_namespace.com&quot;&gt;         <a name="wp143478"> </a>
+<span style="font-weight: bold">        </span>&lt;table name=&quot;example_table_name&quot; alias=&quot;example_alias&quot; 
+          targetNamespace=&quot;http://www.example_namespace.com&quot;&gt;<a name="wp143479"> </a>
+          &lt;column name=&quot;example_column_name&quot; alias=&quot;example_alias&quot;
+            isPrimaryKey=&quot;true&quot; schemaType=&quot;xs:string&quot;/&gt;<a name="wp143480"> </a>
+        &lt;/table&gt;<a name="wp143481"> </a>
+      &lt;/schema&gt;<a name="wp143482"> </a>
+    &lt;/catalog&gt;<a name="wp143483"> </a>
+  &lt;/JDBCConnection&gt;<a name="wp143484"> </a>
+&lt;/XQJConnection&gt;<a name="wp143485"> </a>
+</pre></div>
+<a name="wp139412"> </a><h3 class="pHeading2">
+tableFunction Element
+</h3>
+<a name="wp139874"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp143355"> </a><p class="pBody">
+Child element of schema 
+</p>
+<a name="wp143361"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp143360"> </a><p class="pBody">
+Specifies a SQL table function to use in DataDirect XQuery. DataDirect XQuery must know the details of the result set returned from the SQL table function so that it can correctly fetch the results and build the correct XML mapping (if needed). 
+</p>
+<a name="wp139932"> </a><p class="pBody">
+This element has three attributes: name, alias, and targetNamespace. In addition, it can have one resultSet element, which can contain one or more column child elements. 
+</p>
+<a name="wp139896"> </a><p class="pBody">
+The name attribute is required and provides the name of a SQL table function.
+</p>
+<a name="wp139897"> </a><p class="pBody">
+The alias attribute is optional and specifies an alias for the table function. 
+</p>
+<a name="wp139901"> </a><p class="pBody">
+The targetNamespace attribute is optional and specifies a namespace to be assigned to the elements that are created according the resultSet element.
+</p>
+<a name="wp139939"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp143397"> </a><p class="pBody">
+<a  href="advancedfeatures9.html#wp247199">Using SQL Table Functions</a><br /><a  href="troubleshooting4.html#wp138220">Using Aliases</a>
+</p>
+<a name="wp143408"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp143410"> </a>
+ &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp139957"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp139958"> </a>
+    &lt;url&gt;<a name="wp139959"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp139960"> </a>
+    &lt;/url&gt;<a name="wp139961"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp139962"> </a>
+<span style="font-weight: bold">    </span>&lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp139963"> </a>
+    ...<a name="wp139964"> </a>
+    &lt;catalog name=&quot;example_db&quot; alias=&quot;example_alias&quot; 
+      targetNamespace=&quot;http://www.example_namespace.com&gt;<a name="wp139965"> </a>
+      &lt;schema name=&quot;example_db_user&quot; alias=&quot;example_alias&quot; 
+        targetNamespace=&quot;http://www.example_namespace.com&quot;&gt;<a name="wp139966"> </a>
+          &lt;tableFunction name=&quot;DB_PARTITIONS&quot;&gt;<a name="wp139982"> </a>
+</pre></div>
+<a name="wp143599"> </a><h3 class="pHeading2">
+resultSet Element, column Child Element
+</h3>
+<a name="wp143600"> </a><p class="pBodyBold">
+<b class="cBold">Hierarchy</b>
+</p>
+<a name="wp143601"> </a><p class="pBody">
+resultSet: Child element of tableFunction<br />column: Child element of resultSet
+</p>
+<a name="wp143687"> </a><p class="pBodyBold">
+<b class="cBold">Description</b>
+</p>
+<a name="wp143724"> </a><p class="pBody">
+The resultSet element configures the result set returned from the SQL table function specified by the name attribute of the tableFunction element. This element must contain one or more column child elements. 
+</p>
+<a name="wp143777"> </a><p class="pBody">
+The column element defines the columns of the result set returned from the SQL table function. This element can have five attributes: name, alias, isPrimaryKey, isPseudo, and schemaType.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp143789"> </a><div class="pSmartList1"><li>The name attribute is required and specifies the name of the column. When no alias attribute is specified, the value of the name attribute is also the name of the element that is created to wrap the values from the column.</li></div><a name="wp143810"> </a><div class="pSmartList1"><li>The alias attribute is optional and is used to rename the column name.</li></div><a name="wp143824"> </a><div class="pSmartList1"><li>The isPrimaryKey attribute indicates if the column is part of the primary key. Valid values are true and false. This attribute is required only when the result set of the table function will be used to populate parent nodes in a hierarchical XML structure.</li></div><a name="wp143847"> </a><div class="pSmartList1"><li>The isPseudo attribute is optional and specifies whether this column is a pseudo column. Valid values are true and false. This is useful when the column does not have to be included in the resulting XML mapping of the table function.</li></div><a name="wp143853"> </a><div class="pSmartList1"><li>The schemaType attribute is required and specifies the XML schema type of the column. See the tables in <a  href="database_support3.html#wp299568">Data Type Mappings</a> for the mapping of database data types to XML schema types.</li></div></ul></div>
+<a name="wp143733"> </a><p class="pBodyBold">
+<b class="cBold">See also</b>
+</p>
+<a name="wp143734"> </a><p class="pBody">
+<a  href="troubleshooting4.html#wp138220">Using Aliases</a>
+</p>
+<a name="wp143610"> </a><p class="pBodyBold">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp143984"> </a>
+ &lt;JDBCConnection name=&quot;example_connection_name&quot;&gt;<a name="wp143985"> </a>
+    &lt;description&gt;connection_description&lt;/description&gt;<a name="wp143986"> </a>
+    &lt;url&gt;<a name="wp143987"> </a>
+      jdbc:xquery:sqlserver://localhost:1433;DatabaseName=example_db<a name="wp143988"> </a>
+    &lt;/url&gt;<a name="wp143989"> </a>
+    &lt;user&gt;example_db_user&lt;/user&gt;<a name="wp143990"> </a>
+<span style="font-weight: bold">    </span>&lt;password&gt;example_db_user_pswd&lt;/password&gt;<a name="wp143991"> </a>
+    ...<a name="wp143992"> </a>
+    &lt;catalog name=&quot;example_db&quot; alias=&quot;example_alias&quot; 
+      targetNamespace=&quot;http://www.example_namespace.com&gt;<a name="wp143993"> </a>
+      &lt;schema name=&quot;example_db_user&quot; alias=&quot;example_alias&quot; 
+        targetNamespace=&quot;http://www.example_namespace.com&quot;&gt;         <a name="wp143994"> </a>
+          &lt;tableFunction name=&quot;DB_PARTITIONS&quot;&gt;<a name="wp143995"> </a>
+            &lt;resultSet&gt;<a name="wp143996"> </a>
+              &lt;column name=&quot;PARTITION_NUMBER&quot; schemaType=&quot;short&quot;/&gt;<a name="wp143997"> </a>
+              &lt;column name=&quot;HOST_NAME&quot; schemaType=&quot;string&quot;/&gt;<a name="wp143998"> </a>
+              &lt;column name=&quot;PORT_NUMBER&quot; schemaType=&quot;short&quot;/&gt;<a name="wp143999"> </a>
+              &lt;column name=&quot;SWITCH_NAME&quot; schemaType=&quot;string&quot;/&gt;<a name="wp144000"> </a>
+            &lt;/resultSet&gt;<a name="wp144001"> </a>
+          &lt;/tableFunction&gt;<a name="wp144002"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:15" />
+  <title>Data Encryption Across the Network</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp239917"> </a><h2 class="pNewHTMLPageNum">
+Data Encryption Across the Network
+</h2>
+<hr />
+<a name="wp239918"> </a><p class="pBody">
+If your database connection is not configured to use data encryption, data is sent across the network in a format that is designed for fast transmission. This format does not provide complete protection from hackers, and it can be decoded given some time and effort. 
+</p>
+<a name="wp239919"> </a><p class="pBody">
+To address data security concerns, you might want to use <em class="cEmphasis">data encryption</em> to provide a more secure transmission of data. Consider using data encryption in the following scenarios:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239920"> </a><div class="pSmartList1"><li>You have offices that share confidential information over an intranet.</li></div><a name="wp239921"> </a><div class="pSmartList1"><li>You send sensitive data, such as credit card numbers, over a database connection.</li></div><a name="wp239922"> </a><div class="pSmartList1"><li>You need to comply with government or industry privacy and security requirements.</li></div></ul></div>
+<a name="wp239924"> </a><p class="pBody">
+NOTE: Data encryption can adversely affect performance because of the additional overhead (mainly CPU usage) required to encrypt and decrypt data.
+</p>
+<a name="wp239925"> </a><p class="pBody">
+This section covers the following topics:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239929"> </a><div class="pSmartList1"><li><a  href="connection_security5.html#wp239955">Supported Encryption Methods</a></li></div><a name="wp239933"> </a><div class="pSmartList1"><li><a  href="connection_security5.html#wp240057">Database-Specific Data Encryption</a></li></div><a name="wp239937"> </a><div class="pSmartList1"><li><a  href="connection_security5.html#wp240068">SSL Encryption</a></li></div><a name="wp239941"> </a><div class="pSmartList1"><li><a  href="connection_security5.html#wp240140">Configuring SSL for DB2</a></li></div><a name="wp239945"> </a><div class="pSmartList1"><li><a  href="connection_security5.html#wp240156">Configuring SSL for Oracle</a></li></div><a name="wp239949"> </a><div class="pSmartList1"><li><a  href="connection_security5.html#wp240173">Configuring SSL for Microsoft SQL Server</a></li></div><a name="wp239953"> </a><div class="pSmartList1"><li><a  href="connection_security5.html#wp240251">Configuring SSL for Sybase</a></li></div></ul></div>
+<a name="wp239955"> </a><h3 class="pHeading2">
+Supported Encryption Methods
+</h3>
+<a name="wp239957"> </a><p class="pBody">
+DataDirect XQuery supports the following encryption methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239959"> </a><div class="pSmartList1"><li>Database-specific encryption. DB2 defines its own encryption protocol for DB2 for Linux/UNIX/Windows and DB2 for z/OS only. See <a  href="connection_security5.html#wp240057">Database-Specific Data Encryption</a> for more information.</li></div><a name="wp239964"> </a><div class="pSmartList1"><li>Secure Sockets Layer (SSL). SSL is an industry-standard protocol for sending encrypted data over database connections. SSL secures the integrity of your data by encrypting information and providing client/server authentication. See <a  href="connection_security5.html#wp240068">SSL Encryption</a> for more information.</li></div></ul></div>
+<a name="wp239972"> </a><p class="pBody">
+<a  href="connection_security5.html#wp239976">Table&#160;7-4</a> summarizes the data encryption methods supported by DataDirect XQuery.
+</p>
+<a name="wp240053"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp239976"> </a><div class="pTableTitle">
+Table 7-4.  Data Encryption Methods Supported by DataDirect XQuery
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp239982"> </a><div class="pCellHeading">
+Driver
+</div>
+</th>
+    <th><a name="wp239984"> </a><div class="pCellHeading">
+Database-Specific
+</div>
+</th>
+    <th><a name="wp239986"> </a><div class="pCellHeading">
+SSL
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239988"> </a><div class="pCellBody">
+DB2 for Linux/UNIX/Windows
+</div>
+</td>
+    <td><a name="wp239990"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239995"> </a><div class="pCellBody">
+	X<a href="#wp239994"><span class="Footnote">1</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239997"> </a><div class="pCellBody">
+DB2 for z/OS
+</div>
+</td>
+    <td><a name="wp239999"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp240004"> </a><div class="pCellBody">
+	X<a href="#wp240003"><span class="Footnote">2</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240006"> </a><div class="pCellBody">
+DB2 for iSeries
+</div>
+</td>
+    <td><a name="wp240008"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp240013"> </a><div class="pCellBody">
+	X<a href="#wp240012"><span class="Footnote">3</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240015"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp240017"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp240019"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240021"> </a><div class="pCellBody">
+MySQL
+</div>
+</td>
+    <td><a name="wp240023"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp240025"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240033"> </a><div class="pCellBody">
+Oracle
+</div>
+</td>
+    <td><a name="wp240035"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp240037"> </a><div class="pCellBody">
+	X
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240039"> </a><div class="pCellBody">
+Microsoft SQL Server
+</div>
+</td>
+    <td><a name="wp240041"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp240046"> </a><div class="pCellBody">
+		X<a href="#wp240045"><span class="Footnote">4</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240048"> </a><div class="pCellBody">
+Sybase
+</div>
+</td>
+    <td><a name="wp240050"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp240052"> </a><div class="pCellBody">
+	X
+</div>
+</td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <td><a name="wp239994"> </a><div class="pCellBody">
+<a href="#wp239995"><span class="Footnote">1</span></a>Supported for V9.1 Fixpack 2 and higher for Linux/UNIX/Windows.
+</div>
+<a name="wp240003"> </a><div class="pCellBody">
+<a href="#wp240004"><span class="Footnote">2</span></a>Supported for DB2 v9.1 for z/OS.
+</div>
+<a name="wp240012"> </a><div class="pCellBody">
+<a href="#wp240013"><span class="Footnote">3</span></a>Supported for DB2 V5R3 and higher for iSeries.
+</div>
+<a name="wp240045"> </a><div class="pCellBody">
+<a href="#wp240046"><span class="Footnote">4</span></a>Supported for Microsoft SQL Server 2000 and higher.
+</div>
+</td>
+  </tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp240057"> </a><h3 class="pHeading2">
+Database-Specific Data Encryption
+</h3>
+<a name="wp240058"> </a><p class="pBody">
+The DB2 driver supports a proprietary data encryption protocol for the following DB2 databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240059"> </a><div class="pSmartList1"><li>DB2 for Linux/UNIX/Windows</li></div><a name="wp240060"> </a><div class="pSmartList1"><li>DB2 for z/OS</li></div></ul></div>
+<a name="wp240061"> </a><h4 class="pHeading3">
+Configuring Data Encryption for DB2
+</h4>
+<a name="wp240062"> </a><p class="pBodyBold">
+To configure data encryption for a DB2 database:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp240063"> </a><div class="pSmartList1"><li>Set the AuthenticationMethod property to clearText, encryptedPassword, or encryptedUIDPassword.</li></div><a name="wp240064"> </a><div class="pSmartList1"><li>Set the EncryptionMethod property to DBEncryption or RequestDBEncryption.</li></div></ol></div>
+<a name="wp240068"> </a><h3 class="pHeading2">
+SSL Encryption
+</h3>
+<a name="wp240069"> </a><p class="pBody">
+SSL works by allowing the client and server to send each other encrypted data that only they can decrypt. SSL negotiates the terms of the encryption in a sequence of events known as the <em class="cEmphasis">SSL&#160;handshake</em>. The handshake involves the following types of authentication:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240071"> </a><div class="pSmartList1"><li><em class="cEmphasis">SSL server authentication</em> requires the server to authenticate itself to the client. </li></div><a name="wp240072"> </a><div class="pSmartList1"><li><em class="cEmphasis">SSL client authentication</em> is optional and requires the client to authenticate itself to the server after the server has authenticated itself to the client. </li></div><a name="wp240073"> </a><p class="pBodyRelative">
+NOTE: DB2 and Oracle are the only databases supported by DataDirect Connect <font size="1"><em>for</em></font> <font size="1">JDBC</font> that support SSL client authentication.
+</p>
+</ul></div>
+<a name="wp240074"> </a><p class="pBody">
+The version of SSL that is used and which SSL cryptographic algorithm is used depends on which JVM you are using. Refer to your JVM documentation for more information about its SSL support.
+</p>
+<a name="wp240075"> </a><p class="pBody">
+Procedures for configuring SSL vary for the databases that support it. See the individual driver chapters for details about configuring SSL:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240079"> </a><div class="pSmartList1"><li>DB2 &#8211; <a  href="connection_security5.html#wp240140">Configuring SSL for DB2</a>.</li></div><a name="wp240083"> </a><div class="pSmartList1"><li>Oracle &#8211; <a  href="connection_security5.html#wp240156">Configuring SSL for Oracle</a></li></div><a name="wp240086"> </a><div class="pSmartList1"><li>Microsoft SQL Server &#8211; <a  href="connection_security5.html#wp240173">Configuring SSL for Microsoft SQL Server</a></li></div><a name="wp240091"> </a><div class="pSmartList1"><li>Sybase &#8211; <a  href="connection_security5.html#wp240251">Configuring SSL for Sybase</a></li></div></ul></div>
+<a name="wp240094"> </a><h4 class="pHeading3">
+SSL Server Authentication
+</h4>
+<a name="wp240095"> </a><p class="pBody">
+When the client makes a connection request, the server presents its public certificate for the client to accept or deny. The client checks the issuer of the certificate against a list of trusted Certificate Authorities (CAs) that resides in an encrypted file on the client known as a <em class="cEmphasis">truststore</em>. Optionally, the client may check the subject (owner) of the certificate. If the certificate matches a trusted CA in the truststore (and the certificate&#8217;s subject matches the value that the application expects), an encrypted connection is established between the client and server. If the certificate does not match, the connection fails and the driver throws an exception.
+</p>
+<a name="wp240100"> </a><p class="pBody">
+To check the issuer of the certificate against the contents of the truststore, the driver must be able to locate the truststore and unlock the truststore with the appropriate password. You can specify truststore information in either of the following ways:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240101"> </a><div class="pSmartList1"><li>Specify values for the Java system properties javax.net.ssl.trustStore and javax.net.ssl.trustStorePassword. For example:</li></div><a name="wp240102"> </a><p class="pSyntaxEmbed">
+java -Djavax.net.ssl.trustStore=C:\Certificates\MyTruststore
+</p>
+<a name="wp240103"> </a><p class="pBodyRelative">
+and
+</p>
+<a name="wp240104"> </a><p class="pSyntaxEmbed">
+java -Djavax.net.ssl.trustStorePassword=MyTruststorePassword
+</p>
+<a name="wp240105"> </a><p class="pBodyRelative">
+This method sets values for all SSL sockets created in the JVM.
+</p>
+<a name="wp240106"> </a><div class="pSmartList1"><li>Specify values for the connection properties TrustStore and TrustStorePassword. For example:</li></div><a name="wp240107"> </a><p class="pSyntaxEmbed">
+TrustStore=C:\Certficates\MyTruststore
+</p>
+<a name="wp240108"> </a><p class="pBodyRelative">
+and
+</p>
+<a name="wp240109"> </a><p class="pSyntaxEmbed">
+TrustStorePassword=MyTruststorePassword
+</p>
+<a name="wp240110"> </a><p class="pBodyRelative">
+Any values specified by the TrustStore and TrustStorePassword properties override values specified by the Java system properties. This allows you to choose which truststore file you want to use for a particular connection.
+</p>
+</ul></div>
+<a name="wp240111"> </a><p class="pBody">
+Alternatively, you can configure the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">JDBC</font> drivers to trust any certificate sent by the server, even if the issuer is not a trusted CA. Allowing a driver to trust any certificate sent from the server is useful in test environments because it eliminates the need to specify truststore information on each client in the test environment. If the driver is configured to trust any certificate sent from the server, the issuer information in the certificate is ignored.
+</p>
+<a name="wp240114"> </a><h4 class="pHeading3">
+SSL Client Authentication (DB2 and Oracle)
+</h4>
+<a name="wp240115"> </a><p class="pBody">
+If the server is configured for SSL client authentication, the server asks the client to verify its identity after the server has proved its identity. Similar to SSL server authentication, the client sends a public certificate to the server to accept or deny. The client stores its public certificate in an encrypted file known as a <em class="cEmphasis">keystore</em>.
+</p>
+<a name="wp240117"> </a><p class="pBody">
+The driver must be able to locate the keystore and unlock the keystore with the appropriate keystore password. Depending on the type of keystore used, the driver also may need to unlock the keystore entry with a password to gain access to the certificate and its private key.
+</p>
+<a name="wp240118"> </a><p class="pBody">
+DataDirect XQuery can use the following types of keystores:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240120"> </a><div class="pSmartList1"><li>Java Keystore (JKS) contains a collection of certificates. Each entry is identified by an alias. The value of each entry is a certificate and the certificate&#8217;s private key. Each keystore entry can have the same password as the keystore password or a different password. If a keystore entry has a password different than the keystore password, the driver must provide this password to unlock the entry and gain access to the certificate and its private key.</li></div><a name="wp240122"> </a><div class="pSmartList1"><li>PKCS #12 keystore contains only one certificate. To gain access to the certificate and its private key, the driver must provide only the keystore password. The file extension of the keystore must be .pfx or .p12.</li></div></ul></div>
+<a name="wp240123"> </a><p class="pBody">
+ You can specify this information in either of the following ways:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240124"> </a><div class="pSmartList1"><li>Specify values for the Java system properties javax.net.ssl.keyStore and javax.net.ssl.keyStorePassword. For example:</li></div><a name="wp240125"> </a><p class="pSyntaxEmbed">
+java -Djavax.net.ssl.keyStore=C:\Certificates\MyKeystore
+</p>
+<a name="wp240126"> </a><p class="pBodyRelative">
+and
+</p>
+<a name="wp240127"> </a><p class="pSyntaxEmbed">
+java -Djavax.net.ssl.keyStorePassword=MyKeystorePassword
+</p>
+<a name="wp240128"> </a><p class="pBodyRelative">
+This method sets values for all SSL sockets created in the JVM.
+</p>
+<a name="wp240129"> </a><p class="pBodyRelative">
+NOTE: If the keystore specified by the javax.net.ssl.keyStore Java system property is a JKS and the keystore entry has a password different than the keystore password, the KeyPassword connection property must specify the password of the keystore entry. For example:
+</p>
+<a name="wp240130"> </a><p class="pSyntaxEmbed">
+KeyPassword=MyKeyPassword
+</p>
+<a name="wp240131"> </a><div class="pSmartList1"><li>Specify values for the connection properties KeyStore and KeyStorePassword. For example:</li></div><a name="wp240132"> </a><p class="pSyntaxEmbed">
+KeyStore=C:\Certficates\MyKeyStore
+</p>
+<a name="wp240133"> </a><p class="pBodyRelative">
+and
+</p>
+<a name="wp240134"> </a><p class="pSyntaxEmbed">
+KeyStorePassword=MyKeystorePassword
+</p>
+<a name="wp240135"> </a><p class="pBodyRelative">
+NOTE: If the keystore specified by the KeyStore connection property is a JKS and the keystore entry has a password different than the keystore password, the KeyPassword connection property must specify the password of the keystore entry. For example:
+</p>
+<a name="wp240136"> </a><p class="pSyntaxEmbed">
+KeyPassword=MyKeyPassword
+</p>
+<a name="wp240137"> </a><p class="pBodyRelative">
+Any values specified by the KeyStore and KeyStorePassword properties override values specified by the Java system properties. This allows you to choose which keystore file you want to use for a particular connection.
+</p>
+</ul></div>
+<a name="wp240140"> </a><h3 class="pHeading2">
+Configuring SSL for DB2
+</h3>
+<a name="wp240141"> </a><p class="pBody">
+The DB2 driver supports SSL encryption for the following databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240142"> </a><div class="pSmartList1"><li>DB2 V9.1 Fixpack 2 and higher for Linux/UNIX/Windows</li></div><a name="wp240143"> </a><div class="pSmartList1"><li>DB2 v9.1 for z/OS</li></div><a name="wp240144"> </a><div class="pSmartList1"><li>DB2 V5R3 and higher for iSeries</li></div></ul></div>
+<a name="wp240145"> </a><p class="pBody">
+NOTE: Connection hangs can occur when the driver is configured for SSL and the database server does not support SSL. You may want to set a login timeout using the LoginTimeout property to avoid problems when connecting to a server that does not support SSL. 
+</p>
+<a name="wp240146"> </a><p class="pBodyBold">
+To configure SSL encryption:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp240147"> </a><div class="pSmartList1"><li>Set the EncryptionMethod property to SSL.</li></div><a name="wp240148"> </a><div class="pSmartList1"><li>Specify the location and password of the truststore file used for SSL server authentication. Either set the TrustStore and TrustStore properties or their corresponding Java system properties (javax.net.ssl.trustStore and javax.net.ssl.trustStorePassword, respectively).</li></div><a name="wp240149"> </a><div class="pSmartList1"><li>To validate certificates sent by the database server, set the ValidateServerCertificate property to true.</li></div><a name="wp240150"> </a><div class="pSmartList1"><li>Optionally, set the HostNameInCertificate property to a host name to be used to validate the certificate. The HostNameInCertificate property provides additional security against man-in-the-middle (MITM) attacks by ensuring that the server the driver is connecting to is the server that was requested.</li></div><a name="wp240151"> </a><div class="pSmartList1"><li>If your database server is configured for SSL client authentication, configure your keystore information:</li></div><div class="pSmartList2"><ol type="a" class="pSmartList2">
+<a name="wp240152"> </a><div class="pSmartList2"><li>Specify the location and password of the keystore file. Either set the KeyStore and KeyStore properties or their corresponding Java system properties (javax.net.ssl.keyStore and javax.net.ssl.keyStorePassword, respectively). </li></div>
+<a name="wp240153"> </a><div class="pSmartList2"><li>If any key entry in the keystore file is password-protected, set the KeyPassword property to the key password.</li></div>
+</ol></div>
+</ol></div>
+<a name="wp240156"> </a><h3 class="pHeading2">
+Configuring SSL for Oracle
+</h3>
+<a name="wp240157"> </a><p class="pBody">
+The Oracle driver supports SSL encryption for the following databases: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240158"> </a><div class="pSmartList1"><li>Oracle 11g (R1)</li></div><a name="wp240159"> </a><div class="pSmartList1"><li>Oracle 10g (R1 and R2)</li></div><a name="wp240160"> </a><div class="pSmartList1"><li>Oracle 9i (R1 and R2)</li></div></ul></div>
+<a name="wp240161"> </a><p class="pBody">
+Oracle Advanced Security must be enabled on the database server to support SSL. 
+</p>
+<a name="wp240162"> </a><p class="pBody">
+NOTE: Connection hangs can occur when the driver is configured for SSL and the database server does not support SSL. You may want to set a login timeout using the LoginTimeout property to avoid problems when connecting to a server that does not support SSL. 
+</p>
+<a name="wp240163"> </a><p class="pBodyBold">
+To configure SSL encryption:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp240164"> </a><div class="pSmartList1"><li>Set the EncryptionMethod property to SSL.</li></div><a name="wp240165"> </a><div class="pSmartList1"><li>Specify the location and password of the truststore file used for SSL server authentication. Either set the TrustStore and TrustStore properties or their corresponding Java system properties (javax.net.ssl.trustStore and javax.net.ssl.trustStorePassword, respectively).</li></div><a name="wp240166"> </a><div class="pSmartList1"><li>To validate certificates sent by the database server, set the ValidateServerCertificate property to true.</li></div><a name="wp240167"> </a><div class="pSmartList1"><li>Optionally, set the HostNameInCertificate property to a host name to be used to validate the certificate. The HostNameInCertificate property provides additional security against man-in-the-middle (MITM) attacks by ensuring that the server the driver is connecting to is the server that was requested.</li></div><a name="wp240168"> </a><div class="pSmartList1"><li>If your database server is configured for SSL client authentication, configure your keystore information:</li></div><div class="pSmartList2"><ol type="a" class="pSmartList2">
+<a name="wp240169"> </a><div class="pSmartList2"><li>Specify the location and password of the keystore file. Either set the KeyStore and KeyStore properties or their corresponding Java system properties (javax.net.ssl.keyStore and javax.net.ssl.keyStorePassword, respectively). </li></div>
+<a name="wp240170"> </a><div class="pSmartList2"><li>If any key entry in the keystore file is password-protected, set the KeyPassword property to the key password.</li></div>
+</ol></div>
+</ol></div>
+<a name="wp240173"> </a><h3 class="pHeading2">
+Configuring SSL for Microsoft SQL Server
+</h3>
+<a name="wp240174"> </a><p class="pBody">
+The SQL Server driver supports SSL encryption for the following databases: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240175"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000 or higher</li></div><a name="wp240176"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000 Enterprise Edition (64-bit) or higher </li></div></ul></div>
+<a name="wp240177"> </a><p class="pBody">
+Depending on your Microsoft SQL Server configuration, you can choose to encrypt all data, including the login request, or encrypt the login request only. Encrypting login requests, but not data, is useful for the following scenarios: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240178"> </a><div class="pSmartList1"><li>When your application needs security, but cannot afford to pay the performance penalty for encrypting data transferred between the driver and server.</li></div><a name="wp240179"> </a><div class="pSmartList1"><li>When the server is not configured for SSL, but your application still requires a minimum degree of security. (Applicable to Microsoft SQL Server 2005 and higher only.)</li></div></ul></div>
+<a name="wp240180"> </a><p class="pBody">
+NOTE: When SSL is enabled, the driver communicates with database protocol packets set by the server&#8217;s default packet size. Any value set by the PacketSize property is ignored. 
+</p>
+<a name="wp240181"> </a><h4 class="pHeading3">
+Using SSL with Microsoft SQL Server 
+</h4>
+<a name="wp240182"> </a><p class="pBody">
+If your Microsoft SQL Server database server has been configured with an SSL certificate signed by a trusted CA, the server can be configured so that SSL encryption is either optional or required. When required, connections from clients that do support SSL encryption fail. 
+</p>
+<a name="wp240183"> </a><p class="pBody">
+Although a signed trusted SSL certificate is recommended for the best degree of security, Microsoft SQL Server 2005 and higher can provide limited security protection even if an SSL certificate has not been configured on the server. If a trusted certificate is not installed, the server will use a self-signed certificate to encrypt the login request, but not the data. 
+</p>
+<a name="wp240187"> </a><p class="pBody">
+<a  href="connection_security5.html#wp240191">Table&#160;7-5</a> shows how the different EncryptionMethod property values behave with different Microsoft SQL Server configurations. 
+</p>
+<a name="wp240239"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp240191"> </a><div class="pTableTitle">
+Table 7-5.  EncryptionMethod Property and Microsoft SQL Server Configurations 
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp240199"> </a><div class="pCellHeading">
+Value
+</div>
+</th>
+    <th><a name="wp240201"> </a><div class="pCellHeading">
+No SSL Certificate
+</div>
+</th>
+    <th><a name="wp240203"> </a><div class="pCellHeading">
+SSL Optional
+</div>
+</th>
+    <th><a name="wp240205"> </a><div class="pCellHeading">
+SSL Required
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240207"> </a><div class="pCellBody">
+noEncryption
+</div>
+</td>
+    <td><a name="wp240209"> </a><div class="pCellBody">
+Login request and data are not encrypted.
+</div>
+</td>
+    <td><a name="wp240211"> </a><div class="pCellBody">
+Login request and data are not encrypted.
+</div>
+</td>
+    <td><a name="wp240213"> </a><div class="pCellBody">
+Connection attempt fails.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240215"> </a><div class="pCellBody">
+SSL
+</div>
+</td>
+    <td><a name="wp240217"> </a><div class="pCellBody">
+Connection attempt fails.
+</div>
+</td>
+    <td><a name="wp240219"> </a><div class="pCellBody">
+Login request and data are encrypted.
+</div>
+</td>
+    <td><a name="wp240221"> </a><div class="pCellBody">
+Login request and data are encrypted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240223"> </a><div class="pCellBody">
+requestSSL
+</div>
+</td>
+    <td><a name="wp240225"> </a><div class="pCellBody">
+Login request and data are not encrypted.
+</div>
+</td>
+    <td><a name="wp240227"> </a><div class="pCellBody">
+Login request and data are encrypted.
+</div>
+</td>
+    <td><a name="wp240229"> </a><div class="pCellBody">
+Login request and data are encrypted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240231"> </a><div class="pCellBody">
+loginSSL
+</div>
+</td>
+    <td><a name="wp240233"> </a><div class="pCellBody">
+Microsoft SQL Server 2005 and higher: Login request is encrypted; data is not.
+</div>
+<a name="wp240234"> </a><div class="pCellBody">
+Microsoft SQL Server 2000: Connection attempt fails.
+</div>
+</td>
+    <td><a name="wp240236"> </a><div class="pCellBody">
+Login request is encrypted; data is not.
+</div>
+</td>
+    <td><a name="wp240238"> </a><div class="pCellBody">
+Login request and data are encrypted.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp240241"> </a><h4 class="pHeading3">
+How to Configure SSL for Microsoft SQL Server
+</h4>
+<a name="wp240242"> </a><p class="pBodyBold">
+To configure SSL encryption for Microsoft SQL Server:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp240243"> </a><div class="pSmartList1"><li>Choose the type of encryption for your application:</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp240244"> </a><div class="pSmartList2Rel"><li>If you want the driver to encrypt all data, including the login request, set the EncryptionMethod property to SSL or requestSSL.</li></div>
+<a name="wp240245"> </a><div class="pSmartList2Rel"><li>If you want the driver to encrypt only the login request, set the EncryptionMethod property to loginSSL.</li></div>
+</ul></div>
+<a name="wp240246"> </a><div class="pSmartList1"><li>Specify the location and password of the truststore file used for SSL server authentication. Either set the TrustStore and TrustStore properties or their corresponding Java system properties (javax.net.ssl.trustStore and javax.net.ssl.trustStorePassword, respectively).</li></div><a name="wp240247"> </a><div class="pSmartList1"><li>To validate certificates sent by the database server, set the ValidateServerCertificate property to true.</li></div><a name="wp240248"> </a><div class="pSmartList1"><li>Optionally, set the HostNameInCertificate property to a host name to be used to validate the certificate. The HostNameInCertificate property provides additional security against man-in-the-middle (MITM) attacks by ensuring that the server the driver is connecting to is the server that was requested.</li></div></ol></div>
+<a name="wp240251"> </a><h3 class="pHeading2">
+Configuring SSL for Sybase
+</h3>
+<a name="wp240252"> </a><p class="pBody">
+The Sybase driver supports SSL encryption for the following databases: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp240253"> </a><div class="pSmartList1"><li>Sybase Adaptive Server Enterprise 15.0</li></div><a name="wp240254"> </a><div class="pSmartList1"><li>Sybase Adaptive Server Enterprise 12.5, 12.5.1, 12.5.2, 12.5.3, and 12.5.4</li></div></ul></div>
+<a name="wp240255"> </a><p class="pBody">
+In addition, the Sybase Security and Directory Services package, ASE_SECDIR, is required. 
+</p>
+<a name="wp240256"> </a><p class="pBody">
+NOTE: Connection hangs can occur when the driver is configured for SSL and the database server does not support SSL. You may want to set a login timeout using the LoginTimeout property to avoid problems when connecting to a server that does not support SSL. 
+</p>
+<a name="wp240257"> </a><p class="pBodyBold">
+To configure SSL encryption:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp240258"> </a><div class="pSmartList1"><li>Set the EncryptionMethod property to SSL.</li></div><a name="wp240259"> </a><div class="pSmartList1"><li>Specify the location and password of the truststore file used for SSL server authentication. Either set the TrustStore and TrustStore properties or their corresponding Java system properties (javax.net.ssl.trustStore and javax.net.ssl.trustStorePassword, respectively).</li></div><a name="wp240260"> </a><div class="pSmartList1"><li>To validate certificates sent by the database server, set the ValidateServerCertificate property to true.</li></div><a name="wp240261"> </a><div class="pSmartList1"><li>Optionally, set the HostNameInCertificate property to a host name to be used to validate the certificate. The HostNameInCertificate property provides additional security against man-in-the-middle (MITM) attacks by ensuring that the server the driver is connecting to is the server that was requested.</li></div></ol></div>
+<a name="wp223187"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

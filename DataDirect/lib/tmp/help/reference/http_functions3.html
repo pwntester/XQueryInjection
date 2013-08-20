@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:21" />
+  <title>DataDirect HTTP Functions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp234489"> </a><h2 class="pNewHTMLPageNum">
+DataDirect HTTP Functions
+</h2>
+<hr />
+<a name="wp234504"> </a><p class="pBody">
+This section describes the DataDirect XQuery HTTP functions you can use to implement an XQuery Web service client, including how to take advantage of some of the low-level connection functionality provided by the HTTP functions that is not available with ddtek:wscall.
+</p>
+<a name="wp238782"> </a><p class="pBody">
+This section covers the following topics:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp238783"> </a><div class="pSmartList1"><li><a  href="http_functions3.html#wp237074">Function Overview</a></li></div><a name="wp238787"> </a><div class="pSmartList1"><li><a  href="http_functions3.html#wp235574">Connection Authentication</a></li></div><a name="wp238234"> </a><div class="pSmartList1"><li><a  href="http_functions3.html#wp239048">Managing Connections and Sockets</a></li></div><a name="wp238315"> </a><div class="pSmartList1"><li><a  href="http_functions3.html#wp239437">Data Streaming</a></li></div><a name="wp237104"> </a><div class="pSmartList1"><li><a  href="http_functions3.html#wp238568">Response Encoding</a></li></div><a name="wp238283"> </a><div class="pSmartList1"><li><a  href="http_functions3.html#wp242479">Managing Cookies</a></li></div></ul></div>
+<a name="wp237074"> </a><h3 class="pHeading2">
+Function Overview
+</h3>
+<a name="wp239512"> </a><p class="pBody">
+DataDirect XQuery provides function declarations to support the following HTTP methods on HTTP 1.0 and 1.1:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239516"> </a><div class="pSmartList1"><li>DELETE (<a  href="built-in_functions2.html#wp323987">ddtek:http-delete</a>) &#8211; requests that the server delete the specified resource</li></div><a name="wp239520"> </a><div class="pSmartList1"><li>GET (<a  href="built-in_functions2.html#wp324142">ddtek:http-get</a>) &#8211; retrieves from the server the resource specified in the URI</li></div><a name="wp239524"> </a><div class="pSmartList1"><li>HEAD (<a  href="built-in_functions2.html#wp324241">ddtek:http-head</a>) &#8211; requests that the server return only header information for the specified resource</li></div><a name="wp239528"> </a><div class="pSmartList1"><li>OPTIONS (<a  href="built-in_functions2.html#wp325192">ddtek:http-options</a>) &#8211; a request for available communication options</li></div><a name="wp239532"> </a><div class="pSmartList1"><li>POST (<a  href="built-in_functions2.html#wp325202">ddtek:http-post</a>) &#8211; typically used to submit a resource to the server for additional processing</li></div><a name="wp239536"> </a><div class="pSmartList1"><li>PUT (<a  href="built-in_functions2.html#wp325218">ddtek:http-put</a>) &#8211; typically used to insert or replace a server resource</li></div><a name="wp239540"> </a><div class="pSmartList1"><li>TRACE (<a  href="built-in_functions2.html#wp325231">ddtek:http-trace</a>) &#8211; requests that the server echo back the request it received</li></div></ul></div>
+<a name="wp239541"> </a><p class="pBody">
+For more information on these functions, including function declaration overloads, see <a  href="built-in_functions2.html#wp245066">DataDirect XQuery Built-In Functions</a>.
+</p>
+<a name="wp243938"> </a><h4 class="pHeading3">
+Example &#8211; ddtek:http-get
+</h4>
+<a name="wp243952"> </a><p class="pBody">
+This example shows a simple use of ddtek:http-get. Here, the XQuery requests the resource hello.txt on http://examples.xquery.com:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+				ddtek:http-get(&quot;http://examples.xquery.com/upload/hello.txt&quot;)<a name="wp243953"> </a>
+</pre></div>
+<a name="wp243954"> </a><p class="pBody">
+The result is returned in a &lt;response&gt; element, with the data in the &lt;response-body&gt;:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;response http-version=&quot;HTTP/1.1&quot; status-code=&quot;200&quot; reason=&quot;OK&quot;&gt;<a name="wp243955"> </a>
+	&lt;response-header&gt;<a name="wp243956"> </a>
+		&lt;header name=&quot;ETag&quot; value=&#39;W/&quot;5-1243350649093&quot;&#39;/&gt;<a name="wp243957"> </a>
+		&lt;header name=&quot;Date&quot; value=&quot;Wed, 24 Jun 2009 20:40:25 GMT&quot;/&gt;<a name="wp243958"> </a>
+		&lt;header name=&quot;Content-Length&quot; value=&quot;5&quot;/&gt;<a name="wp243959"> </a>
+		&lt;header name=&quot;Last-Modified&quot; value=&quot;Tue, 26 May 2009 15:10:49 GMT&quot;/&gt;<a name="wp243960"> </a>
+		&lt;header name=&quot;Content-Type&quot; value=&quot;text/plain&quot;/&gt;<a name="wp243961"> </a>
+		&lt;header name=&quot;Server&quot; value=&quot;Apache-Coyote/1.1&quot;/&gt;<a name="wp243962"> </a>
+	&lt;/response-header&gt;<a name="wp243963"> </a>
+	&lt;response-body&gt;hello&lt;/response-body&gt;<a name="wp243964"> </a>
+&lt;/response&gt;<a name="wp243965"> </a>
+</pre></div>
+<a name="wp243950"> </a><p class="pBody">
+For more information about the response header, see <a  href="http_functions3.html#wp238568">Response Encoding</a>.
+</p>
+<a name="wp235574"> </a><h3 class="pHeading2">
+Connection Authentication
+</h3>
+<a name="wp236011"> </a><p class="pBody">
+Before a Web service client application can be run, the client must connect to the origin server. Each connection is authenticated by the Web server. DataDirect XQuery supports these authentication methods for HTTP functions:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp236238"> </a><div class="pSmartList1"><li>Basic (Basic Access Authentication)</li></div><a name="wp236242"> </a><div class="pSmartList1"><li>Digest (Digest Access Authentication)</li></div><a name="wp236246"> </a><div class="pSmartList1"><li>NTLM (NT LAN Manager)</li></div></ul></div>
+<a name="wp239312"> </a><p class="pBody">
+These authentication methods are separate from any that might be used by applications to access relational database tables using the collection function. See <a  href="connection_security.html#wp239376">Securing Data Source Connections</a> to learn about establishing secure connections using NTLM and Kerberos.
+</p>
+<a name="wp238833"> </a><h4 class="pHeading3">
+The Authentication Process
+</h4>
+<a name="wp239373"> </a><p class="pBody">
+The type of authentication performed is established by the origin or proxy server. Consider the following example of an invocation of the ddtek:http-get function:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:http-get(
+&#160;&#39;http://examples.xquery.com/secure/members/books.xml&#39;,
+&#160;&lt;request username=&quot;ddtek&quot; password=&quot;ddtek&quot;/&gt;
+) <a name="wp236260"> </a>
+</pre></div>
+<a name="wp236502"> </a><p class="pBody">
+Note that the invocation does not specify which authentication method to use, even though the &lt;request&gt; element specifies  username= and password= attributes, which suggests an awareness of the need to provide the server with this information. (See <a  href="http_functions3.html#wp242410">Specifying HTTP Client-Server Options</a> to learn more about the &lt;request&gt; element.)
+</p>
+<a name="wp242672"> </a><p class="pBody">
+Rather, the required authentication method is provided by the server through a series of challenges to and responses from the XQuery Web service client, as shown in the following simplified exchange:
+</p>
+<a name="wp236291"> </a><p class="pBody">
+<b class="cBold">DataDirect XQuery Request</b>
+</p>
+<a name="wp236295"> </a><p class="pBody">
+The ddtek:http-get function attempts to connect to a resource on http://examples.xquery.com:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+				GET http://examples.xquery.com/secure/members/books.xml HTTP/1.1<a name="wp236388"> </a>
+				Host: examples.xquery.com <a name="wp236389"> </a>
+</pre></div>
+<a name="wp236314"> </a><p class="pBody">
+<b class="cBold">HTTP Server Response</b>
+</p>
+<a name="wp236358"> </a><p class="pBody">
+The server denies the request. Included in the response is the authentication method it requires:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+				HTTP/1.1 401 Unauthorized<a name="wp236407"> </a>
+				WWW-Authenticate: Digest realm=&quot;Authentication Test&quot;, 
+				qop=&quot;auth&quot;, nonce=&quot;4b3ab6dd951a22816cd32c763ea415e6&quot;, 
+				opaque=&quot;d14db1a1aba28fd461ce63a8dac78069&quot;<a name="wp236408"> </a>
+</pre></div>
+<a name="wp236324"> </a><p class="pBody">
+<b class="cBold">DataDirect XQuery Request</b>
+</p>
+<a name="wp236366"> </a><p class="pBody">
+The request is sent again, this time including the information required by the server &#8211; the authorization method, the realm, and a password encrypted using that authentication method:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+				GET http://examples.xquery.com/secure/members/books.xml HTTP/1.1<a name="wp236434"> </a>
+				Authorization: Digest username=&quot;ddtek&quot;, 
+				realm=&quot;Authentication Test&quot;, 
+				nonce=&quot;4b3ab6dd951a22816cd32c763ea415e6&quot;, 
+				uri=&quot;/secure/members/books.xml&quot;<a name="wp236435"> </a>
+</pre></div>
+<a name="wp236330"> </a><p class="pBody">
+<b class="cBold">HTTP Server Response</b>
+</p>
+<a name="wp236370"> </a><p class="pBody">
+Once the authorization succeeds, the server responds with an OK and the XQuery can be executed.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+				HTTP/1.1 200 OK<a name="wp236451"> </a>
+</pre></div>
+<a name="wp238394"> </a><p class="pBody">
+This entire exchange, after the initial request by the ddtek:http-get, takes place without intervention from the user. 
+</p>
+<a name="wp239074"> </a><h4 class="pHeading3">
+Supported Encryptions
+</h4>
+<a name="wp239092"> </a><p class="pBody">
+DataDirect XQuery supports encryption with the HTTPS (HTTP over SSL) protocol. No additional parameter is required to use SSL (Secure Sockets Layer) &#8211; it is indicated by the URI scheme <em class="cEmphasis">HTTPS</em>.
+</p>
+<a name="wp239160"> </a><p class="pBody">
+Consider the following example, which connects to the Verisign<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">&#174;</sup> secure Web site:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:serialize &quot;indent=yes&quot;;
+ddtek:http-get(&quot;https://www.verisign.com/&quot;) <a name="wp239168"> </a>
+</pre></div>
+<a name="wp239203"> </a><p class="pBody">
+This query generates the following result (the response body has been omitted for formatting considerations):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;response http-version=&quot;HTTP/1.1&quot; status-code=&quot;200&quot; reason=&quot;OK&quot;&gt;
+&#160;&#160;&#160;&#160;&lt;response-header&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;header name=&quot;Content-type&quot; value=&quot;text/html&quot;/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;header name=&quot;Date&quot; value=&quot;Mon, 01 Jun 2009 15:39:19 GMT&quot;/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;header name=&quot;Set-Cookie&quot; value=&quot;v1st=4A23F627FE4EFAD6; path=/;
+          expires=Wed, 19 Feb 2020 14:28:00 GMT; domain=.verisign.com&quot;/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;header name=&quot;Connection&quot; value=&quot;close&quot;/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;header name=&quot;Server&quot; value=&quot;Netscape-Enterprise/4.1&quot;/&gt;
+&#160;&#160;&#160;&#160;&lt;/response-header&gt;
+&#160;&#160;&#160;&#160;&lt;response-body&gt;...&lt;/response-body&gt;
+&lt;/response&gt; <a name="wp239212"> </a>
+</pre></div>
+<a name="wp239048"> </a><h3 class="pHeading2">
+Managing Connections and Sockets
+</h3>
+<a name="wp238395"> </a><p class="pBody">
+Each DataDirect XQuery HTTP function is associated with an underlying connection manager. Each connection manager can keep one, and only one, connection open.
+</p>
+<a name="wp238396"> </a><p class="pBody">
+When a sequence of calls is directed to the same host, the connection is reused. For example, the following XQuery code executes a sequence of HTTP PUT functions in order to upload  a set of XML files from a local directory (c:/docs) to a WebDAV server (http://examples.xquery.com/upload/):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $host := &quot;http://examples.xquery.com/upload/&quot;;<a name="wp238397"> </a>
+<a name="wp238398"> </a>
+&lt;result&gt;{<a name="wp238399"> </a>
+for $d in collection(&quot;file:///c:/docs?select=*.xml&quot;) <a name="wp238400"> </a>
+let $filname := tokenize(document-uri($d), &#39;/&#39;)[last()]<a name="wp238401"> </a>
+return <a name="wp238402"> </a>
+  ddtek:http-put(concat($host, $filname),$d)<a name="wp238403"> </a>
+}&lt;/result&gt;<a name="wp238404"> </a>
+</pre></div>
+<a name="wp238405"> </a><p class="pBody">
+Contrast the previous example with this one, which uses two connections because it is uploading the same document (books.xml) to two different servers (http://localhost and http://remotehost):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;result&gt;{<a name="wp238406"> </a>
+ddtek:http-put(<a name="wp238407"> </a>
+ &quot;http://localhost/books.xml&quot;, doc(&quot;file:///c:/books.xml&quot;)),
+ddtek:http-put(<a name="wp238408"> </a>
+ &quot;http://remotehost/books.xml&quot;, doc(&quot;file:///c:/books.xml&quot;))<a name="wp238409"> </a>
+&lt;/result&gt;<a name="wp238410"> </a>
+</pre></div>
+<a name="wp238411"> </a><h4 class="pHeading3">
+Settings for Connections and Sockets
+</h4>
+<a name="wp239492"> </a><p class="pBody">
+DataDirect XQuery provides numerous settings that allow you more direct control over the connections and sockets associated with your XQuery Web service client. Examples of connection and socket settings you can specify include connection and socket timeout values and the number of retries.
+</p>
+<a name="wp239493"> </a><p class="pBody">
+You specify connection and socket settings as attributes of the &lt;request&gt; element, which can be included as an additional parameter of the DataDirect XQuery HTTP function you are invoking, as shown in the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:http-get(<a name="wp239583"> </a>
+</pre></div>
+<a name="wp239584"> </a><p class="pBody">
+ &quot;http://examples.xquery.com/upload/dis-logo.psd&quot;,
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ &lt;request response-data-type=&quot;base64&quot; retries=&quot;4&quot;/&gt;)<a name="wp239555"> </a>
+</pre></div>
+<a name="wp239430"> </a><p class="pBody">
+Here, the &lt;request&gt; element defined as part of the ddtek:http-get function specifies that Base64 should be used for the response encoding, and that the HTTP call should be tried a maximum of four times.
+</p>
+<a name="wp239610"> </a><p class="pBody">
+The &lt;request&gt; element attributes you can use to manage connection and sockes settings are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239616"> </a><div class="pSmartList1"><li>connection-timeout</li></div><a name="wp239620"> </a><div class="pSmartList1"><li>password</li></div><a name="wp239631"> </a><div class="pSmartList1"><li>protocol-head-body-timeout</li></div><a name="wp239629"> </a><div class="pSmartList1"><li>protocol-reject-head-body</li></div><a name="wp239632"> </a><div class="pSmartList1"><li>proxy-host</li></div><a name="wp239642"> </a><div class="pSmartList1"><li>proxy-password</li></div><a name="wp239644"> </a><div class="pSmartList1"><li>proxy-port</li></div><a name="wp239643"> </a><div class="pSmartList1"><li>proxy-username</li></div><a name="wp239628"> </a><div class="pSmartList1"><li>retries</li></div><a name="wp239624"> </a><div class="pSmartList1"><li>socket-linger</li></div><a name="wp239627"> </a><div class="pSmartList1"><li>socket-receivebuffer</li></div><a name="wp239626"> </a><div class="pSmartList1"><li>socket-sendbuffer</li></div><a name="wp239625"> </a><div class="pSmartList1"><li>socket-timeout</li></div><a name="wp239630"> </a><div class="pSmartList1"><li>username</li></div></ul></div>
+<a name="wp239615"> </a><p class="pBody">
+See <a  href="http_functions3.html#wp242410">Specifying HTTP Client-Server Options</a> to learn more about the &lt;request&gt; element. For a description of these settings as well as a complete list of &lt;request&gt; element attributes, see <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a>.
+</p>
+<a name="wp239437"> </a><h3 class="pHeading2">
+Data Streaming
+</h3>
+<a name="wp235874"> </a><p class="pBody">
+All DataDirect XQuery HTTP functions are designed to support <em class="cEmphasis">Streaming XML</em>, a DataDirect technique that processes data sequentially, allowing efficient transmission of data input and output during query execution.
+</p>
+<a name="wp235890"> </a><p class="pBody">
+There might be times, however, when you want to turn off streaming in order to preserve resources on the origin server. When a query invokes a large number of HTTP calls, for example, each call opens a dedicated connection which can ultimately lead to degraded performance.
+</p>
+<a name="wp235919"> </a><h4 class="pHeading3">
+Disabling Streaming XML
+</h4>
+<a name="wp235926"> </a><p class="pBody">
+There are two ways to disable Streaming XML in DataDirect XQuery:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp235932"> </a><div class="pSmartList1"><li>Set ddtek:xml-streaming=&quot;no&quot; in the query prolog. See <a  href="advancedfeatures2.html#wp204726">Using Option Declarations and Extension Expressions</a> for more information on this topic.</li></div><a name="wp235952"> </a><div class="pSmartList1"><li>Set the &quot;streaming&quot; attribute in the &lt;request&gt; element to no. See <a  href="http_functions3.html#wp242410">Specifying HTTP Client-Server Options</a> to learn more about the &lt;request&gt; element.</li></div></ul></div>
+<a name="wp235968"> </a><h4 class="pHeading3">
+Parameter Values and Streaming XML
+</h4>
+<a name="wp235972"> </a><p class="pBody">
+In contrast to data, which might or might not be streamed, parameter values are always fully materialized before the calling function is invoked. If a query function uses a document as its input, for example, the entire document is loaded in memory before the function is invoked.
+</p>
+<a name="wp240868"> </a><p class="pBody">
+See <a  href="improvingperformance2.html#wp205269">Querying Large XML Documents</a> for more information on Streaming XML.
+</p>
+<a name="wp238568"> </a><h3 class="pHeading2">
+Response Encoding
+</h3>
+<a name="wp241710"> </a><p class="pBody">
+DataDirect XQuery automatically encodes the raw data streams returned by ddtek:http-get and ddtek:http-post functions. The encoded service response is placed in an element referred to as the <em class="cEmphasis">payload</em> for consumption by the XQuery code.
+</p>
+<a name="wp241959"> </a><p class="pBody">
+Consider the following simple example. This XQuery:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+				ddtek:http-get(&quot;http://examples.xquery.com/upload/hello.txt&quot;)<a name="wp241961"> </a>
+</pre></div>
+<a name="wp241962"> </a><p class="pBody">
+returns the following result:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;response http-version=&quot;HTTP/1.1&quot; status-code=&quot;200&quot; reason=&quot;OK&quot;&gt;<a name="wp242018"> </a>
+	&lt;response-header&gt;<a name="wp242019"> </a>
+		&lt;header name=&quot;ETag&quot; value=&#39;W/&quot;5-1243350649093&quot;&#39;/&gt;<a name="wp242020"> </a>
+		&lt;header name=&quot;Date&quot; value=&quot;Wed, 24 Jun 2009 20:40:25 GMT&quot;/&gt;<a name="wp242021"> </a>
+		&lt;header name=&quot;Content-Length&quot; value=&quot;5&quot;/&gt;<a name="wp242022"> </a>
+		&lt;header name=&quot;Last-Modified&quot; value=&quot;Tue, 26 May 2009 15:10:49 GMT&quot;/&gt;<a name="wp242023"> </a>
+		&lt;header name=&quot;Content-Type&quot; value=&quot;text/plain&quot;/&gt;<a name="wp242024"> </a>
+		&lt;header name=&quot;Server&quot; value=&quot;Apache-Coyote/1.1&quot;/&gt;<a name="wp242025"> </a>
+	&lt;/response-header&gt;<a name="wp242026"> </a>
+	&lt;response-body&gt;hello&lt;/response-body&gt;<a name="wp242027"> </a>
+&lt;/response&gt;<a name="wp241983"> </a>
+</pre></div>
+<a name="wp241966"> </a><p class="pBody">
+The response-header provides information about the resource being queried (in this case, a file called hello.txt), including its Content-Type (which is &quot;text/plain&quot;).
+</p>
+<a name="wp242079"> </a><p class="pBody">
+The response-body (&quot;hello&quot;) represents the data returned by the service, which has been encoded by the DataDirect XQuery Web service client.
+</p>
+<a name="wp241942"> </a><h4 class="pHeading3">
+Encoding Rules
+</h4>
+<a name="wp241886"> </a><p class="pBody">
+The method used to encode the service response depends on a number of factors, the most important of which is the Content-Type in the response header &#8211; if DataDirect recognizes the mime type value in the Content-Type provided in the response header, it provides a suitable encoding method. Otherwise text encoding is used. 
+</p>
+<a name="wp241832"> </a><p class="pBody">
+The complete set of encoding rules is summarized here:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239771"> </a><div class="pSmartList1"><li>If the origin server does not return a Content-Type in the response header, or if the mime type is not recognized, the response value is encoded as text.</li></div><a name="wp239785"> </a><div class="pSmartList1"><li>If the origin server returns a Content-Type in the response header that contains a mime type recognized by DataDirect XQuery, one of the following encoding method is used, as appropriate: text, xml, or base64. (See <a  href="http_functions3.html#wp241323">Recognized Mime Types</a> for a complete list of types and associated encodings.)</li></div><a name="wp240207"> </a><div class="pSmartList1"><li>If the Content-Type is a text mime type (text/html, for example) and it includes a charset parameter, as shown in the following example, the charset is used to interpret the bytes in the response:</li></div><a name="wp240223"> </a><p class="pSyntaxEmbed">
+Content-Type: text/html; charset=utf-8
+</p>
+<a name="wp240224"> </a><p class="pBodyRelative">
+If the charset parameter is missing, DataDirect XQuery uses ISO-8859-1.
+</p>
+</ul></div>
+<a name="wp241067"> </a><h4 class="pHeading3">
+Overriding the Default Encoding
+</h4>
+<a name="wp241069"> </a><p class="pBody">
+You can override the default encodings used by DataDirect XQuery. You might want to do this, for example, when the Content-Type is not specified in the response header but you know what it is.
+</p>
+<a name="wp241309"> </a><p class="pBody">
+Consider the following example. Here, we are using the HTTP GET function to query a file:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:http-get(<a name="wp241287"> </a>
+ &quot;http://examples.xquery.com/upload/dis-logo.psd&quot;)<a name="wp241320"> </a>
+</pre></div>
+<a name="wp241321"> </a><p class="pBody">
+The .psd extension indicates that it is a graphics file, which has a mime type of image/x-photoshop. Because this mime type is not recognized by DataDirect XQuery, the default encoding method &#8211; text &#8211; is used. This ultimately causes the query to fail as the text encoding results in the creation of characters like &amp;#x1;, which are not valid XML.
+</p>
+<a name="wp241538"> </a><p class="pBody">
+To avoid this problem, we can override the default encoding using the response-data-type attribute of the &lt;request&gt; element, as shown here:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:http-get(<a name="wp241608"> </a>
+ &quot;http://examples.xquery.com/upload/dis-logo.psd&quot;,<a name="wp241609"> </a>
+ &lt;request response-data-type=&quot;base64&quot;/&gt;)<a name="wp241539"> </a>
+</pre></div>
+<a name="wp241530"> </a><p class="pBody">
+With the response encoding set to a binary type, the query can now be executed successfully:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;response http-version=&quot;HTTP/1.1&quot; status-code=&quot;200&quot; reason=&quot;OK&quot;&gt;<a name="wp241654"> </a>
+	&lt;response-header&gt;<a name="wp241655"> </a>
+		&lt;header name=&quot;ETag&quot; value=&#39;W/&quot;18016-1243352017406&quot;&#39;/&gt;<a name="wp241656"> </a>
+		&lt;header name=&quot;Date&quot; value=&quot;Tue, 23 Jun 2009 21:02:19 GMT&quot;/&gt;<a name="wp241657"> </a>
+		&lt;header name=&quot;Content-Length&quot; value=&quot;18016&quot;/&gt;<a name="wp241658"> </a>
+		&lt;header name=&quot;Last-Modified&quot; value=&quot;Tue, 26 May 2009 15:33:37 GMT&quot;/&gt;<a name="wp241659"> </a>
+		&lt;header name=&quot;Content-Type&quot; value=&quot;image/x-photoshop&quot;/&gt;<a name="wp241660"> </a>
+		&lt;header name=&quot;Server&quot; value=&quot;Apache-Coyote/1.1&quot;/&gt;<a name="wp241661"> </a>
+	&lt;/response-header&gt;<a name="wp241662"> </a>
+	&lt;response-body&gt;OEJQUw...&lt;/response-body&gt;<a name="wp241663"> </a>
+&lt;/response&gt;<a name="wp241641"> </a>
+</pre></div>
+<a name="wp241331"> </a><p class="pBody">
+Note that the response body (which has been abbreviated here for formatting considerations) is the base64 encoding of the binary file format.
+</p>
+<a name="wp242743"> </a><p class="pBody">
+See <a  href="http_functions3.html#wp242410">Specifying HTTP Client-Server Options</a> to learn more about the &lt;request&gt; element.
+</p>
+<a name="wp241323"> </a><h4 class="pHeading3">
+Recognized Mime Types
+</h4>
+<a name="wp239790"> </a><p class="pBody">
+The following table summarizes the mime types recognized by DataDirect XQuery and the associated method used encode the response.</p><div align="left">
+<table border="1">
+  <caption><a name="wp240013"> </a><div class="pTableTitle">
+Table 10-1.  Recognized Mime Types and Associated Encodings
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp240017"> </a><div class="pCellHeading">
+Mime Type
+</div>
+</th>
+    <th><a name="wp240019"> </a><div class="pCellHeading">
+Encoding
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240041"> </a><div class="pCellBody">
+application/atom+xml
+</div>
+</td>
+    <td><a name="wp240043"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240089"> </a><div class="pCellBody">
+application/base64
+</div>
+</td>
+    <td><a name="wp240091"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240045"> </a><div class="pCellBody">
+application/mathml+xml
+</div>
+</td>
+    <td><a name="wp240047"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240049"> </a><div class="pCellBody">
+application/rss+xml
+</div>
+</td>
+    <td><a name="wp240051"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240053"> </a><div class="pCellBody">
+application/xhtml+xml
+</div>
+</td>
+    <td><a name="wp240055"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240115"> </a><div class="pCellBody">
+application/xml
+</div>
+</td>
+    <td><a name="wp240117"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240057"> </a><div class="pCellBody">
+application/xslt+xml
+</div>
+</td>
+    <td><a name="wp240059"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240096"> </a><div class="pCellBody">
+application/zip
+</div>
+</td>
+    <td><a name="wp240098"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240061"> </a><div class="pCellBody">
+image/svg+xml
+</div>
+</td>
+    <td><a name="wp240063"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240065"> </a><div class="pCellBody">
+image/bmp
+</div>
+</td>
+    <td><a name="wp240067"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240069"> </a><div class="pCellBody">
+image/gif
+</div>
+</td>
+    <td><a name="wp240071"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240073"> </a><div class="pCellBody">
+image/jpeg
+</div>
+</td>
+    <td><a name="wp240075"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240077"> </a><div class="pCellBody">
+image/png
+</div>
+</td>
+    <td><a name="wp240079"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240081"> </a><div class="pCellBody">
+image/tiff
+</div>
+</td>
+    <td><a name="wp240083"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240134"> </a><div class="pCellBody">
+text/html
+</div>
+</td>
+    <td><a name="wp240136"> </a><div class="pCellBody">
+text
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240138"> </a><div class="pCellBody">
+text/plain
+</div>
+</td>
+    <td><a name="wp240140"> </a><div class="pCellBody">
+text
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240142"> </a><div class="pCellBody">
+text/richtext
+</div>
+</td>
+    <td><a name="wp240144"> </a><div class="pCellBody">
+text
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240146"> </a><div class="pCellBody">
+text/xml
+</div>
+</td>
+    <td><a name="wp240148"> </a><div class="pCellBody">
+xml
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240085"> </a><div class="pCellBody">
+x-gzip
+</div>
+</td>
+    <td><a name="wp240087"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp240106"> </a><div class="pCellBody">
+x-compress
+</div>
+</td>
+    <td><a name="wp240108"> </a><div class="pCellBody">
+base64
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp242479"> </a><h3 class="pHeading2">
+Managing Cookies
+</h3>
+<a name="wp238572"> </a><p class="pBody">
+<em class="cEmphasis">Cookies</em> are messages exchanged between a Web server and client that are used to manage HTTP state. Cookies commonly store information about visits to a Web site such as a user name, password, the last time a site was visited, and so on. There are several standards for cookies. Some, like <a  href="http://www.w3.org/Protocols/rfc2109/rfc2109.txt">RFC2109</a> and RFC2965, were drafted by the W3C; others, like the Netscape cookie specification, are vendor-specific.
+</p>
+<a name="wp242629"> </a><p class="pBody">
+By default, DataDirect XQuery supports the <a  href="http://www.w3.org/Protocols/rfc2109/rfc2109.txt">RFC2109</a> standard, but you can use the cookie-policy attribute of the &lt;request&gt; element to specify how you want your XQuery application to manage cookies. Available cookie management policies are summarized in the following table.</p><div align="left">
+<table border="1">
+  <caption><a name="wp238579"> </a><div class="pTableTitle">
+Table 10-2.  &lt;request&gt; Element cookie-policy Parameters
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp238583"> </a><div class="pCellHeading">
+Value
+</div>
+</th>
+    <th><a name="wp238585"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238587"> </a><div class="pCellBody">
+RFC2109
+</div>
+</td>
+    <td><a name="wp242970"> </a><div class="pCellBody">
+<a  href="http://www.w3.org/Protocols/rfc2109/rfc2109.txt">RFC2109</a> was the first W3C cookies specification. Although widely used, <a  href="http://www.w3.org/Protocols/rfc2109/rfc2109.txt">RFC2109</a> is sometimes too strict for servers supporting other specifications. If you encounter compatibility issues with <a  href="http://www.w3.org/Protocols/rfc2109/rfc2109.txt">RFC2109</a>, consider using <a  href="http://www.ietf.org/rfc/rfc2965.txt">RFC2965</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238593"> </a><div class="pCellBody">
+RFC2965
+</div>
+</td>
+    <td><a name="wp238595"> </a><div class="pCellBody">
+<a  href="http://www.ietf.org/rfc/rfc2965.txt">RFC2965</a> is the second version of the W3C <a  href="http://www.w3.org/Protocols/rfc2109/rfc2109.txt">RFC2109</a> cookies specification, intended to loosen some of the restrictions that made <a  href="http://www.w3.org/Protocols/rfc2109/rfc2109.txt">RFC2109</a> incompatible with some servers.
+</div>
+<a name="wp238599"> </a><div class="pCellBody">
+Some of the key difference of <a  href="http://www.ietf.org/rfc/rfc2965.txt">RFC2965</a> include:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp238600"> </a><div class="pSmartList1"><li>RFC2965 cookies are port-sensitive</li></div><a name="wp238601"> </a><div class="pSmartList1"><li>Servers that send RFC2965 cookies will use both Set-Cookie2 and Set-Cookie headers; other cookie implementations use only Set-Cookie</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238603"> </a><div class="pCellBody">
+netscape
+</div>
+</td>
+    <td><a name="wp243076"> </a><div class="pCellBody">
+The Netscape cookie specification formed the basis for <a  href="http://www.w3.org/Protocols/rfc2109/rfc2109.txt">RFC2109</a>. However, differences between the two might require the use of Netscape specification on some servers.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp238608"> </a><div class="pCellBody">
+ignore_cookies
+</div>
+</td>
+    <td><a name="wp243059"> </a><div class="pCellBody">
+This setting ignores all cookies &#8211; cookies are neither sent nor accepted when the cookie-policy attribute is set to ignore_cookies.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp242890"> </a><p class="pBody">
+See <a  href="http_functions3.html#wp242410">Specifying HTTP Client-Server Options</a> to learn more about the &lt;request&gt; element.
+</p>
+<a name="wp242410"> </a><h3 class="pHeading2">
+Specifying HTTP Client-Server Options
+</h3>
+<a name="wp242560"> </a><p class="pBody">
+Every DataDirect XQuery HTTP function allows you to specify client-server options using a &lt;request&gt; element, as shown in the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:http-get(<a name="wp242616"> </a>
+ &quot;http://examples.xquery.com/upload/dis-logo.psd&quot;,<a name="wp242617"> </a>
+ &lt;request response-data-type=&quot;base64&quot;/&gt;)<a name="wp242618"> </a>
+</pre></div>
+<a name="wp242611"> </a><p class="pBody">
+Here, the response-data-type attribute is being used to specify the encoding method to be used for the graphics file dis-logo.psd, which is being queried using the ddtek:http-get function.
+</p>
+<a name="wp242601"> </a><p class="pBody">
+Other examples of &lt;request&gt; element attributes include connection and socket timeout values, the number of retries, and HTTP version.
+</p>
+<a name="wp242517"> </a><p class="pBody">
+See <a  href="built-in_functions3.html#wp323066">HTTP Functions &lt;request&gt; Element</a> for a complete list of &lt;request&gt; element parameters and their values.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

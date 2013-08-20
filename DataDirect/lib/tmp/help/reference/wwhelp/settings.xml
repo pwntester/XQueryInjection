@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<WebWorksHelpSettings version="3.0.0">
+ <Common>
+  <NavigationBar>
+   <SyncContents enable="true" />
+   
+   <Previous enable="true" />
+   
+   <Next enable="true" />
+
+   <RelatedTopics enableicon="false" enableinline="true">
+    <Title>
+     <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+     <Colors foreground="#FFFFFF" background="#999999" />
+    </Title>
+    <Inline>
+     <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+     <Colors foreground="#003366" />
+    </Inline>
+    <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+    <Colors foreground="#003399" background="#FFFFFF" border="#666666" />
+    <Size width="250" />
+   </RelatedTopics>
+
+   <Email enable="false" address="Your Company" />
+
+   <Print enable="true" />
+ 
+   <Bookmark enable="true" />
+  </NavigationBar>
+
+  <Tabs>
+   <!-- border color not used by Java applet -->
+   <DefaultColors foreground="#000000" background="#CCCCCC" border="#666666" />
+   <SelectedColors foreground="#FFFFFF" background="#3366CC" border="#FFFFFF" />
+  </Tabs>
+
+  <Panels>
+   <!-- HoverText show= values are "never", "always", "onlyifsecure" -->
+   <HoverText show="onlyifsecure">
+    <!-- <Font> option not used by Java applet -->
+    <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+    <Colors foreground="#000000" background="#FFFFCC" border="#999999" />
+    <Size width="150" />
+   </HoverText>
+
+   <Contents enable="true" />
+
+   <Index enable="true" />
+
+   <Search enable="true">
+    <Results showbook="true" showrank="true" />
+    <Highlighting enable="true">
+     <Colors foreground="#FFFFFF" background="#333399" />
+    </Highlighting>
+   </Search>
+
+   <!-- Favorites not supported in JavaScript -->
+   <Favorites enable="true" />
+  </Panels>
+
+  <Popups>
+   <Colors foreground="#000000" background="#FFFFCC" border="#999999" />
+   <Size width="200" />
+  </Popups>
+ </Common>
+
+ <Implementations forcejavascript="true">
+  <Java secure="true">
+   <DocumentFrame value="WWHDocumentFrame" />
+
+   <Font family="sans-serif" size="12" />
+   <FrameColors background="#999999" />
+   <Colors foreground="#000000" background="#CCCCCC" />
+ 
+   <Panels>
+    <Contents>
+     <Colors background="#FFFFFF" />
+    </Contents>
+
+    <Index>
+     <Font allowitalics="true" />
+    </Index>
+   </Panels>
+  </Java>
+ 
+  <JavaScript>
+   <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+   <Indent value="17" />
+   <AnchorColors enabled="#003399" disabled="black" />
+
+   <Tabs>
+    <!-- <Font> overrides can be specified here -->
+   </Tabs>
+
+   <Panels>
+    <Contents>
+     <!-- <Font>, <Indent>, and <AnchorColors> overrides can be specified here -->
+    </Contents>
+  
+    <Index>
+     <!-- <Font>, <Indent>, and <AnchorColors> overrides can be specified here -->
+  
+     <SectionNavigation threshold="1" separator=" - ">
+      <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 7pt ; font-weight: bold" />
+      <CurrentColor value="black" />
+      <AnchorColors enabled="#003399" disabled="#999999" />
+     </SectionNavigation>
+
+     <SectionGroups>
+      <Group name="Numerics" members="1234567890" alwaysdisplay="false" showgroupheader="true" />
+      <RequiredGroup members="" showgroupheader="false" /> 
+     <Group name="A" members="A" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="B" members="B" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="C" members="C" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="D" members="D" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="E" members="E" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="F" members="F" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="G" members="G" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="H" members="H" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="I" members="I" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="J" members="J" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="K" members="K" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="L" members="L" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="M" members="M" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="N" members="N" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="O" members="O" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="P" members="P" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="Q" members="Q" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="R" members="R" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="S" members="S" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="T" members="T" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="U" members="U" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="V" members="V" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="W" members="W" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="X" members="X" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="Y" members="Y" alwaysdisplay="false" showgroupheader="true" />
+     <Group name="Z" members="Z" alwaysdisplay="false" showgroupheader="true" />
+      <Group name="Symbols" members="!@#$%^&amp;*(){}[]&lt;&gt;&quot;|\.,;-?+" alwaysdisplay="false" showgroupheader="true" />
+     </SectionGroups>
+    </Index>
+  
+    <Search>
+     <!-- <Font>, <Indent>, and <AnchorColors> overrides can be specified here -->
+    </Search>
+   </Panels>
+  </JavaScript>
+ </Implementations>
+
+</WebWorksHelpSettings>

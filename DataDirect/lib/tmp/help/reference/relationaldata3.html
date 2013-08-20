@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:22" />
+  <title>Querying XML Type Data</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp222817"> </a><h2 class="pNewHTMLPageNum">
+Querying XML Type Data
+</h2>
+<hr />
+<a name="wp222819"> </a><p class="pBody">
+DB2, Microsoft SQL Server, and Oracle support a native XML data type, <em class="cEmphasis">XML Type</em>. DataDirect XQuery allows you to access XML Type data stored in relational databases using standard XQuery. 
+</p>
+<a name="wp222820"> </a><p class="pBody">
+Consider a relational database, pub. It contains a table, bookshop, with a publication column; the publication column is defined with the XML Type data type. Data in the publication column is stored as XML &#8211; there is a book element with a bookid attribute, and a title subelement.</p><div align="left"><img src="images/bookshop_database_medium3.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp222824"> </a><p class="pBody">
+Once you know the structure of the XML in the relational tables you want to query, writing the XQuery is simple. DataDirect XQuery&#8217;s support of XML Type lets you use XQuery to query XML data stored in relational databases. For example, this XQuery returns the title element of the book element whose bookid attribute equals 1:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+						&lt;root&gt;<a name="wp222825"> </a>
+						{
+						&#160;&#160;&#160;&#160;for $book in
+							 collection(&quot;pub.dbo.bookshop&quot;)/bookshop/publication/book
+						&#160;&#160;&#160;&#160;where $book/@bookid = 1
+						&#160;&#160;&#160;&#160;return $book/title
+						}
+						&lt;/root&gt; <a name="wp222826"> </a>
+</pre></div>
+<a name="wp222827"> </a><p class="pBody">
+Let&#8217;s take a closer look at DataDirect XQuery&#8217;s support of XML Type. As shown in the following illustration, the collection function identifies the resource to be queried &#8211; in this case, the table bookshop on the relational database pub. The arrows depict how the XQuery expression following the collection function is used to navigate the XML stored in the table bookshop</p><div align="left"><img src="images/bookshop_database_query_medium4.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp222831"> </a><p class="pBody">
+The rest of this section provides additional information about using DataDirect XQuery to query XML Type data.
+</p>
+<a name="wp222833"> </a><h3 class="pHeading2">
+Supported Databases
+</h3>
+<a name="wp222834"> </a><p class="pBody">
+DataDirect XQuery is able to directly query database tables with XML Type columns for the following database versions:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222835"> </a><div class="pSmartList1"><li>DB2 for Linux, UNIX and Windows v9.1* and higher</li></div><a name="wp222836"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2005 and 2008</li></div><a name="wp222837"> </a><div class="pSmartList1"><li>Oracle 10gR2 and higher</li></div></ul></div>
+<a name="wp222838"> </a><p class="pBody">
+*XML Type is supported only for these versions of DB2 that use pureXML storage. XML Type is not supported for DB2 databases that use XML Extender.
+</p>
+<a name="wp222906"> </a><p class="pBody">
+For more information about how DataDirect XQuery translates XQuery into SQL for execution by the database engine, see <a  href="relationaldata2.html#wp222613">Querying Relational Data</a>.
+</p>
+<a name="wp222911"> </a><h3 class="pHeading2">
+Evaluating Queries in Memory
+</h3>
+<a name="wp222912"> </a><p class="pBody">
+Not all relational databases support XQuery, even if they do support XML Type (versions of Oracle prior to 10gR2, for example). Consider the following example, a simple XQuery that uses the collection function to query a relational table: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&quot;PurchaseOrder1&quot;)/PurchaseOrder1/COLXML/PurchaseOrder[test eq &#39;1&#39;]<a name="wp222913"> </a>
+</pre></div>
+<a name="wp222914"> </a><p class="pBody">
+If this XQuery is executed against a relational database that does not support XQuery, DataDirect XQuery throws the following error:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+[DataDirect][XQuery]Error at line 1, column 52. The XMLType 
+column &quot;COLXML&quot; can only be used as return expression or 
+argument of a ddtek-sql function.<a name="wp222915"> </a>
+</pre></div>
+<a name="wp222916"> </a><p class="pBody">
+Similarly, you cannot use XPath expressions, except for the <code class="cCode">node()</code> or <code class="cCode">*</code> steps, or other XQuery expressions on the content of the columns in relational tables. For example consider the database table, holdingsxml, which stores XML data in the userid and holdings columns:
+</p>
+<a name="wp222944"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp222919"> </a><div class="pCellHeading">
+holdingsxml
+</div>
+</td>
+    <td><a name="wp222921"> </a><div class="pCellHeading">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp222923"> </a><div class="pCellHeading">
+userid
+</div>
+</td>
+    <td><a name="wp222925"> </a><div class="pCellHeading">
+holdings
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">Jonathan</code><a name="wp222927"> </a>
+</pre></div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">&lt;holdings&gt;</code><a name="wp222929"> </a>
+<code class="cCode">  &lt;share company=&quot;Amazon.com, Inc.&quot; userid=&quot;Jonathan&quot;&gt;3000&lt;/share&gt;</code><a name="wp222930"> </a>
+<code class="cCode">  &lt;share company=&quot;eBay Inc.&quot; userid=&quot;Jonathan&quot;&gt;4000&lt;/share&gt;</code><a name="wp222931"> </a>
+<code class="cCode">  &lt;share company=&quot;Int&#39;l Business Machines C&quot; userid=&quot;Jonathan&quot;&gt; 2500&lt;/share&gt;</code><a name="wp222932"> </a>
+<code class="cCode">  &lt;share company=&quot;Progress Software&quot; userid=&quot;Jonathan&quot;&gt;23&lt;/share&gt;</code><a name="wp222933"> </a>
+<code class="cCode">&lt;/holdings&gt;</code><a name="wp222934"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">Minollo</code><a name="wp222936"> </a>
+</pre></div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">&lt;holdings&gt;</code><a name="wp222938"> </a>
+<code class="cCode">  &lt;share company=&quot;Amazon.com, Inc.&quot; userid=&quot;Minollo&quot;&gt;3000&lt;/share&gt;</code><a name="wp222939"> </a>
+<code class="cCode">  &lt;share company=&quot;eBay Inc.&quot; userid=&quot;Minollo&quot;&gt;4000&lt;/share&gt;</code><a name="wp222940"> </a>
+<code class="cCode">  &lt;share company=&quot;Lucent Technologies Inc.&quot; userid=&quot;Minollo&quot;&gt;40000&lt;/share&gt;</code><a name="wp222941"> </a>
+<code class="cCode">  &lt;share company=&quot;Progress Software&quot; userid=&quot;Minollo&quot;&gt;4000000&lt;/share&gt;</code><a name="wp222942"> </a>
+<code class="cCode">&lt;/holdings&gt;</code><a name="wp222943"> </a>
+</pre></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp222945"> </a><p class="pBody">
+If you specify your XQuery as:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;holdingsxml&#39;)/holdingsxml/holdings//share<a name="wp222946"> </a>
+</pre></div>
+<a name="wp222947"> </a><p class="pBody">
+the following message is returned:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Path expressions on XML column &quot;holdings&quot; are not 
+supported.<a name="wp222948"> </a>
+</pre></div>
+<a name="wp222949"> </a><p class="pBody">
+One way to avoid issues with database support for XQuery is to use the ddtek:evaluate-in-memory extension expression. 
+</p>
+<a name="wp222950"> </a><p class="pBody">
+The ddtek:evaluate-in-memory extension expression allows you to evaluate XQuery expressions on the value of the XML column in memory. Consider the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $v1 := collection(&#39;holdingsxml&#39;)/holdingsxml/holdings<a name="wp222951"> </a>
+return <a name="wp222952"> </a>
+	(# ddtek:evaluate-in-memory #)<a name="wp222953"> </a>
+	{$v1//share}<a name="wp222954"> </a>
+</pre></div>
+<a name="wp222955"> </a><p class="pBody">
+The advantages of using ddtek:evaluate-in-memory is that the XQuery is portable across databases, and it allows you to use the complete DataDirect XQuery feature set to query the XML stored in the database. 
+</p>
+<a name="wp222956"> </a><p class="pBody">
+However, using ddtek:evaluate-in-memory requires the instantiation of <em class="cEmphasis">all</em> the XML in memory, even if only part of it is needed by the XQuery. The holdings column in the sample database used in the previous example, for example, contained small XML fragments; but there is no practical limit to the size of the XML that can be stored in a relational column, and reading large XML fragments into memory for query processing can decrease performance and affect scalability.
+</p>
+<a name="wp222957"> </a><p class="pBody">
+Another potential limitation of using the ddtek:evaluate-in-memory extension expression is that it can be used with a only limited set of XQuery expressions.
+</p>
+<a name="wp222961"> </a><p class="pBody">
+See <a  href="advancedfeatures2.html#wp187538">Using Extension Expressions</a> for more information on ddtek:evaluate-in-memory.
+</p>
+<a name="wp222962"> </a><h4 class="pHeading3">
+Using Database-Specific Functions
+</h4>
+<a name="wp222963"> </a><p class="pBody">
+An alternative to evaluating XQuery in memory is to use database-specific functions to query data stored on relational databases. See <a  href="database_support6.html#wp309398">Database-Specific Query Functions</a> to learn how to query XML Type data for databases that do not support XQuery.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

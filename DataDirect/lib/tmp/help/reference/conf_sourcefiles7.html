@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:13" />
+  <title>Specifying Connection URIs</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp182290"> </a><h2 class="pNewHTMLPageNum">
+Specifying Connection URIs
+</h2>
+<hr />
+<a name="wp210412"> </a><p class="pBody">
+DataDirect XQuery provides access to most databases through built-in JDBC drivers. In addition, you can access specific databases using third-party JDBC drivers. The format of the connection URI depends on whether you are using a built-in JDBC driver or a third-party driver, and the database you are connecting to.
+</p>
+<a name="wp206955"> </a><h3 class="pHeading2">
+Connection URIs for Built-In Drivers 
+</h3>
+<a name="wp210317"> </a><p class="pBody">
+DataDirect XQuery provides built-in JDBC drivers to access the following databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp210319"> </a><div class="pSmartList1"><li>DB2 for Linux/UNIX/Windows</li></div><a name="wp210321"> </a><div class="pSmartList1"><li>DB2 for z/OS</li></div><a name="wp210322"> </a><div class="pSmartList1"><li>DB2 for iSeries</li></div><a name="wp210323"> </a><div class="pSmartList1"><li>Informix Dynamic Server</li></div><a name="wp210324"> </a><div class="pSmartList1"><li>MySQL Enterprise</li></div><a name="wp210325"> </a><div class="pSmartList1"><li>Oracle</li></div><a name="wp210326"> </a><div class="pSmartList1"><li>Microsoft SQL Server</li></div><a name="wp210327"> </a><div class="pSmartList1"><li>Sybase Adaptive Server Enterprise</li></div></ul></div>
+<a name="wp210884"> </a><p class="pBody">
+The format of the connection URI is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:<code><em>dbtype</em></code>://<code><em>server_name</em></code>:<em class="cEmphasis">port</em>;<em class="cEmphasis">property</em>=<em class="cEmphasis">value</em>[;...]<a name="wp182293"> </a>
+</pre></div>
+<a name="wp207739"> </a><p class="pBody">
+where:
+</p>
+<a name="wp207776"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp209736"> </a><div class="pCellBody">
+<code><em>dbtype</em></code>
+</div>
+</td>
+    <td><a name="wp209738"> </a><div class="pCellBody">
+Valid values are db2, informix, mysql, oracle, sqlserver, and sybase.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp209741"> </a><div class="pCellBody">
+<code><em>server_name</em></code>
+</div>
+</td>
+    <td><a name="wp209743"> </a><div class="pCellBody">
+The TCP/IP address or TCP/IP host name of the database server to which you are connecting (See following NOTE).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp209745"> </a><div class="pCellBody">
+<code><em>port</em></code>
+</div>
+</td>
+    <td><a name="wp209747"> </a><div class="pCellBody">
+The number of the TCP/IP port. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp209749"> </a><div class="pCellBody">
+<code><em>property</em></code>=<code><em>value</em></code>
+</div>
+</td>
+    <td><a name="wp209751"> </a><div class="pCellBody">
+Connection properties. For a list of connection properties, ordered by database, see <a  href="database_support5.html#wp293718">Database Connection Properties</a>. For some databases, particular connection properties are required in the URL as shown in the following examples. 
+</div>
+<a name="wp209755"> </a><div class="pCellBody">
+All connection property names are case-insensitive. For example, password is the same as Password.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp209757"> </a><div class="pCellBody">
+NOTE FOR ORACLE USERS: See <a  href="database_support5.html#wp310735">Using Oracle tnsnames.ora Files</a> for instructions on retrieving connection information from an Oracle tnsnames.ora file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp209788"> </a><p class="pBody">
+The following URLs show examples of the minimum information, including any required connection properties, that must be specified in a connection URL.
+</p>
+<a name="wp209789"> </a><p class="pBodyBold">
+DB2 for Linux/UNIX/Windows
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:db2://<em class="cEmphasis">server_name</em>:50000;databaseName=<code><em>your_database</em></code><a name="wp209790"> </a>
+</pre></div>
+<a name="wp209791"> </a><p class="pBodyBold">
+DB2 for z/OS and iSeries
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:db2://<em class="cEmphasis">server_name</em>:446;locationName=<code><em>db2_location</em></code><a name="wp209792"> </a>
+</pre></div>
+<a name="wp209795"> </a><p class="pBodyBold">
+Informix
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:informix://<em class="cEmphasis">server_name</em>;1526;InformixServer=<code><em>dbserver_name</em></code><a name="wp209796"> </a>
+</pre></div>
+<a name="wp209797"> </a><p class="pBodyBold">
+Microsoft SQL Server
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:sqlserver://<em class="cEmphasis">server_name</em>:1433<a name="wp209798"> </a>
+</pre></div>
+<a name="wp213185"> </a><p class="pBodyBold">
+MySQL Enterprise
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:mysql://<code><em>server_name</em></code>:[<em class="cEmphasis">port</em>]<a name="wp213161"> </a>
+</pre></div>
+<a name="wp209805"> </a><p class="pBodyBold">
+Oracle
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:oracle://<em class="cEmphasis">server_name</em>:1521<a name="wp209806"> </a>
+</pre></div>
+<a name="wp209809"> </a><p class="pBodyBold">
+Sybase
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:sybase://<em class="cEmphasis">server_name</em>:5000<a name="wp209810"> </a>
+</pre></div>
+<a name="wp209990"> </a><h3 class="pHeading2">
+Connection URIs for Third-Party Drivers
+</h3>
+<a name="wp214233"> </a><p class="pBody">
+You can access the PostgreSQL database using the PostgreSQL JDBC driver from:
+</p>
+<a name="wp214235"> </a><p class="pBody">
+<a  href="http://jdbc.postgresql.org/">http://jdbc.postgresql.org/</a>
+</p>
+<a name="wp210561"> </a><h4 class="pHeading3">
+Connection URI Format
+</h4>
+<a name="wp210965"> </a><p class="pBody">
+The format of the connection URI is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:postgresql:<code><em>database</em></code><a name="wp210630"> </a>
+</pre></div>
+<a name="wp210660"> </a><p class="pBody">
+or
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:postgresql://[<code><em>server_name</em></code>][:<code><em>port</em></code>]/<code><em>database</em></code>[?<em class="cEmphasis">property</em>=<em class="cEmphasis">value</em>]
+[&amp;<em class="cEmphasis">property</em>=<em class="cEmphasis">value</em>[...]]<a name="wp210632"> </a>
+</pre></div>
+<a name="wp210683"> </a><p class="pBody">
+where:
+</p>
+<a name="wp210581"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp210566"> </a><div class="pCellBody">
+<code><em>server_name</em></code>
+</div>
+</td>
+    <td><a name="wp210568"> </a><div class="pCellBody">
+The TCP/IP address or TCP/IP host name of the database server to which you are connecting. If an IPv6 TCP/IP address is specified, it must be enclosed within brackets. For example:
+</div>
+<a name="wp210715"> </a><div class="pCellBody">
+<code class="cCode">jdbc:postgresql://[::1]:5432/accounting</code>
+</div>
+<a name="wp210716"> </a><div class="pCellBody">
+If an address or a host name is not specified, the value defaults to a host name of <code class="cCode">localhost</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp210574"> </a><div class="pCellBody">
+<code><em>port</em></code>
+</div>
+</td>
+    <td><a name="wp210576"> </a><div class="pCellBody">
+The number of the TCP/IP port. If a port is not specified, the value defaults to 5432.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp211983"> </a><div class="pCellBody">
+<code><em>database</em></code>
+</div>
+</td>
+    <td><a name="wp211985"> </a><div class="pCellBody">
+The name of the database you are connecting to.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp210578"> </a><div class="pCellBody">
+<code><em>property</em></code>=<code><em>value</em></code>
+</div>
+</td>
+    <td><a name="wp210580"> </a><div class="pCellBody">
+Connection properties. Refer to your PostgreSQL JDBC driver documentation for information about the connection properties supported by the driver.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp210771"> </a><p class="pBody">
+The following URI is an example of the minimum information that must be specified in the URI:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:postgresql:<code><em>your_database</em></code><a name="wp210772"> </a>
+</pre></div>
+<a name="wp214632"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

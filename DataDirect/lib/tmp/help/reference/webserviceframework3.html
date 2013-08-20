@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:19" />
+  <title>XQueryWebService Framework Architecture</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp211855"> </a><h2 class="pNewHTMLPageNum">
+XQueryWebService Framework Architecture
+</h2>
+<hr />
+<a name="wp211925"> </a><p class="pBody">
+A high-level illustration of the XQueryWebService framework architecture looks like this:
+</p>
+<a name="wp217283"> </a><p class="pBody">
+</p><div align="left"><img src="images/xqwsf_architecture_overview4.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp214503"> </a><p class="pBody">
+To start, an HTTP request is submitted to a Web server (a Tomcat Web Server in this case). The URI used to invoke the Web service takes the following form:<br />
+</p>
+<a name="wp219220"> </a><p class="pBody">
+        <a  href="http://examples.xquery.com/employee-lookup/emp.xquery?id=A-C71970F">http://examples.xquery.com/employee-lookup/emp.xquery?id=A-C71970F</a>
+</p>
+<a name="wp214566"> </a><p class="pBody">
+where:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp214576"> </a><div class="pSmartList1"><li>http://examples.xquery.com/employee-lookup/emp.xquery is the location of the XQuery Web service. The Web service was created by saving an XQuery to the employee-lookup directory where the Tomcat Web Server is running.</li></div><a name="wp214580"> </a><div class="pSmartList1"><li>id=A-C71970F is a parameter passed to the XQuery. This parameter, as you will see in a moment, is defined in the XQuery.</li></div></ul></div>
+<a name="wp214513"> </a><p class="pBody">
+When the XQuery is finished, it returns a value using HTTP response, as shown in the following illustration.
+</p>
+<a name="wp218377"> </a><p class="pBody">
+</p><div align="left"><img src="images/xqwsf_emp8.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp214526"> </a><p class="pBody">
+Let&#8217;s take a closer look inside the DataDirect XQueryWebService directory on the Web server (DDXQWS).
+</p>
+<a name="wp213615"> </a><p class="pBody">
+</p><div align="left"><img src="images/xqwsf_ddxqws.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp214118"> </a><p class="pBody">
+The browser (or an application) submits the Web service request using SOAP or HTTP GET for the XQuery stored on the Web server. Next, DataDirect XQuery unpacks the Web service request and binds its parameters, if any, to the XQuery. In our example, the parameter passed with the Web service request is an ID. The XQuery is then executed and its result (an XML document) is returned to the client.
+</p>
+<a name="wp214653"> </a><h3 class="pHeading2">
+Example XQuery
+</h3>
+<a name="wp215601"> </a><p class="pBody">
+To gain a more detailed understanding of what is happening inside the Web service, consider an XQuery, emp.xquery. This XQuery retrieves employee data given a unique ID. The query defines a parameter called id; the query body is just a single FLWOR expression:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $id as xs:string external;<a name="wp216565"> </a>
+&lt;root&gt;{<a name="wp216566"> </a>
+	for $employee in collection(&quot;employee&quot;)/employee <a name="wp216567"> </a>
+	where $employee/emp_id = $id<a name="wp216568"> </a>
+	return $employee<a name="wp216569"> </a>
+}&lt;/root&gt;<a name="wp211928"> </a>
+</pre></div>
+<a name="wp211937"> </a><p class="pBody">
+In the following section, <a  href="webserviceframework4.html#wp211930">Example &#8211; Employee Lookup</a>, you&#8217;ll see how to implement this XQuery as a Web service on your local machine.
+</p>
+<a name="wp218562"> </a><h3 class="pHeading2">
+The Web Service Description Language (WSDL)
+</h3>
+<a name="wp212172"> </a><p class="pBody">
+The Web Service Description Language (WSDL) is a language for describing Web services. If we copy the emp.xquery to a directory, say employee-lookup, where our Java servlet container is running, we can use the following URI to access a WSDL document that describes the Web service that results from our XQuery:
+</p>
+<a name="wp211962"> </a><p class="pBody">
+<a  href="http://examples.xquery.com/employee-lookup/WSDL">http://examples.xquery.com/employee-lookup/WSDL</a>
+</p>
+<a name="wp212311"> </a><p class="pBody">
+Using this tool, we can take a closer look at how our XQuery is described by the WSDL document.
+</p>
+<a name="wp215774"> </a><h4 class="pHeading3">
+Service Element
+</h4>
+<a name="wp215775"> </a><p class="pBody">
+The service element &#8211; only one per WSDL document &#8211; is named after the query file name without its extension. The service contains two port definitions that always have the same name: <code class="cCode">SOAPPort</code> and <code class="cCode">HTTPGETPort</code>, respectively; one for SOAP over HTTP, one for HTTP GET.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;wsdl:service name=&quot;Service&quot;&gt;<a name="wp218630"> </a>
+	&lt;wsdl:port binding=&quot;dd:SOAPBinding&quot; name=&quot;SOAPPort&quot;&gt;<a name="wp218631"> </a>
+		&lt;wsdlsoap:address <a name="wp218632"> </a>
+           location=&quot;http://examples.xquery.com/employee-lookup/WSDL&quot;/&gt;<a name="wp218678"> </a>
+	&lt;/wsdl:port&gt;<a name="wp218633"> </a>
+	&lt;wsdl:port binding=&quot;dd:HTTPGETBinding&quot; name=&quot;HTTPGETPort&quot;&gt;<a name="wp218634"> </a>
+		&lt;http:address <a name="wp218635"> </a>
+           location=&quot;http://examples.xquery.com/employee-lookup/WSDL&quot;/&gt;<a name="wp218679"> </a>
+	&lt;/wsdl:port&gt;<a name="wp218636"> </a>
+&lt;/wsdl:service&gt;<a name="wp212305"> </a>
+</pre></div>
+<a name="wp218652"> </a><p class="pBody">
+Notice that the service address or end point is the same for both ports.
+</p>
+<a name="wp212370"> </a><p class="pBody">
+For each element <code class="cCode">wsdl:port</code> under the element <code class="cCode">wsdl:service</code> there is an attribute called <code class="cCode">binding=</code>; the attribute value matches the value of attribute <code class="cCode">name=</code> of one of the <code class="cCode">binding</code> elements.
+</p>
+<a name="wp212978"> </a><h4 class="pHeading3">
+HTTPGETBinding
+</h4>
+<a name="wp213771"> </a><p class="pBody">
+The <code class="cCode">HTTPGETBinding</code> describes the HTTP verb (in this case it is GET), which operations are exposed, and how the input/output are encoded. The attribute <code class="cCode">location=</code> in the element <code class="cCode">wsdl:operation</code> is particularly important &#8211; it represents the query function to invoke in our query; in this case <code class="cCode">emp</code> means the query body.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;wsdl:binding name=&quot;HTTPGETBinding&quot; type=&quot;dd:HTTPGETPort&quot;&gt;<a name="wp212450"> </a>
+    &lt;http:binding verb:&quot;GET&quot;/&gt;<a name="wp212451"> </a>
+	&lt;wsdl:operation name=&quot;emp&quot;&gt;<a name="wp212452"> </a>
+	    &lt;http:operation location=&quot;/emp&quot;/&gt;<a name="wp212453"> </a>
+		&lt;wsdl:input&gt;<a name="wp212454"> </a>
+		    &lt;http:urlEncoded/&gt;<a name="wp212455"> </a>
+		&lt;/wsdl:input&gt;<a name="wp212456"> </a>
+		&lt;wsdl:output&gt;<a name="wp212457"> </a>
+		     &lt;mime:mimeXML part=&quot;Body&quot;/&gt;<a name="wp212458"> </a>
+		&lt;/wsdl:output&gt;<a name="wp212459"> </a>
+	&lt;/wsdl:operation&gt;<a name="wp212460"> </a>
+&lt;/wsdl:binding&gt;<a name="wp212368"> </a>
+</pre></div>
+<a name="wp212843"> </a><h4 class="pHeading3">
+SOAPBinding
+</h4>
+<a name="wp213815"> </a><p class="pBody">
+The <code class="cCode">SOAPBinding</code> (in the following code sample) describes the encoding style that will be used by the service; the value can be either <code class="cCode">document</code> or <code class="cCode">rpc</code> (in our case it is always <code class="cCode">document</code>). The style <code class="cCode">document</code> is completely driven by the schema definition associated with the message, so the resulting XML fragment is more elegant. The style <code class="cCode">rpc</code> assumes the creation of a wrapper element that matches the underlying function name to encapsulate the function arguments. The XML on the wire might look the same, but it is conceptually different.
+</p>
+<a name="wp212844"> </a><p class="pBody">
+Each <code class="cCode">wsdlsoap:operation</code> defines the attribute <code class="cCode">soapAction=</code> that, similar to the attribute <code class="cCode">location=</code> in <code class="cCode">http:operation</code>, represents the function name; <code class="cCode">soapAction=</code> must be encoded as an HTTP header in the Web service request.
+</p>
+<a name="wp212837"> </a><p class="pBody">
+The attribute <code class="cCode">use=</code> in the element <code class="cCode">wsdlsoap:body</code> can be either <code class="cCode">literal</code> or <code class="cCode">encoded</code>. (In the generated WSDL it will be always <code class="cCode">literal</code>, as suggested by the OASIS <a  href="http://www.ws-i.org/Profiles/BasicProfile-1.0-2004-04-16.html#refinement16649056">WS Basic Profile 1.0</a>, to improve interoperability between different client implementations.) The message representation on the wire has the child element of the element <code class="cCode">wsdlsoap:body</code>, which matches the global element defined in the XML Schema and is declared in the related message part.
+</p>
+<a name="wp218769"> </a><p class="pBody">
+The attribute <code class="cCode">type=</code> in the element <code class="cCode">binding</code> matches the attribute <code class="cCode">name=</code> of one of the element <code class="cCode">portType</code>. The element <code class="cCode">portType</code> associates one message for the input and one for the output to each operation. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;wsdl:binding name=&quot;SOAPBinding&quot; type=&quot;dd:SOAPPort&quot;&gt;<a name="wp212654"> </a>
+	&lt;wsdlsoap:binding transport=&quot;http://schemas.xmlsoap.org/soap/http&quot; <a name="wp212655"> </a>
+                     style=&quot;document&quot;/&gt;<a name="wp216104"> </a>
+	&lt;wsdl:operation name=&quot;emp&quot;&gt;<a name="wp212656"> </a>
+	    &lt;wsdlsoap:operation soapAction=&quot;emp.xquery&quot; style=&quot;document&quot;/&gt;<a name="wp212657"> </a>
+		&lt;wsdl:input&gt;<a name="wp212658"> </a>
+		    &lt;wsdlsoap:body use=&quot;literal&quot;/&gt;<a name="wp212659"> </a>
+		&lt;/wsdl:input&gt;<a name="wp212660"> </a>
+		&lt;wsdl:output&gt;<a name="wp212661"> </a>
+		     &lt;wsdlsoap:body use=&quot;literal&quot;/&gt;<a name="wp212662"> </a>
+		&lt;/wsdl:output&gt;<a name="wp212663"> </a>
+	&lt;/wsdl:operation&gt;<a name="wp212664"> </a>
+&lt;/wsdl:binding&gt;<a name="wp212556"> </a>
+</pre></div>
+<a name="wp218896"> </a><p class="pBody">
+For each query function there is a pair of messages (<code class="cCode">input</code> and <code class="cCode">output</code>) for each binding (<code class="cCode">SOAPPort</code> and <code class="cCode">HTTPGETPort</code>). Having different messages for each binding allows, for instance, simple types like xs:string or xs:integer to be used for HTTP GET, which can be easily expressed inline as a URI.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;wsdl:portType name=&quot;SOAPPort&quot;&gt;<a name="wp213067"> </a>
+	&lt;wsdl:operation name=&quot;emp&quot;&gt;<a name="wp213068"> </a>
+		&lt;wsdl:input message=&quot;dd:empInputMsg&quot;/&gt;<a name="wp213069"> </a>
+		&lt;wsdl:output message=&quot;dd:OutputMsg&quot;/&gt;<a name="wp213070"> </a>
+		&lt;wsdl:fault name=&quot;nmtoken&quot; message=&quot;dd:FaultMsg&quot;/&gt;<a name="wp216206"> </a>
+	&lt;/wsdl:operation&gt;<a name="wp213071"> </a>
+&lt;/wsdl:portType&gt;<a name="wp213072"> </a>
+<a name="wp213073"> </a>
+&lt;wsdl:portType name=&quot;HTTPGETPort&quot;&gt;<a name="wp213074"> </a>
+	&lt;wsdl:operation name=&quot;emp&quot;&gt;<a name="wp213075"> </a>
+		&lt;wsdl:input message=&quot;dd:empInputMsg&quot;/&gt;<a name="wp213076"> </a>
+		&lt;wsdl:output message=&quot;dd:OutputMsg&quot;/&gt;<a name="wp213077"> </a>
+		&lt;wsdl:fault name=&quot;nmtoken&quot; message=&quot;dd:FaultMsg&quot;/&gt;<a name="wp216264"> </a>
+	&lt;/wsdl:operation&gt;<a name="wp213078"> </a>
+&lt;/wsdl:portType&gt;<a name="wp213062"> </a>
+</pre></div>
+<a name="wp213209"> </a><p class="pBody">
+The element <code class="cCode">wsdl:message</code> may have multiple sub-elements called <code class="cCode">wsdl:part</code>; each <code class="cCode">part</code> references either an XML Schema global type or global element. OASIS <a  href="http://www.ws-i.org/Profiles/BasicProfile-1.0-2004-04-16.html">WS Basic Profile 1.0</a> suggests using only one <code class="cCode">part</code> and a global element. To mimic the validation process against an XML Schema, the validation always starts from a global element &#8211; the document root.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;wsdl:message name=&quot;empInputMsg&quot;&gt;<a name="wp213270"> </a>
+	&lt;wsdl:part name=&quot;parameters&quot; element=&quot;dd:emp&quot;/&gt;<a name="wp213271"> </a>
+&lt;/wsdl:message&gt;<a name="wp213272"> </a>
+<a name="wp213273"> </a>
+&lt;wsdl:message name=&quot;OutputMsg&quot;&gt;<a name="wp213274"> </a>
+	&lt;wsdl:part name=&quot;Output&quot; element=&quot;dd:Output&quot;/&gt;<a name="wp213275"> </a>
+&lt;/wsdl:message&gt;<a name="wp213276"> </a>
+<a name="wp213277"> </a>
+&lt;wsdl:message name=&quot;FaultMsg&quot;/&gt;<a name="wp216308"> </a>
+</pre></div>
+<a name="wp213333"> </a><p class="pBody">
+Finally, the WSDL describes the element <code class="cCode">types</code> where the XML Schema types are defined. For each message, the XML Schema defines two global elements &#8211; one for the input and one for the output. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;wsdl:types&gt;<a name="wp213458"> </a>
+	&lt;wsdl:types&gt;<a name="wp216418"> </a>
+		&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; <a name="wp216419"> </a>
+					targetNamespace=&quot;http://www.datadirect.com&quot; <a name="wp216420"> </a>
+					attributeFormDefault=&quot;unqualified&quot; <a name="wp216421"> </a>
+					elementFormDefault=&quot;qualified&quot;&gt;<a name="wp216422"> </a>
+			&lt;xs:import schemaLocation=&quot;employee.xsd&quot; <a name="wp216423"> </a>
+                      namespace=&quot;http://www.employee.com&quot;/&gt;<a name="wp216559"> </a>
+			&lt;xs:element name=&quot;emp&quot;&gt;<a name="wp216424"> </a>
+				&lt;xs:complexType&gt;<a name="wp216425"> </a>
+					&lt;xs:all&gt;<a name="wp216426"> </a>
+						&lt;xs:element type=&quot;xs:string&quot; name=&quot;id&quot;/&gt;<a name="wp216427"> </a>
+					&lt;/xs:all&gt;<a name="wp216428"> </a>
+				&lt;/xs:complexType&gt;<a name="wp216429"> </a>
+			&lt;/xs:element&gt;<a name="wp216430"> </a>
+			&lt;xs:element type=&quot;xs:anyType&quot; name=&quot;Output&quot;/&gt;<a name="wp216438"> </a>
+		&lt;/xs:schema&gt;<a name="wp216439"> </a>
+	&lt;/wsdl:types&gt;<a name="wp213819"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

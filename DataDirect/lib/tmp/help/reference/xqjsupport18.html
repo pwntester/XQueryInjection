@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>Exception Handling</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp120665"> </a><h2 class="pNewHTMLPageNum">
+Exception Handling
+</h2>
+<hr />
+<a name="wp157985"> </a><p class="pBody">
+DataDirect XQuery uses two XQJ classes to report errors, XQException and XQQueryException. DataDirect XQuery reports errors detected in XQJ using XQException.
+</p>
+<a name="wp159727"> </a><p class="pBody">
+Errors reported through XQException contain the following information:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp161505"> </a><div class="pSmartList1"><li>Vendor code</li></div><a name="wp159728"> </a><div class="pSmartList1"><li>Message</li></div><a name="wp159729"> </a><div class="pSmartList1"><li>Cause</li></div></ul></div>
+<a name="wp159731"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQException: [DataDirect][XQuery]Exception returned by 
+Adaptor (Streaming Adaptor) : Unexpected close tag 
+&lt;/ducks&gt;; expected &lt;/papere&gt;.<a name="wp159610"> </a>
+</pre></div>
+<a name="wp161391"> </a><p class="pBody">
+Errors detected in any of the other DataDirect XQuery components can be reported using either class depending on the type of error. If the error is detected during query processing, DataDirect XQuery reports the error using XQQueryException because additional information is contained in the message. This additional information might be a line number that indicates the location of the error in the query and a module URI that indicates the module where the error occurred. 
+</p>
+<a name="wp161493"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQQueryException: 
+{http://www.w3.org/2005/xqt-errors}XPST0003                   
+file:///myXQuery.xq; line: 2 
+[DataDirect][XQuery][err:XPST0003]Error at line 2, column 
+44. Expected &quot;]&quot;, but encountered &quot;&lt;end of expression&gt;&quot;.<a name="wp161439"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:13" />
+  <title>Using Data Sources in Queries</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp184870"> </a><h2 class="pNewHTMLPageNum">
+Using Data Sources in Queries
+</h2>
+<hr />
+<a name="wp184872"> </a><p class="pBody">
+In XQuery, data sources and query results are both represented using an XML data model. Physical inputs such as XML text files, DOM trees, and relational databases are mapped into the XML data model when they are queried. In the case of relational databases, the mapping is logical, and relational data is not materialized as XML. These mappings are documented in this section.
+</p>
+<a name="wp187906"> </a><p class="pBody">
+The result of a query (the XML output) is also defined in the XML data model and must be mapped to a physical format such as DOM, SAX, StAX, or text in order for an application to use the results. See <a  href="xqjsupport20.html#wp126140">Accessing XML Results</a> for more information about the mapping of results.
+</p>
+<a name="wp188916"> </a><p class="pBody">
+In addition, when you use DataDirect XQuery with DataDirect XML Converters, you can convert non-XML formats into XML, including EDI messages, tab-delimited and comma-separated text files, dBASE files, RTF files, and many more. Once these non-XML data sources are converted to XML, they are accessed the same as XML documents.
+</p>
+<a name="wp187870"> </a><h3 class="pHeading2">
+XML Data Sources
+</h3>
+<a name="wp184879"> </a><p class="pBody">
+The XML data sources that DataDirect XQuery can access have the following physical formats:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp184883"> </a><div class="pSmartList1"><li>XML text files/streams. These files/streams can be accessed using fn:doc(), which supports the http:, ftp:, and file: URI schemes and DataDirect XML Converters URI schemes. </li></div><a name="wp189079"> </a><p class="pBodyRelative">
+Here is an example of a file URI scheme:
+</p>
+<a name="wp184885"> </a><p class="pSyntaxEmbed">
+let $request := doc(&#39;file:///c:/request.xml&#39;)/request
+</p>
+<a name="wp184886"> </a><p class="pSyntaxEmbed">
+...
+</p>
+<a name="wp189085"> </a><p class="pBodyRelative">
+Here is an example of a DataDirect XQuery XML Converters URI scheme in which the name of the Converter is Base64, the properties set for the conversion are newline and encoding, and the file to convert is base_to_xml.bin:
+</p>
+<a name="wp189089"> </a><p class="pSyntaxEmbed">
+let $request := doc(&#39;converter:Base64:newline=crlf:
+</p>
+<a name="wp189287"> </a><p class="pSyntaxEmbed">
+encoding=utf-8?file///w:/myfiles/base_to_xml.bin&#39;)/
+</p>
+<a name="wp191737"> </a><p class="pSyntaxEmbed">
+request
+</p>
+<a name="wp189289"> </a><p class="pSyntaxEmbed">
+...
+</p>
+<a name="wp198363"> </a><p class="pBodyRelative">
+NOTE: Using fn:collection(), DataDirect XQuery also allows you to make the following types of queries on XML files:
+</p>
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp206696"> </a><div class="pSmartList2"><li>Query multiple XML files in a directory. See <a  href="advancedfeatures3.html#wp219064">Querying Multiple Files in a Directory</a>.</li></div>
+<a name="wp206677"> </a><div class="pSmartList2"><li>Query XML files archived in ZIP or JAR files. See <a  href="advancedfeatures4.html#wp246385">Querying ZIP, JAR, and MS Office Files</a>.</li></div>
+<a name="wp184888"> </a><p class="pBodyRelative">
+NOTES FOR SPECIFYING URIs:
+</p>
+<a name="wp184889"> </a><div class="pSmartList2"><li>You must use forward slashes (/) in the path regardless of the platform.</li></div>
+<a name="wp184891"> </a><div class="pSmartList2"><li>Relative URIs are allowed in the path. For example:</li></div>
+<a name="wp184892"> </a><p class="pSyntaxEmbed">
+let $request := doc(&#39;request.xml&#39;)/request
+</p>
+<a name="wp184893"> </a><p class="pSyntaxEmbed">
+...
+</p>
+<a name="wp184894"> </a><div class="pSmartList2"><li>Spaces are allowed in the path. For example:</li></div>
+<a name="wp184895"> </a><p class="pSyntaxEmbed">
+let $request := doc(&#39;file:///c:/DD XQuery/<br />request.xml&#39;)/request
+</p>
+<a name="wp184896"> </a><p class="pSyntaxEmbed">
+...
+</p>
+<a name="wp184897"> </a><p class="pBodyRelative">
+If you use a custom URI resolver, the rules enforced for URI paths are governed by the syntax specified by the custom URI resolver (see <a  href="advancedfeatures5.html#wp204890">Document URI Resolvers</a>).
+</p>
+</ul></div>
+<a name="wp184903"> </a><div class="pSmartList1"><li>XML contained in a Java application. This type of XML can be bound to the initial context item or to external variables in XQJ and used in XQuery queries. See <a  href="tutorial_ddxquery5.html#wp144314">Querying Data from XML Files or DOM Trees</a> for an example.</li></div><a name="wp184906"> </a><div class="pSmartList1"><li>XML stored in columns of any supported relational database using an XML data type. See <a  href="relationaldata.html#wp222590">Support for Relational Databases</a> for details.</li></div><a name="wp189307"> </a><div class="pSmartList1"><li>XML stored in character columns of any supported relational database. See <a  href="relationaldata3.html#wp222817">Querying XML Type Data</a> for details.</li></div></ul></div>
+<a name="wp184913"> </a><h4 class="pHeading3">
+Data Model Representation of XML Documents
+</h4>
+<a name="wp184915"> </a><p class="pBody">
+For XQuery queries that access XML using fn:doc() or external variables in the query, DataDirect XQuery implements the Infoset mapping described in the XQuery 1.0 and XPath 2.0 Data Model specification located at: <a  href="http://www.w3.org/TR/2005/CR-xpath-datamodel-20051103/">http://www.w3.org/TR/2005/CR-xpath-datamodel-20051103/</a>
+</p>
+<a name="wp184922"> </a><h3 class="pHeading2">
+Relational Data Sources
+</h3>
+<a name="wp211477"> </a><p class="pBody">
+DataDirect XQuery provides support for the following relational databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp213448"> </a><div class="pSmartList1"><li>DB2</li></div><a name="wp213449"> </a><div class="pSmartList1"><li>DB2 Universal Database (UDB)</li></div><a name="wp213454"> </a><div class="pSmartList1"><li>Informix Dynamic Server</li></div><a name="wp213937"> </a><div class="pSmartList1"><li>Microsoft SQL Server</li></div><a name="wp217195"> </a><div class="pSmartList1"><li>MySQL Enterprise</li></div><a name="wp217199"> </a><div class="pSmartList1"><li>Oracle</li></div><a name="wp213469"> </a><div class="pSmartList1"><li>PostgreSQL</li></div><a name="wp213489"> </a><div class="pSmartList1"><li>Sybase Adaptive Server Enterprise</li></div></ul></div>
+<a name="wp216901"> </a><p class="pBody">
+Note: For support for specific versions, see <a  href="database_support2.html#wp299542">Supported Databases</a>. This information is also maintained on the DataDirect web site:
+</p>
+<a name="wp221690"> </a><p class="pBody">
+<a  href="http://www.datadirect.com/support/product_info/databasesupport/index.ssp">http://www.datadirect.com/support/product_info/<br />databasesupport/index.ssp</a>
+</p>
+<a name="wp184939"> </a><h4 class="pHeading3">
+Specifying Relational Database Tables
+</h4>
+<a name="wp184941"> </a><p class="pBody">
+Using DataDirect XQuery, you specify relational database tables in a query using fn:collection(). The following example specifies a database table named holdings:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;holdings&#39;)<a name="wp184943"> </a>
+</pre></div>
+<a name="wp185754"> </a><p class="pBody">
+Notes for Specifying Database Table Names
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp184946"> </a><div class="pSmartList1"><li>Qualified names &#8211; You might need to qualify the database table name in order to specify the exact table you want to access. The argument to fn:collection() can include any combination of JDBC connection name, database catalog, or database schema in addition to the database table name.</li></div><a name="wp184947"> </a><p class="pBodyRelative">
+For example, if the database table being accessed is not owned by the current user or is not located in the current database or catalog, you can qualify the database table name with the catalog name and schema name of the database table. The following example specifies a catalog name, schema name, and database table name:
+</p>
+<a name="wp184948"> </a><p class="pSyntaxEmbed">
+collection(&#39;financial.joseph.holdings&#39;)
+</p>
+<a name="wp184949"> </a><p class="pBodyRelative">
+If you need to further qualify the database table name, you can use a <em class="cEmphasis">JDBC connection name</em>, which identifies a specific connection to a relational database. The following example specifies a JDBC connection name, catalog name, schema name, and database table name:
+</p>
+<a name="wp184951"> </a><p class="pSyntaxEmbed">
+collection(&#39;stocks:financial.joseph.holdings&#39;)
+</p>
+<a name="wp186890"> </a><div class="pSmartList1"><li>Escape characters &#8211; If the catalog name, schema name, or table name in the fn:collection() argument contains a period (.), a colon (:), or a backslash(\), escape the character with a backslash (\) so that DataDirect XQuery can correctly parse the argument. For example, if the target table is named a.holdings and you specify the following query, DataDirect XQuery parses &#39;a&#39; as the schema name, not as part of the table name: </li></div><a name="wp186891"> </a><p class="pSyntaxEmbed">
+collection(&#39;a.holdings&#39;)
+</p>
+<a name="wp186892"> </a><p class="pBodyRelative">
+Escaping the period (.) in the fn:collection() argument using the backslash character allows DataDirect XQuery to parse the argument correctly:
+</p>
+<a name="wp186893"> </a><p class="pSyntaxEmbed">
+collection(&#39;a\.holdings&#39;)
+</p>
+<a name="wp186894"> </a><p class="pBodyRelative">
+In addition, XQuery string literal syntax applies to the fn:collection() argument. If a table name contains double quotes, for example, a&quot;holdings, and the fn:collection() argument uses double quote delimiters, you must repeat the double quotes:
+</p>
+<a name="wp186895"> </a><p class="pSyntaxEmbed">
+collection(&quot;a&quot;&quot;holdings&quot;)
+</p>
+<a name="wp187913"> </a><p class="pBodyRelative">
+Or,  you can use:
+</p>
+<a name="wp187923"> </a><p class="pSyntaxEmbed">
+collection(&#39;a&quot;holdings&#39;)
+</p>
+</ul></div>
+<a name="wp187021"> </a><p class="pBody">
+See <a  href="tutorial_xquery2.html#wp148340">Path Expressions for Relational Sources</a> for examples of using fn:collection(). See <a  href="troubleshooting4.html#wp136633">Resolving fn:collection Errors</a> for information about troubleshooting fn:collection() errors.
+</p>
+<a name="wp188276"> </a><h4 class="pHeading3">
+Data Model Representation of Relational Tables
+</h4>
+<a name="wp188278"> </a><p class="pBody">
+In DataDirect XQuery, XML views of relational data are based on the SQL/XML mappings specified in the SQL 2003 standard. These are logical XML views, not a physical format. 
+</p>
+<a name="wp188283"> </a><p class="pBody">
+SQL/XML provides different ways to parameterize views. DataDirect XQuery uses the XMLFOREST variable to parameterize views. Using XMLFOREST is sufficient for most applications, but you can choose not to use it by setting the JdbcSqlXmlForest property of DDXQDataSource to false (see <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a>).
+</p>
+<a name="wp188290"> </a><p class="pBody">
+When the value of the JdbcSqlXmlForest property is set to true (the default), DataDirect XQuery represents each database table by a sequence of row elements in a document node. The row elements use the table name as the element name and contain an element for each non-null column in the row; DataDirect XQuery uses the column name as the element name for these elements. For example, when XML FOREST is used, the result for <code class="cCode">collection(&#39;users&#39;)</code> is a document node containing the following elements:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;users&gt;<a name="wp188291"> </a>
+  &lt;userid&gt;Minollo&lt;/userid&gt;<a name="wp188292"> </a>
+  &lt;firstname&gt;Carlo&lt;/firstname&gt;<a name="wp188293"> </a>
+  &lt;lastname&gt;Innocenti&lt;/lastname&gt;<a name="wp188294"> </a>
+  &lt;membersince&gt;2004-06-16T00:00:00&lt;/membersince&gt;<a name="wp188295"> </a>
+&lt;/users&gt;<a name="wp188296"> </a>
+&lt;users&gt;<a name="wp188297"> </a>
+  &lt;userid&gt;Jonathan&lt;/userid&gt;<a name="wp188298"> </a>
+  &lt;firstname&gt;Jonathan&lt;/firstname&gt;<a name="wp188299"> </a>
+  &lt;lastname&gt;Robie&lt;/lastname&gt;<a name="wp188300"> </a>
+  &lt;othername&gt;William&lt;/othername&gt;<a name="wp188301"> </a>
+  &lt;membersince&gt;2004-03-03T00:00:00&lt;/membersince&gt;<a name="wp188302"> </a>
+&lt;/users&gt;<a name="wp188303"> </a>
+</pre></div>
+<a name="wp188305"> </a><p class="pBody">
+Suppose we wanted to write a FLWOR expression to bind each row of the preceding table to a variable. In this case, we add an argument to fn:collection() that defines a path matching the users elements:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(<code class="cCode">&#39;</code>users<code class="cCode">&#39;</code>)/users<a name="wp188306"> </a>
+</pre></div>
+<a name="wp188307"> </a><p class="pBody">
+Here is a FLWOR expression that iterates over the rows returned by the preceding path expression:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $u in collection(<code class="cCode">&#39;</code>users<code class="cCode">&#39;</code>)/users<a name="wp188308"> </a>
+where $u/lastname = <code class="cCode">&#39;</code>Robie<code class="cCode">&#39;</code><a name="wp188309"> </a>
+return $u/membersince<a name="wp188310"> </a>
+</pre></div>
+<a name="wp188311"> </a><p class="pBody">
+When the XMLFOREST variable is false, the result is a document node. Inside the document node is a single element that represents the table. Inside the single element node is a sequence of elements named row, each representing one row of the table. For example, when XMLFOREST is not used, a result for <code class="cCode">collection(&#39;users&#39;)</code> might look like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;users&gt;<a name="wp188313"> </a>
+  &lt;row&gt;<a name="wp188314"> </a>
+    &lt;userid&gt;Minollo&lt;/userid&gt;<a name="wp188315"> </a>
+    &lt;firstname&gt;Carlo&lt;/firstname&gt;<a name="wp188316"> </a>
+    &lt;lastname&gt;Innocenti&lt;/lastname&gt;<a name="wp188317"> </a>
+    &lt;membersince&gt;2004-06-16T00:00:00&lt;/membersince&gt;<a name="wp188318"> </a>
+  &lt;/row&gt;<a name="wp188319"> </a>
+  &lt;row&gt;<a name="wp188320"> </a>
+    &lt;userid&gt;Jonathan&lt;/userid&gt;<a name="wp188321"> </a>
+    &lt;firstname&gt;Jonathan&lt;/firstname&gt;<a name="wp188322"> </a>
+    &lt;lastname&gt;Robie&lt;/lastname&gt;<a name="wp188323"> </a>
+    &lt;othername&gt;William&lt;/othername&gt;<a name="wp188324"> </a>
+    &lt;membersince&gt;2004-03-03T00:00:00&lt;/membersince&gt;<a name="wp188325"> </a>
+  &lt;/row&gt;<a name="wp188326"> </a>
+&lt;/users&gt;<a name="wp188327"> </a>
+</pre></div>
+<a name="wp188328"> </a><p class="pBody">
+Suppose we wanted to write a FLWOR expression to bind each row of the preceding table to a variable. In this case, we would need to add a path expression to fn:collection(). The following path expression defines a path that matches the row elements:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(<code class="cCode">&#39;</code>users<code class="cCode">&#39;</code>)/users/row<a name="wp188329"> </a>
+</pre></div>
+<a name="wp188330"> </a><p class="pBody">
+Here is a FLWOR expression that iterates over the rows returned by the preceding path expression:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $u in collection(<code class="cCode">&#39;</code>users<code class="cCode">&#39;</code>)/users/row<a name="wp188331"> </a>
+where $u/lastname = <code class="cCode">&#39;</code>Robie<code class="cCode">&#39;</code><a name="wp188332"> </a>
+return $u/membersince<a name="wp188333"> </a>
+</pre></div>
+<a name="wp186202"> </a><h4 class="pHeading3">
+Case Sensitivity
+</h4>
+<a name="wp184966"> </a><p class="pBody">
+XML element and attribute names are case-sensitive. When SQL column and table names are mapped into XML elements, the case depends on a number of factors that can vary by database vendor and the parameters used to create a database.
+</p>
+<a name="wp184967"> </a><p class="pBody">
+The case sensitivity of the argument to fn:collection() depends on the database.
+</p>
+<a name="wp185029"> </a><h4 class="pHeading3">
+Data Type Mappings
+</h4>
+<a name="wp185033"> </a><p class="pBody">
+See <a  href="database_support3.html#wp299568">Data Type Mappings</a> for information about how database data types are mapped to XML schema data types.
+</p>
+<a name="wp215956"> </a><h4 class="pHeading3">
+Security Features
+</h4>
+<a name="wp215957"> </a><p class="pBody">
+DataDirect XQuery supports authentication and data encryption security features for data source connections. For more information, see <a  href="connection_security.html#wp239376">Chapter 7, Securing Data Source Connections.</a>
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

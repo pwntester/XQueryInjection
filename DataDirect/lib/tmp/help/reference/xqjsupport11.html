@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQMetaData Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp147283"> </a><h2 class="pNewHTMLPageNum">
+XQMetaData Interface
+</h2>
+<hr />
+<a name="wp147284"> </a><p class="pBody">
+This interface provides information about the XQJ implementation, such as product name and version, supported features, user information, and more.
+</p>
+<a name="wp147289"> </a><p class="pBody">
+<a  href="xqjsupport11.html#wp147529">Table&#160;G-9</a> describes how DataDirect XQuery supports the methods of the XQMetaData interface.
+</p>
+<a name="wp147636"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp147529"> </a><div class="pTableTitle">
+Table G-9.  XQMetaData Method Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp147533"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp147535"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147537"> </a><div class="pCellBody">
+int getMaxExpressionLength( )
+</div>
+</td>
+    <td><a name="wp147539"> </a><div class="pCellBody">
+Supported. Always returns 0. There is no limit on length.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148115"> </a><div class="pCellBody">
+int getMaxUserNameLength( ) 
+</div>
+</td>
+    <td><a name="wp147543"> </a><div class="pCellBody">
+Supported. Always returns 0. The limit is unknown.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148122"> </a><div class="pCellBody">
+int getProductMajorVersion( ) 
+</div>
+</td>
+    <td><a name="wp147547"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148140"> </a><div class="pCellBody">
+int getProductMinorVersion( ) 
+</div>
+</td>
+    <td><a name="wp147551"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148216"> </a><div class="pCellBody">
+String getProductName( ) 
+</div>
+</td>
+    <td><a name="wp147555"> </a><div class="pCellBody">
+Supported. Returns &quot;DataDirect XQuery&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148334"> </a><div class="pCellBody">
+String getProductVersion( ) 
+</div>
+</td>
+    <td><a name="wp147559"> </a><div class="pCellBody">
+Supported. Returns version information, including build number, and date/time.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp149946"> </a><div class="pCellBody">
+set getSupportedXQueryEncodings( )
+</div>
+</td>
+    <td><a name="wp149948"> </a><div class="pCellBody">
+Supported. The result is JVM dependent, returns all supported character sets of the JVM on which the application is running.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148342"> </a><div class="pCellBody">
+String getUserName( ) 
+</div>
+</td>
+    <td><a name="wp147563"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148358"> </a><div class="pCellBody">
+int getXQJMajorVersion( ) 
+</div>
+</td>
+    <td><a name="wp147567"> </a><div class="pCellBody">
+Supported. Always returns 1.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148438"> </a><div class="pCellBody">
+int getXQJMinorVersion( ) 
+</div>
+</td>
+    <td><a name="wp147571"> </a><div class="pCellBody">
+Supported. Always returns 0.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148558"> </a><div class="pCellBody">
+String getXQJVersion( ) 
+</div>
+</td>
+    <td><a name="wp147575"> </a><div class="pCellBody">
+Supported. Always returns &quot;1.0&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148578"> </a><div class="pCellBody">
+boolean isFullAxisFeatureSupported( ) 
+</div>
+</td>
+    <td><a name="wp147579"> </a><div class="pCellBody">
+Supported. Always returns true.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp148602"> </a><div class="pCellBody">
+boolean isModuleFeatureSupported( ) 
+</div>
+</td>
+    <td><a name="wp147583"> </a><div class="pCellBody">
+Supported. Always returns true.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147585"> </a><div class="pCellBody">
+boolean isReadOnly( )
+</div>
+</td>
+    <td><a name="wp147587"> </a><div class="pCellBody">
+Supported. Always returns false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147589"> </a><div class="pCellBody">
+boolean isSchemaImportFeatureSupported( ) 
+</div>
+</td>
+    <td><a name="wp147591"> </a><div class="pCellBody">
+Supported. Always returns false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147593"> </a><div class="pCellBody">
+boolean isSchemaValidationFeatureSupported( )
+</div>
+</td>
+    <td><a name="wp147595"> </a><div class="pCellBody">
+Supported. Always returns false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147597"> </a><div class="pCellBody">
+boolean isSerializationFeatureSupported( ) 
+</div>
+</td>
+    <td><a name="wp147599"> </a><div class="pCellBody">
+Supported. Always returns true.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147601"> </a><div class="pCellBody">
+boolean isStaticTypingExtensionsSupported( )
+</div>
+</td>
+    <td><a name="wp147603"> </a><div class="pCellBody">
+Supported. Always returns true.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147605"> </a><div class="pCellBody">
+boolean isStaticTypingFeatureSupported( )
+</div>
+</td>
+    <td><a name="wp147607"> </a><div class="pCellBody">
+Supported. Always returns true.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147609"> </a><div class="pCellBody">
+boolean isTransactionSupported( )
+</div>
+</td>
+    <td><a name="wp147611"> </a><div class="pCellBody">
+Supported. Always returns true.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147613"> </a><div class="pCellBody">
+boolean isUserDefinedXMLSchemaTypeSupported( )
+</div>
+</td>
+    <td><a name="wp147615"> </a><div class="pCellBody">
+Supported. Always returns false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147617"> </a><div class="pCellBody">
+boolean isXQueryEncodingDeclSupported( )
+</div>
+</td>
+    <td><a name="wp147619"> </a><div class="pCellBody">
+Supported. Always returns true.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147621"> </a><div class="pCellBody">
+boolean isXQueryEncodingSupported<br />(String encoding)
+</div>
+</td>
+    <td><a name="wp147623"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147629"> </a><div class="pCellBody">
+boolean isXQueryXSupported( )
+</div>
+</td>
+    <td><a name="wp147631"> </a><div class="pCellBody">
+Supported. Always returns false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp147633"> </a><div class="pCellBody">
+boolean wasCreatedFromJDBCConnection( )
+</div>
+</td>
+    <td><a name="wp147635"> </a><div class="pCellBody">
+Supported. Always returns false.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

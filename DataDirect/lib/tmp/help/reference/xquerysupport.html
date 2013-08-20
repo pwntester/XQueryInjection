@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:28" />
+  <title>XQuery Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp245044"> </a><h2 class="pNewHTMLPageNum">
+A	XQuery Support
+</h2>
+<hr />
+<a name="wp260910"> </a><p class="pBody">
+This topic describes how DataDirect XQuery supports XQuery expressions, functions, and operators according to the following specifications:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp133118"> </a><div class="pSmartList1"><li>XQuery 1.0: An XML Query Language, W3C Recommendation 23 January 2007 located at: <a  href="http://www.w3.org/TR/2007/REC-xquery-20070123/">http://www.w3.org/TR/2007/REC-xquery-20070123/</a></li></div><a name="wp217604"> </a><div class="pSmartList1"><li>XQuery 1.0 and XPath 2.0 Data Model (XDM), W3C Recommendation 23 January 2007 located at: <a  href="http://www.w3.org/TR/2007/REC-xpath-datamodel-20070123/">http://www.w3.org/TR/2007/REC-xpath-datamodel-20070123/</a></li></div><a name="wp284111"> </a><div class="pSmartList1"><li>XQuery 1.0 and XPath 2.0 Functions and Operators, W3C Recommendation 23 January 2007 located at: <a  href="http://www.w3.org/TR/2007/REC-xpath-functions-20070123/">http://www.w3.org/TR/2007/REC-xpath-functions-20070123/</a></li></div><a name="wp284131"> </a><div class="pSmartList1"><li>XQuery 1.0 and XPath 2.0 Formal Semantics, W3C Recommendation 23 January 2007 located at:<br /><a  href="http://www.w3.org/TR/2007/REC-xquery-semantics-20070123/">http://www.w3.org/TR/2007/REC-xquery-semantics-20070123</a>/</li></div><a name="wp323260"> </a><div class="pSmartList1"><li>XQuery 1.1 W3C Working Draft 3 December 2008 located at:<br /><a  href="http://www.w3.org/TR/xquery-11/">http://www.w3.org/TR/xquery-11/</a></li></div></ul></div>
+<a name="wp155152"> </a><h3 class="pHeading2">
+Terminology
+</h3>
+<a name="wp318421"> </a><p class="pBody">
+The tables in this topic that present XQuery support information use the following terms to describe this support for both XML and relational sources.
+</p>
+<a name="wp238903"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp187458"> </a><div class="pCellHeading">
+Term
+</div>
+</th>
+    <th><a name="wp187460"> </a><div class="pCellHeading">
+Definition
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp187462"> </a><div class="pCellBody">
+Supported
+</div>
+</td>
+    <td><a name="wp187464"> </a><div class="pCellBody">
+DataDirect XQuery supports the feature, function, or operator with no exceptions.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp187466"> </a><div class="pCellBody">
+Supported with comment
+</div>
+</td>
+    <td><a name="wp187468"> </a><div class="pCellBody">
+DataDirect XQuery supports the feature, function, or operator with the comment noted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp187474"> </a><div class="pCellBody">
+Not supported
+</div>
+</td>
+    <td><a name="wp187476"> </a><div class="pCellBody">
+DataDirect XQuery does not support the feature, function, or operator and raises an error.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323283"> </a><p class="pBody">
+The numbers in the main section in this topic correspond to the sections in the XQuery 1.0 <a  href="http://www.w3.org/TR/2007/REC-xquery-20070123/">W3C  Recommendation 23 January 2007</a> where that topic is discussed.
+</p>
+<a name="wp324001"> </a><p class="pBody">
+Except where noted, all features are supported for both XQuery 1.0 and XQuery 1.1. Features that are supported <em class="cEmphasis">only</em> in XQuery 1.1 are indicated with a symbol like this: <img src="images/version_11_small2.gif" border="0" hspace="0" vspace="0"/>
+</p>
+<a name="wp323752"> </a><h3 class="pHeading2">
+In This Topic 
+</h3>
+<a name="wp324061"> </a><p class="pBody">
+This topic contains the following sections:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp323756"> </a><div class="pSmartList1"><li><a  href="xquerysupport2.html#wp323288">2 Basics</a></li></div><a name="wp323760"> </a><div class="pSmartList1"><li><a  href="xquerysupport3.html#wp240279">3 Expressions</a></li></div><a name="wp323764"> </a><div class="pSmartList1"><li><a  href="xquerysupport4.html#wp107169">4 Modules and Prologs</a></li></div><a name="wp323768"> </a><div class="pSmartList1"><li><a  href="xquerysupport5.html#wp195017">5 Conformance</a></li></div><a name="wp323772"> </a><div class="pSmartList1"><li><a  href="xquerysupport6.html#wp148130">Namespaces</a></li></div></ul></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

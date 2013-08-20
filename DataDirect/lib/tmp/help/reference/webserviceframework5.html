@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:19" />
+  <title>Specifying a Database Connection</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp207791"> </a><h2 class="pNewHTMLPageNum">
+Specifying a Database Connection
+</h2>
+<hr />
+<a name="wp207803"> </a><p class="pBody">
+If your queries access relational data, you need to register the database connection with the Java servlet container. The XQueryWebService supports
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp208511"> </a><div class="pSmartList1"><li>Single database connections</li></div><a name="wp208531"> </a><div class="pSmartList1"><li>Database connection pooling</li></div></ul></div>
+<a name="wp207817"> </a><h3 class="pHeading2">
+Specifying a Single Connection
+</h3>
+<a name="wp207833"> </a><p class="pBody">
+You can use the Web Application configuration file (web.xml) to specify the database connection. This example specifies a connection to Microsoft SQL Server:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;init-param&gt;<a name="wp208568"> </a>
+  &lt;param-name&gt;DDXQJDBCConnection1&lt;/param-name&gt;<a name="wp208569"> </a>
+  &lt;param-value&gt;jdbc:xquery:sqlserver://localhost;user=sa;DatabaseName=pubs<a name="wp208570"> </a>
+               &lt;/param-value&gt;<a name="wp208596"> </a>
+&lt;/init-param&gt; <a name="wp208554"> </a>
+</pre></div>
+<a name="wp208610"> </a><p class="pBody">
+The name of the <code class="cCode">&lt;param-name&gt;</code> element can be any string you like. 
+</p>
+<a name="wp215223"> </a><p class="pBody">
+Single database connections are created and then discarded with each request, which can add to an application&#8217;s processing overhead. A more efficient technique is database connection pooling, which is discussed next.
+</p>
+<a name="wp207838"> </a><h3 class="pHeading2">
+Database Connection Pooling
+</h3>
+<a name="wp208655"> </a><p class="pBody">
+<em class="cEmphasis">Connection pooling</em> is a technique for specifying database connections that allows a Web application to create a database connection on demand, and then return it to a pool when it is no longer need, rather than discarding it. Connection pooling can improve response time and help preserve database resources. Web server requests are locked if no connection is available in the pool.
+</p>
+<a name="wp208657"> </a><p class="pBody">
+Another benefit of using connection pooling is that it allows for connection recovery in the event that the connection is lost &#8211; if the server times out, for example. Dropped or disrupted connections are automatically replaced once the server is returned to service.
+</p>
+<a name="wp207853"> </a><p class="pBody">
+All popular Java servlet containers offer a connection pooling framework, and DataDirect XQuery can be plugged into most of them (Apache Tomcat, BEA WebLogic, IBM WebSphere, JBoss, and Oracle for example). See <a  href="improvingperformance6.html#wp206093">Using Connection Pooling</a> for more information.
+</p>
+<a name="wp207858"> </a><h4 class="pHeading3">
+Creating a Connection Pool &#8211; Example
+</h4>
+<a name="wp208728"> </a><p class="pBody">
+Here&#39;s how to create a connection pool in Apache Tomcat:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp208730"> </a><div class="pSmartList1"><li>Create a META-INF directory under the \employee-lookup directory  (<em class="cEmphasis">&lt;Tomcat_dir&gt;</em>\webapps\employee-lookup<br />\META-INF, for example).</li></div><a name="wp208744"> </a><div class="pSmartList1"><li>Place the following configuration file, context.xml, in that directory:</li></div></ol></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;Context path=&quot;/employee-lookup&quot; docBase=&quot;employee-lookup&quot;<a name="wp208798"> </a>
+         crossContext=&quot;false&quot; reloadable=&quot;true&quot; debug=&quot;0&quot;&gt;<a name="wp208799"> </a>
+<a name="wp208800"> </a>
+&lt;Resource name=&quot;jdbc/employee-lookup&quot;<a name="wp208801"> </a>
+          auth=&quot;Container&quot;<a name="wp208802"> </a>
+          type=&quot;javax.sql.DataSource&quot;<a name="wp208803"> </a>
+          username=&quot;root&quot;<a name="wp208804"> </a>
+          password=&quot;sa&quot;<a name="wp208805"> </a>
+          driverClassName=&quot;com.ddtek.xquery3.jdbc.XQueryDriver&quot;<a name="wp208806"> </a>
+          url=&quot;jdbc:datadirect:xquery3://JdbcUrl=<a name="wp208807"> </a>
+               {jdbc:mysql://localhost:3306/pubs_dbo?}&quot;<a name="wp208845"> </a>
+          initialSize=&quot;1&quot;<a name="wp208808"> </a>
+          accessToUnderlyingConnectionAllowed=&quot;true&quot;<a name="wp208809"> </a>
+          validationQuery=&quot;SELECT * FROM users&quot;/&gt;<a name="wp208810"> </a>
+&lt;/Context&gt;<a name="wp208777"> </a>
+<a name="wp208783"> </a><p class="pBodyRelative">
+Note that the <code class="cCode">name=</code> attribute of the <code class="cCode">&lt;Resource&gt;</code> element has to match the <code class="cCode">&lt;res-ref-name&gt;</code> element (here it is <code class="cCode">&quot;jdbc/employee-lookup&quot;</code>) in the web.xml configuration file we described previously. This is the name that the Java servlet uses to perform the Java Naming and Directory Interface (JNDI) lookup required to retrieve the connection pool.
+</p>
+</pre></div>
+<a name="wp208877"> </a><h4 class="pHeading3">
+Creating a Connection Pool for Other Servers
+</h4>
+<a name="wp208881"> </a><p class="pBody">
+As mentioned previously, DataDirect XQuery supports several other servers in addition to Tomcat, including JBoss, BEA WebLogic, IBM WebSphere Application Server, and Oracle Application Server. You can learn more about support for connection pools for these servers here: <a  href="improvingperformance6.html#wp206093">Using Connection Pooling</a>.
+</p>
+<a name="wp209598"> </a><h3 class="pHeading2">
+Next Steps
+</h3>
+<a name="wp209633"> </a><p class="pBody">
+Once you have specified your relational database connection, you can start to think about the technology you want to use to access the Web services based on your XQuery. Two popular technologies &#8211; SOAP and REST &#8211; are described in the following section.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

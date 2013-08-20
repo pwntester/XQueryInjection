@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQConnection Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp155579"> </a><h2 class="pNewHTMLPageNum">
+XQConnection Interface
+</h2>
+<hr />
+<a name="wp155580"> </a><p class="pBody">
+This interface describes the connection used to execute XQuery expressions. This interface extends <a  href="xqjsupport17.html#wp162779"></a><a  href="xqjsupport6.html#wp155788"></a><a  href="xqjsupport4.html#wp156884">XQDataFactory.</a>
+</p>
+<a name="wp155590"> </a><p class="pBody">
+<a  href="xqjsupport3.html#wp155597">Table&#160;G-1</a> describes how DataDirect XQuery supports the methods of the XQConnection interface.
+</p>
+<a name="wp155697"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp155597"> </a><div class="pTableTitle">
+Table G-1.  XQConnection Method Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp155601"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp155603"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155609"> </a><div class="pCellBody">
+void close( )
+</div>
+</td>
+    <td><a name="wp155611"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155613"> </a><div class="pCellBody">
+void commit( )
+</div>
+</td>
+    <td><a name="wp155615"> </a><div class="pCellBody">
+Supported. <a  href="relationaldata5.html#wp223055">Understanding the Transactional Behavior of DataDirect XQuery Updates</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155617"> </a><div class="pCellBody">
+XQExpression createExpression( )
+</div>
+</td>
+    <td><a name="wp155619"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155621"> </a><div class="pCellBody">
+XQExpression createExpression(XQStaticContext staticContext)
+</div>
+</td>
+    <td><a name="wp155623"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155625"> </a><div class="pCellBody">
+boolean getAutoCommit( )
+</div>
+</td>
+    <td><a name="wp155629"> </a><div class="pCellBody">
+Supported. See <a  href="relationaldata5.html#wp223055">Understanding the Transactional Behavior of DataDirect XQuery Updates</a> for information about auto-commit.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155632"> </a><div class="pCellBody">
+XQMetaData getMetaData( ) 
+</div>
+</td>
+    <td><a name="wp155634"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155640"> </a><div class="pCellBody">
+XQStaticContext getStaticContext( )
+</div>
+</td>
+    <td><a name="wp155642"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174750"> </a><div class="pCellBody">
+String[] getSupportedMetaDataPropertyNames()
+</div>
+</td>
+    <td><a name="wp174752"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174754"> </a><div class="pCellBody">
+XQWarning getWarnings()
+</div>
+</td>
+    <td><a name="wp174770"> </a><div class="pCellBody">
+Supported. Always returns null. DataDirect XQuery does not generate warnings.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155652"> </a><div class="pCellBody">
+boolean isClosed( )
+</div>
+</td>
+    <td><a name="wp155654"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155656"> </a><div class="pCellBody">
+XQPreparedExpression prepareExpression(Inputstream xquery)
+</div>
+</td>
+    <td><a name="wp155658"> </a><div class="pCellBody">
+Supported. When the query is read from a java.io.InputStream, DataDirect XQuery assumes the encoding specified in the XQuery version declaration. Otherwise, DataDirect XQuery parses the byte stream using UTF-8.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155660"> </a><div class="pCellBody">
+XQPreparedExpression prepareExpression(Inputstream xquery, XQStaticContext staticContext)
+</div>
+</td>
+    <td><a name="wp155662"> </a><div class="pCellBody">
+Supported. When the query is read from a java.io.InputStream, DataDirect XQuery assumes the encoding specified in the XQuery version declaration. Otherwise, DataDirect XQuery parses the byte stream using UTF-8.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155664"> </a><div class="pCellBody">
+XQPreparedExpression prepareExpression(Reader xquery)
+</div>
+</td>
+    <td><a name="wp155666"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155668"> </a><div class="pCellBody">
+XQPreparedExpression prepareExpression(Reader xquery, XQStaticContext staticContext)
+</div>
+</td>
+    <td><a name="wp155670"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155672"> </a><div class="pCellBody">
+XQPreparedExpression prepareExpression(String xquery)
+</div>
+</td>
+    <td><a name="wp155674"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155676"> </a><div class="pCellBody">
+XQPreparedExpression prepareExpression(String xquery, XQStaticContext staticContext)
+</div>
+</td>
+    <td><a name="wp155678"> </a><div class="pCellBody">
+Supported. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155680"> </a><div class="pCellBody">
+void rollback( )
+</div>
+</td>
+    <td><a name="wp155684"> </a><div class="pCellBody">
+Supported. See <a  href="relationaldata5.html#wp223055">Understanding the Transactional Behavior of DataDirect XQuery Updates</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155687"> </a><div class="pCellBody">
+void setAutoCommit(boolean autoCommit)
+</div>
+</td>
+    <td><a name="wp155691"> </a><div class="pCellBody">
+Supported. See <a  href="relationaldata5.html#wp223055">Understanding the Transactional Behavior of DataDirect XQuery Updates</a> for information about auto-commit.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155694"> </a><div class="pCellBody">
+void setStaticContext(XQStaticContext staticContext)
+</div>
+</td>
+    <td><a name="wp155696"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

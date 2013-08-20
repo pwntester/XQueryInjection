@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:15" />
+  <title>About Authentication</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp239400"> </a><h2 class="pNewHTMLPageNum">
+About Authentication
+</h2>
+<hr />
+<a name="wp239401"> </a><p class="pBody">
+On most computer systems, a password is used to prove (authenticate) a user&#39;s identity. This password often is transmitted over the network and can possibly be intercepted by malicious hackers. Because this password is the one secret piece of information that identifies a user, anyone knowing a user&#39;s password can effectively <span style="font-style: italic">be</span> that user. 
+</p>
+<a name="wp239402"> </a><p class="pBody">
+Authentication methods protect the identity of the user. DataDirect XQuery supports the following authentication methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239404"> </a><div class="pSmartList1"><li>User ID/password authentication authenticates the user to the database using a database user name and password.</li></div><a name="wp239405"> </a><div class="pSmartList1"><li>Kerberos is a trusted third-party authentication service. The drivers support both Windows Active Directory Kerberos and MIT Kerberos implementations for DB2, Oracle, and Sybase. For Microsoft SQL Server, the driver supports Windows Active Directory Kerberos only.</li></div><a name="wp239406"> </a><div class="pSmartList1"><li>Client authentication uses the user ID of the user logged onto the system on which the driver is running to authenticate the user to the database. The database server relies on the client to authenticate the user and does not provide additional authentication.</li></div><a name="wp239407"> </a><div class="pSmartList1"><li>NTLM authentication is a single sign-on authentication method for Windows environments. This method provides authentication from Windows clients only.</li></div></ul></div>
+<a name="wp239412"> </a><p class="pBody">
+<a  href="connection_security2.html#wp239416">Table&#160;7-1</a> shows the authentication methods supported by DataDirect XQuery.
+</p>
+<a name="wp239531"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp239416"> </a><div class="pTableTitle">
+Table 7-1.  Authentication Methods Supported by DataDirect XQuery
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp239426"> </a><div class="pCellHeading">
+Driver
+</div>
+</th>
+    <th><a name="wp239428"> </a><div class="pCellHeading">
+User ID/<br />Password
+</div>
+</th>
+    <th><a name="wp239433"> </a><div class="pCellHeading">
+Kerberos<a href="#wp239432"><span class="Footnote">1</span></a>
+</div>
+</th>
+    <th><a name="wp239435"> </a><div class="pCellHeading">
+Client
+</div>
+</th>
+    <th><a name="wp239437"> </a><div class="pCellHeading">
+NTLM
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239439"> </a><div class="pCellBody">
+DB2 for Linux/UNIX/Windows
+</div>
+</td>
+    <td><a name="wp239441"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239443"> </a><div class="pCellBody">
+	X
+</div>
+</td>
+    <td><a name="wp239445"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239447"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239449"> </a><div class="pCellBody">
+DB2 for z/OS
+</div>
+</td>
+    <td><a name="wp239451"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239453"> </a><div class="pCellBody">
+	X
+</div>
+</td>
+    <td><a name="wp239455"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239457"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239459"> </a><div class="pCellBody">
+DB2 for iSeries
+</div>
+</td>
+    <td><a name="wp239461"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239463"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp239465"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239467"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239469"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp239471"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239473"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp239475"> </a><div class="pCellBody">
+ 
+</div>
+</td>
+    <td><a name="wp239477"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239479"> </a><div class="pCellBody">
+MySQL
+</div>
+</td>
+    <td><a name="wp239481"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239483"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp239485"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp239487"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239499"> </a><div class="pCellBody">
+Oracle
+</div>
+</td>
+    <td><a name="wp239501"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239503"> </a><div class="pCellBody">
+	X
+</div>
+</td>
+    <td><a name="wp239505"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239507"> </a><div class="pCellBody">
+X
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239509"> </a><div class="pCellBody">
+Microsoft SQL Server
+</div>
+</td>
+    <td><a name="wp239511"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239516"> </a><div class="pCellBody">
+	X<a href="#wp239515"><span class="Footnote">2</span></a> 
+</div>
+</td>
+    <td><a name="wp239518"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp239520"> </a><div class="pCellBody">
+X
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239522"> </a><div class="pCellBody">
+Sybase
+</div>
+</td>
+    <td><a name="wp239524"> </a><div class="pCellBody">
+X
+</div>
+</td>
+    <td><a name="wp239526"> </a><div class="pCellBody">
+	X
+</div>
+</td>
+    <td><a name="wp239528"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp239530"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <td><a name="wp239432"> </a><div class="pCellBody">
+<a href="#wp239433"><span class="Footnote">1</span></a>For DB2, Oracle, and Sybase, the drivers support the Windows Active Directory KDC and MIT Kerberos KDC. For Microsoft SQL Server, the driver supports the Windows Active Directory KDC only.
+</div>
+<a name="wp239515"> </a><div class="pCellBody">
+<a href="#wp239516"><span class="Footnote">2</span></a>Supported for Microsoft SQL Server 2000 and higher.
+</div>
+</td>
+  </tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

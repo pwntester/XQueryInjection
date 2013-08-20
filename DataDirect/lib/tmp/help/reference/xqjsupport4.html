@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQDataFactory</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp156884"> </a><h2 class="pNewHTMLPageNum">
+XQDataFactory
+</h2>
+<hr />
+<a name="wp156885"> </a><p class="pBody">
+This interface represents a factory to obtain sequences, item objects, and types, which when obtained are independent of any connection.
+</p>
+<a name="wp160616"> </a><p class="pBody">
+Some of the methods in this interface create element, document, or attribute nodes. DataDirect XQuery creates untyped instances of these nodes.
+</p>
+<a name="wp156889"> </a><p class="pBody">
+<a  href="xqjsupport4.html#wp173446">Table&#160;G-2</a> describes how DataDirect XQuery supports the methods of the XQDataFactory interface.
+</p>
+<a name="wp173600"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp173446"> </a><div class="pTableTitle">
+Table G-2.  XQDataFactory Method Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp173450"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp173452"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173454"> </a><div class="pCellBody">
+XQItemType createAtomicType(int basetype)
+</div>
+</td>
+    <td><a name="wp173456"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173458"> </a><div class="pCellBody">
+XQItemType createAtomicType(int basetype, QName typename, URI schemaURI)
+</div>
+</td>
+    <td><a name="wp173460"> </a><div class="pCellBody">
+Supported. DataDirect XQuery does not support user-defined XML Schema types.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173462"> </a><div class="pCellBody">
+XQItemType createAttributeType(QName nodename, int basetype)
+</div>
+</td>
+    <td><a name="wp173464"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173466"> </a><div class="pCellBody">
+XQItemType createAttributeType(QName nodename, int basetype, QName typename, URI schemaURI)
+</div>
+</td>
+    <td><a name="wp173468"> </a><div class="pCellBody">
+Supported. DataDirect XQuery does not support user-defined XML Schema types.<a href="#wp173471"><span class="Footnote">1</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173473"> </a><div class="pCellBody">
+XQItemType createCommentType( ) 
+</div>
+</td>
+    <td><a name="wp173475"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173477"> </a><div class="pCellBody">
+XQItemType createDocumentElementType<br />(XQItemType elementType)
+</div>
+</td>
+    <td><a name="wp173479"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173481"> </a><div class="pCellBody">
+XQItemType createDocumentSchemaElementType<br />(XQItemType elementType)
+</div>
+</td>
+    <td><a name="wp173483"> </a><div class="pCellBody">
+DataDirect XQuery does not support user-defined XML Schema types.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173485"> </a><div class="pCellBody">
+XQItemType createDocumentType( ) 
+</div>
+</td>
+    <td><a name="wp173487"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173489"> </a><div class="pCellBody">
+XQItemType createElementType(QName nodename, int basetype)
+</div>
+</td>
+    <td><a name="wp173491"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173493"> </a><div class="pCellBody">
+XQItemType createElementType(QName nodename, int basetype, QName typename, URI schemaURI, boolean allowNill)
+</div>
+</td>
+    <td><a name="wp173495"> </a><div class="pCellBody">
+Supported. schemaURI and allowNill are ignored. If typename is not null, then it must match the value specified for basetype.<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173497"> </a><div class="pCellBody">
+XQItem createItem(XQItem item)
+</div>
+</td>
+    <td><a name="wp173499"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173501"> </a><div class="pCellBody">
+XQItem createItemFromAtomicValue(String value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173503"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173505"> </a><div class="pCellBody">
+XQItem createItemFromBoolean(boolean value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173507"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173509"> </a><div class="pCellBody">
+XQItem createItemFromByte(byte value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173511"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173513"> </a><div class="pCellBody">
+XQItem createItemFromDocument(InputStream value, String baseURI, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173515"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173517"> </a><div class="pCellBody">
+XQItem createItemFromDocument(Reader value, <br />String baseURI, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173519"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173521"> </a><div class="pCellBody">
+XQItem createItemFromDocument(String value,<br />String baseURI, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173523"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173525"> </a><div class="pCellBody">
+XQItem createItemFromDocument(Source value, <br />XQItemType type)
+</div>
+</td>
+    <td><a name="wp173527"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173529"> </a><div class="pCellBody">
+XQItem createItemFromDocument(XMLStreamReader value,<br />XQItemType type)
+</div>
+</td>
+    <td><a name="wp173531"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173533"> </a><div class="pCellBody">
+XQItem createItemFromDouble(double value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173535"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173537"> </a><div class="pCellBody">
+XQItem createItemFromFloat(float value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173539"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173541"> </a><div class="pCellBody">
+XQItem createItemFromInt(int value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173543"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173545"> </a><div class="pCellBody">
+XQItem createItemFromLong(long value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173547"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173549"> </a><div class="pCellBody">
+XQItem createItemFromNode(Node value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173551"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173553"> </a><div class="pCellBody">
+XQItem createItemFromObject(Object value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173555"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173557"> </a><div class="pCellBody">
+XQItem createItemFromShort(short value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173559"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173561"> </a><div class="pCellBody">
+XQItem createItemFromString(String value, XQItemType type)
+</div>
+</td>
+    <td><a name="wp173563"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173565"> </a><div class="pCellBody">
+XQItemType createItemType( )
+</div>
+</td>
+    <td><a name="wp173567"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173569"> </a><div class="pCellBody">
+XQItemType createNodeType( )
+</div>
+</td>
+    <td><a name="wp173571"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173573"> </a><div class="pCellBody">
+XQItemType createProcessingInstructionType(String piTarget)
+</div>
+</td>
+    <td><a name="wp173575"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173577"> </a><div class="pCellBody">
+XQItemType createSchemaAttributeType(QName nodename, int basetype, URI schemaURI) 
+</div>
+</td>
+    <td><a name="wp173579"> </a><div class="pCellBody">
+DataDirect XQuery does not support user-defined XML Schema types.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173581"> </a><div class="pCellBody">
+XQItemType createSchemaElementType(QName nodename, int basetype, URI schemaURI)
+</div>
+</td>
+    <td><a name="wp173583"> </a><div class="pCellBody">
+DataDirect XQuery does not support user-defined XML Schema types.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173585"> </a><div class="pCellBody">
+XQSequence createSequence(Iterator i)
+</div>
+</td>
+    <td><a name="wp173587"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173589"> </a><div class="pCellBody">
+XQSequence createSequence(XQSequence s)
+</div>
+</td>
+    <td><a name="wp173591"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173593"> </a><div class="pCellBody">
+XQSequenceType createSequenceType(XQItemType item, int occurrence)
+</div>
+</td>
+    <td><a name="wp173595"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp173597"> </a><div class="pCellBody">
+XQItemType createTextType( )
+</div>
+</td>
+    <td><a name="wp173599"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <td><a name="wp173471"> </a><div class="pCellBody">
+<a href="#wp173468"><span class="Footnote">1</span></a> An example where typename does not equal basetype:<br /><code class="cCode">  createAttributeType(<br />    new QName(&quot;http://www.foo.com&quot;, &quot;bar&quot;),<br />    XQItemType.XQBASETYPE_INTEGER,<br />    new QNAME(&quot;http://www.w3.org/2001/XMLSchema&quot;, &quot;decimal&quot;),null);</code>
+</div>
+</td>
+  </tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

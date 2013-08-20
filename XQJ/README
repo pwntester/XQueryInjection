@@ -1,0 +1,7 @@
+Install sedna
+
+Start sedna: se_gov
+Create DB: se_cdb test
+Run DB: se_sm test
+Stop DB: se_smsd test
+Stop sedna: se_stop

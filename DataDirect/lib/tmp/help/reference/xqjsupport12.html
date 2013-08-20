@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQPreparedExpression Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp152550"> </a><h2 class="pNewHTMLPageNum">
+XQPreparedExpression Interface
+</h2>
+<hr />
+<a name="wp131159"> </a><p class="pBody">
+This interface describes an expression that can be prepared for multiple subsequent executions. A prepared expression can be created from the connection. This interface extends <a  href="xqjsupport6.html#wp155788">XQDynamicContext</a>.
+</p>
+<a name="wp124237"> </a><p class="pBody">
+<a  href="xqjsupport12.html#wp124241">Table&#160;G-10</a> describes how DataDirect XQuery supports the methods of the XQPreparedExpression interface.
+</p>
+<a name="wp124296"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp124241"> </a><div class="pTableTitle">
+Table G-10.  XQPreparedExpression Method Summary
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp124245"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp124247"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp124249"> </a><div class="pCellBody">
+void cancel( )
+</div>
+</td>
+    <td><a name="wp124251"> </a><div class="pCellBody">
+Supported but ignored.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp124257"> </a><div class="pCellBody">
+void close( )
+</div>
+</td>
+    <td><a name="wp124259"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp124261"> </a><div class="pCellBody">
+XQResultSequence executeQuery( )
+</div>
+</td>
+    <td><a name="wp124263"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp124265"> </a><div class="pCellBody">
+QName[] getAllExternalVariables( )
+</div>
+</td>
+    <td><a name="wp124267"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp124269"> </a><div class="pCellBody">
+QName[] getAllUnboundExternalVariables( )
+</div>
+</td>
+    <td><a name="wp124271"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155163"> </a><div class="pCellBody">
+XQStaticContext getStaticContext( )
+</div>
+</td>
+    <td><a name="wp155165"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp124277"> </a><div class="pCellBody">
+XQSequenceType getStaticResultType( )
+</div>
+</td>
+    <td><a name="wp124279"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp124281"> </a><div class="pCellBody">
+XQSequenceType getStaticVariableType(QName name)
+</div>
+</td>
+    <td><a name="wp124283"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp124289"> </a><div class="pCellBody">
+boolean isClosed( )
+</div>
+</td>
+    <td><a name="wp124291"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

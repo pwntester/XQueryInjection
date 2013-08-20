@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:17" />
+  <title>Using Comparisons</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp194662"> </a><h2 class="pNewHTMLPageNum">
+Using Comparisons
+</h2>
+<hr />
+<a name="wp194663"> </a><p class="pBody">
+When DataDirect XQuery encounters comparisons in where clauses or in predicate expressions <em class="cEmphasis">and</em> an operand is bound to data in an XML data source, performance can be significantly improved if this operand is known by DataDirect XQuery to be a single item. 
+</p>
+<a name="wp204572"> </a><p class="pBody">
+Consider the following query:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $request in doc(&#39;file:///c:/in/request.xml&#39;)/request<a name="wp194664"> </a>
+let $ticker := $request/performance/ticker,<a name="wp194665"> </a>
+    $start := $request/performance/start,<a name="wp194666"> </a>
+    $end := $request/performance/end<a name="wp194667"> </a>
+for $h in collection(&#39;historical&#39;)/historical<a name="wp194668"> </a>
+where $h/ticker = $ticker<a name="wp194669"> </a>
+return $h<a name="wp194670"> </a>
+</pre></div>
+<a name="wp194671"> </a><p class="pBody">
+DataDirect XQuery does not know how many ticker, start, or end elements may occur in the XML source, so it restricts its rewrites in case there are more than one of each of these elements. 
+</p>
+<a name="wp205203"> </a><p class="pBody">
+Using value comparisons &#8211; for example, eq, as shown in the following code &#8211; instead of general comparisons makes this query run faster:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $request in doc(&#39;file:///c:/in/request.xml&#39;)/request<a name="wp194672"> </a>
+let $ticker := $request/performance/ticker,<a name="wp194673"> </a>
+    $start := $request/performance/start,<a name="wp194674"> </a>
+    $end := $request/performance/end<a name="wp194675"> </a>
+for $h in collection(&#39;historical&#39;)/historical<a name="wp194676"> </a>
+where $h/ticker eq $ticker<a name="wp194677"> </a>
+return $h<a name="wp194678"> </a>
+</pre></div>
+<a name="wp194679"> </a><p class="pBody">
+However, this does not work for all data types because eq is restrictive in the types it accepts and does less implicit casting.
+</p>
+<a name="wp204580"> </a><p class="pBody">
+Generally, using value comparisons (eq, ne, lt, le, gt, ge) instead of general comparisons (=, !=, &lt;, &lt;=, &gt;, &gt;=) improves performance. When using general comparison against sequences, the result of the expression is true if any combination of the items contained in the sequences satisfies the comparison. Value comparison only applies to operands that are single items, and the expression returns true if the single items compared with the value comparison operator (for example, eq) match. If one of the two operands is not a single item, the use of eq raises an error. In the preceding example, the query behavior perceived by the user does not differ when using = or eq because $h/ticker and $ticker are always single items. But, typically, using eq instead of = significantly improves performance.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

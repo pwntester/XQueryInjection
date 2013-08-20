@@ -1,0 +1,2134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:38" />
+  <title>Data Type Mappings</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp299568"> </a><h2 class="pNewHTMLPageNum">
+Data Type Mappings
+</h2>
+<hr />
+<a name="wp299570"> </a><p class="pBody">
+This section describes how database data types are mapped to XML schema data types for supported databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp299575"> </a><div class="pSmartList1"><li><a  href="database_support3.html#wp299602">DB2</a></li></div><a name="wp299579"> </a><div class="pSmartList1"><li><a  href="database_support3.html#wp299751">Informix</a></li></div><a name="wp299583"> </a><div class="pSmartList1"><li><a  href="database_support3.html#wp299866">MySQL</a></li></div><a name="wp299587"> </a><div class="pSmartList1"><li><a  href="database_support3.html#wp300169">Oracle</a></li></div><a name="wp299591"> </a><div class="pSmartList1"><li><a  href="database_support3.html#wp300290">PostgreSQL</a></li></div><a name="wp299595"> </a><div class="pSmartList1"><li><a  href="database_support3.html#wp300400">Microsoft SQL Server</a></li></div><a name="wp299599"> </a><div class="pSmartList1"><li><a  href="database_support3.html#wp300566">Sybase</a></li></div></ul></div>
+<a name="wp299602"> </a><h3 class="pHeading2">
+DB2
+</h3>
+<a name="wp299606"> </a><p class="pBody">
+<a  href="database_support3.html#wp299613">Table&#160;E-1</a> describes how DB2 data types are mapped to XML schema data types for DataDirect XQuery. Any DB2 data type that is not listed is not supported by DataDirect XQuery.
+</p>
+<a name="wp299747"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp299613"> </a><div class="pTableTitle">
+Table E-1.  DB2 Data Types &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp299617"> </a><div class="pCellHeading">
+DB2 Data Type
+</div>
+</th>
+    <th><a name="wp299619"> </a><div class="pCellHeading">
+XML Schema Data Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299621"> </a><div class="pCellBody">
+Bigint <a href="#wp306544"><span class="Footnote">1</span></a>
+</div>
+</td>
+    <td><a name="wp299623"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299625"> </a><div class="pCellBody">
+Binary <a href="#wp306551"><span class="Footnote">2</span></a>
+</div>
+</td>
+    <td><a name="wp299627"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299629"> </a><div class="pCellBody">
+Blob
+</div>
+</td>
+    <td><a name="wp299631"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299633"> </a><div class="pCellBody">
+Char
+</div>
+</td>
+    <td><a name="wp299635"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299637"> </a><div class="pCellBody">
+Char for Bit Data
+</div>
+</td>
+    <td><a name="wp299639"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299641"> </a><div class="pCellBody">
+Clob
+</div>
+</td>
+    <td><a name="wp299643"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299645"> </a><div class="pCellBody">
+Date
+</div>
+</td>
+    <td><a name="wp299647"> </a><div class="pCellBody">
+xs:date
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299649"> </a><div class="pCellBody">
+DB2XML.XMLClob
+</div>
+</td>
+    <td><a name="wp299651"> </a><div class="pCellBody">
+xs:anyType
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299653"> </a><div class="pCellBody">
+DB2XML.XMLFile
+</div>
+</td>
+    <td><a name="wp299655"> </a><div class="pCellBody">
+xs:anyType
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299657"> </a><div class="pCellBody">
+DB2XML.XMLVarchar
+</div>
+</td>
+    <td><a name="wp299659"> </a><div class="pCellBody">
+xs:anyType
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299661"> </a><div class="pCellBody">
+DBClob
+</div>
+</td>
+    <td><a name="wp299663"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299665"> </a><div class="pCellBody">
+Decfloat <a href="#wp306562"><span class="Footnote">3</span></a>
+</div>
+</td>
+    <td><a name="wp299667"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299669"> </a><div class="pCellBody">
+Decimal
+</div>
+</td>
+    <td><a name="wp299671"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299673"> </a><div class="pCellBody">
+Double
+</div>
+</td>
+    <td><a name="wp299675"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299677"> </a><div class="pCellBody">
+Double Precision
+</div>
+</td>
+    <td><a name="wp299679"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299681"> </a><div class="pCellBody">
+Float
+</div>
+</td>
+    <td><a name="wp299683"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299685"> </a><div class="pCellBody">
+Float(n), n &gt; 24
+</div>
+</td>
+    <td><a name="wp299687"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299689"> </a><div class="pCellBody">
+Integer
+</div>
+</td>
+    <td><a name="wp299691"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299693"> </a><div class="pCellBody">
+Long Varchar for Bit Data
+</div>
+</td>
+    <td><a name="wp299695"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299697"> </a><div class="pCellBody">
+Long Vargraphic
+</div>
+</td>
+    <td><a name="wp299699"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299701"> </a><div class="pCellBody">
+Numeric
+</div>
+</td>
+    <td><a name="wp299703"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299705"> </a><div class="pCellBody">
+Real
+</div>
+</td>
+    <td><a name="wp299707"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299709"> </a><div class="pCellBody">
+Rowid <a href="#wp306579"><span class="Footnote">4</span></a>
+</div>
+</td>
+    <td><a name="wp299711"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299713"> </a><div class="pCellBody">
+Smallint
+</div>
+</td>
+    <td><a name="wp299715"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299717"> </a><div class="pCellBody">
+Time
+</div>
+</td>
+    <td><a name="wp299719"> </a><div class="pCellBody">
+xs:time
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299721"> </a><div class="pCellBody">
+Timestamp
+</div>
+</td>
+    <td><a name="wp299723"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299725"> </a><div class="pCellBody">
+Varbinary <span style="vertical-align: super">2</span>
+</div>
+</td>
+    <td><a name="wp299727"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299729"> </a><div class="pCellBody">
+Varchar
+</div>
+</td>
+    <td><a name="wp299731"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299733"> </a><div class="pCellBody">
+Varchar for Bit Data
+</div>
+</td>
+    <td><a name="wp299735"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299737"> </a><div class="pCellBody">
+Xml <a href="#wp306589"><span class="Footnote">5</span></a>
+</div>
+</td>
+    <td><a name="wp299739"> </a><div class="pCellBody">
+xs:anyType
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp299744"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <td><a name="wp306544"> </a><div class="pCellBody">
+<a href="#wp299621"><span class="Footnote">1</span></a> Supported for DB2 for Linux, UNIX, and Windows v8.x and v9.x and for DB2 for z/OS v9.x only.
+</div>
+<a name="wp306551"> </a><div class="pCellBody">
+<a href="#wp299625"><span class="Footnote">2</span></a> Supported for DB2 v9.x for z/OS only.
+</div>
+<a name="wp306562"> </a><div class="pCellBody">
+<a href="#wp299665"><span class="Footnote">3</span></a> Supported for DB2 for Linux, UNIX, and Windows v9.x and for DB2 for z/OS v9.x only.
+</div>
+<a name="wp306579"> </a><div class="pCellBody">
+<a href="#wp299709"><span class="Footnote">4</span></a> Supported for DB2 for z/OS and DB2 for iSeries only.
+</div>
+<a name="wp306589"> </a><div class="pCellBody">
+<a href="#wp299737"><span class="Footnote">5</span></a> Supported for DB2 for Linux, UNIX, and Windows v9.x only.
+</div>
+</td>
+  </tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp299751"> </a><h3 class="pHeading2">
+Informix
+</h3>
+<a name="wp299755"> </a><p class="pBody">
+<a  href="database_support3.html#wp299759">Table&#160;E-2</a> describes how Informix data types are mapped to XML schema data types for DataDirect XQuery. Any Informix data type that is not listed is not supported by DataDirect XQuery.
+</p>
+<a name="wp299862"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp299759"> </a><div class="pTableTitle">
+Table E-2.  Informix Data Types
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp299763"> </a><div class="pCellHeading">
+Informix Data Type
+</div>
+</th>
+    <th><a name="wp299765"> </a><div class="pCellHeading">
+XML Schema Data Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299767"> </a><div class="pCellBody">
+BLOB
+</div>
+</td>
+    <td><a name="wp299769"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299771"> </a><div class="pCellBody">
+BOOLEAN
+</div>
+</td>
+    <td><a name="wp299773"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299775"> </a><div class="pCellBody">
+BYTE
+</div>
+</td>
+    <td><a name="wp299777"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299779"> </a><div class="pCellBody">
+CHAR
+</div>
+</td>
+    <td><a name="wp299781"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299783"> </a><div class="pCellBody">
+CLOB
+</div>
+</td>
+    <td><a name="wp299785"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299787"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp299789"> </a><div class="pCellBody">
+xs:date
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299791"> </a><div class="pCellBody">
+DATETIME HOUR TO SECOND
+</div>
+</td>
+    <td><a name="wp299793"> </a><div class="pCellBody">
+xs:time
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299795"> </a><div class="pCellBody">
+DATETIME YEAR TO DAY
+</div>
+</td>
+    <td><a name="wp299797"> </a><div class="pCellBody">
+xs:date
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299799"> </a><div class="pCellBody">
+DATETIME YEAR TO FRACTION(5)
+</div>
+</td>
+    <td><a name="wp299801"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299803"> </a><div class="pCellBody">
+DATETIME YEAR TO SECOND
+</div>
+</td>
+    <td><a name="wp299805"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299807"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+    <td><a name="wp299809"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299811"> </a><div class="pCellBody">
+FLOAT
+</div>
+</td>
+    <td><a name="wp299813"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299815"> </a><div class="pCellBody">
+INT8
+</div>
+</td>
+    <td><a name="wp299817"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299819"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+    <td><a name="wp299821"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299823"> </a><div class="pCellBody">
+LVARCHAR
+</div>
+</td>
+    <td><a name="wp299825"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299827"> </a><div class="pCellBody">
+MONEY
+</div>
+</td>
+    <td><a name="wp299829"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299831"> </a><div class="pCellBody">
+NCHAR
+</div>
+</td>
+    <td><a name="wp299833"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299835"> </a><div class="pCellBody">
+NVARCHAR
+</div>
+</td>
+    <td><a name="wp299837"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299839"> </a><div class="pCellBody">
+SERIAL
+</div>
+</td>
+    <td><a name="wp299841"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299843"> </a><div class="pCellBody">
+SERIAL8
+</div>
+</td>
+    <td><a name="wp299845"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299847"> </a><div class="pCellBody">
+SMALLFLOAT
+</div>
+</td>
+    <td><a name="wp299849"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299851"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+    <td><a name="wp299853"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299855"> </a><div class="pCellBody">
+TEXT
+</div>
+</td>
+    <td><a name="wp299857"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299859"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+    <td><a name="wp299861"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp299866"> </a><h3 class="pHeading2">
+MySQL
+</h3>
+<a name="wp299870"> </a><p class="pBody">
+<a  href="database_support3.html#wp299874">Table&#160;E-3</a> describes how MySQL data types are mapped to XML schema data types for DataDirect XQuery. Any MySQL data type that is not listed is not supported by DataDirect XQuery.
+</p>
+<a name="wp300017"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp299874"> </a><div class="pTableTitle">
+Table E-3.  MySQL Enterprise Data Types
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp299878"> </a><div class="pCellHeading">
+MySQL Enterprise Data Type
+</div>
+</th>
+    <th><a name="wp299880"> </a><div class="pCellHeading">
+XML Schema Data Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299882"> </a><div class="pCellBody">
+BIGINT
+</div>
+</td>
+    <td><a name="wp299884"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299886"> </a><div class="pCellBody">
+BIGINT UNSIGNED
+</div>
+</td>
+    <td><a name="wp299888"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299890"> </a><div class="pCellBody">
+BINARY
+</div>
+</td>
+    <td><a name="wp299892"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299894"> </a><div class="pCellBody">
+BIT
+</div>
+</td>
+    <td><a name="wp299896"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299898"> </a><div class="pCellBody">
+BLOB
+</div>
+</td>
+    <td><a name="wp299900"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299902"> </a><div class="pCellBody">
+BOOLEAN
+</div>
+</td>
+    <td><a name="wp299904"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299906"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp299908"> </a><div class="pCellBody">
+xs:date
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299910"> </a><div class="pCellBody">
+DATETIME
+</div>
+</td>
+    <td><a name="wp299912"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299914"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+    <td><a name="wp299916"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299918"> </a><div class="pCellBody">
+DECIMAL UNSIGNED
+</div>
+</td>
+    <td><a name="wp299920"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299922"> </a><div class="pCellBody">
+DOUBLE
+</div>
+</td>
+    <td><a name="wp299924"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299926"> </a><div class="pCellBody">
+DOUBLE UNSIGNED
+</div>
+</td>
+    <td><a name="wp299928"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299930"> </a><div class="pCellBody">
+FLOAT
+</div>
+</td>
+    <td><a name="wp299932"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299934"> </a><div class="pCellBody">
+FLOAT UNSIGNED
+</div>
+</td>
+    <td><a name="wp299936"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299938"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+    <td><a name="wp299940"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299942"> </a><div class="pCellBody">
+INTEGER UNSIGNED
+</div>
+</td>
+    <td><a name="wp299944"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299946"> </a><div class="pCellBody">
+LONGBLOB
+</div>
+</td>
+    <td><a name="wp299948"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299950"> </a><div class="pCellBody">
+LONGTEXT
+</div>
+</td>
+    <td><a name="wp299952"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299954"> </a><div class="pCellBody">
+MEDIUMBLOB
+</div>
+</td>
+    <td><a name="wp299956"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299958"> </a><div class="pCellBody">
+MEDIUMINT
+</div>
+</td>
+    <td><a name="wp299960"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299962"> </a><div class="pCellBody">
+MEDIUMINT UNSIGNED
+</div>
+</td>
+    <td><a name="wp299964"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299966"> </a><div class="pCellBody">
+MEDIUMTEXT
+</div>
+</td>
+    <td><a name="wp299968"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299970"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+    <td><a name="wp299972"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299974"> </a><div class="pCellBody">
+SMALLINT UNSIGNED
+</div>
+</td>
+    <td><a name="wp299976"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299978"> </a><div class="pCellBody">
+TEXT
+</div>
+</td>
+    <td><a name="wp299980"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299982"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+    <td><a name="wp299984"> </a><div class="pCellBody">
+xs:time
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299986"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+</td>
+    <td><a name="wp299988"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299990"> </a><div class="pCellBody">
+TINYBLOB
+</div>
+</td>
+    <td><a name="wp299992"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299994"> </a><div class="pCellBody">
+TINYINT
+</div>
+</td>
+    <td><a name="wp299996"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp299998"> </a><div class="pCellBody">
+TINYINT UNSIGNED
+</div>
+</td>
+    <td><a name="wp300000"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300002"> </a><div class="pCellBody">
+TINYTEXT
+</div>
+</td>
+    <td><a name="wp300004"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300006"> </a><div class="pCellBody">
+VARBINARY
+</div>
+</td>
+    <td><a name="wp300008"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300010"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+    <td><a name="wp300012"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300014"> </a><div class="pCellBody">
+YEAR
+</div>
+</td>
+    <td><a name="wp300016"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp300169"> </a><h3 class="pHeading2">
+Oracle
+</h3>
+<a name="wp300173"> </a><p class="pBody">
+<a  href="database_support3.html#wp300180">Table&#160;E-4</a> describes how Oracle data types are mapped to XML schema data types for DataDirect XQuery. Any Oracle data type that is not listed is not supported by DataDirect XQuery.
+</p>
+<a name="wp300287"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp300180"> </a><div class="pTableTitle">
+Table E-4.  Oracle Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp300184"> </a><div class="pCellHeading">
+Oracle Data Type
+</div>
+</th>
+    <th><a name="wp300186"> </a><div class="pCellHeading">
+XML Schema Data Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300188"> </a><div class="pCellBody">
+BFILE
+</div>
+</td>
+    <td><a name="wp300190"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300192"> </a><div class="pCellBody">
+BINARY_FLOAT
+</div>
+</td>
+    <td><a name="wp300194"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300196"> </a><div class="pCellBody">
+BINARY_DOUBLE
+</div>
+</td>
+    <td><a name="wp300198"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300200"> </a><div class="pCellBody">
+BLOB
+</div>
+</td>
+    <td><a name="wp300202"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300204"> </a><div class="pCellBody">
+CHAR
+</div>
+</td>
+    <td><a name="wp300206"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300208"> </a><div class="pCellBody">
+CLOB
+</div>
+</td>
+    <td><a name="wp300210"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300212"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp300214"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300216"> </a><div class="pCellBody">
+FLOAT(n)
+</div>
+</td>
+    <td><a name="wp300218"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300220"> </a><div class="pCellBody">
+LONG
+</div>
+</td>
+    <td><a name="wp300222"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300224"> </a><div class="pCellBody">
+LONG RAW
+</div>
+</td>
+    <td><a name="wp300226"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300228"> </a><div class="pCellBody">
+NCHAR
+</div>
+</td>
+    <td><a name="wp300230"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300232"> </a><div class="pCellBody">
+NCLOB
+</div>
+</td>
+    <td><a name="wp300234"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300236"> </a><div class="pCellBody">
+NUMBER (p, s)
+</div>
+</td>
+    <td><a name="wp300238"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300240"> </a><div class="pCellBody">
+NUMERIC
+</div>
+</td>
+    <td><a name="wp300242"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300244"> </a><div class="pCellBody">
+NVARCHAR2
+</div>
+</td>
+    <td><a name="wp300246"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300248"> </a><div class="pCellBody">
+RAW
+</div>
+</td>
+    <td><a name="wp300250"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300252"> </a><div class="pCellBody">
+REAL
+</div>
+</td>
+    <td><a name="wp300254"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300256"> </a><div class="pCellBody">
+ROWID
+</div>
+</td>
+    <td><a name="wp300258"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300260"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+    <td><a name="wp300262"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300264"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+</td>
+    <td><a name="wp300266"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300268"> </a><div class="pCellBody">
+TIMESTAMP WITH LOCAL TIME ZONE
+</div>
+</td>
+    <td><a name="wp300270"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300272"> </a><div class="pCellBody">
+TIMESTAMP WITH TIME ZONE
+</div>
+</td>
+    <td><a name="wp300274"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300276"> </a><div class="pCellBody">
+UROWID
+</div>
+</td>
+    <td><a name="wp300278"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300280"> </a><div class="pCellBody">
+VARCHAR2
+</div>
+</td>
+    <td><a name="wp300282"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300284"> </a><div class="pCellBody">
+XMLTYPE<a href="#wp306737"><span class="Footnote">1</span></a>
+</div>
+</td>
+    <td><a name="wp300286"> </a><div class="pCellBody">
+xs:anyType
+</div>
+</td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <td><a name="wp306737"> </a><div class="pCellBody">
+<a href="#wp300284"><span class="Footnote">1</span></a> Supported for Oracle 10gR2 and 11gR1 only.
+</div>
+</td>
+  </tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp300290"> </a><h3 class="pHeading2">
+PostgreSQL
+</h3>
+<a name="wp300294"> </a><p class="pBody">
+<a  href="database_support3.html#wp300301">Table&#160;E-5</a> describes how PostgreSQL data types are mapped to XML schema data types for DataDirect XQuery. Any PostgreSQL data type that is not listed is not supported by DataDirect XQuery.
+</p>
+<a name="wp300396"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp300301"> </a><div class="pTableTitle">
+Table E-5.  PostgreSQL Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp300305"> </a><div class="pCellHeading">
+PostgreSQL Data Type
+</div>
+</th>
+    <th><a name="wp300307"> </a><div class="pCellHeading">
+XML Schema Data Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300309"> </a><div class="pCellBody">
+bigserial
+</div>
+</td>
+    <td><a name="wp300311"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300313"> </a><div class="pCellBody">
+bit
+</div>
+</td>
+    <td><a name="wp300315"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300317"> </a><div class="pCellBody">
+bool
+</div>
+</td>
+    <td><a name="wp300319"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300321"> </a><div class="pCellBody">
+bytea
+</div>
+</td>
+    <td><a name="wp300323"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300325"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp300327"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300329"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp300331"> </a><div class="pCellBody">
+xs:date
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300333"> </a><div class="pCellBody">
+float4
+</div>
+</td>
+    <td><a name="wp300335"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300337"> </a><div class="pCellBody">
+float8
+</div>
+</td>
+    <td><a name="wp300339"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300341"> </a><div class="pCellBody">
+int2
+</div>
+</td>
+    <td><a name="wp300343"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300345"> </a><div class="pCellBody">
+int4
+</div>
+</td>
+    <td><a name="wp300347"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300349"> </a><div class="pCellBody">
+int8
+</div>
+</td>
+    <td><a name="wp300351"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300353"> </a><div class="pCellBody">
+money
+</div>
+</td>
+    <td><a name="wp300355"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300357"> </a><div class="pCellBody">
+name
+</div>
+</td>
+    <td><a name="wp300359"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300361"> </a><div class="pCellBody">
+numeric
+</div>
+</td>
+    <td><a name="wp300363"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300365"> </a><div class="pCellBody">
+oid
+</div>
+</td>
+    <td><a name="wp300367"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300369"> </a><div class="pCellBody">
+serial
+</div>
+</td>
+    <td><a name="wp300371"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300373"> </a><div class="pCellBody">
+text
+</div>
+</td>
+    <td><a name="wp300375"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300377"> </a><div class="pCellBody">
+time
+</div>
+</td>
+    <td><a name="wp300379"> </a><div class="pCellBody">
+xs:time
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300381"> </a><div class="pCellBody">
+timestamp
+</div>
+</td>
+    <td><a name="wp300383"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300385"> </a><div class="pCellBody">
+timestamp with time zone
+</div>
+</td>
+    <td><a name="wp300387"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300389"> </a><div class="pCellBody">
+time with time zone
+</div>
+</td>
+    <td><a name="wp300391"> </a><div class="pCellBody">
+xs:time
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300393"> </a><div class="pCellBody">
+varchar
+</div>
+</td>
+    <td><a name="wp300395"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp300400"> </a><h3 class="pHeading2">
+Microsoft SQL Server
+</h3>
+<a name="wp300404"> </a><p class="pBody">
+<a  href="database_support3.html#wp300411">Table&#160;E-6</a> describes how Microsoft SQL Server data types are mapped to XML schema data types for DataDirect XQuery. Any Microsoft SQL Server data type that is not listed is not supported by DataDirect XQuery.
+</p>
+<a name="wp300562"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp300411"> </a><div class="pTableTitle">
+Table E-6.  Microsoft SQL Server Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp300415"> </a><div class="pCellHeading">
+Microsoft SQL Server Data Type
+</div>
+</th>
+    <th><a name="wp300417"> </a><div class="pCellHeading">
+XML Schema Data Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300419"> </a><div class="pCellBody">
+bigint
+</div>
+</td>
+    <td><a name="wp300421"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300423"> </a><div class="pCellBody">
+bigint identity
+</div>
+</td>
+    <td><a name="wp300425"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300427"> </a><div class="pCellBody">
+binary
+</div>
+</td>
+    <td><a name="wp300429"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300431"> </a><div class="pCellBody">
+bit
+</div>
+</td>
+    <td><a name="wp300433"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300435"> </a><div class="pCellBody">
+char
+</div>
+</td>
+    <td><a name="wp300437"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300439"> </a><div class="pCellBody">
+datetime
+</div>
+</td>
+    <td><a name="wp300441"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300443"> </a><div class="pCellBody">
+decimal
+</div>
+</td>
+    <td><a name="wp300445"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300447"> </a><div class="pCellBody">
+decimal() identity
+</div>
+</td>
+    <td><a name="wp300449"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300451"> </a><div class="pCellBody">
+double
+</div>
+</td>
+    <td><a name="wp300453"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300455"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp300457"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300459"> </a><div class="pCellBody">
+image
+</div>
+</td>
+    <td><a name="wp300461"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300463"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp300465"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300467"> </a><div class="pCellBody">
+int identity
+</div>
+</td>
+    <td><a name="wp300469"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300471"> </a><div class="pCellBody">
+money
+</div>
+</td>
+    <td><a name="wp300473"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300475"> </a><div class="pCellBody">
+nchar
+</div>
+</td>
+    <td><a name="wp300477"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300479"> </a><div class="pCellBody">
+ntext
+</div>
+</td>
+    <td><a name="wp300481"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300483"> </a><div class="pCellBody">
+numeric
+</div>
+</td>
+    <td><a name="wp300485"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300487"> </a><div class="pCellBody">
+numeric() identity
+</div>
+</td>
+    <td><a name="wp300489"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300491"> </a><div class="pCellBody">
+nvarchar
+</div>
+</td>
+    <td><a name="wp300493"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300495"> </a><div class="pCellBody">
+real
+</div>
+</td>
+    <td><a name="wp300497"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300499"> </a><div class="pCellBody">
+rowversion
+</div>
+</td>
+    <td><a name="wp300501"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300503"> </a><div class="pCellBody">
+sql_variant
+</div>
+</td>
+    <td><a name="wp300505"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300507"> </a><div class="pCellBody">
+smalldatetime
+</div>
+</td>
+    <td><a name="wp300509"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300511"> </a><div class="pCellBody">
+smallint
+</div>
+</td>
+    <td><a name="wp300513"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300515"> </a><div class="pCellBody">
+smallint identity
+</div>
+</td>
+    <td><a name="wp300517"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300519"> </a><div class="pCellBody">
+smallmoney
+</div>
+</td>
+    <td><a name="wp300521"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300523"> </a><div class="pCellBody">
+sysname
+</div>
+</td>
+    <td><a name="wp300525"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300527"> </a><div class="pCellBody">
+text
+</div>
+</td>
+    <td><a name="wp300529"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300531"> </a><div class="pCellBody">
+timestamp
+</div>
+</td>
+    <td><a name="wp300533"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300535"> </a><div class="pCellBody">
+tinyint
+</div>
+</td>
+    <td><a name="wp300537"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300539"> </a><div class="pCellBody">
+tinyint identity
+</div>
+</td>
+    <td><a name="wp300541"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300543"> </a><div class="pCellBody">
+uniqueidentifier
+</div>
+</td>
+    <td><a name="wp300545"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300547"> </a><div class="pCellBody">
+varbinary
+</div>
+</td>
+    <td><a name="wp300549"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300551"> </a><div class="pCellBody">
+varchar
+</div>
+</td>
+    <td><a name="wp300553"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300555"> </a><div class="pCellBody">
+xml <span style="vertical-align: super">1</span>
+</div>
+</td>
+    <td><a name="wp300557"> </a><div class="pCellBody">
+xs:anyType
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp300559"> </a><div class="pCellBody">
+<span style="vertical-align: super">1 </span>Supported for Microsoft SQL Server 2005 and 2008 only.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp300566"> </a><h3 class="pHeading2">
+Sybase
+</h3>
+<a name="wp300570"> </a><p class="pBody">
+<a  href="database_support3.html#wp300577">Table&#160;E-7</a> describes how Sybase data types are mapped to XML schema data types for DataDirect XQuery. Any Sybase data type that is not listed is not supported by DataDirect XQuery.
+</p>
+<a name="wp300732"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp300577"> </a><div class="pTableTitle">
+Table E-7.  Sybase Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp300581"> </a><div class="pCellHeading">
+Sybase Data Type
+</div>
+</th>
+    <th><a name="wp300583"> </a><div class="pCellHeading">
+XML Schema Data Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300585"> </a><div class="pCellBody">
+BIGINT <span style="vertical-align: super">1</span>
+</div>
+</td>
+    <td><a name="wp300587"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300589"> </a><div class="pCellBody">
+BINARY(n)
+</div>
+</td>
+    <td><a name="wp300591"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300593"> </a><div class="pCellBody">
+BIT
+</div>
+</td>
+    <td><a name="wp300595"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300597"> </a><div class="pCellBody">
+CHAR(n)
+</div>
+</td>
+    <td><a name="wp300599"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300601"> </a><div class="pCellBody">
+CHAR VARYING
+</div>
+</td>
+    <td><a name="wp300603"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300605"> </a><div class="pCellBody">
+CHARACTER
+</div>
+</td>
+    <td><a name="wp300607"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300609"> </a><div class="pCellBody">
+CHARACTER VARYING
+</div>
+</td>
+    <td><a name="wp300611"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300613"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp300615"> </a><div class="pCellBody">
+xs:date
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300617"> </a><div class="pCellBody">
+DATETIME
+</div>
+</td>
+    <td><a name="wp300619"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300621"> </a><div class="pCellBody">
+DEC
+</div>
+</td>
+    <td><a name="wp300623"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300625"> </a><div class="pCellBody">
+DECIMAL(p,s)
+</div>
+</td>
+    <td><a name="wp300627"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300629"> </a><div class="pCellBody">
+DOUBLE
+</div>
+</td>
+    <td><a name="wp300631"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300633"> </a><div class="pCellBody">
+FLOAT
+</div>
+</td>
+    <td><a name="wp300635"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300637"> </a><div class="pCellBody">
+IMAGE
+</div>
+</td>
+    <td><a name="wp300639"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300641"> </a><div class="pCellBody">
+INT
+</div>
+</td>
+    <td><a name="wp300643"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300645"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+    <td><a name="wp300647"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300649"> </a><div class="pCellBody">
+MONEY
+</div>
+</td>
+    <td><a name="wp300651"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300653"> </a><div class="pCellBody">
+NATIONAL CHAR
+</div>
+</td>
+    <td><a name="wp300655"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300657"> </a><div class="pCellBody">
+NATIONAL CHAR VARYING
+</div>
+</td>
+    <td><a name="wp300659"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300661"> </a><div class="pCellBody">
+NCHAR(n)
+</div>
+</td>
+    <td><a name="wp300663"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300665"> </a><div class="pCellBody">
+NUMERIC(p,s)
+</div>
+</td>
+    <td><a name="wp300667"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300669"> </a><div class="pCellBody">
+NVARCHAR(n)
+</div>
+</td>
+    <td><a name="wp300671"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300673"> </a><div class="pCellBody">
+REAL
+</div>
+</td>
+    <td><a name="wp300675"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300677"> </a><div class="pCellBody">
+SMALLDATETIME
+</div>
+</td>
+    <td><a name="wp300679"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300681"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+    <td><a name="wp300683"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300685"> </a><div class="pCellBody">
+SMALLMONEY
+</div>
+</td>
+    <td><a name="wp300687"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300689"> </a><div class="pCellBody">
+TEXT
+</div>
+</td>
+    <td><a name="wp300691"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300693"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+    <td><a name="wp300695"> </a><div class="pCellBody">
+xs:time
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300697"> </a><div class="pCellBody">
+TINYINT
+</div>
+</td>
+    <td><a name="wp300699"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300701"> </a><div class="pCellBody">
+UNICHAR
+</div>
+</td>
+    <td><a name="wp300703"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300705"> </a><div class="pCellBody">
+UNICODE CHAR VARYING
+</div>
+</td>
+    <td><a name="wp300707"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300709"> </a><div class="pCellBody">
+UNICODE CHARACTER
+</div>
+</td>
+    <td><a name="wp300711"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300713"> </a><div class="pCellBody">
+UNICODE CHARACTER VARYING
+</div>
+</td>
+    <td><a name="wp300715"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300717"> </a><div class="pCellBody">
+UNIVARCHAR
+</div>
+</td>
+    <td><a name="wp300719"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300721"> </a><div class="pCellBody">
+VARBINARY(n)
+</div>
+</td>
+    <td><a name="wp300723"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300725"> </a><div class="pCellBody">
+VARCHAR(n)
+</div>
+</td>
+    <td><a name="wp300727"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp300729"> </a><div class="pCellBody">
+<span style="vertical-align: super">1 </span>Supported only for Sybase 15.0.
+</div>
+</td>
+    <td><a name="wp300731"> </a><div class="pCellHeading">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

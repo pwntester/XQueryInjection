@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:12" />
+  <title>Replacing Node Values</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp204592"> </a><h2 class="pNewHTMLPageNum">
+Replacing Node Values
+</h2>
+<hr />
+<a name="wp219036"> </a><p class="pBody">
+The <code class="cCode">replace</code> expression is an updating expression that can be used to replace a node or a node&#8217;s value. Its syntax varies based on the type of replacement.
+</p>
+<a name="wp219180"> </a><h3 class="pHeading2">
+Example
+</h3>
+<a name="wp219220"> </a><p class="pBody">
+The change-values.xq example queries holdings.xml. It looks for a user, Minollo (/table/holdings[UserId eq &#39;Minollo&#39;]), and increases his stock holdings (<code class="cCode">&lt;shares&gt;</code>) by 20%, replacing the current value with the calculated value. 
+</p>
+<a name="wp220033"> </a><p class="pBody">
+Results of the query are written to a new XML document, more-shares.xml, using the <code class="cCode">fn:put()</code> function:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $holding in doc(&quot;/examples/xml/holdings.xml&quot;)<a name="wp220039"> </a>
+      /table/holdings[UserId eq &#39;Minollo&#39;]<a name="wp220040"> </a>
+return<a name="wp220041"> </a>
+replace value of node $holding/Shares with xs:integer($holding/Shares * 1.2),<a name="wp220042"> </a>
+       put(doc(&quot;/examples/xml/holdings.xml&quot;), &quot;/examples/xml/mo-shares.xml&quot;)<a name="wp220043"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

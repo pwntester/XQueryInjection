@@ -1,0 +1,503 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<WebWorksHelpTOC version="3.0">
+ <i l="preface.html#wp1035492" t="Preface">
+  <i l="preface2.html#wp1022488" t="What Is DataDirect XQuery&#174;?" />
+  <i l="preface3.html#wp1035505" t="Using This Help" />
+  <i l="preface4.html#wp1017727" t="About the Product Documentation">
+   <i l="preface4.html#wp1034018" t="HTML Version" />
+   <i l="preface4.html#wp1034029" t="PDF Version" />
+  </i>
+  <i l="preface5.html#wp1034272" t="Typographical Conventions" />
+  <i l="preface6.html#wp1028910" t="Contacting Technical Support" />
+ </i>
+ <i l="quickstart.html#wp967541" t="1 Quick Start">
+  <i l="quickstart2.html#wp964085" t="Getting Started with DataDirect XQuery" />
+  <i l="quickstart3.html#wp939288" t="Using the Command Line Utility" />
+  <i l="quickstart4.html#wp965017" t="Additional Resources" />
+ </i>
+ <i l="overview.html#wp114259" t="2 Introduction">
+  <i l="overview2.html#wp143429" t="What Is DataDirect XQuery&#174;?" />
+  <i l="overview3.html#wp133406" t="What Is XQuery?">
+   <i l="overview3.html#wp136554" t="The XQuery Standard" />
+  </i>
+  <i l="overview4.html#wp132461" t="What Is XQJ?" />
+  <i l="overview5.html#wp143313" t="DataDirect XQuery&#174; Architecture" />
+  <i l="overview6.html#wp151555" t="Using DataDirect XML Converters&#8482;" />
+  <i l="overview7.html#wp151558" t="Using Stylus Studio&#174;" />
+ </i>
+ <i l="tutorial_ddxquery.html#wp114259" t="3 Tutorial: Using DataDirect XQuery&#174;">
+  <i l="tutorial_ddxquery2.html#wp161077" t="Specifying the XQuery Version">
+   <i l="tutorial_ddxquery2.html#wp161270" t="Where to Specify Version" />
+   <i l="tutorial_ddxquery2.html#wp161283" t="When to Specify Version" />
+   <i l="tutorial_ddxquery2.html#wp161410" t="How to Specify Version" />
+  </i>
+  <i l="tutorial_ddxquery3.html#wp144170" t="Configuring Connections">
+   <i l="tutorial_ddxquery3.html#wp146467" t="Specifying Connection Information" />
+  </i>
+  <i l="tutorial_ddxquery4.html#wp155366" t="Executing Queries" />
+  <i l="tutorial_ddxquery5.html#wp144314" t="Querying Data from XML Files or DOM Trees">
+   <i l="tutorial_ddxquery5.html#wp160773" t="Querying an XML File" />
+   <i l="tutorial_ddxquery5.html#wp144565" t="Querying a DOM" />
+   <i l="tutorial_ddxquery5.html#wp157977" t="Querying a Directory" />
+  </i>
+  <i l="tutorial_ddxquery6.html#wp144690" t="Joining Data from XML and Relational Sources" />
+  <i l="tutorial_ddxquery7.html#wp145145" t="Returning Results with Java XML APIs">
+   <i l="tutorial_ddxquery7.html#wp150184" t="DOM" />
+   <i l="tutorial_ddxquery7.html#wp150642" t="SAX" />
+   <i l="tutorial_ddxquery7.html#wp149977" t="StAX" />
+  </i>
+  <i l="tutorial_ddxquery8.html#wp145150" t="Preparing XQuery Statements" />
+  <i l="tutorial_ddxquery9.html#wp151077" t="Updating Data in Relational Databases" />
+ </i>
+ <i l="tutorial_xquery.html#wp146591" t="4 Tutorial: Using XQuery">
+  <i l="tutorial_xquery2.html#wp147400" t="Finding XML Nodes: Path Expressions">
+   <i l="tutorial_xquery2.html#wp147607" t="Path Expressions for XML Sources" />
+   <i l="tutorial_xquery2.html#wp148340" t="Path Expressions for Relational Sources" />
+   <i l="tutorial_xquery2.html#wp148388" t="DataDirect XQuery Speaks SQL" />
+  </i>
+  <i l="tutorial_xquery3.html#wp148394" t="Creating XML: XML Constructors">
+   <i l="tutorial_xquery3.html#wp148397" t="Literal XML constructors" />
+   <i l="tutorial_xquery3.html#wp148671" t="Enclosed Expressions" />
+  </i>
+  <i l="tutorial_xquery4.html#wp150378" t="Restructuring Data: FLWOR Expressions">
+   <i l="tutorial_xquery4.html#wp150380" t="XML Reporting for Relational Sources" />
+   <i l="tutorial_xquery4.html#wp156278" t="Processing XML and Relational Together" />
+  </i>
+  <i l="tutorial_xquery5.html#wp153479" t="Grouping Data">
+   <i l="tutorial_xquery5.html#wp153562" t="What Is Grouping" />
+   <i l="tutorial_xquery5.html#wp153637" t="The window Clause" />
+   <i l="tutorial_xquery5.html#wp153787" t="Example: Tumbling Windows" />
+   <i l="tutorial_xquery5.html#wp153925" t="Example: Positional Grouping" />
+   <i l="tutorial_xquery5.html#wp154082" t="Example: Sliding Windows" />
+  </i>
+  <i l="tutorial_xquery6.html#wp154046" t="Summary" />
+ </i>
+ <i l="xuf_support.html#wp114259" t="5 Tutorial: The XQuery Update Facility">
+  <i l="xuf_support2.html#wp214353" t="Support Overview">
+   <i l="xuf_support2.html#wp220466" t="XUF Expressions" />
+  </i>
+  <i l="xuf_support3.html#wp219952" t="XUF Examples">
+   <i l="xuf_support3.html#wp220224" t="Sample Files" />
+  </i>
+  <i l="xuf_support4.html#wp220594" t="Storing Query Results">
+   <i l="xuf_support4.html#wp222098" t="Example" />
+  </i>
+  <i l="xuf_support5.html#wp204592" t="Replacing Node Values">
+   <i l="xuf_support5.html#wp219180" t="Example" />
+  </i>
+  <i l="xuf_support6.html#wp218964" t="Inserting a New Node">
+   <i l="xuf_support6.html#wp219424" t="Example" />
+  </i>
+  <i l="xuf_support7.html#wp218979" t="Renaming a Node">
+   <i l="xuf_support7.html#wp220814" t="Example" />
+   <i l="xuf_support7.html#wp222291" t="Example &#8211; Using XQJ" />
+  </i>
+  <i l="xuf_support8.html#wp218986" t="Transforming Query Results">
+   <i l="xuf_support8.html#wp220943" t="Example &#8211; Replacing a Node Value" />
+   <i l="xuf_support8.html#wp218993" t="Example &#8211; Inserting a Node" />
+  </i>
+  <i l="xuf_support9.html#wp221374" t="Updating Data Sources">
+   <i l="xuf_support9.html#wp221530" t="Enabling Automatic Update" />
+   <i l="xuf_support9.html#wp221525" t="How Updates are Performed" />
+   <i l="xuf_support9.html#wp221524" t="Example" />
+  </i>
+ </i>
+ <i l="conf_sourcefiles.html#wp181891" t="6 Understanding Data Sources and Connections">
+  <i l="conf_sourcefiles2.html#wp184870" t="Using Data Sources in Queries">
+   <i l="conf_sourcefiles2.html#wp187870" t="XML Data Sources" />
+   <i l="conf_sourcefiles2.html#wp184922" t="Relational Data Sources" />
+  </i>
+  <i l="conf_sourcefiles3.html#wp202801" t="Choosing a Connection Method" />
+  <i l="conf_sourcefiles4.html#wp181921" t="Configuring Connections Explicitly" />
+  <i l="conf_sourcefiles5.html#wp181978" t="Configuring Connections Using JNDI" />
+  <i l="conf_sourcefiles6.html#wp182031" t="DDXQDataSource and DDXQJDBCConnection Properties">
+   <i l="conf_sourcefiles6.html#wp218350" t="DDXQDataSource Properties" />
+   <i l="conf_sourcefiles6.html#wp218358" t="DDXQJDBCConnection Properties" />
+  </i>
+  <i l="conf_sourcefiles7.html#wp182290" t="Specifying Connection URIs">
+   <i l="conf_sourcefiles7.html#wp206955" t="Connection URIs for Built-In Drivers" />
+   <i l="conf_sourcefiles7.html#wp209990" t="Connection URIs for Third-Party Drivers" />
+  </i>
+ </i>
+ <i l="connection_security.html#wp239376" t="7 Securing Data Source Connections">
+  <i l="connection_security2.html#wp239400" t="About Authentication" />
+  <i l="connection_security3.html#wp239534" t="Using Kerberos Authentication">
+   <i l="connection_security3.html#wp239599" t="Configuring Kerberos Authentication" />
+   <i l="connection_security3.html#wp239734" t="Specifying User Credentials with Kerberos Authentication" />
+   <i l="connection_security3.html#wp239800" t="Obtaining a Kerberos Ticket Granting Ticket" />
+  </i>
+  <i l="connection_security4.html#wp239811" t="Using NTLM Authentication">
+   <i l="connection_security4.html#wp239864" t="Configuring NTLM Authentication" />
+  </i>
+  <i l="connection_security5.html#wp239917" t="Data Encryption Across the Network">
+   <i l="connection_security5.html#wp239955" t="Supported Encryption Methods" />
+   <i l="connection_security5.html#wp240057" t="Database-Specific Data Encryption" />
+   <i l="connection_security5.html#wp240068" t="SSL Encryption" />
+   <i l="connection_security5.html#wp240140" t="Configuring SSL for DB2" />
+   <i l="connection_security5.html#wp240156" t="Configuring SSL for Oracle" />
+   <i l="connection_security5.html#wp240173" t="Configuring SSL for Microsoft SQL Server" />
+   <i l="connection_security5.html#wp240251" t="Configuring SSL for Sybase" />
+  </i>
+ </i>
+ <i l="improvingperformance.html#wp114259" t="8 Improving Performance">
+  <i l="improvingperformance2.html#wp205269" t="Querying Large XML Documents">
+   <i l="improvingperformance2.html#wp205299" t="What is Streaming XML?" />
+   <i l="improvingperformance2.html#wp206055" t="Enabling Streaming XML" />
+   <i l="improvingperformance2.html#wp205357" t="Data Sources" />
+   <i l="improvingperformance2.html#wp205370" t="Using Plan Explain" />
+   <i l="improvingperformance2.html#wp205382" t="Taking Advantage of Streaming XML" />
+   <i l="improvingperformance2.html#wp205449" t="Streaming XML Examples" />
+  </i>
+  <i l="improvingperformance3.html#wp194662" t="Using Comparisons" />
+  <i l="improvingperformance4.html#wp194682" t="Understanding Compensation" />
+  <i l="improvingperformance5.html#wp194695" t="Using Query Pooling" />
+  <i l="improvingperformance6.html#wp206093" t="Using Connection Pooling">
+   <i l="improvingperformance6.html#wp206122" t="Configuring a Connection Through the JDBC Driver Manager" />
+   <i l="improvingperformance6.html#wp206159" t="Configuring a Connection Through a Data Source" />
+   <i l="improvingperformance6.html#wp206167" t="Configuring Connection Pooling" />
+   <i l="improvingperformance6.html#wp206183" t="Example of Servlet Using Connection Pooling" />
+  </i>
+ </i>
+ <i l="webserviceframework.html#wp114259" t="9 Building a Web Service">
+  <i l="webserviceframework2.html#wp201878" t="XQueryWebService Framework Overview">
+   <i l="webserviceframework2.html#wp211222" t="Third Party Dependencies" />
+   <i l="webserviceframework2.html#wp211254" t="Web Service Interfaces" />
+  </i>
+  <i l="webserviceframework3.html#wp211855" t="XQueryWebService Framework Architecture">
+   <i l="webserviceframework3.html#wp214653" t="Example XQuery" />
+   <i l="webserviceframework3.html#wp218562" t="The Web Service Description Language (WSDL)" />
+  </i>
+  <i l="webserviceframework4.html#wp211930" t="Example &#8211; Employee Lookup">
+   <i l="webserviceframework4.html#wp207774" t="Other Examples" />
+   <i l="webserviceframework4.html#wp210447" t="Before You Begin" />
+   <i l="webserviceframework4.html#wp210629" t="Setting Up" />
+   <i l="webserviceframework4.html#wp210810" t="Next Steps" />
+  </i>
+  <i l="webserviceframework5.html#wp207791" t="Specifying a Database Connection">
+   <i l="webserviceframework5.html#wp207817" t="Specifying a Single Connection" />
+   <i l="webserviceframework5.html#wp207838" t="Database Connection Pooling" />
+   <i l="webserviceframework5.html#wp209598" t="Next Steps" />
+  </i>
+  <i l="webserviceframework6.html#wp208699" t="Choosing an Interface for Web Service Access">
+   <i l="webserviceframework6.html#wp207884" t="Sample XQuery" />
+   <i l="webserviceframework6.html#wp209647" t="Next Steps" />
+  </i>
+  <i l="webserviceframework7.html#wp207975" t="Tools for Testing Web Service Operations">
+   <i l="webserviceframework7.html#wp209483" t="The HTML Test Interface" />
+   <i l="webserviceframework7.html#wp209676" t="Next Steps" />
+  </i>
+  <i l="webserviceframework8.html#wp209678" t="Generating WSDL">
+   <i l="webserviceframework8.html#wp209982" t="Next Steps" />
+  </i>
+  <i l="webserviceframework9.html#wp208079" t="Using WSDL Service References">
+   <i l="webserviceframework9.html#wp219366" t="Augmenting WSDL with External XML Schema" />
+  </i>
+ </i>
+ <i l="http_functions.html#wp114259" t="10 Building a Web Service Client">
+  <i l="http_functions2.html#wp234506" t="Overview">
+   <i l="http_functions2.html#wp236617" t="Choosing a Function Type" />
+  </i>
+  <i l="http_functions3.html#wp234489" t="DataDirect HTTP Functions">
+   <i l="http_functions3.html#wp237074" t="Function Overview" />
+   <i l="http_functions3.html#wp235574" t="Connection Authentication" />
+   <i l="http_functions3.html#wp239048" t="Managing Connections and Sockets" />
+   <i l="http_functions3.html#wp239437" t="Data Streaming" />
+   <i l="http_functions3.html#wp238568" t="Response Encoding" />
+   <i l="http_functions3.html#wp242479" t="Managing Cookies" />
+   <i l="http_functions3.html#wp242410" t="Specifying HTTP Client-Server Options" />
+  </i>
+  <i l="http_functions4.html#wp240342" t="Example: Web Service Client Comparison">
+   <i l="http_functions4.html#wp240349" t="Using HTTP Functions" />
+   <i l="http_functions4.html#wp243302" t="Using ddtek:wscall" />
+  </i>
+  <i l="http_functions5.html#wp210390" t="HTTP Function Request and Response XML Schemas">
+   <i l="http_functions5.html#wp235636" t="Request XML Schema" />
+   <i l="http_functions5.html#wp235700" t="Response XML Schema" />
+  </i>
+ </i>
+ <i l="relationaldata.html#wp222590" t="11 Support for Relational Databases">
+  <i l="relationaldata2.html#wp222613" t="Querying Relational Data">
+   <i l="relationaldata2.html#wp222636" t="XML and SQL Data Structures" />
+   <i l="relationaldata2.html#wp222639" t="Simplifying Generated SQL" />
+   <i l="relationaldata2.html#wp222701" t="Using an Order By Clause" />
+   <i l="relationaldata2.html#wp222767" t="Using a SQL EXISTS Subclause in DB2" />
+   <i l="relationaldata2.html#wp222774" t="Using BINARY_DOUBLE and BINARY_FLOAT Data Types (Oracle 10g and higher)" />
+   <i l="relationaldata2.html#wp222779" t="Using DataDirect XQuery SQL Generation Algorithms" />
+  </i>
+  <i l="relationaldata3.html#wp222817" t="Querying XML Type Data">
+   <i l="relationaldata3.html#wp222833" t="Supported Databases" />
+   <i l="relationaldata3.html#wp222911" t="Evaluating Queries in Memory" />
+  </i>
+  <i l="relationaldata4.html#wp222968" t="Updating Relational Data">
+   <i l="relationaldata4.html#wp222989" t="ddtek:sql-insert" />
+   <i l="relationaldata4.html#wp223015" t="ddtek:sql-update" />
+   <i l="relationaldata4.html#wp223039" t="ddtek:sql-delete" />
+  </i>
+  <i l="relationaldata5.html#wp223055" t="Understanding the Transactional Behavior of DataDirect XQuery Updates">
+   <i l="relationaldata5.html#wp223057" t="Transactions" />
+   <i l="relationaldata5.html#wp223073" t="Transaction Isolation Levels" />
+   <i l="relationaldata5.html#wp223245" t="Distributed Transactions" />
+  </i>
+ </i>
+ <i l="advancedfeatures.html#wp204548" t="12 Using Advanced Features">
+  <i l="advancedfeatures2.html#wp204726" t="Using Option Declarations and Extension Expressions">
+   <i l="advancedfeatures2.html#wp204556" t="Option Declarations" />
+   <i l="advancedfeatures2.html#wp187538" t="Using Extension Expressions" />
+  </i>
+  <i l="advancedfeatures3.html#wp219064" t="Querying Multiple Files in a Directory">
+   <i l="advancedfeatures3.html#wp230145" t="XML Files" />
+   <i l="advancedfeatures3.html#wp230464" t="Non-XML Files" />
+  </i>
+  <i l="advancedfeatures4.html#wp246385" t="Querying ZIP, JAR, and MS Office Files">
+   <i l="advancedfeatures4.html#wp234722" t="Creating and Updating ZIP Files" />
+  </i>
+  <i l="advancedfeatures5.html#wp204888" t="Using URI Resolvers">
+   <i l="advancedfeatures5.html#wp204890" t="Document URI Resolvers" />
+   <i l="advancedfeatures5.html#wp204943" t="Library Module URI Resolvers" />
+   <i l="advancedfeatures5.html#wp209086" t="Collection URI Resolvers" />
+  </i>
+  <i l="advancedfeatures6.html#wp243176" t="Analyzing EDI to XML Conversions">
+   <i l="advancedfeatures6.html#wp243285" t="Overview" />
+   <i l="advancedfeatures6.html#wp244056" t="Built-in EDI Analysis and Conversion Functions" />
+   <i l="advancedfeatures6.html#wp244139" t="Examples" />
+  </i>
+  <i l="advancedfeatures7.html#wp212077" t="Generating XQuery Execution Plans">
+   <i l="advancedfeatures7.html#wp212356" t="Format of an XQuery Execution Plan" />
+   <i l="advancedfeatures7.html#wp212171" t="Enabling Plan Explain" />
+   <i l="advancedfeatures7.html#wp212748" t="Example of an XQuery Execution Plan" />
+  </i>
+  <i l="advancedfeatures8.html#wp212006" t="Specifying Collations" />
+  <i l="advancedfeatures9.html#wp246581" t="Using External Functions">
+   <i l="advancedfeatures9.html#wp246596" t="Supported External Functions" />
+   <i l="advancedfeatures9.html#wp246636" t="Using Java Functions" />
+   <i l="advancedfeatures9.html#wp246998" t="Using SQL Functions" />
+  </i>
+ </i>
+ <i l="xquerysupport.html#wp245044" t="A XQuery Support">
+  <i>
+   <i l="xquerysupport.html#wp155152" t="Terminology" />
+   <i l="xquerysupport.html#wp323752" t="In This Topic" />
+  </i>
+  <i l="xquerysupport2.html#wp323288" t="2 Basics">
+   <i l="xquerysupport2.html#wp102605" t="Expression Context" />
+   <i l="xquerysupport2.html#wp103421" t="Processing Model" />
+   <i l="xquerysupport2.html#wp177766" t="Error Handling" />
+   <i l="xquerysupport2.html#wp103440" t="Concepts" />
+   <i l="xquerysupport2.html#wp103666" t="Types" />
+   <i l="xquerysupport2.html#wp103955" t="Comments" />
+  </i>
+  <i l="xquerysupport3.html#wp240279" t="3 Expressions">
+   <i l="xquerysupport3.html#wp104242" t="Primary Expressions" />
+   <i l="xquerysupport3.html#wp104383" t="Path Expressions" />
+   <i l="xquerysupport3.html#wp133365" t="Sequence Expressions" />
+   <i l="xquerysupport3.html#wp216439" t="Arithmetic Expressions" />
+   <i l="xquerysupport3.html#wp133557" t="Comparison Expressions" />
+   <i l="xquerysupport3.html#wp105128" t="Logical Expressions" />
+   <i l="xquerysupport3.html#wp179554" t="Constructors" />
+   <i l="xquerysupport3.html#wp105495" t="FLWOR Expressions" />
+   <i l="xquerysupport3.html#wp105677" t="Ordered and Unordered Expressions" />
+   <i l="xquerysupport3.html#wp105750" t="Conditional Expressions" />
+   <i l="xquerysupport3.html#wp105928" t="Quantified Expressions" />
+   <i l="xquerysupport3.html#wp105999" t="Expressions on SequenceTypes" />
+   <i l="xquerysupport3.html#wp106469" t="Validate Expressions" />
+   <i l="xquerysupport3.html#wp178064" t="Extension Expressions" />
+  </i>
+  <i l="xquerysupport4.html#wp107169" t="4 Modules and Prologs" />
+  <i l="xquerysupport5.html#wp195017" t="5 Conformance">
+   <i l="xquerysupport5.html#wp187013" t="Optional Features" />
+   <i l="xquerysupport5.html#wp146409" t="Data Model Conformance" />
+  </i>
+  <i l="xquerysupport6.html#wp148130" t="Namespaces">
+   <i l="xquerysupport6.html#wp140547" t="Predefined Namespaces (Not Reserved)" />
+  </i>
+ </i>
+ <i l="functions_and_operators.html#wp245044" t="B Functions and Operators">
+  <i>
+   <i l="functions_and_operators.html#wp323483" t="2 Accessors" />
+   <i l="functions_and_operators.html#wp323532" t="3 Error Function" />
+   <i l="functions_and_operators.html#wp323561" t="4 Trace Function" />
+   <i l="functions_and_operators.html#wp323590" t="5 Constructor Functions" />
+   <i l="functions_and_operators.html#wp323823" t="6 Functions and Operators on Numerics" />
+   <i l="functions_and_operators.html#wp323958" t="7 Functions on Strings" />
+   <i l="functions_and_operators.html#wp324200" t="8 Functions and Operators for anyURI" />
+   <i l="functions_and_operators.html#wp324228" t="9 Functions and Operators on Boolean Values" />
+   <i l="functions_and_operators.html#wp324320" t="10 Functions and Operators on Durations, Dates, and Times" />
+   <i l="functions_and_operators.html#wp324780" t="11 Functions Related to QNames" />
+   <i l="functions_and_operators.html#wp324863" t="12 Operators on base64Binary and hexBinary" />
+   <i l="functions_and_operators.html#wp324896" t="13 Functions and Operators on NOTATION" />
+   <i l="functions_and_operators.html#wp324923" t="14 Functions and Operators on Nodes" />
+   <i l="functions_and_operators.html#wp324983" t="15 Functions and Operators on Sequences" />
+   <i l="functions_and_operators.html#wp325234" t="16 Context Functions" />
+   <i l="functions_and_operators.html#wp325291" t="17 Casting" />
+  </i>
+ </i>
+ <i l="built-in_functions.html#wp245044" t="C Built-in Functions and Options">
+  <i l="built-in_functions2.html#wp245066" t="DataDirect XQuery Built-In Functions">
+   <i l="built-in_functions2.html#wp330903" t="ddtek:analyze-edi-from-string" />
+   <i l="built-in_functions2.html#wp330977" t="ddtek:analyze-edi-from-url" />
+   <i l="built-in_functions2.html#wp311264" t="ddtek:convert-to-xml" />
+   <i l="built-in_functions2.html#wp298537" t="ddtek:decimal" />
+   <i l="built-in_functions2.html#wp331503" t="ddtek:edi-to-xml-from-string" />
+   <i l="built-in_functions2.html#wp331517" t="ddtek:edi-to-xml-from-url" />
+   <i l="built-in_functions2.html#wp334376" t="ddtek:format-date" />
+   <i l="built-in_functions2.html#wp334323" t="ddtek:format-date-time" />
+   <i l="built-in_functions2.html#wp334253" t="ddtek:format-number" />
+   <i l="built-in_functions2.html#wp334394" t="ddtek:format-time" />
+   <i l="built-in_functions2.html#wp323987" t="ddtek:http-delete" />
+   <i l="built-in_functions2.html#wp324142" t="ddtek:http-get" />
+   <i l="built-in_functions2.html#wp324241" t="ddtek:http-head" />
+   <i l="built-in_functions2.html#wp325192" t="ddtek:http-options" />
+   <i l="built-in_functions2.html#wp325202" t="ddtek:http-post" />
+   <i l="built-in_functions2.html#wp325218" t="ddtek:http-put" />
+   <i l="built-in_functions2.html#wp325231" t="ddtek:http-trace" />
+   <i l="built-in_functions2.html#wp326689" t="ddtek:info" />
+   <i l="built-in_functions2.html#wp318060" t="ddtek:isValid" />
+   <i l="built-in_functions2.html#wp310706" t="ddtek:javaCast" />
+   <i l="built-in_functions2.html#wp326845" t="ddtek:ltrim, ddtek:rtrim, and ddtek:trim" />
+   <i l="built-in_functions2.html#wp288975" t="ddtek:parse" />
+   <i l="built-in_functions2.html#wp284162" t="ddtek:serialize" />
+   <i l="built-in_functions2.html#wp298908" t="ddtek:serialize-to-url" />
+   <i l="built-in_functions2.html#wp330708" t="ddtek:sql-delete" />
+   <i l="built-in_functions2.html#wp328288" t="ddtek:sql-insert" />
+   <i l="built-in_functions2.html#wp328313" t="ddtek:sql-update" />
+   <i l="built-in_functions2.html#wp289182" t="ddtek:validate" />
+   <i l="built-in_functions2.html#wp318065" t="ddtek:validate-and-report" />
+   <i l="built-in_functions2.html#wp285024" t="ddtek:wscall" />
+  </i>
+  <i l="built-in_functions3.html#wp323066" t="HTTP Functions &lt;request&gt; Element" />
+  <i l="built-in_functions4.html#wp329250" t="DataDirect XQuery Options" />
+  <i l="built-in_functions5.html#wp325669" t="Namespaces">
+   <i l="built-in_functions5.html#wp325725" t="Predefined Namespaces (Not Reserved)" />
+   <i l="built-in_functions5.html#wp325827" t="Predefined Namespaces and Prefixes (Reserved)" />
+  </i>
+ </i>
+ <i l="serialization_support.html#wp245044" t="D Serialization Support">
+  <i l="serialization_support2.html#wp317101" t="Overview" />
+  <i l="serialization_support3.html#wp316655" t="Serialization Methods">
+   <i l="serialization_support3.html#wp316664" t="Using Standard Support" />
+   <i l="serialization_support3.html#wp316916" t="Using the DataDirect XML Converters&#8482;" />
+  </i>
+ </i>
+ <i l="database_support.html#wp245044" t="E Database Support">
+  <i l="database_support2.html#wp299542" t="Supported Databases" />
+  <i l="database_support3.html#wp299568" t="Data Type Mappings">
+   <i l="database_support3.html#wp299602" t="DB2" />
+   <i l="database_support3.html#wp299751" t="Informix" />
+   <i l="database_support3.html#wp299866" t="MySQL" />
+   <i l="database_support3.html#wp300169" t="Oracle" />
+   <i l="database_support3.html#wp300290" t="PostgreSQL" />
+   <i l="database_support3.html#wp300400" t="Microsoft SQL Server" />
+   <i l="database_support3.html#wp300566" t="Sybase" />
+  </i>
+  <i l="database_support4.html#wp300736" t="Supported XQuery Atomic Types" />
+  <i l="database_support5.html#wp293718" t="Database Connection Properties">
+   <i l="database_support5.html#wp293722" t="DB2" />
+   <i l="database_support5.html#wp293921" t="Informix" />
+   <i l="database_support5.html#wp296359" t="Microsoft SQL Server" />
+   <i l="database_support5.html#wp293977" t="MySQL Enterprise" />
+   <i l="database_support5.html#wp294089" t="Oracle" />
+   <i l="database_support5.html#wp295748" t="PostgreSQL" />
+   <i l="database_support5.html#wp294420" t="Sybase" />
+  </i>
+  <i l="database_support6.html#wp309398" t="Database-Specific Query Functions">
+   <i l="database_support6.html#wp309403" t="Querying XML on DB2" />
+   <i l="database_support6.html#wp309624" t="Querying XML on Oracle" />
+   <i l="database_support6.html#wp309822" t="Querying XML on Microsoft SQL Server 2005" />
+  </i>
+ </i>
+ <i l="xufsupport.html#wp245044" t="F XUF Support">
+  <i l="xufsupport2.html#wp238906" t="2 Extensions to XQuery 1.0">
+   <i l="xufsupport2.html#wp102605" t="2.1 Extensions to the Processing Model" />
+   <i l="xufsupport2.html#wp103421" t="2.2 Extensions to the Prolog" />
+   <i l="xufsupport2.html#wp177766" t="2.3 Extensions to the Static Context" />
+   <i l="xufsupport2.html#wp103440" t="2.4 New Kinds of Expressions" />
+   <i l="xufsupport2.html#wp103666" t="2.5 Extensions to Existing Expressions" />
+   <i l="xufsupport2.html#wp103955" t="2.6 Extensions to Built-in Function Library" />
+  </i>
+  <i l="xufsupport3.html#wp314866" t="5 Conformance">
+   <i l="xufsupport3.html#wp314870" t="5.2 Optional Features" />
+  </i>
+ </i>
+ <i l="xqjsupport.html#wp128996" t="G XQJ Support">
+  <i l="xqjsupport2.html#wp132339" t="Java Package Name" />
+  <i l="xqjsupport3.html#wp155579" t="XQConnection Interface" />
+  <i l="xqjsupport4.html#wp156884" t="XQDataFactory" />
+  <i l="xqjsupport5.html#wp173603" t="XQDataSource Interface" />
+  <i l="xqjsupport6.html#wp155788" t="XQDynamicContext Interface" />
+  <i l="xqjsupport7.html#wp155893" t="XQExpression Interface" />
+  <i l="xqjsupport8.html#wp163941" t="XQItem Interface" />
+  <i l="xqjsupport9.html#wp155985" t="XQItemAccessor Interface" />
+  <i l="xqjsupport10.html#wp156384" t="XQItemType Interface" />
+  <i l="xqjsupport11.html#wp147283" t="XQMetaData Interface" />
+  <i l="xqjsupport12.html#wp152550" t="XQPreparedExpression Interface" />
+  <i l="xqjsupport13.html#wp124337" t="XQResultItem Interface" />
+  <i l="xqjsupport14.html#wp134712" t="XQResultSequence Interface" />
+  <i l="xqjsupport15.html#wp124499" t="XQSequence Interface" />
+  <i l="xqjsupport16.html#wp131358" t="XQSequenceType Interface" />
+  <i l="xqjsupport17.html#wp162779" t="XQStaticContext Interface" />
+  <i l="xqjsupport18.html#wp120665" t="Exception Handling" />
+  <i l="xqjsupport19.html#wp126088" t="Multi-Threading Support" />
+  <i l="xqjsupport20.html#wp126140" t="Accessing XML Results">
+   <i l="xqjsupport20.html#wp126184" t="DOM" />
+   <i l="xqjsupport20.html#wp126191" t="SAX" />
+   <i l="xqjsupport20.html#wp126222" t="StAX" />
+   <i l="xqjsupport20.html#wp126223" t="Text" />
+  </i>
+  <i l="xqjsupport21.html#wp158927" t="Support of Deferred Binding" />
+  <i l="xqjsupport22.html#wp183705" t="XQuery Types Supported by XQJ get Methods" />
+  <i l="xqjsupport23.html#wp132919" t="Retrieving and Binding XQuery Data Model Instances" />
+ </i>
+ <i l="sourceconfigfilestructure.html#wp128996" t="H Source Configuration File">
+  <i l="sourceconfigfilestructure2.html#wp164594" t="Using a Source Configuration File">
+   <i l="sourceconfigfilestructure2.html#wp183827" t="Configuring Connections for XML Data Sources" />
+   <i l="sourceconfigfilestructure2.html#wp164610" t="Configuring Connections for Relational Data Sources" />
+   <i l="sourceconfigfilestructure2.html#wp164626" t="Referencing a Source Configuration File" />
+  </i>
+  <i l="sourceconfigfilestructure3.html#wp140013" t="Hierarchy of the Source Configuration File" />
+  <i l="sourceconfigfilestructure4.html#wp153156" t="Elements of the Source Configuration File" />
+  <i l="sourceconfigfilestructure5.html#wp138103" t="Examples of Source Configuration Files" />
+ </i>
+ <i l="examples.html#wp128996" t="I Examples">
+  <i l="examples2.html#wp138526" t="Required Software">
+   <i l="examples2.html#wp138528" t="Database" />
+   <i l="examples2.html#wp138536" t="DataDirect XQuery&#174;" />
+  </i>
+  <i l="examples3.html#wp138542" t="Configuring Your Environment to Run the Examples" />
+  <i l="examples4.html#wp138589" t="About the Examples">
+   <i l="examples4.html#wp143179" t="CustomDocumentURIResolver" />
+   <i l="examples4.html#wp138712" t="ExternalFunctions" />
+   <i l="examples4.html#wp143212" t="ExternalVariables" />
+   <i l="examples4.html#wp143233" t="JNDIDataSource" />
+   <i l="examples4.html#wp137818" t="RDBMSUpdate" />
+   <i l="examples4.html#wp143252" t="ResultRetrieval" />
+   <i l="examples4.html#wp142961" t="UpdateFacility" />
+   <i l="examples4.html#wp143121" t="XMLQuery" />
+   <i l="examples4.html#wp143098" t="XQJExecute" />
+  </i>
+ </i>
+ <i l="troubleshooting.html#wp141576" t="J Troubleshooting">
+  <i l="troubleshooting2.html#wp137013" t="Logging XQJ Calls with DataDirect Spy&#8482; for XQJ">
+   <i l="troubleshooting2.html#wp137022" t="Enabling DataDirect Spy&#8482; Logging" />
+   <i l="troubleshooting2.html#wp137179" t="Generating a DataDirect Spy&#8482; Log" />
+  </i>
+  <i l="troubleshooting3.html#wp138031" t="Java Logging" />
+  <i l="troubleshooting4.html#wp136633" t="Resolving fn:collection Errors">
+   <i l="troubleshooting4.html#wp136638" t="Guidelines for Resolving Errors" />
+   <i l="troubleshooting4.html#wp140655" t="Qualifying Table Names" />
+   <i l="troubleshooting4.html#wp136648" t="Using Catalog and Schema Names" />
+   <i l="troubleshooting4.html#wp136660" t="Using JDBC Connection Names" />
+   <i l="troubleshooting4.html#wp136697" t="Escaping Special Characters" />
+   <i l="troubleshooting4.html#wp138218" t="Verifying Connections" />
+   <i l="troubleshooting4.html#wp136722" t="Checklist" />
+   <i l="troubleshooting4.html#wp140696" t="Querying XML Files in a Directory" />
+  </i>
+  <i l="troubleshooting5.html#wp137725" t="Resolving Static Type Errors">
+   <i l="troubleshooting5.html#wp137738" t="Types for External Variables" />
+   <i l="troubleshooting5.html#wp140470" t="Types for Initial Context Items" />
+   <i l="troubleshooting5.html#wp137765" t="Union Types" />
+   <i l="troubleshooting5.html#wp137777" t="Types for Sorting" />
+   <i l="troubleshooting5.html#wp137801" t="Static Typing Extensions" />
+  </i>
+ </i>
+</WebWorksHelpTOC>

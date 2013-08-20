@@ -1,0 +1,1291 @@
+<?xml version="1.0" standalone="yes"?>
+<table name="HISTORICAL">
+<row>
+	<Ticker>PRGS</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>22.37</AdjustedClose>
+	<ActualClose>22.37</ActualClose>
+	<Volume>125360</Volume>
+</row>
+<row>
+	<Ticker>PRGS</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>24.24</AdjustedClose>
+	<ActualClose>24.24</ActualClose>
+	<Volume>167800</Volume>
+</row>
+<row>
+	<Ticker>PRGS</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>24.27</AdjustedClose>
+	<ActualClose>24.27</ActualClose>
+	<Volume>241700</Volume>
+</row>
+<row>
+	<Ticker>PRGS</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>22.6</AdjustedClose>
+	<ActualClose>22.6</ActualClose>
+	<Volume>252400</Volume>
+</row>
+<row>
+	<Ticker>BEAS</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>12.59</AdjustedClose>
+	<ActualClose>12.59</ActualClose>
+	<Volume>4845060</Volume>
+</row>
+<row>
+	<Ticker>BEAS</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>12.96</AdjustedClose>
+	<ActualClose>12.96</ActualClose>
+	<Volume>10289675</Volume>
+</row>
+<row>
+	<Ticker>BEAS</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>14.2</AdjustedClose>
+	<ActualClose>14.2</ActualClose>
+	<Volume>7165560</Volume>
+</row>
+<row>
+	<Ticker>BEAS</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>13.38</AdjustedClose>
+	<ActualClose>13.38</ActualClose>
+	<Volume>8768280</Volume>
+</row>
+<row>
+	<Ticker>SUNW</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>5.29</AdjustedClose>
+	<ActualClose>5.29</ActualClose>
+	<Volume>47160440</Volume>
+</row>
+<row>
+	<Ticker>SUNW</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>5.45</AdjustedClose>
+	<ActualClose>5.45</ActualClose>
+	<Volume>59245551</Volume>
+</row>
+<row>
+	<Ticker>SUNW</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>5.39</AdjustedClose>
+	<ActualClose>5.39</ActualClose>
+	<Volume>64645420</Volume>
+</row>
+<row>
+	<Ticker>SUNW</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>5.31</AdjustedClose>
+	<ActualClose>5.31</ActualClose>
+	<Volume>86090040</Volume>
+</row>
+<row>
+	<Ticker>AAPL</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>22.56</AdjustedClose>
+	<ActualClose>22.56</ActualClose>
+	<Volume>4470500</Volume>
+</row>
+<row>
+	<Ticker>AAPL</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>22.56</AdjustedClose>
+	<ActualClose>22.56</ActualClose>
+	<Volume>4351700</Volume>
+</row>
+<row>
+	<Ticker>AAPL</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>22.72</AdjustedClose>
+	<ActualClose>22.72</ActualClose>
+	<Volume>11348700</Volume>
+</row>
+<row>
+	<Ticker>AAPL</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>23.0</AdjustedClose>
+	<ActualClose>23.0</ActualClose>
+	<Volume>8496440</Volume>
+</row>
+<row>
+	<Ticker>ADBE</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>38.3</AdjustedClose>
+	<ActualClose>38.3</ActualClose>
+	<Volume>4352820</Volume>
+</row>
+<row>
+	<Ticker>ADBE</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>38.04</AdjustedClose>
+	<ActualClose>38.04</ActualClose>
+	<Volume>3246925</Volume>
+</row>
+<row>
+	<Ticker>ADBE</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>38.3</AdjustedClose>
+	<ActualClose>38.3</ActualClose>
+	<Volume>4129440</Volume>
+</row>
+<row>
+	<Ticker>ADBE</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>37.12</AdjustedClose>
+	<ActualClose>37.12</ActualClose>
+	<Volume>4540760</Volume>
+</row>
+<row>
+	<Ticker>AMZN</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>50.4</AdjustedClose>
+	<ActualClose>50.4</ActualClose>
+	<Volume>14800200</Volume>
+</row>
+<row>
+	<Ticker>AMZN</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>57.11</AdjustedClose>
+	<ActualClose>57.11</ActualClose>
+	<Volume>7810800</Volume>
+</row>
+<row>
+	<Ticker>AMZN</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>55.72</AdjustedClose>
+	<ActualClose>55.72</ActualClose>
+	<Volume>11287760</Volume>
+</row>
+<row>
+	<Ticker>AMZN</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>51.59</AdjustedClose>
+	<ActualClose>51.59</ActualClose>
+	<Volume>9922360</Volume>
+</row>
+<row>
+	<Ticker>ARBA</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>3.26</AdjustedClose>
+	<ActualClose>3.26</ActualClose>
+	<Volume>9074580</Volume>
+</row>
+<row>
+	<Ticker>ARBA</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>3.42</AdjustedClose>
+	<ActualClose>3.42</ActualClose>
+	<Volume>10593800</Volume>
+</row>
+<row>
+	<Ticker>ARBA</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>3.72</AdjustedClose>
+	<ActualClose>3.72</ActualClose>
+	<Volume>3580660</Volume>
+</row>
+<row>
+	<Ticker>ARBA</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>3.41</AdjustedClose>
+	<ActualClose>3.41</ActualClose>
+	<Volume>4435860</Volume>
+</row>
+<row>
+	<Ticker>ASCL</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>24.23</AdjustedClose>
+	<ActualClose>24.23</ActualClose>
+	<Volume>532580</Volume>
+</row>
+<row>
+	<Ticker>ASCL</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>26.01</AdjustedClose>
+	<ActualClose>26.01</ActualClose>
+	<Volume>602375</Volume>
+</row>
+<row>
+	<Ticker>ASCL</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>26.89</AdjustedClose>
+	<ActualClose>26.89</ActualClose>
+	<Volume>587240</Volume>
+</row>
+<row>
+	<Ticker>ASCL</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>27.1</AdjustedClose>
+	<ActualClose>27.1</ActualClose>
+	<Volume>581260</Volume>
+</row>
+<row>
+	<Ticker>ATTU</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>2.61</AdjustedClose>
+	<ActualClose>2.61</ActualClose>
+	<Volume>121220</Volume>
+</row>
+<row>
+	<Ticker>ATTU</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>2.93</AdjustedClose>
+	<ActualClose>2.93</ActualClose>
+	<Volume>230025</Volume>
+</row>
+<row>
+	<Ticker>ATTU</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>3.39</AdjustedClose>
+	<ActualClose>3.39</ActualClose>
+	<Volume>292600</Volume>
+</row>
+<row>
+	<Ticker>ATTU</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>2.54</AdjustedClose>
+	<ActualClose>2.54</ActualClose>
+	<Volume>324860</Volume>
+</row>
+<row>
+	<Ticker>BORL</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>10.23</AdjustedClose>
+	<ActualClose>10.23</ActualClose>
+	<Volume>1307600</Volume>
+</row>
+<row>
+	<Ticker>BORL</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>9.94</AdjustedClose>
+	<ActualClose>9.94</ActualClose>
+	<Volume>1536050</Volume>
+</row>
+<row>
+	<Ticker>BORL</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>10.27</AdjustedClose>
+	<ActualClose>10.27</ActualClose>
+	<Volume>2379300</Volume>
+</row>
+<row>
+	<Ticker>BORL</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>9.65</AdjustedClose>
+	<ActualClose>9.65</ActualClose>
+	<Volume>1688900</Volume>
+</row>
+<row>
+	<Ticker>BVSN</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>6.62</AdjustedClose>
+	<ActualClose>6.62</ActualClose>
+	<Volume>674220</Volume>
+</row>
+<row>
+	<Ticker>BVSN</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>6.58</AdjustedClose>
+	<ActualClose>6.58</ActualClose>
+	<Volume>1916550</Volume>
+</row>
+<row>
+	<Ticker>BVSN</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>5.63</AdjustedClose>
+	<ActualClose>5.63</ActualClose>
+	<Volume>588400</Volume>
+</row>
+<row>
+	<Ticker>BVSN</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>4.89</AdjustedClose>
+	<ActualClose>4.89</ActualClose>
+	<Volume>364800</Volume>
+</row>
+<row>
+	<Ticker>CA</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>6.62</AdjustedClose>
+	<ActualClose>6.62</ActualClose>
+	<Volume>674220</Volume>
+</row>
+<row>
+	<Ticker>CA</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>6.58</AdjustedClose>
+	<ActualClose>6.58</ActualClose>
+	<Volume>1916550</Volume>
+</row>
+<row>
+	<Ticker>CA</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>5.63</AdjustedClose>
+	<ActualClose>5.63</ActualClose>
+	<Volume>588400</Volume>
+</row>
+<row>
+	<Ticker>CA</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>4.89</AdjustedClose>
+	<ActualClose>4.89</ActualClose>
+	<Volume>364800</Volume>
+</row>
+<row>
+	<Ticker>CMRC</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>1.95</AdjustedClose>
+	<ActualClose>1.95</ActualClose>
+	<Volume>1051960</Volume>
+</row>
+<row>
+	<Ticker>CMRC</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>2.3</AdjustedClose>
+	<ActualClose>2.3</ActualClose>
+	<Volume>1455125</Volume>
+</row>
+<row>
+	<Ticker>CMRC</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>2.1</AdjustedClose>
+	<ActualClose>2.1</ActualClose>
+	<Volume>2812720</Volume>
+</row>
+<row>
+	<Ticker>CMRC</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>1.56</AdjustedClose>
+	<ActualClose>1.56</ActualClose>
+	<Volume>2316760</Volume>
+</row>
+<row>
+	<Ticker>COGN</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>30.22</AdjustedClose>
+	<ActualClose>30.22</ActualClose>
+	<Volume>1146740</Volume>
+</row>
+<row>
+	<Ticker>COGN</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>30.11</AdjustedClose>
+	<ActualClose>30.11</ActualClose>
+	<Volume>1351650</Volume>
+</row>
+<row>
+	<Ticker>COGN</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>32.19</AdjustedClose>
+	<ActualClose>32.19</ActualClose>
+	<Volume>600300</Volume>
+</row>
+<row>
+	<Ticker>COGN</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>33.72</AdjustedClose>
+	<ActualClose>33.72</ActualClose>
+	<Volume>1369080</Volume>
+</row>
+<row>
+	<Ticker>CSCO</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>25.71</AdjustedClose>
+	<ActualClose>25.71</ActualClose>
+	<Volume>60087601</Volume>
+</row>
+<row>
+	<Ticker>CSCO</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>27.33</AdjustedClose>
+	<ActualClose>27.33</ActualClose>
+	<Volume>54849250</Volume>
+</row>
+<row>
+	<Ticker>CSCO</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>29.13</AdjustedClose>
+	<ActualClose>29.13</ActualClose>
+	<Volume>57779420</Volume>
+</row>
+<row>
+	<Ticker>CSCO</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>26.48</AdjustedClose>
+	<ActualClose>26.48</ActualClose>
+	<Volume>52374740</Volume>
+</row>
+<row>
+	<Ticker>DELL</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>33.44</AdjustedClose>
+	<ActualClose>33.44</ActualClose>
+	<Volume>18651920</Volume>
+</row>
+<row>
+	<Ticker>DELL</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>34.43</AdjustedClose>
+	<ActualClose>34.43</ActualClose>
+	<Volume>17180650</Volume>
+</row>
+<row>
+	<Ticker>DELL</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>35.01</AdjustedClose>
+	<ActualClose>35.01</ActualClose>
+	<Volume>19502620</Volume>
+</row>
+<row>
+	<Ticker>DELL</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>35.57</AdjustedClose>
+	<ActualClose>35.57</ActualClose>
+	<Volume>16356940</Volume>
+</row>
+<row>
+	<Ticker>DMCX</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>12.75</AdjustedClose>
+	<ActualClose>12.75</ActualClose>
+	<Volume>2520</Volume>
+</row>
+<row>
+	<Ticker>DMCX</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>13.3</AdjustedClose>
+	<ActualClose>13.3</ActualClose>
+	<Volume>2150</Volume>
+</row>
+<row>
+	<Ticker>DMCX</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>13.65</AdjustedClose>
+	<ActualClose>13.65</ActualClose>
+	<Volume>3500</Volume>
+</row>
+<row>
+	<Ticker>DMCX</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>13.4</AdjustedClose>
+	<ActualClose>13.4</ActualClose>
+	<Volume>3980</Volume>
+</row>
+<row>
+	<Ticker>DRIV</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>23.63</AdjustedClose>
+	<ActualClose>23.63</ActualClose>
+	<Volume>1030160</Volume>
+</row>
+<row>
+	<Ticker>DRIV</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>25.85</AdjustedClose>
+	<ActualClose>25.85</ActualClose>
+	<Volume>984450</Volume>
+</row>
+<row>
+	<Ticker>DRIV</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>24.77</AdjustedClose>
+	<ActualClose>24.77</ActualClose>
+	<Volume>792160</Volume>
+</row>
+<row>
+	<Ticker>DRIV</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>24.52</AdjustedClose>
+	<ActualClose>24.52</ActualClose>
+	<Volume>629160</Volume>
+</row>
+<row>
+	<Ticker>EBAY</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>66.93</AdjustedClose>
+	<ActualClose>66.93</ActualClose>
+	<Volume>8936740</Volume>
+</row>
+<row>
+	<Ticker>EBAY</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>69.35</AdjustedClose>
+	<ActualClose>69.35</ActualClose>
+	<Volume>10896600</Volume>
+</row>
+<row>
+	<Ticker>EBAY</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>66.93</AdjustedClose>
+	<ActualClose>66.93</ActualClose>
+	<Volume>7665320</Volume>
+</row>
+<row>
+	<Ticker>EBAY</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>63.4</AdjustedClose>
+	<ActualClose>63.4</ActualClose>
+	<Volume>8640000</Volume>
+</row>
+<row>
+	<Ticker>ELNK</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>9.45</AdjustedClose>
+	<ActualClose>9.45</ActualClose>
+	<Volume>4236740</Volume>
+</row>
+<row>
+	<Ticker>ELNK</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>10.96</AdjustedClose>
+	<ActualClose>10.96</ActualClose>
+	<Volume>2648325</Volume>
+</row>
+<row>
+	<Ticker>ELNK</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>10.98</AdjustedClose>
+	<ActualClose>10.98</ActualClose>
+	<Volume>1971140</Volume>
+</row>
+<row>
+	<Ticker>ELNK</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>10.76</AdjustedClose>
+	<ActualClose>10.76</ActualClose>
+	<Volume>2740520</Volume>
+</row>
+<row>
+	<Ticker>FCSE</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>2.06</AdjustedClose>
+	<ActualClose>2.06</ActualClose>
+	<Volume>1188580</Volume>
+</row>
+<row>
+	<Ticker>FCSE</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>2.51</AdjustedClose>
+	<ActualClose>2.51</ActualClose>
+	<Volume>287300</Volume>
+</row>
+<row>
+	<Ticker>FCSE</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>2.64</AdjustedClose>
+	<ActualClose>2.64</ActualClose>
+	<Volume>257360</Volume>
+</row>
+<row>
+	<Ticker>FCSE</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>2.65</AdjustedClose>
+	<ActualClose>2.65</ActualClose>
+	<Volume>555440</Volume>
+</row>
+<row>
+	<Ticker>GTW</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>4.72</AdjustedClose>
+	<ActualClose>4.72</ActualClose>
+	<Volume>6157980</Volume>
+</row>
+<row>
+	<Ticker>GTW</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>4.4</AdjustedClose>
+	<ActualClose>4.4</ActualClose>
+	<Volume>4119250</Volume>
+</row>
+<row>
+	<Ticker>GTW</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>4.53</AdjustedClose>
+	<ActualClose>4.53</ActualClose>
+	<Volume>3445460</Volume>
+</row>
+<row>
+	<Ticker>GTW</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>4.43</AdjustedClose>
+	<ActualClose>4.43</ActualClose>
+	<Volume>5799360</Volume>
+</row>
+<row>
+	<Ticker>HUMC</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>27.75</AdjustedClose>
+	<ActualClose>27.75</ActualClose>
+	<Volume>9480</Volume>
+</row>
+<row>
+	<Ticker>HUMC</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>26.45</AdjustedClose>
+	<ActualClose>26.45</ActualClose>
+	<Volume>30700</Volume>
+</row>
+<row>
+	<Ticker>HUMC</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>24.25</AdjustedClose>
+	<ActualClose>24.25</ActualClose>
+	<Volume>8020</Volume>
+</row>
+<row>
+	<Ticker>HUMC</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>23.69</AdjustedClose>
+	<ActualClose>23.69</ActualClose>
+	<Volume>12220</Volume>
+</row>
+<row>
+	<Ticker>IBM</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>98.87</AdjustedClose>
+	<ActualClose>99.23</ActualClose>
+	<Volume>6172900</Volume>
+</row>
+<row>
+	<Ticker>IBM</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>97.54</AdjustedClose>
+	<ActualClose>97.9</ActualClose>
+	<Volume>6472400</Volume>
+</row>
+<row>
+	<Ticker>IBM</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>94.97</AdjustedClose>
+	<ActualClose>95.32</ActualClose>
+	<Volume>9718400</Volume>
+</row>
+<row>
+	<Ticker>IBM</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>90.88</AdjustedClose>
+	<ActualClose>91.21</ActualClose>
+	<Volume>5738920</Volume>
+</row>
+<row>
+	<Ticker>ILOG</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>10.77</AdjustedClose>
+	<ActualClose>10.77</ActualClose>
+	<Volume>19360</Volume>
+</row>
+<row>
+	<Ticker>ILOG</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>11.52</AdjustedClose>
+	<ActualClose>11.52</ActualClose>
+	<Volume>80325</Volume>
+</row>
+<row>
+	<Ticker>ILOG</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>12.43</AdjustedClose>
+	<ActualClose>12.43</ActualClose>
+	<Volume>54260</Volume>
+</row>
+<row>
+	<Ticker>ILOG</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>12.88</AdjustedClose>
+	<ActualClose>12.88</ActualClose>
+	<Volume>36620</Volume>
+</row>
+<row>
+	<Ticker>INFS</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>11.05</AdjustedClose>
+	<ActualClose>11.05</ActualClose>
+	<Volume>1008060</Volume>
+</row>
+<row>
+	<Ticker>INFS</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>11.7</AdjustedClose>
+	<ActualClose>11.7</ActualClose>
+	<Volume>503700</Volume>
+</row>
+<row>
+	<Ticker>INFS</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>12.01</AdjustedClose>
+	<ActualClose>12.01</ActualClose>
+	<Volume>719580</Volume>
+</row>
+<row>
+	<Ticker>INFS</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>11.72</AdjustedClose>
+	<ActualClose>11.72</ActualClose>
+	<Volume>1448760</Volume>
+</row>
+<row>
+	<Ticker>INTC</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>30.43</AdjustedClose>
+	<ActualClose>30.52</ActualClose>
+	<Volume>60677239</Volume>
+</row>
+<row>
+	<Ticker>INTC</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>31.66</AdjustedClose>
+	<ActualClose>31.75</ActualClose>
+	<Volume>50429550</Volume>
+</row>
+<row>
+	<Ticker>INTC</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>32.8</AdjustedClose>
+	<ActualClose>32.89</ActualClose>
+	<Volume>66275260</Volume>
+</row>
+<row>
+	<Ticker>INTC</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>33.88</AdjustedClose>
+	<ActualClose>33.97</ActualClose>
+	<Volume>50344320</Volume>
+</row>
+<row>
+	<Ticker>IONA</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>7.25</AdjustedClose>
+	<ActualClose>7.25</ActualClose>
+	<Volume>328540</Volume>
+</row>
+<row>
+	<Ticker>IONA</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>6.91</AdjustedClose>
+	<ActualClose>6.91</ActualClose>
+	<Volume>818500</Volume>
+</row>
+<row>
+	<Ticker>IONA</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>7.1</AdjustedClose>
+	<ActualClose>7.1</ActualClose>
+	<Volume>455740</Volume>
+</row>
+<row>
+	<Ticker>IONA</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>6.5</AdjustedClose>
+	<ActualClose>6.5</ActualClose>
+	<Volume>506300</Volume>
+</row>
+<row>
+	<Ticker>KANA</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>4.82</AdjustedClose>
+	<ActualClose>4.82</ActualClose>
+	<Volume>1042520</Volume>
+</row>
+<row>
+	<Ticker>KANA</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>5.13</AdjustedClose>
+	<ActualClose>5.13</ActualClose>
+	<Volume>2161875</Volume>
+</row>
+<row>
+	<Ticker>KANA</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>4.82</AdjustedClose>
+	<ActualClose>4.82</ActualClose>
+	<Volume>1256400</Volume>
+</row>
+<row>
+	<Ticker>KANA</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>4.08</AdjustedClose>
+	<ActualClose>4.08</ActualClose>
+	<Volume>1046640</Volume>
+</row>
+<row>
+	<Ticker>LU</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>4.48</AdjustedClose>
+	<ActualClose>4.48</ActualClose>
+	<Volume>114979881</Volume>
+</row>
+<row>
+	<Ticker>LU</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>4.11</AdjustedClose>
+	<ActualClose>4.11</ActualClose>
+	<Volume>178770504</Volume>
+</row>
+<row>
+	<Ticker>LU</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>4.61</AdjustedClose>
+	<ActualClose>4.61</ActualClose>
+	<Volume>167234179</Volume>
+</row>
+<row>
+	<Ticker>LU</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>3.7</AdjustedClose>
+	<ActualClose>3.7</ActualClose>
+	<Volume>137522302</Volume>
+</row>
+<row>
+	<Ticker>MACR</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>18.05</AdjustedClose>
+	<ActualClose>18.05</ActualClose>
+	<Volume>1942740</Volume>
+</row>
+<row>
+	<Ticker>MACR</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>19.35</AdjustedClose>
+	<ActualClose>19.35</ActualClose>
+	<Volume>2424900</Volume>
+</row>
+<row>
+	<Ticker>MACR</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>19.73</AdjustedClose>
+	<ActualClose>19.73</ActualClose>
+	<Volume>1660480</Volume>
+</row>
+<row>
+	<Ticker>MACR</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>20.6</AdjustedClose>
+	<ActualClose>20.6</ActualClose>
+	<Volume>1974540</Volume>
+</row>
+<row>
+	<Ticker>MOT</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>16.58</AdjustedClose>
+	<ActualClose>16.58</ActualClose>
+	<Volume>14239940</Volume>
+</row>
+<row>
+	<Ticker>MOT</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>16.77</AdjustedClose>
+	<ActualClose>16.77</ActualClose>
+	<Volume>21286025</Volume>
+</row>
+<row>
+	<Ticker>MOT</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>16.95</AdjustedClose>
+	<ActualClose>16.95</ActualClose>
+	<Volume>20114640</Volume>
+</row>
+<row>
+	<Ticker>MOT</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>15.71</AdjustedClose>
+	<ActualClose>15.71</ActualClose>
+	<Volume>16786700</Volume>
+</row>
+<row>
+	<Ticker>MSFT</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>27.65</AdjustedClose>
+	<ActualClose>27.65</ActualClose>
+	<Volume>59421780</Volume>
+</row>
+<row>
+	<Ticker>MSFT</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>28.48</AdjustedClose>
+	<ActualClose>28.48</ActualClose>
+	<Volume>80580851</Volume>
+</row>
+<row>
+	<Ticker>MSFT</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>27.81</AdjustedClose>
+	<ActualClose>27.81</ActualClose>
+	<Volume>54759120</Volume>
+</row>
+<row>
+	<Ticker>MSFT</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>27.66</AdjustedClose>
+	<ActualClose>27.66</ActualClose>
+	<Volume>58894679</Volume>
+</row>
+<row>
+	<Ticker>NETM</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>6.11</AdjustedClose>
+	<ActualClose>6.11</ActualClose>
+	<Volume>26060</Volume>
+</row>
+<row>
+	<Ticker>NETM</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>6.09</AdjustedClose>
+	<ActualClose>6.09</ActualClose>
+	<Volume>19400</Volume>
+</row>
+<row>
+	<Ticker>NETM</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>6.15</AdjustedClose>
+	<ActualClose>6.15</ActualClose>
+	<Volume>29720</Volume>
+</row>
+<row>
+	<Ticker>NETM</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>5.95</AdjustedClose>
+	<ActualClose>5.95</ActualClose>
+	<Volume>17400</Volume>
+</row>
+<row>
+	<Ticker>NOVL</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>12.68</AdjustedClose>
+	<ActualClose>12.68</ActualClose>
+	<Volume>6785560</Volume>
+</row>
+<row>
+	<Ticker>NOVL</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>12.45</AdjustedClose>
+	<ActualClose>12.45</ActualClose>
+	<Volume>7088050</Volume>
+</row>
+<row>
+	<Ticker>NOVL</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>12.11</AdjustedClose>
+	<ActualClose>12.11</ActualClose>
+	<Volume>6610160</Volume>
+</row>
+<row>
+	<Ticker>NOVL</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>11.26</AdjustedClose>
+	<ActualClose>11.26</ActualClose>
+	<Volume>8271060</Volume>
+</row>
+<row>
+	<Ticker>ORCL</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>13.86</AdjustedClose>
+	<ActualClose>13.86</ActualClose>
+	<Volume>41281680</Volume>
+</row>
+<row>
+	<Ticker>ORCL</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>14.54</AdjustedClose>
+	<ActualClose>14.54</ActualClose>
+	<Volume>35199150</Volume>
+</row>
+<row>
+	<Ticker>ORCL</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>14.85</AdjustedClose>
+	<ActualClose>14.85</ActualClose>
+	<Volume>53766159</Volume>
+</row>
+<row>
+	<Ticker>ORCL</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>14.17</AdjustedClose>
+	<ActualClose>14.17</ActualClose>
+	<Volume>46472980</Volume>
+</row>
+<row>
+	<Ticker>PSFT</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>21.57</AdjustedClose>
+	<ActualClose>21.57</ActualClose>
+	<Volume>8047940</Volume>
+</row>
+<row>
+	<Ticker>PSFT</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>22.57</AdjustedClose>
+	<ActualClose>22.57</ActualClose>
+	<Volume>3751625</Volume>
+</row>
+<row>
+	<Ticker>PSFT</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>22.86</AdjustedClose>
+	<ActualClose>22.86</ActualClose>
+	<Volume>5076800</Volume>
+</row>
+<row>
+	<Ticker>PSFT</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>22.67</AdjustedClose>
+	<ActualClose>22.67</ActualClose>
+	<Volume>5010160</Volume>
+</row>
+<row>
+	<Ticker>RHAT</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>19.3</AdjustedClose>
+	<ActualClose>19.3</ActualClose>
+	<Volume>3911580</Volume>
+</row>
+<row>
+	<Ticker>RHAT</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>20.4</AdjustedClose>
+	<ActualClose>20.4</ActualClose>
+	<Volume>5928450</Volume>
+</row>
+<row>
+	<Ticker>RHAT</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>20.49</AdjustedClose>
+	<ActualClose>20.49</ActualClose>
+	<Volume>6048800</Volume>
+</row>
+<row>
+	<Ticker>RHAT</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>20.39</AdjustedClose>
+	<ActualClose>20.39</ActualClose>
+	<Volume>11631900</Volume>
+</row>
+<row>
+	<Ticker>SAP</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>41.19</AdjustedClose>
+	<ActualClose>41.46</ActualClose>
+	<Volume>1513940</Volume>
+</row>
+<row>
+	<Ticker>SAP</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>41.79</AdjustedClose>
+	<ActualClose>42.06</ActualClose>
+	<Volume>2284550</Volume>
+</row>
+<row>
+	<Ticker>SAP</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>41.43</AdjustedClose>
+	<ActualClose>41.7</ActualClose>
+	<Volume>2946300</Volume>
+</row>
+<row>
+	<Ticker>SAP</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>44.07</AdjustedClose>
+	<ActualClose>44.36</ActualClose>
+	<Volume>2156820</Volume>
+</row>
+<row>
+	<Ticker>SEBL</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>13.3</AdjustedClose>
+	<ActualClose>13.3</ActualClose>
+	<Volume>9747120</Volume>
+</row>
+<row>
+	<Ticker>SEBL</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>13.86</AdjustedClose>
+	<ActualClose>13.86</ActualClose>
+	<Volume>13718400</Volume>
+</row>
+<row>
+	<Ticker>SEBL</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>15.13</AdjustedClose>
+	<ActualClose>15.13</ActualClose>
+	<Volume>10275360</Volume>
+</row>
+<row>
+	<Ticker>SEBL</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>15.25</AdjustedClose>
+	<ActualClose>15.25</ActualClose>
+	<Volume>16639160</Volume>
+</row>
+<row>
+	<Ticker>SY</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>21.62</AdjustedClose>
+	<ActualClose>21.62</ActualClose>
+	<Volume>779120</Volume>
+</row>
+<row>
+	<Ticker>SY</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>21.69</AdjustedClose>
+	<ActualClose>21.69</ActualClose>
+	<Volume>476550</Volume>
+</row>
+<row>
+	<Ticker>SY</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>22.15</AdjustedClose>
+	<ActualClose>22.15</ActualClose>
+	<Volume>553240</Volume>
+</row>
+<row>
+	<Ticker>SY</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>22.39</AdjustedClose>
+	<ActualClose>22.39</ActualClose>
+	<Volume>845200</Volume>
+</row>
+<row>
+	<Ticker>TIBX</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>7.82</AdjustedClose>
+	<ActualClose>7.82</ActualClose>
+	<Volume>7980860</Volume>
+</row>
+<row>
+	<Ticker>TIBX</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>7.61</AdjustedClose>
+	<ActualClose>7.61</ActualClose>
+	<Volume>1997300</Volume>
+</row>
+<row>
+	<Ticker>TIBX</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>8.24</AdjustedClose>
+	<ActualClose>8.24</ActualClose>
+	<Volume>2185280</Volume>
+</row>
+<row>
+	<Ticker>TIBX</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>7.36</AdjustedClose>
+	<ActualClose>7.36</ActualClose>
+	<Volume>2523640</Volume>
+</row>
+<row>
+	<Ticker>VIGN</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>2.38</AdjustedClose>
+	<ActualClose>2.38</ActualClose>
+	<Volume>2309840</Volume>
+</row>
+<row>
+	<Ticker>VIGN</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>2.59</AdjustedClose>
+	<ActualClose>2.59</ActualClose>
+	<Volume>5536050</Volume>
+</row>
+<row>
+	<Ticker>VIGN</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>2.85</AdjustedClose>
+	<ActualClose>2.85</ActualClose>
+	<Volume>2420020</Volume>
+</row>
+<row>
+	<Ticker>VIGN</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>2.62</AdjustedClose>
+	<ActualClose>2.62</ActualClose>
+	<Volume>2812800</Volume>
+</row>
+<row>
+	<Ticker>VITR</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>7.34</AdjustedClose>
+	<ActualClose>7.34</ActualClose>
+	<Volume>193980</Volume>
+</row>
+<row>
+	<Ticker>VITR</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>8.01</AdjustedClose>
+	<ActualClose>8.01</ActualClose>
+	<Volume>103450</Volume>
+</row>
+<row>
+	<Ticker>VITR</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>7.95</AdjustedClose>
+	<ActualClose>7.95</ActualClose>
+	<Volume>89640</Volume>
+</row>
+<row>
+	<Ticker>VITR</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>7.51</AdjustedClose>
+	<ActualClose>7.51</ActualClose>
+	<Volume>127040</Volume>
+</row>
+<row>
+	<Ticker>WEBM</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>10.7</AdjustedClose>
+	<ActualClose>10.7</ActualClose>
+	<Volume>1172560</Volume>
+</row>
+<row>
+	<Ticker>WEBM</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>10.93</AdjustedClose>
+	<ActualClose>10.93</ActualClose>
+	<Volume>2766125</Volume>
+</row>
+<row>
+	<Ticker>WEBM</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>11.0</AdjustedClose>
+	<ActualClose>11.0</ActualClose>
+	<Volume>1843800</Volume>
+</row>
+<row>
+	<Ticker>WEBM</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>10.91</AdjustedClose>
+	<ActualClose>10.91</ActualClose>
+	<Volume>2370360</Volume>
+</row>
+<row>
+	<Ticker>YHOO</Ticker>
+	<DateTraded>2004-01-26T00:00:00</DateTraded>
+	<AdjustedClose>23.49</AdjustedClose>
+	<ActualClose>46.98</ActualClose>
+	<Volume>9511260</Volume>
+</row>
+<row>
+	<Ticker>YHOO</Ticker>
+	<DateTraded>2004-01-20T00:00:00</DateTraded>
+	<AdjustedClose>23.55</AdjustedClose>
+	<ActualClose>47.09</ActualClose>
+	<Volume>7788650</Volume>
+</row>
+<row>
+	<Ticker>YHOO</Ticker>
+	<DateTraded>2004-01-12T00:00:00</DateTraded>
+	<AdjustedClose>24.06</AdjustedClose>
+	<ActualClose>48.11</ActualClose>
+	<Volume>17108040</Volume>
+</row>
+<row>
+	<Ticker>YHOO</Ticker>
+	<DateTraded>2004-01-05T00:00:00</DateTraded>
+	<AdjustedClose>24.06</AdjustedClose>
+	<ActualClose>48.12</ActualClose>
+	<Volume>10737720</Volume>
+</row>
+</table>

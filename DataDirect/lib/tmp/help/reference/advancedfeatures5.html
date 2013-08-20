@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:24" />
+  <title>Using URI Resolvers</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp204888"> </a><h2 class="pNewHTMLPageNum">
+Using URI Resolvers
+</h2>
+<hr />
+<a name="wp205219"> </a><p class="pBody">
+This section provides information about URI resolvers for documents, modules, and file collections.
+</p>
+<a name="wp204890"> </a><h3 class="pHeading2">
+Document URI Resolvers
+</h3>
+<a name="wp205232"> </a><p class="pBody">
+DataDirect XQuery allows an application to specify a custom URI resolver for fn:doc and fn:doc-available. For example, you may want to create a Java class to resolve custom URLs that point to a proprietary repository that stores your XML documents, like an XML database. This type of custom URI resolver is called a document URI resolver.
+</p>
+<a name="wp209374"> </a><p class="pBody">
+The document URI resolver must be a Java class that implements the the javax.xml.transform.URIResolver interface and the default constructor. The javax.xml.transform.Source object returned by the URI resolver must be an instance of one of the following interfaces:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp204893"> </a><div class="pSmartList1"><li>javax.xml.transform.stream.StreamSource</li></div><a name="wp204894"> </a><div class="pSmartList1"><li>javax.xml.transform.sax.SAXSource</li></div><a name="wp204895"> </a><div class="pSmartList1"><li>javax.xml.transform.dom.DOMSource</li></div><a name="wp204896"> </a><div class="pSmartList1"><li>javax.xml.transform.stax.StAXSource (for JVM 1.6 only)*</li></div><a name="wp209058"> </a><div class="pSmartList1"><li>com.ddtek.xquery.StAXSource (a proprietary DataDirect XQuery class for JVMs prior to 1.6)*</li></div></ul></div>
+<a name="wp221075"> </a><p class="pBody">
+* The StAXSource must be created with an XMLStreamReader; it cannot be created with an XMLEventReader.
+</p>
+<a name="wp204898"> </a><p class="pBody">
+If you specify a document URI resolver, the rules enforced for URI paths are governed by the syntax specified by your custom URI resolver. See <a  href="conf_sourcefiles2.html#wp187870">XML Data Sources</a> for the rules enforced for specifying URIs by the default URI resolver.
+</p>
+<a name="wp204902"> </a><p class="pBody">
+You can specify a document URI resolver by configuring the DocumentUriResolver property of DDXQDataSource. See<a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a>.
+</p>
+<a name="wp204943"> </a><h3 class="pHeading2">
+Library Module URI Resolvers
+</h3>
+<a name="wp205181"> </a><p class="pBody">
+DataDirect XQuery allows you to customize the mechanism for importing library modules in a query. For example, you may want to create a Java class to resolve custom URLs that point to a repository that stores XQuery modules. 
+</p>
+<a name="wp205183"> </a><p class="pBody">
+Any custom library module URI resolver must be a Java class that implements the com.ddtek.xquery.ModuleURIResolver interface. In addition, it must return an array of Java StreamSource objects that identify the contents of a module to be imported. 
+</p>
+<a name="wp205576"> </a><p class="pBody">
+The interface has one method, resolve. You must implement the resolve method to resolve the module with the provided module&#160;URI, base URI, and location hints, as follows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+public StreamSource[] resolve (String moduleURI,<a name="wp205607"> </a>
+                               String baseURI,<a name="wp205581"> </a>
+                               String[] locationHints)<a name="wp205582"> </a>
+                      throws TransformerException<a name="wp205583"> </a>
+</pre></div>
+<a name="wp205577"> </a><p class="pBody">
+The resolve method accepts the following parameters specified in the query:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp205681"> </a><div class="pSmartList1"><li><code class="cCode">moduleURI</code> is the module namespace URI. This parameter cannot be null.</li></div><a name="wp205689"> </a><div class="pSmartList1"><li><code class="cCode">baseURI</code> is the base URI of the module containing the import module declaration or null if no base URI is known.</li></div><a name="wp205712"> </a><div class="pSmartList1"><li><code class="cCode">locationHints</code> is the array of location hints provided in the at&#160;clause of the import module declaration. An empty array is specified if no at clause is included in the import module declaration.</li></div></ul></div>
+<a name="wp205717"> </a><p class="pBody">
+The resolve method returns an array of StreamSource objects, each identifying the contents of a module to be imported. Each StreamSource must contain a non-null absolute System ID that is used as the location URI of the imported module. Optionally, the StreamSource can contain an InputStream or Reader representing the text of the module. If a representation of the text of the module is not returned, DataDirect XQuery resolves the module using the specified location URI. 
+</p>
+<a name="wp205770"> </a><p class="pBody">
+If null is returned, DataDirect XQuery resolves the module using the default module URI resolver.
+</p>
+<a name="wp205193"> </a><p class="pBody">
+You can specify a custom library module URI resolver by configuring the ModuleUriResolver property of DDXQDataSource. See <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a>.
+</p>
+<a name="wp206542"> </a><p class="pBodyBold">
+Example: Using a Custom Library Module URI Resolver
+</p>
+<a name="wp206834"> </a><p class="pBody">
+The following custom library module URI resolver relies on a specific directory to resolve the module. In addition, if a location hint is omitted in the XQuery import statement, DataDirect XQuery uses the default module URI resolver.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import javax.xml.transform.TransformerException;<a name="wp206587"> </a>
+import javax.xml.transform.stream.StreamSource;<a name="wp206588"> </a>
+import java.io.File;<a name="wp206589"> </a>
+import com.ddtek.xquery.ModuleURIResolver;<a name="wp206590"> </a>
+<a name="wp206591"> </a>
+public class customModuleResolver implements ModuleURIResolver {<a name="wp206592"> </a>
+   public StreamSource[] resolve(String moduleURI, String baseURI, String[]<a name="wp206593"> </a>
+   locationHint)throws TransformerException {<a name="wp206715"> </a>
+     // In this example, the custom behavior is triggered by using<a name="wp206595"> </a>
+     // a specific moduleURI<a name="wp206790"> </a>
+     if(moduleURI.equals(&quot;http://sharedFunctions.company.com&quot;)) {<a name="wp206791"> </a>
+        File fileSource;<a name="wp206777"> </a>
+        // If a locationHint is available, we use it; otherwise, we <a name="wp206598"> </a>
+        // load the default module URI resolver.<a name="wp206727"> </a>
+        if(locationHint.length &gt; 0)<a name="wp206599"> </a>
+           fileSource = new File(&quot;c:/sharedFunctions/&quot;+locationHint[0]);<a name="wp206600"> </a>
+        else<a name="wp206601"> </a>
+           fileSource = new File(&quot;c:/sharedFunctions/defaultModule.xquery&quot;);<a name="wp206602"> </a>
+        // More than one StreamSource can be returned; <a name="wp206603"> </a>
+        // This example only returns one StreamSource.<a name="wp206744"> </a>
+        StreamSource streamSources[] = {new StreamSource(fileSource)};<a name="wp206604"> </a>
+        return streamSources;<a name="wp206605"> </a>
+     }<a name="wp206606"> </a>
+     return null;<a name="wp206607"> </a>
+}<a name="wp206608"> </a>
+}<a name="wp206905"> </a>
+</pre></div>
+<a name="wp206946"> </a><p class="pBody">
+The following query only specifies the module file name and relies on customModuleResolver to import the module from the path c:/sharedFunctions/module1.xquery:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import module namespace sharedFunctions =<a name="wp206947"> </a>
+   &#39;http://sharedFunctions.company.com&#39; at &#39;module1.xquery&#39;;<a name="wp207005"> </a>
+sharedFunctions:func(&#39;a&#39;,&#39;b&#39;)<a name="wp206948"> </a>
+</pre></div>
+<a name="wp206953"> </a><p class="pBody">
+The following query omits the location hint. In this case, the query relies on customModuleResolver to import a default module (c:/sharedFunctions/defaultModule.xquery):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import module namespace sharedFunctions =<a name="wp206954"> </a>
+   &#39;http://sharedFunctions.company.com&#39;; (: no location hint :)<a name="wp207035"> </a>
+sharedFunctions:func(&#39;a&#39;,&#39;b&#39;)<a name="wp206955"> </a>
+</pre></div>
+<a name="wp206959"> </a><p class="pBody">
+In the following query, customModuleResolver defaults to the behavior of the built-in DataDirect XQuery module URI resolver (note the different namespace URI for the imported module), which tries to locate module1.xquery relative to the location of the URL of the query:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import module namespace otherFunctions = &#39;http://other.company.com&#39; <a name="wp206960"> </a>
+   at &#39;module1.xquery&#39;;<a name="wp207067"> </a>
+sharedFunctions:func(&#39;a&#39;,&#39;b&#39;)<a name="wp207078"> </a>
+</pre></div>
+<a name="wp209086"> </a><h3 class="pHeading2">
+Collection URI Resolvers
+</h3>
+<a name="wp209367"> </a><p class="pBody">
+DataDirect XQuery allows an application to specify a custom URI resolver for fn:collection. For example, you might want to create a Java class to resolve custom URIs that point to a directory that contains your XML files. This type of custom URI resolver is called a collection URI resolver. 
+</p>
+<a name="wp209304"> </a><p class="pBody">
+The collection URI resolver must be a Java class that implements the com.ddtek.xquery.CollectionURIResolver interface. The URI resolver returns a java.util.Iterator object, which, in turn, must return objects that implement one of the following interfaces:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp209306"> </a><div class="pSmartList1"><li>javax.xml.transform.stream.StreamSource</li></div><a name="wp209308"> </a><div class="pSmartList1"><li>javax.xml.transform.sax.SAXSource</li></div><a name="wp209310"> </a><div class="pSmartList1"><li>javax.xml.transform.dom.DOMSource</li></div><a name="wp209312"> </a><div class="pSmartList1"><li>javax.xml.transform.stax.StAXSource (for JVM 1.6 only)*</li></div><a name="wp209313"> </a><div class="pSmartList1"><li>com.ddtek.xquery.StAXSource (a proprietary DataDirect XQuery class for JVMs prior to 1.6)*</li></div></ul></div>
+<a name="wp209314"> </a><p class="pBody">
+* The StAXSource must be created with an XMLStreamReader; it cannot be created with an XMLEventReader.
+</p>
+<a name="wp209457"> </a><p class="pBody">
+Refer to the Javadoc for details about the CollectionURIResolver interface.
+</p>
+<a name="wp209319"> </a><p class="pBody">
+You can specify a collection URI resolver by configuring the CollectionUriResolver property of DDXQDataSource. See <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a>.
+</p>
+<a name="wp211883"> </a><p class="pBody">
+See also <a  href="advancedfeatures3.html#wp219064">Querying Multiple Files in a Directory</a> and <a  href="advancedfeatures4.html#wp246385">Querying ZIP, JAR, and MS Office Files</a>.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

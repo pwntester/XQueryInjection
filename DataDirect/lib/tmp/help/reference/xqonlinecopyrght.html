@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:05" />
+  <title>DataDirect XQuery&#174;  User&#8217;s Guide and Reference</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp20021"> </a><p class="pBody">
+DataDirect XQuery<sup style="font-family: Frutiger 45 Light" class="cSuperscript">&#174;<br /></sup><br />User&#8217;s Guide and Reference
+</p>
+<a name="wp20373"> </a><p class="pBody">
+Release 5.0<br />October 2009
+</p>
+<a name="wp21111"> </a><p class="pBody">
+&#169; 2009 Progress Software Corporation and/or its subsidiaries or affiliates. All rights reserved.
+</p>
+<a name="wp21112"> </a><p class="pBody">
+
+</p>
+<a name="wp21113"> </a><p class="pBody">
+These materials and all Progress&#174; software products are copyrighted and all rights are reserved by Progress Software Corporation.  The information in these materials is subject to change without notice, and Progress Software Corporation assumes no responsibility for any errors that may appear therein.  The references in these materials to specific platforms supported are subject to change.
+</p>
+<a name="wp21114"> </a><p class="pBody">
+Actional, Actional (and design), Allegrix, Allegrix (and design), Apama, Apama (and Design), Artix, Business Empowerment, DataDirect (and design), DataDirect Connect, DataDirect Connect64, DataDirect Technologies, DataDirect XML Converters, DataDirect XQuery, DataXtend, Dynamic Routing Architecture, EdgeXtend, Empowerment Center, Fathom, IntelliStream, IONA, IONA (and design), Making Software Work Together, Mindreef, Neon,  Neon New Era of Networks, ObjectStore, OpenEdge, Orbix, PeerDirect, Persistence, POSSENET, Powered by Progress, PowerTier, Progress, Progress DataXtend, Progress Dynamics, Progress Business Empowerment, Progress Empowerment Center, Progress Empowerment Program, Progress OpenEdge, Progress Profiles, Progress Results, Progress Software Developers Network, Progress Sonic, ProVision, PS Select, SequeLink, Shadow, SOAPscope, SOAPStation, Sonic, Sonic ESB, SonicMQ, Sonic Orchestration Server, Sonic Software (and design), SonicSynergy, SpeedScript, Stylus Studio, Technical Empowerment,  WebSpeed, Xcalia (and design), and Your Software, Our Technology-Experience the Connection are registered trademarks of Progress Software Corporation or one of its affiliates or subsidiaries in the U.S. and/or other countries.  AccelEvent, Apama Dashboard Studio, Apama Event Manager, Apama Event Modeler, Apama Event Store, Apama Risk Firewall, AppsAlive, AppServer, ASPen, ASP-in-a-Box, BusinessEdge, Business Making Progress, Cache-Forward, DataDirect Spy, DataDirect SupportLink, FUSE, FUSE Mediation Router, FUSE Message Broker, FUSE Services Framework, Future Proof, GVAC, High Performance Integration, ObjectStore Inspector, ObjectStore Performance Expert, OpenAccess, Orbacus, Pantero, POSSE, ProDataSet, Progress ESP Event Manager, Progress ESP Event Modeler, Progress Event Engine, Progress RFID, Progress Software Business Making Progress, PSE Pro, SectorAlliance, SeeThinkAct, Shadow z/Services, Shadow z/Direct, Shadow z/Events, Shadow z/Presentation, Shadow Studio, SmartBrowser, SmartComponent, SmartDataBrowser, SmartDataObjects, SmartDataView, SmartDialog, SmartFolder, SmartFrame, SmartObjects, SmartPanel, SmartQuery, SmartViewer, SmartWindow, Sonic Business Integration Suite, Sonic Process Manager, Sonic Collaboration Server, Sonic Continuous Availability Architecture, Sonic Database Service, Sonic Workbench, Sonic XML Server, StormGlass, The Brains Behind BAM, WebClient, Who Makes Progress, and Your World.  Your SOA. are trademarks or service marks of Progress Software Corporation or one of its affiliates or subsidiaries in the U.S. and other countries.  Java and all Java-based marks are trademarks or registered trademarks of Sun Microsystems, Inc. in the U.S. and other countries.  MySQL and MySQL Enterprise are registered trademarks of MySQL AB in the United States, the European Union and other countries.  Any other trademarks or service marks contained herein are the property of their respective owners.
+</p>
+<a name="wp21115"> </a><p class="pBody">
+
+</p>
+<a name="wp21116"> </a><p class="pBody">
+Third Party Acknowledgments:
+</p>
+<a name="wp21117"> </a><p class="pBody">
+
+</p>
+<a name="wp21118"> </a><p class="pBody">
+DataDirect products for the Microsoft SQL Server database:
+</p>
+<a name="wp21119"> </a><p class="pBody">
+These products contain a licensed implementation of the Microsoft TDS Protocol.
+</p>
+<a name="wp21120"> </a><p class="pBody">
+
+</p>
+<a name="wp21121"> </a><p class="pBody">
+Stylus Studio includes:
+</p>
+<a name="wp21122"> </a><p class="pBody">
+Xerces c++ developed by the Apache Software Foundation (http:// www.apache.org/). Copyright &#169; 1999-2006 the Apache Software Foundation. All rights reserved. 
+</p>
+<a name="wp21123"> </a><p class="pBody">
+XercesJ developed by the Apache Software Foundation (http:// www.apache.org/). Copyright &#169; 1999-2006 the Apache Software Foundation. All rights reserved.
+</p>
+<a name="wp21124"> </a><p class="pBody">
+FOP developed by the Apache Software Foundation (http:// www.apache.org/). Copyright &#169; 1999-2006 the Apache Software Foundation. All rights reserved.
+</p>
+<a name="wp21125"> </a><p class="pBody">
+Axis developed by the Apache Software Foundation (http:// www.apache.org/). Copyright &#169; 1999-2006 the Apache Software Foundation. All rights reserved.
+</p>
+<a name="wp21126"> </a><p class="pBody">
+The names &quot;Xalan&quot;, &quot;FOP&quot;, and &quot;Apache Software Foundation&quot; must not be used to endorse or promote products derived from this software without prior written permission. Products derived from this software may not be called &quot;Apache&quot;, nor may &quot;Apache&quot; appear in their name, without prior written permission of the Apache Software Foundation. For written permission, please contact apache@apache.org. 
+</p>
+<a name="wp21127"> </a><p class="pBody">
+Files that are subject to the DSTC Public License (DPL) Version 1.1 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at http:// www.dstc.com. Software distributed under the License is distributed on an &quot;AS IS&quot; basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the specific language governing rights and limitations under the License. The Original Code is xs3p. The Initial Developer of the Original Code is DSTC. Portions created by DSTC are Copyright &#169; 2002. All rights reserved. 
+</p>
+<a name="wp21128"> </a><p class="pBody">
+Pathan developed by DecisionSoft Limited. Copyright &#169; 2001 DecisionSoft Limited. All rights reserved.
+</p>
+<a name="wp21129"> </a><p class="pBody">
+Software developed by Thai Open Source Software Center Ltd. Copyright &#169; 2001-2003, Thai Open Source Software Center Ltd. All rights reserved.
+</p>
+<a name="wp21130"> </a><p class="pBody">
+IBM ICU developed by IBM. Copyright &#169; 1995-2003 International Business Machines Corporation and others. All rights reserved. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, provided that the above copyright notice(s) and this permission notice appear in all copies of the Software and that both the above copyright notice(s) and this permission notice appear in supporting documentation.
+</p>
+<a name="wp21131"> </a><p class="pBody">
+Software developed by Kevin Atkinson.  Copyright &#169; 2000-2004, by Kevin Atkinson.  All rights reserved.
+</p>
+<a name="wp21132"> </a><p class="pBody">
+Aspell 0.60.2, from the Free Software Foundation, Inc. (http://www.fsf.org/), which is subject to the GNU Lesser General Public License Version 2.1 (http://www.gnu.org/licenses/lgpl.html). Software distributed under this license is distributed on an &quot;AS IS&quot; basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.  See the license for the specific language governing rights and limitations under the license.  
+</p>
+<a name="wp21133"> </a><p class="pBody">
+Software developed by xqDoc.org. Copyright &#169;  2005 Elsevier, Inc. All rights reserved.
+</p>
+<a name="wp21134"> </a><p class="pBody">
+Software developed by Info-ZIP. Copyright &#169; 1990-2004 Info-ZIP. All rights reserved. For the purposes of this copyright and license, &quot;Info-ZIP&quot; is defined as the following set of individuals: Mark Adler, John Bush, Karl Davis, Harald Denker, Jean-Michel Dubois, Jean-loup Gailly, Hunter Goatley, Ian Gorman, Chris Herborth, Dirk Haase, Greg Hartwig, Robert Heath, Jonathan Hudson, Paul Kienitz, David Kirschbaum, Johnny Lee, Onno van der Linden, Igor Mandrichenko, Steve P. Miller, Sergio Monesi, Keith Owens, George Petrov, Greg Roelofs, Kai Uwe Rommel, Steve Salisbury, Dave Smith, Christian Spieler, Antoine Verheijen, Paul von Behren, Rich Wales, Mike White.  Info-ZIP software is provided &quot;as is&quot;, without warranty of any kind, express or implied. In no event shall Info-ZIP or its contributors be held liable for any direct, indirect, incidental, special or consequential damages arising out of the use of or inability to use this software. 
+</p>
+<a name="wp21135"> </a><p class="pBody">
+Software developed by Tim Bray and Sun Microsystems and is distributed on an &quot;AS IS&quot; basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. Copyright &#169; 2004 Tim Bray and Sun Microsystems. All rights reserved. 
+</p>
+<a name="wp21136"> </a><p class="pBody">
+Software developed by Saxonica Limited and is distributed on an &quot;AS IS&quot; basis WITHOUT WARRANTY OF ANY KIND, either express or implied. Copyright &#169; 2005 Saxonica Limited. All rights reserved. 
+</p>
+<a name="wp21137"> </a><p class="pBody">
+Software developed by The Anti-Grain Geometry Project. Copyright &#169; 2002-2005 Maxim Shemanarev (McSeem). This software is provided &quot;as is&quot; without express or implied warranty, and with no claim as to its suitability for any purpose.
+</p>
+<a name="wp21138"> </a><p class="pBody">
+DataDirect XML Converters. Copyright 2004 - 2009 Progress Software Corporation and/or its subsidiaries or affiliates. All rights reserved.
+</p>
+<a name="wp21139"> </a><p class="pBody">
+DataDirect XQuery. Copyright 2004 - 2009 Progress Software Corporation and/or its subsidiaries or affiliates. All rights reserved.
+</p>
+<a name="wp21140"> </a><p class="pBody">
+
+</p>
+<a name="wp21141"> </a><p class="pBody">
+DataDirect XML Converters includes:
+</p>
+<a name="wp21142"> </a><p class="pBody">
+Software developed by World Wide Web Consortium. Copyright (c) 1998-2003 World Wide Web Consortium (Massachusetts Institute of Technology, European Research Consortium for Informatics and Mathematics, Keio University). All Rights Reserved.
+</p>
+<a name="wp21143"> </a><p class="pBody">
+Software developed by World Wide Web Consortium. Copyright (c) 1998-2000 World Wide Web Consortium (Massachusetts  Institute of Technology, Institut National de Recherche en  Informatique et en Automatique, Keio University). All Rights Reserved.
+</p>
+<a name="wp21144"> </a><p class="pBody">
+Software developed by JSON.org. Copyright (c) 2002 JSON.org. All rights reserved.
+</p>
+<a name="wp21145"> </a><p class="pBody">
+
+</p>
+<a name="wp21146"> </a><p class="pBody">
+DataDirect XQuery includes:
+</p>
+<a name="wp21147"> </a><p class="pBody">
+XQJ 225 XQuery API for Java 1.0 Reference Implementation.  Copyright (c) 2003 -2007 Oracle.  THIS SOFTWARE IS PROVIDED &quot;AS IS&quot; AND ANY EXPRESSED, IMPLIED OR STATUTORY WARRANTIES, INCLUDING BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL ORACLE OR ITS LICENSORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMTED TO LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ORACLE IS ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+</p>
+<a name="wp21148"> </a><p class="pBody">
+
+</p>
+<a name="wp21149"> </a><p class="pBody">
+September 2009
+</p>
+<a name="wp21151"> </a><p class="pBody">
+
+</p>
+<a name="wp20238"> </a><div style="color: #000000; font-size: 7pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 75pt; margin-right: 0pt; margin-top: 3pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+&#160;&#160;&#160;
+</div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

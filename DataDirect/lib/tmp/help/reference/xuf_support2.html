@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:12" />
+  <title>Support Overview</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp214353"> </a><h2 class="pNewHTMLPageNum">
+Support Overview
+</h2>
+<hr />
+<a name="wp218844"> </a><p class="pBody">
+DataDirect XQuery supports the complete XUF specification for
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp218848"> </a><div class="pSmartList1"><li>Individual XML documents</li></div><a name="wp218896"> </a><div class="pSmartList1"><li>XML streams</li></div><a name="wp218899"> </a><div class="pSmartList1"><li>File collections</li></div></ul></div>
+<a name="wp218900"> </a><h4 class="pHeading3">
+Updating Relational Data
+</h4>
+<a name="wp221729"> </a><p class="pBody">
+DataDirect XQuery does not support XUF for relational data sources. XUF expressions can operate on nodes containing data that originates from a relational data source, but these changes are not propagated to the relational data source. Consider this example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $myName := &lt;name&gt;{collection(&quot;USERS&quot;)/USERS[USERID=&quot;02&quot;]
+                        /FIRSTNAME/text()}&lt;/name&gt;<a name="wp222000"> </a>
+</pre></div>
+<a name="wp222005"> </a><p class="pBody">
+Here, you can use XUF to modify <code class="cCode">$myName</code>, but you cannot change values from the <code class="cCode">collection()</code> function because those nodes are retrieved directly from a relational data source.
+</p>
+<a name="wp221689"> </a><p class="pBody">
+You can, however, use the ddtek:sql-insert/update/delete functions to perform update operations directly against an RDBMS. See <a  href="relationaldata4.html#wp222968">Updating Relational Data</a> for more information.
+</p>
+<a name="wp220466"> </a><h3 class="pHeading2">
+XUF Expressions
+</h3>
+<a name="wp220473"> </a><p class="pBody">
+The XUF specification introduces several new expressions as extensions to the XQuery specification:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp220476"> </a><div class="pSmartList1"><li>Insert</li></div><a name="wp220487"> </a><div class="pSmartList1"><li>Delete</li></div><a name="wp220494"> </a><div class="pSmartList1"><li>Replace</li></div><a name="wp220499"> </a><div class="pSmartList1"><li>Rename</li></div><a name="wp220507"> </a><div class="pSmartList1"><li>Transform</li></div></ul></div>
+<a name="wp220508"> </a><p class="pBody">
+These and other expressions and functions that support XUF are described and illustrated in the examples in the sections that follow.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

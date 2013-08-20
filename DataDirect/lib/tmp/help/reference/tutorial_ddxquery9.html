@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:09" />
+  <title>Updating Data in Relational Databases</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp151077"> </a><h2 class="pNewHTMLPageNum">
+Updating Data in Relational Databases
+</h2>
+<hr />
+<a name="wp157573"> </a><p class="pBody">
+You can execute updating expressions using either XQExpression or XQPreparedExpression objects. The result of an updating query is always an empty sequence.
+</p>
+<a name="wp157574"> </a><p class="pBody">
+The following example executes an updating expression in XQJ using an XQExpression object. The updating expression inserts data into the holdings database table.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+// import the XQJ classes<a name="wp157575"> </a>
+import javax.xml.xquery.*;<a name="wp159876"> </a>
+import com.ddtek.xquery.xqj.DDXQDataSource;<a name="wp159877"> </a>
+<a name="wp157578"> </a>
+// establish a connection to a relational data source<a name="wp157579"> </a>
+// specify the URL and the user ID and password<a name="wp157580"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp157581"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp157582"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp157583"> </a>
+// create an expression object that is used to execute a query<a name="wp157584"> </a>
+XQExpression xqExpression = conn.createExpression();<a name="wp157585"> </a>
+<a name="wp157586"> </a>
+// the query<a name="wp157587"> </a>
+String es = &quot;ddtek:sql-insert(&#39;holdings&#39;,&quot; +<a name="wp157588"> </a>
+             &quot;&#39;userid&#39;,&#39;Minollo&#39;,&#39;stockticker&#39;,&#39;TIVO&#39;,&#39;shares&#39;,200)&quot;;<a name="wp157589"> </a>
+<a name="wp157590"> </a>
+// execute the query<a name="wp157591"> </a>
+XQResultSequence result = xqExpression.executeQuery(es);<a name="wp157592"> </a>
+<a name="wp157593"> </a>
+// free all resources<a name="wp157594"> </a>
+result.close();<a name="wp157595"> </a>
+xqExpression.close();<a name="wp157596"> </a>
+conn.close();<a name="wp157597"> </a>
+</pre></div>
+<a name="wp157616"> </a><p class="pBody">
+Other examples can be found in the <a  href="examples4.html#wp137818">RDBMSUpdate</a> example.
+</p>
+<a name="wp157290"> </a><p class="pBody">
+See <a  href="relationaldata4.html#wp222968">Updating Relational Data</a> for more information about updating data in relational databases.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

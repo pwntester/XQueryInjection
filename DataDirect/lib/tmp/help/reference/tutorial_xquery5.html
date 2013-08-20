@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:10" />
+  <title>Grouping Data</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp153479"> </a><h2 class="pNewHTMLPageNum">
+Grouping Data
+</h2>
+<hr />
+<a name="wp153483"> </a><p class="pBody">
+The previous topic, <a  href="tutorial_xquery4.html#wp150378">Restructuring Data: FLWOR Expressions</a>, described how to use XQuery FLWOR expressions with XML and relational data sources to restructure data. This topic describes how to group data using the XQuery FLWOR expression window clause.
+</p>
+<a name="wp153569"> </a><p class="pBody">
+<img src="images/version_11_smallb.gif" border="0" hspace="0" vspace="0"/> The XQuery FLWOR expression window clause is supported in XQuery 1.1 only.
+</p>
+<a name="wp154086"> </a><p class="pBody">
+This section covers the following topics:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp154087"> </a><div class="pSmartList1"><li><a  href="tutorial_xquery5.html#wp153562">What Is Grouping</a></li></div><a name="wp154095"> </a><div class="pSmartList1"><li><a  href="tutorial_xquery5.html#wp153637">The window Clause</a></li></div><a name="wp154103"> </a><div class="pSmartList1"><li><a  href="tutorial_xquery5.html#wp153787">Example: Tumbling Windows</a></li></div><a name="wp154111"> </a><div class="pSmartList1"><li><a  href="tutorial_xquery5.html#wp153925">Example: Positional Grouping</a></li></div><a name="wp154159"> </a><div class="pSmartList1"><li><a  href="tutorial_xquery5.html#wp154082">Example: Sliding Windows</a></li></div></ul></div>
+<a name="wp153562"> </a><h3 class="pHeading2">
+What Is Grouping
+</h3>
+<a name="wp153638"> </a><p class="pBody">
+<em class="cEmphasis">Grouping</em> is a technique that allows you to group XML data and then perform some sort of query &#8211; a transformation, for example &#8211; on the data in that group.
+</p>
+<a name="wp153639"> </a><p class="pBody">
+In XQuery 1.1, you can achieve grouping using the window clause in a FLWOR expression. The window clause is powerful because it allows you to bind the for clause variable to a group of elements, instead of to a single element only. In XQuery 1.0, the for clause variable in FLWOR expressions could be bound to a single element only.
+</p>
+<a name="wp153637"> </a><h3 class="pHeading2">
+The window Clause
+</h3>
+<a name="wp153647"> </a><p class="pBody">
+The <em class="cEmphasis">window clause</em> in the XQuery FLWOR expression allows you to group data in sequences of consecutive items; these sequences are called <em class="cEmphasis">windows</em>. The start and end of a window are based on user-defined criteria &#8211; the WindowStartCondition (start $var when ExprSingle) and WindowEndCondition (end $var when ExprSingle), respectively. To create the window, the window clause iterates over the sequence, referred to as the  <em class="cEmphasis">binding sequence.</em> The resulting window contains the  binding sequence&#8217;s start item, end item, and all the items in between.
+</p>
+<a name="wp154394"> </a><p class="pBody">
+In a window clause, the starting item of the window is determined by the window type.
+</p>
+<a name="wp153674"> </a><h4 class="pHeading3">
+Types of Windows
+</h4>
+<a name="wp153675"> </a><p class="pBody">
+You can use the window clause to create two types of windows:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp153681"> </a><div class="pSmartList1"><li>Tumbling &#8211; tumbling windows are defined as windows whose items never overlap. The item that starts one window always follows the last item of the previous window. Thus, no two windows drawn from the same binding sequence can contain the same items.</li></div><a name="wp153685"> </a><div class="pSmartList1"><li>Sliding &#8211; sliding windows, on the other hand, are defined as windows that can overlap. That is, one window might contain the same item as another window drawn from the same binding sequence. This can occur because every item in the binding sequence that makes the WindowStartCondition true is the starting item for each new window.</li></div></ul></div>
+<a name="wp154401"> </a><p class="pBody">
+Examples of both types of windows appear in the following sections.
+</p>
+<a name="wp153787"> </a><h3 class="pHeading2">
+Example: Tumbling Windows
+</h3>
+<a name="wp153791"> </a><p class="pBody">
+Consider the following XML document, which contains information customer orders. Note that the document structure is flat &#8211; customer and order elements are intermingled:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp154495"> </a>
+&lt;orders&gt;<a name="wp154496"> </a>
+  &lt;customer id=&quot;1&quot;/&gt;<a name="wp154497"> </a>
+  &lt;order type=&quot;book&quot; id=&quot;1&quot; price=&quot;10.0&quot;/&gt; <a name="wp154498"> </a>
+  &lt;order type=&quot;DVD&quot; id=&quot;3&quot; price=&quot;24.0&quot;/&gt; <a name="wp154499"> </a>
+  &lt;customer id=&quot;2&quot;/&gt;<a name="wp154500"> </a>
+  &lt;order type=&quot;game&quot; id=&quot;5&quot; price=&quot;50.0&quot;/&gt; <a name="wp154501"> </a>
+&lt;/orders&gt;  <a name="wp153832"> </a>
+</pre></div>
+<a name="wp153809"> </a><p class="pBody">
+We want to use XQuery to group all orders by customer, like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp154531"> </a>
+&lt;orders&gt;<a name="wp154516"> </a>
+  &lt;customer id=&quot;1&quot;&gt;<a name="wp154517"> </a>
+    &lt;order type=&quot;book&quot; id=&quot;1&quot; price=&quot;10.0&quot;/&gt; <a name="wp154518"> </a>
+    &lt;order type=&quot;DVD&quot; id=&quot;3&quot; price=&quot;24.0&quot;/&gt; <a name="wp154519"> </a>
+  &lt;/customer&gt;<a name="wp154520"> </a>
+  &lt;customer id=&quot;2&quot;&gt;<a name="wp154521"> </a>
+    &lt;order type=&quot;game&quot; id=&quot;5&quot; price=&quot;50.0&quot;/&gt; <a name="wp154522"> </a>
+  &lt;/customer&gt;<a name="wp154523"> </a>
+&lt;/orders&gt;<a name="wp153860"> </a>
+</pre></div>
+<a name="wp155245"> </a><p class="pBody">
+Using the tumbling windows in XQuery 1.1, the code required to generate the same output is straightforward and concise. Here, the XQuery 1.1 code iterates through all of the elements in the XML document. The start of the binding sequence is an element <em class="cEmphasis">customer</em>; the end of the binding sequence occurs when the element immediately after the context is not an <em class="cEmphasis">order</em> (that is, in this example, it is another <em class="cEmphasis">customer</em>).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;orders&gt;{<a name="wp155246"> </a>
+ for tumbling window $customer in $data/orders/*<a name="wp155247"> </a>
+ start $start when $start/self::customer<a name="wp155248"> </a>
+ end next $next when $next[self::customer]<a name="wp155249"> </a>
+ return <a name="wp155250"> </a>
+    &lt;customer&gt;{<a name="wp155251"> </a>
+        $start/@*,<a name="wp155252"> </a>
+        subsequence($customer,  2)<a name="wp155253"> </a>
+    }&lt;/customer&gt;<a name="wp155254"> </a>
+}&lt;/orders&gt; <a name="wp155255"> </a>
+</pre></div>
+<a name="wp153846"> </a><p class="pBody">
+While generating this output is possible in XQuery 1.0, the recursive function required to process one sibling at a time is somewhat complex and not especially efficient, as shown here:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function local:orders($c as element(*, xs:untyped) )<a name="wp154666"> </a>
+ as element()*<a name="wp154667"> </a>
+{<a name="wp154668"> </a>
+    local:next($c/following-sibling::*[1])<a name="wp154669"> </a>
+};<a name="wp154670"> </a>
+<a name="wp154671"> </a>
+declare function local:next($o as element(*, xs:untyped)* )<a name="wp154672"> </a>
+ as element()*<a name="wp154673"> </a>
+{<a name="wp154674"> </a>
+ if($o/self::order) then<a name="wp154675"> </a>
+    ($o, local:next($o/following-sibling::*[1][self::order]))<a name="wp154676"> </a>
+ else ()<a name="wp154677"> </a>
+};<a name="wp154678"> </a>
+<a name="wp154679"> </a>
+&lt;orders&gt;{<a name="wp154680"> </a>
+for $ele in $data/orders/customer<a name="wp154681"> </a>
+return<a name="wp154682"> </a>
+ &lt;customer&gt;{<a name="wp154683"> </a>
+  $ele/@*,<a name="wp154684"> </a>
+  local:orders($ele) <a name="wp154685"> </a>
+ }&lt;/customer&gt; <a name="wp154686"> </a>
+}&lt;/orders&gt; <a name="wp153907"> </a>
+</pre></div>
+<a name="wp153925"> </a><h3 class="pHeading2">
+Example: Positional Grouping
+</h3>
+<a name="wp153987"> </a><p class="pBody">
+The XQuery 1.1 window clause also allows you to define grouping criteria based on position within the XML source. Imagine, for example, an XML document with the following structure containing thousands of <em class="cEmphasis">book</em> elements:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp155263"> </a>
+&lt;books name=&quot;My books&quot;&gt;<a name="wp155264"> </a>
+    &lt;book bookid=&quot;1&quot; pubdate=&quot;03/01/2002&quot;&gt;<a name="wp155265"> </a>
+        &lt;title&gt;Java Web Services&lt;/title&gt;<a name="wp155266"> </a>
+        &lt;authors&gt;<a name="wp155267"> </a>
+            &lt;author&gt;David A. Chappel&lt;/author&gt;<a name="wp155268"> </a>
+            &lt;author&gt;Tyler Jewell&lt;/author&gt;<a name="wp155269"> </a>
+        &lt;/authors&gt;<a name="wp155270"> </a>
+        &lt;subject&gt;Web Services&lt;/subject&gt;<a name="wp155271"> </a>
+    &lt;/book&gt;<a name="wp155272"> </a>
+     ...<a name="wp155273"> </a>
+&lt;/books&gt;<a name="wp154043"> </a>
+</pre></div>
+<a name="wp154044"> </a><p class="pBody">
+The XQuery code required to split a single document into multiple documents of, say, 10 <em class="cEmphasis">book</em> elements each might look like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $window_size = 10;<a name="wp155400"> </a>
+<a name="wp155401"> </a>
+for tumbling window $customer_orders in $books/books/book<a name="wp155402"> </a>
+start when true()<a name="wp155403"> </a>
+end at $i when $i mod $window_size = 0<a name="wp155404"> </a>
+return <a name="wp155405"> </a>
+	serialize-to-url(<a name="wp155406"> </a>
+	 &lt;books&gt;{$customer_orders}&lt;/books&gt;							<a name="wp155407"> </a>
+	 concat(&quot;books&quot;, $end_pos div $window_size,&quot;.xml&quot;, &quot;&quot;))<a name="wp154069"> </a>
+</pre></div>
+<a name="wp154082"> </a><h3 class="pHeading2">
+Example: Sliding Windows
+</h3>
+<a name="wp154189"> </a><p class="pBody">
+The previous examples showed how to group data using tumbling windows &#8211; that is, windows with adjacent items. Sliding windows contain items that can overlap.
+</p>
+<a name="wp154195"> </a><p class="pBody">
+Consider this example from the <a  href="http://www.w3.org/TR/xquery-11/#id-sliding-windows">XQuery 1.1 W3C Working Draft 3 December 2008</a>. We have a document that contains a list of colors, like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp155588"> </a>
+&lt;doc&gt;<a name="wp155589"> </a>
+  &lt;data&gt;Green&lt;/data&gt;<a name="wp155590"> </a>
+  &lt;data&gt;Pink&lt;/data&gt;<a name="wp155591"> </a>
+  &lt;data&gt;Lilac&lt;/data&gt;<a name="wp155592"> </a>
+  &lt;data&gt;Turquoise&lt;/data&gt;<a name="wp155593"> </a>
+  &lt;data&gt;Peach&lt;/data&gt;<a name="wp155594"> </a>
+  &lt;data&gt;Opal&lt;/data&gt;<a name="wp155595"> </a>
+  &lt;data&gt;Champagne&lt;/data&gt;<a name="wp155596"> </a>
+&lt;/doc&gt;<a name="wp154320"> </a>
+</pre></div>
+<a name="wp154321"> </a><p class="pBody">
+Using a FLWOR expression with a sliding window clause:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:serialize &quot;indent=yes&quot;;<a name="wp155741"> </a>
+&lt;root&gt;{<a name="wp155742"> </a>
+for sliding window $item in doc(&quot;arrange_rows.xml&quot;)/*/data<a name="wp155743"> </a>
+  start at $sp when true()<a name="wp155744"> </a>
+  end at $ep when $ep - $sp = 2<a name="wp155745"> </a>
+return  &lt;window&gt;{$item}&lt;/window&gt;<a name="wp155746"> </a>
+}&lt;/root&gt; <a name="wp154245"> </a>
+</pre></div>
+<a name="wp154254"> </a><p class="pBody">
+We can generate a sequence of items, grouped by three, each successive group containing two items overlapping those in the previous group:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp155793"> </a>
+&lt;root&gt;<a name="wp155794"> </a>
+    &lt;window&gt;<a name="wp155795"> </a>
+        &lt;data&gt;Green&lt;/data&gt;<a name="wp155796"> </a>
+        &lt;data&gt;Pink&lt;/data&gt;<a name="wp155797"> </a>
+        &lt;data&gt;Lilac&lt;/data&gt;<a name="wp155798"> </a>
+    &lt;/window&gt;<a name="wp155799"> </a>
+    &lt;window&gt;<a name="wp155800"> </a>
+        &lt;data&gt;Pink&lt;/data&gt;<a name="wp155801"> </a>
+        &lt;data&gt;Lilac&lt;/data&gt;<a name="wp155802"> </a>
+        &lt;data&gt;Turquoise&lt;/data&gt;<a name="wp155803"> </a>
+    &lt;/window&gt;<a name="wp155804"> </a>
+    &lt;window&gt;<a name="wp155805"> </a>
+        &lt;data&gt;Lilac&lt;/data&gt;<a name="wp155806"> </a>
+        &lt;data&gt;Turquoise&lt;/data&gt;<a name="wp155807"> </a>
+        &lt;data&gt;Peach&lt;/data&gt;<a name="wp155808"> </a>
+    &lt;/window&gt;<a name="wp155809"> </a>
+    &lt;window&gt;<a name="wp155810"> </a>
+        &lt;data&gt;Turquoise&lt;/data&gt;<a name="wp155811"> </a>
+        &lt;data&gt;Peach&lt;/data&gt;<a name="wp155812"> </a>
+        &lt;data&gt;Opal&lt;/data&gt;<a name="wp155813"> </a>
+    &lt;/window&gt;<a name="wp155814"> </a>
+    &lt;window&gt;<a name="wp155815"> </a>
+        &lt;data&gt;Peach&lt;/data&gt;<a name="wp155816"> </a>
+        &lt;data&gt;Opal&lt;/data&gt;<a name="wp155817"> </a>
+        &lt;data&gt;Champagne&lt;/data&gt;<a name="wp155818"> </a>
+    &lt;/window&gt;<a name="wp155819"> </a>
+    &lt;window&gt;<a name="wp155820"> </a>
+        &lt;data&gt;Opal&lt;/data&gt;<a name="wp155821"> </a>
+        &lt;data&gt;Champagne&lt;/data&gt;<a name="wp155822"> </a>
+    &lt;/window&gt;<a name="wp155823"> </a>
+    &lt;window&gt;<a name="wp155824"> </a>
+        &lt;data&gt;Champagne&lt;/data&gt;<a name="wp155825"> </a>
+    &lt;/window&gt;<a name="wp155826"> </a>
+&lt;/root&gt; <a name="wp154300"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

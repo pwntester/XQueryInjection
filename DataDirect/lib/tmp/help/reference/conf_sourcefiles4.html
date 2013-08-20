@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:13" />
+  <title>Configuring Connections Explicitly</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp181921"> </a><h2 class="pNewHTMLPageNum">
+Configuring Connections Explicitly
+</h2>
+<hr />
+<a name="wp181922"> </a><p class="pBody">
+To specify connection information explicitly using XQJ, construct an XQDataSource instance in your Java application using the DDXQDataSource class.
+</p>
+<a name="wp181924"> </a><p class="pBody">
+If your Java application contains queries that access an XML file, you can directly access the file as shown in the following XQJ code, where the location and name of the XML file is specified as a parameter of fn:doc(), an XQuery function. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp181925"> </a>
+XQConnection conn = ds.getConnection();<a name="wp181926"> </a>
+conn.createExpression().executeQuery(&quot;doc(&#39;<span style="font-style: italic">path_and_filename</span>&#39;)&quot;);<a name="wp181927"> </a>
+</pre></div>
+<a name="wp181928"> </a><p class="pBody">
+How you configure connection information for relational databases using XQJ depends on whether you are accessing a single database or multiple databases. If your Java application contains XQuery queries that access a single database, you can configure connection information using the DDXQDataSource class as shown in the following XQJ code:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp181932"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp181933"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp181934"> </a>
+</pre></div>
+<a name="wp181935"> </a><p class="pBody">
+If your Java application contains XQuery queries that access multiple databases, use the DDXQJDBCConnection class to configure connection information for each database connection,  then construct an XQDataSource instance that specifies all database connections using the DDXQDataSource class as shown in the following XQJ code. When specifying the URI for multiple databases, use the DDXQJDBCConnection Url property instead of the DDXQDataSource jdbcUrl property to set the JDBC URI for each connection.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQJDBCConnection jc1 = new DDXQJDBCConnection();<a name="wp181936"> </a>
+jc1.setUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp181937"> </a>
+DDXQJDBCConnection jc2 = new DDXQJDBCConnection();<a name="wp181938"> </a>
+jc2.setUrl(&quot;jdbc:xquery:sqlserver://server2:1433;databaseName=holdings&quot;);<a name="wp181939"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp181940"> </a>
+ds.setDdxqJdbcConnection(new DDXQJDBCConnection[] {jc1, jc2});<a name="wp181941"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp181942"> </a>
+</pre></div>
+<a name="wp181944"> </a><p class="pBody">
+In the preceding example, notice that the user name and password specified in the getConnection() method are used to establish all underlying JDBC connections. If you require different user names and passwords for each connection, set the user name and password on each DDXQJDBCConnection as shown in the following XQJ code:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQJDBCConnection jc1 = new DDXQJDBCConnection();<a name="wp181945"> </a>
+jc1.setUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp181946"> </a>
+jc1.setUser(&quot;myuserid1&quot;);<a name="wp181947"> </a>
+jc1.setPassword(&quot;mypswd1&quot;);<a name="wp181948"> </a>
+DDXQJDBCConnection jc2 = new DDXQJDBCConnection();<a name="wp181949"> </a>
+jc2.setUser(&quot;myuserid2&quot;);<a name="wp181950"> </a>
+jc2.setPassword(&quot;mypswd2&quot;);<a name="wp181951"> </a>
+jc2.setUrl(&quot;jdbc:xquery:sqlserver://server2:1433;databaseName=holdings&quot;);<a name="wp181952"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp181953"> </a>
+ds.setDdxqJdbcConnection(new DDXQJDBCConnection[] {jc1, jc2});<a name="wp181954"> </a>
+XQConnection conn = ds.getConnection();<a name="wp181955"> </a>
+</pre></div>
+<a name="wp218230"> </a><p class="pBody">
+The following table lists properties of the DDXQDataSource class and the corresponding properties of the DDXQJDBCConnection class:
+</p>
+<a name="wp218276"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp218233"> </a><div class="pCellHeading">
+DDXQDataSource property
+</div>
+</th>
+    <th><a name="wp218235"> </a><div class="pCellHeading">
+DDXQJDBCConnection property
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218237"> </a><div class="pCellBody">
+JdbcName
+</div>
+</td>
+    <td><a name="wp218239"> </a><div class="pCellBody">
+Name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218241"> </a><div class="pCellBody">
+JdbcOptions
+</div>
+</td>
+    <td><a name="wp218243"> </a><div class="pCellBody">
+Options
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218245"> </a><div class="pCellBody">
+JdbcSqlXmlForest
+</div>
+</td>
+    <td><a name="wp218247"> </a><div class="pCellBody">
+SqlXmlForest
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218249"> </a><div class="pCellBody">
+JdbcSqlXmlIdentifierEscaping
+</div>
+</td>
+    <td><a name="wp218251"> </a><div class="pCellBody">
+SqlXmlIdentifierEscaping
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218253"> </a><div class="pCellBody">
+JdbcTempTableColumns
+</div>
+</td>
+    <td><a name="wp218255"> </a><div class="pCellBody">
+TempTableColumns
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218257"> </a><div class="pCellBody">
+JdbcTempTableSuffix
+</div>
+</td>
+    <td><a name="wp218259"> </a><div class="pCellBody">
+TempTableSuffix
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218261"> </a><div class="pCellBody">
+JdbcTransactionIsolationLevel
+</div>
+</td>
+    <td><a name="wp218263"> </a><div class="pCellBody">
+TransactionIsolationLevel
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218265"> </a><div class="pCellBody">
+JdbcUrl
+</div>
+</td>
+    <td><a name="wp218267"> </a><div class="pCellBody">
+Url
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218269"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp218271"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp218273"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp218275"> </a><div class="pCellBody">
+User
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp218218"> </a><p class="pBody">
+If any of these DDXQJDBCConnection properties is specified for an individual connection and then specified again using DDXQDataSource, the latter overrides the former. The following example shows the Options property first specified for the jc1 connection, and specified again using the JdbcOptions property of DDXQDataSource. In this case, the precision and scale for xs:decimal specified for DDXQDataSource overrides the precision and scale for xs:decimal specified for the jc1 connection.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQJDBCConnection jc1 = new DDXQJDBCConnection();<a name="wp181957"> </a>
+jc1.setUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp181958"> </a>
+jcl.setUser(&quot;myuserid1&quot;);<a name="wp181959"> </a>
+jcl.setPassword(&quot;mypswd1&quot;);<a name="wp181960"> </a>
+jc1.setOptions(&quot;sql-decimal-cast=25,5&quot;);<a name="wp181961"> </a>
+DDXQJDBCConnection jc2 = new DDXQJDBCConnection();<a name="wp181962"> </a>
+jc2.setUser(&quot;myuserid2&quot;);<a name="wp181963"> </a>
+jc2.setPassword(&quot;mypswd2&quot;);<a name="wp181964"> </a>
+jc2.setUrl(&quot;jdbc:xquery:sqlserver://server2:1433;databaseName=holdings&quot;);<a name="wp181965"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp181966"> </a>
+ds.setDdxqJdbcConnection(new DDXQJDBCConnection[] {jc1, jc2});<a name="wp181967"> </a>
+ds.setJdbcOptions(&quot;sql-decimal-cast=35,20&quot;);<a name="wp181968"> </a>
+XQConnection conn = ds.getConnection();<a name="wp181969"> </a>
+</pre></div>
+<a name="wp181972"> </a><p class="pBody">
+See <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a> for a description of properties you can set using XQJ.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

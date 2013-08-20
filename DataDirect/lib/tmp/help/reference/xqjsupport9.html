@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQItemAccessor Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp155985"> </a><h2 class="pNewHTMLPageNum">
+XQItemAccessor Interface
+</h2>
+<hr />
+<a name="wp155986"> </a><p class="pBody">
+This interface represents a common interface for accessing the values of an XQuery item. 
+</p>
+<a name="wp155990"> </a><p class="pBody">
+<a  href="xqjsupport9.html#wp155994">Table&#160;G-7</a> describes how DataDirect XQuery supports the methods of the XQItemAccessor interface.
+</p>
+<a name="wp156080"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp155994"> </a><div class="pTableTitle">
+Table G-7.  XQItemAccessor Method Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp155998"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp156000"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156002"> </a><div class="pCellBody">
+String getAtomicValue( )
+</div>
+</td>
+    <td><a name="wp156004"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156006"> </a><div class="pCellBody">
+boolean getBoolean( )
+</div>
+</td>
+    <td><a name="wp156008"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156010"> </a><div class="pCellBody">
+byte getByte( )
+</div>
+</td>
+    <td><a name="wp156012"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156014"> </a><div class="pCellBody">
+double getDouble( )
+</div>
+</td>
+    <td><a name="wp156016"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156018"> </a><div class="pCellBody">
+float getFloat( )
+</div>
+</td>
+    <td><a name="wp156020"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156022"> </a><div class="pCellBody">
+int getInt( )
+</div>
+</td>
+    <td><a name="wp156024"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156026"> </a><div class="pCellBody">
+XMLStreamReader getItemAsStream( )
+</div>
+</td>
+    <td><a name="wp156028"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156030"> </a><div class="pCellBody">
+String getItemAsString(Properties props)
+</div>
+</td>
+    <td><a name="wp156032"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156034"> </a><div class="pCellBody">
+XQItemType getItemType( )
+</div>
+</td>
+    <td><a name="wp156036"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156038"> </a><div class="pCellBody">
+long getLong( )
+</div>
+</td>
+    <td><a name="wp156040"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156042"> </a><div class="pCellBody">
+Node getNode( )
+</div>
+</td>
+    <td><a name="wp156044"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156046"> </a><div class="pCellBody">
+URI getNodeUri( )
+</div>
+</td>
+    <td><a name="wp156048"> </a><div class="pCellBody">
+Not supported. Always throws Unsupported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156050"> </a><div class="pCellBody">
+Object getObject( )
+</div>
+</td>
+    <td><a name="wp156052"> </a><div class="pCellBody">
+Supported as explained in <a  href="xqjsupport23.html#wp127482">Table&#160;G-18</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156061"> </a><div class="pCellBody">
+short getShort( )
+</div>
+</td>
+    <td><a name="wp156063"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156065"> </a><div class="pCellBody">
+boolean instanceOf(XQItemType type)
+</div>
+</td>
+    <td><a name="wp156067"> </a><div class="pCellBody">
+Supported. When an unknown type is specified, false is returned.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156069"> </a><div class="pCellBody">
+void writeItem(OutputStream os, Properties props)
+</div>
+</td>
+    <td><a name="wp156071"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156073"> </a><div class="pCellBody">
+void writeItem(Writer ow, Properties props)
+</div>
+</td>
+    <td><a name="wp156075"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp159148"> </a><div class="pCellBody">
+void writeItemToResult(Result result)
+</div>
+</td>
+    <td><a name="wp159150"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp172212"> </a><div class="pCellBody">
+writeItemToSAX(ContentHandler saxhdlr)
+</div>
+</td>
+    <td><a name="wp172214"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

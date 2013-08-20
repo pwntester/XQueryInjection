@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>Accessing XML Results</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp126140"> </a><h2 class="pNewHTMLPageNum">
+Accessing XML Results
+</h2>
+<hr />
+<a name="wp126155"> </a><p class="pBody">
+You can access XML results of a query as:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp126159"> </a><div class="pSmartList1"><li>DOM</li></div><a name="wp126171"> </a><div class="pSmartList1"><li>SAX</li></div><a name="wp126172"> </a><div class="pSmartList1"><li>StAX</li></div><a name="wp126173"> </a><div class="pSmartList1"><li>Text</li></div></ul></div>
+<a name="wp142207"> </a><p class="pBody">
+For examples showing how to access XML results, see <a  href="tutorial_ddxquery7.html#wp145145">Returning Results with Java XML APIs</a>.
+</p>
+<a name="wp126184"> </a><h3 class="pHeading2">
+DOM
+</h3>
+<a name="wp126188"> </a><p class="pBody">
+The DOM nodes returned from XML results are DOM Level 2 Core API compliant.
+</p>
+<a name="wp126191"> </a><h3 class="pHeading2">
+SAX
+</h3>
+<a name="wp126195"> </a><p class="pBody">
+DataDirect XQuery serializes a result sequence or a single item as SAX events in the following way:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp143724"> </a><div class="pSmartList1"><li>The instance of the data model is normalized as described in: <a  href="http://www.w3.org/TR/2005/WD-xslt-xquery-serialization-20050404/#serdm">http://www.w3.org/TR/2005/CR-xslt-xquery-serialization-20050404/#serdm</a></li></div><a name="wp126204"> </a><div class="pSmartList1"><li>The normalization process results in one of the following:</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp126205"> </a><div class="pSmartList2Rel"><li>A well-formed XML document as described in: <a  href="http://www.w3c.org/TR/2000/REC-xml-20001006#sec-well-formed">http://www.w3c.org/TR/2000/REC-xml-20001006#sec-well-<br />formed</a></li></div>
+<a name="wp126213"> </a><div class="pSmartList2Rel"><li>A well-formed XML external parsed entity as described in: <a  href="http://www.w3c.org/TR/2000/REC-xml-20001006#wf-entities">http://www.w3c.org/TR/2000/REC-xml-20001006#wf-<br />entities</a></li></div>
+</ul></div>
+<a name="wp126218"> </a><div class="pSmartList1"><li>Events are generated as defined by the SAX2 specification.</li></div></ol></div>
+<a name="wp127982"> </a><p class="pBody">
+DataDirect XQuery reports comment nodes to the specified ContentHandler if that object also implements the LexicalHandler interface.
+</p>
+<a name="wp126222"> </a><h3 class="pHeading2">
+StAX
+</h3>
+<a name="wp126231"> </a><p class="pBody">
+DataDirect XQuery serializes a result sequence or a single item as StAX events in the following way:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp139169"> </a><div class="pSmartList1"><li>The instance of the data model is normalized as described in :<a  href="http://www.w3.org/TR/2005/WD-xslt-xquery-serialization-20050404/#serdm">http://www.w3.org/TR/2005/CR-xslt-xquery-serialization-20050404/#serdm</a></li></div><a name="wp126234"> </a><div class="pSmartList1"><li>The normalization process results in one of the following:</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp126235"> </a><div class="pSmartList2Rel"><li>A well-formed XML document as described in: <a  href="http://www.w3c.org/TR/2000/REC-xml-20001006#sec-well-formed">http://www.w3c.org/TR/2000/REC-xml-20001006#sec-well-<br />formed</a></li></div>
+<a name="wp126237"> </a><div class="pSmartList2Rel"><li>A well-formed XML external parsed entity as described in: <a  href="http://www.w3c.org/TR/2000/REC-xml-20001006#wf-entities">http://www.w3c.org/TR/2000/REC-xml-20001006#wf-<br />entities</a></li></div>
+</ul></div>
+<a name="wp126239"> </a><div class="pSmartList1"><li>Events are generated as defined by the StAX 1.0 specification.</li></div></ol></div>
+<a name="wp126223"> </a><h3 class="pHeading2">
+Text
+</h3>
+<a name="wp137879"> </a><p class="pBody">
+DataDirect XQuery supports serializing query results (serialization refers to converting query results to text). The writeSequence and getSequenceAsString methods of the XQSequence interface allow you to serialize the results to the following Java objects: java.lang.String, java.io.Writer, and java.io.OutputStream. This serialization conforms to the process as described in the XSLT&#160;2.0 and XQuery&#160;1.0 Serialization specification, located at: <a  href="http://www.w3.org/TR/2005/WD-xslt-xquery-serialization-20050404">http://www.w3.org/TR/2005/CR-xslt-xquery-serialization-20050404</a>
+</p>
+<a name="wp137885"> </a><p class="pBody">
+See <a  href="serialization_support.html#wp245044">Serialization Support</a> for more information.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:12" />
+  <title>Updating Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp221374"> </a><h2 class="pNewHTMLPageNum">
+Updating Data Sources
+</h2>
+<hr />
+<a name="wp221384"> </a><p class="pBody">
+DataDirect XQuery provides a feature that allows XQuery to automatically update data sources that are accessed through <code class="cCode">doc()</code> and <code class="cCode">collection()</code> functions. You can use both literal and computed arguments for these function calls.
+</p>
+<a name="wp221615"> </a><p class="pBody">
+Relational data sources cannot be updated using automatic update.
+</p>
+<a name="wp221530"> </a><h3 class="pHeading2">
+Enabling Automatic Update
+</h3>
+<a name="wp221531"> </a><p class="pBody">
+The <em class="cEmphasis">automatic update</em> feature can be enabled in one of two ways:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp221400"> </a><div class="pSmartList1"><li>Using the <code class="cCode">ddtek:automatic-update</code> option. The automatic update feature can be enabled in any XQuery using the following declaration:</li></div><a name="wp221428"> </a><p class="pSyntaxEmbed">
+<code class="cCode">declare option ddtek:automatic-update &quot;yes&quot;</code> 
+</p>
+<a name="wp221404"> </a><div class="pSmartList1"><li>Using the <code class="cCode">-u</code> command line option. See <a  href="quickstart3.html#wp939288">Using the Command Line Utility</a> for more information on using the command line.</li></div></ul></div>
+<a name="wp221417"> </a><p class="pBody">
+The automatic update feature is disabled by default. When it is enabled, data sources affected by XUF update expressions are physically modified at the end of the XQuery execution.
+</p>
+<a name="wp221647"> </a><p class="pBody">
+In the event of a conflict between command line and XQuery settings for this feature, the setting specified at the XQuery level always takes precedence.
+</p>
+<a name="wp221525"> </a><h3 class="pHeading2">
+How Updates are Performed
+</h3>
+<a name="wp221529"> </a><p class="pBody">
+Single data sources specified in a <code class="cCode">doc()</code> function call are updated at the end of the XQuery execution. For a <code class="cCode">collection()</code> function call that returns <em class="cEmphasis">n</em> XML documents, each of those <em class="cEmphasis">n</em> XML documents whose XDM instance has been modified is automatically updated.
+</p>
+<a name="wp221628"> </a><p class="pBody">
+Modified files are serialized using global serialization options set through the XQJ API or the <code class="cCode">ddtek:serialize</code> option. See <a  href="serialization_support.html#wp245044">Serialization Support</a> for more information.
+</p>
+<a name="wp221524"> </a><h3 class="pHeading2">
+Example
+</h3>
+<a name="wp221546"> </a><p class="pBody">
+In the following example, the <code class="cCode">&lt;subject&gt;</code> element in books.xml is renamed to <code class="cCode">&lt;topic&gt;</code>. Changes to books.xml are saved automatically when the XQuery execution is complete:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:automatic-update &quot;yes&quot;;<a name="wp221569"> </a>
+<a name="wp221570"> </a>
+for $book in doc(&quot;file:///c:/myFiles/my_books.xml&quot;)/books/book<a name="wp221571"> </a>
+return <a name="wp221572"> </a>
+  rename node $book/subject as QName(&quot;&quot;,&quot;topic&quot;)<a name="wp221564"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

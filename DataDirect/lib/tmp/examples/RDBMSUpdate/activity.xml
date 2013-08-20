@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<activity>
+    <sell>
+        <userid>Minollo</userid>
+        <ticker>TIVO</ticker>
+        <quantity>100</quantity>
+    </sell>
+    <buy>
+        <userid>David</userid>
+        <ticker>GOOG</ticker>
+        <quantity>50</quantity>
+    </buy>
+</activity> 

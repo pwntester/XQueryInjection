@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:42" />
+  <title>2 Extensions to XQuery 1.0</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp238906"> </a><h2 class="pNewHTMLPageNum">
+2 Extensions to XQuery 1.0
+</h2>
+<hr />
+<a name="wp115192"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports the following extensions to XQuery 1.0.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp115717"> </a><div class="pSmartList1"><li><a  href="xufsupport2.html#wp102605">2.1 Extensions to the Processing Model</a> </li></div><a name="wp115720"> </a><div class="pSmartList1"><li><a  href="xufsupport2.html#wp103421">2.2 Extensions to the Prolog</a></li></div><a name="wp178753"> </a><div class="pSmartList1"><li><a  href="xufsupport2.html#wp177766">2.3 Extensions to the Static Context</a> </li></div><a name="wp115722"> </a><div class="pSmartList1"><li><a  href="xufsupport2.html#wp103440">2.4 New Kinds of Expressions</a></li></div><a name="wp115865"> </a><div class="pSmartList1"><li><a  href="xufsupport2.html#wp103666">2.5 Extensions to Existing Expressions</a> </li></div><a name="wp179651"> </a><div class="pSmartList1"><li><a  href="xufsupport2.html#wp103955">2.6 Extensions to Built-in Function Library</a></li></div></ul></div>
+<a name="wp102605"> </a><h3 class="pHeading2">
+2.1 Extensions to the Processing Model
+</h3>
+<a name="wp116083"> </a><p class="pBody">
+<a  href="xufsupport2.html#wp311656">Table&#160;F-1</a> describes DataDirect XQuery&#8217;s support of the extensions to the XQuery 1.0 processing model. 
+</p>
+<a name="wp311673"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp311656"> </a><div class="pTableTitle">
+Table F-1.  Extensions to the Processing Model
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp311662"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp311666"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp311668"> </a><div class="pCellBody">
+Extension to the Processing Model (2.1)
+</div>
+</td>
+    <td><a name="wp311672"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp103421"> </a><h3 class="pHeading2">
+2.2 Extensions to the Prolog
+</h3>
+<a name="wp116852"> </a><p class="pBody">
+<a  href="xufsupport2.html#wp198621">Table&#160;F-2</a> describes DataDirect XQuery&#8217;s support of the extensions to the XQuery 1.0 prolog. 
+</p>
+<a name="wp198684"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp198621"> </a><div class="pTableTitle">
+Table F-2.  Extensions to the Prolog
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp198627"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp198631"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp198633"> </a><div class="pCellBody">
+Revalidation Declaration (2.2.1)
+</div>
+</td>
+    <td><a name="wp198641"> </a><div class="pCellBody">
+Supported with comment.
+</div>
+<a name="wp312258"> </a><div class="pCellBody">
+DataDirect XQuery supports the <code class="cCode">skip</code> setting only.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp198646"> </a><div class="pCellBody">
+Variable Declaration (2.2.2)
+</div>
+</td>
+    <td><a name="wp198650"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp198652"> </a><div class="pCellBody">
+Function Declaration (2.2.3)
+</div>
+</td>
+    <td><a name="wp198656"> </a><div class="pCellBody">
+Supported with comment.
+</div>
+<a name="wp312779"> </a><div class="pCellBody">
+DataDirect XQuery does not support updating of external expressions.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp177766"> </a><h3 class="pHeading2">
+2.3 Extensions to the Static Context
+</h3>
+<a name="wp177770"> </a><p class="pBody">
+<a  href="xufsupport2.html#wp177777">Table&#160;F-3</a> describes DataDirect XQuery&#8217;s support of the extensions to the XQuery 1.0 static context.
+</p>
+<a name="wp177812"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp177777"> </a><div class="pTableTitle">
+Table F-3.  Extensions to the Static Context&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp177783"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp177787"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp177789"> </a><div class="pCellBody">
+Extensions to the Static Context (2.3)
+</div>
+</td>
+    <td><a name="wp177793"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp103440"> </a><h3 class="pHeading2">
+2.4 New Kinds of Expressions
+</h3>
+<a name="wp117060"> </a><p class="pBody">
+<a  href="xufsupport2.html#wp312336">Table&#160;F-4</a> describes DataDirect XQuery&#8217;s support for XQuery expressions introduced by XUF. 
+</p>
+<a name="wp103445"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp312336"> </a><div class="pTableTitle">
+Table F-4.  New Kinds of Expressions
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp312342"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp312346"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312348"> </a><div class="pCellBody">
+Insert (2.4.1)
+</div>
+</td>
+    <td><a name="wp312352"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp312353"> </a><div class="pCellBody">
+Use ddtek:sql* functions to update relational database sources. See <a  href="relationaldata4.html#wp222968">Updating Relational Data</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312355"> </a><div class="pCellBody">
+Delete (2.4.2)
+</div>
+</td>
+    <td><a name="wp312359"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp312360"> </a><div class="pCellBody">
+Use ddtek:sql* functions to update relational database sources. See <a  href="relationaldata4.html#wp222968">Updating Relational Data</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312400"> </a><div class="pCellBody">
+Replace (2.4.3)
+</div>
+</td>
+    <td><a name="wp312405"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp312362"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp312364"> </a><div class="pCellBody">
+Replacing a Node (2.4.3.1)
+</div>
+</td>
+    <td><a name="wp312603"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp312366"> </a><div class="pCellBody">
+Use ddtek:sql* functions to update relational database sources. See <a  href="relationaldata4.html#wp222968">Updating Relational Data</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp312390"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp312392"> </a><div class="pCellBody">
+Replacing the Value of a Node (2.4.3.2)
+</div>
+</td>
+    <td><a name="wp312612"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp312394"> </a><div class="pCellBody">
+Use ddtek:sql* functions to update relational database sources. See <a  href="relationaldata4.html#wp222968">Updating Relational Data</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312368"> </a><div class="pCellBody">
+Rename (2.4.4)
+</div>
+</td>
+    <td><a name="wp312616"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp312617"> </a><div class="pCellBody">
+Use ddtek:sql* functions to update relational database sources. See <a  href="relationaldata4.html#wp222968">Updating Relational Data</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312380"> </a><div class="pCellBody">
+Transform (2.4.5)
+</div>
+</td>
+    <td><a name="wp312637"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312660"> </a><div class="pCellBody">
+Compatibility of Updating Expressions (2.4.6)
+</div>
+</td>
+    <td><a name="wp312664"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp103666"> </a><h3 class="pHeading2">
+2.5 Extensions to Existing Expressions
+</h3>
+<a name="wp117220"> </a><p class="pBody">
+<a  href="xufsupport2.html#wp169385">Table&#160;F-5</a> describes DataDirect XQuery&#8217;s support for extensions to existing expressions in XQuery 1.0. 
+</p>
+<a name="wp103680"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp169385"> </a><div class="pTableTitle">
+Table F-5.  Extensions to Built-in Function Library
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp169391"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp169395"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp169397"> </a><div class="pCellBody">
+FLWOR Expression (2.5.1)
+</div>
+</td>
+    <td><a name="wp169403"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp169406"> </a><div class="pCellBody">
+Typeswitch Expression (2.5.2)
+</div>
+</td>
+    <td><a name="wp169410"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp251383"> </a><div class="pCellBody">
+Conditional Expression (2.5.3)
+</div>
+</td>
+    <td><a name="wp251338"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp169426"> </a><div class="pCellBody">
+Comma Expression (2.5.4)
+</div>
+</td>
+    <td><a name="wp169430"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312763"> </a><div class="pCellBody">
+Parenthesized Expression (2.5.5)
+</div>
+</td>
+    <td><a name="wp312767"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312753"> </a><div class="pCellBody">
+Function Call (2.5.6)
+</div>
+</td>
+    <td><a name="wp312757"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp312743"> </a><div class="pCellBody">
+Other Expressions (2.5.4)
+</div>
+</td>
+    <td><a name="wp312747"> </a><div class="pCellBody">
+Supported. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp103955"> </a><h3 class="pHeading2">
+2.6 Extensions to Built-in Function Library
+</h3>
+<a name="wp177943"> </a><p class="pBody">
+<a  href="xufsupport2.html#wp177970">Table&#160;F-6</a> describes DataDirect XQuery&#8217;s support for extensions to the XQuery 1.0 built-in function library. 
+</p>
+<a name="wp178005"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp177970"> </a><div class="pTableTitle">
+Table F-6.  Extensions to Built-in Function Library
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp177976"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp177980"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp177982"> </a><div class="pCellBody">
+<code class="cCode">fn:put()</code> (2.6.1)
+</div>
+</td>
+    <td><a name="wp177986"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

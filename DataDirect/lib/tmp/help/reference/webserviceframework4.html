@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:19" />
+  <title>Example &#8211; Employee Lookup</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp211930"> </a><h2 class="pNewHTMLPageNum">
+Example &#8211; Employee Lookup
+</h2>
+<hr />
+<a name="wp211931"> </a><p class="pBody">
+The application described in the following sections is a simple employee lookup query designed to illustrate some of the features of the XQueryWebService framework. When complete, the query returns information such as first and last name, job level, date of hire, and so on based on the employee ID you enter.
+</p>
+<a name="wp207774"> </a><h3 class="pHeading2">
+Other Examples
+</h3>
+<a name="wp208188"> </a><p class="pBody">
+You can find other examples of the XQueryWebService framework on the DataDirect XQuery web site, here:
+</p>
+<a name="wp210429"> </a><p class="pBody">
+<a  href="http://www.datadirect.com/developer/data-integration/tutorials/examples/xquerywebservice/index.ssp">http://www.datadirect.com/developer/data-integration/tutorials/examples/xquerywebservice/index.ssp</a>
+</p>
+<a name="wp210447"> </a><h3 class="pHeading2">
+Before You Begin
+</h3>
+<a name="wp210472"> </a><p class="pBody">
+If you want to run the employee lookup example, you need the following:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp210475"> </a><div class="pSmartList1"><li>An XQuery editor &#8211; An XQuery editor, like <a  href="http://www.stylusstudio.com/learn_xquery.html#">Stylus Studio</a> or the <a  href="http://www.xquery.com/xml%5Ftools/eclipse/">DataDirect XQuery Editor for Eclipse</a>, is needed to author the XQuery you wish to expose as a Web service.</li></div><a name="wp210495"> </a><div class="pSmartList1"><li>A Java servlet container &#8211; The XQueryWebService framework has been tested with several Java servlet containers, including</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp210557"> </a><div class="pSmartList2"><li><a  href="http://tomcat.apache.org/">Apache Tomcat</a></li></div>
+<a name="wp219617"> </a><div class="pSmartList2"><li><a  href="http://www.jboss.org/">JBoss</a></li></div>
+<a name="wp219640"> </a><div class="pSmartList2"><li><a  href="http://www-01.ibm.com/software/websphere/">IBM WebSphere</a></li></div>
+<a name="wp219644"> </a><div class="pSmartList2"><li><a  href="http://www.oracle.com/bea/index.html">BEA WebLogic</a></li></div>
+</ul></div>
+</ul></div>
+<a name="wp219633"> </a><p class="pBody">
+You can use any Java servlet container you like; we used the open source Apache Tomcat for this example. If you plan to run the example on a different servlet container, you will need to follow its specific deployment procedure.
+</p>
+<a name="wp210629"> </a><h3 class="pHeading2">
+Setting Up
+</h3>
+<a name="wp210632"> </a><p class="pBody">
+Once you have your XQuery editor and Java servlet container, you can set up the files needed to write your own employee lookup XQueryWebService framework application. Here&#8217;s how to get started:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp210646"> </a><div class="pSmartList1"><li>Copy the all DataDirect XQuery jar files to your Java servlet container \lib directory (<em class="cEmphasis">&lt;Tomcat_dir&gt;</em>\lib, for example). The jar files are located in the \lib directory where you install DataDirect XQuery.</li></div><a name="wp210706"> </a><div class="pSmartList1"><li>Create an employee-lookup directory under the Java servlet container \webapps directory (<em class="cEmphasis">&lt;Tomcat_dir&gt;</em>\webapps\employee-lookup, for example).</li></div><a name="wp210733"> </a><div class="pSmartList1"><li>Create a WEB-INF directory under the newly created \employee-lookup directory (<em class="cEmphasis">&lt;Tomcat_dir&gt;</em>\webapps\employee-lookup\WEB-INF, for example).</li></div><a name="wp210741"> </a><div class="pSmartList1"><li>Create the following configuration file as web.xml and save it to the WEB-INF directory:</li></div></ol></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp210750"> </a>
+&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;<a name="wp210751"> </a>
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<a name="wp210753"> </a>
+         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/<a name="wp210754"> </a>
+             j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;<a name="wp217920"> </a>
+         version=&quot;2.4&quot;&gt;<a name="wp210755"> </a>
+<a name="wp210756"> </a>
+    &lt;description&gt;Employee lookup&lt;/description&gt;<a name="wp210757"> </a>
+    &lt;display-name&gt;Employee-lookup&lt;/display-name&gt;<a name="wp210758"> </a>
+<a name="wp210759"> </a>
+    &lt;servlet&gt;<a name="wp210760"> </a>
+        &lt;servlet-name&gt;XQueryWebService&lt;/servlet-name&gt;<a name="wp210761"> </a>
+        &lt;servlet-class&gt;com.ddtek.xquery.webservice.XQServlet&lt;/servlet-class&gt;<a name="wp210762"> </a>
+        &lt;init-param&gt;<a name="wp210763"> </a>
+            &lt;param-name&gt;JNDIDataSourceName&lt;/param-name&gt;<a name="wp210764"> </a>
+            &lt;param-value&gt;jdbc/employee-lookup&lt;/param-value&gt;<a name="wp210765"> </a>
+        &lt;/init-param&gt;<a name="wp210766"> </a>
+    &lt;/servlet&gt;<a name="wp210771"> </a>
+<a name="wp210772"> </a>
+    &lt;resource-ref&gt;<a name="wp210773"> </a>
+        &lt;res-ref-name&gt;jdbc/employee-lookup&lt;/res-ref-name&gt;<a name="wp210774"> </a>
+        &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;<a name="wp210775"> </a>
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;<a name="wp210776"> </a>
+    &lt;/resource-ref&gt;<a name="wp210777"> </a>
+<a name="wp210778"> </a>
+    &lt;servlet-mapping&gt;<a name="wp210779"> </a>
+        &lt;servlet-name&gt;XQueryWebService&lt;/servlet-name&gt;<a name="wp210780"> </a>
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;<a name="wp210781"> </a>
+    &lt;/servlet-mapping&gt;<a name="wp210782"> </a>
+&lt;/web-app&gt; <a name="wp210745"> </a>
+</pre></div>
+<a name="wp210810"> </a><h3 class="pHeading2">
+Next Steps
+</h3>
+<a name="wp210816"> </a><p class="pBody">
+Once you have taken care of the basics, you can begin specifying relational data sources, as described in the following section.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

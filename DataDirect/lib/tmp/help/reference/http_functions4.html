@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:21" />
+  <title>Example: Web Service Client Comparison</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp240342"> </a><h2 class="pNewHTMLPageNum">
+Example: Web Service Client Comparison
+</h2>
+<hr />
+<a name="wp240346"> </a><p class="pBody">
+This section uses a simple stock quote Web service to illustrate how you might build an XQuery Web service client using both the ddtek:wscall and ddtek:http-* functions.
+</p>
+<a name="wp240349"> </a><h3 class="pHeading2">
+Using HTTP Functions
+</h3>
+<a name="wp240353"> </a><p class="pBody">
+Here is how you might use DataDirect XQuery HTTP functions to build an XQuery Web service client application. You start by declaring three variables &#8211; $host, $payload, and $options.
+</p>
+<a name="wp243234"> </a><p class="pBody">
+The $host variable is used to specify the endpoint for the Web service &#8211; specifically, the URI of the Web Service Description Language (WSDL) that defines the getQuotes operation made available by this Web service:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable
+		$host := &quot;http://examples.xquery.com/stock-quotes/WSDL&quot;;<a name="wp243138"> </a>
+</pre></div>
+<a name="wp243264"> </a><p class="pBody">
+The $payload variable is used to specify the SOAP message that is submitted to the Web service by the XQuery Web service client. In this example, the SOAP message contains the ticker value (here, it is PRGS).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $payload :=
+&lt;SOAP-ENV:Envelope <a name="wp243161"> </a>
+xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+&#160;&#160;&#160;&#160;&lt;SOAP-ENV:Body&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;dd:getQuotes xmlns:dd=&quot;http://www.datadirect.com&quot;&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;dd:tickers&gt;PRGS&lt;/dd:tickers&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/dd:getQuotes&gt;
+&#160;&#160;&#160;&#160;&lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;;<a name="wp243162"> </a>
+</pre></div>
+<a name="wp243281"> </a><p class="pBody">
+The $options variable is used to specify the name of the SOAP action (getQuotes.xquery) that is performed by the SOAP operations (getQuotes) exposed by the XQuery Web service.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $options :=<a name="wp243183"> </a>
+  &lt;request&gt;<a name="wp243184"> </a>
+       &lt;request-header&gt;<a name="wp243185"> </a>
+        &lt;header name=&quot;SOAPAction&quot; value=&quot;getQuotes.xquery&quot;/&gt;<a name="wp243186"> </a>
+    &lt;/request-header&gt;<a name="wp243187"> </a>
+  &lt;/request&gt;;<a name="wp240610"> </a>
+</pre></div>
+<a name="wp240589"> </a><p class="pBody">
+Once the $host, $payload, and $options variables is defined, you can use them to invoke the ddtek:http-post function, as shown here:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $http-response := ddtek:http-post($host, $payload, $options)/response<a name="wp240488"> </a>
+return<a name="wp240489"> </a>
+  if($http-response/@status-code eq &#39;200&#39;) then<a name="wp240490"> </a>
+   $http-response/response-body/*<a name="wp240491"> </a>
+  else $http-response<a name="wp240405"> </a>
+</pre></div>
+<a name="wp243302"> </a><h3 class="pHeading2">
+Using ddtek:wscall
+</h3>
+<a name="wp243308"> </a><p class="pBody">
+Here is the same application written using ddtek:wscall:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $host := <a name="wp243319"> </a>
+&lt;ddtek:location <a name="wp243320"> </a>
+    address=&quot;http://examples.xquery.com/stock-quotes//WSDL&quot;<a name="wp243321"> </a>
+    soapaction=&quot;getQuotes.xquery&quot;/&gt;;<a name="wp243322"> </a>
+<a name="wp243323"> </a>
+declare variable $payload := <a name="wp243324"> </a>
+&lt;ddtek:getQuotes&gt;<a name="wp243325"> </a>
+    &lt;ddtek:tickers&gt;PRGS&lt;/ddtek:tickers&gt;<a name="wp243326"> </a>
+&lt;/ddtek:getQuotes&gt;;<a name="wp243327"> </a>
+<a name="wp243328"> </a>
+<a name="wp243329"> </a>
+ddtek:wscall($host, $payload)<a name="wp243311"> </a>
+</pre></div>
+<a name="wp243399"> </a><p class="pBody">
+The declarations of the $host and $payload variables using the ddtek:wscall function are similar to those using ddtek:http-post, with a few differences:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp243422"> </a><div class="pSmartList1"><li>The Web service operation, getQuotes, is specified as part of the Web service endpoint in the $host declaration, and not as a separate variable ($options)</li></div><a name="wp243444"> </a><div class="pSmartList1"><li>The $payload variable does not need to include the description of the SOAP envelope.</li></div><a name="wp243457"> </a><div class="pSmartList1"><li></li></div></ul></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

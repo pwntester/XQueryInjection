@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:12" />
+  <title>Renaming a Node</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp218979"> </a><h2 class="pNewHTMLPageNum">
+Renaming a Node
+</h2>
+<hr />
+<a name="wp218984"> </a><p class="pBody">
+The <code class="cCode">rename</code> expression allows you to replace the name property for a specific node. Attributes and descendants of the specified node are not affected by the <code class="cCode">rename</code> operation.
+</p>
+<a name="wp220814"> </a><h3 class="pHeading2">
+Example
+</h3>
+<a name="wp220810"> </a><p class="pBody">
+The rename-nodes.xq XQuery changes an XML document by renaming <code class="cCode">&lt;UserID&gt;</code> node to <code class="cCode">&lt;ID&gt;</code> and saving the result to a new document using the <code class="cCode">fn:put()</code> function.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $user in doc(&quot;../xml/users.xml&quot;)/table/users<a name="wp220839"> </a>
+return<a name="wp220840"> </a>
+	rename node $user/UserId as QName(&quot;&quot;, &quot;ID&quot;),<a name="wp220841"> </a>
+put(doc(&quot;../xml/users.xml&quot;), &quot;new_users.xml&quot;)<a name="wp220454"> </a>
+</pre></div>
+<a name="wp222291"> </a><h3 class="pHeading2">
+Example &#8211; Using XQJ
+</h3>
+<a name="wp222301"> </a><p class="pBody">
+You can execute XQuery programmatically using XQJ. In this example, a Java application is used to execute XQuery that uses the same rename and put XUF expressions to rename nodes in an XML document and create a new XML document with the renamed nodes:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+// import the XQJ classes<a name="wp222303"> </a>
+import javax.xml.xquery.*;<a name="wp222304"> </a>
+import com.ddtek.xquery.xqj.DDXQDataSource;<a name="wp222305"> </a>
+import com.ddtek.xquery.xqj.DDXQJDBCConnection;<a name="wp222306"> </a>
+<a name="wp222307"> </a>
+public class XUF {<a name="wp222308"> </a>
+<a name="wp222309"> </a>
+    public static void main(String[] args) throws Exception {<a name="wp222310"> </a>
+<a name="wp222311"> </a>
+        XQConnection xqconnection = null;<a name="wp222312"> </a>
+        XQPreparedExpression xqExpr = null;<a name="wp222313"> </a>
+        try {<a name="wp222314"> </a>
+            DDXQDataSource dataSource = new DDXQDataSource();<a name="wp222315"> </a>
+            xqconnection = dataSource.getConnection();<a name="wp222316"> </a>
+            <a name="wp222317"> </a>
+            // the query<a name="wp222318"> </a>
+            String xquery =<a name="wp222319"> </a>
+                &quot;for $user in doc(&#39;../xml/users.xml&#39;)/table/users\n&quot;<a name="wp222320"> </a>
+                + &quot;return\n&quot;<a name="wp222321"> </a>
+                + &quot;rename node $user/UserId as QName(&#39;&#39;, &#39;ID&#39;),\n&quot;<a name="wp222322"> </a>
+                + &quot;put(doc(&#39;../xml/users.xml&#39;), &#39;new_users.xml&#39;)\n&quot;;<a name="wp222323"> </a>
+            xqExpr = xqconnection.prepareExpression(xquery);<a name="wp222324"> </a>
+            <a name="wp222325"> </a>
+            // execute the query<a name="wp222326"> </a>
+            xqExpr.executeQuery();<a name="wp222327"> </a>
+        } finally {<a name="wp222328"> </a>
+            if (xqExpr != null) xqExpr.close();<a name="wp222329"> </a>
+            if (xqconnection != null) xqconnection.close();<a name="wp222330"> </a>
+        }<a name="wp222331"> </a>
+    }<a name="wp222332"> </a>
+}<a name="wp222333"> </a>
+</pre></div>
+<a name="wp222298"> </a><p class="pBody">
+To learn more about DataDirect XQuery support for XQJ, see <a  href="xqjsupport.html#wp128996">XQJ Support</a>.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

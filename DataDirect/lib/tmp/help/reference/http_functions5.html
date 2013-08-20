@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:21" />
+  <title>HTTP Function Request and Response XML Schemas</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp210390"> </a><h2 class="pNewHTMLPageNum">
+HTTP Function Request and Response XML Schemas
+</h2>
+<hr />
+<a name="wp235634"> </a><p class="pBody">
+This section documents the ddtek-http-request.xsd and ddtek-http-response.xsd XML Schema. 
+</p>
+<a name="wp235636"> </a><h3 class="pHeading2">
+Request XML Schema
+</h3>
+<a name="wp235640"> </a><p class="pBody">
+If your XQuery Web service client uses a request element (to specify a connection time out or retries, for exmple), it should conform to the ddtek-http-request.xsd XML Schema.
+</p>
+<a name="wp239131"> </a><p class="pBody">
+The request header contains all header info that is to be sent to the server. This includes all request headers as specified in the http protocol, as well as server/service specific headers. The parameters are configuration settings. Except for authentication credentials, none of the parameter info provided is transmitted to the server.
+</p>
+<a name="wp239132"> </a><p class="pBody">
+If no value is specified for a parameter, the default setting is used.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<a name="wp237356"> </a>
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp237364"> </a>
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;<a name="wp237365"> </a>
+  &lt;xsd:schema elementFormDefault=&quot;qualified&quot;&gt;-<a name="wp237366"> </a>
+    &lt;xsd:element name=&quot;request&quot;&gt;-<a name="wp237367"> </a>
+      &lt;xsd:complexType&gt;-<a name="wp237368"> </a>
+        &lt;xsd:sequence&gt;-<a name="wp237369"> </a>
+          &lt;xsd:element name=&quot;request-header&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;-<a name="wp237370"> </a>
+            &lt;xsd:complexType&gt;-<a name="wp237371"> </a>
+              &lt;xsd:sequence&gt;-<a name="wp237372"> </a>
+                &lt;xsd:element name=&quot;header&quot; minOccurs=&quot;0&quot;<a name="wp237373"> </a>
+                             maxOccurs=&quot;unbounded&quot;&gt;-<a name="wp237926"> </a>
+                  &lt;xsd:complexType&gt;<a name="wp237374"> </a>
+                    &lt;xsd:attribute name=&quot;name&quot; type=&quot;xsd:string&quot;<a name="wp237375"> </a>
+                                   use=&quot;required&quot;/&gt;<a name="wp237927"> </a>
+                     &lt;xsd:attribute name=&quot;value&quot; type=&quot;xsd:string&quot;<a name="wp237376"> </a>
+                                    use=&quot;required&quot;/&gt;<a name="wp237928"> </a>
+                   &lt;/xsd:complexType&gt;<a name="wp237377"> </a>
+                 &lt;/xsd:element&gt;<a name="wp237378"> </a>
+               &lt;/xsd:sequence&gt;<a name="wp237379"> </a>
+             &lt;/xsd:complexType&gt;<a name="wp237380"> </a>
+          &lt;/xsd:element&gt;<a name="wp237381"> </a>
+        &lt;/xsd:sequence&gt;<a name="wp237382"> </a>
+        &lt;xsd:attribute name=&quot;streaming&quot; type=&quot;YesNo&quot; use=&quot;optional&quot;<a name="wp237383"> </a>
+                       default=&quot;yes&quot;/&gt;<a name="wp237911"> </a>
+        &lt;xsd:attribute name=&quot;http-version&quot; type=&quot;HttpVersion&quot; use=&quot;optional&quot;<a name="wp237384"> </a>
+                        default=&quot;http_1_1&quot;/&gt;<a name="wp237914"> </a>
+        &lt;xsd:attribute name=&quot;connection-timeout&quot; type=&quot;xsd:int&quot;<a name="wp237385"> </a>
+                       use=&quot;optional&quot;/&gt;<a name="wp237908"> </a>
+        &lt;xsd:attribute name=&quot;socket-timeout&quot; type=&quot;xsd:int&quot; use=&quot;optional&quot;/&gt;<a name="wp237386"> </a>
+        &lt;xsd:attribute name=&quot;socket-linger&quot; type=&quot;xsd:int&quot; use=&quot;optional&quot;/&gt;<a name="wp237387"> </a>
+        &lt;xsd:attribute name=&quot;socket-sendbuffer&quot; type=&quot;xsd:int&quot;<a name="wp237388"> </a>
+                       use=&quot;optional&quot;/&gt;<a name="wp237909"> </a>
+        &lt;xsd:attribute name=&quot;socket-receivebuffer&quot; type=&quot;xsd:int&quot;<a name="wp237389"> </a>
+                       use=&quot;optional&quot;/&gt;<a name="wp237910"> </a>
+        &lt;xsd:attribute name=&quot;tcp-nodelay&quot; type=&quot;xsd:int&quot; use=&quot;optional&quot;/&gt;<a name="wp237390"> </a>
+        &lt;xsd:attribute name=&quot;username&quot; type=&quot;xsd:string&quot; use=&quot;optional&quot;/&gt;<a name="wp237391"> </a>
+        &lt;xsd:attribute name=&quot;password&quot; type=&quot;xsd:string&quot; use=&quot;optional&quot;/&gt;<a name="wp237392"> </a>
+        &lt;xsd:attribute name=&quot;proxy-username&quot; type=&quot;xsd:string&quot;<a name="wp237848"> </a>
+                       use=&quot;optional&quot;/&gt;<a name="wp237917"> </a>
+        &lt;xsd:attribute name=&quot;proxy-password&quot; type=&quot;xsd:string&quot;<a name="wp237849"> </a>
+                       use=&quot;optional&quot;/&gt;<a name="wp237918"> </a>
+        &lt;xsd:attribute name=&quot;response-data-type&quot; type=&quot;ResponseDataType&quot;<a name="wp237395"> </a>
+                       use=&quot;optional&quot;/&gt;<a name="wp237922"> </a>
+        &lt;xsd:attribute name=&quot;cookie-policy&quot; type=&quot;CookiePolicy&quot;<a name="wp237396"> </a>
+                       use=&quot;optional&quot; default=&quot;RFC_2109&quot;/&gt;<a name="wp237923"> </a>
+        &lt;xsd:attribute name=&quot;proxy-host&quot; type=&quot;xsd:string&quot; use=&quot;optional&quot;/&gt;<a name="wp237397"> </a>
+        &lt;xsd:attribute name=&quot;proxy-port&quot; type=&quot;xsd:int&quot; use=&quot;optional&quot;/&gt;<a name="wp237398"> </a>
+        &lt;xsd:attribute name=&quot;wrap-exception&quot; type=&quot;YesNo&quot; use=&quot;optional&quot;/&gt;<a name="wp237399"> </a>
+        &lt;xsd:attribute name=&quot;retries&quot; type=&quot;xsd:int&quot; use=&quot;optional&quot;/&gt;<a name="wp237400"> </a>
+        &lt;xsd:attribute name=&quot;protocol-reject-head-body&quot; type=&quot;YesNo&quot;<a name="wp237401"> </a>
+                       use=&quot;optional&quot;/&gt;<a name="wp237924"> </a>
+        &lt;xsd:attribute name=&quot;protocol-head-body-timeout&quot; type=&quot;xsd:int&quot;<a name="wp237402"> </a>
+                       use=&quot;optional&quot;/&gt;<a name="wp237925"> </a>
+        &lt;xsd:attribute name=&quot;serialize&quot; type=&quot;xsd:string&quot; use=&quot;optional&quot;/&gt;<a name="wp237403"> </a>
+      &lt;/xsd:complexType&gt;<a name="wp237404"> </a>
+    &lt;/xsd:element&gt;-<a name="wp237405"> </a>
+    &lt;xsd:simpleType name=&quot;YesNo&quot;&gt;-<a name="wp237406"> </a>
+      &lt;xsd:restriction base=&quot;xsd:string&quot;&gt;<a name="wp237407"> </a>
+        &lt;xsd:enumeration value=&quot;yes&quot;/&gt;<a name="wp237408"> </a>
+        &lt;xsd:enumeration value=&quot;no&quot;/&gt;<a name="wp237409"> </a>
+      &lt;/xsd:restriction&gt;<a name="wp237410"> </a>
+    &lt;/xsd:simpleType&gt;-<a name="wp237411"> </a>
+    &lt;xsd:simpleType name=&quot;HttpVersion&quot;&gt;-<a name="wp237412"> </a>
+      &lt;xsd:restriction base=&quot;xsd:string&quot;&gt;<a name="wp237413"> </a>
+        &lt;xsd:enumeration value=&quot;http_1_0&quot;/&gt;<a name="wp237414"> </a>
+        &lt;xsd:enumeration value=&quot;http_1_1&quot;/&gt;<a name="wp237415"> </a>
+      &lt;/xsd:restriction&gt;<a name="wp237416"> </a>
+    &lt;/xsd:simpleType&gt;-<a name="wp237417"> </a>
+    &lt;xsd:simpleType name=&quot;ResponseDataType&quot;&gt;-<a name="wp237418"> </a>
+      &lt;xsd:restriction base=&quot;xsd:string&quot;&gt;<a name="wp237419"> </a>
+        &lt;xsd:enumeration value=&quot;xml&quot;/&gt;<a name="wp237420"> </a>
+        &lt;xsd:enumeration value=&quot;text&quot;/&gt;<a name="wp237421"> </a>
+        &lt;xsd:enumeration value=&quot;base64&quot;/&gt;<a name="wp237422"> </a>
+      &lt;/xsd:restriction&gt;<a name="wp237423"> </a>
+    &lt;/xsd:simpleType&gt;-<a name="wp237424"> </a>
+    &lt;xsd:simpleType name=&quot;CookiePolicy&quot;&gt;-<a name="wp237425"> </a>
+      &lt;xsd:restriction base=&quot;xsd:string&quot;&gt;<a name="wp237426"> </a>
+        &lt;xsd:enumeration value=&quot;netscape&quot;/&gt;<a name="wp237427"> </a>
+        &lt;xsd:enumeration value=&quot;RFC_2109&quot;/&gt;<a name="wp237428"> </a>
+        &lt;xsd:enumeration value=&quot;RFC_2965&quot;/&gt;<a name="wp237429"> </a>
+        &lt;xsd:enumeration value=&quot;ignore_cookies&quot;/&gt;<a name="wp237430"> </a>
+      &lt;/xsd:restriction&gt;<a name="wp237431"> </a>
+    &lt;/xsd:simpleType&gt;<a name="wp237432"> </a>
+  &lt;/xsd:schema&gt;<a name="wp237433"> </a>
+&lt;/xsd:schema&gt;<a name="wp237362"> </a>
+</pre></div>
+<a name="wp235700"> </a><h3 class="pHeading2">
+Response XML Schema
+</h3>
+<a name="wp235701"> </a><p class="pBody">
+Response elements returned by DataDirect XQuery HTTP functions (like ddtek:http-put, for example) conform to the following XML Schema, ddtek-http-response.xsd.
+</p>
+<a name="wp239151"> </a><p class="pBody">
+The top level attributes from the response element contain the status information returned by the server as outlined in the HTTP protocol. The attributes include the version information, the status code, and the reason phrase, respectively.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<a name="wp237278"> </a>
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp237281"> </a>
+&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;<a name="wp237282"> </a>
+   &lt;xsd:schema elementFormDefault=&quot;qualified&quot;&gt;-<a name="wp237283"> </a>
+     &lt;xsd:element name=&quot;response&quot;&gt;-<a name="wp237284"> </a>
+	    &lt;xsd:complexType&gt;-<a name="wp237285"> </a>
+			 &lt;xsd:sequence&gt;-<a name="wp237286"> </a>
+			   &lt;xsd:element name=&quot;response-header&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;-<a name="wp237287"> </a>
+						&lt;xsd:complexType&gt;-<a name="wp237288"> </a>
+							&lt;xsd:sequence&gt;-<a name="wp237289"> </a>
+								&lt;xsd:element name=&quot;header&quot; minOccurs=&quot;0&quot;<a name="wp237290"> </a>
+											  maxOccurs=&quot;unbounded&quot;&gt;-<a name="wp237929"> </a>
+									&lt;xsd:complexType&gt;<a name="wp237291"> </a>
+										&lt;xsd:attribute name=&quot;name&quot; type=&quot;xsd:string&quot;<a name="wp237292"> </a>
+										               use=&quot;required&quot;/&gt;<a name="wp237930"> </a>
+										&lt;xsd:attribute name=&quot;value&quot; type=&quot;xsd:string&quot;<a name="wp237293"> </a>
+										               use=&quot;required&quot;/&gt;<a name="wp237931"> </a>
+									&lt;/xsd:complexType&gt;<a name="wp237294"> </a>
+								&lt;/xsd:element&gt;<a name="wp237295"> </a>
+							&lt;/xsd:sequence&gt;<a name="wp237296"> </a>
+						&lt;/xsd:complexType&gt;<a name="wp237297"> </a>
+					&lt;/xsd:element&gt;<a name="wp237298"> </a>
+			     &lt;xsd:element name=&quot;response-body&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;<a name="wp237299"> </a>
+			 &lt;/xsd:sequence&gt;<a name="wp237300"> </a>
+		  &lt;xsd:attribute name=&quot;http-version&quot; type=&quot;xsd:string&quot; use=&quot;required&quot;/&gt;<a name="wp237301"> </a>
+		  &lt;xsd:attribute name=&quot;status-code&quot; type=&quot;xsd:string&quot; use=&quot;required&quot;/&gt;<a name="wp237302"> </a>
+		  &lt;xsd:attribute name=&quot;reason&quot; type=&quot;xsd:string&quot; use=&quot;required&quot;/&gt;<a name="wp237303"> </a>
+	    &lt;/xsd:complexType&gt;<a name="wp237304"> </a>
+     &lt;/xsd:element&gt;<a name="wp237305"> </a>
+   &lt;/xsd:schema&gt;<a name="wp237306"> </a>
+&lt;/xsd:schema&gt;<a name="wp237279"> </a>
+<a name="wp235766"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

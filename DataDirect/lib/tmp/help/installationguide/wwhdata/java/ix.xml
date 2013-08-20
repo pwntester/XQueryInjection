@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<WebWorksHelpIX version="3.0">
+ <i t="adding database support">
+  <j l="install7.html#wp1108220" />
+ </i>
+ <i t="authentication">
+  <i t="Kerberos">
+   <j l="bforinst2.html#wp81283" />
+  </i>
+  <i t="NTLM">
+   <j l="bforinst2.html#wp81227" />
+  </i>
+ </i>
+ <i t="before you install">
+  <j l="bforinst.html#wp80849" />
+ </i>
+ <i t="books">
+  <i t="online">
+   <j l="preface5.html#wp1027128" />
+  </i>
+ </i>
+ <i t="CD mounting instructions">
+  <j l="install4.html#wp1116203" />
+ </i>
+ <i t="code page support, J2SE">
+  <j l="bforinst2.html#wp80600" />
+ </i>
+ <i t="command-line installation, DataDirect XQuery">
+  <j l="install5.html#wp1093328" />
+ </i>
+ <i t="contacting Technical Support">
+  <j l="preface6.html#wp1027581" />
+ </i>
+ <i t="conventions, typographical">
+  <j l="preface4.html#wp1027024" />
+ </i>
+ <i t="data sources">
+  <i t="relational">
+   <j l="bforinst3.html#wp80309" />
+  </i>
+  <i t="XML">
+   <j l="bforinst3.html#wp79352" />
+  </i>
+ </i>
+ <i t="data types, XML">
+  <j l="bforinst3.html#wp80705" />
+ </i>
+ <i t="databases">
+  <i t="adding to an installation">
+   <j l="install7.html#wp1108220" />
+  </i>
+ </i>
+ <i t="DataDirect XML Converters">
+  <j l="bforinst3.html#wp80670" />
+ </i>
+ <i t="DataDirect XQuery">
+  <i t="about">
+   <j l="preface2.html#wp1024358" />
+  </i>
+  <i t="extending evaluation">
+   <j l="install8.html#wp1108226" />
+  </i>
+  <i t="getting started">
+   <j l="install6.html#wp1112015" />
+  </i>
+  <i t="how to install">
+   <j l="install5.html#wp1079332" />
+  </i>
+  <i t="installing">
+   <j l="install.html#wp1092878" />
+  </i>
+  <i t="Javadoc">
+   <j l="install2.html#wp1114833" />
+  </i>
+  <i t="system and product requirements">
+   <j l="bforinst2.html#wp74216" />
+  </i>
+  <i t="uninstalling">
+   <j l="install10.html#wp1101713" />
+  </i>
+ </i>
+ <i t="DB2">
+  <i t="Kerberos authentication">
+   <j l="bforinst2.html#wp81283" />
+  </i>
+  <i t="versions supported">
+   <j l="bforinst3.html#wp82359" />
+  </i>
+ </i>
+ <i t="documentation">
+  <i t="about">
+   <j l="preface5.html#wp1017727" />
+  </i>
+  <i t="installing online books">
+   <j l="install2.html#wp1096292" />
+  </i>
+ </i>
+ <i t="domain controller">
+  <j l="bforinst2.html#wp81259" />
+ </i>
+ <i t="evaluation">
+  <i t="extending DataDirect XQuery">
+   <j l="install8.html#wp1108226" />
+  </i>
+  <i t="upgrading DataDirect XQuery to a licensed installation">
+   <j l="install8.html#wp1108226" />
+  </i>
+ </i>
+ <i t="getting started with DataDirect XQuery">
+  <j l="install6.html#wp1112015" />
+ </i>
+ <i t="GUI installation, DataDirect XQuery">
+  <j l="install5.html#wp1093289" />
+ </i>
+ <i t="help, online">
+  <j l="preface5.html#wp1027054" />
+ </i>
+ <i t="Informix">
+  <i t="versions supported">
+   <j l="bforinst3.html#wp82375" />
+  </i>
+ </i>
+ <i t="installing">
+  <i t="DataDirect XQuery">
+   <j l="install5.html#wp1079332" />
+  </i>
+  <i t="examples">
+   <j l="install2.html#wp1110679" />
+  </i>
+  <i t="Javadoc, XQJ and DataDirect XQuery">
+   <j l="install2.html#wp1114833" />
+  </i>
+  <i t="online books">
+   <j l="install2.html#wp1096292" />
+  </i>
+  <i t="online help">
+   <j l="install2.html#wp1110687" />
+  </i>
+  <i t="readme and fixes">
+   <j l="install2.html#wp1110819" />
+  </i>
+ </i>
+ <i t="J2SE">
+  <i t="code page support">
+   <j l="bforinst2.html#wp80600" />
+  </i>
+  <i t="requirement">
+   <j l="bforinst2.html#wp79488" />
+  </i>
+ </i>
+ <i t="Javadoc, XQJ and DataDirect XQuery">
+  <j l="install2.html#wp1114833" />
+ </i>
+ <i t="Kerberos authentication, product requirements">
+  <j l="bforinst2.html#wp81283" />
+ </i>
+ <i t="Kerberos Key Distribution Center (KDC)">
+  <j l="bforinst2.html#wp81171" />
+ </i>
+ <i t="Kerberos server">
+  <j l="bforinst2.html#wp81169" />
+ </i>
+ <i t="licensing">
+  <i t="multiple keys">
+   <j l="install5.html#wp1107921" />
+  </i>
+  <i t="upgrading DataDirect XQuery to a licensed installation">
+   <j l="install8.html#wp1108226" />
+  </i>
+ </i>
+ <i t="Linux, mounting instructions for CD">
+  <j l="install4.html#wp1107534" />
+ </i>
+ <i t="Microsoft SQL Server">
+  <i t="See SQL Server." c="SQL Server.">
+   <j l="preface.html#wp1020048" />
+  </i>
+ </i>
+ <i t="MIT Kerberos">
+  <j l="bforinst2.html#wp81769" />
+ </i>
+ <i t="mounting instructions for CD">
+  <j l="install4.html#wp1116203" />
+ </i>
+ <i t="multiple keys, product">
+  <j l="install5.html#wp1107921" />
+ </i>
+ <i t="MySQL Enterprise">
+  <i t="versions supported">
+   <j l="bforinst3.html#wp82397" />
+  </i>
+ </i>
+ <i t="NTLM authentication">
+  <j l="bforinst2.html#wp81227" />
+ </i>
+ <i t="Oracle">
+  <i t="Kerberos authentication">
+   <j l="bforinst2.html#wp81283" />
+  </i>
+  <i t="NTLM authentication">
+   <j l="bforinst2.html#wp81227" />
+  </i>
+  <i t="versions supported">
+   <j l="bforinst3.html#wp82405" />
+  </i>
+ </i>
+ <i t="PostgreSQL">
+  <i t="versions supported">
+   <j l="bforinst3.html#wp82414" />
+  </i>
+ </i>
+ <i t="PostgreSQL JDBC driver">
+  <j l="bforinst3.html#wp82419" />
+ </i>
+ <i t="product keys">
+  <j l="install5.html#wp1107921" />
+ </i>
+ <i t="product requirements">
+  <i t="DataDirect XQuery">
+   <j l="bforinst2.html#wp74216" />
+  </i>
+  <i t="Kerberos authentication">
+   <j l="bforinst2.html#wp81283" />
+  </i>
+  <i t="NTLM authentication">
+   <j l="bforinst2.html#wp81227" />
+  </i>
+ </i>
+ <i t="relational data sources">
+  <j l="bforinst3.html#wp80309" />
+ </i>
+ <i t="requirements, system and product">
+  <j l="bforinst2.html#wp74216" />
+ </i>
+ <i t="SQL Server">
+  <i t="Kerberos authentication">
+   <j l="bforinst2.html#wp81283" />
+  </i>
+  <i t="NTLM authentication">
+   <j l="bforinst2.html#wp81227" />
+  </i>
+  <i t="versions supported">
+   <j l="bforinst3.html#wp82382" />
+  </i>
+ </i>
+ <i t="SupportLink">
+  <j l="preface6.html#wp1027581" />
+ </i>
+ <i t="Sybase">
+  <i t="Kerberos authentication">
+   <j l="bforinst2.html#wp81283" />
+  </i>
+  <i t="versions supported">
+   <j l="bforinst3.html#wp82425" />
+  </i>
+ </i>
+ <i t="system requirements">
+  <j l="bforinst2.html#wp74216" />
+ </i>
+ <i t="Technical Support, contacting">
+  <j l="preface6.html#wp1027581" />
+ </i>
+ <i t="uninstalling DataDirect XQuery">
+  <j l="install10.html#wp1101713" />
+ </i>
+ <i t="UNIX, mounting instructions for CD">
+  <j l="install4.html#wp1107534" />
+ </i>
+ <i t="upgrading to a licensed installation">
+  <i t="DataDirect XQuery">
+   <j l="install8.html#wp1108226" />
+  </i>
+ </i>
+ <i t="URI schemes">
+  <j l="bforinst3.html#wp80670" />
+ </i>
+ <i t="Windows Active Directory">
+  <j l="bforinst2.html#wp81765" />
+ </i>
+ <i t="Windows, mounting instructions for CD">
+  <j l="install4.html#wp1107529" />
+ </i>
+ <i t="XML">
+  <i t="data sources">
+   <j l="bforinst3.html#wp79352" />
+  </i>
+  <i t="data type">
+   <j l="bforinst3.html#wp80705" />
+  </i>
+  <i t="stored in character columns">
+   <j l="bforinst3.html#wp80712" />
+  </i>
+  <i t="stored in relational database using an XML data type">
+   <j l="bforinst3.html#wp80705" />
+  </i>
+ </i>
+ <i t="XML Converters">
+  <j l="bforinst3.html#wp80670" />
+ </i>
+ <i t="XQJ Javadoc">
+  <j l="install2.html#wp1114833" />
+ </i>
+</WebWorksHelpIX>

@@ -1,0 +1,1133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:38" />
+  <title>Database Connection Properties</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp293718"> </a><h2 class="pNewHTMLPageNum">
+Database Connection Properties
+</h2>
+<hr />
+<a name="wp293719"> </a><p class="pBody">
+This section describes the connection properties you can specify for databases supported by DataDirect XQuery.
+</p>
+<a name="wp305025"> </a><p class="pBody">
+See <a  href="conf_sourcefiles7.html#wp182290">Specifying Connection URIs</a> for information about the format of connection URLs and specifying connection properties in connection URLs.
+</p>
+<a name="wp304656"> </a><p class="pBody">
+This section provides information for the following supported databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp304669"> </a><div class="pSmartList1"><li><a  href="database_support5.html#wp293722">DB2</a></li></div><a name="wp304682"> </a><div class="pSmartList1"><li><a  href="database_support5.html#wp293921">Informix</a></li></div><a name="wp304717"> </a><div class="pSmartList1"><li><a  href="database_support5.html#wp296359">Microsoft SQL Server</a></li></div><a name="wp304729"> </a><div class="pSmartList1"><li><a  href="database_support5.html#wp293977">MySQL Enterprise</a></li></div><a name="wp304741"> </a><div class="pSmartList1"><li><a  href="database_support5.html#wp294089">Oracle</a></li></div><a name="wp304753"> </a><div class="pSmartList1"><li><a  href="database_support5.html#wp295748">PostgreSQL</a></li></div><a name="wp304778"> </a><div class="pSmartList1"><li><a  href="database_support5.html#wp294420">Sybase</a></li></div></ul></div>
+<a name="wp293722"> </a><h3 class="pHeading2">
+DB2
+</h3>
+<a name="wp293726"> </a><p class="pBody">
+This section describes the connection properties you can specify for DB2 and provides information about how DataDirect XQuery creates DB2 packages.
+</p>
+<a name="wp301057"> </a><p class="pBody">
+<a  href="database_support5.html#wp293733">Table&#160;E-9</a> lists the connection properties supported for DB2 by DataDirect XQuery.
+</p>
+<a name="wp293890"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp293733"> </a><div class="pTableTitle">
+Table E-9.  DB2 Connection Properties &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp293737"> </a><div class="pCellHeading">
+DB2 Property
+</div>
+</th>
+    <th><a name="wp293739"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293743"> </a><div class="pCellBody">
+AuthenticationMethod
+</div>
+</td>
+    <td><a name="wp293745"> </a><div class="pCellBody">
+{kerberos | encryptedUIDPassword | encryptedPassword | clearText | client}. Determines which authentication method DataDirect XQuery uses when establishing a connection.
+</div>
+<a name="wp293746"> </a><div class="pCellBody">
+If set to kerberos, DataDirect XQuery uses Kerberos authentication. DataDirect XQuery ignores any user ID or password specified. See <a  href="connection_security3.html#wp239534">Using Kerberos Authentication</a> for more information about using Kerberos.
+</div>
+<a name="wp293750"> </a><div class="pCellBody">
+If set to encryptedUIDPassword, DataDirect XQuery uses user&#160;ID/password authentication. DataDirect XQuery sends an encrypted user ID and password to the DB2 server for authentication. If a user ID and password are not specified, an exception is thrown.
+</div>
+<a name="wp293751"> </a><div class="pCellBody">
+If set to encryptedPassword, DataDirect XQuery uses user&#160;ID/password authentication. DataDirect XQuery sends a user ID in clear text and an encrypted password to the DB2 server for authentication. If a user ID and password are not specified, an exception is thrown.
+</div>
+<a name="wp293752"> </a><div class="pCellBody">
+If set to clearText (the default), DataDirect XQuery uses user&#160;ID/password authentication. DataDirect XQuery sends the user&#160;ID and password in clear text to the DB2 server for authentication. If a user ID and password are not specified, an exception is thrown.
+</div>
+<a name="wp293753"> </a><div class="pCellBody">
+If set to client, DataDirect XQuery uses client authentication. The DB2 server relies on the client to authenticate the user and does not provide additional authentication. DataDirect XQuery ignores any user ID or password specified.
+</div>
+<a name="wp293756"> </a><div class="pCellBody">
+The <a  href="database_support5.html#wp293886">User</a> property provides the user ID. The <a  href="database_support5.html#wp293859">Password</a> property provides the password. 
+</div>
+<a name="wp293757"> </a><div class="pCellBody">
+If the specified authentication method is not supported by the DB2 server, the connection fails and an exception is thrown. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293760"> </a><div class="pCellBody">
+CreateDefaultPackage
+</div>
+</td>
+    <td><a name="wp293762"> </a><div class="pCellBody">
+{true | false}. If set to true, the required DB2 packages are automatically created even if they already exist. Existing DB2 packages are replaced by the new packages. If set to false (the default), the required DB2 packages are created automatically only if they do not already exist. 
+</div>
+<a name="wp293764"> </a><div class="pCellBody">
+For DB2 for Linux/UNIX/Windows, this property must be used in conjunction with the ReplacePackage property.
+</div>
+<a name="wp293765"> </a><div class="pCellBody">
+For DB2 for z/OS and DB2 for iSeries, DB2 packages are created in the collection or library specified by the PackageCollection property.
+</div>
+<a name="wp293769"> </a><div class="pCellBody">
+See <a  href="database_support5.html#wp293893">Creating DB2 Packages</a> for more information about creating DB2 packages. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293774"> </a><div class="pCellBody">
+DatabaseName
+</div>
+<a name="wp293775"> </a><div class="pCellBody">
+Required for<br />Linux/UNIX/Windows
+</div>
+</td>
+    <td><a name="wp293777"> </a><div class="pCellBody">
+The name (DB2 for Linux/UNIX/Windows) or location name (DB2&#160;for z/OS and DB2 for iSeries) of the database you want to connect&#160;to.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293781"> </a><div class="pCellBody">
+DynamicSections
+</div>
+</td>
+    <td><a name="wp293784"> </a><div class="pCellBody">
+The maximum number of prepared statements that can be open at any time. This value must be a positive integer. The default is&#160;200.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293788"> </a><div class="pCellBody">
+Grantee
+</div>
+</td>
+    <td><a name="wp293791"> </a><div class="pCellBody">
+The name of the schema to which you want to grant EXECUTE privileges for DB2 packages. The value must be a valid DB2 schema. This property is ignored if the <a  href="database_support5.html#wp293803">GrantExecute</a> property is set to false. 
+</div>
+<a name="wp293795"> </a><div class="pCellBody">
+The default is PUBLIC.
+</div>
+<a name="wp293799"> </a><div class="pCellBody">
+See <a  href="database_support5.html#wp293893">Creating DB2 Packages</a> for more information about creating DB2 packages. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293803"> </a><div class="pCellBody">
+GrantExecute
+</div>
+</td>
+    <td><a name="wp293805"> </a><div class="pCellBody">
+{true | false}. Determines which DB2 schema is granted EXECUTE privileges for DB2 packages. If set to true (the default), EXECUTE privileges are granted to the schema specified by the <a  href="database_support5.html#wp293788">Grantee</a> property. If set to false, EXECUTE privileges are granted to the schema that created the DB2 packages. 
+</div>
+<a name="wp293812"> </a><div class="pCellBody">
+See <a  href="database_support5.html#wp293893">Creating DB2 Packages</a> for more information about creating DB2 packages.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293815"> </a><div class="pCellBody">
+InitializationString
+</div>
+</td>
+    <td><a name="wp293817"> </a><div class="pCellBody">
+Specifies one or multiple SQL commands to be executed by DataDirect XQuery after it has established the connection to the database and has performed all initialization for the connection. 
+</div>
+<a name="wp293818"> </a><div class="pCellBody">
+Multiple commands must be separated by semicolons. In addition, if this property is specified in a connection URL, the entire value must be enclosed in parentheses when multiple commands are specified. The following example adds USER2 to the CURRENT PATH special register and sets the CURRENT PRECISION special register to DEC31.
+</div>
+<a name="wp293819"> </a><div class="pCellBody">
+<code class="cCode">jdbc:xquery:db2://server1:50000;<br />InitializationString=(SET CURRENT PATH=current_path, USER2;SET CURRENT PRECISION=&#39;DEC31&#39;)</code>
+</div>
+<a name="wp293820"> </a><div class="pCellBody">
+NOTE: Setting the CURRENT PRECISION special register is only valid for DB2 for z/OS.
+</div>
+<a name="wp295255"> </a><div class="pCellBody">
+If the execution of a SQL command fails, the connection attempt also fails and DataDirect XQuery raises an exception indicating which SQL command or commands failed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293825"> </a><div class="pCellBody">
+LocationName
+</div>
+<a name="wp293826"> </a><div class="pCellBody">
+Required for<br />z/OS and iSeries if <a  href="database_support5.html#wp293774">DatabaseName</a> is not specified
+</div>
+</td>
+    <td><a name="wp293832"> </a><div class="pCellBody">
+The name of the DB2 location that you want to access.
+</div>
+<a name="wp293833"> </a><div class="pCellBody">
+For DB2 for z/OS, your system administrator can determine the name of your DB2 location using the following command:
+</div>
+<a name="wp293834"> </a><div class="pCellBody">
+<code class="cCode">DISPLAY DDF</code>
+</div>
+<a name="wp293835"> </a><div class="pCellBody">
+For DB2 for iSeries, your system administrator can determine the name of your DB2 location using the following command. The name of the database that is listed as *LOCAL is the value you should use for this property.
+</div>
+<a name="wp293836"> </a><div class="pCellBody">
+<code class="cCode">WRKRDBDIRE</code>
+</div>
+<a name="wp293837"> </a><div class="pCellBody">
+This property is supported only for DB2 for z/OS and DB2 for iSeries.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293840"> </a><div class="pCellBody">
+PackageCollection
+</div>
+</td>
+    <td><a name="wp293843"> </a><div class="pCellBody">
+The name of the collection or library (group of packages) to which DB2 packages are bound. The default is NULLID.
+</div>
+<a name="wp293844"> </a><div class="pCellBody">
+This property is ignored for DB2 for Linux/UNIX/Windows.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293847"> </a><div class="pCellBody">
+PackageOwner
+</div>
+</td>
+    <td><a name="wp293850"> </a><div class="pCellBody">
+The owner to be used for any DB2 packages that are created. The default is null.
+</div>
+<a name="wp293854"> </a><div class="pCellBody">
+See <a  href="database_support5.html#wp293893">Creating DB2 Packages</a> for more information about creating DB2 packages.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293859"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp293862"> </a><div class="pCellBody">
+A case-sensitive password used to connect to your DB2 database. A password is required only if user ID/password authentication is enabled on your database. Contact your system administrator to obtain your password.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293865"> </a><div class="pCellBody">
+ReplacePackage
+</div>
+</td>
+    <td><a name="wp293867"> </a><div class="pCellBody">
+{true | false}. Specifies whether the current bind process will replace the existing DB2 packages. If set to true, the current bind process will replace the existing DB2 packages. If set to false (the default), the current bind process will not replace the existing DB2 packages.
+</div>
+<a name="wp293869"> </a><div class="pCellBody">
+For DB2 for Linux/UNIX/Windows, this property must be used in conjunction with the CreateDefaultPackage property. 
+</div>
+<a name="wp293873"> </a><div class="pCellBody">
+See <a  href="database_support5.html#wp293893">Creating DB2 Packages</a> for more information about creating DB2 packages.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293875"> </a><div class="pCellBody">
+SecurityMechanism
+</div>
+<a name="wp293876"> </a><div class="pCellBody">
+DEPRECATED
+</div>
+</td>
+    <td><a name="wp293878"> </a><div class="pCellBody">
+This property is recognized for backward compatibility, but we recommend that you use the <a  href="database_support5.html#wp293743">AuthenticationMethod</a> property to set the authentication method used by DataDirect XQuery. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293886"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp293889"> </a><div class="pCellBody">
+The case-sensitive user name used to connect to the DB2 database.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp293893"> </a><h4 class="pHeading3">
+Creating DB2 Packages
+</h4>
+<a name="wp293897"> </a><p class="pBody">
+DataDirect XQuery automatically creates all required DB2 packages at connection time, which, by default, contain 200&#160;dynamic sections and are created in the NULLID collection (or library). You can override the default number of dynamic sections by setting the DynamicSections property. Similarly, you can override the collection in which packages are created by setting the PackageCollection property.
+</p>
+<a name="wp293901"> </a><p class="pBody">
+NOTE: The initial connection may take a few minutes because of the number and size of the packages that must be created for the connection. Subsequent connections do not incur this delay.
+</p>
+<a name="wp293902"> </a><p class="pBody">
+In most cases, you do not need to create DB2 packages because they are automatically created at connection time. If, for some reason, you need to explicitly create them, you can create them using the following sets of connection properties. 
+</p>
+<a name="wp293903"> </a><p class="pBody">
+NOTE: The user ID creating the DB2 packages must have BINDADD privileges on the database. Consult with your database administrator to ensure that you have the correct privileges.
+</p>
+<a name="wp293905"> </a><p class="pBodyBold">
+For DB2 for Linux/UNIX/Windows
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp293906"> </a><div class="pSmartList1"><li>CreateDefaultPackage=true</li></div><a name="wp293907"> </a><div class="pSmartList1"><li>ReplacePackage=true</li></div><a name="wp293908"> </a><div class="pSmartList1"><li>DynamicSections=<em class="cEmphasis">x</em> (where <em class="cEmphasis">x</em> is a positive integer)</li></div></ul></div>
+<a name="wp293909"> </a><p class="pBody">
+NOTE: To create new DB2 packages, you must use ReplacePackage=true in conjunction with CreateDefaultPackage=true. If a DB2 package already exists, it is replaced when ReplacePackage=true.
+</p>
+<a name="wp293910"> </a><p class="pBody">
+The following URL creates DB2 packages with 400 dynamic sections. If any DB2 packages already exist, they are replaced by the new ones being created. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:db2://server1:50000;databaseName=SAMPLE;
+createDefaultPackage=TRUE;replacePackage=TRUE;dynamicSections=400<a name="wp293911"> </a>
+</pre></div>
+<a name="wp293912"> </a><p class="pBodyBold">
+For DB2 for z/OS and iSeries
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp293913"> </a><div class="pSmartList1"><li>PackageCollection=<em class="cEmphasis">collection_name</em> (where <em class="cEmphasis">collection_name</em> is the name of the collection or library to which DB2 packages are bound)</li></div><a name="wp293914"> </a><div class="pSmartList1"><li>CreateDefaultPackage=true</li></div><a name="wp293915"> </a><div class="pSmartList1"><li>DynamicSections=<em class="cEmphasis">x</em> (where <em class="cEmphasis">x</em> is a positive integer)</li></div></ul></div>
+<a name="wp293916"> </a><p class="pBody">
+The following URL creates DB2 packages with 400 dynamic sections. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:db2://server1:50000;locationName=SAMPLE;
+packageCollection=DEFAULT;createDefaultPackage=TRUE;dynamicSections=400<a name="wp293917"> </a>
+</pre></div>
+<a name="wp293921"> </a><h3 class="pHeading2">
+Informix
+</h3>
+<a name="wp301068"> </a><p class="pBody">
+This section describes the connection properties you can specify for Informix.
+</p>
+<a name="wp293925"> </a><p class="pBody">
+<a  href="database_support5.html#wp293932">Table&#160;E-10</a> lists the connection properties supported for Informix by DataDirect XQuery.
+</p>
+<a name="wp293972"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp293932"> </a><div class="pTableTitle">
+Table E-10.  Informix Connection Properties &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp293936"> </a><div class="pCellHeading">
+Informix Property
+</div>
+</th>
+    <th><a name="wp293938"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293941"> </a><div class="pCellBody">
+DatabaseName
+</div>
+</td>
+    <td><a name="wp293943"> </a><div class="pCellBody">
+The name of the database you want to which you want to connect.
+</div>
+<a name="wp293944"> </a><div class="pCellBody">
+If this property is not specified, a connection is established to the specified server without connecting to a particular database.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293947"> </a><div class="pCellBody">
+InformixServer
+</div>
+<a name="wp293948"> </a><div class="pCellBody">
+Required
+</div>
+</td>
+    <td><a name="wp293950"> </a><div class="pCellBody">
+The name of the Informix database server to which you want to connect.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293953"> </a><div class="pCellBody">
+InitializationString
+</div>
+</td>
+    <td><a name="wp293955"> </a><div class="pCellBody">
+Specifies one or multiple SQL commands to be executed by DataDirect XQuery after it has established the connection to the database and has performed all initialization for the connection. For example:
+</div>
+<a name="wp293956"> </a><div class="pCellBody">
+<code class="cCode">InitializationString=</code><code><em>command</em></code>
+</div>
+<a name="wp293957"> </a><div class="pCellBody">
+Multiple commands must be separated by semicolons. In addition, if this property is specified in a connection URL, the entire value must be enclosed in parentheses when multiple commands are specified. For example:
+</div>
+<a name="wp293958"> </a><div class="pCellBody">
+<code class="cCode">jdbc:xquery:informix://server1:2003;informixServer=test_server;databaseName=test;initializationString=(</code><code><em>command1</em></code><code class="cCode">;</code><code><em>command2</em></code><code class="cCode">)</code>
+</div>
+<a name="wp295444"> </a><div class="pCellBody">
+If the execution of a SQL command fails, the connection attempt also fails and DataDirect XQuery raises an exception indicating which SQL command or commands failed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293961"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp293964"> </a><div class="pCellBody">
+A case-insensitive password used to connect to your Informix database. A password is required only if user&#160;ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your password. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293967"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp293971"> </a><div class="pCellBody">
+The case-insensitive default user name used to connect to your Informix database. A user name is required only if user&#160;ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your user name.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp296359"> </a><h3 class="pHeading2">
+Microsoft SQL Server
+</h3>
+<a name="wp301154"> </a><p class="pBody">
+This section describes the connection properties you can specify for Microsoft SQL Server.
+</p>
+<a name="wp296364"> </a><p class="pBody">
+<a  href="database_support5.html#wp296371">Table&#160;E-11</a> lists the connection properties supported for Microsoft SQL Server by DataDirect XQuery.
+</p>
+<a name="wp296441"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp296371"> </a><div class="pTableTitle">
+Table E-11.  Microsoft SQL Server Connection Properties &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp296375"> </a><div class="pCellHeading">
+SQL Server Property
+</div>
+</th>
+    <th><a name="wp296377"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp296380"> </a><div class="pCellBody">
+AuthenticationMethod
+</div>
+</td>
+    <td><a name="wp296382"> </a><div class="pCellBody">
+{auto | kerberos | ntlm | userIdPassword}. Determines which authentication method DataDirect XQuery uses when establishing a connection.
+</div>
+<a name="wp296383"> </a><div class="pCellBody">
+If set to auto (the default), DataDirect XQuery uses SQL Server authentication, Kerberos authentication, or NTLM authentication when establishing a connection. DataDirect XQuery selects an authentication method based on a combination of criteria such as whether the application provides a user ID, DataDirect XQuery is running on a Windows platform, and DataDirect XQuery can load the DLL required for NTLM authentication. 
+</div>
+<a name="wp296384"> </a><div class="pCellBody">
+If set to kerberos, DataDirect XQuery uses Kerberos authentication. DataDirect XQuery ignores any user ID or password specified. See <a  href="connection_security3.html#wp239534">Using Kerberos Authentication</a> for more information about using Kerberos.
+</div>
+<a name="wp297724"> </a><div class="pCellBody">
+If set to ntlm, DataDirect XQuery uses NTLM authentication if the DLL required for NTLM authentication can be loaded. If DataDirect XQuery cannot load the DLL, DataDirect XQuery raises an error. DataDirect XQuery ignores any user ID or password specified. See <a  href="connection_security4.html#wp239811">Using NTLM Authentication</a> for more information about NTLM authentication.
+</div>
+<a name="wp296392"> </a><div class="pCellBody">
+If set to userIdPassword, DataDirect XQuery uses SQL Server authentication when establishing a connection. If a user&#160;ID is not specified, an exception is thrown.
+</div>
+<a name="wp296399"> </a><div class="pCellBody">
+The <a  href="database_support5.html#wp296436">User</a> property provides the user ID. The <a  href="database_support5.html#wp296429">Password</a> property provides the password. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp296402"> </a><div class="pCellBody">
+DatabaseName
+</div>
+</td>
+    <td><a name="wp296404"> </a><div class="pCellBody">
+The name of the database to which you want to connect.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp296407"> </a><div class="pCellBody">
+InitializationString
+</div>
+</td>
+    <td><a name="wp296409"> </a><div class="pCellBody">
+Specifies one or multiple SQL commands to be executed by DataDirect XQuery after it has established the connection to the database and has performed all initialization for the connection. For example:
+</div>
+<a name="wp296410"> </a><div class="pCellBody">
+<code class="cCode">InitializationString=</code><code><em>command</em></code>
+</div>
+<a name="wp296411"> </a><div class="pCellBody">
+Multiple commands must be separated by semicolons. In addition, if this property is specified in a connection URL, the entire value must be enclosed in parentheses when multiple commands are specified. For example:
+</div>
+<a name="wp296412"> </a><div class="pCellBody">
+<code class="cCode">jdbc:xquery:sqlserver://server1:1433;databaseName=test;initializationString=(</code><code><em>command1</em></code><code class="cCode">;</code><code><em>command2</em></code><code class="cCode">)</code>
+</div>
+<a name="wp296413"> </a><div class="pCellBody">
+If the execution of a SQL command fails, the connection attempt also fails and DataDirect XQuery raises an exception indicating which SQL command or commands failed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp296416"> </a><div class="pCellBody">
+LoadLibraryPath
+</div>
+<a name="wp296417"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp296419"> </a><div class="pCellBody">
+Specifies the directory DataDirect XQuery looks in for the DLL used for NTLM authentication. The value is the fully qualified path of the directory that contains the DLL. When you install DataDirect XQuery, the NTLM DLLs are placed in the <em class="cEmphasis">install_dir</em>/lib subdirectory, where <em class="cEmphasis">install_dir</em> is the DataDirect XQuery installation directory.
+</div>
+<a name="wp296420"> </a><div class="pCellBody">
+By default, DataDirect XQuery looks for the NTLM authentication DLLs in a directory on the Windows system path defined by the PATH environment variable. If you install DataDirect XQuery in a directory that is not on the Windows system path, you can set this property to specify the location of the NTLM authentication DLLs. For example, if you install DataDirect XQuery in a directory named &quot;DataDirect&quot; that is not on the Windows system path, you can use this property to specify the directory containing the NTLM authentication DLLs. 
+</div>
+<a name="wp296421"> </a><div class="pCellBody">
+jdbc:xquery<code class="cCode">:sqlserver://server3:1433;<br />databaseName=test;loadLibraryPath=C:\DataDirect\lib;<br />User=test;Password=secret</code>
+</div>
+<a name="wp296425"> </a><div class="pCellBody">
+See <a  href="connection_security4.html#wp239811">Using NTLM Authentication</a> for more information about NTLM authentication.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp296429"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp296432"> </a><div class="pCellBody">
+A case-insensitive password used to connect to your Microsoft SQL&#160;Server database. A password is required only if user&#160;ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your password. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp296436"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp296440"> </a><div class="pCellBody">
+The case-insensitive user name used to connect to your Microsoft SQL Server database. A user name is required only if user&#160;ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your user name.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp293977"> </a><h3 class="pHeading2">
+MySQL Enterprise
+</h3>
+<a name="wp301164"> </a><p class="pBody">
+This section describes the connection properties you can specify for MySQL Enterprise.
+</p>
+<a name="wp301165"> </a><p class="pBody">
+NOTE: You must purchase commercially licensed MySQL database software or a MySQL Enterprise subscription in order to use DataDirect XQuery with MySQL software.
+</p>
+<a name="wp293981"> </a><p class="pBody">
+<a  href="database_support5.html#wp293988">Table&#160;E-12</a> lists the connection properties supported for MySQL Enterprise by DataDirect XQuery.
+</p>
+<a name="wp294021"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp293988"> </a><div class="pTableTitle">
+Table E-12.  MySQL Enterprise Connection Properties &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp293992"> </a><div class="pCellHeading">
+MySQL Enterprise Property
+</div>
+</th>
+    <th><a name="wp293994"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp293997"> </a><div class="pCellBody">
+DatabaseName
+</div>
+</td>
+    <td><a name="wp293999"> </a><div class="pCellBody">
+The name of the database you want to connect to.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp294002"> </a><div class="pCellBody">
+InitializationString
+</div>
+</td>
+    <td><a name="wp294004"> </a><div class="pCellBody">
+Specifies one or multiple SQL commands to be executed by DataDirect XQuery after it has established the connection to the database and has performed all initialization for the connection. For example:
+</div>
+<a name="wp294005"> </a><div class="pCellBody">
+<code class="cCode">InitializationString=</code><code><em>command</em></code>
+</div>
+<a name="wp294006"> </a><div class="pCellBody">
+Multiple commands must be separated by semicolons. In addition, if this property is specified in a connection URL, the entire value must be enclosed in parentheses when multiple commands are specified. For example:
+</div>
+<a name="wp294007"> </a><div class="pCellBody">
+<code class="cCode">jdbc:xquery:mysql://server1:3306;databaseName=test;initializationString=(</code><code><em>command1</em></code><code class="cCode">;</code><code><em>command2</em></code><code class="cCode">)</code>
+</div>
+<a name="wp295461"> </a><div class="pCellBody">
+If the execution of a SQL command fails, the connection attempt also fails and DataDirect XQuery raises an exception indicating which SQL command or commands failed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp294010"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp294013"> </a><div class="pCellBody">
+A case-insensitive password used to connect to your MySQL Enterprise database. A password is required only if user&#160;ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your password. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp294016"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp294020"> </a><div class="pCellBody">
+The case-insensitive default user name used to connect to your MySQL Enterprise database. A user name is required only if user&#160;ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your user name.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp294089"> </a><h3 class="pHeading2">
+Oracle
+</h3>
+<a name="wp303745"> </a><p class="pBody">
+This section describes the connection properties you can specify for Oracle and provides information about using tnsnames.ora files to specify connection information to an Oracle database.
+</p>
+<a name="wp310615"> </a><p class="pBody">
+<a  href="database_support5.html#wp310622">Table&#160;E-13</a> lists the connection properties supported for Oracle by DataDirect XQuery.
+</p>
+<a name="wp310731"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp310622"> </a><div class="pTableTitle">
+Table E-13.  Oracle Connection Properties &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp310626"> </a><div class="pCellHeading">
+Oracle Property
+</div>
+</th>
+    <th><a name="wp310628"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310630"> </a><div class="pCellBody">
+AuthenticationMethod
+</div>
+</td>
+    <td><a name="wp310632"> </a><div class="pCellBody">
+{auto | kerberos | kerberosUIDPassword | ntlm | client | userIDPassword}. Determines which authentication method DataDirect XQuery uses when establishing a connection.
+</div>
+<a name="wp310633"> </a><div class="pCellBody">
+If set to auto (the default), DataDirect XQuery uses user&#160;ID/password, Kerberos, or NTLM authentication when establishing a connection. DataDirect XQuery selects an authentication method based on a combination of criteria, such as whether the application provides a user ID, DataDirect XQuery is running on a Windows platform, and DataDirect XQuery can load the DLL required for NTLM authentication.
+</div>
+<a name="wp310634"> </a><div class="pCellBody">
+If set to kerberos, DataDirect XQuery uses Kerberos authentication. DataDirect XQuery ignores any user ID or password specified.
+</div>
+<a name="wp310635"> </a><div class="pCellBody">
+If set to kerberosUIDPassword, DataDirect XQuery first uses Kerberos to authenticate the user. Next, DataDirect XQuery reauthenticates the user using user ID/password authentication. If a user ID and password are not specified, DataDirect XQuery throws an exception. If either Kerberos or user ID/password authentication fails, the connection attempt fails and DataDirect XQuery throws an exception.
+</div>
+<a name="wp310636"> </a><div class="pCellBody">
+If set to ntlm, DataDirect XQuery uses NTLM authentication if the DLL required for NTLM authentication can be loaded. If DataDirect XQuery cannot load the DLL, it throws an exception. DataDirect XQuery ignores any user ID or password specified. This value is supported for Windows clients only. See <a  href="connection_security4.html#wp239811">Using NTLM Authentication</a> for more information about NTLM authentication.
+</div>
+<a name="wp310640"> </a><div class="pCellBody">
+If set to client, DataDirect XQuery uses client authentication. The Oracle database server relies on the client to authenticate the user and does not provide additional authentication. DataDirect XQuery ignores any user ID or password specified.
+</div>
+<a name="wp310641"> </a><div class="pCellBody">
+If set to userIdPassword, DataDirect XQuery uses user&#160;ID/password authentication. If a user ID and password are not specified, an exception is thrown.
+</div>
+<a name="wp310642"> </a><div class="pCellBody">
+The User property provides the user ID. The Password property provides the password.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310645"> </a><div class="pCellBody">
+InitializationString
+</div>
+</td>
+    <td><a name="wp310647"> </a><div class="pCellBody">
+Specifies one or multiple SQL commands to be executed by DataDirect XQuery after it has established the connection to the database and has performed all initialization for the connection. For example:
+</div>
+<a name="wp310648"> </a><div class="pCellBody">
+<code class="cCode">initializationString=</code><code><em>command</em></code>
+</div>
+<a name="wp310649"> </a><div class="pCellBody">
+Multiple commands must be separated by semicolons. In addition, if this property is specified in a connection URL, the entire value must be enclosed in parentheses when multiple commands are specified. For example:
+</div>
+<a name="wp310650"> </a><div class="pCellBody">
+<code class="cCode">jdbc:xquery:oracle://server1:1521;ServiceName=ORCL;iInitializationString=(</code><code><em>command1</em></code><code class="cCode">;</code><code><em>command2</em></code><code class="cCode">)</code>
+</div>
+<a name="wp310651"> </a><div class="pCellBody">
+If the execution of a SQL command fails, the connection attempt also fails and DataDirect XQuery raises an error indicating which SQL command or commands failed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310654"> </a><div class="pCellBody">
+LoadLibraryPath
+</div>
+<a name="wp310655"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp310657"> </a><div class="pCellBody">
+Specifies the directory DataDirect XQuery looks in for the DLL used for NTLM authentication. The value is the fully qualified path of the directory that contains the DLL. When you install DataDirect XQuery, the NTLM DLLs are placed in the <em class="cEmphasis">install_dir</em>/lib subdirectory, where <em class="cEmphasis">install_dir</em> is the DataDirect XQuery installation directory.
+</div>
+<a name="wp310658"> </a><div class="pCellBody">
+By default, DataDirect XQuery looks for the NTLM authentication DLLs in a directory on the Windows system path defined by the PATH environment variable. If you install DataDirect XQuery in a directory that is not on the Windows system path, you can set this property to specify the location of the NTLM authentication DLLs. For example, if you install DataDirect XQuery in a directory named &quot;DataDirect&quot; that is not on the Windows system path, you can use this property to specify the directory containing the NTLM authentication DLLs.
+</div>
+<a name="wp310659"> </a><div class="pCellBody">
+<code class="cCode">jdbc:xquery:oracle://server3:1521;serviceName=ORCL;loadLibraryPath=C:\DataDirect\lib;User=test;Password=secret</code>
+</div>
+<a name="wp310663"> </a><div class="pCellBody">
+See <a  href="connection_security4.html#wp239811">Using NTLM Authentication</a> for more information about NTLM authentication.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310666"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp310669"> </a><div class="pCellBody">
+A case-insensitive password used to connect to your Oracle database. A password is required only if user ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your password.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310672"> </a><div class="pCellBody">
+ServiceName
+</div>
+</td>
+    <td><a name="wp310674"> </a><div class="pCellBody">
+The database service name that specifies the database used for the connection. This property is mutually exclusive with the <a  href="database_support5.html#wp310689">SID</a> property. The service name is a string that is the global database name&#8212;a name that typically comprises the database name and domain name. For example:
+</div>
+<a name="wp310678"> </a><div class="pCellBody">
+<code class="cCode">sales.us.acme.com</code>
+</div>
+<a name="wp310680"> </a><div class="pCellBody">
+This property is useful to specify connections to an Oracle Real Application Clusters (RAC) system rather than a specific Oracle instance because the nodes in a RAC system share a common service name.
+</div>
+<a name="wp310681"> </a><div class="pCellBody">
+If using a tnsnames.ora file to provide connection information, do not specify this property. 
+</div>
+<a name="wp310685"> </a><div class="pCellBody">
+See <a  href="database_support5.html#wp310735">Using Oracle tnsnames.ora Files</a> for information about specifying the database service name using a tnsnames.ora file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310689"> </a><div class="pCellBody">
+SID
+</div>
+</td>
+    <td><a name="wp310691"> </a><div class="pCellBody">
+The Oracle System Identifier that refers to the instance of the Oracle database running on the server.
+</div>
+<a name="wp310692"> </a><div class="pCellBody">
+The default is ORCL, which is the default SID that is configured when installing your Oracle database. 
+</div>
+<a name="wp310693"> </a><div class="pCellBody">
+If using a tnsnames.ora file to provide connection information, do not specify this property. 
+</div>
+<a name="wp310697"> </a><div class="pCellBody">
+See <a  href="database_support5.html#wp310735">Using Oracle tnsnames.ora Files</a> for information about specifying an Oracle SID using a tnsnames.ora file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310700"> </a><div class="pCellBody">
+TNSNamesFile
+</div>
+</td>
+    <td><a name="wp310702"> </a><div class="pCellBody">
+The path and filename to the tnsnames.ora file from which connection information is retrieved. The tnsnames.ora file contains connection information that is mapped to Oracle net service names. Using a tnsnames.ora file to centralize connection information simplifies maintenance when changes occur.
+</div>
+<a name="wp310706"> </a><div class="pCellBody">
+The value of this property must be a valid path and filename to a tnsnames.ora file.
+</div>
+<a name="wp310707"> </a><div class="pCellBody">
+If you specify this property is specified, then:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp310708"> </a><div class="pSmartList1"><li>Also specify the TNSServerName property.</li></div><a name="wp310709"> </a><div class="pSmartList1"><li>Do not specify any of following: PortNumber (in URL), ServerName (in URL), or SID (connection property).</li></div></ul></div>
+<a name="wp310710"> </a><div class="pCellBody">
+If any of this connection information is specified in addition to this property, an error is generated. See <a  href="database_support5.html#wp310735">Using Oracle tnsnames.ora Files</a> for information about using tnsnames.ora files to connect.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310716"> </a><div class="pCellBody">
+TNSServerName
+</div>
+</td>
+    <td><a name="wp310718"> </a><div class="pCellBody">
+The Oracle net service name used to reference the connection information in a tnsnames.ora file. The value of this property must be a valid net service name entry in the tnsnames.ora file specified by the TNSNamesFile property. 
+</div>
+<a name="wp310719"> </a><div class="pCellBody">
+If this property is specified, you also must specify the TNSNamesFile property. 
+</div>
+<a name="wp310720"> </a><div class="pCellBody">
+If this property is specified, do not specify any of the following connection information to prevent conflicts: 
+</div>
+<a name="wp310721"> </a><div class="pCellBody">
+PortNumber (in URL) <br />ServerName (in URL)<br />SID (connection property)
+</div>
+<a name="wp310722"> </a><div class="pCellBody">
+If any of this connection information is specified in addition to this property, an error is generated. See <a  href="database_support5.html#wp310735">Using Oracle tnsnames.ora Files</a> for information about using tnsnames.ora files to connect.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp310728"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp310730"> </a><div class="pCellBody">
+The case-insensitive user name used to connect to your Oracle database. A user name is required only if user ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your user name.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp310735"> </a><h4 class="pHeading3">
+Using Oracle tnsnames.ora Files
+</h4>
+<a name="wp294215"> </a><p class="pBody">
+The tnsnames.ora file is used to map connection information for each Oracle service to a logical alias. DataDirect XQuery can retrieve basic connection information from a tnsnames.ora file, including:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp294216"> </a><div class="pSmartList1"><li>Oracle server name and port</li></div><a name="wp294217"> </a><div class="pSmartList1"><li>Oracle System Identifier (SID) or Oracle service name</li></div></ul></div>
+<a name="wp294218"> </a><p class="pBody">
+In a tnsnames.ora file, connection information for an Oracle service is associated with an alias, or Oracle net service name. Each net service name entry contains connect descriptors that define listener and service information. The following example in <a  href="database_support5.html#wp294226">Figure&#160;E-1</a> shows connection information in a tnsnames.ora file configured for the net service name entry, FITZGERALD.SALES. 
+</p>
+<a name="wp294226"> </a><div style="color: #000000; font-size: 11pt; font-style: italic; font-variant: normal; font-weight: bold; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 8pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+Figure E-1.  tnsnames.ora Example
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+FITZGERALD.SALES =<a name="wp294227"> </a>
+  (DESCRIPTION = <a name="wp294228"> </a>
+    (ADDRESS = (PROTOCOL = TCP)(HOST = server1)(PORT = 1521))<a name="wp294229"> </a>
+       (CONNECT_DATA =<a name="wp294230"> </a>
+          (SID = ORCL)<a name="wp294231"> </a>
+       )<a name="wp294232"> </a>
+  )<a name="wp294233"> </a>
+</pre></div>
+<a name="wp294235"> </a><p class="pBody">
+Using this example, if the Oracle net service name entry FITZGERALD.SALES is referenced, DataDirect XQuery would connect to the Oracle database instance identified by the Oracle SID ORCL (<code class="cCode">SID=ORCL</code>). 
+</p>
+<a name="wp294236"> </a><p class="pBody">
+Typically, a tnsnames.ora file is installed when you install an Oracle database. By default, the tnsnames.ora file is located in the ORACLE_HOME\network\admin directory on Windows and the $ORACLE_HOME/network/admin directory on UNIX and Linux. 
+</p>
+<a name="wp294240"> </a><h4 class="pHeading3">
+Connecting to the Database
+</h4>
+<a name="wp294241"> </a><p class="pBody">
+To retrieve connection information from an Oracle tnsnames.ora file, you must inform DataDirect XQuery which tnsnames.ora file (using the TNSNamesFile property) and Oracle service name entry (using the TNSServerName property) to use so that the correct connection information is referenced. For example, the following connection URL: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+jdbc:xquery:oracle:TNSNamesFile=c:\oracle92\NETWORK\ADMIN\tnsnames.ora;
+TNSServerName=FITZGERALD.SALES<a name="wp294242"> </a>
+</pre></div>
+<a name="wp294243"> </a><p class="pBody">
+specifies the path and filename of the tnsnames.ora file (<code class="cCode">TNSNamesFile=c:\oracle92\NETWORK\ADMIN\tnsnames.ora</code>) and the net service name entry (<code class="cCode">TNSServerName=FITZGERALD.SALES</code>) to use for the connection. 
+</p>
+<a name="wp294244"> </a><p class="pBody">
+NOTE: The connection URL does not specify the server name and port of the database server; that information is specified in the tnsnames.ora file referenced by the TNSNamesFile property.
+</p>
+<a name="wp294245"> </a><p class="pBody">
+If using tnsnames.ora files with a Security Manager on a Java 2 Platform, read permission must be granted to the tnsnames.ora file. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+grant codeBase &quot;file:/<code><em>install_dir</em></code>/lib/-&quot; {<a name="wp294246"> </a>
+   permission java.io.FilePermission &quot;C:\\oracle\\ora92\\network\\admin\\
+      tnsnames.ora&quot;, &quot;read&quot;;<a name="wp294247"> </a>
+};<a name="wp294248"> </a>
+</pre></div>
+<a name="wp294249"> </a><p class="pBody">
+where <code><em>install_dir</em></code> is the DataDirect XQuery installation directory.
+</p>
+<a name="wp294254"> </a><h4 class="pHeading3">
+Configuring the tnsnames.ora File
+</h4>
+<a name="wp294255"> </a><p class="pBody">
+If using a tnsnames.ora file to retrieve connection information, do not specify any of the following connection information in a connection URL or property to prevent conflicts:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp294257"> </a><div class="pSmartList1"><li>PortNumber (in URL)</li></div><a name="wp294258"> </a><div class="pSmartList1"><li>ServerName (in URL)</li></div><a name="wp294259"> </a><div class="pSmartList1"><li>ServiceName (connection property)</li></div><a name="wp294260"> </a><div class="pSmartList1"><li>SID (connection property)</li></div></ul></div>
+<a name="wp294264"> </a><p class="pBody">
+<a  href="database_support5.html#wp294271">Table&#160;E-14</a> lists the Oracle connection properties that correspond to tnsnames.ora connect descriptor parameters.
+</p>
+<a name="wp294321"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp294271"> </a><div class="pTableTitle">
+Table E-14.  Oracle Connection Property Mappings to tnsnames.ora Connect Descriptor Parameters &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp294281"> </a><div class="pCellHeading">
+Oracle Connection Property
+</div>
+</th>
+    <th><a name="wp294283"> </a><div class="pCellHeading">
+tnsnames.ora Parameter
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp294285"> </a><div class="pCellBody">
+PortNumber = <em class="cEmphasis">port</em>
+</div>
+</td>
+    <td><a name="wp294287"> </a><div class="pCellBody">
+PORT = <em class="cEmphasis">port</em>
+</div>
+<a name="wp294288"> </a><div class="pCellBody">
+The ADDRESS_LIST parameter contains connection information for one or multiple servers, using the ADDRESS parameter to specify the primary and alternate servers. The PORT parameter is used within the ADDRESS parameter to specify the port number for each server entry. For example: 
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">(ADDRESS_LIST= </code><a name="wp294289"> </a>
+<code class="cCode">   (ADDRESS= (PROTOCOL = TCP)(HOST = server1)
+      (PORT = 1521))</code><a name="wp294290"> </a>
+<code class="cCode">   ...</code><a name="wp294291"> </a>
+<code class="cCode"> </code>)<a name="wp294292"> </a>
+</pre></div>
+<a name="wp294293"> </a><div class="pCellBody">
+A port of 1521, the default port number when installing an Oracle database, is specified for server1.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp294295"> </a><div class="pCellBody">
+ServerName = <em class="cEmphasis">server_name</em>
+</div>
+</td>
+    <td><a name="wp294297"> </a><div class="pCellBody">
+HOST = <em class="cEmphasis">server_name</em>
+</div>
+<a name="wp294298"> </a><div class="pCellBody">
+The ADDRESS_LIST parameter contains connection information for one or multiple servers, using the ADDRESS parameter to specify the primary and alternate servers. The HOST parameter is used within the ADDRESS parameter to specify the server name for each server entry. The server entry can be an IP address or a server name. For example: 
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">(ADDRESS_LIST= </code><a name="wp294299"> </a>
+<code class="cCode">   (ADDRESS= (PROTOCOL = TCP)(HOST = server1)
+      (PORT = 1521))</code><a name="wp294300"> </a>
+<code class="cCode">   ...</code><a name="wp294301"> </a>
+<code class="cCode"> </code>)<a name="wp294302"> </a>
+</pre></div>
+<a name="wp294303"> </a><div class="pCellBody">
+The server name server1 is specified in the first server entry.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp294305"> </a><div class="pCellBody">
+ServiceName = <em class="cEmphasis">service_name</em>
+</div>
+</td>
+    <td><a name="wp294307"> </a><div class="pCellBody">
+SERVICE_NAME = <em class="cEmphasis">service_name</em>
+</div>
+<a name="wp294308"> </a><div class="pCellBody">
+The database service name that specifies the database used for the connection. The service name is a string that is the global database name&#8212;a name that typically comprises the database name and domain name. For example:
+</div>
+<a name="wp294309"> </a><div class="pCellBody">
+<code class="cCode">sales.us.acme.com</code>
+</div>
+<a name="wp294310"> </a><div class="pCellBody">
+The service name is specified in the CONNECT_DATA parameter. For example:
+</div>
+<a name="wp294311"> </a><div class="pCellBody">
+<code class="cCode">(CONNECT_DATA=<br />   (SERVICE_NAME=sales.us.acme.com)</code>
+</div>
+<a name="wp294312"> </a><div class="pCellBody">
+)
+</div>
+<a name="wp294313"> </a><div class="pCellBody">
+This parameter is mutually exclusive with the SID attribute and is useful to specify connections to an Oracle Real Application Clusters (RAC) system rather than a specific Oracle instance.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp294315"> </a><div class="pCellBody">
+SID = <em class="cEmphasis">SID</em>
+</div>
+</td>
+    <td><a name="wp294317"> </a><div class="pCellBody">
+SID = <em class="cEmphasis">SID</em>
+</div>
+<a name="wp294318"> </a><div class="pCellBody">
+The Oracle System Identifier (SID) that refers to the instance of the Oracle database running on the server. The default Oracle SID that is configured when installing your Oracle database software is ORCL. The SID is specified in the CONNECT_DATA parameter. For example:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">(CONNECT_DATA=
+   (SID=ORCL)
+)</code><a name="wp294319"> </a>
+</pre></div>
+<a name="wp294320"> </a><div class="pCellBody">
+This parameter is mutually exclusive with the SERVICE_NAME attribute.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody"> 
+</p>
+<a name="wp294323"> </a><p class="pBody">
+For more information about configuring tnsnames.ora files, refer to your Oracle documentation.
+</p>
+<a name="wp295748"> </a><h3 class="pHeading2">
+PostgreSQL
+</h3>
+<a name="wp295749"> </a><p class="pBody">
+Refer to your PostgreSQL JDBC driver documentation for information about connection properties supported by the PostgreSQL JDBC driver.
+</p>
+<a name="wp294420"> </a><h3 class="pHeading2">
+Sybase
+</h3>
+<a name="wp304623"> </a><p class="pBody">
+This section describes the connection properties you can specify for Sybase.
+</p>
+<a name="wp294424"> </a><p class="pBody">
+<a  href="database_support5.html#wp309257">Table&#160;E-15</a> lists the connection properties supported for Sybase by DataDirect XQuery.
+</p>
+<a name="wp309325"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp309257"> </a><div class="pTableTitle">
+Table E-15.  Sybase Connection Properties &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp309261"> </a><div class="pCellHeading">
+Sybase Property
+</div>
+</th>
+    <th><a name="wp309263"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp309267"> </a><div class="pCellBody">
+AuthenticationMethod
+</div>
+<a name="wp309268"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp309270"> </a><div class="pCellBody">
+{kerberos | userIdPassword}. Determines which authentication method DataDirect XQuery uses when establishing a connection.
+</div>
+<a name="wp309271"> </a><div class="pCellBody">
+If set to kerberos, DataDirect XQuery uses Kerberos authentication. DataDirect XQuery ignores any user ID or password specified. If you set this value, you also must set the <a  href="database_support5.html#wp309306">ServicePrincipalName</a> property. See <a  href="connection_security3.html#wp239534">Using Kerberos Authentication</a> for more information about using Kerberos.
+</div>
+<a name="wp309278"> </a><div class="pCellBody">
+If set to userIdPassword (the default), DataDirect XQuery uses user&#160;ID/password authentication. If a user ID and password are not specified, an exception is thrown.
+</div>
+<a name="wp309285"> </a><div class="pCellBody">
+The <a  href="database_support5.html#wp309320">User</a> property provides the user ID. The <a  href="database_support5.html#wp309298">Password</a> property provides the password. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp309288"> </a><div class="pCellBody">
+InitializationString
+</div>
+</td>
+    <td><a name="wp309290"> </a><div class="pCellBody">
+Specifies one or multiple SQL commands to be executed by DataDirect XQuery after it has established the connection to the database and has performed all initialization for the connection. For example:
+</div>
+<a name="wp309291"> </a><div class="pCellBody">
+<code class="cCode">InitializationString=</code><code><em>command</em></code>
+</div>
+<a name="wp309292"> </a><div class="pCellBody">
+Multiple commands must be separated by semicolons. In addition, if this property is specified in a connection URL, the entire value must be enclosed in parentheses when multiple commands are specified. For example:
+</div>
+<a name="wp309293"> </a><div class="pCellBody">
+<code class="cCode">jdbc:xquery:sybase://server1:5000;DatabaseName=test;<br />InitializationString=(</code><code><em>command1</em></code><code class="cCode">;</code><code><em>command2</em></code><code class="cCode">)</code>
+</div>
+<a name="wp309294"> </a><div class="pCellBody">
+If the execution of a SQL command fails, the connection attempt also fails and DataDirect XQuery raises an exception indicating which SQL command or commands failed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp309298"> </a><div class="pCellBody">
+Password
+</div>
+</td>
+    <td><a name="wp309301"> </a><div class="pCellBody">
+A case-insensitive password used to connect to your Sybase database. A password is required only if user ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your password. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp309306"> </a><div class="pCellBody">
+ServicePrincipalName
+</div>
+</td>
+    <td><a name="wp309308"> </a><div class="pCellBody">
+Specifies the case-sensitive service principal name to be used by DataDirect XQuery for Kerberos authentication. For Sybase, the service principal name is the name of a server configured in your Sybase interfaces file. If you set this property, you also must set the value of the <a  href="database_support5.html#wp309267">AuthenticationMethod</a> property to Kerberos.
+</div>
+<a name="wp309312"> </a><div class="pCellBody">
+The value of this property can include the Kerberos realm name, but it is optional. If you do not specify the Kerberos realm name, the default Kerberos realm is used. For example, if the service principal name, including Kerberos realm name, is server/sybase125ase1@XYZ.COM and the default realm is XYZ.COM, valid values for this property are:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">server/sybase125ase1@XYZ.COM</code><a name="wp309313"> </a>
+</pre></div>
+<a name="wp309314"> </a><div class="pCellBody">
+and
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">server/sybase125ase1</code><a name="wp309315"> </a>
+</pre></div>
+<a name="wp309316"> </a><div class="pCellBody">
+When Kerberos authentication is not used, this property is ignored.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp309320"> </a><div class="pCellBody">
+User
+</div>
+</td>
+    <td><a name="wp309323"> </a><div class="pCellBody">
+The case-insensitive user name used to connect to your Sybase database. A user name is required only if user ID/password authentication is enabled on your database. If so, contact your system administrator to obtain your user name.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

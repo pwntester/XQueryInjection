@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:19" />
+  <title>Generating WSDL</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp209678"> </a><h2 class="pNewHTMLPageNum">
+Generating WSDL
+</h2>
+<hr />
+<a name="wp209780"> </a><p class="pBody">
+XQueryWebService automatically generates a Web Service Desctiption Language (WSDL) document based on the XQuery in your Java servlet container&#39;s XQuery directory. The WSDL document describes the services that are exposed by a given XQuery. This information can be useful if you plan to provide programmatic access to one or more of those services.
+</p>
+<a name="wp215311"> </a><p class="pBody">
+</p><div align="left"><img src="images/xqwsf_wsdl_document9.gif" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp209782"> </a><p class="pBody">
+To take a look at the WSDL document generated &#8211; in real-time &#8211; for the Employee Lookup example, click here:
+</p>
+<a name="wp209892"> </a><p class="pBody">
+<a  href="http://examples.xquery.com/employee-lookup/WSDL">http://examples.xquery.com/employee-lookup/WSDL</a>
+</p>
+<a name="wp209784"> </a><p class="pBody">
+If we take a closer look, we see that the WSDL document defines a single service (<code class="cCode">&lt;wsdl:service&gt;</code>), exposed through two ports: SOAP and HTTPGET.
+</p>
+<a name="wp209786"> </a><p class="pBody">
+Each query is exposed as a WSDL operation (<code class="cCode">&lt;wsdl:operation&gt;</code>), with each query&#39;s external variables exposed as operation parameters. Further, all built-in schema types are preserved in the parameter declaration.
+</p>
+<a name="wp208068"> </a><p class="pBody">
+Consider the following external variable declared in our example XQuery:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $id as xs:string external;<a name="wp209816"> </a>
+</pre></div>
+<a name="wp209828"> </a><p class="pBody">
+The following global element appears in the <code class="cCode">&lt;wsdl:types&gt;</code> section of the generated WSDL document:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;xs:element name=&quot;emp&quot;&gt;<a name="wp209838"> </a>
+    &lt;xs:complexType&gt;<a name="wp209839"> </a>
+        &lt;xs:all&gt;<a name="wp209840"> </a>
+            &lt;xs:element name=&quot;id&quot; type=&quot;xs:string&quot;/&gt;<a name="wp209841"> </a>
+        &lt;/xs:all&gt;<a name="wp209842"> </a>
+    &lt;/xs:complexType&gt;<a name="wp209843"> </a>
+&lt;/xs:element&gt;<a name="wp209836"> </a>
+</pre></div>
+<a name="wp209893"> </a><p class="pBody">
+The input message references the global element, <code class="cCode">&quot;emp&quot;</code>:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;wsdl:message name=&quot;empInputMsg&quot;&gt;<a name="wp209930"> </a>
+    &lt;wsdl:part element=&quot;dd:emp&quot; name=&quot;parameters&quot;/&gt;<a name="wp209931"> </a>
+&lt;/wsdl:message&gt;<a name="wp209924"> </a>
+</pre></div>
+<a name="wp209966"> </a><p class="pBody">
+Currently, XQueryWebService does not support user-defined types for external variables.
+</p>
+<a name="wp209982"> </a><h3 class="pHeading2">
+Next Steps
+</h3>
+<a name="wp209997"> </a><p class="pBody">
+You can use a WSDL document to create a set of classes that can be used to manipulate the data service as if it was a local library. Learn more about using WSDL service references in the next section.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:15" />
+  <title>Using NTLM Authentication</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp239811"> </a><h2 class="pNewHTMLPageNum">
+Using NTLM Authentication
+</h2>
+<hr />
+<a name="wp239813"> </a><p class="pBody">
+NTLM authentication is a single sign-on OS authentication method. This method provides authentication from Windows clients only and requires minimal configuration.
+</p>
+<a name="wp239814"> </a><p class="pBody">
+DataDirect XQuery supports NTLM authentication for the following databases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239815"> </a><div class="pSmartList1"><li>Oracle</li></div><a name="wp239816"> </a><div class="pSmartList1"><li>Microsoft SQL Server</li></div></ul></div>
+<a name="wp239817"> </a><p class="pBody">
+Verify that your environment meets the requirements listed in <a  href="connection_security4.html#wp239825">Table&#160;7-3</a> before you configure the driver for NTLM authentication. 
+</p>
+<a name="wp239861"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp239825"> </a><div class="pTableTitle">
+Table 7-3.  NTLM Authentication Requirements
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp239829"> </a><div class="pCellHeading">
+Component
+</div>
+</th>
+    <th><a name="wp239831"> </a><div class="pCellHeading">
+Requirements
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239833"> </a><div class="pCellBody">
+Database&#160;server
+</div>
+</td>
+    <td><a name="wp239835"> </a><div class="pCellBody">
+The database server must be administered by the same domain controller that administers the client and must be running one of the following databases:
+</div>
+<a name="wp239836"> </a><div class="pCellBody">
+Oracle:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239837"> </a><div class="pSmartList1"><li>Oracle 11g</li></div><a name="wp239838"> </a><div class="pSmartList1"><li>Oracle 10<em class="cEmphasis">g</em> (R1 and R2)</li></div><a name="wp239839"> </a><div class="pSmartList1"><li>Oracle 9i (R1 and R2)</li></div></ul></div>
+<a name="wp239840"> </a><div class="pCellBody">
+Microsoft SQL Server:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239841"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2008</li></div><a name="wp239842"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2005</li></div><a name="wp239843"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000 Service Pack 3 or higher</li></div><a name="wp239844"> </a><div class="pSmartList1"><li>Microsoft SQL Server 2000 Enterprise Edition (64-bit) Service&#160;Pack 2 or higher</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239847"> </a><div class="pCellBody">
+Domain controller
+</div>
+</td>
+    <td><a name="wp239849"> </a><div class="pCellBody">
+The domain controller must administer both the database server and the client. Network authentication must be provided by NTLM on one of the following operating systems:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239850"> </a><div class="pSmartList1"><li>Windows Server 2003</li></div><a name="wp239851"> </a><div class="pSmartList1"><li>Windows 2000 Server Service Pack 3 or higher</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp239853"> </a><div class="pCellBody">
+Client
+</div>
+</td>
+    <td><a name="wp239855"> </a><div class="pCellBody">
+The client must be administered by the same domain controller that administers the database server and must be running on one of the following operating systems:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239856"> </a><div class="pSmartList1"><li>Windows Vista</li></div><a name="wp239857"> </a><div class="pSmartList1"><li>Windows Server 2003</li></div><a name="wp239858"> </a><div class="pSmartList1"><li>Windows XP Service Pack 1 or higher</li></div><a name="wp239859"> </a><div class="pSmartList1"><li>Windows 2000 Service Pack 4 or higher</li></div><a name="wp239860"> </a><div class="pSmartList1"><li>Windows NT 4.0</li></div></ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp239864"> </a><h3 class="pHeading2">
+Configuring NTLM Authentication
+</h3>
+<a name="wp239866"> </a><p class="pBody">
+DataDirect XQuery provides three NTLM authentication DLLs:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp239867"> </a><div class="pSmartList1"><li>DDJDBCAuth<em class="cEmphasis">xx</em>.dll (32-bit)</li></div><a name="wp239868"> </a><div class="pSmartList1"><li>DDJDBC64Auth<em class="cEmphasis">xx</em>.dll (Itanium 64-bit) </li></div><a name="wp239869"> </a><div class="pSmartList1"><li>DDJDBCx64Auth<em class="cEmphasis">xx</em>.dll (AMD64 and Intel EM64T 64-bit)</li></div></ul></div>
+<a name="wp239870"> </a><p class="pBody">
+where <em class="cEmphasis">xx</em> is a two-digit number.
+</p>
+<a name="wp239871"> </a><p class="pBody">
+The DLLs are located in the <em class="cEmphasis">install_dir</em>/lib directory (where <em class="cEmphasis">install_dir</em> is your DataDirect XQuery installation directory). If the application using NTLM authentication is running in a 32-bit JVM, DataDirect XQuery automatically uses DDJDBCAuth<em class="cEmphasis">xx</em>.dll. Similarly, if the application is running in a 64-bit JVM, DDJDBC64Auth<em class="cEmphasis">xx</em>.dll or DDJDBCx64Auth<em class="cEmphasis">xx</em>.dll is used.
+</p>
+<a name="wp239872"> </a><p class="pBodyBold">
+To configure DataDirect XQuery:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp239873"> </a><div class="pSmartList1"><li>Set the AuthenticationMethod connection property to auto (the default) or ntlm. See the Oracle and Microsoft SQL Server connection properties tables in <a  href="database_support5.html#wp293718">Database Connection Properties</a> for more information about setting a value for this property.</li></div><a name="wp239877"> </a><div class="pSmartList1"><li>By default, DataDirect XQuery looks for the NTLM authentication DLLs in a directory on the Windows system path defined by the PATH environment variable. If you install DataDirect XQuery in a directory that is not on the Windows system path, perform one of the following actions to ensure the DDLs can be loaded:</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp239878"> </a><div class="pSmartList2Rel"><li>Add the <em class="cEmphasis">install_dir</em>/lib directory to the Windows system path, where <em class="cEmphasis">install_dir</em> is the DataDirect XQuery installation directory.</li></div>
+<a name="wp239879"> </a><div class="pSmartList2Rel"><li>Copy the NTLM authentication DLLs from <em class="cEmphasis">install_dir</em>/lib to a directory that is on the Windows system path, where <em class="cEmphasis">install_dir</em> is the DataDirect XQuery installation directory.</li></div>
+<a name="wp239881"> </a><div class="pSmartList2Rel"><li>Set the LoadLibraryPath connection property to specify the location of the NTLM authentication DLLs. For example, if you install DataDirect XQuery in a directory named &quot;DataDirect&quot; that is not on the Windows system path, you can use the LoadLibraryPath connection property to specify the directory containing the NTLM authentication DLLs. For example, for SQL Server:</li></div>
+<a name="wp239882"> </a><p class="pSyntaxEmbed">
+jdbc:xquery:sqlserver://server3:1521;<br />databaseName=test;LoadLibraryPath=C:\DataDirect\lib;<br />User=test;Password=secret
+</p>
+<a name="wp239883"> </a><p class="pBodyRelative">
+See the database connection properties tables in <a  href="conf_sourcefiles7.html#wp182290">Specifying Connection URIs</a> for more information about setting a value for this property.
+</p>
+</ul></div>
+<a name="wp239887"> </a><div class="pSmartList1"><li>If using NTLM authentication with a Security Manager on a Java 2 Platform, security permissions must be granted to allow DataDirect XQuery to establish connections. See <a  href="connection_security4.html#wp239893">Permissions for Establishing Connections</a> for an example.</li></div></ol></div>
+<a name="wp239893"> </a><h4 class="pHeading3">
+Permissions for Establishing Connections
+</h4>
+<a name="wp239894"> </a><p class="pBody">
+Using DataDirect XQuery on a Java 2 Platform with the standard Security Manager enabled requires certain permissions to be set in the security policy file of the Java&#160;2 Platform. This security policy file can be found in the jre/lib/security subdirectory of the Java 2 Platform installation directory.
+</p>
+<a name="wp239897"> </a><p class="pBody">
+NOTE: Web browser applets running in the Java 2 plug-in are always running in a JVM with the standard Security Manager enabled. 
+</p>
+<a name="wp239899"> </a><p class="pBody">
+To run an application on a Java 2 Platform with the standard Security Manager, use the following command:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -Djava.security.manager <em class="cEmphasis">application_class_name</em><a name="wp239900"> </a>
+</pre></div>
+<a name="wp239901"> </a><p class="pBody">
+where <code><em>application_class_name</em></code> is the class name of the application.
+</p>
+<a name="wp239902"> </a><p class="pBody">
+Refer to your Java&#160;2 Platform documentation for more information about setting permissions in the security policy file.
+</p>
+<a name="wp239903"> </a><p class="pBody">
+To establish a connection to the database server, DataDirect XQuery must be granted the permissions as shown in the following example: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+grant codeBase &quot;file:/<code><em>install_dir</em></code>/lib/-&quot; {<a name="wp239904"> </a>
+   permission java.net.SocketPermission &quot;*&quot;, &quot;connect&quot;;<a name="wp239905"> </a>
+};<a name="wp239906"> </a>
+</pre></div>
+<a name="wp239907"> </a><p class="pBody">
+where <code><em>install_dir</em></code> is the DataDirect XQuery installation directory.
+</p>
+<a name="wp239909"> </a><p class="pBody">
+In addition, if Microsoft SQL Server named instances are used, permission must be granted for the listen and accept actions as shown in the following example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+grant codeBase &quot;file:/<code><em>install_dir</em></code>/lib/-&quot; {<a name="wp239910"> </a>
+   permission java.net.SocketPermission &quot;*&quot;, &quot;listen, connect, accept&quot;;<a name="wp239911"> </a>
+};<a name="wp239912"> </a>
+</pre></div>
+<a name="wp239913"> </a><p class="pBody">
+where <code><em>install_dir</em></code> is the DataDirect XQuery installation directory.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQItemType Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp156384"> </a><h2 class="pNewHTMLPageNum">
+XQItemType Interface
+</h2>
+<hr />
+<a name="wp156385"> </a><p class="pBody">
+The XQItemType interface represents an item type as described in <a  href="http://www.w3.org/TR/2007/REC-xquery-20070123/">XQuery 1.0: An XML Query Language</a>. This interface extends <a  href="xqjsupport16.html#wp131358">XQSequenceType</a>.
+</p>
+<a name="wp156390"> </a><p class="pBody">
+<a  href="xqjsupport10.html#wp156394">Table&#160;G-8</a> describes how DataDirect XQuery supports the methods of the XQItemType interface.</p><div align="left">
+<table border="1">
+  <caption><a name="wp156394"> </a><div class="pTableTitle">
+Table G-8.  XQItemType Method Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp156398"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp156400"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156402"> </a><div class="pCellBody">
+int getBaseType( )
+</div>
+</td>
+    <td><a name="wp156404"> </a><div class="pCellBody">
+Supported. See <a  href="xqjsupport10.html#wp160137">Restrictions</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156406"> </a><div class="pCellBody">
+int getItemKind( )
+</div>
+</td>
+    <td><a name="wp156408"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156410"> </a><div class="pCellBody">
+int getItemOccurence( )
+</div>
+</td>
+    <td><a name="wp156412"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156414"> </a><div class="pCellBody">
+QName getNodeName( )
+</div>
+</td>
+    <td><a name="wp156416"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156418"> </a><div class="pCellBody">
+String getPIName( )
+</div>
+</td>
+    <td><a name="wp156420"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156422"> </a><div class="pCellBody">
+URI getSchemaURI( )
+</div>
+</td>
+    <td><a name="wp156424"> </a><div class="pCellBody">
+Supported. Always returns null.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156426"> </a><div class="pCellBody">
+String getString( )
+</div>
+</td>
+    <td><a name="wp156428"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156430"> </a><div class="pCellBody">
+QName getTypeName( )
+</div>
+</td>
+    <td><a name="wp156432"> </a><div class="pCellBody">
+Supported. DataDirect XQuery returns a QName that matches the schema built-in type. For example:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQItemType type = datafactory.createAtomicType<a name="wp159196"> </a>
+ (XQItemType.XQBASETYPE_STRING);<a name="wp159394"> </a>
+QName typeName= type.getTypeName();<a name="wp159262"> </a>
+</pre></div>
+<a name="wp159281"> </a><div class="pCellBody">
+The typeName is now:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+new QName(&quot;http://www.w3.org/2001/XMLSchema&quot;, 
+&quot;string&quot;)<a name="wp159293"> </a>
+</pre></div>
+<a name="wp160375"> </a><div class="pCellBody">
+See <a  href="xqjsupport10.html#wp160137">Restrictions</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156434"> </a><div class="pCellBody">
+boolean isAnonymousType( )
+</div>
+</td>
+    <td><a name="wp156436"> </a><div class="pCellBody">
+Supported. Always returns false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp156438"> </a><div class="pCellBody">
+boolean isElementNillable( )
+</div>
+</td>
+    <td><a name="wp156440"> </a><div class="pCellBody">
+Supported. Always returns false.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp159168"> </a><div class="pCellBody">
+String toString( )
+</div>
+</td>
+    <td><a name="wp159170"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp157129"> </a><p class="pBody">
+See <a  href="xqjsupport22.html#wp152339">Table&#160;G-16</a> for a list of XQuery types supported for the get methods of the XQItemType interface.
+</p>
+<a name="wp160137"> </a><h3 class="pHeading2">
+Restrictions
+</h3>
+<a name="wp160189"> </a><p class="pBody">
+Because DataDirect XQuery is not schema aware, a few restrictions apply to the XQItemType instances that DataDirect XQuery can accept. These restrictions are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp160205"> </a><div class="pSmartList1"><li>The value returned by getBaseType( ) must not be:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp160190"> </a><div class="pSmartList2"><li>XQBASETYPE_ENTITIES</li></div>
+<a name="wp160191"> </a><div class="pSmartList2"><li>XQBASETYPE_IDREFS</li></div>
+<a name="wp160192"> </a><div class="pSmartList2"><li>XQBASETYPE_NMTOKENS</li></div>
+</ul></div>
+<a name="wp160313"> </a><div class="pSmartList1"><li>Depending on the item kind, getBaseType() must return specific base types, as follows:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp160439"> </a><div class="pSmartList2"><li>If XQITEMKIND_ATTRIBUTE, getBaseType() must return either XQBASETYPE_ANYSIMPLETYPE or XQBASETYPE_UNTYPEDATOMIC.</li></div>
+<a name="wp160475"> </a><div class="pSmartList2"><li>If XQITEMKIND_ELEMENT or XQITEMKIND_DOCUMENT_ELEMENT, getBaseType() must return either XQBASETYPE_ANYTYPE or XQBASETYPE_UNTYPED.</li></div>
+</ul></div>
+<a name="wp160397"> </a><div class="pSmartList1"><li>The value returned by getTypeName() must be one of the following:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp160314"> </a><div class="pSmartList2"><li>null.</li></div>
+<a name="wp160315"> </a><div class="pSmartList2"><li>A QNAME representing one of the built-in XML Schema types.</li></div>
+<a name="wp160185"> </a><div class="pSmartList2"><li>A value consistent with getBaseType( ). For example, if not null, the specified XML Schema type must match exactly getBaseType( ).</li></div>
+</ul></div>
+</ul></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

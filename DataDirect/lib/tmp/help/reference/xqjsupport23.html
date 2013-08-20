@@ -1,0 +1,699 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>Retrieving and Binding XQuery Data Model Instances</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp132919"> </a><h2 class="pNewHTMLPageNum">
+Retrieving and Binding XQuery Data Model Instances
+</h2>
+<hr />
+<a name="wp158224"> </a><p class="pBody">
+For each Java data type that is bound to an XQuery external variable, there is an XQDynamicContext method to bind values of that type to the XQuery expression. These methods and how they map to resulting XQuery data model instances are shown in <a  href="xqjsupport23.html#wp174029">Table&#160;G-17</a>.
+</p>
+<a name="wp174096"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp174029"> </a><div class="pTableTitle">
+Table G-17.  XQJ bind Methods and Resulting XQuery Data Model Instances&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp174036"> </a><div class="pCellHeading">
+bind Method
+</div>
+</th>
+    <th><a name="wp174038"> </a><div class="pCellHeading">
+Resulting XQuery Data Model Instance
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174040"> </a><div class="pCellBody">
+bindAtomicValue
+</div>
+</td>
+    <td><a name="wp174042"> </a><div class="pCellBody">
+xs:anyAtomicType (type of the specified atomic type)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174044"> </a><div class="pCellBody">
+bindBoolean
+</div>
+</td>
+    <td><a name="wp174046"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174048"> </a><div class="pCellBody">
+bindByte
+</div>
+</td>
+    <td><a name="wp174050"> </a><div class="pCellBody">
+xs:byte
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174052"> </a><div class="pCellBody">
+bindDocument
+</div>
+</td>
+    <td><a name="wp174054"> </a><div class="pCellBody">
+document-node( )
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174056"> </a><div class="pCellBody">
+bindDouble
+</div>
+</td>
+    <td><a name="wp174058"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174060"> </a><div class="pCellBody">
+bindFloat
+</div>
+</td>
+    <td><a name="wp174062"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174064"> </a><div class="pCellBody">
+bindInt
+</div>
+</td>
+    <td><a name="wp174066"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174068"> </a><div class="pCellBody">
+bindItem
+</div>
+</td>
+    <td><a name="wp174070"> </a><div class="pCellBody">
+Type of the specified item
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174072"> </a><div class="pCellBody">
+bindLong
+</div>
+</td>
+    <td><a name="wp174074"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174076"> </a><div class="pCellBody">
+bindNode
+</div>
+</td>
+    <td><a name="wp174078"> </a><div class="pCellBody">
+element( ), document-node( ), attribute( ), comment( ), processing-instruction( ), or text(&#160;) 
+</div>
+<a name="wp174079"> </a><div class="pCellBody">
+NOTE: The actual node type depends on the specified org.w3c.dom.Node type.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174081"> </a><div class="pCellBody">
+bindObject
+</div>
+</td>
+    <td><a name="wp174083"> </a><div class="pCellBody">
+xs:anyAtomicType or a subtype of node( )
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174085"> </a><div class="pCellBody">
+bindSequence
+</div>
+</td>
+    <td><a name="wp174087"> </a><div class="pCellBody">
+For each item in the sequence, the type of the item
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174089"> </a><div class="pCellBody">
+bindShort
+</div>
+</td>
+    <td><a name="wp174091"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp174093"> </a><div class="pCellBody">
+bindString
+</div>
+</td>
+    <td><a name="wp174095"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp174097"> </a><p class="pBody">
+
+</p>
+<a name="wp174099"> </a><p class="pBody">
+The created data model instance is checked for compatibility with the static type of the external variable using the SequenceType matching rules. DataDirect XQuery supports the following type declarations for external variables:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SequenceType        ::= (ItemType OccurrenceIndicator?) 
+                          | (&quot;empty&quot; &quot;(&quot; &quot;)&quot;)<a name="wp158302"> </a>
+OccurrenceIndicator   ::= &quot;?&quot; | &quot;*&quot; | &quot;+&quot;<a name="wp158303"> </a>
+ItemType            ::= AtomicType | KindTest 
+                          | (&quot;item&quot; &quot;(&quot; &quot;)&quot;)<a name="wp158304"> </a>
+AtomicType            ::= QName<a name="wp158305"> </a>
+KindTest              ::= DocumentTest<a name="wp158306"> </a>
+                          ElementTest<a name="wp158307"> </a>
+                          AttributeTest<a name="wp158308"> </a>
+                          PITest<a name="wp158309"> </a>
+                          CommentTest<a name="wp158310"> </a>
+                          TextTest<a name="wp158311"> </a>
+                          AnyKindTest<a name="wp158312"> </a>
+PITest                ::= &quot;processing-instruction&quot; &quot;(&quot; &quot;)&quot;<a name="wp158313"> </a>
+CommentTest           ::= &quot;comment&quot; &quot;(&quot; &quot;)&quot;<a name="wp158314"> </a>
+TextTest              ::= &quot;text&quot; &quot;(&quot; &quot;)&quot;<a name="wp158315"> </a>
+AnyKindTest           ::= &quot;node&quot; &quot;(&quot; &quot;)&quot;<a name="wp158316"> </a>
+DocumentTest          ::= &quot;document-node&quot; &quot;(&quot; &quot;)&quot;<a name="wp158317"> </a>
+ElementTest           ::= &quot;element&quot; &quot;(&quot; &quot;)&quot;<a name="wp158318"> </a>
+AttributeTest         ::= &quot;attribute&quot; &quot;(&quot; &quot;)&quot;<a name="wp158319"> </a>
+</pre></div>
+<a name="wp127338"> </a><p class="pBody">
+<a  href="xqjsupport23.html#wp127482">Table&#160;G-18</a> describes how XQuery data model instances map to Java objects when the following XQJ methods are being used:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp151798"> </a><div class="pSmartList1"><li>getObject() of XQItemAccessor interface. This method returns a Java object corresponding to the corresponding XQuery data model instance.</li></div><a name="wp151826"> </a><div class="pSmartList1"><li>bindObject() of XQDynamicContext interface. This method binds a XQuery data model instance to a Java object.</li></div><a name="wp151835"> </a><div class="pSmartList1"><li>createItemFromObject() of XQDynamicContext interface. This  method creates an XQuery data model instance from a Java object.</li></div></ul></div>
+<a name="wp127302"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp127482"> </a><div class="pTableTitle">
+Table G-18.  Mapping XQuery Data Model Instances to Java&#160;Objects&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp127486"> </a><div class="pCellHeading">
+XQuery Data Model Instance
+</div>
+</th>
+    <th><a name="wp127488"> </a><div class="pCellHeading">
+Java Object
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp127490"> </a><div class="pCellBody">
+document node
+</div>
+</td>
+    <td><a name="wp127492"> </a><div class="pCellBody">
+org.w3c.dom.Document
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp127494"> </a><div class="pCellBody">
+element node
+</div>
+</td>
+    <td><a name="wp127496"> </a><div class="pCellBody">
+org.w3c.dom.Element
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp127498"> </a><div class="pCellBody">
+attribute node
+</div>
+</td>
+    <td><a name="wp127500"> </a><div class="pCellBody">
+org.w3c.dom.Attr
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp127502"> </a><div class="pCellBody">
+comment node
+</div>
+</td>
+    <td><a name="wp127504"> </a><div class="pCellBody">
+org.w3c.dom.Comment
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp127506"> </a><div class="pCellBody">
+processing-instruction node
+</div>
+</td>
+    <td><a name="wp127508"> </a><div class="pCellBody">
+org.w3c.doc.ProcessingInstruction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp127510"> </a><div class="pCellBody">
+text node
+</div>
+</td>
+    <td><a name="wp127512"> </a><div class="pCellBody">
+org.w3c.dom.Text
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137442"> </a><div class="pCellBody">
+xs:untypedAtomic
+</div>
+</td>
+    <td><a name="wp137444"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137413"> </a><div class="pCellBody">
+xs:string
+</div>
+</td>
+    <td><a name="wp137415"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137409"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+    <td><a name="wp137411"> </a><div class="pCellBody">
+java.lang.Boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137405"> </a><div class="pCellBody">
+xs:decimal
+</div>
+</td>
+    <td><a name="wp137407"> </a><div class="pCellBody">
+java.math.BigDecimal
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137401"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+    <td><a name="wp137403"> </a><div class="pCellBody">
+java.lang.Float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137397"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+    <td><a name="wp137399"> </a><div class="pCellBody">
+java.lang.Double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137453"> </a><div class="pCellBody">
+xs:dateTime
+</div>
+</td>
+    <td><a name="wp137455"> </a><div class="pCellBody">
+javax.xml.datatype.XMLGregorianCalendar<a href="#wp168407"><span class="Footnote">1</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137449"> </a><div class="pCellBody">
+xs:date
+</div>
+</td>
+    <td><a name="wp137451"> </a><div class="pCellBody">
+javax.xml.datatype.XMLGregorianCalendar<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137460"> </a><div class="pCellBody">
+xs:time
+</div>
+</td>
+    <td><a name="wp137462"> </a><div class="pCellBody">
+javax.xml.datatype.XMLGregorianCalendar<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137393"> </a><div class="pCellBody">
+xs:integer
+</div>
+</td>
+    <td><a name="wp137395"> </a><div class="pCellBody">
+java.math.BigInteger
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137389"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+    <td><a name="wp137391"> </a><div class="pCellBody">
+java.lang.Long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137385"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+    <td><a name="wp137387"> </a><div class="pCellBody">
+java.lang.Integer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137381"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+    <td><a name="wp137383"> </a><div class="pCellBody">
+java.lang.Short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137377"> </a><div class="pCellBody">
+xs:byte
+</div>
+</td>
+    <td><a name="wp137379"> </a><div class="pCellBody">
+java.lang.Byte
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137503"> </a><div class="pCellBody">
+xs:nonPositiveInteger
+</div>
+</td>
+    <td><a name="wp137514"> </a><div class="pCellBody">
+java.math.BigInteger
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137499"> </a><div class="pCellBody">
+xs:negativeInteger
+</div>
+</td>
+    <td><a name="wp137524"> </a><div class="pCellBody">
+java.math.BigInteger
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137495"> </a><div class="pCellBody">
+xs:nonNegativeInteger
+</div>
+</td>
+    <td><a name="wp137534"> </a><div class="pCellBody">
+java.math.BigInteger
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137491"> </a><div class="pCellBody">
+xs:unsignedLong
+</div>
+</td>
+    <td><a name="wp137544"> </a><div class="pCellBody">
+java.math.BigInteger
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137487"> </a><div class="pCellBody">
+xs:unsignedInt
+</div>
+</td>
+    <td><a name="wp137574"> </a><div class="pCellBody">
+java.lang.Long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137570"> </a><div class="pCellBody">
+xs:unsignedShort
+</div>
+</td>
+    <td><a name="wp137572"> </a><div class="pCellBody">
+java.lang.Integer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137566"> </a><div class="pCellBody">
+xs:unsignedByte
+</div>
+</td>
+    <td><a name="wp137568"> </a><div class="pCellBody">
+java.lang.Short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137562"> </a><div class="pCellBody">
+xs:positiveInteger
+</div>
+</td>
+    <td><a name="wp137564"> </a><div class="pCellBody">
+java.math.BigInteger
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137483"> </a><div class="pCellBody">
+xs:base64binary
+</div>
+</td>
+    <td><a name="wp137485"> </a><div class="pCellBody">
+byte[]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137479"> </a><div class="pCellBody">
+xs:hexBinary
+</div>
+</td>
+    <td><a name="wp137481"> </a><div class="pCellBody">
+byte[]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137619"> </a><div class="pCellBody">
+xs:duration
+</div>
+</td>
+    <td><a name="wp151685"> </a><div class="pCellBody">
+javax.xml.datatype.Duration<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137615"> </a><div class="pCellBody">
+xs:yearMonthDuration
+</div>
+</td>
+    <td><a name="wp151659"> </a><div class="pCellBody">
+javax.xml.datatype.Duration<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137611"> </a><div class="pCellBody">
+xs:dayTimeDuration
+</div>
+</td>
+    <td><a name="wp137613"> </a><div class="pCellBody">
+javax.xml.datatype.Duration<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137607"> </a><div class="pCellBody">
+xs:QName
+</div>
+</td>
+    <td><a name="wp137609"> </a><div class="pCellBody">
+java.xml.namespace.QName
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137471"> </a><div class="pCellBody">
+xs:anyURI
+</div>
+</td>
+    <td><a name="wp137473"> </a><div class="pCellBody">
+java.net.URI
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137467"> </a><div class="pCellBody">
+xs:gDay
+</div>
+</td>
+    <td><a name="wp137469"> </a><div class="pCellBody">
+javax.xml.datatype.XMLGregorianCalendar<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137670"> </a><div class="pCellBody">
+xs:gMonth
+</div>
+</td>
+    <td><a name="wp137678"> </a><div class="pCellBody">
+javax.xml.datatype.XMLGregorianCalendar<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137666"> </a><div class="pCellBody">
+xs:gMonthDay
+</div>
+</td>
+    <td><a name="wp137692"> </a><div class="pCellBody">
+javax.xml.datatype.XMLGregorianCalendar<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137662"> </a><div class="pCellBody">
+xs:gYear
+</div>
+</td>
+    <td><a name="wp137706"> </a><div class="pCellBody">
+javax.xml.datatype.XMLGregorianCalendar<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137658"> </a><div class="pCellBody">
+xs:gYearMonth
+</div>
+</td>
+    <td><a name="wp137720"> </a><div class="pCellBody">
+javax.xml.datatype.XMLGregorianCalendar<sup style="font-family: Frutiger 55 Roman" class="cSuperscript">1</sup>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137654"> </a><div class="pCellBody">
+xs:normalizedString
+</div>
+</td>
+    <td><a name="wp137656"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137750"> </a><div class="pCellBody">
+xs:token
+</div>
+</td>
+    <td><a name="wp137752"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137746"> </a><div class="pCellBody">
+xs:language
+</div>
+</td>
+    <td><a name="wp137775"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137742"> </a><div class="pCellBody">
+xs:NMTOKEN
+</div>
+</td>
+    <td><a name="wp137744"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137800"> </a><div class="pCellBody">
+xs:Name
+</div>
+</td>
+    <td><a name="wp137802"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137796"> </a><div class="pCellBody">
+xs:NCName
+</div>
+</td>
+    <td><a name="wp137798"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137792"> </a><div class="pCellBody">
+xs:ID
+</div>
+</td>
+    <td><a name="wp137794"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137788"> </a><div class="pCellBody">
+xs:IDREF
+</div>
+</td>
+    <td><a name="wp137790"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137784"> </a><div class="pCellBody">
+xs:ENTITY
+</div>
+</td>
+    <td><a name="wp137786"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <td><a name="wp168407"> </a><div class="pCellBody">
+<a href="#wp137455"><span class="Footnote">1</span></a> When using J2SE 1.4, this XQuery data model instance cannot be retrieved through getObject( ) of XQItemAccessor, bound through bindObject( ) of XQDynamicContext, or created through createItemFromObject( ) of XQDynamicContext. However, you can manipulate this data model instance using getAtomicValue( ) of XQItemAccessor, bindAtomicValue( ) of XQDynamicContext, or createItemFromAtomicValue( ) of XQDataFactory.
+</div>
+</td>
+  </tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<WebWorksHelpTOC version="3.0">
+ <i l="preface.html#wp1018999" t="Preface">
+  <i l="preface2.html#wp1024358" t="What Is DataDirect XQuery&#174;?" />
+  <i l="preface3.html#wp1024369" t="Using This Help" />
+  <i l="preface4.html#wp1027024" t="Typographical Conventions" />
+  <i l="preface5.html#wp1017727" t="About the Product Documentation">
+   <i l="preface5.html#wp1027052" t="HTML Version" />
+   <i l="preface5.html#wp1027063" t="PDF Version" />
+  </i>
+  <i l="preface6.html#wp1025424" t="Contacting Technical Support" />
+ </i>
+ <i l="bforinst.html#wp80849" t="1 Before You Install">
+  <i l="bforinst2.html#wp74216" t="System and Product Requirements">
+   <i l="bforinst2.html#wp79412" t="DataDirect XQuery&#174;" />
+   <i l="bforinst2.html#wp81121" t="Kerberos Authentication" />
+   <i l="bforinst2.html#wp81290" t="NTLM Authentication" />
+   <i l="bforinst2.html#wp80582" t="Note Regarding J2SE Installations" />
+  </i>
+  <i l="bforinst3.html#wp80055" t="Data Sources">
+   <i l="bforinst3.html#wp79352" t="XML Data Sources" />
+   <i l="bforinst3.html#wp80309" t="Relational Data Sources" />
+  </i>
+ </i>
+ <i l="install.html#wp1092878" t="2 Installing DataDirect XQuery&#174;">
+  <i l="install2.html#wp1096317" t="What Is Installed?" />
+  <i l="install3.html#wp1113893" t="Installation Media" />
+  <i l="install4.html#wp1116203" t="Mounting the CD">
+   <i l="install4.html#wp1107529" t="On Windows" />
+   <i l="install4.html#wp1107534" t="On UNIX and Linux" />
+  </i>
+  <i l="install5.html#wp1079332" t="Installation Procedures">
+   <i l="install5.html#wp1093289" t="GUI Installation" />
+   <i l="install5.html#wp1093328" t="Command-Line Installation" />
+  </i>
+  <i l="install6.html#wp1112015" t="Getting Started with DataDirect XQuery&#174;" />
+  <i l="install7.html#wp1108220" t="Adding Database Support to an Installation" />
+  <i l="install8.html#wp1108226" t="Upgrading to a Licensed Installation" />
+  <i l="install9.html#wp1111738" t="Extending an Evaluation Installation" />
+  <i l="install10.html#wp1101713" t="Uninstalling" />
+  <i l="install11.html#wp1106455" t="For More Information" />
+ </i>
+</WebWorksHelpTOC>

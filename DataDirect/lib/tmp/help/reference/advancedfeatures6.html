@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:24" />
+  <title>Analyzing EDI to XML Conversions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp243176"> </a><h2 class="pNewHTMLPageNum">
+Analyzing EDI to XML Conversions
+</h2>
+<hr />
+<a name="wp243227"> </a><p class="pBody">
+DataDirect XQuery provides several ways to convert non-XML data to XML, including using the converter URI in document and collection functions, as well as built-in functions ddtek:convert-to-xml, and ddtek:analyze-edi-from-* and ddtek:edi-to-xml-from-*.
+</p>
+<a name="wp243433"> </a><p class="pBody">
+This section describes how to use DataDirect XQuery ddtek:analyze-edi-from-* and ddtek:edi-to-xml-from-* built-in functions to analyze and convert EDI to XML. It covers the following topics:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp243934"> </a><div class="pSmartList1"><li><a  href="advancedfeatures6.html#wp243285">Overview</a></li></div><a name="wp244157"> </a><div class="pSmartList1"><li><a  href="advancedfeatures6.html#wp244056">Built-in EDI Analysis and Conversion Functions</a></li></div><a name="wp243946"> </a><div class="pSmartList1"><li><a  href="advancedfeatures6.html#wp244139">Examples</a></li></div></ul></div>
+<a name="wp243285"> </a><h3 class="pHeading2">
+Overview
+</h3>
+<a name="wp243554"> </a><p class="pBody">
+The following illustration provides an overview of how you can use DataDirect XQuery built in functions to analyze and convert EDI to XML. It shows EDI being provided by some entity &#8211; an EDI document, EDI data stored on a file system, or EDI provided by a Web service, for example &#8211; being passed to the ddtek:analyze-edi-from-* and ddtek:edi-to-xml-from-* functions. The same EDI stream is specified for each function.
+</p>
+<a name="wp243900"> </a><h4 class="pHeading3">
+EDI Analysis
+</h4>
+<a name="wp245703"> </a><p class="pBody">
+First the EDI data stream is analyzed by the ddtek:analyze-edi-* function. The ddtek:analyze-edi-* function produces an XML report that, among other things, identifies any messages that contain errors. You can write the report to any output you choose &#8211; you might want to review the report before converting the EDI to XML, for example &#8211; but it is written as a document node by default.
+</p>
+<a name="wp245344"> </a><h4 class="pHeading3">
+EDI Conversion
+</h4>
+<a name="wp245948"> </a><p class="pBody">
+Once the analysis is complete, the analysis report is passed to the ddtek:edi-to-xml-* function, along with the EDI data stream. The ddtek:edi-to-xml-* function uses the errors identified in the analysis report to filter the EDI, preventing messages containing errors from being converted to XML.</p><div align="left"><img src="images/edi_analyze8.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp243300"> </a><h4 class="pHeading3">
+Receipt and Acknowledgement Messages
+</h4>
+<a name="wp245707"> </a><p class="pBody">
+The analysis report includes a Response element; this element contains Receipt and Acknowledgement subelements. Each subelement holds a complete EDI message in XML format that can be easily manipulated using XQuery and then serialized to EDI to communicate with the EDI sender whether the transmission was accepted or rejected.
+</p>
+<a name="wp245507"> </a><p class="pBody">
+Receipt messages are used to notify the sender that an EDI transmission has been received; acknowledgement messages are used to notify the sender of those messages in the EDI transmission that were rejected because of errors, as well as the nature of the errors. Formats for receipt and acknowledgement messages are dialect-specific.
+</p>
+<a name="wp244182"> </a><h4 class="pHeading3">
+Supported EDI Dialects
+</h4>
+<a name="wp244188"> </a><p class="pBody">
+The ddtek:analyze-edi-from-* and ddtek:edi-to-xml-from-* built-in functions can be used to convert EDI to XML (and not XML to EDI) for the following EDI dialects:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp244183"> </a><div class="pSmartList1"><li>EDIFACT</li></div><a name="wp244184"> </a><div class="pSmartList1"><li>HIPAA</li></div><a name="wp244185"> </a><div class="pSmartList1"><li>X12</li></div></ul></div>
+<a name="wp245353"> </a><h4 class="pHeading3">
+For More Information
+</h4>
+<a name="wp245357"> </a><p class="pBody">
+To learn more about analyzing EDI before converting it to XML, including details of the analysis report, see the <em class="cEmphasis">DataDirect XML Converters User&#8217;s Guide and Reference</em> manual. DataDirect XML Converters documentation is installed as part of the DataDirect Data Integration Suite, of which DataDirect XQuery is a part; you can also find DataDirect XML Converters product documentation on the <a  href="http://www.datadirect.com/techres/xmlconvertersproddoc/index.ssp">DataDirect Web site</a>.
+</p>
+<a name="wp244056"> </a><h3 class="pHeading2">
+Built-in EDI Analysis and Conversion Functions
+</h3>
+<a name="wp244057"> </a><p class="pBody">
+DataDirect XQuery built-in functions for converting EDI to XML:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp244058"> </a><div class="pSmartList1"><li>Validate an EDI stream and generate an XML report that describes the errors</li></div><a name="wp244059"> </a><div class="pSmartList1"><li>Automatically generate accept/reject messages for the EDI sender</li></div><a name="wp244060"> </a><div class="pSmartList1"><li>Convert partially valid EDI streams</li></div></ul></div>
+<a name="wp244061"> </a><h4 class="pHeading3">
+EDI Analysis Functions
+</h4>
+<a name="wp244062"> </a><p class="pBody">
+DataDirect XQuery ddtek:analyze-edi-from-* functions, <a  href="built-in_functions2.html#wp330903">ddtek:analyze-edi-from-string</a> and <a  href="built-in_functions2.html#wp330977">ddtek:analyze-edi-from-url</a>, analyze an EDI stream and generate a report that describes the errors, if any, they detect. These functions can be used in standalone fashion to generate the analysis report, but they are designed to be used with ddtek:edi-to-xml-from-* functions as part of the process to convert EDI to XML.
+</p>
+<a name="wp244069"> </a><h4 class="pHeading3">
+EDI Conversion Functions
+</h4>
+<a name="wp244070"> </a><p class="pBody">
+DataDirect XQuery ddtek:edi-to-xml-from-* functions, <a  href="built-in_functions2.html#wp331503">ddtek:edi-to-xml-from-string</a> and <a  href="built-in_functions2.html#wp331517">ddtek:edi-to-xml-from-url</a>, take the report generated by the ddtek:analyze-edi-from-* functions and use it to filter detected errors from the EDI before converting it to XML. The ddtek:edi-to-xml-from-* functions cannot be used alone to convert EDI to XML &#8211; you must pass the report generated by the ddtek:analyze-edi-from-* functions.
+</p>
+<a name="wp244218"> </a><h4 class="pHeading3">
+Specifying the EDI Stream and EDI Conversion Settings
+</h4>
+<a name="wp244221"> </a><p class="pBody">
+The EDI stream specified in the ddtek:edi-to-xml-from-* functions must be the same as that specified in the ddtek:analyze-edi-from-* functions for a given XQuery. 
+</p>
+<a name="wp245477"> </a><p class="pBody">
+For this reason, it is recommended that you use the ddtek:analyze-edi-from-* and ddtek:edi-to-xml-from-* functions in pairs &#8211; <a  href="built-in_functions2.html#wp330903">ddtek:analyze-edi-from-string</a> and <a  href="built-in_functions2.html#wp331503">ddtek:edi-to-xml-from-string</a>, and <a  href="built-in_functions2.html#wp330977">ddtek:analyze-edi-from-url</a> and <a  href="built-in_functions2.html#wp331517">ddtek:edi-to-xml-from-url</a>, for example. 
+</p>
+<a name="wp244227"> </a><p class="pBody">
+The same is also true for any conversion properties you specify &#8211; any conversion properties specified in the analysis function must also be specified in the conversion function.
+</p>
+<a name="wp244229"> </a><p class="pBody">
+To learn more about conversion properties, see the section &quot;EDI XML Converter Properties&quot; in the <em class="cEmphasis">DataDirect XML Converters User&#8217;s Guide and Reference</em> manual. DataDirect XML Converters documentation is installed as part of the DataDirect Data Integration Suite, of which DataDirect XQuery is a part; you can also find DataDirect XML Converters product documentation on the <a  href="http://www.datadirect.com/techres/xmlconvertersproddoc/index.ssp">DataDirect Web site</a>.
+</p>
+<a name="wp244139"> </a><h3 class="pHeading2">
+Examples
+</h3>
+<a name="wp245497"> </a><p class="pBody">
+The following examples show how to use DataDirect XQuery analyze EDI and convert EDI built-in functions to convert EDI to XML.
+</p>
+<a name="wp245516"> </a><h4 class="pHeading3">
+EDI Specified as a URL
+</h4>
+<a name="wp245520"> </a><p class="pBody">
+In this example, the EDI document code99.x12 is converted to XML:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $edi 				:= &quot;EDI:tbl=yes?file:///c:/EDI/code99.x12&quot;
+let $report		 		:= ddtek:analyze-edi-from-url($edi)
+let $ack		 		:= $report/AnalyzeReport/Response/Acknowledgement/X12 
+let $receipt 		:= $report/AnalyzeReport/Response/Receipt/X12 
+let $xml 				:= ddtek:edi-to-xml-from-url($edi, $report)
+return(
+ ddtek:serialize-to-url($report ,&quot;file:///c:/EDI/code99.x12.report.xml&quot;, &quot;&quot;)
+,ddtek:serialize-to-url($xml    ,&quot;file:///c:/EDI/code99.x12.xml&quot;, &quot;&quot;)
+,ddtek:serialize-to-url($receipt,&quot;file:///c:/EDI/code99.rec.x12&quot;,&quot;method=EDI&quot;
+)
+,ddtek:serialize-to-url($ack   ,&quot;file:///c:/EDI/code99.ack.x12&quot;,&quot;method=EDI&quot;)
+)<a name="wp245525"> </a>
+</pre></div>
+<a name="wp245590"> </a><p class="pBody">
+In this example, the XQuery produces four files:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp245643"> </a><div class="pSmartList1"><li>code99.x12.report.xml &#8211; The analysis report generated by the <a  href="built-in_functions2.html#wp330977">ddtek:analyze-edi-from-url</a> function.</li></div><a name="wp245651"> </a><div class="pSmartList1"><li>code99.x12.xml &#8211; The XML generated by the <a  href="built-in_functions2.html#wp331517">ddtek:edi-to-xml-from-url</a>.</li></div><a name="wp245658"> </a><div class="pSmartList1"><li>code99.rec.x12 &#8211; The receipt message rendered as an XML document.</li></div><a name="wp245663"> </a><div class="pSmartList1"><li>code99.ack.x12 &#8211; Acknowledgement messages, one for each message in the EDI data stream containing an error, rendered as an XML document.</li></div></ul></div>
+<a name="wp245699"> </a><p class="pBody">
+As noted in <a  href="advancedfeatures6.html#wp243300">Receipt and Acknowledgement Messages</a>, the receipt and acknowledgement messages are dialect-specific. In this example, which uses the X12 EDI dialect, the receipt message conforms to the TA1 message type, and the acknowledge message conforms to the 997 message type. The <a  href="built-in_functions2.html#wp298908">ddtek:serialize-to-url</a> function is used to convert code99.rec.x12 and code99.ack.x12 from XML to EDI for transmission back to the EDI sender.
+</p>
+<a name="wp245521"> </a><h4 class="pHeading3">
+EDI Specified as a String
+</h4>
+<a name="wp245744"> </a><p class="pBody">
+This example is similar to the first, but this instance the EDI is stored in memory as a string:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $edi := &quot;ISA:00: :00: :01:1515151515 :01:5151515151 
+:041201:1217:U:00403:000032123:0:P:*~GS:CT:9988776655
+:1122334455:20041201:1217:128:X:004030~ST:831:00128001~BGN
+:99:88200001:20041201~N9:BT:88200001~TRN:1:88200001~AMT
+:2:100000.00~QTY:46:1~SE:7:00128001~GE:1:128~IEA:1:000032123~&quot;
+let $url := &quot;EDI:tbl=yes&quot; 
+let $report := ddtek:analyze-edi-from-string($url, $edi)
+let $ack := $report/AnalyzeReport/Response/Acknowledgement/X12 
+let $receipt := $report/AnalyzeReport/Response/Receipt/X12 
+let $xml := ddtek:edi-to-xml-from-string($url ,$edi, $report)
+return(
+&#160;ddtek:serialize-to-url($report ,&quot;file:///c:/EDI/code99.x12.report.xml&quot;, 
+&quot;&quot;)
+,ddtek:serialize-to-url($xml ,&quot;file:///c:/EDI/code99.x12.xml&quot;, &quot;&quot;)
+,ddtek:serialize-to-url($receipt,&quot;file:///c:/EDI/code99.rec.x12&quot;,&quot;method
+=EDI&quot;)
+,ddtek:serialize-to-url($ack ,&quot;file:///c:/EDI/code99.ack.x12&quot;, 
+&quot;method=EDI&quot;)
+)<a name="wp245766"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

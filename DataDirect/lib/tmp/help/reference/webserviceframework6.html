@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:19" />
+  <title>Choosing an Interface for Web Service Access</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp208699"> </a><h2 class="pNewHTMLPageNum">
+Choosing an Interface for Web Service Access
+</h2>
+<hr />
+<a name="wp208891"> </a><p class="pBody">
+Data services &#8211; that is, your XQuery exposed as a Web service &#8211; deployed on the XQueryWebService framework can be accessed using two techniques:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp208893"> </a><div class="pSmartList1"><li>    Simple Object Access Protocol (SOAP)</li></div><a name="wp208894"> </a><div class="pSmartList1"><li>    Representational State Transfer (REST)</li></div></ul></div>
+<a name="wp208969"> </a><p class="pBody">
+<a  href="http://www.w3.org/TR/soap/">SOAP</a> is a <a  href="http://www.w3.org/TR/soap/">W3C Recommendation</a> and has been around for nearly a decade. SOAP is usually the more appropriate of the two techniques for complex processing or when security (exposing sensitive data) is an issue. But REST is gaining popularity for a couple of reasons, including minimal requirements on the client, and an interface &#8211; the URI &#8211; that is straightforward and well-understood.
+</p>
+<a name="wp207884"> </a><h3 class="pHeading2">
+Sample XQuery
+</h3>
+<a name="wp215227"> </a><p class="pBody">
+Let&#39;s take a look at emp.xquery, which we have saved to our local XQuery directory (c:\MyQueryDir, as defined in web.xml).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $id as xs:string external;<a name="wp209012"> </a>
+<a name="wp209013"> </a>
+&lt;root&gt;<a name="wp209014"> </a>
+{<a name="wp209015"> </a>
+    for $employee in collection(&quot;pubs.dbo.employee&quot;)/employee<a name="wp209016"> </a>
+    where $employee/emp_id = $id<a name="wp209017"> </a>
+    return $employee<a name="wp209018"> </a>
+}<a name="wp209019"> </a>
+&lt;/root&gt;<a name="wp207937"> </a>
+</pre></div>
+<a name="wp219056"> </a><p class="pBody">
+When run against the SQL Server pubs sample database, this XQuery returns an employee record given an ID (&quot;A-C71970F&quot;).
+</p>
+<a name="wp207958"> </a><h4 class="pHeading3">
+Using REST
+</h4>
+<a name="wp209074"> </a><p class="pBody">
+Using REST, this XQuery can be executed from any Internet browser using just this URI:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<a  href="http://examples.xquery.com/employee-lookup/emp.xquery?id=A-C71970F"> http://examples.xquery.com/employee-lookup/emp.xquery?id=A-C71970F</a><a name="wp219091"> </a>
+</pre></div>
+<a name="wp209078"> </a><p class="pBody">
+Notice that with REST, the employee ID (&quot;id=A-C71970F&quot;) is visible in the URI.
+</p>
+<a name="wp209056"> </a><p class="pBody">
+The result looks something like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;dd:Output xmlns:dd=&quot;http://www.datadirect.com&quot;&gt;<a name="wp209140"> </a>
+   &lt;root&gt;<a name="wp209141"> </a>
+      &lt;employee&gt;<a name="wp209142"> </a>
+       &lt;emp_id&gt;A-C71970F&lt;/emp_id&gt;<a name="wp209143"> </a>
+       &lt;fname&gt;Aria&lt;/fname&gt;<a name="wp209144"> </a>
+       &lt;minit/&gt;<a name="wp209145"> </a>
+       &lt;lname&gt;Cruz&lt;/lname&gt;<a name="wp209146"> </a>
+       &lt;job_id&gt;10&lt;/job_id&gt;<a name="wp209147"> </a>
+       &lt;job_lvl&gt;87&lt;/job_lvl&gt;<a name="wp209148"> </a>
+       &lt;pub_id&gt;1389&lt;/pub_id&gt;<a name="wp209149"> </a>
+       &lt;hire_date&gt;1991-10-26T00:00:00&lt;/hire_date&gt;<a name="wp209150"> </a>
+      &lt;/employee&gt;<a name="wp209151"> </a>
+   &lt;/root&gt;<a name="wp209152"> </a>
+&lt;/dd:Output&gt; <a name="wp209137"> </a>
+</pre></div>
+<a name="wp209061"> </a><h4 class="pHeading3">
+Using SOAP
+</h4>
+<a name="wp209238"> </a><p class="pBody">
+Using SOAP, on the other hand, requires submitting the following SOAP request (XML):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;SOAP-ENV:Envelope<a name="wp209273"> </a>
+   xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<a name="wp209274"> </a>
+    &lt;SOAP-ENV:Body&gt;<a name="wp209275"> </a>
+        &lt;dd:emp xmlns:dd=&quot;http://www.datadirect.com&quot;&gt;<a name="wp209276"> </a>
+            &lt;dd:id&gt;A-C71970F&lt;/dd:id&gt;<a name="wp209277"> </a>
+        &lt;/dd:emp&gt;<a name="wp209278"> </a>
+    &lt;/SOAP-ENV:Body&gt;<a name="wp209279"> </a>
+&lt;/SOAP-ENV:Envelope&gt; <a name="wp209263"> </a>
+</pre></div>
+<a name="wp209304"> </a><p class="pBody">
+The result, shown here, is pretty much the same as the one returned using REST, only now it is &#8220;wrapped&#8221; in the SOAP envelope:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=
+&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<a name="wp209339"> </a>
+   &lt;SOAP-ENV:Body&gt;<a name="wp209340"> </a>
+      &lt;dd:Output xmlns:dd=&quot;http://www.datadirect.com&quot;&gt;<a name="wp209341"> </a>
+         &lt;root&gt;<a name="wp209342"> </a>
+            &lt;employee&gt;<a name="wp209343"> </a>
+               &lt;emp_id&gt;A-C71970F&lt;/emp_id&gt;<a name="wp209344"> </a>
+               &lt;fname&gt;Aria&lt;/fname&gt;<a name="wp209345"> </a>
+               &lt;minit&gt;<a name="wp209346"> </a>
+               &lt;/minit&gt;<a name="wp209347"> </a>
+               &lt;lname&gt;Cruz&lt;/lname&gt;<a name="wp209348"> </a>
+               &lt;job_id&gt;10&lt;/job_id&gt;<a name="wp209349"> </a>
+               &lt;job_lvl&gt;87&lt;/job_lvl&gt;<a name="wp209350"> </a>
+               &lt;pub_id&gt;1389&lt;/pub_id&gt;<a name="wp209351"> </a>
+               &lt;hire_date&gt;1991-10-26T00:00:00&lt;/hire_date&gt;<a name="wp209352"> </a>
+            &lt;/employee&gt;<a name="wp209353"> </a>
+         &lt;/root&gt;<a name="wp209354"> </a>
+      &lt;/dd:Output&gt;<a name="wp209355"> </a>
+   &lt;/SOAP-ENV:Body&gt;<a name="wp209356"> </a>
+&lt;/SOAP-ENV:Envelope&gt; <a name="wp209330"> </a>
+</pre></div>
+<a name="wp209647"> </a><h3 class="pHeading2">
+Next Steps
+</h3>
+<a name="wp209693"> </a><p class="pBody">
+The XQueryWebService framework includes some simple tools that let you test the Web service operations you include in your applications. These tools are covered in the next section.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

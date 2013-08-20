@@ -1,0 +1,1131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:24" />
+  <title>Using External Functions </title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp246581"> </a><h2 class="pNewHTMLPageNum">
+Using External Functions 
+</h2>
+<hr />
+<a name="wp246582"> </a><p class="pBody">
+This topic explains the types of external functions supported by DataDirect XQuery and how to use them. This topic  covers the following subjects:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp246586"> </a><div class="pSmartList1"><li><a  href="advancedfeatures9.html#wp246596">Supported External Functions</a></li></div><a name="wp246590"> </a><div class="pSmartList1"><li><a  href="advancedfeatures3.html#wp219064">Querying Multiple Files in a Directory</a></li></div><a name="wp246594"> </a><div class="pSmartList1"><li><a  href="advancedfeatures9.html#wp246998">Using SQL Functions</a></li></div></ul></div>
+<a name="wp246596"> </a><h3 class="pHeading2">
+Supported External Functions
+</h3>
+<a name="wp246598"> </a><p class="pBody">
+<em class="cEmphasis">External functions</em> are functions that are implemented outside the query environment. DataDirect XQuery supports two types of external functions: Java and SQL.  
+</p>
+<a name="wp246600"> </a><p class="pBody">
+<em class="cEmphasis">Java functions</em> might be used to return system information, to invoke a Web service call, or simply to make available a function  that is not in the XQuery function library. 
+</p>
+<a name="wp246601"> </a><p class="pBody">
+<em class="cEmphasis">SQL functions</em> might be used to invoke a stored procedure or to make available a function that is not in the XQuery function library.
+</p>
+<a name="wp246602"> </a><p class="pBody">
+All external functions are namespace qualified, and the namespace that is used tells DataDirect XQuery whether the external function is written in Java or in SQL. Before calling an external function, it must be declared in the query. 
+</p>
+<a name="wp246604"> </a><p class="pBodyBold">
+Example: Java Function (Static Method)
+</p>
+<a name="wp246605"> </a><p class="pBody">
+Suppose an application needs to return information about the Java environment in which a query runs. The following Java code defines a class that contains the function to retrieve this information in Java:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+public class myClass extends Object {<a name="wp246607"> </a>
+...<a name="wp246608"> </a>
+    public static String myExternalFunction() {<a name="wp246609"> </a>
+        StringBuffer returnBuffer = new StringBuffer();<a name="wp246610"> </a>
+        Properties systemProperties = System.getProperties();<a name="wp246611"> </a>
+        returnBuffer.append(&quot;VM Version:&quot;<a name="wp246612"> </a>
+            + systemProperties.get(&quot;java.vm.version&quot;) + &quot;\n&quot;);<a name="wp246613"> </a>
+        returnBuffer.append(&quot;VM Vendor:&quot;<a name="wp246614"> </a>
+            + systemProperties.get(&quot;java.vm.vendor&quot;) + &quot;\n&quot;);<a name="wp246615"> </a>
+        returnBuffer.append(&quot;VM Name:&quot; <a name="wp246616"> </a>
+            + systemProperties.get(&quot;java.vm.name&quot;));<a name="wp246617"> </a>
+        return returnBuffer.toString();<a name="wp246618"> </a>
+    }<a name="wp246619"> </a>
+}<a name="wp246620"> </a>
+</pre></div>
+<a name="wp246621"> </a><p class="pBody">
+Now, the function must be declared, as shown in the following query:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare namespace ex=&quot;ddtekjava:myClass&quot;;<a name="wp246622"> </a>
+declare function ex:myExternalFunction() as xs:string external;<a name="wp246623"> </a>
+let $infoString := ex:myExternalFunction()<a name="wp246624"> </a>
+return             <a name="wp246625"> </a>
+  let($infoString := ex:myExternalFunction()<a name="wp246626"> </a>
+  return &lt;vm_info&gt;{$infoString}&lt;/vm_info&gt;)<a name="wp246627"> </a>
+</pre></div>
+<a name="wp246628"> </a><p class="pBody">
+In the preceding XQuery expression, the XQuery binds a namespace prefix (<code class="cCode">ex</code>) to the fully qualified name of the class that defines the function. 
+</p>
+<a name="wp246630"> </a><p class="pBodyBold">
+Example: SQL Function
+</p>
+<a name="wp246631"> </a><p class="pBody">
+A SQL function can be called in a similar way to calling a Java function. The namespace for a SQL function is the predefined namespace, in this case http://www.datadirect.com/xquery<br />/sql-function, which is bound to the predefined prefix ddtek-sql. The following example calls the SQL function rtrim().
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:reverse($namevalue as xs:string) as 
+  xs:string external;
+
+for $username in collection(&#39;users&#39;)//lastname
+return
+&lt;last_name&gt;{ddtek-sql:reverse($username)}&lt;/last_name&gt; <a name="wp246632"> </a>
+</pre></div>
+<a name="wp246636"> </a><h3 class="pHeading2">
+Using Java Functions
+</h3>
+<a name="wp246638"> </a><p class="pBody">
+DataDirect XQuery supports Java static methods, Java instance methods, and Java constructors.
+</p>
+<a name="wp246639"> </a><p class="pBody">
+The DataDirect XQuery type ddtek:javaObject allows you to invoke Java methods. The predeclared DataDirect XQuery namespace prefix is ddtek, and is bound to http://www.datadirect.com/xquery. The examples in this section demonstrate the usage of ddtek:javaObject.
+</p>
+<a name="wp246641"> </a><h4 class="pHeading3">
+Declaring Java Functions
+</h4>
+<a name="wp246643"> </a><p class="pBody">
+Two steps are required to declare Java functions:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp246644"> </a><div class="pSmartList1"><li>Import the class into the XQuery environment.</li></div><a name="wp246645"> </a><div class="pSmartList1"><li>Declare the function.</li></div></ol></div>
+<a name="wp246647"> </a><h4 class="pHeading3">
+1. Importing the Class
+</h4>
+<a name="wp246648"> </a><p class="pBody">
+Before you can declare a Java class, you must import it into the XQuery environment. To do this, you must declare a namespace with a specific URI. The syntax of an import is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare namespace <code><em>prefix</em></code> = &quot;ddtekjava:<code><em>java class name</em></code>&quot;;<a name="wp246649"> </a>
+</pre></div>
+<a name="wp246650"> </a><p class="pBody">
+where:
+</p>
+<a name="wp246651"> </a><p class="pBody">
+<code><em>prefix</em></code> is a namespace prefix to associate with the Java class.
+</p>
+<a name="wp246652"> </a><p class="pBody">
+<code><em>java class name</em></code> contains the complete package and class name of the Java class to import. The specified Java class must be accessed using the Java class loader in the environment in which the query is executed. Typically, this means that the CLASSPATH must contain a reference to the directory or jar file where the Java class can be found. In J2EE server environments, other requirements might exist &#8211; the jar or class file might have to be stored in a specific directory, for example, as shown here:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare namespace file = &quot;ddtekjava:java.io.File&quot;;<a name="wp246653"> </a>
+</pre></div>
+<a name="wp246654"> </a><p class="pBody">
+If DataDirect XQuery cannot find the Java class, it generates a static error.
+</p>
+<a name="wp246655"> </a><h4 class="pHeading3">
+2. Declaring the Function
+</h4>
+<a name="wp246656"> </a><p class="pBody">
+Before you can invoke a Java function in a query, you must declare it. How you declare it depends on whether the Java function is a static method or an instance method.
+</p>
+<a name="wp246658"> </a><h5 class="pHeading4">
+Static Method
+</h5>
+<a name="wp246659"> </a><p class="pBody">
+To declare a static method, use the following syntax:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare namespace file = &quot;ddtekjava:java.io.File&quot;;<a name="wp246660"> </a>
+declare function <code><em>namespace</em></code>:<code><em>function name</em></code>(<code><em>argument list</em></code>) as <code><em>return type</em></code><a name="wp246661"> </a>
+  external;<a name="wp246662"> </a>
+</pre></div>
+<a name="wp246663"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare namespace file = &quot;ddtekjava:java.io.File&quot;;<a name="wp246664"> </a>
+declare function file:createTempFile($prefix as xs:string,$suffix as<a name="wp246665"> </a>
+  xs:string) as ddtek:javaObject external;<a name="wp246666"> </a>
+</pre></div>
+<a name="wp246670"> </a><p class="pBody">
+See also <a  href="advancedfeatures9.html#wp246604">Example: Java Function (Static Method)</a>.
+</p>
+<a name="wp246672"> </a><h5 class="pHeading4">
+Instance Method
+</h5>
+<a name="wp246673"> </a><p class="pBody">
+To declare an instance method, follow these steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp246676"> </a><div class="pSmartList1"><li>Import the class to a namespace (see <a  href="advancedfeatures9.html#wp246647">1. Importing the Class</a>).</li></div><a name="wp246678"> </a><div class="pSmartList1"><li>In the cases where you need to explicitly create a new Java object instance, declare a function mapping to a Java constructor unless the Java object type you are declaring has a defined XQuery mapping. A class instance can be an XML type for which a mapping is defined.</li></div><a name="wp246679"> </a><div class="pSmartList1"><li>If step 2 is required, declare a function mapping to an instance method declaring ddtek:javaObject as the value for the first parameter. Otherwise, the value of the first parameter is the appropriate XQuery data type.</li></div><a name="wp246680"> </a><div class="pSmartList1"><li>Invoke the function using the class instance on which the instance method is invoked as the first argument.</li></div></ol></div>
+<a name="wp246681"> </a><p class="pBody">
+The numbers in the following example correspond to the preceding steps:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare namespace BigInteger = &quot;ddtekjava:java.math.BigInteger&quot;; <b class="cBold">1</b><a name="wp246682"> </a>
+declare function BigInteger:BigInteger($v as xs:string) <b class="cBold">2</b><a name="wp246683"> </a>
+    as ddtek:javaObject external;<a name="wp246684"> </a>
+declare function BigInteger:gcd( <a name="wp246685"> </a>
+    $this as ddtek:javaObject, <a name="wp246686"> </a>
+    $val as xs:integer) as xs:integer external; <b class="cBold">3</b><a name="wp246687"> </a>
+<a name="wp246688"> </a>
+    BigInteger:gcd(BigInteger:BigInteger(&quot;12&quot;),4) <b class="cBold">4</b><a name="wp246689"> </a>
+</pre></div>
+<a name="wp246690"> </a><p class="pBody">
+The following example does not include step 2 because the Java object to be declared has a defined XQuery mapping.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare namespace BigInteger = &quot;ddtekjava:java.math.BigInteger&quot;; <b class="cBold">1</b><a name="wp246691"> </a>
+    declare function BigInteger:gcd(<a name="wp246692"> </a>
+      $this as xs:integer, <a name="wp246693"> </a>
+      $val as xs:integer) as xs:integer external; <b class="cBold">3</b><a name="wp246694"> </a>
+<a name="wp246695"> </a>
+     BigInteger:gcd(12,4) <b class="cBold">4</b><a name="wp246696"> </a>
+</pre></div>
+<a name="wp246697"> </a><h4 class="pHeading3">
+Mapping Types Between Java and XQuery for Java External Functions
+</h4>
+<a name="wp246700"> </a><p class="pBody">
+Before DataDirect XQuery passes XQuery arguments to a Java method, it converts the arguments from the XQuery data type to a Java type using the SequenceType specified for the external function when it was declared. 
+</p>
+<a name="wp246705"> </a><p class="pBody">
+<a  href="advancedfeatures9.html#wp246712">Table&#160;12-5</a> shows how to map arguments and return types from the Java function declaration to XQuery SequenceTypes to be used in the XQuery function declaration.
+</p>
+<a name="wp246903"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp246712"> </a><div class="pTableTitle">
+Table 12-5.  Mapping Types Between Java and XQuery &#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp246716"> </a><div class="pCellHeading">
+Java Type
+</div>
+</th>
+    <th><a name="wp246718"> </a><div class="pCellHeading">
+XQuery  SequenceType
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246720"> </a><div class="pCellBody">
+boolean
+</div>
+</td>
+    <td><a name="wp246722"> </a><div class="pCellBody">
+xs:boolean
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246724"> </a><div class="pCellBody">
+byte
+</div>
+</td>
+    <td><a name="wp246726"> </a><div class="pCellBody">
+xs:byte
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246728"> </a><div class="pCellBody">
+byte[]
+</div>
+</td>
+    <td><a name="wp246730"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:base64binary<br />xs:hexBinary
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246732"> </a><div class="pCellBody">
+double
+</div>
+</td>
+    <td><a name="wp246734"> </a><div class="pCellBody">
+xs:double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246736"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp246738"> </a><div class="pCellBody">
+xs:float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246740"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp246742"> </a><div class="pCellBody">
+xs:int
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246744"> </a><div class="pCellBody">
+long
+</div>
+</td>
+    <td><a name="wp246746"> </a><div class="pCellBody">
+xs:long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246748"> </a><div class="pCellBody">
+short
+</div>
+</td>
+    <td><a name="wp246750"> </a><div class="pCellBody">
+xs:short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246752"> </a><div class="pCellBody">
+void
+</div>
+</td>
+    <td><a name="wp246758"> </a><div class="pCellBody">
+empty-sequence() <a href="#wp246757"><span class="Footnote">1</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246760"> </a><div class="pCellBody">
+java.lang.Boolean
+</div>
+</td>
+    <td><a name="wp246762"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:boolean[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246764"> </a><div class="pCellBody">
+java.lang.Byte
+</div>
+</td>
+    <td><a name="wp246766"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:byte[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246768"> </a><div class="pCellBody">
+java.lang.Double
+</div>
+</td>
+    <td><a name="wp246770"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:double[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246772"> </a><div class="pCellBody">
+java.lang.Float
+</div>
+</td>
+    <td><a name="wp246774"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:float[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246776"> </a><div class="pCellBody">
+java.lang.Integer
+</div>
+</td>
+    <td><a name="wp246778"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:int[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246780"> </a><div class="pCellBody">
+java.lang.Long
+</div>
+</td>
+    <td><a name="wp246782"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:long[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246787"> </a><div class="pCellBody">
+java.lang.Object <a href="#wp246786"><span class="Footnote">2</span></a>
+</div>
+</td>
+    <td><a name="wp246789"> </a><div class="pCellBody">
+ddtek:javaObject
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246791"> </a><div class="pCellBody">
+java.lang.Short
+</div>
+</td>
+    <td><a name="wp246793"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:short[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246795"> </a><div class="pCellBody">
+java.lang.String
+</div>
+</td>
+    <td><a name="wp246797"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:untypedAtomic[?]<br />xs:string[?] 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246799"> </a><div class="pCellBody">
+java.math.BigDecimal
+</div>
+</td>
+    <td><a name="wp246801"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:decimal[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246803"> </a><div class="pCellBody">
+java.math.BigInteger
+</div>
+</td>
+    <td><a name="wp246805"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:integer[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246807"> </a><div class="pCellBody">
+java.net.URI
+</div>
+</td>
+    <td><a name="wp246809"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:anyURI[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246811"> </a><div class="pCellBody">
+java.xml.namespace.QName
+</div>
+</td>
+    <td><a name="wp246813"> </a><div class="pCellBody">
+ddtek:javaObject<br />xs:QName[?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246819"> </a><div class="pCellBody">
+javax.xml.transform.Source<a href="#wp246817"><span class="Footnote">3</span></a>
+</div>
+</td>
+    <td><a name="wp246821"> </a><div class="pCellBody">
+ddtek:javaObject<br />document-node( )
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246823"> </a><div class="pCellBody">
+org.w3c.doc.ProcessingInstruction
+</div>
+</td>
+    <td><a name="wp246825"> </a><div class="pCellBody">
+ddtek:javaObject<br />processing-instruction() [?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246827"> </a><div class="pCellBody">
+org.w3c.dom.Attr
+</div>
+</td>
+    <td><a name="wp246829"> </a><div class="pCellBody">
+ddtek:javaObject <br />attribute() [?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246831"> </a><div class="pCellBody">
+org.w3c.dom.Comment
+</div>
+</td>
+    <td><a name="wp246833"> </a><div class="pCellBody">
+ddtek:javaObject<br />comment() [?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246835"> </a><div class="pCellBody">
+org.w3c.dom.Document
+</div>
+</td>
+    <td><a name="wp246837"> </a><div class="pCellBody">
+ddtek:javaObject<br />document-node() [?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246839"> </a><div class="pCellBody">
+org.w3c.dom.Element
+</div>
+</td>
+    <td><a name="wp246841"> </a><div class="pCellBody">
+ddtek:javaObject<br />element() [?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246843"> </a><div class="pCellBody">
+org.w3c.dom.Node
+</div>
+</td>
+    <td><a name="wp246845"> </a><div class="pCellBody">
+ddtek:javaObject<br />document-node() [?]<br />element() [?]<br />attribute() [?]<br />comment() [?]<br />text() [?]<br />processing-instruction() [?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246847"> </a><div class="pCellBody">
+org.w3c.dom.Text
+</div>
+</td>
+    <td><a name="wp246849"> </a><div class="pCellBody">
+ddtek:javaObject<br />text() [?]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246851"> </a><div class="pCellBody">
+boolean, byte, double, float, int, long, short <a href="#wp246855"><span class="Footnote">4</span></a>
+</div>
+</td>
+    <td><a name="wp246863"> </a><div class="pCellBody">
+xs:anyAtomicType? <a  href="advancedfeatures9.html#wp246855"><sup style="font-family: Frutiger 55 Roman" class="cSuperscript">d</sup></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246865"> </a><div class="pCellBody">
+byte[], java.lang.Byte, java.lang.Double, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Short, java.lang.String, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.xml.namespace.QName
+</div>
+</td>
+    <td><a name="wp246870"> </a><div class="pCellBody">
+xs:anyAtomicType? <a  href="advancedfeatures9.html#wp246855"><sup style="font-family: Frutiger 55 Roman" class="cSuperscript">d</sup></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246872"> </a><div class="pCellBody">
+Any Java data type in this table
+</div>
+</td>
+    <td><a name="wp246877"> </a><div class="pCellBody">
+item() <a  href="advancedfeatures9.html#wp246855"><sup style="font-family: Frutiger 55 Roman" class="cSuperscript">d</sup></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246879"> </a><div class="pCellBody">
+Any Java object type in this table
+</div>
+</td>
+    <td><a name="wp246884"> </a><div class="pCellBody">
+item() ? <a  href="advancedfeatures9.html#wp246855"><sup style="font-family: Frutiger 55 Roman" class="cSuperscript">d</sup></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246886"> </a><div class="pCellBody">
+Any Java type in this table
+</div>
+</td>
+    <td><a name="wp246891"> </a><div class="pCellBody">
+item()* <a  href="advancedfeatures9.html#wp246757"><sup style="font-family: Frutiger 55 Roman" class="cSuperscript">a</sup></a><br />item() + <a  href="advancedfeatures9.html#wp246757"><sup style="font-family: Frutiger 55 Roman" class="cSuperscript">a</sup></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp246900"> </a><div class="pCellBody">
+<em class="cEmphasis">java type</em> [] <a href="#wp246898"><span class="Footnote">5</span></a>
+</div>
+</td>
+    <td><a name="wp246902"> </a><div class="pCellBody">
+ddtek:javaObject<br /><em class="cEmphasis">XQuery type of this table</em>(*|+)
+</div>
+</td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <td><a name="wp246757"> </a><div class="pCellBody">
+<a href="#wp246758"><span class="Footnote">1</span></a>  Only for return types.
+</div>
+<a name="wp246786"> </a><div class="pCellBody">
+<a href="#wp246787"><span class="Footnote">2</span></a>  java.lang.Object or another Java class not listed in this table. 
+</div>
+<a name="wp246817"> </a><div class="pCellBody">
+<a href="#wp246819"><span class="Footnote">3</span></a> Must be one of the following interfaces:<br />     javax.xml.transform.stream.StreamSource,<br />     javax.xml.transform.sax.SAXSource,<br />     javax.xml.transform.dom.DOMSource,<br />     javax.xml.transform.stax.StAXSource, or<br />     com.ddtek.xquery.StAXSource.
+</div>
+<a name="wp246818"> </a><div class="pCellBody">
+<a href="#wp246819"><span class="Footnote">3</span></a>	Note that only javax.xml.transform.dom.DOMSource is supported for the function&#8217;s parameters.
+</div>
+<a name="wp246855"> </a><div class="pCellBody">
+<a href="#wp246851"><span class="Footnote">4</span></a>  Useful to declare Java methods overloaded on argument type. See <a  href="advancedfeatures9.html#wp246914">Resolving Function Calls</a>.
+</div>
+<a name="wp246898"> </a><div class="pCellBody">
+<a href="#wp246900"><span class="Footnote">5</span></a>  		When the Java parameter type or method return type is an array, either declare the XQuery function to receive or return one of the matching types from this table and add a * or + quantifier.You can also use ddtek:javaObject with a * or + quantifier.
+</div>
+</td>
+  </tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp246907"> </a><p class="pBody">
+In cases where <a  href="advancedfeatures9.html#wp246712">Table&#160;12-5</a> lists multiple mapping options, consider the following information:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp246908"> </a><div class="pSmartList1"><li>ddtek:javaObject cannot be combined with other XQuery types. This means that when the expression you want to pass to a Java function is the result of calling another Java method that returns a ddtek:javaObject, you must declare the function as receiving a ddtek:javaObject expression. Also, when you declare the return type of a Java function as ddtek:javaObject, the returned value can be passed only into another Java method. The returned value cannot be used with any other XQuery expression.</li></div><a name="wp246909"> </a><div class="pSmartList1"><li>To map a Java method to an XQuery type when the method is overloaded on parameter type and no common XQuery type can be found for that parameter, you must use a less specific SequenceType. Typically, in this case, you would use a less specific SequenceType such as item(), xs:anyAtomicType, or ddtek:javaObject depending on the details of the set of overloaded methods. DataDirect XQuery attempts to map a given XQuery function invocation to the correct Java function using the static types of the function call arguments instead of the SequenceType of the arguments. See the next section <a  href="advancedfeatures9.html#wp246914">Resolving Function Calls</a> for more information on this topic.</li></div></ul></div>
+<a name="wp246914"> </a><h4 class="pHeading3">
+Resolving Function Calls
+</h4>
+<a name="wp246916"> </a><p class="pBody">
+Before DataDirect XQuery attempts to resolve the Java method used to invoke a given XQuery function call, DataDirect XQuery identifies the external function declaration.
+</p>
+<a name="wp246917"> </a><p class="pBody">
+Then, like any other XQuery function call, the static types of the argument expressions are matched with the SequenceType of the function declaration parameters. Static type errors are detected and reported. 
+</p>
+<a name="wp246918"> </a><p class="pBody">
+Finally, the Java method must be resolved. Sometimes, DataDirect XQuery cannot determine how to map an XQuery function declaration and the associated function call to a Java instance method. Ambiguity can occur for the following reasons:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp246919"> </a><div class="pSmartList1"><li>Java supports method overloading on argument type; however, XQuery does not support function overloading on argument type. </li></div><a name="wp246920"> </a><div class="pSmartList1"><li>Invoking Java instance methods from DataDirect XQuery requires a first artificial &quot;this&quot; argument. This requirement creates a potential conflict with static methods of the same class that accept a true Java object as their first argument.</li></div></ul></div>
+<a name="wp246921"> </a><p class="pBody">
+DataDirect XQuery uses the following steps to determine the Java method to invoke for a given function call. Except for the first step, each of the consecutive steps reduces the number of Java functions that are potential candidates to which to map the XQuery function call.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp246922"> </a><div class="pSmartList1"><li>Add all public (static and instance) methods and public constructors of the Java class identified through the function&#8217;s namespace.</li></div><a name="wp246923"> </a><div class="pSmartList1"><li>Use a public constructor if the name of the function equals the class name. In the absence of matching public constructors, DataDirect XQuery considers Java methods with the same name. </li></div><a name="wp246924"> </a><div class="pSmartList1"><li>Retain only Java methods whose names match the name of the function if the name of the function being invoked does not equal the class name.</li></div><a name="wp246925"> </a><div class="pSmartList1"><li>Remove all instance methods, unless the first argument in the function call is typed as ddtek:javaObject and the Java class associated with the ddtek:javaObject equals the class identified by the namespace of the function (see <a  href="advancedfeatures9.html#wp246945">Notes About Using Java Instance Methods</a>).</li></div><a name="wp246929"> </a><div class="pSmartList1"><li>Remove all static methods and constructors whose number of parameters does not match the number of parameters in the XQuery function declaration. </li></div><a name="wp246930"> </a><div class="pSmartList1"><li>Remove all instance methods whose number of parameters does not equal the number of parameters of the XQuery function declaration minus one. (This takes into account the first artificial &quot;this&quot; argument that is required when invoking an instance method from XQuery.)</li></div><a name="wp246931"> </a><div class="pSmartList1"><li>Remove all Java methods and constructors for which the SequenceType of the argument as specified in the function declaration does not match the type of the Java method. The type matching requires a mapping from an XQuery SequenceType to a Java type. This mapping is documented in <a  href="advancedfeatures9.html#wp246712">Table&#160;12-5</a>. Note that when the function argument is declared as item(), xs:anyAtomicType, or ddtek:javaObject, DataDirect uses the static type of the argument expression of the function call instead of the SequenceType of the function declaration. This typically is more accurate and allows correct method resolution in more scenarios. </li></div></ol></div>
+<a name="wp246935"> </a><p class="pBody">
+Unless exactly one method remains after the previously described procedure, one of the following static errors is generated:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Static error during resolving of external Java function. 
+Ambiguous call to Java external function &#39;&lt;function&gt;&#39;<a name="wp246936"> </a>
+</pre></div>
+<a name="wp246937"> </a><p class="pBody">
+or
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Static error during resolving of external Java function. No 
+matching Java external function found for &#39;&lt;function&gt;&#39;<a name="wp246938"> </a>
+</pre></div>
+<a name="wp246939"> </a><p class="pBody">
+Note that at execution time:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp246940"> </a><div class="pSmartList1"><li>Standard Java late binding applies when invoking instance methods. </li></div><a name="wp246941"> </a><div class="pSmartList1"><li>If the XQuery external function resolves to an instance method and at runtime the &quot;this&quot; argument evaluates to an empty sequence, the following error is generated:</li></div><a name="wp246942"> </a><p class="pSyntaxEmbed">
+Runtime error. Value of this pointer is null in call to external Java instance method.
+</p>
+</ul></div>
+<a name="wp246943"> </a><p class="pBody">
+NOTE: Generic methods introduced with J2SE 5.0 are not supported.
+</p>
+<a name="wp246945"> </a><h4 class="pHeading3">
+Notes About Using Java Instance Methods
+</h4>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp246947"> </a><div class="pSmartList1"><li>ddtek:javaObject can only be used when declaring a SequenceType and cannot be used in any other XQuery expression where a QName bound to a type is allowed such as cast, treat as, and so on.</li></div><a name="wp246948"> </a><div class="pSmartList1"><li>External variables of type ddtek:javaObject are not supported.</li></div><a name="wp246949"> </a><div class="pSmartList1"><li>When possible, DataDirect XQuery keeps track of the exact Java class that is associated with a given ddtek:javaObject-typed expression. This can be useful when trying to map a given function call to a Java method. </li></div><a name="wp246950"> </a><p class="pBodyRelative">
+When tracking the underlying Java class is not possible, you can use the DataDirect XQuery proprietary function, ddtek:javaCast, to resolve this issue (see <a  href="built-in_functions2.html#wp310706">ddtek:javaCast</a>). DataDirect XQuery cannot track the underlying Java class in the following situations:
+</p>
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp246954"> </a><div class="pSmartList2"><li>The ddtek:javaObject expression is the result of executing a recursive function, for example: </li></div>
+<a name="wp246955"> </a><p class="pSyntaxEmbed">
+declare namespace c1 = &quot;ddtekjava:c1&quot;;
+</p>
+<a name="wp246956"> </a><p class="pSyntaxEmbed">
+declare namespace c2 = &quot;ddtekjava:c2&quot;; 
+</p>
+<a name="wp246957"> </a><p class="pSyntaxEmbed">
+declare namespace c3 = &quot;ddtekjava:c3&quot;;
+</p>
+<a name="wp246958"> </a><p class="pSyntaxEmbed">
+declare variable $e as xs:integer external;
+</p>
+<a name="wp246959"> </a><p class="pSyntaxEmbed">
+declare function c1:c1() external;
+</p>
+<a name="wp246960"> </a><p class="pSyntaxEmbed">
+declare function c2:c2() external;
+</p>
+<a name="wp246961"> </a><p class="pSyntaxEmbed">
+declare function c3:f($this as ddtek:javaObject) external;
+</p>
+<a name="wp246962"> </a><p class="pSyntaxEmbed">
+declare function local:recursive($p as xs:integer) as ddtek:javaObject { 
+</p>
+<a name="wp246963"> </a><p class="pSyntaxEmbed">
+if($p le 1) then c1:c1() 
+</p>
+<a name="wp246964"> </a><p class="pSyntaxEmbed">
+else if($p eq 2) then c2:c2() 
+</p>
+<a name="wp246965"> </a><p class="pSyntaxEmbed">
+else local:recursive($p - 2)
+</p>
+<a name="wp246966"> </a><p class="pSyntaxEmbed">
+};
+</p>
+<a name="wp246967"> </a><p class="pSyntaxEmbed">
+c3:f(local:recursive($e))
+</p>
+<a name="wp246968"> </a><p class="pBodyRelative">
+Assuming that there are two static c3:f methods, the first taking an instance of c1 and the second taking an instance of c2, DataDirect XQuery is unable to determine statically which one to invoke and generates a static error.
+</p>
+<a name="wp246969"> </a><div class="pSmartList2"><li>The static type of an expression is a sequence (or union) of different ddtek:javaObject types, for example:</li></div>
+<a name="wp246970"> </a><p class="pSyntaxEmbed">
+declare namespace c1 = &quot;ddtekjava:c1&quot;;
+</p>
+<a name="wp246971"> </a><p class="pSyntaxEmbed">
+declare namespace c2 = &quot;ddtekjava:c2&quot;;
+</p>
+<a name="wp246972"> </a><p class="pSyntaxEmbed">
+declare namespace c3 = &quot;ddtekjava:c3&quot;;
+</p>
+<a name="wp246973"> </a><p class="pSyntaxEmbed">
+declare function c1:c1() external;
+</p>
+<a name="wp246974"> </a><p class="pSyntaxEmbed">
+declare function c2:c2() external;
+</p>
+<a name="wp246975"> </a><p class="pSyntaxEmbed">
+declare function c3:f($this as ddtek:javaObject) external;
+</p>
+<a name="wp246976"> </a><p class="pSyntaxEmbed">
+for $x in (c1:c1(),c2:c2()) return c3:f($x)
+</p>
+<a name="wp246977"> </a><p class="pBodyRelative">
+Assuming that there are two static c3:f methods, the first taking an instance of c1 and the second taking an instance of c2, DataDirect XQuery is unable to determine statically which one to invoke and generates a static error.
+</p>
+</ul></div>
+<a name="wp246978"> </a><div class="pSmartList1"><li>Keeping in mind the preceding information about tracking the extract Java class, it is possible to return a ddtek:javaObject value from a query. A Java program containing the query can retrieve the result by:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp246979"> </a><div class="pSmartList2"><li>Serializing the result by using one of the following XQSequence methods: getSequenceAsString, writeSequence, writeSequenceToSAX, or writeSequenceToStream (see also <a  href="serialization_support.html#wp245044">Serialization Support</a>).</li></div>
+<a name="wp246983"> </a><div class="pSmartList2"><li>Using the XQSequence getObject method, which returns the Java object.</li></div>
+<a name="wp246984"> </a><div class="pSmartList2"><li>Using the XQSequence getLexicalValue method.</li></div>
+<a name="wp246985"> </a><p class="pBodyRelative">
+NOTE: Using any other XQJ method to retrieve a ddtek:javaObject value generates an error. 
+</p>
+</ul></div>
+</ul></div>
+<a name="wp246989"> </a><p class="pBody">
+See also <a  href="advancedfeatures9.html#wp246914">Resolving Function Calls</a>. 
+</p>
+<a name="wp246990"> </a><h4 class="pHeading3">
+Disabling Java Functions
+</h4>
+<a name="wp246992"> </a><p class="pBody">
+You can disable the ability to invoke Java functions, for example, for security reasons, by specifying the AllowJavaFunctions property of DDXQDataSource. See <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a>.
+</p>
+<a name="wp246998"> </a><h3 class="pHeading2">
+Using SQL Functions
+</h3>
+<a name="wp247000"> </a><p class="pBody">
+DataDirect XQuery allows you to invoke any SQL function provided by any supported database, including built-in database functions and stored procedures. See <a  href="advancedfeatures9.html#wp246630">Example: SQL Function</a> for an example of invoking a SQL function.
+</p>
+<a name="wp247004"> </a><h4 class="pHeading3">
+Requirements and Restrictions
+</h4>
+<a name="wp247006"> </a><p class="pBody">
+The requirements and restrictions for using SQL functions within a query are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp247007"> </a><div class="pSmartList1"><li>You must declare the SQL function as an external function in the http://www.datadirect.com/xquery/sql-function namespace, which has a predefined prefix of ddtek-sql. </li></div><a name="wp247008"> </a><p class="pBodyRelative">
+The following example first declares rtrim(), and then invokes it within a query:
+</p>
+</ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:rtrim($inp as xs:string) as xs:string external;<a name="wp247009"> </a>
+for $x in collection(&#39;items&#39;)//itemno<a name="wp247010"> </a>
+return<a name="wp247011"> </a>
+   &lt;a&gt;{ddtek-sql:rtrim(concat($x,&#39;  &#39;))}&lt;/a&gt;<a name="wp247012"> </a>
+</pre></div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp247013"> </a><div class="pSmartList1"><li>You must declare a JDBC Escape function as an external function in the http://www.datadirect.com/xquery/sql-jdbc-escape-function namespace, which has a predefined prefix of ddtek-sql-jdbc.</li></div><a name="wp247014"> </a><div class="pSmartList1"><li>Functions or procedures returning results through output parameters are not supported.</li></div><a name="wp247015"> </a><div class="pSmartList1"><li>Functions that return a table are supported if the table function is defined in the source configuration file. This is specified in the tableFunction element of the source configuration file. See <a  href="advancedfeatures9.html#wp247199">Using SQL Table Functions</a> for more information.</li></div><a name="wp247019"> </a><div class="pSmartList1"><li>The SequenceTypes for parameter and return values in the external function declarations must match the mapping of database data types to XML schema types as described in the tables listed in <a  href="database_support3.html#wp299568">Data Type Mappings</a>.</li></div><a name="wp247023"> </a><div class="pSmartList1"><li>The SQL function is not supported if the SQL function through an argument or return type refers to a data type for which no mapping is defined. See <a  href="database_support3.html#wp299568">Data Type Mappings</a> for the mappings of database data types to XML schema types.</li></div><a name="wp247027"> </a><div class="pSmartList1"><li>The quantifier of the return type must be ? or 1.</li></div></ul></div>
+<a name="wp247029"> </a><h4 class="pHeading3">
+Microsoft SQL Server Examples
+</h4>
+<a name="wp247030"> </a><p class="pBody">
+This section presents examples of Microsoft SQL Server functions and describes their equivalents in XQuery.
+</p>
+<a name="wp247031"> </a><p class="pBodyBold">
+Example: ddtek-sql:STUFF
+</p>
+<a name="wp247032"> </a><p class="pBody">
+The STUFF function inserts the contents of one string in another. The syntax of this function is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+STUFF(<code><em>character_expr</em></code>,<code><em>start</em></code>,<code><em>length</em></code>,<code><em>character_expr</em></code>)<a name="wp247033"> </a>
+</pre></div>
+<a name="wp247034"> </a><p class="pBody">
+The equivalent XQuery declaration is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:STUFF(<a name="wp247035"> </a>
+  $p1 as xs:string?,<a name="wp247036"> </a>
+  $p2 as xs:integer,<a name="wp247037"> </a>
+  $p3 as xs:integer,<a name="wp247038"> </a>
+  $p4 as xs:string) as xs:string? external;<a name="wp247039"> </a>
+</pre></div>
+<a name="wp247040"> </a><p class="pBody">
+TIP: Although ddtek-sql:STUFF accepts null for its arguments, it is a better idea to provide more precise SequenceType quantifier information, as shown in the preceding XQuery declaration, if the context in which the query is being executed allows such optimization.
+</p>
+<a name="wp247041"> </a><p class="pBody">
+An example query using ddtek-sql:STUFF is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;users&#39;)//userid/ddtek-sql:STUFF(.,1,0,
+  &quot;userid=&quot;)<a name="wp247042"> </a>
+</pre></div>
+<a name="wp247043"> </a><p class="pBody">
+The results are:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+userid=Jonathan<a name="wp247044"> </a>
+userid=Minollo<a name="wp247045"> </a>
+</pre></div>
+<a name="wp247046"> </a><p class="pBodyBold">
+Example: ddtek-sql:STDEV
+</p>
+<a name="wp247047"> </a><p class="pBody">
+The STDEV function returns the standard deviation of a set of values. The syntax of this function is: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+STDEV(<code><em>expression</em></code>)<a name="wp247048"> </a>
+</pre></div>
+<a name="wp247049"> </a><p class="pBody">
+where <code><em>expression</em></code> is a numeric expression.
+</p>
+<a name="wp247050"> </a><p class="pBody">
+The equivalent XQuery declaration is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:STDEV($p as xs:decimal*) <a name="wp247051"> </a>
+  as xs:double? external;<a name="wp247052"> </a>
+</pre></div>
+<a name="wp247053"> </a><p class="pBody">
+Because STDEV is an aggregate function, the quantifier of the SequenceType for $p must be *.
+</p>
+<a name="wp247054"> </a><p class="pBody">
+IMPORTANT: You must use * as a quantifier for the argument of the ddtek-sql:STDEV declaration. If you do not, a SQL error is raised.
+</p>
+<a name="wp247055"> </a><p class="pBody">
+An example of invoking ddtek-sql:STDEV is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:STDEV($p as xs:decimal*) <a name="wp247056"> </a>
+  as xs:double? external;<a name="wp247057"> </a>
+ddtek-sql:STDEV(collection(&#39;historical&#39;)//volume)<a name="wp247058"> </a>
+</pre></div>
+<a name="wp247059"> </a><p class="pBody">
+Assume that another invocation of ddtek-sql:STDEV within the same query needs to operate on xs:double arguments. In this situation, you cannot declare the argument of ddtek-sql:STDEV as xs:decimal*. Instead, declare the argument as xs:anyAtomicType*, as shown: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:STDEV($p as xs:anyAtomicType*) <a name="wp247060"> </a>
+  as xs:double? external;<a name="wp247061"> </a>
+ddtek-sql:STDEV(<a name="wp247062"> </a>
+  collection(&#39; historical &#39;)//volume/xs:decimal(.)),<a name="wp247063"> </a>
+ddtek-sql:STDEV(<a name="wp247064"> </a>
+  collection(&#39;historical&#39;)//actualclose/xs:double(.))<a name="wp247065"> </a>
+</pre></div>
+<a name="wp247067"> </a><h4 class="pHeading3">
+DB2 Examples
+</h4>
+<a name="wp247068"> </a><p class="pBody">
+This section presents examples of DB2 functions and describes their equivalents in XQuery.
+</p>
+<a name="wp247069"> </a><p class="pBodyBold">
+Example: ddtek-sql:encrypt
+</p>
+<a name="wp247070"> </a><p class="pBody">
+The encrypt function returns an encrypted value. The syntax of this function is: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+encrypt(<code><em>StringDataToEncrypt</em></code>, <code><em>PasswordOrPhrase</em></code>,
+ <code><em>PasswordHint</em></code>)<a name="wp247071"> </a>
+</pre></div>
+<a name="wp247072"> </a><p class="pBody">
+The equivalent XQuery declaration is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:encrypt($data as xs:string, <a name="wp247073"> </a>
+                                   $password as xs:string, <a name="wp247074"> </a>
+                                   $hint as xs:string) <a name="wp247075"> </a>
+  as xs:string external;<a name="wp247076"> </a>
+</pre></div>
+<a name="wp247077"> </a><p class="pBody">
+An example query using ddtek-sql:encrypt is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:encrypt($data as xs:string, <a name="wp247078"> </a>
+                                   $password as xs:string, <a name="wp247079"> </a>
+                                   $hint as xs:string) <a name="wp247080"> </a>
+  as xs:string external;<a name="wp247081"> </a>
+for $x in collection(&#39;users&#39;)/users<a name="wp247082"> </a>
+return<a name="wp247083"> </a>
+&lt;user id=&#39;{$x/userid}&#39; encrypted=&#39;{ddtek-sql:encrypt<a name="wp247084"> </a>
+  concat($x/firstname,$x/lastname,$x/othername),<a name="wp247085"> </a>
+  &#39;secret&#39;,&#39;hint&#39;)}&#39; /&gt;<a name="wp247086"> </a>
+</pre></div>
+<a name="wp247087"> </a><p class="pBody">
+This example returns: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;user <a name="wp247088"> </a>
+  id=&quot;Jonathan&quot;<a name="wp247089"> </a>
+  encrypted= 
+ &quot;089B6504E404BFD568696E743A5B64F5A7838CEEEE66DE7F9C5CD92D5E70954C00A81E71&quot;/&gt;<a name="wp247090"> </a>
+&lt;user <a name="wp247091"> </a>
+  id=&quot;Minollo&quot; <a name="wp247092"> </a>
+  encrypted=&quot;08C04004E404A5D568696E742C93D28C8A2946BF74DB19F6CA6B27BD&quot;/&gt;<a name="wp247093"> </a>
+</pre></div>
+<a name="wp247094"> </a><p class="pBodyBold">
+Example: ddtek-sql:variance
+</p>
+<a name="wp247095"> </a><p class="pBody">
+The variance function returns the variance of a set of numbers. The syntax of this function is: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+variance(<code><em>numeric-expression</em></code>)<a name="wp247096"> </a>
+</pre></div>
+<a name="wp247097"> </a><p class="pBody">
+The equivalent XQuery declaration is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:variance($inp as xs:decimal*) as<a name="wp247098"> </a>
+  xs:double external;<a name="wp247099"> </a>
+</pre></div>
+<a name="wp247100"> </a><p class="pBody">
+An example query using ddtek-sql:variance is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:variance($inp as xs:decimal*) as<a name="wp247101"> </a>
+  xs:double external;<a name="wp247102"> </a>
+for $x in 
+distinct-values(collection(&#39;historical&#39;)/historical/ticker)<a name="wp247103"> </a>
+return<a name="wp247104"> </a>
+&lt;ticker-variance <a name="wp247105"> </a>
+    ticker=&#39;{$x}&#39; <a name="wp247106"> </a>
+    variance=&#39;{ddtek-sql:variance(<a name="wp247107"> </a>
+    collection(&#39;historical&#39;)/historical[ticker eq<a name="wp247108"> </a>
+                $x]/adjustedclose)}&#39; /&gt;<a name="wp247109"> </a>
+</pre></div>
+<a name="wp247110"> </a><p class="pBody">
+Because variance is an aggregate function, the quantifier of the SequenceType for $inp must be *.
+</p>
+<a name="wp247111"> </a><p class="pBody">
+The example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;ticker-variance ticker=&quot;AAPL&quot; variance=&quot;136.3814396049211&quot;/&gt;<a name="wp247112"> </a>
+&lt;ticker-variance ticker=&quot;ADBE&quot; variance=&quot;302.2495900777491&quot;/&gt;<a name="wp247113"> </a>
+&lt;ticker-variance ticker=&quot;AMZN&quot; variance=&quot;559.4292663498876&quot;/&gt;<a name="wp247114"> </a>
+...<a name="wp247115"> </a>
+</pre></div>
+<a name="wp247117"> </a><h4 class="pHeading3">
+Oracle Examples
+</h4>
+<a name="wp247118"> </a><p class="pBody">
+This section presents examples of Oracle functions and describes their equivalents in XQuery.
+</p>
+<a name="wp247119"> </a><p class="pBodyBold">
+Example: ddtek-sql:DECODE
+</p>
+<a name="wp247120"> </a><p class="pBody">
+The DECODE function behaves as a SQL IF-THEN-ELSE statement. The syntax of this function is: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DECODE(expr, search, result<a name="wp247121"> </a>
+             [, search, result ]...<a name="wp247122"> </a>
+       [, default ]<a name="wp247123"> </a>
+      )<a name="wp247124"> </a>
+</pre></div>
+<a name="wp247125"> </a><p class="pBody">
+This function is overloaded; therefore, it must be declared multiple times, for example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function  ddtek-sql:DECODE(<a name="wp247126"> </a>
+  $p1 as xs:string, <a name="wp247127"> </a>
+  $p2 as xs:string, <a name="wp247128"> </a>
+  $p3 as xs:string, <a name="wp247129"> </a>
+  $p4 as xs:string) as xs:string external;<a name="wp247130"> </a>
+declare function ddtek-sql:DECODE(<a name="wp247131"> </a>
+  $p1 as xs:string, <a name="wp247132"> </a>
+  $p2 as xs:string, <a name="wp247133"> </a>
+  $p3 as xs:string, <a name="wp247134"> </a>
+  $p4 as xs:string, <a name="wp247135"> </a>
+  $p5 as xs:string, <a name="wp247136"> </a>
+  $p6 as xs:string) as xs:string external;<a name="wp247137"> </a>
+for $h in collection(&#39;holdings&#39;)/holdings<a name="wp247138"> </a>
+let $ticker := $h/stockticker<a name="wp247139"> </a>
+let $description := ddtek-sql:DECODE(<a name="wp247140"> </a>
+  $ticker,<a name="wp247141"> </a>
+  &#39;PRGS&#39;,&#39;Progress Software Cooperation&#39;, <a name="wp247142"> </a>
+  fn:concat(&#39;Sorry but &#39;,$ticker,&#39; is not a recognized
+    ticker&#39;))<a name="wp247143"> </a>
+let $holder := ddtek-sql:DECODE(<a name="wp247144"> </a>
+  $h/userid,<a name="wp247145"> </a>
+  &#39;Jonathan&#39;, &#39;Mr John&#39;, <a name="wp247146"> </a>
+  &#39;Minollo&#39;, &#39;Senior Minollo&#39;, <a name="wp247147"> </a>
+  &#39;????&#39;)<a name="wp247148"> </a>
+return<a name="wp247149"> </a>
+  &lt;who-owns-what <a name="wp247150"> </a>
+     description=&#39;{$description}&#39; <a name="wp247151"> </a>
+     holder=&#39;{$holder}&#39; /&gt;<a name="wp247152"> </a>
+</pre></div>
+<a name="wp247153"> </a><p class="pBody">
+This example returns:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;who-owns-what description=&quot;Progress Software Cooperation&quot; holder=&quot;Mr John&quot;/&gt;<a name="wp247154"> </a>
+&lt;who-owns-what description=&quot;Progress Software Cooperation&quot; <a name="wp247155"> </a>
+  holder=&quot;Senior Minollo&quot;/&gt;<a name="wp247156"> </a>
+&lt;who-owns-what description=&quot;Sorry but AMZN is not a recognized ticker&quot;<a name="wp247157"> </a>
+  holder=&quot;Mr John&quot;/&gt;<a name="wp247158"> </a>
+&lt;who-owns-what description=&quot;Sorry but AMZN is not a recognized ticker&quot;<a name="wp247159"> </a>
+  holder=&quot;Senior Minollo&quot;/&gt;<a name="wp247160"> </a>
+...<a name="wp247161"> </a>
+</pre></div>
+<a name="wp247162"> </a><h4 class="pHeading3">
+Using User-Defined Functions
+</h4>
+<a name="wp247164"> </a><p class="pBody">
+User-defined functions are available for all supported databases. This section provides examples for DB2, Microsoft SQL Server, and Oracle.
+</p>
+<a name="wp247165"> </a><p class="pBody">
+For the following examples, assume a user-defined function named FUNC_TAN. 
+</p>
+<a name="wp247166"> </a><p class="pBodyBold">
+Example: DB2
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE FUNCTION FUNC_TAN (X DOUBLE) RETURNS DOUBLE<a name="wp247167"> </a>
+LANGUAGE SQL CONTAINS SQL NO EXTERNAL ACTION DETERMINISTIC<a name="wp247168"> </a>
+RETURN SIN(X)/COS(X)<a name="wp247169"> </a>
+</pre></div>
+<a name="wp247170"> </a><p class="pBodyBold">
+<b class="cBold">Example: Microsoft SQL Server</b>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE FUNCTION FUNC_TAN (@X float) RETURNS float<a name="wp247171"> </a>
+BEGIN RETURN (SIN(@X)/COS(@X)) END<a name="wp247172"> </a>
+</pre></div>
+<a name="wp247173"> </a><p class="pBodyBold">
+Example: Oracle
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE OR REPLACE FUNCTION FUNC_TAN (X IN FLOAT) RETURN
+  FLOAT <a name="wp247174"> </a>
+IS TMP FLOAT; <a name="wp247175"> </a>
+BEGIN  <a name="wp247176"> </a>
+TMP := SIN(X)/COS(X); <a name="wp247177"> </a>
+RETURN (TMP); <a name="wp247178"> </a>
+END;<a name="wp247179"> </a>
+</pre></div>
+<a name="wp247180"> </a><p class="pBody">
+The following XQuery expression declares and invokes the function:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:FUNC_TAN($x as xs:double?) <a name="wp247181"> </a>
+  as xs:double? external; <a name="wp247182"> </a>
+for $v in collection(&#39;some_table&#39;)//some_numeric_column<a name="wp247183"> </a>
+return ddtek-sql:FUNC_TAN($v)<a name="wp247184"> </a>
+</pre></div>
+<a name="wp247185"> </a><h4 class="pHeading3">
+Using JDBC Scalar Functions
+</h4>
+<a name="wp247188"> </a><p class="pBody">
+In addition to allowing you to invoke any SQL function provided by any supported database, including built-in database functions, DataDirect XQuery allows you to use JDBC scalar functions, which are not database specific. Refer to the JDBC specification for a complete list of JDBC scalar functions.
+</p>
+<a name="wp247189"> </a><p class="pBody">
+You must declare a JDBC scalar function in the http://www.datadirect.com/xquery/sql-jdbc-escape-function namespace, which has a predefined prefix of ddtek-sql-jdbc.
+</p>
+<a name="wp247190"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql-jdbc:user() as xs:string external;<a name="wp247191"> </a>
+&lt;holding-report generated-by=&#39;{ddtek-sql-jdbc:user()}&#39;&gt;{<a name="wp247192"> </a>
+  for $h in collection(&#39;holdings&#39;)/holdings<a name="wp247193"> </a>
+  return<a name="wp247194"> </a>
+    &lt;holding-info userid=&quot;{$h/userid}&quot; ticker=&quot;{$h/stockticker}&quot; /&gt;<a name="wp247195"> </a>
+}&lt;/holding-report&gt;<a name="wp247196"> </a>
+</pre></div>
+<a name="wp247199"> </a><h4 class="pHeading3">
+Using SQL Table Functions
+</h4>
+<a name="wp247201"> </a><p class="pBody">
+DataDirect XQuery supports table functions, including user-defined table functions, for DB2, Informix, Oracle, PostgreSQL, and Microsoft SQL Server. 
+</p>
+<a name="wp247202"> </a><p class="pBody">
+To use SQL table functions, you must declare the function and the structure of the returned table using the tableFunction element in the source configuration file.
+</p>
+<a name="wp247206"> </a><p class="pBody">
+DB2 has a system table function, SYSPROC.DB_PARTITIONS, that returns system information of the DB2 instance. (Refer to your IBM DB2 documentation for details about this table function.) To invoke this function, configure the source configuration file as shown:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;schema name=&quot;SYSPROC&quot;&gt;<a name="wp247207"> </a>
+...<a name="wp247208"> </a>
+   &lt;tableFunction name=&quot;DB_PARTITIONS&quot;&gt;<a name="wp247209"> </a>
+     &lt;resultSet&gt;<a name="wp247210"> </a>
+       &lt;column name=&quot;PARTITION_NUMBER&quot; schemaType=&quot;short&quot;/&gt;<a name="wp247211"> </a>
+       &lt;column name=&quot;HOST_NAME&quot; schemaType=&quot;string&quot;/&gt;<a name="wp247212"> </a>
+       &lt;column name=&quot;PORT_NUMBER&quot; schemaType=&quot;short&quot;/&gt;<a name="wp247213"> </a>
+       &lt;column name=&quot;SWITCH_NAME&quot; schemaType=&quot;string&quot;/&gt;<a name="wp247214"> </a>
+     &lt;/resultSet&gt;<a name="wp247215"> </a>
+   &lt;/tableFunction&gt;<a name="wp247216"> </a>
+...<a name="wp247217"> </a>
+&lt;/schema&gt;<a name="wp247218"> </a>
+</pre></div>
+<a name="wp247219"> </a><p class="pBody">
+Once you have configured the source configuration file, declare the function in the ddtek-sql namespace (http://www.datadirect.com/xquery/sql-function) and use a return type of document-node(element()). For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:XVS.SYSPROC.DB_PARTITIONS() as<a name="wp247220"> </a>
+  document-node(element()) external;<a name="wp247221"> </a>
+ddtek-sql:XVS.SYSPROC.DB_PARTITIONS()<a name="wp247222"> </a>
+</pre></div>
+<a name="wp247223"> </a><p class="pBody">
+One possible result for this example is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;DB_PARTITIONS&gt;<a name="wp247224"> </a>
+  &lt;PARTITION_NUMBER&gt;0&lt;/PARTITION_NUMBER&gt;<a name="wp247225"> </a>
+  &lt;HOST_NAME&gt;the_host&lt;/HOST_NAME&gt;<a name="wp247226"> </a>
+  &lt;PORT_NUMBER&gt;0&lt;/PORT_NUMBER&gt;<a name="wp247227"> </a>
+  &lt;SWITCH_NAME&gt;the_switch_name&lt;/SWITCH_NAME&gt;<a name="wp247228"> </a>
+&lt;/DB_PARTITIONS&gt;<a name="wp247229"> </a>
+</pre></div>
+<a name="wp247230"> </a><p class="pBody">
+A second example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare function ddtek-sql:XVS.SYSPROC.DB_PARTITIONS() as<a name="wp247231"> </a>
+  document-node(element()) external;<a name="wp247232"> </a>
+for $x in ddtek-sql:XVS.SYSPROC.DB_PARTITIONS()/DB_PARTITIONS<a name="wp247233"> </a>
+return<a name="wp247234"> </a>
+  &lt;partition number=&#39;{$x/PARTITION_NUMBER}&#39; host=&#39;{$x/HOST_NAME}&#39; /&gt;<a name="wp247235"> </a>
+</pre></div>
+<a name="wp247236"> </a><p class="pBody">
+One possible result for this example is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;partition number=&quot;0&quot; host=&quot;the_host&quot;/&gt;<a name="wp247237"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

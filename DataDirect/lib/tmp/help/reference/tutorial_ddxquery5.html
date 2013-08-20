@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:09" />
+  <title>Querying Data from XML Files or DOM Trees</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp144314"> </a><h2 class="pNewHTMLPageNum">
+Querying Data from XML Files or DOM Trees
+</h2>
+<hr />
+<a name="wp144334"> </a><p class="pBody">
+In the previous section, we queried data in a relational database. Now let&#39;s query an XML file. 
+</p>
+<a name="wp160773"> </a><h3 class="pHeading2">
+Querying an XML File
+</h3>
+<a name="wp160778"> </a><p class="pBody">
+Suppose you want to query holdings for a specific customer identified by the userid element in a file named holdings.xml, which looks like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;holdings&gt;<a name="wp146206"> </a>
+   &lt;row&gt;<a name="wp145864"> </a>
+      &lt;userid&gt;Jonathan&lt;/userid&gt;<a name="wp145865"> </a>
+      &lt;stockticker&gt;AMZN&lt;/stockticker&gt;<a name="wp145866"> </a>
+      &lt;shares&gt;3000&lt;/shares&gt;<a name="wp145867"> </a>
+   &lt;/row&gt;<a name="wp145868"> </a>
+   &lt;row&gt;<a name="wp145869"> </a>
+      &lt;userid&gt;Minollo&lt;/userid&gt;<a name="wp145870"> </a>
+      &lt;stockticker&gt;EBAY&lt;/stockticker&gt;<a name="wp145871"> </a>
+      &lt;shares&gt;4000&lt;/shares&gt;<a name="wp145872"> </a>
+   &lt;/row&gt;<a name="wp145873"> </a>
+&lt;/holdings&gt;<a name="wp144361"> </a>
+</pre></div>
+<a name="wp149607"> </a><p class="pBody">
+Here&#39;s an XQuery expression that returns holdings for a customer named Jonathan:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+doc(&quot;holdings.xml&quot;)/holdings/row[userid=&quot;Jonathan&quot;]<a name="wp144529"> </a>
+</pre></div>
+<a name="wp144366"> </a><p class="pBody">
+Suppose we wanted to return holdings for other customers. If you write an XQuery with an external variable that provides the name of the customer whose holdings you require, the Java application can specify the name of the customer before it executes the query. If you use another external variable to represent the document, the Java application can pass any document to the query at runtime. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $u as xs:string external; <a name="wp144580"> </a>
+declare variable $d as document-node(element(*, xs:untyped)) external; <a name="wp144581"> </a>
+$d/holdings/row[userid=$u] <a name="wp144582"> </a>
+</pre></div>
+<a name="wp144565"> </a><h3 class="pHeading2">
+Querying a DOM 
+</h3>
+<a name="wp160789"> </a><p class="pBody">
+Now, let&#39;s write Java code to create a DOM tree and bind it to the variable $d. Use the following code to create a DOM tree.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();<a name="wp144615"> </a>
+factory.setNamespaceAware(true);<a name="wp144617"> </a>
+<a name="wp149405"> </a>
+DocumentBuilder parser = factory.newDocumentBuilder();<a name="wp149452"> </a>
+File xmlFile = new File(&quot;holdings.xml&quot;);<a name="wp149443"> </a>
+Document document = parser.parse(xmlFile);<a name="wp149420"> </a>
+</pre></div>
+<a name="wp144390"> </a><p class="pBody">
+Once you create a DOM tree, you can use XQJ to bind the DOM tree to a variable and query it. First, you create an expression object, and then bind the document to the variable $d for this expression.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQConnection conn = ds.getConnection();<a name="wp144642"> </a>
+XQExpression xqExpression = conn.createExpression();<a name="wp144643"> </a>
+xqExpression.bindNode(new QName(&quot;d&quot;), document);<a name="wp144645"> </a>
+</pre></div>
+<a name="wp144646"> </a><p class="pBody">
+Now, execute the expression and output the result:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+FileReader fileReader = new FileReader(&quot;flwor.xq&quot;);<a name="wp144668"> </a>
+<a name="wp144669"> </a>
+XQSequence xqSequence = xqExpression.executeQuery(fileReader);<a name="wp144670"> </a>
+System.out.println(xqSequence.getSequenceAsString());<a name="wp144672"> </a>
+</pre></div>
+<a name="wp148166"> </a><p class="pBody">
+Other similar examples can be found in the <a  href="examples4.html#wp143212">ExternalVariables</a> example.
+</p>
+<a name="wp157977"> </a><h3 class="pHeading2">
+Querying a Directory
+</h3>
+<a name="wp160840"> </a><p class="pBody">
+You can also query XML files in a directory. See <a  href="advancedfeatures3.html#wp219064">Querying Multiple Files in a Directory</a> for information about this feature. An example can be found in the <a  href="examples4.html#wp143121">XMLQuery</a> example.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

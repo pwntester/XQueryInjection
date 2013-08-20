@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:12" />
+  <title>Storing Query Results</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp220594"> </a><h2 class="pNewHTMLPageNum">
+Storing Query Results
+</h2>
+<hr />
+<a name="wp220595"> </a><p class="pBody">
+The XUF specification defines the <code class="cCode">fn:put()</code> function as
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+fn:put($node as node(), $uri as xs:string) as empty-sequence()<a name="wp220596"> </a>
+</pre></div>
+<a name="wp220597"> </a><p class="pBody">
+where:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp220598"> </a><div class="pSmartList1"><li><code class="cCode">$node</code> can be any node, whether or not it is updated</li></div><a name="wp220599"> </a><div class="pSmartList1"><li><code class="cCode">$uri</code> can be any valid URI and is processed in the same way as a URI provided to the <code class="cCode">ddtek:serialize-to-url()</code> function</li></div></ul></div>
+<a name="wp220685"> </a><p class="pBody">
+The <code class="cCode">fn:put()</code> function is similar to the <code class="cCode">ddtek:serialize-to-url()</code> function, but it is executed at the end of the XQuery execution, when all pending updates have been applied &#8211; but before control is returned to the calling application. See <a  href="built-in_functions2.html#wp298908">ddtek:serialize-to-url</a> for more information on that function.
+</p>
+<a name="wp222098"> </a><h3 class="pHeading2">
+Example
+</h3>
+<a name="wp222102"> </a><p class="pBody">
+The following code shows an example of the <code class="cCode">fn:put()</code> function being used in an updating XQuery:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $holding := doc(&#39;holdings.xml&#39;);<a name="wp222118"> </a>
+delete nodes $holding/table/holdings[UserId = &quot;Minollo&quot;],<a name="wp222119"> </a>
+put($holding, &quot;newHolding.xml&quot;) <a name="wp222113"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

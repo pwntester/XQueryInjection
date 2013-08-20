@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:07" />
+  <title>Using the Command Line Utility</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp939288"> </a><h2 class="pNewHTMLPageNum">
+Using the Command Line Utility
+</h2>
+<hr />
+<a name="wp953311"> </a><p class="pBody">
+The DataDirect XQuery command line utility allows you to quickly run and test XQueries through a console window.
+</p>
+<a name="wp953334"> </a><p class="pBody">
+To invoke this utility, enter the following command at a prompt from the /lib subdirectory of your DataDirect XQuery installation directory (for example, ddxq/lib):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar<a name="wp953343"> </a>
+</pre></div>
+<a name="wp953347"> </a><p class="pBody">
+Alternatively, you can specify the path to the lib directory in the command line, for example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq/lib/ddxq.jar<a name="wp953844"> </a>
+</pre></div>
+<a name="wp957690"> </a><p class="pBody">
+NOTE: If your XQuery needs to locate classes other than the DataDirect XQuery classes &#8211; if you are specifying a custom URI resolver, for example &#8211; you must perform one of the following actions:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp954331"> </a><div class="pSmartList1"><li>Set your CLASSPATH to include the path to the jar files or directories for these classes and invoke the utility using the following command:</li></div><a name="wp954330"> </a><p class="pSyntaxEmbed">
+java com.ddtek.xquery.Query
+</p>
+<a name="wp957694"> </a><p class="pBodyRelative">
+NOTE: If you are connecting to PostgreSQL, you must add the  PostgreSQL JDBC driver jar file to the CLASSPATH in addition to ddxq.jar. Refer to your PostgreSQL JDBC driver documentation for the name of the jar file.
+</p>
+<a name="wp954338"> </a><div class="pSmartList1"><li>Add the class path to the command line:</li></div><a name="wp957708"> </a><p class="pSyntaxEmbed">
+java -cp c:\myClasses com.ddtek.xquery.Query
+</p>
+<a name="wp957710"> </a><p class="pBodyRelative">
+See <a  href="quickstart3.html#wp954687">Example 8</a>.
+</p>
+<a name="wp957715"> </a><p class="pBodyRelative">
+NOTE: If you are connecting to PostgreSQL, you must add the  PostgreSQL JDBC driver jar file to the CLASSPATH in addition to ddxq.jar. Refer to your PostgreSQL JDBC driver documentation for the name of the jar file.
+</p>
+</ul></div>
+<a name="wp977627"> </a><p class="pBody">
+The following table lists the options available for the utility.</p><div align="left">
+<table border="1">
+  <caption><a name="wp977577"> </a><div class="pTableTitle">
+Table 1-1.  Command Line Utility Options
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp977581"> </a><div class="pCellHeading">
+Option
+</div>
+</th>
+    <th><a name="wp977583"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-cr <code><em>classname</em></code><a name="wp977585"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977587"> </a><div class="pCellBody">
+Specifies the CollectionURIResolver class to use. See the <a  href="quickstart3.html#wp957690">NOTE</a> about setting your CLASSPATH for custom URI resolvers.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-e [xhtml|xml]<a name="wp977596"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977598"> </a><div class="pCellBody">
+Generates an XQuery execution plan and, optionally, specifies the format of the plan. If a format is not specified, XHTML is generated.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-jdbc <code><em>jdbcurl</em></code><a name="wp977603"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977608"> </a><div class="pCellBody">
+Specifies a connection URI. See <a  href="quickstart2.html#wp935958">Relational Data Source Connections</a>.
+</div>
+<a name="wp977610"> </a><div class="pCellBody">
+NOTE: On UNIX and Linux, the value for this option must be enclosed with double quotes, for example:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar -jdbc 
+&quot;jdbc:xquery:sqlserver://localhost:1433
+;databaseName=pubs;user=sa&quot;<a name="wp977611"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-mr <code><em>classname</em></code><a name="wp977613"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977615"> </a><div class="pCellBody">
+Specifies the ModuleURIResolver class to use. See the <a  href="quickstart3.html#wp957690">NOTE</a> about setting your CLASSPATH for custom URI resolvers.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-noext<a name="wp977624"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977626"> </a><div class="pCellBody">
+Disallows calls to Java methods.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-o <code><em>filename</em></code><a name="wp977963"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977965"> </a><div class="pCellBody">
+Sends results (output) to specified file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-option 
+<code><em>property</em></code>=<code><em>value</em></code><a name="wp977967"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977969"> </a><div class="pCellBody">
+Specifies XQuery or JDBC global options. See <a  href="advancedfeatures2.html#wp204726">Using Option Declarations and Extension Expressions</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-prop 
+<code><em>property</em></code>=<code><em>value</em></code><a name="wp978068"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978070"> </a><div class="pCellBody">
+Specifies data source and connection options. See <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-p<a name="wp978079"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978082"> </a><div class="pCellBody">
+Displays a stack trace in case of an exception.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-r <code><em>classname</em></code><a name="wp977980"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977982"> </a><div class="pCellBody">
+Specifies the URIResolver class to use. See the <a  href="quickstart3.html#wp957690">NOTE</a> about setting your CLASSPATH for custom URI resolvers.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-s <code><em>file</em></code>|<code><em>URI</em></code><a name="wp977991"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977993"> </a><div class="pCellBody">
+Specifies an initial context item in the form of a file name or a URI.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-t<a name="wp977995"> </a>
+</pre></div>
+</td>
+    <td><a name="wp977997"> </a><div class="pCellBody">
+Displays version and timing information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-u<a name="wp977999"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978001"> </a><div class="pCellBody">
+Enables automatic updating of sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-version<a name="wp978006"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978008"> </a><div class="pCellBody">
+Display version information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+-?<a name="wp978010"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978012"> </a><div class="pCellBody">
+Displays the help for the command-line utility.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+<code><em>param</em></code>=<code><em>value</em></code><a name="wp978014"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978016"> </a><div class="pCellBody">
+Specifies a query string parameter and its value.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+#<code><em>param</em></code>=<code><em>value</em></code><a name="wp978018"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978020"> </a><div class="pCellBody">
+Specifies a query number parameter and its value. On UNIX and Linux, the value for this option must be enclosed with double quotes, for example:<br /><code class="cCode">java -jar ddxq.jar q.xq &quot;#i=2&quot;</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
++<code><em>param</em></code>=<code><em>value</em></code><a name="wp978022"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978024"> </a><div class="pCellBody">
+Specifies a query document parameter and its value.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><div class="pPreformatted"><pre class="pPreformatted">
+!<code><em>option</em></code>=<code><em>value</em></code><a name="wp978026"> </a>
+</pre></div>
+</td>
+    <td><a name="wp978028"> </a><div class="pCellBody">
+Specifies a serialization option and its value.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp977704"> </a><p class="pBodyBold">
+Example 1: Executes a Simple XQuery
+</p>
+<a name="wp977705"> </a><p class="pBody">
+This example executes the simple query {2+5}.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar {2+5}<a name="wp953613"> </a>
+</pre></div>
+<a name="wp953617"> </a><p class="pBodyBold">
+Example 2: Retrieves Values from an Initial Context Item
+</p>
+<a name="wp954631"> </a><p class="pBody">
+This example retrieves all values for UserId from the initial context item users.xml.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar -s ..\..\examples\xml\users.xml 
+{//users/UserId}<a name="wp954427"> </a>
+</pre></div>
+<a name="wp953627"> </a><p class="pBodyBold">
+Example 3: Retrieves Values and Writes Them to a File
+</p>
+<a name="wp954645"> </a><p class="pBody">
+This example retrieves all values for UserId and writes the results to a file named out.xml.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar -o out.xml 
+{doc(&#39;..\..\examples\xml\users.xml&#39;)/users/UserId}<a name="wp953635"> </a>
+</pre></div>
+<a name="wp953659"> </a><p class="pBodyBold">
+Example 4: Executes an XQuery in a File
+</p>
+<a name="wp954653"> </a><p class="pBody">
+This example executes the XQuery contained in the file myXQuery.xq using the initial context item input.xml.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar -s input.xml myXQuery.xq<a name="wp953625"> </a>
+</pre></div>
+<a name="wp953699"> </a><p class="pBodyBold">
+Example 5: Binds a Query Document Parameter
+</p>
+<a name="wp954657"> </a><p class="pBody">
+This example executes the XQuery contained in the file myXQuery.xq binding the query document parameter inputDoc to the input.xml document.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar myXQuery.xq +inputDoc=input.xml<a name="wp953716"> </a>
+</pre></div>
+<a name="wp954670"> </a><p class="pBodyBold">
+Example 6: Binds a Query String Parameter and Sets an Option
+</p>
+<a name="wp954668"> </a><p class="pBody">
+This example executes the XQuery contained in the file myXQuery.xq binding the query string parameter param1 to the character string Jonathan and setting the serialization option indent to yes so that results are indented.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar myXQuery.xq param1=Jonathan !indent=yes<a name="wp953740"> </a>
+</pre></div>
+<a name="wp953671"> </a><p class="pBodyBold">
+Example 7: Accesses a Relational Data Source
+</p>
+<a name="wp963466"> </a><p class="pBody">
+This example executes the XQuery contained in the file myXQuery2.xq that accesses a relational data source. See the <a  href="quickstart3.html#wp977608">NOTE</a> about specifying connection URLs.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -jar ddxq.jar -jdbc 
+&quot;jdbc:xquery:sqlserver://localhost:1433;databaseName=pubs;<a name="wp963468"> </a>
+user=sa&quot; myXQuery2.xq<a name="wp963469"> </a>
+</pre></div>
+<a name="wp954687"> </a><p class="pBodyBold">
+Example 8: Specifies a Document URI
+</p>
+<a name="wp954690"> </a><p class="pBody">
+This example retrieves all values for UserId, specifies a document URI, and writes the results to a file named out.xml.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+java -cp c:\myClasses com.ddtek.xquery.Query 
+-r myURIResolver -o out.xml {doc(&#39;users.xml&#39;)/users/UserId}<a name="wp954436"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

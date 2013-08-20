@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:49" />
+  <title>Logging XQJ Calls with DataDirect Spy&#8482; for&#160;XQJ</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp137013"> </a><h2 class="pNewHTMLPageNum">
+Logging XQJ Calls with DataDirect Spy<font size="4"><sup>&#8482;</sup></font> for&#160;XQJ
+</h2>
+<hr />
+<a name="wp137015"> </a><p class="pBody">
+DataDirect Spy passes XQJ calls issued by an application to DataDirect XQuery and logs detailed information about those calls, which you can use for troubleshooting. 
+</p>
+<a name="wp137016"> </a><p class="pBody">
+DataDirect Spy logging for connections is not enabled by default. You can enable DataDirect Spy logging and configure it for your needs by setting one or multiple options (attributes) for DataDirect Spy. For example, you may want to direct logging to a local file on your machine. 
+</p>
+<a name="wp137017"> </a><p class="pBody">
+When DataDirect Spy logging is enabled for a connection, you can turn logging on and off at runtime using the setEnableLogging() method in the com.ddtek.xquery.xqj.ExtLogControl interface. See <a  href="troubleshooting2.html#wp137179">Generating a DataDirect Spy<span style="vertical-align: super">&#8482;</span> Log</a> for information about using a DataDirect Spy log for troubleshooting.
+</p>
+<a name="wp137022"> </a><h3 class="pHeading2">
+Enabling DataDirect Spy<font size="3"><sup>&#8482;</sup></font> Logging
+</h3>
+<a name="wp137023"> </a><p class="pBody">
+To enable DataDirect Spy logging, set one or multiple DataDirect&#160;Spy attributes using any of the following methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp137024"> </a><div class="pSmartList1"><li>Using the SpyAttributes property of the DDXQDataSource class to set DataDirect Spy attributes explicitly in your application</li></div><a name="wp137026"> </a><div class="pSmartList1"><li>Using the SpyAttributes property of the DDXQDataSource class to set DataDirect Spy attributes in a data source object in JNDI</li></div></ul></div>
+<a name="wp137030"> </a><h4 class="pHeading3">
+Setting DataDirect Spy Attributes Explicitly in a Java Application
+</h4>
+<a name="wp137031"> </a><p class="pBody">
+To set DataDirect Spy attributes explicitly in your application, use XQJ to construct a DDXQDataSource instance in your Java application and specify the SpyAttributes property of the DDXQDataSource class. The format for the value of the SpyAttributes property is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code><em>spy_attribute</em></code>=<code><em>value</em></code><code class="cCode">[;</code><code><em>spy_attribute</em></code>=<code><em>value</em></code><code class="cCode">]...</code><a name="wp137032"> </a>
+</pre></div>
+<a name="wp137033"> </a><p class="pBody">
+where <code><em>spy_attribute</em></code>=<code><em>value</em></code> is a DataDirect Spy attribute and a valid value for that attribute. See <a  href="troubleshooting2.html#wp137106">DataDirect Spy Attributes</a> for a list of supported attributes.
+</p>
+<a name="wp137037"> </a><p class="pBodyBold">
+Example on Windows
+</p>
+<a name="wp137038"> </a><p class="pBody">
+The following example enables DataDirect Spy logging and configures DataDirect Spy to log all XQJ activity to a log file, including the content of SAX streams passed through XQJ to the spy.log file located in the C:\temp directory <br />(<code class="cCode">log=(file)C:\\\\temp\\\\spy.log;logSAX=yes</code>).
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp137039"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp137040"> </a>
+ds.setSpyAttributes<code class="cCode">(&quot;log=(file)C:\\\\temp\\\\spy.log;logSAX=yes&quot;)</code>;<a name="wp137041"> </a>
+Context ctx = new InitialContext();<a name="wp138679"> </a>
+ctx.bind(&quot;holdings_ds&quot;, ds);<a name="wp138680"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp137042"> </a>
+</pre></div>
+<a name="wp137043"> </a><p class="pBody">
+NOTE: If coding a path on Windows to the log file in a Java string, the backslash character (\) must be preceded by the Java escape character, a backslash, as shown in this example.
+</p>
+<a name="wp137048"> </a><p class="pBodyBold">
+Example on UNIX/Linux
+</p>
+<a name="wp137049"> </a><p class="pBody">
+The following example enables DataDirect Spy logging and configures DataDirect Spy to log all XQJ activity to a log file located in the /tmp directory <br />(<code class="cCode">log=(file)/tmp/spy.log;logTimestamp=yes</code>). The spy.log file includes a timestamp on each line in the log.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp137050"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:oracle://server1:1521;SID=ORCL&quot;);<a name="wp137051"> </a>
+ds.setSpyAttributes<code class="cCode">(&quot;log=(file)/tmp/spy.log;logTimestamp=yes&quot;)</code>;<a name="wp137052"> </a>
+Context ctx = new InitialContext();<a name="wp138687"> </a>
+ctx.bind(&quot;holdings_ds&quot;, ds);<a name="wp138688"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp137053"> </a>
+</pre></div>
+<a name="wp137055"> </a><h4 class="pHeading3">
+Setting DataDirect Spy Attributes in JNDI
+</h4>
+<a name="wp137056"> </a><p class="pBody">
+To set DataDirect Spy attributes in JNDI, configure a data source object that specifies the SpyAttributes property of the DDXQDataSource class and use XQJ to load the DDXQDataSource object. The format for the value of the SpyAttributes property is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">(</code><code><em>spy_attribute</em></code>=<code><em>value</em></code><code class="cCode">[;</code><code><em>spy_attribute</em></code>=<code><em>value</em></code><code class="cCode">]...)</code><a name="wp137057"> </a>
+</pre></div>
+<a name="wp137058"> </a><p class="pBody">
+where <code><em>spy_attribute</em></code>=<code><em>value</em></code> is a DataDirect Spy attribute and a valid value for that attribute. See <a  href="troubleshooting2.html#wp137106">DataDirect Spy Attributes</a> for a list of supported attributes.
+</p>
+<a name="wp137062"> </a><p class="pBodyBold">
+Example on Windows
+</p>
+<a name="wp137063"> </a><p class="pBody">
+The following example enables DataDirect Spy logging and configures DataDirect Spy to log all XQJ activity to a log file located in the C:\temp directory <br />(<code class="cCode">log=(file)C:\\\\temp\\\\spy.log;logTimestamp=yes</code>). The spy.log file includes a timestamp on each line in the log.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQDataSource ds = new DDXQDataSource();<a name="wp137064"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:oracle://server1:1521;SID=ORCL&quot;);<a name="wp137065"> </a>
+ds.setSpyAttributes<code class="cCode">(&quot;log=(file)C:\\\\temp\\\\spy.log;logSAX=yes&quot;)</code>;<a name="wp137066"> </a>
+Context ctx = new InitialContext();<a name="wp137067"> </a>
+ctx.bind(&quot;holdings_ds&quot;, ds);<a name="wp137068"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;,&quot;mypswd&quot;);<a name="wp137069"> </a>
+</pre></div>
+<a name="wp137070"> </a><p class="pBody">
+NOTE: If coding a path on Windows to the log file in a Java string, the backslash character (\) must be preceded by the Java escape character, a backslash, as shown in this example.
+</p>
+<a name="wp137072"> </a><p class="pBodyBold">
+Example on UNIX/Linux
+</p>
+<a name="wp137073"> </a><p class="pBody">
+The following example enables DataDirect Spy logging and configures DataDirect Spy to log all XQJ activity to a log file located in the /tmp directory <br />(<code class="cCode">log=(file)/tmp/spy.log;logTimestamp=yes</code>). The spy.log file includes a timestamp on each line in the log.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQDataSource ds = new DDXQDataSource();<a name="wp137074"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:oracle://server1:1521;SID=ORCL&quot;);<a name="wp137075"> </a>
+ds.setSpyAttributes<code class="cCode">(&quot;log=(file)/tmp/spy.log;logTimestamp=yes&quot;)</code>;<a name="wp137076"> </a>
+Context ctx = new InitialContext();<a name="wp137077"> </a>
+ctx.bind(&quot;holdings_ds&quot;, ds);<a name="wp137078"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp137079"> </a>
+</pre></div>
+<a name="wp137106"> </a><h4 class="pHeading3">
+DataDirect Spy Attributes
+</h4>
+<a name="wp137110"> </a><p class="pBody">
+<a  href="troubleshooting2.html#wp137117">Table&#160;J-1</a> describes the attributes you can set for DataDirect Spy.
+</p>
+<a name="wp137170"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp137117"> </a><div class="pTableTitle">
+Table J-1.  DataDirect Spy Attributes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp137121"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp137123"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137125"> </a><div class="pCellBody">
+enable={yes | no}
+</div>
+</td>
+    <td><a name="wp137127"> </a><div class="pCellBody">
+Enables and disables DataDirect Spy logging. The default is yes (if any DataDirect Spy attributes are set as described in <a  href="troubleshooting2.html#wp137022">Enabling DataDirect Spy<span style="vertical-align: super">&#8482;</span> Logging</a>, DataDirect Spy logging is enabled). Once enabled, you can turn DataDirect Spy logging on and off at runtime using the setEnableLogging() method in the com.ddtek.xquery.xqj.ExtLogControl interface. See <a  href="troubleshooting2.html#wp137213">Turning On and Off DataDirect Spy<span style="vertical-align: super">&#8482;</span> Logging</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137135"> </a><div class="pCellBody">
+linelimit=<em class="cEmphasis">numberofchars</em>
+</div>
+</td>
+    <td><a name="wp137137"> </a><div class="pCellBody">
+Sets the maximum number of characters that DataDirect Spy will log on any one line. The default is 0 (no maximum limit).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137139"> </a><div class="pCellBody">
+log=System.out
+</div>
+</td>
+    <td><a name="wp137141"> </a><div class="pCellBody">
+Directs logging to the Java output standard, System.out.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137144"> </a><div class="pCellBody">
+log=(file)<em class="cEmphasis">filename</em>
+</div>
+</td>
+    <td><a name="wp137146"> </a><div class="pCellBody">
+Redirects logging to the file specified by <em class="cEmphasis">filename</em>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137148"> </a><div class="pCellBody">
+logDOM={yes | no}
+</div>
+</td>
+    <td><a name="wp137150"> </a><div class="pCellBody">
+Specifies whether DataDirect Spy logs the content of DOM trees passed through XQJ. The default is no (DOM tree content is not logged). To log the content of DOM trees, set the value of this attribute to yes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137153"> </a><div class="pCellBody">
+logSAX={yes | no}
+</div>
+</td>
+    <td><a name="wp137155"> </a><div class="pCellBody">
+Specifies whether DataDirect Spy logs the content of SAX event streams passed through XQJ. The default is no (SAX event stream content is not logged). To log the content of SAX events, set the value of this attribute to yes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137158"> </a><div class="pCellBody">
+logStAX={yes | no}
+</div>
+</td>
+    <td><a name="wp137161"> </a><div class="pCellBody">
+Specifies whether DataDirect Spy logs the content of StAX event streams passed through XQJ (StAX event stream content is not logged). To log the content of StAX events, set the value of this attribute to yes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137163"> </a><div class="pCellBody">
+logTName={yes | no}
+</div>
+</td>
+    <td><a name="wp137165"> </a><div class="pCellBody">
+Specifies whether DataDirect Spy logs the name of the current thread. The default is no (name of the current thread is not logged). To log the name of the current thread, set the value of this attribute to yes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137167"> </a><div class="pCellBody">
+logTimestamp={yes | no}
+</div>
+</td>
+    <td><a name="wp137169"> </a><div class="pCellBody">
+Specifies whether a timestamp is logged on each line of the DataDirect Spy log. The default is no. To log the timestamp on each line of the log, set the value of this attribute to yes.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp137179"> </a><h3 class="pHeading2">
+Generating a DataDirect Spy<font size="3"><sup>&#8482;</sup></font> Log
+</h3>
+<a name="wp137180"> </a><p class="pBody">
+This section provides an example of a typical DataDirect Spy log and instructions for turning on and off DataDirect Spy logging at runtime.
+</p>
+<a name="wp137182"> </a><h4 class="pHeading3">
+DataDirect Spy&#8482; Log Example
+</h4>
+<a name="wp137183"> </a><p class="pBody">
+The following example shows a DataDirect Spy log. The numbers in superscript are note indicators that correspond to the notes following the example. They provide explanations for the referenced text to help you understand the content of your own DataDirect Spy logs.
+</p>
+<a name="wp137184"> </a><p class="pBody">
+NOTE: The following example does not show logging of XML results that occur when the logDOM, logSAX, or logStAX attributes are set to yes.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+spy&gt;&gt; XQConnection(0).createExpression()<a name="wp137185"> </a>
+spy&gt;&gt; OK (XQExpression(0))<sup style="font-family: Courier New" class="cSuperscript">1</sup><a name="wp137186"> </a>
+spy&gt;&gt; XQExpression(0).executeQuery(String query)<a name="wp137187"> </a>
+spy&gt;&gt; query : 123,&#39;hello world!&#39;<a name="wp137188"> </a>
+spy&gt;&gt; OK (XQResultSequence(0))<span style="vertical-align: super"> 2</span><a name="wp137189"> </a>
+spy&gt;&gt; XQResultSequence(0).next()<a name="wp137190"> </a>
+spy&gt;&gt; OK (true)<span style="vertical-align: super"> 3</span><a name="wp137191"> </a>
+spy&gt;&gt; XQResultSequence(0).getObject()<a name="wp137192"> </a>
+spy&gt;&gt; OK (123)<span style="vertical-align: super"> 4</span><a name="wp137193"> </a>
+spy&gt;&gt; XQResultSequence(0).next()<a name="wp137194"> </a>
+spy&gt;&gt; OK (true)<span style="vertical-align: super"> 3</span><a name="wp137195"> </a>
+spy&gt;&gt; XQResultSequence(0).getObject()<a name="wp137196"> </a>
+spy&gt;&gt; OK (hello world!)<span style="vertical-align: super"> 4</span><a name="wp137197"> </a>
+spy&gt;&gt; XQResultSequence(0).next()<a name="wp137198"> </a>
+spy&gt;&gt; OK (false)<span style="vertical-align: super"> 5</span><a name="wp137199"> </a>
+spy&gt;&gt; XQExpression(0).close()<a name="wp137200"> </a>
+spy&gt;&gt; OK <span style="vertical-align: super">6</span><a name="wp137201"> </a>
+spy&gt;&gt; XQConnection(0).close()<a name="wp137202"> </a>
+spy&gt;&gt; OK <span style="vertical-align: super">7</span><a name="wp137203"> </a>
+</pre></div>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp137204"> </a><div class="pSmartList1"><li>An XQExpression is created. Further in the DataDirect Spy output, this XQExpression is identified by <code class="cCode">XQExpression(0)</code>. </li></div><a name="wp137205"> </a><div class="pSmartList1"><li>The query <code class="cCode">123,&#39;hello world!&#39;</code> is executed. An XQResultSequence is returned.</li></div><a name="wp137206"> </a><div class="pSmartList1"><li>The application moved to the next item in the result sequence. True is returned, indicating that there is another item in the result sequence.</li></div><a name="wp137207"> </a><div class="pSmartList1"><li>The item&#8217;s data is retrieved into the application.</li></div><a name="wp137208"> </a><div class="pSmartList1"><li>The application moved to the next item in the result sequence. False is returned, indicating that the end of the sequence has been reached.</li></div><a name="wp137209"> </a><div class="pSmartList1"><li>The application closes the XQExpression.</li></div><a name="wp137210"> </a><div class="pSmartList1"><li>The application closes the XQConnection.</li></div></ol></div>
+<a name="wp137213"> </a><h4 class="pHeading3">
+Turning On and Off DataDirect Spy&#8482; Logging
+</h4>
+<a name="wp137214"> </a><p class="pBody">
+Once DataDirect Spy logging is enabled for a connection, you can turn on and off the logging at runtime using the setEnableLogging() method in the com.ddtek.xquery.xqj.ExtLogControl interface. When logging is enabled, all Connection objects returned to an application provide an implementation of the ExtLogControl interface.
+</p>
+<a name="wp137216"> </a><p class="pBody">
+For example, the following code turns off logging using setEnableLogging(false):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+import com.ddtek.xquery.xqj.ExtLogControl<a name="wp137217"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp137218"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks;<a name="wp137219"> </a>
+ds.setSpyAttributes(&quot;log=(file)/tmp/spy.log&quot;);<a name="wp137220"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;,&quot;mypswd&quot;);<a name="wp137221"> </a>
+ <a name="wp137222"> </a>
+((ExtLogControl) conn).setEnableLogging(false);<a name="wp137223"> </a>
+...<a name="wp137224"> </a>
+</pre></div>
+<a name="wp137225"> </a><p class="pBody">
+The setEnableLogging() method only turns on and off logging if DataDirect Spy logging has already been enabled for a connection; it does not set or change DataDirect Spy attributes. See <a  href="troubleshooting2.html#wp137022">Enabling DataDirect Spy<span style="vertical-align: super">&#8482;</span> Logging</a> for information about enabling and customizing DataDirect Spy logging. 
+</p>
+<a name="wp137231"> </a><h4 class="pHeading3">
+ExtLogControl Class
+</h4>
+<a name="wp137233"> </a><p class="pBody">
+
+</p>
+<a name="wp137250"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp137237"> </a><div class="pCellHeading">
+ExtLogControl Class<br />Methods
+</div>
+</th>
+    <th><a name="wp137241"> </a><div class="pCellHeading">
+<br />Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137243"> </a><div class="pCellBody">
+void setEnableLogging(boolean)
+</div>
+</td>
+    <td><a name="wp137245"> </a><div class="pCellBody">
+If DataDirect Spy was enabled when the connection was created, you can turn on or off DataDirect Spy logging at runtime using this method. If true, logging is turned on. If false, logging is turned off. If DataDirect Spy logging was not enabled when the connection was created, calling this method has no effect.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp137247"> </a><div class="pCellBody">
+boolean getEnableLogging()
+</div>
+</td>
+    <td><a name="wp137249"> </a><div class="pCellBody">
+Indicates whether DataDirect Spy logging was enabled when the connection was created and whether logging is turned on. If the returned value is true, logging is turned on. If the returned value is false, logging is turned off.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

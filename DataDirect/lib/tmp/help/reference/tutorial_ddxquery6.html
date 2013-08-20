@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:09" />
+  <title>Joining Data from XML and Relational Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp144690"> </a><h2 class="pNewHTMLPageNum">
+Joining Data from XML and Relational Sources
+</h2>
+<hr />
+<a name="wp144698"> </a><p class="pBody">
+This tutorial has already explored how XQJ allows XQuery to operate on relational and XML file data stores. Now let&#39;s leverage that functionality to query both types of data stores at the same time using a single query. 
+</p>
+<a name="wp160936"> </a><p class="pBody">
+In this example, we use a Web Service request to provide parameters for the query, and then query a database to create the Web Service response. The Web Service request looks like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;request&gt;<a name="wp144856"> </a>
+    &lt;performance&gt;<a name="wp144857"> </a>
+        &lt;UserId&gt;Jonathan&lt;/UserId&gt;<a name="wp144858"> </a>
+        &lt;start&gt;2003-01-01&lt;/start&gt;<a name="wp144859"> </a>
+        &lt;end&gt;2003-01-01&lt;/end&gt;<a name="wp144860"> </a>
+    &lt;/performance&gt;<a name="wp144861"> </a>
+&lt;/request&gt;<a name="wp144862"> </a>
+</pre></div>
+<a name="wp144718"> </a><p class="pBody">
+This request contains only the SOAP message payload. (To simplify the example, the envelope has been omitted.) This request asks for performance data on a user&#39;s portfolio within a specific date range.
+</p>
+<a name="wp144719"> </a><p class="pBody">
+Now we can compose a query that uses the parameters from the request to create a performance report, which will report the performance of each stock held by each user during the given range.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+let $request := doc(&quot;request.xml&quot;)/request<a name="wp144906"> </a>
+for $user in $request/performance<a name="wp144907"> </a>
+return<a name="wp144908"> </a>
+   &lt;portfolio UserID=&quot;{$user/UserId}&quot;&gt;<a name="wp144909"> </a>
+     { $request }<a name="wp144910"> </a>
+     { <a name="wp144911"> </a>
+       for $h in collection(&quot;holdings&quot;)/holdings<a name="wp144912"> </a>
+       where $h/userid = $user/UserId<a name="wp144913"> </a>
+       return      <a name="wp144914"> </a>
+         &lt;stock&gt;<a name="wp156441"> </a>
+          {<a name="wp156442"> </a>
+           $h/stockticker,<a name="wp156443"> </a>
+           $h/shares<a name="wp144918"> </a>
+          }<a name="wp144919"> </a>
+         &lt;/stock&gt;<a name="wp144920"> </a>
+     }<a name="wp144921"> </a>
+   &lt;/portfolio&gt;<a name="wp144922"> </a>
+</pre></div>
+<a name="wp144752"> </a><p class="pBody">
+First, establish a connection to the data source.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQConnection conn = ds.getConnection();<a name="wp144974"> </a>
+</pre></div>
+<a name="wp144771"> </a><p class="pBody">
+Create an XQExpression object that executes the XQuery expression and returns a sequence of results.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+FileReader fileReader = new FileReader(&quot;flwor.xq&quot;);<a name="wp145002"> </a>
+XQExpression xqExpression = conn.createExpression();<a name="wp145003"> </a>
+XQSequence xqSequence = xqExpression.executeQuery(fileReader);<a name="wp145004"> </a>
+</pre></div>
+<a name="wp144779"> </a><p class="pBody">
+With the query results in a sequence, serialize this sequence using the getSequenceAsString() method.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+System.out.println(xqSequence.getSequenceAsString());<a name="wp145036"> </a>
+</pre></div>
+<a name="wp144784"> </a><p class="pBody">
+The result looks like this (whitespace has been modified for readability):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;portfolio UserID=&quot;Jonathan&quot;&gt;<a name="wp145075"> </a>
+   &lt;request&gt;<a name="wp145076"> </a>
+      &lt;performance&gt;<a name="wp145077"> </a>
+         &lt;UserId&gt;Jonathan&lt;/UserId&gt;<a name="wp145078"> </a>
+         &lt;start&gt;2003-01-01&lt;/start&gt;<a name="wp145079"> </a>
+         &lt;end&gt;2004-06-01&lt;/end&gt;<a name="wp145080"> </a>
+      &lt;/performance&gt;<a name="wp145081"> </a>
+   &lt;/request&gt;<a name="wp145082"> </a>
+      &lt;stock&gt;<a name="wp145083"> </a>
+         &lt;stockticker&gt;PRGS&lt;/stockticker&gt;<a name="wp145084"> </a>
+         &lt;shares&gt;23&lt;/shares&gt;<a name="wp145085"> </a>
+      &lt;/stock&gt;<a name="wp145086"> </a>
+      &lt;stock&gt;<a name="wp145087"> </a>
+         &lt;stockticker&gt;AMZN&lt;/stockticker&gt;<a name="wp145088"> </a>
+         &lt;shares&gt;3000&lt;/shares&gt;<a name="wp145089"> </a>
+      &lt;/stock&gt;<a name="wp145090"> </a>
+      &lt;stock&gt;<a name="wp145091"> </a>
+         &lt;stockticker&gt;EBAY&lt;/stockticker&gt;<a name="wp145092"> </a>
+         &lt;shares&gt;4000&lt;/shares&gt;<a name="wp145093"> </a>
+      &lt;/stock&gt;<a name="wp145094"> </a>
+      &lt;stock&gt;<a name="wp145095"> </a>
+         &lt;stockticker&gt;IBM&lt;/stockticker&gt;<a name="wp145096"> </a>
+         &lt;shares&gt;2500&lt;/shares&gt;<a name="wp145097"> </a>
+         &lt;shares&gt;2500&lt;/shares&gt;<a name="wp145098"> </a>
+      &lt;/stock&gt;<a name="wp145099"> </a>
+&lt;/portfolio&gt;<a name="wp145100"> </a>
+</pre></div>
+<a name="wp152862"> </a><p class="pBody">
+Other similar examples can be found in the <a  href="examples4.html#wp143098">XQJExecute</a> example.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:43" />
+  <title>XQSequence Interface</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp124499"> </a><h2 class="pNewHTMLPageNum">
+XQSequence Interface
+</h2>
+<hr />
+<a name="wp123818"> </a><p class="pBody">
+This interface represents a sequence of items as defined in the XPath/XQuery data model. The sequence may be materialized or non-materialized. This interface extends <a  href="xqjsupport9.html#wp155985">XQItemAccessor</a>.
+</p>
+<a name="wp123822"> </a><p class="pBody">
+<a  href="xqjsupport15.html#wp131233">Table&#160;G-13</a> describes how DataDirect XQuery supports the methods of the XQSequence interface.
+</p>
+<a name="wp131356"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp131233"> </a><div class="pTableTitle">
+Table G-13.  XQSequence Method Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp131237"> </a><div class="pCellHeading">
+Method
+</div>
+</th>
+    <th><a name="wp131239"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131241"> </a><div class="pCellBody">
+boolean absolute(int itempos)
+</div>
+</td>
+    <td><a name="wp131243"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131245"> </a><div class="pCellBody">
+void afterLast( )
+</div>
+</td>
+    <td><a name="wp131247"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131249"> </a><div class="pCellBody">
+void beforeFirst( )
+</div>
+</td>
+    <td><a name="wp131251"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131253"> </a><div class="pCellBody">
+void close( )
+</div>
+</td>
+    <td><a name="wp131255"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp146777"> </a><div class="pCellBody">
+int count( )
+</div>
+</td>
+    <td><a name="wp146779"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131257"> </a><div class="pCellBody">
+boolean first( )
+</div>
+</td>
+    <td><a name="wp131259"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131265"> </a><div class="pCellBody">
+XQItem getItem( )
+</div>
+</td>
+    <td><a name="wp131267"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp146808"> </a><div class="pCellBody">
+int getPosition( )
+</div>
+</td>
+    <td><a name="wp146810"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131269"> </a><div class="pCellBody">
+XMLStreamReader getSequenceAsStream( )
+</div>
+</td>
+    <td><a name="wp131271"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131280"> </a><div class="pCellBody">
+String getSequenceAsString(Properties props)
+</div>
+</td>
+    <td><a name="wp139021"> </a><div class="pCellBody">
+Supported as explained in <a  href="serialization_support.html#wp245044">Serialization Support</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131284"> </a><div class="pCellBody">
+boolean isAfterLast( )
+</div>
+</td>
+    <td><a name="wp131286"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131288"> </a><div class="pCellBody">
+boolean isBeforeFirst( )
+</div>
+</td>
+    <td><a name="wp131290"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131292"> </a><div class="pCellBody">
+boolean isClosed( )
+</div>
+</td>
+    <td><a name="wp131294"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131296"> </a><div class="pCellBody">
+boolean isFirst( )
+</div>
+</td>
+    <td><a name="wp131298"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131300"> </a><div class="pCellBody">
+boolean isLast( )
+</div>
+</td>
+    <td><a name="wp131302"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131304"> </a><div class="pCellBody">
+boolean isOnItem( )
+</div>
+</td>
+    <td><a name="wp131306"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131308"> </a><div class="pCellBody">
+boolean isScrollable( )
+</div>
+</td>
+    <td><a name="wp131310"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131312"> </a><div class="pCellBody">
+boolean last( )
+</div>
+</td>
+    <td><a name="wp131314"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131316"> </a><div class="pCellBody">
+boolean next( )
+</div>
+</td>
+    <td><a name="wp131318"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131320"> </a><div class="pCellBody">
+boolean previous( )
+</div>
+</td>
+    <td><a name="wp131322"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131324"> </a><div class="pCellBody">
+boolean relative(int itempos)
+</div>
+</td>
+    <td><a name="wp131326"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131328"> </a><div class="pCellBody">
+void writeSequence(OutputStream os, Properties props)
+</div>
+</td>
+    <td><a name="wp131332"> </a><div class="pCellBody">
+Supported as explained in <a  href="serialization_support.html#wp245044">Serialization Support</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131342"> </a><div class="pCellBody">
+void writeSequence(Writer ow, Properties props)
+</div>
+</td>
+    <td><a name="wp131346"> </a><div class="pCellBody">
+Supported as explained in <a  href="serialization_support.html#wp245044">Serialization Support</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp155212"> </a><div class="pCellBody">
+void writeSequenceToResult(Result result)
+</div>
+</td>
+    <td><a name="wp155214"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp131349"> </a><div class="pCellBody">
+void writeSequenceToSAX(ContentHandler saxhdlr)
+</div>
+</td>
+    <td><a name="wp131351"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

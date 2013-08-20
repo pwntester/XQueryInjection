@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:22" />
+  <title>Updating Relational Data</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp222968"> </a><h2 class="pNewHTMLPageNum">
+Updating Relational Data
+</h2>
+<hr />
+<a name="wp222970"> </a><p class="pBody">
+DataDirect XQuery supports updates to relational database tables from inside an XQuery by providing three built-in functions. These functions are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222974"> </a><div class="pSmartList1"><li><a  href="relationaldata4.html#wp222989">ddtek:sql-insert</a></li></div><a name="wp222978"> </a><div class="pSmartList1"><li><a  href="relationaldata4.html#wp223015">ddtek:sql-update</a></li></div><a name="wp222982"> </a><div class="pSmartList1"><li><a  href="relationaldata4.html#wp223039">ddtek:sql-delete</a></li></div></ul></div>
+<a name="wp222984"> </a><p class="pBody">
+The DataDirect XQuery relational update functionality is an extension of the XQuery Update Facility (XUF). To learn about DataDirect XQuery&#8217;s support for XUF and how to use XUF to update XML, see <a  href="xuf_support.html#wp114259">Chapter 5, Tutorial: The XQuery Update Facility.</a>
+</p>
+<a name="wp222989"> </a><h3 class="pHeading2">
+ddtek:sql-insert
+</h3>
+<a name="wp222992"> </a><p class="pBody">
+The ddtek:sql-insert built-in function inserts a single record in a database table.
+</p>
+<a name="wp222993"> </a><p class="pBody">
+The syntax is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare updating function ddtek:sql-insert(<a name="wp222994"> </a>
+    table as xs:string,<a name="wp222995"> </a>
+    column as xs:string,<a name="wp222996"> </a>
+    value as item()*,<a name="wp222997"> </a>
+    ...) external;<a name="wp222998"> </a>
+</pre></div>
+<a name="wp222999"> </a><p class="pBody">
+where:
+</p>
+<a name="wp223000"> </a><p class="pBody">
+<code class="cCode">table</code> is the database table in which to insert the record. The semantics of <code class="cCode">table</code> are equivalent to those for fn:collection; see <a  href="conf_sourcefiles2.html#wp184939">Specifying Relational Database Tables</a>.
+</p>
+<a name="wp223004"> </a><p class="pBody">
+<code class="cCode">column</code> is the column of the database table in which to insert a value.
+</p>
+<a name="wp223005"> </a><p class="pBody">
+<code class="cCode">value</code> is the value to insert into the specified column.
+</p>
+<a name="wp223006"> </a><p class="pBody">
+<code class="cCode">column</code> and <code class="cCode">value</code> are a pair in a variable argument list. If <code class="cCode">column</code> is specified without <code class="cCode">value</code>, an error is raised. You can specify multiple values for this pair, as shown in the example. 
+</p>
+<a name="wp223007"> </a><p class="pBody">
+The following example inserts a new record with three columns into the holdings table. The columns and their values are <br />userid=Minollo, stockticker=TIVO, and shares=200.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:sql-insert(&quot;holdings&quot;, &quot;userid&quot;, &quot;Minollo&quot;, &quot;stockticker&quot;, &quot;TIVO&quot;,<a name="wp223008"> </a>
+  &quot;shares&quot;, 200)<a name="wp223009"> </a>
+</pre></div>
+<a name="wp223013"> </a><p class="pBody">
+Other examples can be found in the <a  href="examples4.html#wp137818">RDBMSUpdate</a> example.
+</p>
+<a name="wp223015"> </a><h3 class="pHeading2">
+ddtek:sql-update
+</h3>
+<a name="wp223018"> </a><p class="pBody">
+The ddtek:sql-update built-in function updates records in a database table.
+</p>
+<a name="wp223019"> </a><p class="pBody">
+The syntax is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare updating function ddtek:sql-update(<a name="wp223020"> </a>
+    row as element()*,<a name="wp223021"> </a>
+    column as xs:string,<a name="wp223022"> </a>
+    value as item()*,<a name="wp223023"> </a>
+    ...) external;<a name="wp223024"> </a>
+</pre></div>
+<a name="wp223025"> </a><p class="pBody">
+where:
+</p>
+<a name="wp223026"> </a><p class="pBody">
+<code class="cCode">row</code> identifies the records in the database table to update. Each item in the sequence must be a row element of the database table returned by a previous fn:collection call.
+</p>
+<a name="wp223027"> </a><p class="pBody">
+<code class="cCode">column</code> is the column of the database table to update.
+</p>
+<a name="wp223028"> </a><p class="pBody">
+<code class="cCode">value</code> is the new value for the specified column.
+</p>
+<a name="wp223029"> </a><p class="pBody">
+<code class="cCode">column</code> and <code class="cCode">value</code> are a pair in a variable argument list. If <code class="cCode">column</code> is specified without <code class="cCode">value</code>, an error is raised.
+</p>
+<a name="wp223030"> </a><p class="pBody">
+The following example updates a record in the holdings table &#8211; in particular, the record where the userid column equals Minollo and the stockticker column equals PRGS. In this record, the shares column is updated to 500.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:sql-update(<a name="wp223031"> </a>
+  collection(&quot;holdings&quot;)/holdings[userid=&quot;Minollo&quot; and stockticker=&quot;PRGS&quot;],<a name="wp223032"> </a>
+  &quot;shares&quot;, 500)<a name="wp223033"> </a>
+</pre></div>
+<a name="wp223037"> </a><p class="pBody">
+Other examples can be found in the <a  href="examples4.html#wp137818">RDBMSUpdate</a> example.
+</p>
+<a name="wp223039"> </a><h3 class="pHeading2">
+ddtek:sql-delete
+</h3>
+<a name="wp223042"> </a><p class="pBody">
+The ddtek:sql-delete built-in function deletes records in a database table.
+</p>
+<a name="wp223043"> </a><p class="pBody">
+The syntax is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare updating function ddtek:sql-delete(<a name="wp223044"> </a>
+    row as element()*) external;<a name="wp223045"> </a>
+</pre></div>
+<a name="wp223046"> </a><p class="pBody">
+where:
+</p>
+<a name="wp223047"> </a><p class="pBody">
+<code class="cCode">row</code> identifies the records to be deleted. Each item in the sequence must be a row element of the database table returned by a previous fn:collection call. 
+</p>
+<a name="wp223048"> </a><p class="pBody">
+The following example deletes all of the records in the holdings database table where the userid column equals Minollo.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ddtek:sql-delete(collection(&quot;holdings&quot;)/holdings[userid = &quot;Minollo&quot;])<a name="wp223049"> </a>
+</pre></div>
+<a name="wp223053"> </a><p class="pBody">
+Other examples can be found in the <a  href="examples4.html#wp137818">RDBMSUpdate</a> example.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

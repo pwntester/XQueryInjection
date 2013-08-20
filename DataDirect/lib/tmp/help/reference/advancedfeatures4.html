@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:24" />
+  <title>Querying ZIP, JAR, and MS Office Files </title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp246385"> </a><h2 class="pNewHTMLPageNum">
+Querying ZIP, JAR, and MS Office Files 
+</h2>
+<hr />
+<a name="wp246388"> </a><p class="pBody">
+DataDirect XQuery supports the use of fn:collection to directly query XML files archived in a ZIP or JAR file, without first unpacking the archive file. This feature is useful for querying many types of business documents (word-processing documents, spreadsheets, charts, and graphical images such as drawings and presentations) stored in an XML format such as MS Office Open XML and OpenDocument Format.
+</p>
+<a name="wp228232"> </a><p class="pBody">
+In the following example, suppose you have multiple XML files archived in the ZIP file xml.zip. Each XML file contains information about one book, and you want to create a single XML document that contain lists of all your books.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;books&gt;
+for $book in collection(&quot;zip:file:///c:/xml.zip&quot;)//books
+return
+&#160;&#160;&lt;myBook&gt;{$book/book/title}&lt;/myBook&gt;
+&lt;/books&gt; <a name="wp226084"> </a>
+</pre></div>
+<a name="wp226085"> </a><p class="pBody">
+The result would look something like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;books&gt;
+&#160;&#160;&lt;myBook&gt;
+&#160;&#160;&#160;&#160;&lt;title&gt;Emma&lt;/title&gt;
+&#160;&#160;&lt;/myBook&gt;
+&#160;&#160;&lt;myBook&gt;
+&#160;&#160;&#160;&#160;&lt;title&gt;Pride and Prejudice&lt;/title&gt;
+&#160;&#160;&lt;/myBook&gt;
+&#160;&#160;. . .
+&lt;/books&gt; <a name="wp226094"> </a>
+</pre></div>
+<a name="wp226178"> </a><p class="pBody">
+The function&#8217;s declaration for this feature is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&quot;<code><em>zip_or_jar_url</em></code>(?<code><em>option</em></code>(;<code><em>option</em></code>)*)?&quot;)<a name="wp226179"> </a>
+</pre></div>
+<a name="wp226180"> </a><p class="pBody">
+where:
+</p>
+<a name="wp226181"> </a><p class="pBody">
+<code><em>zip_or_jar_url</em></code> is a URL referencing a ZIP or JAR file. The URL must use the zip: or jar: scheme.
+</p>
+<a name="wp226182"> </a><p class="pBody">
+<code><em>option</em></code> is <code class="cCode">{(select=&quot;REGEX&quot;) | recurse={yes | no} | (sort=[a,t,r]+) | (xquery-regex=(yes|no))}</code>
+</p>
+<a name="wp226183"> </a><p class="pBodyRelative">
+where:
+</p>
+<a name="wp226184"> </a><p class="pBodyRelative">
+<code class="cCode">select </code>contains a regular expression (<code class="cCode">REGEX)</code>, which determines which files in the directory are selected. If <code class="cCode">select</code> is not specified, any file is assumed.
+</p>
+<a name="wp226185"> </a><p class="pBodyRelative">
+<code class="cCode">sort</code> determines how the retrieved files are sorted, as follows:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp226186"> </a><div class="pSmartList2"><li><code class="cCode">a</code> sorts alphabetically (ascending).</li></div>
+<a name="wp226187"> </a><div class="pSmartList2"><li><code class="cCode">t</code> sorts by modification time (beginning with most recent).</li></div>
+<a name="wp226188"> </a><div class="pSmartList2"><li><code class="cCode">r</code> combined with <code class="cCode">a</code> and <code class="cCode">t</code> reverses the sort order.</li></div>
+<a name="wp226189"> </a><p class="pBodyRelative">
+<code class="cCode">recurse</code> determines whether subdirectories archived in the ZIP or JAR file are searched. The default is no.
+</p>
+<a name="wp231555"> </a><p class="pBodyRelative">
+To search subdirectories, set <code class="cCode">recurse</code> to yes, for example:
+</p>
+</ul></div>
+</ul></div>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;books&gt;
+for $book in 
+collection(&quot;zip:file:///c:/xml.zip?select=*.xml;recurse=yes&quot;)//books
+return
+&#160;&#160;&lt;myBook&gt;{$book/book/title}&lt;/myBook&gt;
+&lt;/books&gt; <a name="wp226193"> </a>
+<a name="wp226194"> </a><p class="pBodyRelative">
+<code class="cCode">xquery-regex</code> determines what type of regular expression syntax is specified in <code class="cCode">select</code>. 
+</p>
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp226195"> </a><div class="pSmartList2"><li>If set to no (the default), the select pattern syntax takes the conventional form. For example, *.xml selects all files with an xml extension. More generally, the select pattern is converted to a regular expression by prepending &quot;^&quot;, appending &quot;$&quot;, replacing &quot;.&quot; with &quot;\.&quot;, and replacing &quot;*&quot; with &quot;.*&quot;. Then, the select pattern is used to match the file names appearing in the directory using the XQuery regular expression rules. So, for example, you can specify *.(xml|xhtml) to match files with either of these two file extensions. </li></div>
+<a name="wp226196"> </a><p class="pBodyRelative">
+Note however, that special characters used in the URL may need to be escaped using the %HH convention, which can be achieved using the iri-to-uri function.
+</p>
+<a name="wp226197"> </a><div class="pSmartList2"><li>If set to <code class="cCode">yes</code>, the select pattern syntax as supported by XQuery is assumed. In this case, some characters may need to be escaped such as the backslash character (\) in a file name, for example:</li></div>
+<a name="wp226198"> </a><p class="pBodyRelative">
+<code class="cCode">select=.*\.xml$</code> must be <code class="cCode">select=.*%5C.xml$</code>
+</p>
+</ul></div>
+</pre></div>
+<a name="wp226202"> </a><p class="pBody">
+See also <a  href="advancedfeatures5.html#wp209086">Collection URI Resolvers</a>.
+</p>
+<a name="wp234722"> </a><h3 class="pHeading2">
+Creating and Updating ZIP Files
+</h3>
+<a name="wp234784"> </a><p class="pBody">
+You can use the ddtek:serialize-to-url function to create new ZIP files and add files to an existing ZIP file. See <a  href="built-in_functions2.html#wp298908">ddtek:serialize-to-url</a> for more information.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

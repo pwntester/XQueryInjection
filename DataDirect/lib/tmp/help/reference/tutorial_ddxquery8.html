@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:09" />
+  <title>Preparing XQuery Statements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp145150"> </a><h2 class="pNewHTMLPageNum">
+Preparing XQuery Statements
+</h2>
+<hr />
+<a name="wp145321"> </a><p class="pBody">
+Typically, when a query is executed, the query is parsed and optimized before it is run. To avoid incurring this overhead each time the query is used, you can prepare the same query once and execute it multiple times. 
+</p>
+<a name="wp151869"> </a><p class="pBody">
+The following is the code for creating a prepared query. Only the last line differs from the code used to create a query in our example in <a  href="tutorial_ddxquery5.html#wp144314">Querying Data from XML Files or DOM Trees</a>.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp146922"> </a>
+XQConnection conn = ds.getConnection();<a name="wp145436"> </a>
+<a name="wp145437"> </a>
+FileReader fileReader = new FileReader(&quot;flwor.xq&quot;);<a name="wp145438"> </a>
+<a name="wp145440"> </a>
+XQPreparedExpression preparedExpression = conn.prepareExpression(fileReader);<a name="wp145441"> </a>
+</pre></div>
+<a name="wp145348"> </a><p class="pBody">
+Once the query is prepared, use an executeQuery() call to execute&#160;it.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+XQSequence xqSequence = preparedExpression.executeQuery();<a name="wp145471"> </a>
+System.out.println(xqSequence.getSequenceAsString(null));<a name="wp145472"> </a>
+</pre></div>
+<a name="wp145354"> </a><p class="pBody">
+Queries can accept parameters that can be changed between executions. For example, you may want to prepare a query that selects holdings based on a particular customer. In the following query, the value of userid changes each time this XQuery is run. (Each userid is associated with a specific customer.)
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare variable $l as xs:string external;<a name="wp145501"> </a>
+collection(&quot;holdings&quot;)/holdings[userid=$l]<a name="wp145503"> </a>
+</pre></div>
+<a name="wp145367"> </a><p class="pBody">
+The value of $l is set using XQJ. Let&#39;s run this twice, each time for different users.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+preparedExpression.bindString(new QName(&quot;l&quot;), &quot;Jonathan&quot;);<a name="wp145544"> </a>
+xqSequence xqSequence = preparedExpression.executeQuery();<a name="wp145545"> </a>
+System.out.println(&quot;\n\nHoldings for Jonathan:\n\n&quot;);                                     <a name="wp145546"> </a>
+System.out.println(xqSequence.getSequenceAsString(null));<a name="wp145547"> </a>
+<a name="wp145548"> </a>
+preparedExpression.bindString(new QName(&quot;l&quot;), &quot;Minollo&quot;);<a name="wp145549"> </a>
+xqSequence xqSequence = preparedExpression.executeQuery();<a name="wp145550"> </a>
+System.out.println(&quot;\n\nHoldings for Minollo:\n\n&quot;);                                      <a name="wp145551"> </a>
+System.out.println(xqSequence.getSequenceAsString(null));<a name="wp145552"> </a>
+</pre></div>
+<a name="wp152974"> </a><p class="pBody">
+Other similar examples can be found in the <a  href="examples4.html#wp143252">ResultRetrieval</a> example.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:13" />
+  <title>Choosing a Connection Method</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp202801"> </a><h2 class="pNewHTMLPageNum">
+Choosing a Connection Method
+</h2>
+<hr />
+<a name="wp202802"> </a><p class="pBody">
+You can use XQJ to connect to a data source using either of the following methods:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp183301"> </a><div class="pSmartList1"><li>Construct a DDXQDataSource instance in your Java application explicitly</li></div><a name="wp183302"> </a><div class="pSmartList1"><li>Load a DDXQDataSource object from JNDI</li></div></ul></div>
+<a name="wp181904"> </a><p class="pBody">
+Specifying connection information explicitly in your Java application using a DDXQDataSource instance requires you to code the connection information directly in your Java application. See <a  href="conf_sourcefiles4.html#wp181921">Configuring Connections Explicitly</a> for complete information.
+</p>
+<a name="wp181905"> </a><p class="pBody">
+Using a DDXQDataSource object loaded from JNDI can be a convenient way to manage connections because the connection information is created and managed outside the applications that use it. As a result, the effort required to reconfigure your environment when an infrastructure change occurs is minimal. For example, if a database is moved to another server and uses a different port number, you only need to change the relevant properties of the data source object. An application accessing the database does not need to change because the application only references the logical name of the data source object in JNDI. See <a  href="conf_sourcefiles5.html#wp181978">Configuring Connections Using JNDI</a> for complete information.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

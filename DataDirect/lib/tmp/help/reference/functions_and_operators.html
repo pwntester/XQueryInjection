@@ -1,0 +1,3094 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:30" />
+  <title>Functions and Operators</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp245044"> </a><h2 class="pNewHTMLPageNum">
+B	Functions and Operators
+</h2>
+<hr />
+<a name="wp322322"> </a><p class="pBody">
+This topic describes how DataDirect XQuery supports the following categories of XQuery functions and operators as described in the XQuery 1.0 and XPath 2.0 Functions and Operators, W3C Recommendation 23 January 2007 located at: <a  href="http://www.w3.org/TR/2007/REC-xpath-functions-20070123/">http://www.w3.org/TR/2007/REC-xpath-functions-20070123/</a>
+</p>
+<a name="wp325659"> </a><p class="pBody">
+In this topic, numbered headings and items correspond to the sections in the <a  href="http://www.w3.org/TR/2007/REC-xpath-functions-20070123/">W3C  Recommendation 23 January 2007</a> where that topic is discussed.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp323420"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp323483">2 Accessors</a></li></div><a name="wp323424"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp323532">3 Error Function</a></li></div><a name="wp323428"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp323561">4 Trace Function</a></li></div><a name="wp323432"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp323590">5 Constructor Functions</a></li></div><a name="wp323436"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp323823">6 Functions and Operators on Numerics</a></li></div><a name="wp323440"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp323958">7 Functions on Strings</a></li></div><a name="wp323444"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp324200">8 Functions and Operators for anyURI</a></li></div><a name="wp323448"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp324228">9 Functions and Operators on Boolean Values</a></li></div><a name="wp323451"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp324320">10 Functions and Operators on Durations, Dates, and Times</a></li></div><a name="wp323456"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp324780">11 Functions Related to QNames</a></li></div><a name="wp323460"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp324863">12 Operators on base64Binary and hexBinary</a></li></div><a name="wp323464"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp324896">13 Functions and Operators on NOTATION</a></li></div><a name="wp323468"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp324923">14 Functions and Operators on Nodes</a></li></div><a name="wp323472"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp324983">15 Functions and Operators on Sequences</a></li></div><a name="wp323476"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp325234">16 Context Functions</a></li></div><a name="wp323480"> </a><div class="pSmartList1"><li><a  href="functions_and_operators.html#wp325291">17 Casting</a></li></div></ul></div>
+<a name="wp323483"> </a><h3 class="pHeading2">
+2 Accessors
+</h3>
+<a name="wp323487"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323497">Table&#160;B-1</a> describes how DataDirect XQuery supports XQuery accessor functions. Some accessor functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp323528"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323497"> </a><div class="pTableTitle">
+Table B-1.  XQuery Accessor Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323501"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp323503"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323505"> </a><div class="pCellBody">
+fn:node-name (2.1)
+</div>
+</td>
+    <td><a name="wp323507"> </a><div class="pCellBody">
+Supported. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323509"> </a><div class="pCellBody">
+fn:nilled (2.2)
+</div>
+</td>
+    <td><a name="wp323511"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323513"> </a><div class="pCellBody">
+fn:string (2.3)
+</div>
+</td>
+    <td><a name="wp323515"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323517"> </a><div class="pCellBody">
+fn:data (2.4)
+</div>
+</td>
+    <td><a name="wp323519"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323521"> </a><div class="pCellBody">
+fn:base-uri (2.5)
+</div>
+</td>
+    <td><a name="wp323523"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323525"> </a><div class="pCellBody">
+fn:document-uri (2.6)
+</div>
+</td>
+    <td><a name="wp323527"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323532"> </a><h3 class="pHeading2">
+3 Error Function
+</h3>
+<a name="wp323536"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323546">Table&#160;B-2</a> describes how DataDirect XQuery supports the XQuery error function. The error function is compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp323557"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323546"> </a><div class="pTableTitle">
+Table B-2.  XQuery Error Function&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323550"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp323552"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323554"> </a><div class="pCellBody">
+fn:error (3)
+</div>
+</td>
+    <td><a name="wp323556"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323561"> </a><h3 class="pHeading2">
+4 Trace Function
+</h3>
+<a name="wp323565"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323575">Table&#160;B-3</a> describes how DataDirect XQuery supports the XQuery trace function. The trace function is compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp323586"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323575"> </a><div class="pTableTitle">
+Table B-3.  XQuery Trace Function&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323579"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp323581"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323583"> </a><div class="pCellBody">
+fn:trace (4)
+</div>
+</td>
+    <td><a name="wp323585"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323590"> </a><h3 class="pHeading2">
+5 Constructor Functions
+</h3>
+<a name="wp323591"> </a><p class="pBody">
+Each predefined XQuery atomic type has an associated constructor function. Only those constructor functions that operate on supported atomic types are supported. See <a  href="database_support4.html#wp300736">Supported XQuery Atomic Types</a> for a list of the atomic types supported by DataDirect XQuery.
+</p>
+<a name="wp323596"> </a><h4 class="pHeading3">
+5.1 Constructor Functions for XML Schema Built-in&#160;Types
+</h4>
+<a name="wp323600"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323610">Table&#160;B-4</a> describes how DataDirect XQuery supports the XQuery constructor functions for XML schema built-in types. Some of these constructor functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp323791"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323610"> </a><div class="pTableTitle">
+Table B-4.  XQuery Constructor Functions for XML Schema Built-In Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323614"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp323616"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323618"> </a><div class="pCellBody">
+xs:string (5.1)
+</div>
+</td>
+    <td><a name="wp323620"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323622"> </a><div class="pCellBody">
+xs:boolean (5.1)
+</div>
+</td>
+    <td><a name="wp323624"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323626"> </a><div class="pCellBody">
+xs:decimal (5.1)
+</div>
+</td>
+    <td><a name="wp323628"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323630"> </a><div class="pCellBody">
+xs:float (5.1)
+</div>
+</td>
+    <td><a name="wp323632"> </a><div class="pCellBody">
+Supported. For relational sources, INF, -INF, and NaN are not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323634"> </a><div class="pCellBody">
+xs:double (5.1)
+</div>
+</td>
+    <td><a name="wp323636"> </a><div class="pCellBody">
+Supported. For relational sources, INF, -INF, and NaN are not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323638"> </a><div class="pCellBody">
+xs:duration (5.1)
+</div>
+</td>
+    <td><a name="wp323640"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323643"> </a><div class="pCellBody">
+xs:dateTime (5.1)
+</div>
+</td>
+    <td><a name="wp323645"> </a><div class="pCellBody">
+Supported. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323648"> </a><div class="pCellBody">
+xs:time (5.1)
+</div>
+</td>
+    <td><a name="wp323650"> </a><div class="pCellBody">
+Supported. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323652"> </a><div class="pCellBody">
+xs:date (5.1)
+</div>
+</td>
+    <td><a name="wp323654"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323656"> </a><div class="pCellBody">
+xs:gYearMonth (5.1)
+</div>
+</td>
+    <td><a name="wp323658"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323660"> </a><div class="pCellBody">
+xs:gYear (5.1)
+</div>
+</td>
+    <td><a name="wp323662"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323664"> </a><div class="pCellBody">
+xs:gMonthDay (5.1)
+</div>
+</td>
+    <td><a name="wp323666"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323668"> </a><div class="pCellBody">
+xs:gDay (5.1)
+</div>
+</td>
+    <td><a name="wp323670"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323672"> </a><div class="pCellBody">
+xs:gMonth (5.1)
+</div>
+</td>
+    <td><a name="wp323674"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323676"> </a><div class="pCellBody">
+xs:hexBinary (5.1)
+</div>
+</td>
+    <td><a name="wp323678"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323680"> </a><div class="pCellBody">
+xs:base64Binary (5.1)
+</div>
+</td>
+    <td><a name="wp323682"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323684"> </a><div class="pCellBody">
+xs:anyURI (5.1)
+</div>
+</td>
+    <td><a name="wp323686"> </a><div class="pCellBody">
+Supported. Compensated for relational sources
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323688"> </a><div class="pCellBody">
+xs:QName (5.1)
+</div>
+</td>
+    <td><a name="wp323690"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323692"> </a><div class="pCellBody">
+xs:normalizedString (5.1)
+</div>
+</td>
+    <td><a name="wp323694"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323696"> </a><div class="pCellBody">
+xs:token (5.1)
+</div>
+</td>
+    <td><a name="wp323698"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323700"> </a><div class="pCellBody">
+xs:language (5.1)
+</div>
+</td>
+    <td><a name="wp323702"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323704"> </a><div class="pCellBody">
+xs:NMTOKEN (5.1)
+</div>
+</td>
+    <td><a name="wp323706"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323708"> </a><div class="pCellBody">
+xs:Name (5.1)
+</div>
+</td>
+    <td><a name="wp323710"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323712"> </a><div class="pCellBody">
+xs:NCName (5.1)
+</div>
+</td>
+    <td><a name="wp323714"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323716"> </a><div class="pCellBody">
+xs:ID (5.1)
+</div>
+</td>
+    <td><a name="wp323718"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323720"> </a><div class="pCellBody">
+xs:IDREF (5.1)
+</div>
+</td>
+    <td><a name="wp323722"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323724"> </a><div class="pCellBody">
+xs:ENTITY (5.1)
+</div>
+</td>
+    <td><a name="wp323726"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323728"> </a><div class="pCellBody">
+xs:integer (5.1)
+</div>
+</td>
+    <td><a name="wp323730"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323732"> </a><div class="pCellBody">
+xs:nonPositiveInteger (5.1)
+</div>
+</td>
+    <td><a name="wp323734"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323736"> </a><div class="pCellBody">
+xs:negativeInteger (5.1)
+</div>
+</td>
+    <td><a name="wp323738"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323740"> </a><div class="pCellBody">
+xs:long (5.1)
+</div>
+</td>
+    <td><a name="wp323742"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323744"> </a><div class="pCellBody">
+xs:int (5.1)
+</div>
+</td>
+    <td><a name="wp323746"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323748"> </a><div class="pCellBody">
+xs:short (5.1)
+</div>
+</td>
+    <td><a name="wp323750"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323752"> </a><div class="pCellBody">
+xs:byte (5.1)
+</div>
+</td>
+    <td><a name="wp323754"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323756"> </a><div class="pCellBody">
+xs:nonNegativeInteger (5.1)
+</div>
+</td>
+    <td><a name="wp323758"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323760"> </a><div class="pCellBody">
+xs:unsignedLong (5.1)
+</div>
+</td>
+    <td><a name="wp323762"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323764"> </a><div class="pCellBody">
+xs:unsignedInt (5.1)
+</div>
+</td>
+    <td><a name="wp323766"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323768"> </a><div class="pCellBody">
+xs:unsignedShort (5.1)
+</div>
+</td>
+    <td><a name="wp323770"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323772"> </a><div class="pCellBody">
+xs:unsignedByte (5.1)
+</div>
+</td>
+    <td><a name="wp323774"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323776"> </a><div class="pCellBody">
+xs:positiveInteger (5.1)
+</div>
+</td>
+    <td><a name="wp323778"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323780"> </a><div class="pCellBody">
+xs:yearMonthDuration (5.1)
+</div>
+</td>
+    <td><a name="wp323782"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323784"> </a><div class="pCellBody">
+xs:dayTimeDuration (5.1)
+</div>
+</td>
+    <td><a name="wp323786"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323788"> </a><div class="pCellBody">
+xs:untypedAtomic (5.1)
+</div>
+</td>
+    <td><a name="wp323790"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323793"> </a><h4 class="pHeading3">
+5.2 A Special Constructor Function for xs:dateTime
+</h4>
+<a name="wp323798"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323805">Table&#160;B-5</a> describes how DataDirect XQuery supports the Special Constructor Function for xs:dateTime. 
+</p>
+<a name="wp323816"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323805"> </a><div class="pTableTitle">
+Table B-5.  A Special Constructor Function for xs:dateTime&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323809"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp323811"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323813"> </a><div class="pCellBody">
+fn:dateTime($arg1 as xs:date, $arg2 as xs:time) as xs:dateTime (5.2)
+</div>
+</td>
+    <td><a name="wp323815"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323819"> </a><h4 class="pHeading3">
+5.3 Constructor Functions for User-Defined Types
+</h4>
+<a name="wp323820"> </a><p class="pBody">
+Not supported.
+</p>
+<a name="wp323823"> </a><h3 class="pHeading2">
+6 Functions and Operators on Numerics
+</h3>
+<a name="wp323824"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports functions and operators on numeric data types.
+</p>
+<a name="wp323826"> </a><h4 class="pHeading3">
+6.2 Operators on Numeric Values
+</h4>
+<a name="wp323830"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323837">Table&#160;B-6</a> describes how DataDirect XQuery supports operators on numeric values. 
+</p>
+<a name="wp323877"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323837"> </a><div class="pTableTitle">
+Table B-6.  XQuery Operators on Numeric Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323841"> </a><div class="pCellHeading">
+XQuery Operator
+</div>
+</th>
+    <th><a name="wp323843"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323845"> </a><div class="pCellBody">
+op:numeric-add (6.2.1)
+</div>
+</td>
+    <td><a name="wp323847"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323849"> </a><div class="pCellBody">
+op:numeric-subtract (6.2.2)
+</div>
+</td>
+    <td><a name="wp323851"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323853"> </a><div class="pCellBody">
+op:numeric-multiply (6.2.3)
+</div>
+</td>
+    <td><a name="wp323855"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323857"> </a><div class="pCellBody">
+op:numeric-divide (6.2.4)
+</div>
+</td>
+    <td><a name="wp323859"> </a><div class="pCellBody">
+Supported.
+</div>
+<a name="wp323860"> </a><div class="pCellBody">
+For relational sources, an xs:float or xs:double value divided by zero raises an error instead of returning INF or &#8211;INF.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323862"> </a><div class="pCellBody">
+op:numeric-integer-divide (6.2.5)
+</div>
+</td>
+    <td><a name="wp323864"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323866"> </a><div class="pCellBody">
+op:numeric-mod (6.2.6)
+</div>
+</td>
+    <td><a name="wp323868"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323870"> </a><div class="pCellBody">
+op:numeric-unary-plus (6.2.7)
+</div>
+</td>
+    <td><a name="wp323872"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323874"> </a><div class="pCellBody">
+op:numeric-unary-minus (6.2.8)
+</div>
+</td>
+    <td><a name="wp323876"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323880"> </a><h4 class="pHeading3">
+6.3 Comparison of Numeric Values
+</h4>
+<a name="wp323884"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323891">Table&#160;B-7</a> describes how DataDirect XQuery supports comparison operators on numeric values. 
+</p>
+<a name="wp323910"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323891"> </a><div class="pTableTitle">
+Table B-7.  XQuery Comparison Operators on Numeric Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323895"> </a><div class="pCellHeading">
+XQuery Operator
+</div>
+</th>
+    <th><a name="wp323897"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323899"> </a><div class="pCellBody">
+op:numeric-equal (6.3.1)
+</div>
+</td>
+    <td><a name="wp323901"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323903"> </a><div class="pCellBody">
+op:numeric-less-than (6.3.2)
+</div>
+</td>
+    <td><a name="wp323905"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323907"> </a><div class="pCellBody">
+op:numeric-greater-than (6.3.3)
+</div>
+</td>
+    <td><a name="wp323909"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323913"> </a><h4 class="pHeading3">
+6.4 Functions on Numeric Values
+</h4>
+<a name="wp323917"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323927">Table&#160;B-8</a> describes how DataDirect XQuery supports functions on numeric values. Some of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp323954"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323927"> </a><div class="pTableTitle">
+Table B-8.  XQuery Functions on Numeric Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323931"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp323933"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323935"> </a><div class="pCellBody">
+fn:abs (6.4.1)
+</div>
+</td>
+    <td><a name="wp323937"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323939"> </a><div class="pCellBody">
+fn:ceiling (6.4.2)
+</div>
+</td>
+    <td><a name="wp323941"> </a><div class="pCellBody">
+Supported. Compensated for Informix.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323943"> </a><div class="pCellBody">
+fn:floor (6.4.3)
+</div>
+</td>
+    <td><a name="wp323945"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323947"> </a><div class="pCellBody">
+fn:round (6.4.4)
+</div>
+</td>
+    <td><a name="wp323949"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323951"> </a><div class="pCellBody">
+fn:round-half-to-even (6.4.5)
+</div>
+</td>
+    <td><a name="wp323953"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323958"> </a><h3 class="pHeading2">
+7 Functions on Strings
+</h3>
+<a name="wp323959"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports functions on string data types.
+</p>
+<a name="wp323961"> </a><h4 class="pHeading3">
+7.2 Functions to Assemble and Disassemble Strings
+</h4>
+<a name="wp323965"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp323975">Table&#160;B-9</a> describes how DataDirect XQuery supports functions to assemble and disassemble strings. All of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp323990"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp323975"> </a><div class="pTableTitle">
+Table B-9.  XQuery Functions to Assemble and Disassemble Strings&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp323979"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp323981"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323983"> </a><div class="pCellBody">
+fn:codepoints-to-string (7.2.1)
+</div>
+</td>
+    <td><a name="wp323985"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp323987"> </a><div class="pCellBody">
+fn:string-to-codepoints (7.2.2)
+</div>
+</td>
+    <td><a name="wp323989"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp323993"> </a><h4 class="pHeading3">
+7.3 Equality and Comparison of Strings
+</h4>
+<a name="wp323997"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324007">Table&#160;B-10</a> describes how DataDirect XQuery supports functions that provide equality and comparison operations on strings. Some of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324025"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324007"> </a><div class="pTableTitle">
+Table B-10.  XQuery Functions for Equality and Comparison of Strings&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324011"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324013"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324015"> </a><div class="pCellBody">
+fn:compare (7.3.2)
+</div>
+</td>
+    <td><a name="wp324020"> </a><div class="pCellBody">
+Supported. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324022"> </a><div class="pCellBody">
+fn:codepoint-equal (7.3.3)
+</div>
+</td>
+    <td><a name="wp324024"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324027"> </a><h4 class="pHeading3">
+7.4 Functions on String Values
+</h4>
+<a name="wp324031"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324041">Table&#160;B-11</a> describes how DataDirect XQuery supports functions on string values. Some of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324100"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324041"> </a><div class="pTableTitle">
+Table B-11.  XQuery Functions on String Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324045"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324047"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324049"> </a><div class="pCellBody">
+fn:concat (7.4.1)
+</div>
+</td>
+    <td><a name="wp324051"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324053"> </a><div class="pCellBody">
+fn:string-join (7.4.2)
+</div>
+</td>
+    <td><a name="wp324055"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324057"> </a><div class="pCellBody">
+fn:substring (7.4.3)
+</div>
+</td>
+    <td><a name="wp324059"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324061"> </a><div class="pCellBody">
+fn:string-length (7.4.4)
+</div>
+</td>
+    <td><a name="wp324063"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324065"> </a><div class="pCellBody">
+fn:normalize-space (7.4.5)
+</div>
+</td>
+    <td><a name="wp324067"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324069"> </a><div class="pCellBody">
+fn:normalize-unicode (7.4.6)
+</div>
+</td>
+    <td><a name="wp324071"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324073"> </a><div class="pCellBody">
+fn:upper-case (7.4.7)
+</div>
+</td>
+    <td><a name="wp324075"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324077"> </a><div class="pCellBody">
+fn:lower-case (7.4.8)
+</div>
+</td>
+    <td><a name="wp324079"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324081"> </a><div class="pCellBody">
+fn:translate (7.4.9)
+</div>
+</td>
+    <td><a name="wp324083"> </a><div class="pCellBody">
+Supported. Compensated for relational sources, except in this case:<br /><code class="cCode">fn:translate( $arg as xs:string?, $mapString as xs:string, $transString as xs:string) as xs:string</code>
+</div>
+<a name="wp324084"> </a><div class="pCellBody">
+fn:translate( ) is not compensated if all of the following conditions are true:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp324085"> </a><div class="pSmartList1"><li><code class="cCode">$mapString</code> and <code class="cCode">$transString</code> are literals.</li></div><a name="wp324086"> </a><div class="pSmartList1"><li>No characters of <code class="cCode">$mapString</code> appear in <code class="cCode">$transString</code>, and vice versa.</li></div><a name="wp324087"> </a><div class="pSmartList1"><li>The underlying database is not Sybase.</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324089"> </a><div class="pCellBody">
+fn:escape-uri (7.4.10)
+</div>
+</td>
+    <td><a name="wp324091"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324093"> </a><div class="pCellBody">
+fn:iri-to-uri (7.4.11)
+</div>
+</td>
+    <td><a name="wp324095"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324097"> </a><div class="pCellBody">
+fn:escape-html-uri (7.4.12)
+</div>
+</td>
+    <td><a name="wp324099"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324103"> </a><h4 class="pHeading3">
+7.5 Functions Based on Substring Matching
+</h4>
+<a name="wp324107"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324114">Table&#160;B-12</a> describes how DataDirect XQuery supports functions based on substring matching. 
+</p>
+<a name="wp324156"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324114"> </a><div class="pTableTitle">
+Table B-12.  XQuery Functions Based on Substring Matching&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324118"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324120"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324122"> </a><div class="pCellBody">
+fn:contains (7.5.1)
+</div>
+</td>
+    <td><a name="wp324124"> </a><div class="pCellBody">
+Supported. Compensated for Informix, except when the second argument is a sting literal. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324129"> </a><div class="pCellBody">
+fn:starts-with (7.5.2)
+</div>
+</td>
+    <td><a name="wp324131"> </a><div class="pCellBody">
+Supported. Compensated for Informix, except when the second argument is a sting literal. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324136"> </a><div class="pCellBody">
+fn:ends-with (7.5.3)
+</div>
+</td>
+    <td><a name="wp324138"> </a><div class="pCellBody">
+Supported. Compensated for Informix, except when the second argument is a sting literal. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324143"> </a><div class="pCellBody">
+fn:substring-before (7.5.4)
+</div>
+</td>
+    <td><a name="wp324147"> </a><div class="pCellBody">
+Supported. Compensated for Informix. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324150"> </a><div class="pCellBody">
+fn:substring-after (7.5.5)
+</div>
+</td>
+    <td><a name="wp324154"> </a><div class="pCellBody">
+Supported. Compensated for Informix. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324159"> </a><h4 class="pHeading3">
+7.6 String Functions That Use Pattern Matching
+</h4>
+<a name="wp324163"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324173">Table&#160;B-13</a> describes how DataDirect XQuery supports functions that use pattern matching. All of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324196"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324173"> </a><div class="pTableTitle">
+Table B-13.  String Functions That Use Pattern Matching&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324177"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324179"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324181"> </a><div class="pCellBody">
+fn:matches (7.6.2)
+</div>
+</td>
+    <td><a name="wp324183"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324185"> </a><div class="pCellBody">
+fn:replace (7.6.3)
+</div>
+</td>
+    <td><a name="wp324187"> </a><div class="pCellBody">
+Supported. Compensated for relational sources, except if all of the following conditions are true:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp324188"> </a><div class="pSmartList1"><li><code class="cCode">$pattern</code> and <code class="cCode">$replacement</code> are string literals.</li></div><a name="wp324189"> </a><div class="pSmartList1"><li><code class="cCode">$pattern</code> is not a regular expression, does not contain unescaped characters: ( | ) [ ] * ? + ^ $.</li></div><a name="wp324190"> </a><div class="pSmartList1"><li><code class="cCode">$replacement</code> cannot include unescaped \ or $ characters.</li></div><a name="wp324191"> </a><div class="pSmartList1"><li>The underlying database is not Sybase.</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324193"> </a><div class="pCellBody">
+fn:tokenize (7.6.4)
+</div>
+</td>
+    <td><a name="wp324195"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324200"> </a><h3 class="pHeading2">
+8 Functions and Operators for anyURI
+</h3>
+<a name="wp324204"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324214">Table&#160;B-14</a> describes how DataDirect XQuery supports functions on the anyURI data type. The resolve-uri function is compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324225"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324214"> </a><div class="pTableTitle">
+Table B-14.  XQuery anyURI Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324218"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324220"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324222"> </a><div class="pCellBody">
+fn:resolve-uri (8.1)
+</div>
+</td>
+    <td><a name="wp324224"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324228"> </a><h3 class="pHeading2">
+9 Functions and Operators on Boolean Values
+</h3>
+<a name="wp324230"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports functions and operators on the boolean data type.
+</p>
+<a name="wp324232"> </a><h4 class="pHeading3">
+9.1 Boolean Constructor Functions
+</h4>
+<a name="wp324236"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324243">Table&#160;B-15</a> describes how DataDirect XQuery supports boolean constructor functions. 
+</p>
+<a name="wp324258"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324243"> </a><div class="pTableTitle">
+Table B-15.  XQuery Boolean Constructor Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324247"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324249"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324251"> </a><div class="pCellBody">
+fn:true (9.1.1)
+</div>
+</td>
+    <td><a name="wp324253"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324255"> </a><div class="pCellBody">
+fn:false (9.1.2)
+</div>
+</td>
+    <td><a name="wp324257"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324261"> </a><h4 class="pHeading3">
+9.2 Operators on Boolean Values
+</h4>
+<a name="wp324265"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324272">Table&#160;B-16</a> describes how DataDirect XQuery supports operators on boolean values. 
+</p>
+<a name="wp324291"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324272"> </a><div class="pTableTitle">
+Table B-16.  XQuery Operators on Boolean Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324276"> </a><div class="pCellHeading">
+XQuery Operator
+</div>
+</th>
+    <th><a name="wp324278"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324280"> </a><div class="pCellBody">
+op:boolean-equal (9.2.1)
+</div>
+</td>
+    <td><a name="wp324282"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324284"> </a><div class="pCellBody">
+op:boolean-less-than (9.2.2)
+</div>
+</td>
+    <td><a name="wp324286"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324288"> </a><div class="pCellBody">
+op:boolean-greater-than (9.2.3)
+</div>
+</td>
+    <td><a name="wp324290"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324294"> </a><h4 class="pHeading3">
+9.3 Functions on Boolean Values
+</h4>
+<a name="wp324298"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324305">Table&#160;B-17</a> describes how DataDirect XQuery supports functions on boolean values. 
+</p>
+<a name="wp324316"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324305"> </a><div class="pTableTitle">
+Table B-17.  XQuery Functions on Boolean Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324309"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324311"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324313"> </a><div class="pCellBody">
+fn:not (9.3.1)
+</div>
+</td>
+    <td><a name="wp324315"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324320"> </a><h3 class="pHeading2">
+10 Functions and Operators on Durations, Dates, and Times
+</h3>
+<a name="wp324322"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports functions and operators on duration, date, and time data types.
+</p>
+<a name="wp324323"> </a><h4 class="pHeading3">
+10.1 and 10.2 Duration, Date, and Time Types
+</h4>
+<a name="wp324327"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324334">Table&#160;B-18</a> describes how DataDirect XQuery supports functions on duration, date, and time data types. Some of these are compensated for relational sources, see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324379"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324334"> </a><div class="pTableTitle">
+Table B-18.  Functions on Duration, Date, and Time Data Types
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324338"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324340"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324342"> </a><div class="pCellBody">
+xs:dateTime (10.1)
+</div>
+</td>
+    <td><a name="wp324347"> </a><div class="pCellBody">
+Supported. See comments for <a  href="functions_and_operators.html#wp323643">xs:dateTime (5.1)</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324349"> </a><div class="pCellBody">
+xs:date (10.1)
+</div>
+</td>
+    <td><a name="wp324351"> </a><div class="pCellBody">
+Supported. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324353"> </a><div class="pCellBody">
+xs:time (10.1)
+</div>
+</td>
+    <td><a name="wp324358"> </a><div class="pCellBody">
+Supported. See comments for <a  href="functions_and_operators.html#wp323648">xs:time (5.1)</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324360"> </a><div class="pCellBody">
+xs:gYearMonth (10.1)
+</div>
+</td>
+    <td><a name="wp324362"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324364"> </a><div class="pCellBody">
+xs:gYear (10.1)
+</div>
+</td>
+    <td><a name="wp324366"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324368"> </a><div class="pCellBody">
+xs:gMonthDay (10.1)
+</div>
+</td>
+    <td><a name="wp324370"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324372"> </a><div class="pCellBody">
+xs:gMonth (10.1)
+</div>
+</td>
+    <td><a name="wp324374"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324376"> </a><div class="pCellBody">
+xs:gDay (10.1)
+</div>
+</td>
+    <td><a name="wp324378"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324382"> </a><h4 class="pHeading3">
+10.3 Two Totally Ordered Subtypes of Duration
+</h4>
+<a name="wp324383"> </a><p class="pBody">
+DataDirect XQuery supports the xs:yearMonthDuration (10.3.1) and xs:dayTimeDuration (10.3.2). For relational sources, these two subtypes are compensated. See <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a>.
+</p>
+<a name="wp324387"> </a><h4 class="pHeading3">
+10.4 Comparisons of Duration, Date, and Time Values
+</h4>
+<a name="wp324392"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324402">Table&#160;B-19</a> describes how DataDirect XQuery supports comparisons of duration, date, and time values. Some of the comparison operators on duration, date, and time values are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324493"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324402"> </a><div class="pTableTitle">
+Table B-19.  XQuery Comparisons of Duration, Date, and Time Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324406"> </a><div class="pCellHeading">
+XQuery Operator
+</div>
+</th>
+    <th><a name="wp324408"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324410"> </a><div class="pCellBody">
+op:yearMonthDuration-equal (10.4.1)
+</div>
+</td>
+    <td><a name="wp324412"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324414"> </a><div class="pCellBody">
+op:yearMonthDuration-less-than (10.4.2)
+</div>
+</td>
+    <td><a name="wp324416"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324418"> </a><div class="pCellBody">
+op:yearMonthDuration-greater-than (10.4.3)
+</div>
+</td>
+    <td><a name="wp324420"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324422"> </a><div class="pCellBody">
+op:dayTimeDuration-equal (10.4.4)
+</div>
+</td>
+    <td><a name="wp324424"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324426"> </a><div class="pCellBody">
+op:dayTimeDuration-less-than (10.4.5)
+</div>
+</td>
+    <td><a name="wp324428"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324430"> </a><div class="pCellBody">
+op:dayTimeDuration-greater-than (10.4.6)
+</div>
+</td>
+    <td><a name="wp324432"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324434"> </a><div class="pCellBody">
+op:duration-equal (10.4.7)
+</div>
+</td>
+    <td><a name="wp324436"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324438"> </a><div class="pCellBody">
+op:dateTime-equal (10.4.8)
+</div>
+</td>
+    <td><a name="wp324440"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324442"> </a><div class="pCellBody">
+op:dateTime-less-than (10.4.9)
+</div>
+</td>
+    <td><a name="wp324444"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324446"> </a><div class="pCellBody">
+op:dateTime-greater-than (10.4.10)
+</div>
+</td>
+    <td><a name="wp324448"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324450"> </a><div class="pCellBody">
+op:date-equal (10.4.11)
+</div>
+</td>
+    <td><a name="wp324452"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324454"> </a><div class="pCellBody">
+op:date-less-than (10.4.12)
+</div>
+</td>
+    <td><a name="wp324456"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324458"> </a><div class="pCellBody">
+op:date-greater-than (10.4.13)
+</div>
+</td>
+    <td><a name="wp324460"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324462"> </a><div class="pCellBody">
+op:time-equal (10.4.14)
+</div>
+</td>
+    <td><a name="wp324464"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324466"> </a><div class="pCellBody">
+op:time-less-than (10.4.15)
+</div>
+</td>
+    <td><a name="wp324468"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324470"> </a><div class="pCellBody">
+op:time-greater-than (10.4.16)
+</div>
+</td>
+    <td><a name="wp324472"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324474"> </a><div class="pCellBody">
+op:gYearMonth-equal (10.4.17)
+</div>
+</td>
+    <td><a name="wp324476"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324478"> </a><div class="pCellBody">
+op:gYear-equal (10.4.18)
+</div>
+</td>
+    <td><a name="wp324480"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324482"> </a><div class="pCellBody">
+op:gMonthDay-equal (10.4.19)
+</div>
+</td>
+    <td><a name="wp324484"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324486"> </a><div class="pCellBody">
+op:gMonth-equal (10.4.20)
+</div>
+</td>
+    <td><a name="wp324488"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324490"> </a><div class="pCellBody">
+op:gDay-equal (10.4.21)
+</div>
+</td>
+    <td><a name="wp324492"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324496"> </a><h4 class="pHeading3">
+10.5 Component Extraction Functions on Durations, Dates, and Times
+</h4>
+<a name="wp324500"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324510">Table&#160;B-20</a> describes how DataDirect XQuery supports component extraction functions. Some of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324601"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324510"> </a><div class="pTableTitle">
+Table B-20.  XQuery Component Extraction Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324514"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324516"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324518"> </a><div class="pCellBody">
+fn:years-from-duration (10.5.1)
+</div>
+</td>
+    <td><a name="wp324520"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324522"> </a><div class="pCellBody">
+fn:months-from-duration (10.5.2)
+</div>
+</td>
+    <td><a name="wp324524"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324526"> </a><div class="pCellBody">
+fn:days-from-duration (10.5.3)
+</div>
+</td>
+    <td><a name="wp324528"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324530"> </a><div class="pCellBody">
+fn:hours-from-duration (10.5.4)
+</div>
+</td>
+    <td><a name="wp324532"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324534"> </a><div class="pCellBody">
+fn:minutes-from-duration (10.5.5)
+</div>
+</td>
+    <td><a name="wp324536"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324538"> </a><div class="pCellBody">
+fn:seconds-from-duration (10.5.6)
+</div>
+</td>
+    <td><a name="wp324540"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324542"> </a><div class="pCellBody">
+fn:year-from-dateTime (10.5.7)
+</div>
+</td>
+    <td><a name="wp324544"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324546"> </a><div class="pCellBody">
+fn:month-from-dateTime (10.5.8)
+</div>
+</td>
+    <td><a name="wp324548"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324550"> </a><div class="pCellBody">
+fn:day-from-dateTime (10.5.9)
+</div>
+</td>
+    <td><a name="wp324552"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324554"> </a><div class="pCellBody">
+fn:hours-from-dateTime (10.5.10)
+</div>
+</td>
+    <td><a name="wp324556"> </a><div class="pCellBody">
+Supported. Compensated for Informix.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324558"> </a><div class="pCellBody">
+fn:minutes-from-dateTime (10.5.11)
+</div>
+</td>
+    <td><a name="wp324560"> </a><div class="pCellBody">
+Supported. Compensated for Informix.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324562"> </a><div class="pCellBody">
+fn:seconds-from-dateTime (10.5.12)
+</div>
+</td>
+    <td><a name="wp324564"> </a><div class="pCellBody">
+Supported. Compensated for Informix.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324566"> </a><div class="pCellBody">
+fn:timezone-from-dateTime (10.5.13)
+</div>
+</td>
+    <td><a name="wp324568"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324570"> </a><div class="pCellBody">
+fn:year-from-date (10.5.14)
+</div>
+</td>
+    <td><a name="wp324572"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324574"> </a><div class="pCellBody">
+fn:month-from-date (10.5.15)
+</div>
+</td>
+    <td><a name="wp324576"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324578"> </a><div class="pCellBody">
+fn:day-from-date (10.5.16)
+</div>
+</td>
+    <td><a name="wp324580"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324582"> </a><div class="pCellBody">
+fn:timezone-from-date (10.5.17)
+</div>
+</td>
+    <td><a name="wp324584"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324586"> </a><div class="pCellBody">
+fn:hours-from-time (10.5.18)
+</div>
+</td>
+    <td><a name="wp324588"> </a><div class="pCellBody">
+Supported. Compensated for Informix.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324590"> </a><div class="pCellBody">
+fn:minutes-from-time (10.5.19)
+</div>
+</td>
+    <td><a name="wp324592"> </a><div class="pCellBody">
+Supported. Compensated for Informix.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324594"> </a><div class="pCellBody">
+fn:seconds-from-time (10.5.20)
+</div>
+</td>
+    <td><a name="wp324596"> </a><div class="pCellBody">
+Supported. Compensated for Informix.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324598"> </a><div class="pCellBody">
+fn:timezone-from-time (10.5.21)
+</div>
+</td>
+    <td><a name="wp324600"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324603"> </a><h4 class="pHeading3">
+10.6 Arithmetic Operators on Durations
+</h4>
+<a name="wp324607"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324617">Table&#160;B-21</a> describes how DataDirect XQuery supports arithmetic operators on durations. All of these operators are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324664"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324617"> </a><div class="pTableTitle">
+Table B-21.  XQuery Arithmetic Operators on Durations&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324621"> </a><div class="pCellHeading">
+XQuery Operator
+</div>
+</th>
+    <th><a name="wp324623"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324625"> </a><div class="pCellBody">
+op:add-yearMonthDurations (10.6.1)
+</div>
+</td>
+    <td><a name="wp324627"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324629"> </a><div class="pCellBody">
+op:subtract-yearMonthDurations (10.6.2)
+</div>
+</td>
+    <td><a name="wp324631"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324633"> </a><div class="pCellBody">
+op:multiply-yearMonthDuration (10.6.3)
+</div>
+</td>
+    <td><a name="wp324635"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324637"> </a><div class="pCellBody">
+op:divide-yearMonthDuration (10.6.4)
+</div>
+</td>
+    <td><a name="wp324639"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324641"> </a><div class="pCellBody">
+op:divide-yearMonthDuration-by-year<br />MonthDuration (10.6.5)
+</div>
+</td>
+    <td><a name="wp324643"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324645"> </a><div class="pCellBody">
+op:add-dayTimeDurations (10.6.6)
+</div>
+</td>
+    <td><a name="wp324647"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324649"> </a><div class="pCellBody">
+op:subtract-dayTimeDurations (10.6.7)
+</div>
+</td>
+    <td><a name="wp324651"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324653"> </a><div class="pCellBody">
+op:multiply-dayTimeDuration (10.6.8)
+</div>
+</td>
+    <td><a name="wp324655"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324657"> </a><div class="pCellBody">
+op:divide-dayTimeDuration (10.6.9)
+</div>
+</td>
+    <td><a name="wp324659"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324661"> </a><div class="pCellBody">
+op:divide-dayTimeDuration-by-dayTimeDuration (10.6.10)
+</div>
+</td>
+    <td><a name="wp324663"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324667"> </a><h4 class="pHeading3">
+10.7 Timezone Adjustment on Dates and Time Values
+</h4>
+<a name="wp324671"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324681">Table&#160;B-22</a> describes how DataDirect XQuery supports functions and operators used to adjust timezones on dateTime, date, and time values. All of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324700"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324681"> </a><div class="pTableTitle">
+Table B-22.  Functions for Timezone Adjustment on dateTime, date, and time Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324685"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324687"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324689"> </a><div class="pCellBody">
+fn:adjust-dateTime-to-timezone (10.7.1)
+</div>
+</td>
+    <td><a name="wp324691"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324693"> </a><div class="pCellBody">
+fn:adjust-date-to-timezone (10.7.2)
+</div>
+</td>
+    <td><a name="wp324695"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324697"> </a><div class="pCellBody">
+fn:adjust-time-to-timezone (10.7.3)
+</div>
+</td>
+    <td><a name="wp324699"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324702"> </a><h4 class="pHeading3">
+10.8 Arithmetic Operators on Durations, Dates, and Times
+</h4>
+<a name="wp324707"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324714">Table&#160;B-23</a> describes how DataDirect XQuery supports operators used to add and subtract durations from dateTime, date, and time. All of these operators are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324776"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324714"> </a><div class="pTableTitle">
+Table B-23.  Operators for Adding and Subtracting Durations from dateTime, date, and time&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324721"> </a><div class="pCellHeading">
+XQuery Operator
+</div>
+</th>
+    <th><a name="wp324723"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324725"> </a><div class="pCellBody">
+op:subtract-dateTimes (10.8.1)
+</div>
+</td>
+    <td><a name="wp324727"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324729"> </a><div class="pCellBody">
+op:subtract-dates (10.8.2)
+</div>
+</td>
+    <td><a name="wp324731"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324733"> </a><div class="pCellBody">
+op:subtract-times (10.8.3)
+</div>
+</td>
+    <td><a name="wp324735"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324737"> </a><div class="pCellBody">
+op:add-yearMonthDuration-to-dateTime (10.8.4)
+</div>
+</td>
+    <td><a name="wp324739"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324741"> </a><div class="pCellBody">
+op:add-dayTimeDuration-to-dateTime (10.8.5)
+</div>
+</td>
+    <td><a name="wp324743"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324745"> </a><div class="pCellBody">
+op:subtract-yearMonthDuration-from-dateTime (10.8.6) 
+</div>
+</td>
+    <td><a name="wp324747"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324749"> </a><div class="pCellBody">
+op:subtract-dayTimeDuration-from-dateTime (10.8.7)
+</div>
+</td>
+    <td><a name="wp324751"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324753"> </a><div class="pCellBody">
+op:add-yearMonthDuration-to-date (10.8.8)
+</div>
+</td>
+    <td><a name="wp324755"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324757"> </a><div class="pCellBody">
+op:add-dayTimeDuration-to-date (10.8.9)
+</div>
+</td>
+    <td><a name="wp324759"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324761"> </a><div class="pCellBody">
+op:subtract-yearMonthDuration-from-date (10.8.10)
+</div>
+</td>
+    <td><a name="wp324763"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324765"> </a><div class="pCellBody">
+op:subtract-dayTimeDuration-from-date (10.8.11)
+</div>
+</td>
+    <td><a name="wp324767"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324769"> </a><div class="pCellBody">
+op:add-dayTimeDuration-from-date (10.8.12)
+</div>
+</td>
+    <td><a name="wp324771"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324773"> </a><div class="pCellBody">
+op:subtract-dayTimeDuration-from-time (10.8.13)
+</div>
+</td>
+    <td><a name="wp324775"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324780"> </a><h3 class="pHeading2">
+11 Functions Related to QNames
+</h3>
+<a name="wp324781"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports functions related to QNames.
+</p>
+<a name="wp324783"> </a><h4 class="pHeading3">
+11.1 Constructor Functions for QNames
+</h4>
+<a name="wp324787"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324797">Table&#160;B-24</a> describes how DataDirect XQuery supports constructor functions for QNames. Some of these constructor functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324812"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324797"> </a><div class="pTableTitle">
+Table B-24.  Constructor Functions for QNames&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324801"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp324803"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324805"> </a><div class="pCellBody">
+fn:resolve-QName (11.1.1)
+</div>
+</td>
+    <td><a name="wp324807"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324809"> </a><div class="pCellBody">
+fn:QName (11.1.2)
+</div>
+</td>
+    <td><a name="wp324811"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324815"> </a><h4 class="pHeading3">
+11.2 Operators and Functions Related to QNames
+</h4>
+<a name="wp324819"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324829">Table&#160;B-25</a> describes how DataDirect XQuery supports the operators and functions related to QNames. Some of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324860"> </a><p class="pBody">
+ </p><div align="left">
+<table border="1">
+  <caption><a name="wp324829"> </a><div class="pTableTitle">
+Table B-25.  XQuery Operators and Functions Related to QNames&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324833"> </a><div class="pCellHeading">
+XQuery Operator or Function
+</div>
+</th>
+    <th><a name="wp324835"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324837"> </a><div class="pCellBody">
+op:QName-equal (11.2.1)
+</div>
+</td>
+    <td><a name="wp324839"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324841"> </a><div class="pCellBody">
+fn:prefix-from-Qname (11.2.2)
+</div>
+</td>
+    <td><a name="wp324843"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324845"> </a><div class="pCellBody">
+fn:local-name-from-QName (11.2.3)
+</div>
+</td>
+    <td><a name="wp324847"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324849"> </a><div class="pCellBody">
+fn:namespace-uri-from-QName (11.2.4)
+</div>
+</td>
+    <td><a name="wp324851"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324853"> </a><div class="pCellBody">
+fn:namespace-uri-for-prefix (11.2.5)
+</div>
+</td>
+    <td><a name="wp324855"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324857"> </a><div class="pCellBody">
+fn:in-scope-prefixes (11.2.6)
+</div>
+</td>
+    <td><a name="wp324859"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324863"> </a><h3 class="pHeading2">
+12 Operators on base64Binary and hexBinary
+</h3>
+<a name="wp324868"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324878">Table&#160;B-26</a> describes how DataDirect XQuery supports comparisons of base64Binary and hexBinary values. One of these operators is compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324893"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324878"> </a><div class="pTableTitle">
+Table B-26.  XQuery Comparisons of base64Binary and hexBinary Values&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324882"> </a><div class="pCellHeading">
+XQuery Operator
+</div>
+</th>
+    <th><a name="wp324884"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324886"> </a><div class="pCellBody">
+op:hexBinary-equal (12.1.1)
+</div>
+</td>
+    <td><a name="wp324888"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324890"> </a><div class="pCellBody">
+op:base64Binary-equal (12.1.2)
+</div>
+</td>
+    <td><a name="wp324892"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324896"> </a><h3 class="pHeading2">
+13 Functions and Operators on NOTATION
+</h3>
+<a name="wp324901"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324908">Table&#160;B-27</a> describes how DataDirect XQuery supports operators that work with NOTATION.
+</p>
+<a name="wp324919"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324908"> </a><div class="pTableTitle">
+Table B-27.  XQuery Operators on NOTATION&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324912"> </a><div class="pCellHeading">
+XQuery Operator
+</div>
+</th>
+    <th><a name="wp324914"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324916"> </a><div class="pCellBody">
+op:NOTATION-equal (13.1.1)
+</div>
+</td>
+    <td><a name="wp324918"> </a><div class="pCellBody">
+Supported. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324923"> </a><h3 class="pHeading2">
+14 Functions and Operators on Nodes
+</h3>
+<a name="wp324927"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp324937">Table&#160;B-28</a> describes how DataDirect XQuery supports functions and operators on nodes. One of these functions is compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp324980"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp324937"> </a><div class="pTableTitle">
+Table B-28.  XQuery Functions and Operators on Nodes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp324941"> </a><div class="pCellHeading">
+XQuery Function or Operator
+</div>
+</th>
+    <th><a name="wp324943"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324945"> </a><div class="pCellBody">
+fn:name (14.1)
+</div>
+</td>
+    <td><a name="wp324947"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324949"> </a><div class="pCellBody">
+fn:local-name (14.2)
+</div>
+</td>
+    <td><a name="wp324951"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324953"> </a><div class="pCellBody">
+fn:namespace-uri (14.3)
+</div>
+</td>
+    <td><a name="wp324955"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324957"> </a><div class="pCellBody">
+fn:number (14.4)
+</div>
+</td>
+    <td><a name="wp324959"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324961"> </a><div class="pCellBody">
+fn:lang (14.5)
+</div>
+</td>
+    <td><a name="wp324963"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324965"> </a><div class="pCellBody">
+op:is-same-node (14.6)
+</div>
+</td>
+    <td><a name="wp324967"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324969"> </a><div class="pCellBody">
+op:node-before (14.7)
+</div>
+</td>
+    <td><a name="wp324971"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324973"> </a><div class="pCellBody">
+op:node-after (14.8)
+</div>
+</td>
+    <td><a name="wp324975"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp324977"> </a><div class="pCellBody">
+fn:root (14.9)
+</div>
+</td>
+    <td><a name="wp324979"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp324983"> </a><h3 class="pHeading2">
+15 Functions and Operators on Sequences
+</h3>
+<a name="wp324985"> </a><p class="pBody">
+This section describes how DataDirect XQuery supports functions and operators on sequences.
+</p>
+<a name="wp324986"> </a><h4 class="pHeading3">
+15.1 General Functions and Operators on Sequences
+</h4>
+<a name="wp324990"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp325000">Table&#160;B-29</a> describes how DataDirect XQuery supports functions and operators on sequences. Some of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp325058"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp325000"> </a><div class="pTableTitle">
+Table B-29.  XQuery General Functions and Operators on Sequences&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp325004"> </a><div class="pCellHeading">
+XQuery Function or Operator
+</div>
+</th>
+    <th><a name="wp325006"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325008"> </a><div class="pCellBody">
+fn:boolean (15.1.1)
+</div>
+</td>
+    <td><a name="wp325010"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325012"> </a><div class="pCellBody">
+op:concatenate (15.1.2)
+</div>
+</td>
+    <td><a name="wp325014"> </a><div class="pCellBody">
+Supported
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325016"> </a><div class="pCellBody">
+fn:index-of (15.1.3)
+</div>
+</td>
+    <td><a name="wp325020"> </a><div class="pCellBody">
+Supported. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+<a name="wp325022"> </a><div class="pCellBody">
+Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325024"> </a><div class="pCellBody">
+fn:empty (15.1.4)
+</div>
+</td>
+    <td><a name="wp325026"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325028"> </a><div class="pCellBody">
+fn:exists (15.1.5)
+</div>
+</td>
+    <td><a name="wp325030"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325032"> </a><div class="pCellBody">
+fn:distinct-values (15.1.6)
+</div>
+</td>
+    <td><a name="wp325036"> </a><div class="pCellBody">
+Supported. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325039"> </a><div class="pCellBody">
+fn:insert-before (15.1.7)
+</div>
+</td>
+    <td><a name="wp325041"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325043"> </a><div class="pCellBody">
+fn:remove (15.1.8)
+</div>
+</td>
+    <td><a name="wp325045"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325047"> </a><div class="pCellBody">
+fn:reverse (15.1.9)
+</div>
+</td>
+    <td><a name="wp325049"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325051"> </a><div class="pCellBody">
+fn:subsequence (15.1.10)
+</div>
+</td>
+    <td><a name="wp325053"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325055"> </a><div class="pCellBody">
+fn:unordered (15.1.11)
+</div>
+</td>
+    <td><a name="wp325057"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp325060"> </a><h4 class="pHeading3">
+15.2 Functions that Test Cardinality of Sequences
+</h4>
+<a name="wp325064"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp325074">Table&#160;B-30</a> describes how DataDirect XQuery supports functions that test cardinality of sequences. All of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp325093"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp325074"> </a><div class="pTableTitle">
+Table B-30.  XQuery Functions that Test Cardinality on Sequences&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp325078"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp325080"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325082"> </a><div class="pCellBody">
+fn:zero-or-one (15.2.1)
+</div>
+</td>
+    <td><a name="wp325084"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325086"> </a><div class="pCellBody">
+fn:one-or-more (15.2.2)
+</div>
+</td>
+    <td><a name="wp325088"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325090"> </a><div class="pCellBody">
+fn:exactly-one (15.2.3)
+</div>
+</td>
+    <td><a name="wp325092"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp325096"> </a><h4 class="pHeading3">
+15.3 Equals, Union, Intersection, and Except
+</h4>
+<a name="wp325100"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp325107">Table&#160;B-31</a> describes how DataDirect XQuery supports functions and operators on equals, union, intersection, and except. Some of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp325137"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp325107"> </a><div class="pTableTitle">
+Table B-31.  XQuery Functions and Operators on Equals, Union, Intersection, and Except&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp325114"> </a><div class="pCellHeading">
+XQuery Function or Operator
+</div>
+</th>
+    <th><a name="wp325116"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325118"> </a><div class="pCellBody">
+fn:deep-equal (15.3.1)
+</div>
+</td>
+    <td><a name="wp325122"> </a><div class="pCellBody">
+Supported. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+<a name="wp325124"> </a><div class="pCellBody">
+Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325126"> </a><div class="pCellBody">
+op:union (15.3.2)
+</div>
+</td>
+    <td><a name="wp325128"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325130"> </a><div class="pCellBody">
+op:intersect (15.3.3)
+</div>
+</td>
+    <td><a name="wp325132"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325134"> </a><div class="pCellBody">
+op:except (15.3.4)
+</div>
+</td>
+    <td><a name="wp325136"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp325139"> </a><h4 class="pHeading3">
+15.4 Aggregate Functions
+</h4>
+<a name="wp325143"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp325150">Table&#160;B-32</a> describes how DataDirect XQuery supports aggregate functions.
+</p>
+<a name="wp325177"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp325150"> </a><div class="pTableTitle">
+Table B-32.  XQuery Aggregate Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp325154"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp325156"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325158"> </a><div class="pCellBody">
+fn:count (15.4.1)
+</div>
+</td>
+    <td><a name="wp325160"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325162"> </a><div class="pCellBody">
+fn:avg (15.4.2)
+</div>
+</td>
+    <td><a name="wp325164"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325166"> </a><div class="pCellBody">
+fn:max (15.4.3)
+</div>
+<a name="wp325167"> </a><div class="pCellBody">
+fn:min (15.4.4)
+</div>
+</td>
+    <td><a name="wp325171"> </a><div class="pCellBody">
+Supported. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for information about using the collation parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325174"> </a><div class="pCellBody">
+fn:sum (15.4.5)
+</div>
+</td>
+    <td><a name="wp325176"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp325180"> </a><h4 class="pHeading3">
+15.5 Functions and Operators That Generate Sequences
+</h4>
+<a name="wp325184"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp325194">Table&#160;B-33</a> describes how DataDirect XQuery supports functions and operators that generate sequences. Some of these functions and operators are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp325230"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp325194"> </a><div class="pTableTitle">
+Table B-33.  XQuery Functions and Operators That Generate Sequences&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp325198"> </a><div class="pCellHeading">
+XQuery Function or Operator
+</div>
+</th>
+    <th><a name="wp325200"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325202"> </a><div class="pCellBody">
+op:to (15.5.1)
+</div>
+</td>
+    <td><a name="wp325204"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325206"> </a><div class="pCellBody">
+fn:id (15.5.2)
+</div>
+</td>
+    <td><a name="wp325208"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325210"> </a><div class="pCellBody">
+fn:idref (15.5.3)
+</div>
+</td>
+    <td><a name="wp325212"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325215"> </a><div class="pCellBody">
+fn:doc (15.5.4)
+</div>
+</td>
+    <td><a name="wp325220"> </a><div class="pCellBody">
+Supported. See <a  href="conf_sourcefiles2.html#wp187870">XML Data Sources</a> for rules governing URIs.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325222"> </a><div class="pCellBody">
+fn:doc-available (15.5.5)
+</div>
+</td>
+    <td><a name="wp325224"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325227"> </a><div class="pCellBody">
+fn:collection (15.5.6)
+</div>
+</td>
+    <td><a name="wp325229"> </a><div class="pCellBody">
+Supported. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp325234"> </a><h3 class="pHeading2">
+16 Context Functions
+</h3>
+<a name="wp325238"> </a><p class="pBody">
+<a  href="functions_and_operators.html#wp325248">Table&#160;B-34</a> describes how DataDirect XQuery supports context functions. Some of these functions are compensated for relational sources; see <a  href="improvingperformance4.html#wp194682">Understanding Compensation</a> for details.
+</p>
+<a name="wp325287"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp325248"> </a><div class="pTableTitle">
+Table B-34.  XQuery Context Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp325252"> </a><div class="pCellHeading">
+XQuery Function
+</div>
+</th>
+    <th><a name="wp325254"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325256"> </a><div class="pCellBody">
+fn:position (16.1)
+</div>
+</td>
+    <td><a name="wp325258"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325260"> </a><div class="pCellBody">
+fn:last (16.2)
+</div>
+</td>
+    <td><a name="wp325262"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325264"> </a><div class="pCellBody">
+fn:current-dateTime (16.3)
+</div>
+</td>
+    <td><a name="wp325266"> </a><div class="pCellBody">
+Supported. For relational sources, values are returned without timezones.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325268"> </a><div class="pCellBody">
+fn:current-date (16.4)
+</div>
+</td>
+    <td><a name="wp325270"> </a><div class="pCellBody">
+Supported. For relational sources, values are returned without timezones.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325272"> </a><div class="pCellBody">
+fn:current-time (16.5)
+</div>
+</td>
+    <td><a name="wp325274"> </a><div class="pCellBody">
+Supported. For relational sources, values are returned without timezones.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325276"> </a><div class="pCellBody">
+fn:implicit-timezone (16.6)
+</div>
+</td>
+    <td><a name="wp325278"> </a><div class="pCellBody">
+Supported. Compensated for relational sources. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325280"> </a><div class="pCellBody">
+fn:default-collation (16.7)
+</div>
+</td>
+    <td><a name="wp325282"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp325284"> </a><div class="pCellBody">
+fn:static-base-uri (16.8)
+</div>
+</td>
+    <td><a name="wp325286"> </a><div class="pCellBody">
+Supported. Compensated for relational sources.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp325291"> </a><h3 class="pHeading2">
+17 Casting
+</h3>
+<a name="wp325292"> </a><p class="pBody">
+Supported.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

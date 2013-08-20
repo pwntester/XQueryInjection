@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:28" />
+  <title>4 Modules and Prologs</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp107169"> </a><h2 class="pNewHTMLPageNum">
+4 Modules and Prologs
+</h2>
+<hr />
+<a name="wp120896"> </a><p class="pBody">
+<a  href="xquerysupport4.html#wp248625">Table&#160;A-21</a> describes how DataDirect XQuery supports XQuery modules and prologs. 
+</p>
+<a name="wp120924"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp248625"> </a><div class="pTableTitle">
+Table A-21.  XQuery Modules and Prologs&#160;
+</div>
+</caption>
+  <tr align="center">    <th colspan="2" rowspan="1"><a name="wp248631"> </a><div class="pCellHeading">
+XQuery Language
+</div>
+</th>
+    <th><a name="wp248635"> </a><div class="pCellHeading">
+Support
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248637"> </a><div class="pCellBody">
+Version declaration<br /><img src="images/version_11_smallc.gif" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp248641"> </a><div class="pCellBody">
+Supported. The version can be 1.0 or 1.1. If an encoding declaration is specified, it is ignored. See <a  href="tutorial_ddxquery2.html#wp161077">Specifying the XQuery Version</a> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248643"> </a><div class="pCellBody">
+Module declaration
+</div>
+</td>
+    <td><a name="wp248648"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp252483"> </a><div class="pCellBody">
+Boundary-space declaration
+</div>
+</td>
+    <td><a name="wp252146"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248650"> </a><div class="pCellBody">
+Default collation declaration
+</div>
+</td>
+    <td><a name="wp248654"> </a><div class="pCellBody">
+Supported. Any collation supported by the Java Virtual Machine can be specified. See <a  href="advancedfeatures8.html#wp212006">Specifying Collations</a> for more information about collations.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248659"> </a><div class="pCellBody">
+Base URI declaration
+</div>
+</td>
+    <td><a name="wp248663"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248665"> </a><div class="pCellBody">
+Construction declaration
+</div>
+</td>
+    <td><a name="wp248669"> </a><div class="pCellBody">
+Supported. DataDirect XQuery always implements preserve.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248671"> </a><div class="pCellBody">
+Ordering mode declaration
+</div>
+</td>
+    <td><a name="wp248676"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp252928"> </a><div class="pCellBody">
+Empty order declaration
+</div>
+</td>
+    <td><a name="wp252591"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248678"> </a><div class="pCellBody">
+Copy-namespaces declaration
+</div>
+</td>
+    <td><a name="wp248682"> </a><div class="pCellBody">
+Supported. DataDirect XQuery always implements inherit, preserve.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248684"> </a><div class="pCellBody">
+Schema import 
+</div>
+</td>
+    <td><a name="wp248688"> </a><div class="pCellBody">
+Not supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp323971"> </a><div class="pCellBody">
+Decimal-format declaration<br /><img src="images/version_11_small4.gif" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp323975"> </a><div class="pCellBody">
+Supported for XQuery 1.1 only.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248759"> </a><div class="pCellBody">
+Module import
+</div>
+</td>
+    <td><a name="wp248697"> </a><div class="pCellBody">
+Supported. See <a  href="advancedfeatures5.html#wp204943">Library Module URI Resolvers</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248699"> </a><div class="pCellBody">
+Namespace declaration
+</div>
+</td>
+    <td><a name="wp248704"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248740"> </a><div class="pCellBody">
+Default namespace declaration
+</div>
+</td>
+    <td><a name="wp248710"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248748"> </a><div class="pCellBody">
+Variable declaration
+</div>
+</td>
+    <td><a name="wp248716"> </a><div class="pCellBody">
+Supported. 
+</div>
+<a name="wp324162"> </a><div class="pCellBody">
+<img src="images/version_11_small5.gif" border="0" hspace="0" vspace="0"/> VarValue and VarDefaultValue declaration parts are supported in XQuery 1.1 only.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248718"> </a><div class="pCellBody">
+Function declaration
+</div>
+</td>
+    <td><a name="wp248722"> </a><div class="pCellBody">
+Supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp248724"> </a><div class="pCellBody">
+Option declaration
+</div>
+</td>
+    <td><a name="wp248731"> </a><div class="pCellBody">
+Supported. See <a  href="advancedfeatures2.html#wp204556">Option Declarations</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td colspan="2" rowspan="1"><a name="wp323955"> </a><div class="pCellBody">
+Context item declaration<br /><img src="images/version_11_small3.gif" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp323962"> </a><div class="pCellBody">
+Supported for XQuery 1.1 only.  
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:22" />
+  <title>Querying Relational Data</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp222613"> </a><h2 class="pNewHTMLPageNum">
+Querying Relational Data
+</h2>
+<hr />
+<a name="wp222615"> </a><p class="pBody">
+In order to query relational data, DataDirect XQuery uses the SQL Adaptor to translate XQuery into one or more SQL statements that can be understood &#8211; and executed &#8211; by the database engine. Where possible, DataDirect XQuery leaves intact those XQuery expressions and constructs that are understood by the database engine. In other cases, DataDirect XQuery compensates for XQuery expressions and constructs for which there is no direct SQL translation.
+</p>
+<a name="wp222616"> </a><p class="pBody">
+Consider the following XQuery, which queries the pub relational database for the title element of the book whose bookid attribute equals 1:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+						&lt;root&gt;<a name="wp222617"> </a>
+						{
+						&#160;&#160;&#160;&#160;for $book in
+							 collection(&quot;pub.dbo.bookshop&quot;)/bookshop/publication/book
+						&#160;&#160;&#160;&#160;where $book/@bookid = 1
+						&#160;&#160;&#160;&#160;return $book/title
+						}
+						&lt;/root&gt; <a name="wp222618"> </a>
+</pre></div>
+<a name="wp222619"> </a><p class="pBody">
+When translated by DataDirect XQuery, the result is a single XQuery fragment embedded in the SQL statement, shown here using the Plan Explain feature:<br /></p><div align="right"><img src="images/plan_explain_bookshop.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp222625"> </a><p class="pBody">
+(For more information on Plan Explain, see <a  href="advancedfeatures7.html#wp212077">Generating XQuery Execution Plans</a>.)
+</p>
+<a name="wp222627"> </a><p class="pBody">
+Notice that while the syntax between the XQuery expression and the SQL statement differs, the semantics are the same &#8211; the FLWOR expression&#8217;s for clause has been translated as part of the SELECT FROM statement; the where clause has been translated as the predicate; and so on.
+</p>
+<a name="wp222628"> </a><p class="pBody">
+But database engines might not always support XQuery functions one-to-one. Consider the following XQuery &#8211; it is similar to the preceding XQuery example in that it is querying the pub relational database, but the FLWOR expression where clause uses the XQuery contains function:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&#160;&#160;&#160;&#160;declare variable $title_fragment as xs:string external;<a name="wp222629"> </a>
+&#160;&#160;&#160;&#160;for $book in 
+collection(&quot;pub.dbo.bookshop&quot;)/bookshop/publication/book
+&#160;&#160;&#160;&#160;where contains($book/title, $title_fragment)
+&#160;&#160;&#160;&#160;return $book <a name="wp222630"> </a>
+</pre></div>
+<a name="wp222631"> </a><p class="pBody">
+While the result is still a single SQL statement, not all of the original XQuery is embedded. If we look at the SQL translation, we see that the XQuery contains function has been replaced by the SQL LOCATE function:<br /></p><div align="right"><img src="images/plan_explain_contains2.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp222635"> </a><p class="pBody">
+When XQuery functions are translated to SQL but are not embedded in the XQuery fragment, it is possible that some processing efficiencies, like indexes on the data, are lost. This can happen, for example, when the query results are placed in a transient table for additional processing.
+</p>
+<a name="wp222636"> </a><h3 class="pHeading2">
+XML and SQL Data Structures
+</h3>
+<a name="wp222637"> </a><p class="pBody">
+Another difference that must be taken into account when using XQuery to query relational data is structure &#8211; the output of a SQL statement is a table (a flat structure), but the typical XML value is a tree. To achieve the required transformation of the result from a flat structure to a tree structure, DataDirect XQuery translates the query into two parts: an XML construction part and a SQL part. The XML construction part adds XML tags to the results retrieved from the database to create the hierarchy requested in the query. 
+</p>
+<a name="wp222639"> </a><h3 class="pHeading2">
+Simplifying Generated SQL
+</h3>
+<a name="wp222640"> </a><p class="pBody">
+The SQL statements that are translated from XQuery can be complex, but DataDirect XQuery supports options that create less complex Select statements. These simplified Select statements can improve performance in some cases.
+</p>
+<a name="wp222641"> </a><p class="pBody">
+The options discussed in this section affect only XQuery expressions that are executed by the SQL Adaptor, which translates the query into SQL. 
+</p>
+<a name="wp222642"> </a><h4 class="pHeading3">
+String Comparisons and Trailing Spaces
+</h4>
+<a name="wp222643"> </a><p class="pBody">
+Unlike XQuery string comparison, SQL character comparison is not sensitive to differences in trailing spaces. To accommodate this semantic difference, the SQL statements that DataDirect XQuery executes compare both the strings and the length of the strings. 
+</p>
+<a name="wp222644"> </a><p class="pBody">
+For example, when comparing an Oracle fixed-width character column with a constant value, DataDirect XQuery executes a SQL statement that contains:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CHARCOL=&#39;constant&#39; AND LENGTH(CHARCOL)=LENGTH(&#39;constant&#39;)<a name="wp222645"> </a>
+</pre></div>
+<a name="wp222646"> </a><p class="pBody">
+The length comparison can be avoided by adding the following option declaration to the query prolog:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:sql-ignore-trailing-spaces &quot;yes&quot;;<a name="wp222647"> </a>
+</pre></div>
+<a name="wp222648"> </a><p class="pBody">
+Using this option declaration is also convenient when two fixed-width character columns with different lengths are used in a join condition. For example, assume the following two tables with a fixed-width character column that have different lengths:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+table1(col char(10))<a name="wp222649"> </a>
+table2(col char(20))<a name="wp222650"> </a>
+</pre></div>
+<a name="wp222651"> </a><p class="pBody">
+and the following query
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $t1 in collection(&#39;table1&#39;)/table1<a name="wp222652"> </a>
+for $t2 in collection(&#39;table2&#39;)/table2<a name="wp222653"> </a>
+where $t1/col = $t2/col<a name="wp222654"> </a>
+return<a name="wp222655"> </a>
+...<a name="wp222656"> </a>
+</pre></div>
+<a name="wp222657"> </a><p class="pBody">
+Even when table1 and table2 contain rows where the col column contains the same value, by default, the values never match because the lengths are different. Adding ignore-trailing-spaces to the query prolog avoids this possible issue.
+</p>
+<a name="wp222658"> </a><h4 class="pHeading3">
+String Functions
+</h4>
+<a name="wp222659"> </a><p class="pBody">
+While many XQuery functions that operate on strings have an equivalent SQL function, XQuery and SQL semantics often differ slightly. The most important differences are how the following string conditions are handled in XQuery functions versus SQL functions:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222660"> </a><div class="pSmartList1"><li>Values of empty sequence or empty string arguments </li></div><a name="wp222661"> </a><div class="pSmartList1"><li>Trailing spaces</li></div></ul></div>
+<a name="wp222662"> </a><p class="pBody">
+The result of these differences is that the generated SQL for string functions is complex. If both empty sequence and trailing space behaviors are not relevant, complexity can be avoided by adding the following option declaration to the XQuery prolog:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:sql-simple-string-functions &quot;yes&quot;;<a name="wp222663"> </a>
+</pre></div>
+<a name="wp222664"> </a><p class="pBody">
+The result of using this option declaration is that DataDirect XQuery generates SQL that translates the XQuery function to the equivalent SQL function without taking into account trailing spaces, or empty sequence or empty string arguments.
+</p>
+<a name="wp222665"> </a><p class="pBody">
+Following is an overview of the XQuery string functions that are affected by the sql-simple-string-functions option declaration. The following examples assume that the expression is a part of a query that is being executed by the SQL Adaptor. Most of these examples apply to Microsoft SQL Server; however, similar considerations hold true for other databases.
+</p>
+<a name="wp222666"> </a><p class="pBodyBold">
+Example: fn:string-length
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222667"> </a><div class="pSmartList1"><li>Trailing spaces are ignored, for example:</li></div><a name="wp222668"> </a><p class="pBodyRelative">
+<code class="cCode">fn:string-length(&quot;a &quot;)</code> returns 1 instead of 2.
+</p>
+<a name="wp222669"> </a><div class="pSmartList1"><li>An empty sequence argument is not handled correctly, for example:</li></div><a name="wp222670"> </a><p class="pBodyRelative">
+<code class="cCode">fn:string-length(())</code> returns () instead of 0.
+</p>
+</ul></div>
+<a name="wp222671"> </a><p class="pBodyBold">
+Example: fn:ends-with
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222672"> </a><div class="pSmartList1"><li>Trailing spaces are not handled correctly, for example:</li></div><a name="wp222673"> </a><p class="pBodyRelative">
+<code class="cCode">fn:ends-with(&#39;abc &#39;,&#39;bc &#39;)</code> returns false instead of true.
+</p>
+<a name="wp222674"> </a><div class="pSmartList1"><li>Empty sequence arguments are not handled correctly, for example:</li></div><a name="wp222675"> </a><p class="pBodyRelative">
+<code class="cCode">fn:ends-with((),&#39;&#39;)</code> returns false instead of true.
+</p>
+</ul></div>
+<a name="wp222676"> </a><p class="pBodyBold">
+Example: fn:substring-after
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222677"> </a><div class="pSmartList1"><li>Trailing spaces are not handled correctly, for example:</li></div><a name="wp222678"> </a><p class="pBodyRelative">
+<code class="cCode">fn:substring-after(&#39;abc def&#39;, &#39;abc &#39;)</code> returns def with a leading space.
+</p>
+<a name="wp222679"> </a><div class="pSmartList1"><li>Empty string arguments are not handled correctly, for example:</li></div><a name="wp222680"> </a><p class="pBodyRelative">
+<code class="cCode">fn:substring-after(&#39;test&#39;, &#39;&#39;)</code> returns () instead of <code class="cCode">&#39;&#39;.</code>
+</p>
+<a name="wp222681"> </a><div class="pSmartList1"><li>Empty sequence arguments are not handled correctly, for example: </li></div><a name="wp222682"> </a><p class="pBodyRelative">
+<code class="cCode">fn:substring-after(&#39;test&#39;, ())</code> returns () instead of <code class="cCode">&#39;&#39;.</code>
+</p>
+</ul></div>
+<a name="wp222683"> </a><p class="pBodyBold">
+Example: fn:upper-case and fn:lower-case
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222684"> </a><div class="pSmartList1"><li>An empty sequence argument is not handled correctly, for example: </li></div><a name="wp222685"> </a><p class="pBodyRelative">
+<code class="cCode">fn:upper-case(())</code> returns () instead of <code class="cCode">&#39;&#39;.</code>
+</p>
+</ul></div>
+<a name="wp222686"> </a><p class="pBodyBold">
+Example: fn:substring
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222687"> </a><div class="pSmartList1"><li>Empty sequence arguments are not handled correctly, for example: </li></div><a name="wp222688"> </a><p class="pBodyRelative">
+<code class="cCode">fn:substring((),1,1)</code> returns results in a SQL exception.
+</p>
+<a name="wp222689"> </a><div class="pSmartList1"><li>Non positive integer values for start and length argument result in an error.</li></div></ul></div>
+<a name="wp222690"> </a><p class="pBodyBold">
+Example: fn:concat
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222691"> </a><div class="pSmartList1"><li>Empty sequence arguments are not handled correctly, for example: </li></div><a name="wp222692"> </a><p class="pBodyRelative">
+<code class="cCode">fn:concat(&#39;a&#39;,(),&#39;c&#39;)</code> returns () instead of <code class="cCode">&#39;&#39;.</code>
+</p>
+</ul></div>
+<a name="wp222693"> </a><p class="pBodyBold">
+Example: fn:contains
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222694"> </a><div class="pSmartList1"><li>If second argument is an empty string, for example:</li></div><a name="wp222695"> </a><p class="pBodyRelative">
+<code class="cCode">fn:contains(&#39;ab&#39;,&#39;&#39;)</code> returns false instead of true.
+</p>
+</ul></div>
+<a name="wp222696"> </a><h4 class="pHeading3">
+DB2 Decimal to String Cast
+</h4>
+<a name="wp222697"> </a><p class="pBody">
+The default casting of DB2 decimal values to string values can result in strings with leading 0s, which is not XQuery-compliant. DataDirect XQuery generates SQL that removes these 0s. The resulting SQL gets fairly complex. This can be avoided by adding the following option declaration to the XQuery prolog:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:sql-simple-convert-functions &quot;yes&quot;;<a name="wp222698"> </a>
+</pre></div>
+<a name="wp222699"> </a><p class="pBody">
+This allows some casts of decimal values to strings to return strings with leading 0s.
+</p>
+<a name="wp222701"> </a><h3 class="pHeading2">
+Using an Order By Clause
+</h3>
+<a name="wp222702"> </a><p class="pBody">
+Due to limitations of some SQL databases, it is not always possible to order a SQL result set on an expression that is not part of the Select list. DataDirect XQuery supports an option declaration that allows you to choose whether Order By clauses in the generated SQL are explicitly added to the Select list.
+</p>
+<a name="wp222703"> </a><p class="pBody">
+The option can be set by adding the following option declaration to the XQuery prolog:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:sql-order-by-on-values &quot;no|yes|noSubquery&quot;;<a name="wp222704"> </a>
+</pre></div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222705"> </a><div class="pSmartList1"><li>When set to yes, expressions on which to sort are not explicitly added to the Select list of generated SQL Select statements. </li></div><a name="wp222706"> </a><div class="pSmartList1"><li>When set to no, values or expressions on which to sort are always added to the Select list; although this typically decreases performance it is required by some databases. </li></div><a name="wp222707"> </a><div class="pSmartList1"><li>When set to noSubquery, the behavior is equivalent to yes except when the expression on which to sort is a subquery. In this case, the value noSubquery behaves as if no is specified.</li></div></ul></div>
+<a name="wp222745"> </a><p class="pBody">
+The default value is database dependent:</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp222710"> </a><div class="pCellHeading">
+Database
+</div>
+</td>
+    <td><a name="wp222712"> </a><div class="pCellHeading">
+Default
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp222714"> </a><div class="pCellBody">
+DB2
+</div>
+</td>
+    <td><a name="wp222716"> </a><div class="pCellBody">
+no
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp222718"> </a><div class="pCellBody">
+Informix
+</div>
+</td>
+    <td><a name="wp222720"> </a><div class="pCellBody">
+noSubquery
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp222722"> </a><div class="pCellBody">
+MySQL
+</div>
+</td>
+    <td><a name="wp222724"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp222730"> </a><div class="pCellBody">
+Oracle
+</div>
+</td>
+    <td><a name="wp222732"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp222734"> </a><div class="pCellBody">
+PostgreSQL
+</div>
+</td>
+    <td><a name="wp222736"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp222738"> </a><div class="pCellBody">
+Microsoft SQL Server
+</div>
+</td>
+    <td><a name="wp222740"> </a><div class="pCellBody">
+yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp222742"> </a><div class="pCellBody">
+Sybase
+</div>
+</td>
+    <td><a name="wp222744"> </a><div class="pCellBody">
+noSubquery
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp222746"> </a><p class="pBody">
+There should be no reason to change the value for Microsoft SQL&#160;Server, Oracle, MySQL, or PostgreSQL; however, for DB2, Informix, and Sybase, many queries perform faster when the value is changed to yes. 
+</p>
+<a name="wp222747"> </a><p class="pBody">
+NOTE: The noSubquery value can optimize the performance of some queries with DB2. When using this value, make sure you set the rewrite-exists-into-count option declaration to inCase (see <a  href="relationaldata2.html#wp222767">Using a SQL EXISTS Subclause in DB2</a>).
+</p>
+<a name="wp222751"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<a name="wp222752"> </a><p class="pBody">
+For example, assume the XQuery expression below is executed against a Microsoft SQL Server database:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+for $x in collection(&#39;users&#39;)/users <a name="wp222753"> </a>
+order by $x/userid <a name="wp222754"> </a>
+return $x/name<a name="wp222755"> </a>
+</pre></div>
+<a name="wp222756"> </a><p class="pBody">
+When order-by-on-values is set to no, the SQL statement executed is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT ALL name AS racol1,userid AS racol2<a name="wp222757"> </a>
+FROM users<a name="wp222758"> </a>
+WHERE name IS NOT NULL<a name="wp222759"> </a>
+ORDER BY racol2 ASC<a name="wp222760"> </a>
+</pre></div>
+<a name="wp222761"> </a><p class="pBody">
+When order-by-on-values is set to yes, the SQL statement executed is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT ALL name AS racol1<a name="wp222762"> </a>
+FROM users<a name="wp222763"> </a>
+WHERE name IS NOT NULL<a name="wp222764"> </a>
+ORDER BY userid ASC<a name="wp222765"> </a>
+</pre></div>
+<a name="wp222767"> </a><h3 class="pHeading2">
+Using a SQL EXISTS Subclause in DB2
+</h3>
+<a name="wp222768"> </a><p class="pBody">
+The different DB2 systems impose limitations on the usage of the SQL EXISTS subclause. This option specifies whether to change an EXISTS subclause into a count() &gt; 0 subclause. The option can be set by adding the following option declaration to the XQuery prolog:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:sql-rewrite-exists-into-count &quot;no|yes|inCase&quot;;<a name="wp222769"> </a>
+</pre></div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222770"> </a><div class="pSmartList1"><li>When set to no, EXISTS subclauses are not rewritten. </li></div><a name="wp222771"> </a><div class="pSmartList1"><li>When set to yes (the default for DB2 for z/OS), EXISTS subclauses are always rewritten. </li></div><a name="wp222772"> </a><div class="pSmartList1"><li>When set to inCase (the default for DB2 for iSeries), EXISTS subclauses in conditional expressions are rewritten. </li></div></ul></div>
+<a name="wp222773"> </a><p class="pBody">
+Typically, you should not change the default setting, but some XQuery expressions executed against DB2 for z/OS and DB2 for iSeries perform better when this option is set to no. In addition, if order-by-on-values is set to noSubquery for DB2 for Linux/UNIX/Windows, you will get the best performance for the broadest set of queries if you set rewrite-exists-into-count to inCase.
+</p>
+<a name="wp222774"> </a><h3 class="pHeading2">
+Using BINARY_DOUBLE and BINARY_FLOAT Data Types (Oracle&#160;10g and higher)
+</h3>
+<a name="wp222775"> </a><p class="pBody">
+By default, DataDirect XQuery uses the Oracle NUMBER data type when converting to or constructing XQuery floats or doubles. You can change this behavior for Oracle 10<em class="cEmphasis">g</em> and higher by adding the following option declaration to the XQuery prolog:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:ora10-use-binary-float-double &quot;yes|no&quot;;<a name="wp222776"> </a>
+</pre></div>
+<a name="wp222777"> </a><p class="pBody">
+When this option declaration is set to yes, DataDirect XQuery uses the BINARY_FLOAT and BINARY_DOUBLE data types.
+</p>
+<a name="wp222779"> </a><h3 class="pHeading2">
+Using DataDirect XQuery SQL&#160;Generation Algorithms
+</h3>
+<a name="wp222781"> </a><p class="pBody">
+DataDirect XQuery uses four SQL generation algorithms, which result in different SQL statements when translating XQuery to SQL. Each algorithm takes a different approach to construct the requested XML hierarchy from the results returned from the SQL statements. 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp222782"> </a><div class="pSmartList1"><li>Merge join</li></div><a name="wp222783"> </a><div class="pSmartList1"><li>Nested loop</li></div><a name="wp222784"> </a><div class="pSmartList1"><li>Outer join</li></div><a name="wp222785"> </a><div class="pSmartList1"><li>Sorted outer union</li></div></ul></div>
+<a name="wp222786"> </a><p class="pBody">
+By default, DataDirect XQuery uses the merge join algorithm, which typically gives the best performance. However, when the XML structure is not too deeply nested, the outer join or sorted outer union algorithms give better performance. As a guideline, consider using either outer join or sorted outer union in cases where the XML nesting level is limited to four or less.
+</p>
+<a name="wp222790"> </a><p class="pBody">
+See <a  href="improvingperformance.html#wp114259">Improving Performance</a> for additional information about performance.
+</p>
+<a name="wp222792"> </a><h4 class="pHeading3">
+Merge Join
+</h4>
+<a name="wp222793"> </a><p class="pBody">
+To construct a correct parent/child relationship, the merge join algorithm creates a first SQL statement that selects all parent values and sorts them on the unique columns of the parents. Then, a second SQL statement joins parent with child values and sorts them again on the unique columns of the parents. The results are processed by moving forward through the results of both SQL statements, linking parent with child node values based on the values of the unique columns.
+</p>
+<a name="wp222794"> </a><p class="pBody">
+The merge join algorithm typically gives the best performance. It is the default SQL generation algorithm.
+</p>
+<a name="wp222795"> </a><h4 class="pHeading3">
+Nested Loop
+</h4>
+<a name="wp222796"> </a><p class="pBody">
+The nested loop algorithm creates a first SQL statement that selects all values for the parent nodes and a second SQL statement that, for each parent node, selects the values for the associated child nodes.
+</p>
+<a name="wp222797"> </a><p class="pBody">
+Use this algorithm when the parent nodes are not uniquely identifiable. In this case, the nested loop algorithm is the only one that returns correct results.
+</p>
+<a name="wp222798"> </a><h4 class="pHeading3">
+Outer Join
+</h4>
+<a name="wp222799"> </a><p class="pBody">
+The outer join algorithm creates a single SQL statement that outer joins parent with child node values. The advantage of using this algorithm is that only a single SQL statement is created. The disadvantage is that this single SQL statement can be very complex, as when deeply nested XML structures must be created, for example. In addition, this algorithm requires that for each set of child node values all parent node values are selected as well, which results in redundant information being communicated between the database server and the application. 
+</p>
+<a name="wp222800"> </a><p class="pBody">
+As a guideline, consider using the outer join algorithm in cases where the XML nesting level is limited to four or less.
+</p>
+<a name="wp222801"> </a><h4 class="pHeading3">
+Sorted Outer Union
+</h4>
+<a name="wp222802"> </a><p class="pBody">
+The sorted outer union algorithm creates a single SQL statement that is the union of multiple SQL statements (one for each level in the XML hierarchy). The first SQL statement in the union selects parent node values; the second selects the unique values of the parents joined with the child node values. This approach is recursively applied for each level in the XML hierarchy.
+</p>
+<a name="wp222803"> </a><p class="pBody">
+The advantage of using this algorithm is that only a single SQL statement is created. The disadvantage is that this single SQL statement can be very complex and that SQL engines are typically not well-tuned for complex union statements.
+</p>
+<a name="wp222804"> </a><p class="pBody">
+As a guideline, consider using the sorted outer union algorithm in cases where the XML nesting level is limited to four or less.
+</p>
+<a name="wp222805"> </a><h4 class="pHeading3">
+Specifying an Algorithm
+</h4>
+<a name="wp222806"> </a><p class="pBody">
+You can specify the algorithm to use for a given connection or for an individual query.
+</p>
+<a name="wp222807"> </a><p class="pBody">
+To specify an algorithm for a given connection, configure the JdbcOptions property of DDXQDataSource or the Options property of DDXQJDBCConnection. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DDXQDataSource ds = new DDXQDataSource();<a name="wp222808"> </a>
+ds.setJdbcOptions(&quot;sql-rewrite-algorithm=nested-loop&quot;);<a name="wp222809"> </a>
+</pre></div>
+<a name="wp222812"> </a><p class="pBody">
+See <a  href="conf_sourcefiles6.html#wp182031">DDXQDataSource and DDXQJDBCConnection Properties</a>.
+</p>
+<a name="wp222814"> </a><p class="pBody">
+To specify an algorithm for an individual query, add the sql-rewrite-algorithm option declaration to the Query prolog. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:sql-rewrite-algorithm &quot;outer-join&quot;;<a name="wp222815"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

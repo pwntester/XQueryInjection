@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:24" />
+  <title>Generating XQuery Execution Plans</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp212077"> </a><h2 class="pNewHTMLPageNum">
+Generating XQuery Execution Plans
+</h2>
+<hr />
+<a name="wp212090"> </a><p class="pBody">
+The DataDirect XQuery feature, Plan Explain, allows you to generate an XQuery execution plan so that you can see how DataDirect XQuery will execute your query. For example, if your query accesses a relational data source, the plan will include the SQL statements that DataDirect XQuery will send to the database. 
+</p>
+<a name="wp212180"> </a><p class="pBody">
+The main benefit of using this feature is that you can tune your queries for the best performance possible.
+</p>
+<a name="wp219217"> </a><p class="pBody">
+NOTE: The Plan Explain feature is also available in Stylus Studio and DataDirect XQuery Editor for Eclipse.
+</p>
+<a name="wp212356"> </a><h3 class="pHeading2">
+Format of an XQuery Execution Plan
+</h3>
+<a name="wp212465"> </a><p class="pBody">
+DataDirect XQuery outputs the plan in either XHTML format (the default) or XML format. The XHTML format provides a graphical representation of the plan. DataDirect XQuery also supports an XML format in the case that you want to create your own graphical representation of the plan or to archive the plan.
+</p>
+<a name="wp212575"> </a><h4 class="pHeading3">
+XHTML Format
+</h4>
+<a name="wp222200"> </a><p class="pBody">
+The XHTML representation of an XQuery execution plan is a tree structure that provides the details of how DataDirect XQuery will execute the query for which the plan was generated. You can use one of the following browsers to display the XHTML file: Internet Explorer 6.<em class="cEmphasis">x</em> or 7.<em class="cEmphasis">x</em>, or Firefox 2.<em class="cEmphasis">x</em>.
+</p>
+<a name="wp222198"> </a><p class="pBody">
+The following figure shows an example of an execution plan in XHTML format.
+</p>
+<a name="wp250833"> </a><p class="pBody">
+</p><div align="left"><img src="images/plan_exlpain_tree8.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp212666"> </a><p class="pBody">
+The tree can contain the following top-level nodes:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp212596"> </a><div class="pSmartList1"><li>Adaptors. This node contains a list of database resources that will be involved in the execution of the query. These resources can include JDBC connections, temporary tables, and deferred SQL statements used in the context of DataDirect XQuery update functionality.</li></div><a name="wp212624"> </a><div class="pSmartList1"><li>Global Variables. This node contains a list of global variables that are available to the query plan, such as external variables defined by the query and variables defined as part of the generation of the execution plan.</li></div><a name="wp212652"> </a><div class="pSmartList1"><li>Local Functions. This node contains a list of user-defined functions used during the query evaluation. Each user-defined function listed in this node has a plan description associated with it. Plan descriptions are described next.</li></div><a name="wp212665"> </a><div class="pSmartList1"><li>Plan. This node contains the description of the query execution plan. It contains the nodes of the plan, for example, flwor nodes and the nodes within the flwor nodes such as for, let, and return.</li></div></ul></div>
+<a name="wp212808"> </a><p class="pBody">
+You can navigate the tree to check where variables are defined and where they are referenced. For example, you can navigate from one adaptor&#8217;s definition to its references and vice-versa. To navigate the tree, you use either the toolbar displayed at the top of the tree or right-click an item in the tree and use the context-sensitive menu.
+</p>
+<a name="wp212873"> </a><p class="pBody">
+</p><div align="left"><img src="images/plan_explain_tools7.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+<a name="wp250846"> </a><p class="pBody">
+The icons on the toolbar perform the following tasks:
+</p>
+<a name="wp212931"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp212961"> </a><div class="pCellHeading">
+Icon
+</div>
+</th>
+    <th><a name="wp212963"> </a><div class="pCellHeading">
+Task
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp212965"> </a><p class="pBody">
+</p><div><table border="0" cellpadding="0" cellspacing="0" align="left"><img src="images/gotoDefinitionBtn6.gif" align="left" alt="Plan Explain &quot;go to definition&quot; icon" border="0" hspace="0" vspace="0"/></table></div><p class="pBody">
+</p>
+</td>
+    <td><a name="wp213011"> </a><div class="pCellBody">
+Go to definition: given a selected variable reference, go to the position in the plan where the variable is defined.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp212969"> </a><p class="pBody">
+</p><div><table border="0" cellpadding="0" cellspacing="0" align="left"><img src="images/gotoFirstReferenceBtn4.gif" align="left" alt="Plan Explain &quot;go to first reference&quot; icon" border="0" hspace="0" vspace="0"/></table></div><p class="pBody">
+</p>
+</td>
+    <td><a name="wp213067"> </a><div class="pCellBody">
+Go to first reference: given a selected variable definition, go to its first reference in the plan.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp212973"> </a><p class="pBody">
+</p><div><table border="0" cellpadding="0" cellspacing="0" align="left"><img src="images/gotoNextReferenceBtn5.gif" align="left" alt="Plan Explain &quot;go to next reference&quot; icon" border="0" hspace="0" vspace="0"/></table></div><p class="pBody">
+</p>
+</td>
+    <td><a name="wp213131"> </a><div class="pCellBody">
+Go to next reference: given a selected variable reference, go to the next reference of the same variable (if any).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp212977"> </a><p class="pBody">
+</p><div><table border="0" cellpadding="0" cellspacing="0" align="left"><img src="images/gotoPrevReferenceBtn3.gif" align="left" alt="Plan Explain &quot;go to previous reference&quot; icon" border="0" hspace="0" vspace="0"/></table></div><p class="pBody">
+</p>
+</td>
+    <td><a name="wp213222"> </a><div class="pCellBody">
+Go to previous reference: given a selected variable reference, go to the previous reference of the same variable (if any).
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp212171"> </a><h3 class="pHeading2">
+Enabling Plan Explain
+</h3>
+<a name="wp212561"> </a><p class="pBody">
+You can enable Plan Explain through XQJ or through the plan-explain option declaration.
+</p>
+<a name="wp212562"> </a><p class="pBodyBold">
+<b class="cBold">Example 1: Enabling Through XQJ</b>
+</p>
+<a name="wp212563"> </a><p class="pBody">
+The following code is an example of enabling Plan Explain through XQJ using the proprietary interface ExtPlanExplain. This example outputs the query execution plan to an XHTML file named queryplan.xhtml.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp212374"> </a>
+   XQExpression exp = conn.createExpression();<a name="wp212375"> </a>
+   ExtPlanExplain explain = (ExtPlanExplain)exp;<a name="wp212376"> </a>
+   XQResultSequence seq = explain.explain(&quot;for $item in<a name="wp234390"> </a>
+     fn:doc(&#39;items.xml&#39;)/items/item return $item&quot;);<a name="wp234391"> </a>
+   seq.writeSequence(new FileOutputStream(&quot;queryplan.xhtml&quot;), null);<a name="wp234392"> </a>
+   exp.close();<a name="wp212379"> </a>
+</pre></div>
+<a name="wp212372"> </a><p class="pBody">
+Refer to the Javadoc for details about the ExtPlanExplain interface.
+</p>
+<a name="wp212183"> </a><p class="pBody">
+The following code is an example of outputting the query execution plan to an XML file named queryplan.xml.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+...<a name="wp212500"> </a>
+   XQExpression exp = conn.createExpression();<a name="wp212501"> </a>
+   ExtPlanExplain explain = (ExtPlanExplain)exp;<a name="wp212502"> </a>
+   explain.setPlanFormat(PLAN_EXPLAIN_AS_XML);<a name="wp212503"> </a>
+   XQResultSequence seq = explain.explain(&quot;for $item in<a name="wp212504"> </a>
+     fn:doc(&#39;items.xml&#39;)/items/item return $item&quot;);<a name="wp212527"> </a>
+   seq.writeSequence(new FileOutputStream(&quot;queryplan.xml&quot;), null);<a name="wp212505"> </a>
+   exp.close();<a name="wp212506"> </a>
+</pre></div>
+<a name="wp212494"> </a><p class="pBodyBold">
+<b class="cBold">Example 2: Enabling Through an Option Declaration</b>
+</p>
+<a name="wp212569"> </a><p class="pBody">
+The following example shows how to enable Plan Explain using the plan-explain option declaration. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:plan-explain &quot;format=xhtml&quot;;<a name="wp212530"> </a>
+for $item in fn:doc(&#39;items.xml&#39;)/items/item <a name="wp212531"> </a>
+</pre></div>
+<a name="wp213274"> </a><p class="pBody">
+NOTE: When you enable Plan Explain through an option declaration, the query execution plan is returned instead of XQuery results.
+</p>
+<a name="wp219798"> </a><p class="pBody">
+See the description of plan-explain in <a  href="advancedfeatures2.html#wp238383">Table&#160;12-1</a> for more information about this option declaration.
+</p>
+<a name="wp212748"> </a><h3 class="pHeading2">
+Example of an XQuery Execution Plan
+</h3>
+<a name="wp215920"> </a><p class="pBody">
+This example XQuery execution plan provides information about how DataDirect XQuery translates the following query, which accesses one relational data source, into a SQL Select statement and how XML results are constructed.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare option ddtek:plan-explain &#39;format=xhtml&#39;;<a name="wp215922"> </a>
+&lt;myHoldings&gt; {<a name="wp215924"> </a>
+    for $holdings in collection(&quot;pubs.dbo.holdings&quot;)/holdings<a name="wp215925"> </a>
+    where $holdings/userid = &quot;Minollo&quot;<a name="wp215926"> </a>
+    return &lt;holding<a name="wp215927"> </a>
+      quantity=&quot;{$holdings/shares}&quot;&gt;{$holdings/stockticker/text()}&lt;/holding&gt;<a name="wp216267"> </a>
+} <a name="wp215928"> </a>
+&lt;/myHoldings&gt; <a name="wp216108"> </a>
+</pre></div>
+<a name="wp215930"> </a><p class="pBody">
+In the following execution plan, notice how the Relational Data Source node includes details about the SQL Select statement, as well as information about how the result ($PT) is constructed.
+</p>
+<a name="wp251006"> </a><p class="pBody">
+</p><div align="left"><img src="images/plan_explain_example6.png" border="0" hspace="0" vspace="0"/></div><p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

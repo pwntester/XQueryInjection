@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:19" />
+  <title>XQueryWebService Framework Overview</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp201878"> </a><h2 class="pNewHTMLPageNum">
+XQueryWebService Framework Overview
+</h2>
+<hr />
+<a name="wp215342"> </a><p class="pBody">
+<em class="cEmphasis">XQueryWebService </em>is a framework that allows you to expose an XQuery as a Web service. Implemented as a library for Java classes, XQueryWebService is designed to simplify the design and implementation of Web Servlet Applications. The jar file for this library, xquerywebservice.jar, is located in the \lib directory where you install DataDirect XQuery.
+</p>
+<a name="wp210875"> </a><p class="pBody">
+The XQueryWebService framework provides a Servlet implementation to expose as a Web service XQuery stored in a specific directory. Each XQuery exposes one operation; this operation is expressed in the query body through a function that takes the name of the XQuery file without the extension. For example, the file emp.xquery provides the emp operation. Parameters (external variables) expressed in the XQuery, if any, are reflected in the operation&#8217;s prototype.
+</p>
+<a name="wp211110"> </a><p class="pBody">
+XQuery modules cannot be published as Web services. A module can be parsed only indirectly when imported by another query.
+</p>
+<a name="wp216720"> </a><p class="pBody">
+An XQuery is compiled using lazy evaulation on the first request; after that it is compiled only if the XQuery source on the disk changes.
+</p>
+<a name="wp211222"> </a><h3 class="pHeading2">
+Third Party Dependencies
+</h3>
+<a name="wp211220"> </a><p class="pBody">
+The XQueryWebService framework does not require any additional Java library; it relies only on built-in classes, like JAXP to manipulate XML, which are available from Java 1.4.2 and later.
+</p>
+<a name="wp211254"> </a><h3 class="pHeading2">
+Web Service Interfaces
+</h3>
+<a name="wp211256"> </a><p class="pBody">
+The <a  href="http://www.w3.org/TR/wsdl">Web Service Description Language (WSDL)</a> specification allows a Web service to be exposed through several types of bindings: HTTP GET, HTTP POST and SOAP over HTTP. This section describes these bindings in greater detail.
+</p>
+<a name="wp211257"> </a><h4 class="pHeading3">
+HTTP GET
+</h4>
+<a name="wp211437"> </a><p class="pBody">
+The simplest binding is HTTP GET, often described as REST (Representational State Transfer), in which the Web service call is represented by a URL with all its parameters inline. Consider the following URI:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+       http://examples.xquery.com/employee-lookup/emp.xquery?id=A-C71970F<a name="wp217949"> </a>
+</pre></div>
+<a name="wp217950"> </a><p class="pBody">
+Here, <code class="cCode">employee-lookup</code> is the service name, <code class="cCode">emp</code> is the operation name, and what follows after the question mark is a name/value pair of parameters (id=A-C71970F).
+</p>
+<a name="wp215424"> </a><p class="pBody">
+HTTP GET is very simple to invoke &#8211; it is equivalent to accessing an HTML page on a Web server; any internet browser can invoke an XQuery Web service this way. However, only simple types such as strings or numbers can be passed through HTTP GET, limiting this approach to Remote Procedure Calling (RPC) style Web services. Web service responses from a REST binding are always XML fragments.
+</p>
+<a name="wp211445"> </a><h4 class="pHeading3">
+HTTP POST
+</h4>
+<a name="wp217975"> </a><p class="pBody">
+HTTP POST allows you to design Web services with sophisticated request messages in the form of XML fragments. The drawback to HTTP POST is that the XQuery language does not provide a standard function to perform this type of binding.
+</p>
+<a name="wp211482"> </a><h4 class="pHeading3">
+SOAP
+</h4>
+<a name="wp218133"> </a><p class="pBody">
+SOAP over HTTP is layered on HTTP POST, with the addition of an XML-based wire protocol that describes what the request/response looks like and provides a tighter integration with XML Schema. The SOAP protocol defines an optional element called Header to carry information like user/password or session id. 
+</p>
+<a name="wp218125"> </a><p class="pBody">
+For more information on Web service interfaces, see <a  href="webserviceframework3.html#wp211855">XQueryWebService Framework Architecture</a>.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

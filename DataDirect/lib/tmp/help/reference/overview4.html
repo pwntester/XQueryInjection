@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:08" />
+  <title>What Is XQJ?</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp132461"> </a><h2 class="pNewHTMLPageNum">
+What Is XQJ?
+</h2>
+<hr />
+<a name="wp132462"> </a><p class="pBody">
+The XQuery API for Java (XQJ) is a Java-based API that enables a Java application to submit XQuery queries to an XML data source and process the results. XQJ is designed to support the XQuery language, just as the JDBC API supports the SQL query language. The XQJ standard (JSR 225) is being developed under the Java Community Process. For more information, refer to: <a  href="http://www.jcp.org/en/jsr/detail?id=225">http://www.jcp.org/en/jsr/detail?id=225</a>
+</p>
+<a name="wp143219"> </a><h3 class="pHeading2">
+Java Example
+</h3>
+<a name="wp143220"> </a><p class="pBody">
+The following example illustrates the basic steps that an application performs to execute a query using DataDirect XQuery and XQJ. To simplify the example, the code does not include error handling. Multiple Java examples showing how to use XQJ are shipped with the product and are located in the /examples subdirectory in your DataDirect XQuery installation directory. 
+</p>
+<a name="wp143221"> </a><p class="pBody">
+In this example, the application establishes a connection to a relational database using a DDXQDataSource instance. See <a  href="conf_sourcefiles4.html#wp181921">Configuring Connections Explicitly</a> for more information about using XQJ to specify connection information for XML and relational data sources.
+</p>
+<a name="wp143225"> </a><p class="pBodyBold">
+Example: Executing a Query
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+// import the XQJ classes<a name="wp143226"> </a>
+import javax.xml.xquery.*;<a name="wp153787"> </a>
+import com.ddtek.xquery.xqj.DDXQDataSource;<a name="wp153788"> </a>
+<a name="wp143229"> </a>
+// establish a connection to a data source<a name="wp143230"> </a>
+DDXQDataSource ds = new DDXQDataSource();<a name="wp143231"> </a>
+ds.setJdbcUrl(&quot;jdbc:xquery:sqlserver://server1:1433;databaseName=stocks&quot;);<a name="wp143232"> </a>
+XQConnection conn = ds.getConnection(&quot;myuserid&quot;, &quot;mypswd&quot;);<a name="wp143233"> </a>
+<a name="wp143234"> </a>
+// create an expression object that is used to execute a query<a name="wp143235"> </a>
+XQExpression expr = conn.createExpression();<a name="wp143236"> </a>
+<a name="wp143237"> </a>
+// the query<a name="wp143238"> </a>
+String es = &quot;for $h in collection(&#39;holdings&#39;)/holdings &quot; +<a name="wp143239"> </a>
+                    &quot;where $h/stockticker=&#39;AMZN&#39; &quot; +<a name="wp143240"> </a>
+                    &quot;return $h&quot;;<a name="wp143241"> </a>
+<a name="wp143242"> </a>
+// execute the query<a name="wp143243"> </a>
+XQResultSequence result = expr.executeQuery(es);<a name="wp143244"> </a>
+System.out.println(result.getSequenceAsString(null));<a name="wp143245"> </a>
+<a name="wp143246"> </a>
+// free all resources<a name="wp143247"> </a>
+result.close();<a name="wp143248"> </a>
+expr.close();<a name="wp143249"> </a>
+conn.close();<a name="wp143250"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

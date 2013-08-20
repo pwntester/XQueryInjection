@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.6.1058" />
+  <meta name="TEMPLATEBASE" content="ddxq50_multi" />
+  <meta name="LASTUPDATED" content="09/17/09 10:52:10" />
+  <title>Finding XML Nodes: Path Expressions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp147400"> </a><h2 class="pNewHTMLPageNum">
+Finding XML Nodes: Path Expressions
+</h2>
+<hr />
+<a name="wp144942"> </a><p class="pBody">
+Just as SQL needs to be able to access any row or column in a relational table, XQuery needs to be able to access any node in an XML document. XML structures have both hierarchy and sequence, and can be quite complex. Path expressions directly support XML hierarchy and sequence, and allow you to navigate any XML structure. 
+</p>
+<a name="wp147463"> </a><p class="pBody">
+In this section, we discuss path expressions using an XML document, and then show path expressions used on an XML view of a relational table. 
+</p>
+<a name="wp147607"> </a><h3 class="pHeading2">
+Path Expressions for XML Sources
+</h3>
+<a name="wp147605"> </a><p class="pBody">
+Let&#39;s explore path expressions using the following XML document, portfolio.xml, which consists of a portfolio element with name and stocks subelements.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp152928"> </a>
+&lt;portfolio id=&quot;Jonathan&quot;&gt;<a name="wp152929"> </a>
+   &lt;name&gt;<a name="wp152932"> </a>
+      &lt;first&gt;Jonathan&lt;/first&gt;<a name="wp152933"> </a>
+      &lt;last&gt;Robie&lt;/last&gt;<a name="wp152934"> </a>
+   &lt;/name&gt;<a name="wp152935"> </a>
+   &lt;stocks&gt;<a name="wp152936"> </a>
+      &lt;stock&gt;<a name="wp152940"> </a>
+         &lt;ticker&gt;AMZN&lt;/ticker&gt;<a name="wp152941"> </a>
+         &lt;shares&gt;3000&lt;/shares&gt;<a name="wp152944"> </a>
+      &lt;/stock&gt;<a name="wp152945"> </a>
+      &lt;stock&gt;<a name="wp152946"> </a>
+         &lt;ticker&gt;EBAY&lt;/ticker&gt;<a name="wp152947"> </a>
+         &lt;shares&gt;4000&lt;/shares&gt;<a name="wp152948"> </a>
+      &lt;/stock&gt;<a name="wp152949"> </a>
+      &lt;stock&gt;<a name="wp152950"> </a>
+         &lt;ticker&gt;IBM&lt;/ticker&gt;<a name="wp152951"> </a>
+         &lt;shares&gt;2500&lt;/shares&gt;<a name="wp152952"> </a>
+      &lt;/stock&gt;<a name="wp152953"> </a>
+      &lt;stock&gt;<a name="wp152954"> </a>
+         &lt;ticker&gt;PRGS&lt;/ticker&gt;<a name="wp152955"> </a>
+         &lt;shares&gt;23&lt;/shares&gt;<a name="wp152956"> </a>
+      &lt;/stock&gt;<a name="wp152957"> </a>
+   &lt;/stocks&gt;<a name="wp152958"> </a>
+&lt;/portfolio&gt;<a name="wp152959"> </a>
+</pre></div>
+<a name="wp148051"> </a><p class="pBody">
+fn:doc() returns a document. The following example shows how to use fn:doc() with an absolute URI.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+doc(&quot;file:///c:/data/xml/portfolio.xml&quot;)<a name="wp146373"> </a>
+</pre></div>
+<a name="wp148062"> </a><p class="pBody">
+The following example shows how to use fn:doc() with a relative URI.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+doc(&quot;portfolio.xml&quot;)<a name="wp148063"> </a>
+</pre></div>
+<a name="wp148064"> </a><p class="pBody">
+By setting the Base URI, you can set the directory that is used to resolve relative URIs.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+declare base-uri &quot;file:///c:/data/xml/&quot;;<a name="wp148065"> </a>
+doc(&quot;portfolio.xml&quot;)<a name="wp148066"> </a>
+</pre></div>
+<a name="wp147952"> </a><p class="pBody">
+A path expression consists of a series of one or more &#8220;steps&#8221;, separated by a slash (/ ) or double slash (//). Every step evaluates to a sequence of nodes. For example, consider the expression:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">doc(</code>&quot;<code class="cCode">portfolio.xml</code>&quot;<code class="cCode">)/portfolio/name</code> <a name="wp148164"> </a>
+</pre></div>
+<a name="wp148173"> </a><p class="pBody">
+The first step, <code class="cCode">doc(&quot;portfolio.xml&quot;)</code>, returns a document node that represents the portfolio document. 
+</p>
+<a name="wp148195"> </a><p class="pBody">
+The second step, <code class="cCode">portfolio</code>, is a name test that specifies the name of an element; it returns the portfolio element at the top of the document, which is a child of the document node. 
+</p>
+<a name="wp148201"> </a><p class="pBody">
+The third step, <code class="cCode">name</code>, returns the element named &#8220;name&#8221;, which is a child of the portfolio element. 
+</p>
+<a name="wp148206"> </a><h4 class="pHeading3">
+Result of the Query Expression
+</h4>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;name&gt;<a name="wp148221"> </a>
+   &lt;first&gt;Jonathan&lt;/first&gt;<a name="wp148222"> </a>
+   &lt;last&gt;Robie&lt;/last&gt;<a name="wp148223"> </a>
+&lt;/name&gt;<a name="wp148224"> </a>
+</pre></div>
+<a name="wp147957"> </a><p class="pBody">
+If a name test is preceded by the @ character, the name test matches an <em class="cEmphasis">attribute</em> rather than an element. For example, the expression <code class="cCode">doc(&quot;portfolio.xml&quot;)/portfolio/@id</code> returns the id attribute of the portfolio element.
+</p>
+<a name="wp148321"> </a><p class="pBody">
+The double slash (//) allows steps to operate on any descendant of a node. For example, the expression <code class="cCode">doc(&quot;portfolio.xml&quot;)//name</code> matches any element named name, anywhere in the portfolio document.
+</p>
+<a name="wp148322"> </a><h4 class="pHeading3">
+Predicates
+</h4>
+<a name="wp153204"> </a><p class="pBody">
+A <em class="cEmphasis">predicate</em> can be added to a step to set conditions for matching nodes. Predicates often set a condition on the children of a node. For example, the following path matches stock elements that contain a ticker element with the value &#8220;AMZN&#8221;.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+doc(&quot;portfolio.xml&quot;)//stock[ticker=&#39;AMZN&#39;]<a name="wp148323"> </a>
+</pre></div>
+<a name="wp148324"> </a><p class="pBody">
+Using the sample data, this expression produces the following result:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;stock&gt;<a name="wp148325"> </a>
+   &lt;ticker&gt;AMZN&lt;/ticker&gt;<a name="wp148326"> </a>
+   &lt;shares&gt;3000&lt;/shares&gt;<a name="wp148327"> </a>
+&lt;/stock&gt;<a name="wp148328"> </a>
+</pre></div>
+<a name="wp148329"> </a><p class="pBody">
+Conditions in a predicate can be combined using &#8220;and&#8220; and &#8220;or&#8220;, as in the following expression.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+doc(&quot;portfolio.xml&quot;)//stock[ticker=&#39;AMZN&#39; or ticker=&#39;EBAY&#39;]<a name="wp148330"> </a>
+</pre></div>
+<a name="wp148331"> </a><p class="pBody">
+Conditions can be negated using fn:not(); for example, the following expression matches stock elements that do not have a ticker element with the value &#8220;AMZN&#8221;:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+doc(&quot;portfolio.xml&quot;)//stock[not(ticker=&#39;AMZN&#39;)]<a name="wp148332"> </a>
+</pre></div>
+<a name="wp148333"> </a><p class="pBody">
+One type of predicate is a <em class="cEmphasis">numeric</em> predicate, which sets a condition on the position of a node in a sequence. For example, the following expression finds the first stock element in a portfolio.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+doc(&quot;portfolio.xml&quot;)//stocks/stock[1]<a name="wp148334"> </a>
+</pre></div>
+<a name="wp148335"> </a><p class="pBody">
+To understand how numeric predicates work in XQuery, you must know how XQuery evaluates a slash (/), as described in the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp148498"> </a><div class="pSmartList1"><li>The expression on the left side of a slash is evaluated to produce a sequence of nodes. </li></div><a name="wp148505"> </a><div class="pSmartList1"><li>The expression on the right side is evaluated for each context node drawn from the expression on the left side, and the results are combined. </li></div><a name="wp148506"> </a><div class="pSmartList1"><li>When the numeric predicate is evaluated, it is evaluated for a given context node. </li></div></ol></div>
+<a name="wp150077"> </a><p class="pBody">
+For example, in the preceding expression, when the numeric predicate is evaluated, the context node is a stocks element, the name test stock evaluates to a sequence of stock elements, and the numeric predicate matches the first stock in this sequence. 
+</p>
+<a name="wp150087"> </a><p class="pBody">
+The following expression matches the first ticker element on each stock element:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+doc(&quot;portfolio.xml&quot;)//stock/ticker[1]<a name="wp150078"> </a>
+</pre></div>
+<a name="wp150079"> </a><p class="pBody">
+To get the first ticker element in the document, use parentheses to make the expression on the left of the numeric predicate evaluate to the sequence of all ticker elements in the document:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+(doc(&quot;portfolio.xml&quot;)//stock/ticker)[1]<a name="wp148338"> </a>
+</pre></div>
+<a name="wp148340"> </a><h3 class="pHeading2">
+Path Expressions for Relational Sources
+</h3>
+<a name="wp148341"> </a><p class="pBody">
+When XQuery is used to query relational data, relational tables are treated as though they are XML documents, and path expressions work the same way as they do for XML. Because relational tables have a simple structure, path expressions used for tables are usually simple. 
+</p>
+<a name="wp148342"> </a><p class="pBody">
+Each XQuery implementation has its own way of accessing a relational table. DataDirect XQuery uses the fn:collection() to access a relational table. For example, the following expression accesses the holdings table:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;holdings&#39;)<a name="wp148539"> </a>
+</pre></div>
+<a name="wp148540"> </a><p class="pBody">
+Each XQuery implementation must also decide how to map relational tables into XML in the XML view. The SQL 2003 standard has defined a standard set of mappings for this purpose as part of SQL/XML. 
+</p>
+<a name="wp153231"> </a><p class="pBody">
+Here is a SQL/XML mapping of the holdings table; this mapping represents each row as a holdings element, and represents each column of the table (userid, stockticker, shares) as an element that is a child of the holdings element:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;holdings&gt;<a name="wp148346"> </a>
+    &lt;userid&gt;Jonathan&lt;/userid&gt;<a name="wp148347"> </a>
+    &lt;stockticker&gt;AMZN&lt;/stockticker&gt;<a name="wp148348"> </a>
+    &lt;shares&gt;3000&lt;/shares&gt;<a name="wp148349"> </a>
+&lt;/holdings&gt;<a name="wp148350"> </a>
+...<a name="wp148360"> </a>
+&lt;holdings&gt;<a name="wp148366"> </a>
+    &lt;userid&gt;Minollo&lt;/userid&gt;<a name="wp148367"> </a>
+    &lt;stockticker&gt;AMZN&lt;/stockticker&gt;<a name="wp148368"> </a>
+    &lt;shares&gt;3000&lt;/shares&gt;<a name="wp148369"> </a>
+&lt;/holdings&gt;<a name="wp148370"> </a>
+...<a name="wp148385"> </a>
+</pre></div>
+<a name="wp148386"> </a><p class="pBody">
+Once you understand the structure of the XML view, you can easily see how path expressions are applied to it. For example, the following expression finds holdings for the user whose userid is &#8220;Minollo&#8221;.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+collection(&#39;holdings&#39;)/holdings[userid=&#39;Minollo&#39;]<a name="wp148387"> </a>
+</pre></div>
+<a name="wp148388"> </a><h3 class="pHeading2">
+DataDirect XQuery Speaks SQL
+</h3>
+<a name="wp153232"> </a><p class="pBody">
+Because relational data is queried as if it were XML, you might  think that relational tables are actually extracted from the database, turned into XML documents, and then queried, but this would be very inefficient. 
+</p>
+<a name="wp153254"> </a><p class="pBody">
+To the user, DataDirect XQuery makes all data look like XML, but to a SQL database, the implementation speaks SQL. Before evaluating the preceding expression, for example, DataDirect XQuery converts it to a SQL expression similar to this one:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT userid, stockticker, shares<a name="wp148390"> </a>
+FROM holdings<a name="wp148391"> </a>
+WHERE userid=&#39;Minollo&#39;<a name="wp148392"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>
