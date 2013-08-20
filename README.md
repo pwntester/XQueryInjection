@@ -1,0 +1,4 @@
+XQueryInjection
+===============
+
+XQuery Injection Testcases
