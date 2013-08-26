@@ -1,0 +1,1 @@
+javac -cp lib/sqxon9he.jar *java
